@@ -8,7 +8,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 * **Abraham Osco** - https://github.com/AbrahamOsco
 * **Nicolas Girardi** - https://github.com/nicolasgirardi
-* **Integrante 3** - [integrante3](https://github.com/integrante3)
+* **Victoria Avalos** - https://github.com/VickyA5
 * **Integrante 4** - [integrante4](https://github.com/integrante4)
 
 Corrector: **{Corrector}**
