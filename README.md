@@ -10,6 +10,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Nicolas Girardi** - https://github.com/nicolasgirardi
 * **Victoria Avalos** - https://github.com/VickyA5
 * **Martin Wainwright** - https://github.com/wain02
+* **Jonathan Marcelo Huata Vasquez** - https://github.com/Jonathan-Huata-Vasquez
 
 Corrector: **{Corrector}**
 
