@@ -1,0 +1,78 @@
+@startuml
+
+class NodoMineral {
+-unidadesDeMineral
+}
+
+class Volcan{
+-unidadesDeGas
+}
+
+abstract class ConstruccionZerg {
+-costo
+-tiempoDeConstruccion: Int
+-vida: Int
++regenerarVida()
+}
+
+class Criadero{
+
+}
+
+class Extractor{
+
+}
+
+class ReservaDeReproduccion{
+
+}
+
+class Guarida{
+
+}
+
+class Espiral{
+
+}
+
+ConstruccionZerg <|-- Criadero
+ConstruccionZerg <|-- Extractor
+ConstruccionZerg <|-- ReservaDeReproduccion
+ConstruccionZerg <|-- Guarida
+ConstruccionZerg <|-- Espiral
+
+abstract class ConstruccionProtoss {
+-costo
+-tiempoDeConstruccion: Int
+-vida: Int
+-escudo: Int
++regenerarEscudo()
+}
+
+class NexoMineral{
+
+}
+
+class Pilon{
+
+}
+
+class Asimilador{
+
+}
+
+class Acceso{
+
+}
+
+class PuertoEstelar{
+
+}
+
+ConstruccionProtoss <|-- NexoMineral
+ConstruccionProtoss <|-- Pilon
+ConstruccionProtoss <|-- Asimilador
+ConstruccionProtoss <|-- Acceso
+ConstruccionProtoss <|-- PuertoEstelar
+
+@enduml
