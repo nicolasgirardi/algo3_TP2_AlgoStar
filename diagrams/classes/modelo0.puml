@@ -2,16 +2,34 @@
 
 class NodoMineral {
 -unidadesDeMineral
++extraer()
 }
 
 class Volcan{
 -unidadesDeGas
++estraer()
 }
 
-abstract class ConstruccionZerg {
+abstract class Construccion {
 -costo
 -tiempoDeConstruccion: Int
 -vida: Int
++regenerarVida()
+}
+
+class Juego {
+
++iniciarJuego()
++finalizarJuego()
+}
+abstract class Recursos {
+
++estraer()
+
+}
+
+abstract class ConstruccionZerg {
+
 +regenerarVida()
 }
 
@@ -42,9 +60,6 @@ ConstruccionZerg <|-- Guarida
 ConstruccionZerg <|-- Espiral
 
 abstract class ConstruccionProtoss {
--costo
--tiempoDeConstruccion: Int
--vida: Int
 -escudo: Int
 +regenerarEscudo()
 }
@@ -74,5 +89,13 @@ ConstruccionProtoss <|-- Pilon
 ConstruccionProtoss <|-- Asimilador
 ConstruccionProtoss <|-- Acceso
 ConstruccionProtoss <|-- PuertoEstelar
+
+
+Construccion <|-- ConstruccionProtoss
+Construccion <|-- ConstruccionZerg
+Juego o-- Construccion
+Juego o-- Recursos
+Recursos <|-- Volcan
+Recursos <|-- NodoMineral
 
 @enduml
