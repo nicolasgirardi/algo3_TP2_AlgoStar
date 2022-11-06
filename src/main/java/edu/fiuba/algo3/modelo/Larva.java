@@ -6,4 +6,7 @@ public class Larva extends Individuo{
         super();
     }
 
+    public void evolucionar(Zangano zangano) {
+
+    }
 }

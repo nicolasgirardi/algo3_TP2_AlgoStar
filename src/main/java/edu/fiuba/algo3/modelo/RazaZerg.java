@@ -12,10 +12,10 @@ public class RazaZerg {
     public void agregarIndividuo(Individuo unIndividuo){
         individuos.add(unIndividuo);
     }
-
+    public void eliminarIndividuo(Individuo unIndividuo){individuos.remove(unIndividuo);}
     public int getCantidadLarvas(){
         //int cantLarvas = 0;
-        return 3;
+        return individuos.size();
     }
 
 }
