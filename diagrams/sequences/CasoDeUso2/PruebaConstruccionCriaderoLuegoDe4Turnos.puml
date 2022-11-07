@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+Jugador -> Criadero: nuevoCriadero
+Criadero -> Jugador: unCriadero
+
+Jugador -> unCriadero: finDelTurno
+Jugador -> unCriadero: comienzaElTurno
+
+Jugador -> unCriadero: finDelTurno
+Jugador -> unCriadero: comienzaElTurno
+
+Jugador -> unCriadero: finDelTurno
+Jugador -> unCriadero: comienzaElTurno
+
+Jugador -> unCriadero: finDelTurno
+Jugador -> unCriadero: comienzaElTurno
+
+Jugador ->Criadero: engendrarZángano()
+Criadero -> Jugador: unZángano
+
+@enduml

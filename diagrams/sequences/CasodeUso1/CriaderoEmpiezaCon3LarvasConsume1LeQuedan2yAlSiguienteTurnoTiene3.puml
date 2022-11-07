@@ -2,11 +2,11 @@
 'https://plantuml.com/sequence-diagram
 
 
-Jugador -> Criadero: nuevoCriadero
+Jugador -> Criadero: nuevoCriaderoOperativo
 Criadero --> Jugador: unCriadero
 
-Jugador -> unCriadero: engendrarZangano(1)
-unCriadero -> Jugador: unZangano
+Jugador -> unCriadero: engendrarZángano()
+unCriadero -> Jugador: unZángano
 
 Jugador -> unCriadero: larvasRestantes
 unCriadero -> Jugador: 2
@@ -17,4 +17,5 @@ Jugador -> unCriadero: comienzaElTurno
 
 Jugador -> unCriadero: larvasRestantes
 unCriadero -> Jugador: 3
+
 @enduml
