@@ -1,9 +1,14 @@
 package edu.fiuba.algo3.modelo;
 
-public abstract class Individuo {
+public class Individuo {
     int vida;
+    TipoEvolucion evolucionActual;
 
-    public void Individuo(){
-        vida = 0;
+    public Individuo(TipoEvolucion unTipo){
+        evolucionActual = unTipo;
+    }
+
+    public void evolucionar(TipoEvolucion unTipo) {
+        evolucionActual = unTipo;
     }
 }

@@ -1,4 +1,4 @@
-supuesto:
+Supuestos:
 
 -Arranca el juego y en la raza zerg, tenemos un criadero si o si porque si no existe moho no tiene gracia el juego no podemos crear nada.
 -El criadero si o si necesita moho, al igual que las demas construcciones de zerg.
@@ -17,8 +17,12 @@ Zanganos:
 Zangano recolectinerales, solo hace una cosa a la vez.
 recoge 10 unidades de mineral turno.
 
-
-
+7-Nov-2022
+1. Cada criadero debe tener como maximo 3 larvas.
+2. Cada criadero que se construye empieza con 3 larvas.
+3. Es el criadero quien habilita tener un Zangano.
+4. Podemos miles de criaderos. se acabo.
+5.
 
 
 

@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
-public class Larva extends Individuo{
+public class Larva extends TipoEvolucion{
 
-    public Larva(){
-        super();
+    public void evolucionar(Zangano zangano) {
+
     }
 
 }
