@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+Jugador -> Extractor: nuevoExtractor(ubicación)
+Extractor -> Jugador: unExtractor
+Jugador -> Zángano: nuevoZángano
+Zángano -> Jugador: unZángano
+
+group 6 veces
+    Jugador -> unCriadero: finDelTurno
+    Jugador -> unCriadero: comienzaElTurno
+end
+
+Jugador -> unExtractor: asignarZángano(unZángano)
+Jugador -> unExtractor: extraerGas()
+unExtractor -> Jugador: Gas(10)
+
+@enduml
