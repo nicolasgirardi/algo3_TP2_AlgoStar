@@ -1,6 +1,10 @@
 package edu.fiuba.algo3.CasoUso17;
 
+import edu.fiuba.algo3.modelo.FaltaEdificio;
 import org.junit.jupiter.api.Test;
+import edu.fiuba.algo3.modelo.Jugador;
+import edu.fiuba.algo3.modelo.JugadorZerg;
+import org.mockito.Mockito;
 import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,7 +20,12 @@ public class TestsCasoUso17 {
 
         Jugador jugador = new JugadorZerg();
 
-        assertThrows(FaltaEdificio.class, jugador.construirGuarida);
+        try {
+            jugador.construirGuarida;
+        }
+        catch(FaltaEdificio f){}
+
+        assertThrows()
 
     }
 
