@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+'tengo dudas sobre quien debe verificar esto
+
+Juego -> Geiser: Geiser
+Geiser -> Juego: unGeiser
+
+Juego -> Jugador: unGeiser
+Jugador -> Extractor: construirExtractor(unGeiser)
+Extractor -> Jugador: unExtractor
+@enduml

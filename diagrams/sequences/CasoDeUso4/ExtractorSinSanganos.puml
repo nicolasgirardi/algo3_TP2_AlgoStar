@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+Jugador -> Extractor: nuevoExtractorOperativo
+Extractor -> Jugador: unExtractor
+
+Jugador -> unExtractor: extraerGas
+unExtractor -> Jugador: gas(0)
+
+Jugador -> Zángano: nuevoZángano
+Zángano -> Jugador: unZánganoA
+
+Jugador -> unExtractor: asignar(unZánganoA)
+
+Jugador -> unExtractor: extraerGas
+unExtractor -> Jugador: gas(10)
+
+Jugador -> Zángano: nuevoZángano
+Zángano -> Jugador: unZánganoB
+
+Jugador -> unExtractor: asignar(unZánganoB)
+
+Jugador -> unExtractor: extraerGas
+unExtractor -> Jugador: gas(20)
+
+Jugador -> Zángano: nuevoZángano
+Zángano -> Jugador: unZánganoC
+
+Jugador -> unExtractor: asignar(unZánganoC)
+
+Jugador -> unExtractor: extraerGas
+unExtractor -> Jugador: gas(30)
+
+Jugador -> Zángano: nuevoZángano
+Zángano -> Jugador: unZánganoC
+
+Jugador -> unExtractor: asignar(unZánganoC)
+unExtractor -> Jugador: excepción CapacidadExcedida
+
+@enduml
