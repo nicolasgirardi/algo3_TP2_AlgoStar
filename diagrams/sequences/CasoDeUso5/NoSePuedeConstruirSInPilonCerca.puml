@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+Jugador -> Ubicacion: nuevaPosicion(0,0)
+Posicion -> Jugador: unaPosicionA
+
+Jugador -> Pilon: nuevoPilonOperativo(unaUbicación)
+Pilon -> Jugador: unPilon
+
+Jugador -> Ubicacion: nuevaPosicion(5,5)
+Posicion -> Jugador: unaPosicionB
+Jugador -> Jugador: construirPilon(unaPosicionB)
+
+Jugador -> unPilon: cercaDe(unaPosicionB)
+unPilon -> Jugador: falso
+
+Jugador -> Jugador: excepción PilónFueraDeRango.
+@enduml
