@@ -15,4 +15,7 @@ Jugador -> unPilon: cercaDe(unaPosicionB)
 unPilon -> Jugador: falso
 
 Jugador -> Jugador: excepción PilónFueraDeRango.
+
+'para el caso del moho deberia ser similar aunque no se como crear una
+'ubicacion sin moho.
 @enduml
