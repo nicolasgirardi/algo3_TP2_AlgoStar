@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+Jugador -> Edificio: nuevo
+Edificio -> Jugador: unEdificio
+group n-1 veces
+
+    Jugador -> unEdificio: finDeTurno
+    Jugador -> unEdificio: comienzoDeTurno
+
+end
+Jugador -> unEdificio: estado
+unEdificio -> Jugador: "En Construcción"
+
+Jugador -> unEdificio: finDeTurno
+Jugador -> unEdificio: comienzoDeTurno
+
+Jugador -> unEdificio: estado
+unEdificio -> Jugador: "Operativo"
+
+@enduml
