@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Mapa{
+
+}
+
+interface ubicación{
+    Coordenada coordenada
+}
+
+class mina{
+}
+
+class geiser{
+}
+
+class limpio{
+}
+
+class moho{
+}
+
+interface estadoSuelo{
+}
+
+estadoSuelo <|.. moho
+estadoSuelo <|.. limpio
+ubicación <|.. geiser
+ubicación <|.. mina
+Mapa --> "nxm" ubicación
+ubicación --> estadoSuelo
+
+@enduml

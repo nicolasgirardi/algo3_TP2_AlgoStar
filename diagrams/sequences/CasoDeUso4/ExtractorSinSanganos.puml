@@ -4,37 +4,37 @@
 Jugador -> Extractor: nuevoExtractorOperativo
 Extractor -> Jugador: unExtractor
 
-Jugador -> unExtractor: extraerGas
-unExtractor -> Jugador: gas(0)
+Jugador -> "unExtractor:Extractor": extraerGas
+"unExtractor:Extractor" -> Jugador: gas(0)
 
 Jugador -> Zángano: nuevoZángano
 Zángano -> Jugador: unZánganoA
 
-Jugador -> unExtractor: asignar(unZánganoA)
+Jugador -> "unExtractor:Extractor": asignar(unZánganoA)
 
-Jugador -> unExtractor: extraerGas
-unExtractor -> Jugador: gas(10)
+Jugador -> "unExtractor:Extractor": extraerGas
+"unExtractor:Extractor" -> Jugador: gas(10)
 
 Jugador -> Zángano: nuevoZángano
 Zángano -> Jugador: unZánganoB
 
-Jugador -> unExtractor: asignar(unZánganoB)
+Jugador -> "unExtractor:Extractor": asignar(unZánganoB)
 
-Jugador -> unExtractor: extraerGas
-unExtractor -> Jugador: gas(20)
-
-Jugador -> Zángano: nuevoZángano
-Zángano -> Jugador: unZánganoC
-
-Jugador -> unExtractor: asignar(unZánganoC)
-
-Jugador -> unExtractor: extraerGas
-unExtractor -> Jugador: gas(30)
+Jugador -> "unExtractor:Extractor": extraerGas
+"unExtractor:Extractor" -> Jugador: gas(20)
 
 Jugador -> Zángano: nuevoZángano
 Zángano -> Jugador: unZánganoC
 
-Jugador -> unExtractor: asignar(unZánganoC)
-unExtractor -> Jugador: excepción CapacidadExcedida
+Jugador -> "unExtractor:Extractor": asignar(unZánganoC)
+
+Jugador -> "unExtractor:Extractor": extraerGas
+"unExtractor:Extractor" -> Jugador: gas(30)
+
+Jugador -> Zángano: nuevoZángano
+Zángano -> Jugador: unZánganoC
+
+Jugador -> "unExtractor:Extractor": asignar(unZánganoC)
+"unExtractor:Extractor" -> Jugador: excepción CapacidadExcedida
 
 @enduml

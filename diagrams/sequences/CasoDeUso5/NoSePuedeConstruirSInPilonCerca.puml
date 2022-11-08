@@ -11,8 +11,8 @@ Jugador -> Ubicacion: nuevaPosicion(5,5)
 Posicion -> Jugador: unaPosicionB
 Jugador -> Jugador: construirPilon(unaPosicionB)
 
-Jugador -> unPilon: cercaDe(unaPosicionB)
-unPilon -> Jugador: falso
+Jugador -> "unPilon:Pilon": cercaDe(unaPosicionB)
+"unPilon:Pilon" -> Jugador: falso
 
 Jugador -> Jugador: excepción PilónFueraDeRango.
 

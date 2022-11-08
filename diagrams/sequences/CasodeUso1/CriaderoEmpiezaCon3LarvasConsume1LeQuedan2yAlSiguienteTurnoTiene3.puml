@@ -5,17 +5,17 @@
 Jugador -> Criadero: nuevoCriaderoOperativo
 Criadero --> Jugador: unCriadero
 
-Jugador -> unCriadero: engendrarZángano()
-unCriadero -> Jugador: unZángano
+Jugador -> "unCriadero:Criadero": engendrarZángano()
+"unCriadero:Criadero" -> Jugador: unZángano
 
-Jugador -> unCriadero: larvasRestantes
-unCriadero -> Jugador: 2
+Jugador -> "unCriadero:Criadero": larvasRestantes
+"unCriadero:Criadero" -> Jugador: 2
 
-Jugador -> unCriadero: finDelTurno
+Jugador -> "unCriadero:Criadero": finDelTurno
 
-Jugador -> unCriadero: comienzaElTurno
+Jugador -> "unCriadero:Criadero": comienzaElTurno
 
-Jugador -> unCriadero: larvasRestantes
-unCriadero -> Jugador: 3
+Jugador -> "unCriadero:Criadero": larvasRestantes
+"unCriadero:Criadero" -> Jugador: 3
 
 @enduml
