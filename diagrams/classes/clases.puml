@@ -75,6 +75,7 @@ Juego "1"  *-- "*" Recursos
 Recursos <|-- Volcan
 Recursos <|-- NodoMineral
 Criadero o-- Moho
+RazaZerg "1"  o-- "*" Extractor
 
 @enduml
 

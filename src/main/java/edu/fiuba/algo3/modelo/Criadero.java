@@ -3,16 +3,16 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 
 public class Criadero extends  Edificio {
-    ArrayList<Individuo> larvas;
+    ArrayList<Larva> larvas;
 
     public Criadero(){
         cantTurnosParaSerOperativo = 0;
-        larvas = new ArrayList<Individuo>();
+        larvas = new ArrayList<Larva>();
         cargarTodaslasLarvas();
     }
     public Criadero(int cantTurnosParaSerOperativo){
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
-        larvas = new ArrayList<Individuo>();
+        larvas = new ArrayList<Larva>();
     }
 
     public int getCantidadLarvas() {
@@ -22,9 +22,9 @@ public class Criadero extends  Edificio {
         return larvas.size();
     }
 
-    public Individuo removerLarva() {
-
-        return larvas.remove(0);
+    public Zangano removerLarva() {
+        larvas.remove(0);
+        return larvas.get(0).evolucionar();
     }
 
 
@@ -32,7 +32,7 @@ public class Criadero extends  Edificio {
         cantTurnosParaSerOperativo--;
         if(cantTurnosParaSerOperativo < 0 ){
             if(larvas.size() < 3){
-                larvas.add( new Individuo(new Larva()) );
+                larvas.add( new Larva() );
             }
         }
         if( cantTurnosParaSerOperativo  == 0  ){
@@ -41,9 +41,9 @@ public class Criadero extends  Edificio {
     }
 
     private  void cargarTodaslasLarvas(){
-        larvas.add( new Individuo(new Larva()) );
-        larvas.add( new Individuo(new Larva()) );
-        larvas.add( new Individuo(new Larva()) );
+        larvas.add( new Larva() );
+        larvas.add( new Larva() );
+        larvas.add( new Larva() );
     }
 
 }
