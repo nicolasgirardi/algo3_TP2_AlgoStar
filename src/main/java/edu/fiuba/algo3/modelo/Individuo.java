@@ -13,5 +13,6 @@ public class Individuo {
     }
 
     public void ejecutarTurno() {
+
     }
 }
