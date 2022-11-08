@@ -32,20 +32,17 @@ class Extractor{
 
 }
 
-abstract class tipoEdificio{
-
-}
-
 Individuo *-- TipoEvolucion
 Zangano  -up--|> TipoEvolucion
 Larva    -up--|> TipoEvolucion
 RazaZerg "1"  o-- "*" Edificio
 RazaZerg "1"  o-- "*" Individuo
-Zangano o- tipoEdificio
-tipoEdificio o-- EdificioNulo
 Criadero -up--|> Edificio
 Extractor -up--|> Edificio
+Juego "1"  o-- "1" RazaZerg
+Juego "1"  *-- "1" Mapa
 
 @enduml
 
-//evolucionar un zanagano crear un edificio eliminar el zangano.
+//Que al evolucionar un zanagano se cree un edificio en la misma pos
+// y se elimine el zangano.
