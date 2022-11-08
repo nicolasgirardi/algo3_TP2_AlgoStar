@@ -3,6 +3,10 @@
 abstract class TipoEvolucion{
     + {abstract} evolucionar(TipoEvolucion:unTipo):void
 }
+
+class Juego {
+}
+
 class Zangano{
 
 }
