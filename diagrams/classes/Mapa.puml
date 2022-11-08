@@ -5,7 +5,7 @@ class Mapa{
 
 }
 
-interface ubicación{
+class ubicación{
     Coordenada coordenada
 }
 
@@ -24,11 +24,14 @@ class moho{
 interface estadoSuelo{
 }
 
+interface recurso{
+}
+
 estadoSuelo <|.. moho
 estadoSuelo <|.. limpio
-ubicación <|.. geiser
-ubicación <|.. mina
+recurso <|.. geiser
+recurso <|.. mina
 Mapa --> "nxm" ubicación
 ubicación --> estadoSuelo
-
+ubicación --> recurso
 @enduml
