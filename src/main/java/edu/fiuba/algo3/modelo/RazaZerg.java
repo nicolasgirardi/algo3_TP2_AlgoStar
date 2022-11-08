@@ -33,7 +33,7 @@ public class RazaZerg {
     }
 
     public void evolucionarUnZangano(Criadero unCriadero) {
-        Individuo unIndivduo = unCriadero.obtenerLarva();
+        Individuo unIndivduo = unCriadero.removerLarva();
         unIndivduo.evolucionar(new Zangano());
         individuos.add( unIndivduo );
 
@@ -41,5 +41,15 @@ public class RazaZerg {
 
     public int getCantidadZangano() {
         return individuos.size();
+    }
+
+    public void ejecutarTurno() {
+        for(Individuo individuo: individuos){
+            individuo.ejecutarTurno();
+        }
+
+        for(Edificio edificio: edificios){
+            edificio.ejecutarTurno();
+        }
     }
 }

@@ -16,7 +16,13 @@ public class Criadero extends  Edificio {
         return larvas.size();
     }
 
-    public Individuo obtenerLarva() {
+    public Individuo removerLarva() {
         return larvas.remove(0);
+    }
+
+    public void ejecutarTurno() {
+        if(larvas.size() < 3){
+            larvas.add( new Individuo(new Larva()) );
+        }
     }
 }

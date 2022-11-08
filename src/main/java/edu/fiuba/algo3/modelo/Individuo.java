@@ -11,4 +11,7 @@ public class Individuo {
     public void evolucionar(TipoEvolucion unTipo) {
         evolucionActual = unTipo;
     }
+
+    public void ejecutarTurno() {
+    }
 }
