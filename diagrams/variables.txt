@@ -24,7 +24,8 @@ recoge 10 unidades de mineral turno.
 4. Podemos miles de criaderos. se acabo.
 5. Cuando se quiere crear un nuevo criadero se tiene que esperarr 4 turnos y luego  el criadero
     estar operativo y tendra sus 3 larvas inicales.
-
+6. Zangano se puede transforma en un nuevo criadero.
+7.
 
 
 

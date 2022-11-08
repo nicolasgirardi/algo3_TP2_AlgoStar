@@ -1,0 +1,47 @@
+@startuml
+
+abstract class TipoEvolucion{
+    + {abstract} evolucionar(TipoEvolucion:unTipo):void
+}
+class Zangano{
+
+}
+class Larva{
+
+}
+class RazaZerg{
+
+}
+class Criadero{
+    +removerLarva():Individuo
+    +ejecutarTurno():void
+}
+
+abstract class TipoEvolucion{
+
+}
+
+abstract class Edificio{
+
+}
+class Extractor{
+
+}
+
+abstract class tipoEdificio{
+
+}
+
+Individuo *-- TipoEvolucion
+Zangano  -up--|> TipoEvolucion
+Larva    -up--|> TipoEvolucion
+RazaZerg "1"  o-- "*" Edificio
+RazaZerg "1"  o-- "*" Individuo
+Zangano o- tipoEdificio
+tipoEdificio o-- EdificioNulo
+Criadero -up--|> Edificio
+Extractor -up--|> Edificio
+
+@enduml
+
+//evolucionar un zanagano crear un edificio eliminar el zangano.

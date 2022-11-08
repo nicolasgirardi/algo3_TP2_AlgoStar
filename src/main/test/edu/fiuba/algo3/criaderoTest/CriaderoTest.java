@@ -2,6 +2,7 @@ package edu.fiuba.algo3.criaderoTest;
 
 import edu.fiuba.algo3.modelo.Criadero;
 import edu.fiuba.algo3.modelo.EdificioNoOperativoError;
+import edu.fiuba.algo3.modelo.Extractor;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -62,13 +63,14 @@ public class CriaderoTest {
     @Test
     public void testSeConstruyeUnExtractorNuevoYSeLeQuierePedirUnaAccionYLanzaExcepcionEdificioNoOperativoError(){
         //Arrange
-        Criadero unCriadero = new Criadero(4);
+        Extractor unExtractor = new Extractor(4);
         //Act
-        unCriadero.ejecutarTurno(); // canntTurnos = 3
+        unExtractor.ejecutarTurno(); // canntTurnos = 3
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            unCriadero.getCantidadLarvas();
+
         });
     }
+
 
 
 
