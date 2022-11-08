@@ -1,11 +1,17 @@
 @startuml
 'https://plantuml.com/sequence-diagram
+'la idea de esto es que haya una posicion con moho, esta tenga 4 aledañas
+'y luego de pasar un turno veamos si estas 4 aledañas tienen moho o no.
+Jugador -> Mapa: nuevoMapa (50,50)
+Mapa -> Jugador: unMapa
 
-autonumber
+Jugador -> Coordenada: coordenada(25,25)
+Coordenada -> Jugador: unaCoordenada
+Jugador -> "unMapa:Mapa": contaminar(unaCoordenada)
 
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+Jugador -> "unMapa:Mapa": finDeTurno
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+'no se me ocurre como verificar esto
+
+
 @enduml

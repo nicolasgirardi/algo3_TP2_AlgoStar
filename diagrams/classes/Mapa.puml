@@ -31,7 +31,7 @@ estadoSuelo <|.. moho
 estadoSuelo <|.. limpio
 recurso <|.. geiser
 recurso <|.. mina
-Mapa --> "nxm" ubicación
+Mapa --> ubicación
 ubicación --> estadoSuelo
 ubicación --> recurso
 @enduml
