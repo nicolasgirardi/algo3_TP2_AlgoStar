@@ -7,12 +7,6 @@ public class JugadorZerg implements Jugador{
 
     }
     public void construirGuarida(){
-        if (tieneReserva()){
-            /*construir guarida*/
-        }
-        else
-            throw new FaltaEdificio();
-
 
     }
     private boolean tieneReserva(){
