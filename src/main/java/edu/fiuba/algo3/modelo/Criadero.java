@@ -13,7 +13,6 @@ public class Criadero extends  Edificio {
     public Criadero(int cantTurnosParaSerOperativo){
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
         larvas = new ArrayList<Individuo>();
-
     }
 
     public int getCantidadLarvas() {
@@ -24,6 +23,7 @@ public class Criadero extends  Edificio {
     }
 
     public Individuo removerLarva() {
+
         return larvas.remove(0);
     }
 

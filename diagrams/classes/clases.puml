@@ -1,8 +1,6 @@
 @startuml
 
-abstract class TipoEvolucion{
-    + {abstract} evolucionar(TipoEvolucion:unTipo):void
-}
+
 
 class Juego {
     +ejecutarJuego()
@@ -17,9 +15,11 @@ class Larva{
 
 }
 class RazaZerg{
-
+    +unidadesDeGas
+    -
 }
 class Criadero{
+    -individuos:ArrayList
     +removerLarva():Individuo
     +ejecutarTurno():void
 }
@@ -31,12 +31,16 @@ abstract class TipoEvolucion{
 abstract class Edificio{
     -posicion
 }
-class Extractor{
 
+class Extractor{
+    -zanganos
+    +ejecutarTurno()
 }
 
-class Individuo {
+abstract class Individuo {
     -posicion
+    {abstract} +evolucionar()
+    +mover()
 }
 
 class Mapa {
@@ -59,9 +63,8 @@ class Volcan{
     +extraer()
 }
 
-Individuo *-- TipoEvolucion
-Zangano  -up--|> TipoEvolucion
-Larva    -up--|> TipoEvolucion
+Zangano  -up--|> Individuo
+Larva    -up--|> Individuo
 RazaZerg "1"  o-- "*" Edificio
 RazaZerg "1"  o-- "*" Individuo
 Criadero -up--|> Edificio

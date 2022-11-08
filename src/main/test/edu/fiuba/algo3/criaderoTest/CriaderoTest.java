@@ -65,9 +65,9 @@ public class CriaderoTest {
         //Arrange
         Extractor unExtractor = new Extractor(4);
         //Act
-        unExtractor.ejecutarTurno(); // canntTurnos = 3
+        unExtractor.ejecutarTurno(); // cantTurnos = 3
+        //Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-
         });
     }
 
