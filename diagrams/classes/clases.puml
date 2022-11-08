@@ -5,6 +5,9 @@ abstract class TipoEvolucion{
 }
 
 class Juego {
+    +ejecutarJuego()
+    -actualizarPosiciones()
+    +construirAsimilador(posicion)
 }
 
 class Zangano{
@@ -26,10 +29,34 @@ abstract class TipoEvolucion{
 }
 
 abstract class Edificio{
-
+    -posicion
 }
 class Extractor{
 
+}
+
+class Individuo {
+    -posicion
+}
+
+class Mapa {
+    -matrizPosiciones?
+    +registrarPosiciones()
+}
+
+abstract class Recursos {
+    -posicion
+    {abstract} +extraer()
+}
+
+class NodoMineral {
+    -unidadesDeMineral
+    +extraer()
+}
+
+class Volcan{
+    -unidadesDeGas
+    +extraer()
 }
 
 Individuo *-- TipoEvolucion
@@ -41,8 +68,22 @@ Criadero -up--|> Edificio
 Extractor -up--|> Edificio
 Juego "1"  o-- "1" RazaZerg
 Juego "1"  *-- "1" Mapa
+Juego "1"  *-- "*" Recursos
+Recursos <|-- Volcan
+Recursos <|-- NodoMineral
+Criadero o-- Moho
 
 @enduml
 
 //Que al evolucionar un zanagano se cree un edificio en la misma pos
 // y se elimine el zangano.
+
+//Juego en el metodo actualizarPosiciones le pide a cada
+//individuo y edificio sus posiciones y se las envia a mapa
+
+//Hay que hacer una clase Posicion que tenga como atributo
+//coordenadas x e y.
+
+//Para construir un edificio hice que lo haga la clase juego, asi
+//soluciono el tema de chequear que el edificio se construya sobre
+//lo que debe. Pero no se si van a quedar demasaidos métodos en Juego.
