@@ -12,4 +12,15 @@ public class JugadorZerg implements Jugador{
     private boolean tieneReserva(){
         return false;
     }
+
+    public String instalar(Edificio edificio, Ubicacion lugar) {
+        try{
+            lugar.instalar(edificio);
+
+        }
+        catch(EdificioIncorrecto e){
+            return "no se puede instalar en este lugar";
+        }
+        return"instalacion finalizada";
+    }
 }

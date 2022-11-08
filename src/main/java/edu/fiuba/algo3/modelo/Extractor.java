@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class Extractor {
+public class Extractor implements Edificio {
 
     private int turnos;
 

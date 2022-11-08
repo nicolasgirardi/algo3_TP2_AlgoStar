@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class Pilon {
+public class Pilon implements Edificio{
 
     private int turnos;
 
