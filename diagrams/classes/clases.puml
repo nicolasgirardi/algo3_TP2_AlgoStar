@@ -60,6 +60,14 @@ class Volcan{
     +extraer()
 }
 
+interface hitPoints{
+
++recibirDaño()
++regenerar()
++vida()
++escudo()
+}
+
 Zangano  -up--|> Individuo
 Larva    -up--|> Individuo
 RazaZerg "1"  o-- "*" Edificio
@@ -73,6 +81,8 @@ Recursos <|-- Volcan
 Recursos <|-- NodoMineral
 Criadero o-- Moho
 RazaZerg "1"  o-- "*" Extractor
+
+Edificio -> "1" hitPoints
 
 @enduml
 
