@@ -20,7 +20,7 @@ public class Extractor extends Edificio {
     public int extraer() {
         cantTurnosParaSerOperativo--;
         int gasTotal = 0;
-        if(cantTurnosParaSerOperativo < 0) {
+        if(cantTurnosParaSerOperativo < 0 && zanganosTrabajando.size() > 0) {
             for (Zangano zangano: zanganosTrabajando){
                 gasTotal += zangano.extraerGas();
             }
