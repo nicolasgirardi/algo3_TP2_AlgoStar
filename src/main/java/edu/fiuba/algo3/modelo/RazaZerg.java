@@ -60,5 +60,9 @@ public class RazaZerg {
         for(Edificio edificio: edificios){
             edificio.ejecutarTurno();
         }
+
+        for(Edificio edificio: edificiosExtractores){
+            edificio.extraer();
+        }
     }
 }
