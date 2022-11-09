@@ -10,7 +10,12 @@ public class Criadero extends  Edificio {
         larvas = new ArrayList<Larva>();
         cargarTodaslasLarvas();
     }
-
+    public Criadero(HitPoints HP) {
+        cantTurnosParaSerOperativo = 0;
+        larvas = new ArrayList<Larva>();
+        hp = HP;
+        cargarTodaslasLarvas();
+    }
     public Criadero(int cantTurnosParaSerOperativo){
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
         larvas = new ArrayList<Larva>();
@@ -39,6 +44,7 @@ public class Criadero extends  Edificio {
         if(cantTurnosParaSerOperativo == 0 ){
             cargarTodaslasLarvas();
         }
+        this.recuperarHP();
     }
 
     private  void cargarTodaslasLarvas(){

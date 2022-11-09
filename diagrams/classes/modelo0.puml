@@ -13,8 +13,11 @@ class Volcan{
 abstract class Construccion {
 -costo
 -tiempoDeConstruccion: Int
--vida: Int
+-HitPoints hitPoints
 +regenerarVida()
++vidaActual()
++escudoActual()
++recibirDaño()
 }
 
 class Juego {
@@ -31,6 +34,7 @@ abstract class Recursos {
 abstract class ConstruccionZerg {
 
 +regenerarVida()
+
 }
 
 class Criadero{
@@ -83,6 +87,14 @@ class Acceso{
 class PuertoEstelar{
 
 }
+interface hitPoints{
+
++recibirDaño()
++regenerar()
++vida()
++escudo()
+}
+
 
 ConstruccionProtoss <|-- NexoMineral
 ConstruccionProtoss <|-- Pilon
@@ -90,6 +102,7 @@ ConstruccionProtoss <|-- Asimilador
 ConstruccionProtoss <|-- Acceso
 ConstruccionProtoss <|-- PuertoEstelar
 
+Construccion -> hitPoints
 
 Construccion <|-- ConstruccionProtoss
 Construccion <|-- ConstruccionZerg
