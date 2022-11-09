@@ -80,11 +80,38 @@ public class entrega0Test {
     }
 
     @Test
-    public void testSeConstruyeUnExtractorNuevoYSeLeQuiereAgregarUnZanganoYLanzaExcepcionEdificioNoOperativoError(){
+    public void testSeConstruyeUnExtractorNuevoYSeLeQuiereAgregarUnZanganoDeberiaTirarExcepcionEdificioNoOperativoError(){
 
         Extractor unExtractor = new Extractor(6);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unExtractor.agregarZangano(new Zangano(new Posicion()));
+        });
+    }
+
+    @Test
+    public void testSeConstruyeUnaReservaDeReproduccionNuevaYSeLaQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
+
+        ReservaDeReproduccion unaReserva = new ReservaDeReproduccion(12);
+        assertThrows( EdificioNoOperativoError.class, ()-> {
+            unaReserva.evolucionarLarvas();
+        });
+    }
+
+    @Test
+    public void testSeConstruyeUnaGuaridaNuevaYSeLaQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
+
+        Guarida unaGuarida = new Guarida(12);
+        assertThrows( EdificioNoOperativoError.class, ()-> {
+            unaGuarida.evolucionarLarvas();
+        });
+    }
+
+    @Test
+    public void testSeConstruyeUnaEspiralNuevaYSeLaQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
+
+        Espiral unaEspiral = new Espiral(10);
+        assertThrows( EdificioNoOperativoError.class, ()-> {
+            unaEspiral.crear();
         });
     }
 

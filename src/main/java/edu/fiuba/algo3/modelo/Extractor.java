@@ -12,7 +12,7 @@ public class Extractor extends Edificio {
     }
 
     public int getCantidadZanganos() {
-        this.tirarEdificioNoOperativoError();
+        tirarEdificioNoOperativoError();
         return zanganosTrabajando.size();
     }
 

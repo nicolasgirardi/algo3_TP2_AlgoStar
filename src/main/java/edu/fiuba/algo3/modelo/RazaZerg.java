@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class RazaZerg {
     ArrayList<Individuo> individuos;
     ArrayList<Edificio> edificios;
+    ArrayList<Extractor> edificiosExtractores;
 
-    ArrayList<Edificio> edificiosExtractores;
     public RazaZerg(){
         individuos = new ArrayList<Individuo>();
         edificios = new ArrayList<Edificio>();
@@ -30,9 +30,9 @@ public class RazaZerg {
 
     }
 
-    public void agregarNuevoEdificio(Criadero unCriadero) {
+    public void agregarNuevoEdificio(Edificio unEdificio) {
 
-        edificios.add(unCriadero);
+        edificios.add(unEdificio);
     }
 
     public void agregarNuevoEdificioExtractor(Extractor unExtractor) {
@@ -61,8 +61,8 @@ public class RazaZerg {
             edificio.ejecutarTurno();
         }
 
-        for(Edificio edificio: edificiosExtractores){
-            edificio.extraer();
+        for(Extractor extractor: edificiosExtractores){
+            extractor.extraer();
         }
     }
 }
