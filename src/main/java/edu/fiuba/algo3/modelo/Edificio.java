@@ -7,7 +7,18 @@ public abstract class Edificio {
 
         cantTurnosParaSerOperativo = 0;
     }
+
     public void ejecutarTurno() {
 
+    }
+
+    public int extraer() {
+        return -1;
+    }
+
+    public void tirarEdificioNoOperativoError() {
+        if(cantTurnosParaSerOperativo > 0 ){
+            throw new EdificioNoOperativoError();
+        }
     }
 }

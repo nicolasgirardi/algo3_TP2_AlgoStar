@@ -10,24 +10,25 @@ public class Criadero extends  Edificio {
         larvas = new ArrayList<Larva>();
         cargarTodaslasLarvas();
     }
+
     public Criadero(int cantTurnosParaSerOperativo){
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
         larvas = new ArrayList<Larva>();
     }
 
     public int getCantidadLarvas() {
-        if(cantTurnosParaSerOperativo > 0 ){
-            throw new EdificioNoOperativoError();
-        }
+        this.tirarEdificioNoOperativoError();
         return larvas.size();
     }
 
     public Zangano removerLarva() {
+        this.tirarEdificioNoOperativoError();
+        Larva larvaAuxiliar = larvas.get(0);
         larvas.remove(0);
-        return larvas.get(0).evolucionar();
+        return larvaAuxiliar.evolucionar();
     }
 
-
+    @Override
     public void ejecutarTurno() {
         cantTurnosParaSerOperativo--;
         if(cantTurnosParaSerOperativo < 0 ){
@@ -35,7 +36,7 @@ public class Criadero extends  Edificio {
                 larvas.add( new Larva() );
             }
         }
-        if( cantTurnosParaSerOperativo  == 0  ){
+        if(cantTurnosParaSerOperativo == 0 ){
             cargarTodaslasLarvas();
         }
     }

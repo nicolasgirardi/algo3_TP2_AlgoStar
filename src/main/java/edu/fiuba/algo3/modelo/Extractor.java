@@ -7,15 +7,36 @@ public class Extractor extends Edificio {
     ArrayList<Zangano> zanganosTrabajando;
 
     public Extractor(int cantTurnosParaSerOperativo){
+
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
     }
 
-    public void ejecutarTurno() {
-        cantTurnosParaSerOperativo--;
-        if(cantTurnosParaSerOperativo < 0){
-
-        }
+    public int getCantidadZanganos() {
+        this.tirarEdificioNoOperativoError();
+        return zanganosTrabajando.size();
     }
 
 
+    public int extraer() {
+        cantTurnosParaSerOperativo--;
+        int gasTotal = 0;
+        if(cantTurnosParaSerOperativo < 0) {
+            for (Zangano zangano: zanganosTrabajando){
+                gasTotal += zangano.extraerGas();
+            }
+        }
+        return gasTotal;
+    }
+
+    public void agregarZangano(Zangano nuevoZangano){
+        tirarEdificioNoOperativoError();
+        tirarMaximaCantidadDeZanganosError();
+        zanganosTrabajando.add(nuevoZangano);
+    }
+
+    public void tirarMaximaCantidadDeZanganosError(){
+        if( zanganosTrabajando.size() == 3 ){
+            throw new EdificioNoOperativoError();
+        }
+    }
 }

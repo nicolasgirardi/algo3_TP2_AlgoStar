@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.entrega_0;
 
-import edu.fiuba.algo3.modelo.Criadero;
-import edu.fiuba.algo3.modelo.EdificioNoOperativoError;
-import edu.fiuba.algo3.modelo.Larva;
-import edu.fiuba.algo3.modelo.RazaZerg;
+import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -82,5 +79,15 @@ public class entrega0Test {
         });
     }
 
+    /*@Test
+    public void testSeConstruyeUnExtractorNuevoYSeLeQuiereAgregarUnZanganoYLanzaExcepcionEdificioNoOperativoError(){
+        RazaZerg unaRaza  = new RazaZerg();
+        Extractor unExtractor = new Extractor(6);
+        unaRaza.agregarNuevoEdificioExtractor( unExtractor );
+        unaRaza.ejecutarTurno();
+        assertThrows( EdificioNoOperativoError.class, ()-> {
+            unExtractor.agregarZangano(new Zangano(new Posicion()));
+        });
+    }*/
 
 }

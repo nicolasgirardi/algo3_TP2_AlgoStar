@@ -19,14 +19,11 @@ class RazaZerg{
     -
 }
 class Criadero{
-    -individuos:ArrayList
+    -Larvas:ArrayList
     +removerLarva():Individuo
     +ejecutarTurno():void
 }
 
-abstract class TipoEvolucion{
-
-}
 
 abstract class Edificio{
     -posicion
