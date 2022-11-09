@@ -44,6 +44,7 @@ public class Criadero extends  Edificio {
         if(cantTurnosParaSerOperativo == 0 ){
             cargarTodaslasLarvas();
         }
+        this.recuperarHP();
     }
 
     private  void cargarTodaslasLarvas(){

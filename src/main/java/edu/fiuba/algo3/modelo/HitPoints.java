@@ -4,7 +4,7 @@ public interface HitPoints {
 
     public void recibirDaño(int daño);
     public void regenerar();
-    public void vida();
-    public void escudo();
+    public int vida();
+    public int escudo();
 
 }

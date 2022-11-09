@@ -10,7 +10,7 @@ public abstract class Edificio {
     }
 
     public void ejecutarTurno() {
-
+        this.recuperarHP();
     }
 
     public int extraer() {
@@ -26,4 +26,18 @@ public abstract class Edificio {
     public void recibirDaño(int daño){
         hp.recibirDaño(daño);
     }
+
+    public void recuperarHP(){
+        hp.regenerar();
+    }
+
+    public int vidaActual(){
+        return hp.vida();
+    }
+
+    public int escudoActual(){
+        return hp.escudo();
+    }
+
+
 }
