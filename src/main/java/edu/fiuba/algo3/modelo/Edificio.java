@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 public abstract class Edificio {
     protected int cantTurnosParaSerOperativo;
+    protected HitPoints hp;
 
     public Edificio(){
 
@@ -20,5 +21,9 @@ public abstract class Edificio {
         if(cantTurnosParaSerOperativo > 0 ){
             throw new EdificioNoOperativoError();
         }
+    }
+
+    public void recibirDaño(int daño){
+        hp.recibirDaño(daño);
     }
 }

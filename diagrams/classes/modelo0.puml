@@ -29,7 +29,7 @@ abstract class Recursos {
 }
 
 abstract class ConstruccionZerg {
-
+-HitPoints hitPoints
 +regenerarVida()
 }
 
@@ -83,6 +83,9 @@ class Acceso{
 class PuertoEstelar{
 
 }
+interface hitPoints{
+}
+
 
 ConstruccionProtoss <|-- NexoMineral
 ConstruccionProtoss <|-- Pilon
@@ -90,6 +93,7 @@ ConstruccionProtoss <|-- Asimilador
 ConstruccionProtoss <|-- Acceso
 ConstruccionProtoss <|-- PuertoEstelar
 
+ConstruccionZerg -> hitPoints
 
 Construccion <|-- ConstruccionProtoss
 Construccion <|-- ConstruccionZerg
