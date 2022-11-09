@@ -27,6 +27,10 @@ class Criadero{
 
 abstract class Edificio{
     -posicion
+    +regenerarVida()
+    +vidaActual()
+    +escudoActual()
+    +recibirDaño()
 }
 
 class Extractor{
