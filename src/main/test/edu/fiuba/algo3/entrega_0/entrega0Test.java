@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
 
 public class entrega0Test {
 
@@ -12,7 +13,8 @@ public class entrega0Test {
     @Test
     public void testCriaderoSeIniciaCon3larvasSeConsumeUnaParaEngendrarUnzánganoLeDeberiaQuedarDosYDeberiaTenerUnZangano() {
         RazaZerg unaRaza  = new RazaZerg();
-        Criadero unCriadero = new Criadero();  // hay 3 larvas adentro.
+        HitPoints hp = mock(HitPoints.class);
+        Criadero unCriadero = new Criadero(hp);  // hay 3 larvas adentro.
         unaRaza.agregarNuevoEdificio(unCriadero);
         unaRaza.evolucionarUnZangano(unCriadero);
 
@@ -22,7 +24,8 @@ public class entrega0Test {
     @Test
     public void testCriaderoSeIniciaCon3LarvasSeUsaUnaParaEvolucionaAZanganoYPasaUnTurnoDeberiaTener3Larvas(){
         RazaZerg unaRaza  = new RazaZerg();
-        Criadero unCriadero = new Criadero();  // hay 3 larvas adentro.
+        HitPoints hp = mock(HitPoints.class);
+        Criadero unCriadero = new Criadero(hp);  // hay 3 larvas adentro.
         unaRaza.agregarNuevoEdificio(unCriadero);
         unaRaza.evolucionarUnZangano(unCriadero);
         unaRaza.ejecutarTurno();
@@ -33,7 +36,8 @@ public class entrega0Test {
     @Test
     public void testCriaderoSeIniciaCon3LarvasSeUsa2ParaEvolucionaAZanganoYPasaUnTurnoDeberiaTener2Larvas(){
         RazaZerg unaRaza  = new RazaZerg();
-        Criadero unCriadero = new Criadero();  // hay 3 larvas adentro.
+        HitPoints hp = mock(HitPoints.class);
+        Criadero unCriadero = new Criadero(hp);  // hay 3 larvas adentro.
         unaRaza.agregarNuevoEdificio(unCriadero);
         unaRaza.evolucionarUnZangano(unCriadero);
         unaRaza.evolucionarUnZangano(unCriadero);
@@ -44,7 +48,8 @@ public class entrega0Test {
     @Test
     public void testCriaderoSeIniciaCon3LarvasSeUsa3ParaEvolucionaAZanganoYPasaUnTurnoDeberiaTener1Larvas(){
         RazaZerg unaRaza  = new RazaZerg();
-        Criadero unCriadero = new Criadero();  // hay 3 larvas adentro.
+        HitPoints hp = mock(HitPoints.class);
+        Criadero unCriadero = new Criadero(hp);  // hay 3 larvas adentro.
         unaRaza.agregarNuevoEdificio(unCriadero);
         unaRaza.evolucionarUnZangano(unCriadero);
         unaRaza.evolucionarUnZangano(unCriadero);
@@ -59,7 +64,8 @@ public class entrega0Test {
     @Test
     public void testSeCreaUnCriaderoEnCuatroTurnosEstaOperativo(){
         RazaZerg unaRaza  = new RazaZerg();
-        Criadero unCriadero = new Criadero(4);  // hay 3 larvas adentro.
+        HitPoints hp = mock(HitPoints.class);
+        Criadero unCriadero = new Criadero(4,hp);  // hay 3 larvas adentro.
         unaRaza.agregarNuevoEdificio(unCriadero);
         unaRaza.ejecutarTurno();
         unaRaza.ejecutarTurno();
@@ -71,9 +77,10 @@ public class entrega0Test {
     @Test
     public void testSeCreaUnCriaderoYEnElSegundoTurnoSeLePideLaCantidadDeLarvasDeberiaLanzarUnEdificioNoOperativoError(){
         RazaZerg unaRaza  = new RazaZerg();
-        Criadero unCriadero = new Criadero(4);  // hay 3 larvas adentro.
+        HitPoints hp = mock(HitPoints.class);
+        Criadero unCriadero = new Criadero(4,hp);  // hay 3 larvas adentro.
         unaRaza.agregarNuevoEdificio(unCriadero);
-        unaRaza.ejecutarTurno();
+        unCriadero.ejecutarTurno();
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unCriadero.getCantidadLarvas();
         });
