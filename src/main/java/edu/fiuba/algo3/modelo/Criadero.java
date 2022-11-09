@@ -16,9 +16,10 @@ public class Criadero extends  Edificio {
         hp = HP;
         cargarTodaslasLarvas();
     }
-    public Criadero(int cantTurnosParaSerOperativo){
+    public Criadero(int cantTurnosParaSerOperativo,HitPoints HP){
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
         larvas = new ArrayList<Larva>();
+        hp = HP;
     }
 
     public int getCantidadLarvas() {
