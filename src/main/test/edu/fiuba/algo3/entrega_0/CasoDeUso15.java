@@ -139,7 +139,5 @@ public class CasoDeUso15 {
 
         //Assert
         assertEquals(true, cantidadGas == maximaCantidadGasExtraible);
-
-
     }
 }
