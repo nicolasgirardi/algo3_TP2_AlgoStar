@@ -30,7 +30,7 @@ public class CasoDeUso10 {
             edificio.ejecutarTurno();
         }
 
-        verify(HPmock,times(10)).regenerar();
+        verify(HPmock,times(10)).regenerar() ;
 
         assertEquals(500,edificio.vidaActual());
     }
