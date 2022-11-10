@@ -1,7 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
 public abstract class Recurso {
-    private int unidades;
+    protected int unidades;
+    protected Posicion posicion;
 
     public Recurso(int unidades){
         this.unidades = unidades;

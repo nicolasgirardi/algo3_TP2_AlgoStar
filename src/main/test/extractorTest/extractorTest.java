@@ -13,12 +13,12 @@ public class extractorTest {
         //Arrange
         HitPoints HPmock = mock(HitPoints.class);
         Extractor unExtractor = new Extractor(6,HPmock);
-        Zangano unZangano = new Zangano( new Posicion() );
+        Zangano unZangano = new Zangano( new Posicion(3,2) );
         //Act
         unExtractor.ejecutarTurno();
         //Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            unExtractor.agregarZangano(new Zangano(new Posicion()));
+            unExtractor.agregarZangano(new Zangano(new Posicion(3,2)));
         });
     }
 }

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+
 public class Zangano extends Individuo {
     private TrabajoZangano trabajoZangano;
 
@@ -22,4 +23,11 @@ public class Zangano extends Individuo {
         this.trabajoZangano = trabajoZangano;
     }
 
+    public void caminarAPosicion(Posicion posicion) {
+        this.posicion = posicion;
+    }
+
+    public boolean tieneMismaPosicion(Volcan volcan) {
+        return volcan.TieneMismaPosicion(posicion);
+    }
 }

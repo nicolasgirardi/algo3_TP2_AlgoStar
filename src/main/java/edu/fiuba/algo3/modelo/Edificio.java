@@ -3,11 +3,13 @@ package edu.fiuba.algo3.modelo;
 public abstract class Edificio {
     protected int cantTurnosParaSerOperativo;
     protected HitPoints hp;
+    protected Posicion posicion;
 
     public Edificio(){
 
         cantTurnosParaSerOperativo = 0;
     }
+
 
     public abstract void ejecutarTurno();
 

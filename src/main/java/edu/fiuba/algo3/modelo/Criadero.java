@@ -20,6 +20,15 @@ public class Criadero extends  Edificio {
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
         larvas = new ArrayList<Larva>();
         hp = HP;
+        cargarTodaslasLarvas();
+    }
+
+    public Criadero(int cantTurnosParaSerOperativo,HitPoints HP, Posicion unaPosicion){
+        this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
+        larvas = new ArrayList<Larva>();
+        hp = HP;
+        posicion = unaPosicion;
+        cargarTodaslasLarvas();
     }
 
     public int getCantidadLarvas() {
@@ -53,5 +62,4 @@ public class Criadero extends  Edificio {
         larvas.add( new Larva() );
         larvas.add( new Larva() );
     }
-
 }

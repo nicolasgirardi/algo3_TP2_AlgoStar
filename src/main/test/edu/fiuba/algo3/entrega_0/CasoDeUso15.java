@@ -9,15 +9,14 @@ import static org.mockito.Mockito.*;
 public class CasoDeUso15 {
 
     @Test
-    public void RazaZergDejaDeConseguirGasDelVolcanCuandoSeQuedaSinUnidadesDeGas(){
+    public void RazaZergDejaDeConseguirGasCuandoDelVolcanCuandoSeQuedaSinUnidadesDeGas(){
         //Arrange
         RazaZerg unaRaza  = new RazaZerg();
-        HitPoints HPmock = mock(HitPoints.class);
         HitPoints hp = mock(HitPoints.class);
         HitPoints hpExtractor = mock(HitPoints.class);
         Criadero unCriadero = new Criadero(hp);  // hay 3 larvas adentro.
         Volcan volcan = new Volcan();
-        Extractor extractor = new Extractor(volcan,hpExtractor);
+        Extractor extractor = new Extractor(volcan, hpExtractor);
         unaRaza.agregarNuevoEdificio(extractor);
 
         // dejo el Extrractor operrable en 6 turnos
@@ -31,6 +30,7 @@ public class CasoDeUso15 {
             Zangano zangano = unaRaza.evolucionarUnZangano(unCriadero);
             extractor.agregarZangano(zangano);
         }
+
         int maximaCantidadGasExtraible = 5000;
         int cantidadDeTurnosParaSacarTodoElGas = 167;
 

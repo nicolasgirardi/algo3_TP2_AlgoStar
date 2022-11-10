@@ -91,7 +91,7 @@ public class entrega0Test {
         HitPoints HPmock = mock(HitPoints.class);
         Extractor unExtractor = new Extractor(6,HPmock);
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            unExtractor.agregarZangano(new Zangano(new Posicion()));
+            unExtractor.agregarZangano(new Zangano(new Posicion(10,10)));
         });
     }
 

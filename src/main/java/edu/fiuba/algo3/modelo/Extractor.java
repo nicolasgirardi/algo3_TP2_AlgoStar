@@ -14,12 +14,21 @@ public class Extractor extends Edificio {
         hp=HP;
     }
 
+
     public  Extractor(Volcan volcan, HitPoints HP){
         this.cantTurnosParaSerOperativo = CANTIDAD_TURNOS_OPERATIVO;
         this.volcan = volcan;
         hp = HP;
         zanganosTrabajando = new ArrayList<Zangano>();
     }
+
+    public  Extractor(Volcan unVolcan){
+        this.cantTurnosParaSerOperativo = CANTIDAD_TURNOS_OPERATIVO;
+        this.volcan = unVolcan;
+        unVolcan.asignarPosicion(posicion);
+        zanganosTrabajando = new ArrayList<Zangano>();
+    }
+
 
     public int getCantidadZanganos() {
         verificarEdificioEsOperativo();
@@ -51,8 +60,11 @@ public class Extractor extends Edificio {
         }
     }
     public void ejecutarTurno() {
-
         cantTurnosParaSerOperativo--;
         hp.regenerar();
+    }
+
+    public void setHP(HitPoints hpExtractor) {
+        hp = hpExtractor;
     }
 }
