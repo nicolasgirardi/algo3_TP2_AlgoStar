@@ -1,0 +1,89 @@
+@startuml
+
+
+interface Ejecutable {
+   + {abstract} ejecutarTurno(r: RazaRecursos): void
+}
+
+
+class Extractor{
+   + Extractor(v: Volcan)
+   + agregarZangano(z: Zangano)
+   + ejecutarTurno(r: RazaRecursos): void
+}
+
+note left of Extractor::ejecutarTurno
+   ...
+   regenerar();
+   // los zanganos extraen gas por ejecutarTurno
+end note
+
+
+
+
+class Zangano {
+   + setTrabajo(t: TrabajoZangano): void
+   + ejecutarTurno(r: RazaRecursos): void
+   - extraer()
+}
+
+
+abstract class TrabajoZangano {
+   # recurso : Recurso
+   + {abstract} extraer(r: RazaRecursos): void
+}
+
+
+
+class Asimilador{
+   + Asimilador(v: Volcan)
+   + extraer(): void
+   + ejecutarTurno(): void
+}
+note left of Asimilador::extraer
+  int gasExtraido = v.extraer(20);
+  // actualizarRazaRecusos
+end note
+
+abstract class Recurso {
+   - unidades: int
+   +extraer(unidades: int): int
+}
+
+class NodoMineral {
+   + NodoMineral()
+}
+
+class Volcan{
+   + Volcan()
+}
+note left of Volcan::Volcan
+   this.unidades = 5000
+end note
+
+
+
+
+
+
+
+Recurso <|-- Volcan
+Recurso <|-- NodoMineral
+
+Extractor ..|> Ejecutable
+Extractor "1"-->"0..3" Zangano
+
+
+
+
+Asimilador ..|> Ejecutable
+Asimilador --> Volcan
+
+Extractor --> Volcan
+
+Zangano --> TrabajoZangano
+Zangano ..|> Ejecutable
+
+
+TrabajoZangano --> Recurso
+@enduml

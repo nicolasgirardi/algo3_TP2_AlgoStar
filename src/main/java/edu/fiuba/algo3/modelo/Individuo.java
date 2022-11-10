@@ -1,9 +1,14 @@
 package edu.fiuba.algo3.modelo;
 
-public abstract class Individuo {
+public abstract class Individuo  implements Ejecutable{
     int vida;
+    Posicion posicion;
 
-    public void Individuo(){
-        vida = 0;
+    public Individuo(){
+
+    }
+
+    public Posicion getPosicion() {
+        return posicion;
     }
 }

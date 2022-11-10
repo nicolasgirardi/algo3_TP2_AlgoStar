@@ -2,11 +2,14 @@ package edu.fiuba.algo3.modelo;
 
 public class Larva extends Individuo{
 
-    public Larva(){
-        super();
+    public Zangano evolucionar(){
+        Zangano nuevoZangano = new Zangano(posicion);
+        return nuevoZangano;
     }
 
-    public void evolucionar(Zangano zangano) {
+
+    @Override
+    public void ejecutarTurno(RazaRecursos razaRecursos) {
 
     }
 }
