@@ -13,13 +13,15 @@ public class Criadero extends  Edificio {
         larvas = new ArrayList<Larva>();
         cargarTodaslasLarvas();
     }
-    public Criadero(HitPoints HP) {
+    public Criadero(HitPoints HP, Celda unaCelda) {
+        posicion = unaCelda;
         cantTurnosParaSerOperativo = 0;
         larvas = new ArrayList<Larva>();
         hp = HP;
         cargarTodaslasLarvas();
     }
-    public Criadero(int cantTurnosParaSerOperativo,HitPoints HP){
+    public Criadero(int cantTurnosParaSerOperativo,HitPoints HP, Celda unaCelda){
+        posicion = unaCelda;
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
         larvas = new ArrayList<Larva>();
         hp = HP;

@@ -8,9 +8,26 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
 
 
 public class MohoTest {
+
+    @Test
+    public void test00SeCreaCriaderoConMohoDeUnaExpansion5(){
+        HitPoints hp = mock(HitPoints.class);
+        Mapa mapa = new Mapa();
+        Celda posicionConstruir = new Celda(0, 0); //le pongo celda
+        Celda celda1 = new Celda(0,0);//longitud inicial moho
+        Celda celda2 = new Celda(5,5);//longitud a sumar al moho
+        Linea linea1 = new Linea(celda1, celda2);
+        linea1.agregarNuevoEdificio(new Criadero(2,hp,posicionConstruir));
+
+        mapa.agregarLinea(linea1);
+
+        assertEquals(5, ReservaDeReproduccion.obtenerPosicion().obtenerPosicionX());
+
+    }
     @Test
     public void test01SeCreaElMohoConUnaExpansionDe5(){
         Mapa mapa = new Mapa();

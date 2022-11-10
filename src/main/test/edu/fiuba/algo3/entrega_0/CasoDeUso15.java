@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.entrega_0;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.tablero.Celda;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,7 +16,8 @@ public class CasoDeUso15 {
         HitPoints HPmock = mock(HitPoints.class);
         HitPoints hp = mock(HitPoints.class);
         HitPoints hpExtractor = mock(HitPoints.class);
-        Criadero unCriadero = new Criadero(hp);  // hay 3 larvas adentro.
+        Celda posicionConstruir = new Celda(0, 0);
+        Criadero unCriadero = new Criadero(hp,posicionConstruir);  // hay 3 larvas adentro.
         Volcan volcan = new Volcan();
         Extractor extractor = new Extractor(volcan,hpExtractor);
         unaRaza.agregarNuevoEdificio(extractor);
@@ -54,7 +56,8 @@ public class CasoDeUso15 {
         HitPoints HPmock = mock(HitPoints.class);
         HitPoints hp = mock(HitPoints.class);
         HitPoints hpExtractor = mock(HitPoints.class);
-        Criadero unCriadero = new Criadero(hp);  // hay 3 larvas adentro.
+        Celda posicionConstruir = new Celda(0, 0);
+        Criadero unCriadero = new Criadero(hp,posicionConstruir);  // hay 3 larvas adentro.
         Zangano zangano = unaRaza.evolucionarUnZangano(unCriadero);
         NodoMineral nodoMineral = new NodoMineral();
         zangano.setTrabajo(new TrabajoMineral(nodoMineral));

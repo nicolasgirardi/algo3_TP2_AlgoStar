@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_0;
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.tablero.Celda;
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,7 +12,8 @@ public class CasoDeUso12 {
     public void UnEdificioZergRecibeDemasiadoDañoySoloRegeneraEscudo(){
 
         HitPoints HPmock = mock(HitPoints.class);
-        Edificio edificio = new Criadero(HPmock); //podría ser cualquier edificio
+        Celda posicionConstruir = new Celda(0, 0);
+        Edificio edificio = new Criadero(HPmock,posicionConstruir); //podría ser cualquier edificio
 
         edificio.recibirDaño(300);
         when(HPmock.vida()).thenReturn(200);
