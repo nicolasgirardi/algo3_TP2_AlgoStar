@@ -10,6 +10,7 @@ public abstract class Edificio {
     }
 
     public void ejecutarTurno() {
+        cantTurnosParaSerOperativo  --;
         this.recuperarHP();
     }
 

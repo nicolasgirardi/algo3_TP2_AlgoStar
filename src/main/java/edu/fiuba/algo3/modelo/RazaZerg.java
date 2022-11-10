@@ -3,13 +3,18 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 
 public class RazaZerg {
-    ArrayList<Individuo> individuos;
-    ArrayList<Edificio> edificios;
 
-    ArrayList<Edificio> edificiosExtractores;
+    private RazaRecursos razaRecursos;
+    private ArrayList<Individuo> individuos;
+    private ArrayList<Edificio> edificios;
+
+    private ArrayList<Edificio> edificiosExtractores;
+
+
     public RazaZerg(){
         individuos = new ArrayList<Individuo>();
         edificios = new ArrayList<Edificio>();
+        razaRecursos = new RazaRecursos();
     }
 
     public void agregarIndividuo(Individuo unIndividuo){
@@ -26,11 +31,7 @@ public class RazaZerg {
         return larvas;
     }
 
-    public void evolucionarLarvaAZangano() {
-
-    }
-
-    public void agregarNuevoEdificio(Criadero unCriadero) {
+    public void agregarNuevoEdificio(Edificio unCriadero) {
 
         edificios.add(unCriadero);
     }
@@ -40,10 +41,11 @@ public class RazaZerg {
         edificiosExtractores.add(unExtractor);
     }
 
-    public void evolucionarUnZangano(Criadero unCriadero) {
+    public Zangano evolucionarUnZangano(Criadero unCriadero) {
 
         Zangano unZangano = unCriadero.removerLarva() ;
         individuos.add( unZangano );
+        return unZangano;
     }
 
     public int getCantidadZangano() {
@@ -54,11 +56,24 @@ public class RazaZerg {
     public void ejecutarTurno() {
 
         for(Individuo individuo: individuos){
-            individuo.ejecutarTurno();
+            individuo.ejecutarTurno(this.razaRecursos);
         }
 
         for(Edificio edificio: edificios){
             edificio.ejecutarTurno();
         }
     }
+
+    public int getCantidadGas() {
+        return razaRecursos.obtenerCantidadGas();
+    }
+
+    /* public int getCantidadMineral(){
+        return cantidadMineral;
+    }*/
+
+    /* public Zangano obtenerZangano() {
+        return individuos.get(0);
+
+    } */
 }

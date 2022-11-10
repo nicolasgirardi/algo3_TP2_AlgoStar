@@ -6,4 +6,9 @@ public class Larva extends Individuo{
         Zangano nuevoZangano = new Zangano(posicion);
         return nuevoZangano;
     }
+
+    @Override
+    public void ejecutarTurno(RazaRecursos razaRecursos) {
+
+    }
 }
