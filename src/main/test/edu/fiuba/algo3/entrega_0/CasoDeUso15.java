@@ -48,4 +48,35 @@ public class CasoDeUso15 {
         assertEquals(true, cantidadGas == maximaCantidadGasExtraible);
 
     }
+
+    @Test
+    public void RazaZergDejaDeConseguirMineralCuandoDelNodoMineralCuandoSeQuedaSinUnidadesDeMineral(){
+        //Arrange
+        RazaZerg unaRaza  = new RazaZerg();
+        HitPoints HPmock = mock(HitPoints.class);
+        HitPoints hp = mock(HitPoints.class);
+        HitPoints hpExtractor = mock(HitPoints.class);
+        Criadero unCriadero = new Criadero(hp);  // hay 3 larvas adentro.
+        Zangano zangano = unaRaza.evolucionarUnZangano(unCriadero);
+        NodoMineral nodoMineral = new NodoMineral();
+        zangano.setTrabajo(new TrabajoMineral(nodoMineral));
+
+
+
+
+        int maximaCantidadGasExtraible = 2000;
+        int cantidadDeTurnosParaSacarTodoElGas = 200;
+
+
+        //Act
+        for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElGas + 10 ; i++ ){
+            unaRaza.ejecutarTurno();
+        }
+        unaRaza.ejecutarTurno();
+        int cantidadMineral = unaRaza.getCantidadMineral();
+        //Assert
+
+        assertEquals(true, cantidadMineral == maximaCantidadGasExtraible);
+
+    }
 }

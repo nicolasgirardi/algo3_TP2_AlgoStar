@@ -46,38 +46,21 @@ note left of Asimilador::extraer
 end note
 
 abstract class Recurso {
-   # unidades: int
-   + {abstract} extraer(unidades: int): int
+   - unidades: int
+   +extraer(unidades: int): int
 }
-
 
 class NodoMineral {
    + NodoMineral()
-+extraer(unidades: int): int
 }
 
 class Volcan{
    + Volcan()
-   + extraer(unidades: int): int
 }
 note left of Volcan::Volcan
    this.unidades = 5000
 end note
-note right of Volcan::extraer
-   int retorno = unidades;
-   if (this.unidades == 0){
-      thorw new RecursosSinUnidadesError();
-   }f
 
-   if (this.unidades < unidades){
-      retorno = this.unidades;
-      this.unidades = 0;
-   }else{
-      this.unidades -= unidades;
-   }
-   return retorno;
-
-end note
 
 
 

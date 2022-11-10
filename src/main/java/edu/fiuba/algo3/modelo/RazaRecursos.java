@@ -17,7 +17,12 @@ public class RazaRecursos {
     public void aumentarGas(int cantidad){
         unidadesGas += cantidad;
     }
-    public void unidadesMineral(int cantidad){
-        unidadesMineral += cantidad;
+
+    public int obtenerCantidadMineral() {
+        return unidadesMineral;
+    }
+
+    public void aumentarMineral(int cantidad) {
+        unidadesMineral +=  cantidad;
     }
 }

@@ -68,6 +68,10 @@ public class RazaZerg {
         return razaRecursos.obtenerCantidadGas();
     }
 
+    public int getCantidadMineral() {
+        return razaRecursos.obtenerCantidadMineral();
+    }
+
     /* public int getCantidadMineral(){
         return cantidadMineral;
     }*/
@@ -76,4 +80,5 @@ public class RazaZerg {
         return individuos.get(0);
 
     } */
+
 }

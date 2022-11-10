@@ -13,4 +13,5 @@ public class TrabajoGas extends TrabajoZangano{
         int gas =  recurso.extraer(UNIDADES_EXTRACCION);
         razaRecursos.aumentarGas(gas);
     }
+
 }

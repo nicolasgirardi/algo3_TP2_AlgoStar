@@ -21,12 +21,12 @@ end note
 
 abstract class TrabajoZangano {
    # recurso : Recurso
-   + {abstract} ejecutarTurno(r :RazaRecursos): void
+   + {abstract} extraer(r :RazaRecursos): void
 }
 
 class TrabajoGas{
    + TrabajoRecurso(r: Recurso)
-   + extraer(): int
+   + extraer(r :RazaRecursos): void
 }
 note right of TrabajoGas::extraer
   int gas = super.recurso.extraer(10);
@@ -35,7 +35,7 @@ end note
 
 class TrabajoMineral{
    + TrabajoRecurso(r: Recurso)
-   + extraer(): int
+   + extraer(r :RazaRecursos): void
 }
 note right of TrabajoMineral::extraer
   int mineral = super.recurso.extraer(10);
@@ -45,10 +45,10 @@ end note
 
 class Nada{
    + Nada()
-   + extraer(): int
+   + extraer(r :RazaRecursos): void
 }
 note right of Nada::extraer
-  return 0
+  return
 end note
 
 
@@ -56,54 +56,6 @@ Zangano ..|> Ejecutable
 Zangano --> TrabajoZangano
 
 TrabajoGas..|> TrabajoZangano
+TrabajoMineral..|> TrabajoZangano
 Nada ..|> TrabajoZangano
-@enduml@startuml
-       interface Ejecutable {
-          + {abstract} ejecutarTurno(r :RazaRecursos): void
-       }
-
-       class Zangano {
-          + setTrabajo(t: TrabajoZangano): void
-          + ejecutarTurno(r :RazaRecursos): void
-          - extraer()
-       }
-       note left of Zangano::extraer
-         int recursoExtraido = tipoTrabajo.extraer(r);
-         actualizarRecursosRaza();
-       end note
-       note right of Zangano::ejecutarTurno
-         ...
-         extraer(r)
-       end note
-
-
-
-       abstract class TrabajoZangano {
-          # recurso : Recurso
-          + {abstract} ejecutarTurno(r :RazaRecursos): void
-       }
-
-       class TrabajoGas{
-          + TrabajoRecurso(r: Recurso)
-          + extraer(): int
-       }
-       note right of TrabajoGas::extraer
-         r.aumentarGas(super.recurso.extraer(10))
-       end note
-
-
-       class Nada{
-          + Nada()
-          + extraer(): int
-       }
-       note right of Nada::extraer
-         return 0
-       end note
-
-
-       Zangano ..|> Ejecutable
-       Zangano --> TrabajoZangano
-
-       TrabajoGas..|> TrabajoZangano
-       Nada ..|> TrabajoZangano
-       @enduml
+@enduml
