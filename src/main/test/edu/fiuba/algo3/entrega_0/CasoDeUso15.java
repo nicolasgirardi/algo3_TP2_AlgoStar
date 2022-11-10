@@ -8,8 +8,6 @@ import static org.mockito.Mockito.*;
 
 public class CasoDeUso15 {
 
-
-
     @Test
     public void RazaZergDejaDeConseguirGasCuandoDelVolcanCuandoSeQuedaSinUnidadesDeGas(){
         //Arrange
