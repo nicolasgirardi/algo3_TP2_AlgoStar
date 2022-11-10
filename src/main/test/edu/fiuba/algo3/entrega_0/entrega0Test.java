@@ -2,9 +2,6 @@ package edu.fiuba.algo3.entrega_0;
 
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
-import static org.mockito.Mockito.*;
-
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -143,14 +140,14 @@ public class entrega0Test {
         });
     }
 
-    @Test
+    /*@Test
     public void testSeConstruyeUnNuevoAsimiladorYSeLoQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
         HitPoints HPmock = mock(HitPoints.class);
         Asimilador unAsimilador = new Asimilador(6,HPmock);
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            unAsimilador.procesarGas();
+            unAsimilador.extraer();
         });
-    }
+    }*/
 
     @Test
     public void testSeConstruyeUnNuevoAccesoYSeLoQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){

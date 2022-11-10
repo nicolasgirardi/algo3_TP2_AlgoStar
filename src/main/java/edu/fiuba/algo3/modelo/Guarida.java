@@ -14,6 +14,6 @@ public class Guarida extends Edificio {
     }
 
     public void evolucionarLarvas(){
-        this.tirarEdificioNoOperativoError();
+        this.verificarEdificioEsOperativo();
     }
 }

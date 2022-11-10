@@ -14,6 +14,6 @@ public class PuertoEstelar extends Edificio{
     }
 
     public void transportarUnidades(){
-        this.tirarEdificioNoOperativoError();
+        this.verificarEdificioEsOperativo();
     }
 }

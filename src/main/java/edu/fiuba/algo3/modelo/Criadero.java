@@ -23,12 +23,12 @@ public class Criadero extends  Edificio {
     }
 
     public int getCantidadLarvas() {
-        this.tirarEdificioNoOperativoError();
+        this.verificarEdificioEsOperativo();
         return larvas.size();
     }
 
     public Zangano removerLarva() {
-        this.tirarEdificioNoOperativoError();
+        this.verificarEdificioEsOperativo();
         Larva larvaAuxiliar = larvas.get(0);
         larvas.remove(0);
         return larvaAuxiliar.evolucionar();

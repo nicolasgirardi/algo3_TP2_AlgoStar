@@ -20,7 +20,7 @@ public class NexoMineral extends Edificio{
     }
 
     public void recolectar(){
-        this.tirarEdificioNoOperativoError();
+        this.verificarEdificioEsOperativo();
     }
 
 }

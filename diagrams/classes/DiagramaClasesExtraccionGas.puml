@@ -37,8 +37,8 @@ abstract class TrabajoZangano {
 
 class Asimilador{
    + Asimilador(v: Volcan)
-   + extraer(): void
-   + ejecutarTurno(): void
+   - extraer(): void
+   + ejecutarTurno(r: RazaRecursos): void
 }
 note left of Asimilador::extraer
   int gasExtraido = v.extraer(20);

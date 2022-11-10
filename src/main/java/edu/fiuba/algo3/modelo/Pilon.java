@@ -14,6 +14,6 @@ public class Pilon extends Edificio{
     }
 
     public void utilizar(){
-        this.tirarEdificioNoOperativoError();
+        this.verificarEdificioEsOperativo();
     }
 }

@@ -15,6 +15,6 @@ public class Espiral extends Edificio {
     }
 
     public void crear(){
-        this.tirarEdificioNoOperativoError();
+        this.verificarEdificioEsOperativo();
     }
 }

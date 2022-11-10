@@ -14,6 +14,6 @@ public class Acceso extends Edificio{
     }
 
     public void transportarTropas(){
-        this.tirarEdificioNoOperativoError();
+        this.verificarEdificioEsOperativo();
     }
 }

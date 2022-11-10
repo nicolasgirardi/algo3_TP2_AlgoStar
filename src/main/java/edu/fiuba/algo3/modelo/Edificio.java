@@ -11,7 +11,10 @@ public abstract class Edificio {
 
     public abstract void ejecutarTurno();
 
-    public void tirarEdificioNoOperativoError() {
+    public  void ejecutarTurno(RazaRecursos razaRecursos ){
+        // usa la raza Proto, sus edificios
+    };
+    protected void verificarEdificioEsOperativo() {
         if(cantTurnosParaSerOperativo > 0 ){
             throw new EdificioNoOperativoError();
         }
@@ -32,6 +35,5 @@ public abstract class Edificio {
     public int escudoActual(){
         return hp.escudo();
     }
-
 
 }

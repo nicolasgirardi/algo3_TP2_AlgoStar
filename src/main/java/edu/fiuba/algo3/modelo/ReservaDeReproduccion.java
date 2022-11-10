@@ -14,6 +14,6 @@ public class ReservaDeReproduccion extends Edificio {
     }
 
     public void evolucionarLarvas(){
-        this.tirarEdificioNoOperativoError();
+        this.verificarEdificioEsOperativo();
     }
 }

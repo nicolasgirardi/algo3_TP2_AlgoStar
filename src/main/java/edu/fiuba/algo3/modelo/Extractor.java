@@ -22,7 +22,7 @@ public class Extractor extends Edificio {
     }
 
     public int getCantidadZanganos() {
-        tirarEdificioNoOperativoError();
+        verificarEdificioEsOperativo();
         return zanganosTrabajando.size();
     }
 
@@ -39,7 +39,7 @@ public class Extractor extends Edificio {
     }*/
 
     public void agregarZangano(Zangano nuevoZangano){
-        tirarEdificioNoOperativoError();
+        verificarEdificioEsOperativo();
         tirarMaximaCantidadDeZanganosError();
         nuevoZangano.setTrabajo(new TrabajoGas(volcan));
         zanganosTrabajando.add(nuevoZangano);

@@ -2,21 +2,15 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-public class RazaZerg {
+public class RazaZerg extends Raza{
 
-    private RazaRecursos razaRecursos;
     private ArrayList<Individuo> individuos;
     private ArrayList<Edificio> edificios;
-    private ArrayList<Edificio> edificiosExtractores;
 
     public RazaZerg(){
+        super();
         individuos = new ArrayList<Individuo>();
         edificios = new ArrayList<Edificio>();
-        razaRecursos = new RazaRecursos();
-    }
-
-    public void agregarIndividuo(Individuo unIndividuo){
-
     }
 
     public int getCantidadLarvas(){
@@ -38,10 +32,6 @@ public class RazaZerg {
         edificios.add(unEdificio);
     }
 
-    public void agregarNuevoEdificioExtractor(Extractor unExtractor) {
-
-        edificiosExtractores.add(unExtractor);
-    }
 
     public Zangano evolucionarUnZangano(Criadero unCriadero) {
 
@@ -70,21 +60,5 @@ public class RazaZerg {
         }*/
     }
 
-    public int getCantidadGas() {
-        return razaRecursos.obtenerCantidadGas();
-    }
-
-    public int getCantidadMineral() {
-        return razaRecursos.obtenerCantidadMineral();
-    }
-
-    /* public int getCantidadMineral(){
-        return cantidadMineral;
-    }*/
-
-    /* public Zangano obtenerZangano() {
-        return individuos.get(0);
-
-    } */
 
 }

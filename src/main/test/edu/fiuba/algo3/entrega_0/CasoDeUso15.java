@@ -9,7 +9,7 @@ import static org.mockito.Mockito.*;
 public class CasoDeUso15 {
 
     @Test
-    public void RazaZergDejaDeConseguirGasCuandoDelVolcanCuandoSeQuedaSinUnidadesDeGas(){
+    public void RazaZergDejaDeConseguirGasDelVolcanCuandoSeQuedaSinUnidadesDeGas(){
         //Arrange
         RazaZerg unaRaza  = new RazaZerg();
         HitPoints HPmock = mock(HitPoints.class);
@@ -75,6 +75,71 @@ public class CasoDeUso15 {
         //Assert
 
         assertEquals(true, cantidadMineral == maximaCantidadGasExtraible);
+
+    }
+
+    @Test
+    public void RazaProtoDejaDeConseguirGasDelVolcanCuandoSeQuedaSinUnidadesDeGas(){
+        //Arrange
+        RazaProtoss unaRaza  = new RazaProtoss();
+        HitPoints hp = mock(HitPoints.class);
+        Volcan volcan = new Volcan();
+        Asimilador asimilador = new Asimilador(volcan,hp);
+        unaRaza.agregarNuevoEdificio(asimilador);
+
+        // dejo el Asimilador operrable en 6 turnos
+        for(int i = 0; i <6; i++ ){
+            unaRaza.ejecutarTurno();
+        }
+
+
+
+        int maximaCantidadGasExtraible = 5000;
+        int cantidadDeTurnosParaSacarTodoElGas = 250;
+
+
+        //Act
+        for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElGas + 10 ; i++ ){
+            unaRaza.ejecutarTurno();
+        }
+        int cantidadGas = unaRaza.getCantidadGas();
+
+
+        //Assert
+        assertEquals(true, cantidadGas == maximaCantidadGasExtraible);
+
+    }
+
+    @Test
+    public void RazaProtossDejaDeConseguirMineralCuandoDelNodoMineralCuandoSeQuedaSinUnidadesDeMineral(){
+        //Arrange
+        RazaProtoss unaRaza  = new RazaProtoss();
+        HitPoints hp = mock(HitPoints.class);
+        Volcan volcan = new Volcan();
+        Asimilador asimilador = new Asimilador(volcan,hp);
+        unaRaza.agregarNuevoEdificio(asimilador);
+
+        // dejo el Asimilador operrable en 6 turnos
+        for(int i = 0; i <6; i++ ){
+            unaRaza.ejecutarTurno();
+        }
+
+
+
+        int maximaCantidadGasExtraible = 5000;
+        int cantidadDeTurnosParaSacarTodoElGas = 250;
+
+
+        //Act
+        for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElGas + 10 ; i++ ){
+            unaRaza.ejecutarTurno();
+        }
+        int cantidadGas = unaRaza.getCantidadGas();
+
+
+        //Assert
+        assertEquals(true, cantidadGas == maximaCantidadGasExtraible);
+
 
     }
 }
