@@ -3,6 +3,8 @@ package edu.fiuba.algo3.entrega_0;
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
@@ -65,7 +67,7 @@ public class entrega0Test {
     public void testSeCreaUnCriaderoEnCuatroTurnosEstaOperativo(){
         RazaZerg unaRaza  = new RazaZerg();
         HitPoints hp = mock(HitPoints.class);
-        Criadero unCriadero = new Criadero(4,hp);  // hay 3 larvas adentro.
+        Criadero unCriadero = new Criadero(4,hp);
         unaRaza.agregarNuevoEdificio(unCriadero);
         unaRaza.ejecutarTurno();
         unaRaza.ejecutarTurno();
@@ -78,7 +80,7 @@ public class entrega0Test {
     public void testSeCreaUnCriaderoYEnElSegundoTurnoSeLePideLaCantidadDeLarvasDeberiaLanzarUnEdificioNoOperativoError(){
         RazaZerg unaRaza  = new RazaZerg();
         HitPoints hp = mock(HitPoints.class);
-        Criadero unCriadero = new Criadero(4,hp);  // hay 3 larvas adentro.
+        Criadero unCriadero = new Criadero(4,hp);
         unaRaza.agregarNuevoEdificio(unCriadero);
         unCriadero.ejecutarTurno();
         assertThrows( EdificioNoOperativoError.class, ()-> {
@@ -122,4 +124,48 @@ public class entrega0Test {
         });
     }
 
+    @Test
+    public void testSeConstruyeUnaNexoMineralNuevoYSeLoQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
+
+        NexoMineral unNexoMineral = new NexoMineral(4);
+        assertThrows( EdificioNoOperativoError.class, ()-> {
+            unNexoMineral.recolectar();
+        });
+    }
+
+    @Test
+    public void testSeConstruyeUnNuevoPilonYSeLoQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
+
+        Pilon unPilon = new Pilon(5);
+        assertThrows( EdificioNoOperativoError.class, ()-> {
+            unPilon.utilizar();
+        });
+    }
+
+    @Test
+    public void testSeConstruyeUnNuevoAsimiladorYSeLoQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
+
+        Asimilador unAsimilador = new Asimilador(6);
+        assertThrows( EdificioNoOperativoError.class, ()-> {
+            unAsimilador.procesarGas();
+        });
+    }
+
+    @Test
+    public void testSeConstruyeUnNuevoAccesoYSeLoQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
+
+        Acceso unAcceso = new Acceso(8);
+        assertThrows( EdificioNoOperativoError.class, ()-> {
+            unAcceso.transportarTropas();
+        });
+    }
+
+    @Test
+    public void testSeConstruyeUnNuevoPuertoEstelarYSeLoQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
+
+        PuertoEstelar unPuertoEstelar = new PuertoEstelar(10);
+        assertThrows( EdificioNoOperativoError.class, ()-> {
+            unPuertoEstelar.transportarUnidades();
+        });
+    }
 }
