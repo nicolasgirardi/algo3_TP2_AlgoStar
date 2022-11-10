@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-public class entrega0Test {
+public class CasoDeUso1y2 {
 
     //Caso 1 --------------
     @Test
