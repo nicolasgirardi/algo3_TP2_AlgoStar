@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 
 public class Mapa {
-    private ArrayList<Linea> cuadras;
+    private ArrayList<Linea> lineas;
     private ArrayList<Esquina> esquinas;
     private int dimension_x;
     private int dimension_y;
@@ -11,15 +11,15 @@ public class Mapa {
 
 
     public Mapa() {
-        cuadras = new ArrayList<>();
+        lineas = new ArrayList<>();
         esquinas = new ArrayList<>();
         dimension_x = 10;
         dimension_y = 10;
 
     }
 
-    public void agregarCuadra(Linea cuadra) {
-        this.cuadras.add(cuadra);
+    public void agregarLinea(Linea linea) {
+        this.lineas.add(linea);
 
     }
 }

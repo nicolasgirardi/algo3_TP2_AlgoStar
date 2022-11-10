@@ -6,8 +6,8 @@ public class Linea {
     private Esquina esquinaUno;
     private Esquina esquinaDos;
     private ArrayList<Moho> moho;
-    //private ArrayList<Obstaculo> obstaculos;
-    //private ArrayList<Sorpresa> sorpresas;
+    //private ArrayList<Moho> obstaculos;
+    //private ArrayList<Edificios> sorpresas;
 
     public Linea(Esquina esquinaUno, Esquina esquinaDos) {
         this.esquinaUno = esquinaUno;
