@@ -20,8 +20,13 @@ public class Moho {
     }
 
     public void mover(Direccion unaDireccion) {
-        posicion_anterior = posicion;
+        //posicion_anterior = posicion;
         posicion = unaDireccion.obtenerSiguiente(posicion);
+
+    }
+    public void mover1M(Direccion unaDireccion) {
+
+        unaDireccion.mover(posicion);
 
     }
 

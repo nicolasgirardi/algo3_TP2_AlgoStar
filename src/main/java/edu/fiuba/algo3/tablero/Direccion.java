@@ -8,6 +8,9 @@ public class Direccion {
     /*public void mover(Celda celda) {
         esquina.actualizar(5, 5);
     }*/
+    public void mover(Celda unaCelda) {
+        unaCelda.actualizar();
+    }
 
 
     public Celda obtenerSiguiente(Celda unaCelda) {

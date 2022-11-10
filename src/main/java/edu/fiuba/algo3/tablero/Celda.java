@@ -9,9 +9,14 @@ public class Celda {
         this.posicion_y = y;
     }
 
-    public void actualizar(int incremento_x, int incremento_y) {
+    /*public void actualizar(int incremento_x, int incremento_y) {
         this.posicion_x += incremento_x;
         this.posicion_y += incremento_y;
+    }no uso esta clase
+    */
+    public void actualizar() {
+        this.posicion_x += 1;
+        this.posicion_y += 1;
     }
 
     public Celda obtenerSiguiente(int incremento_x, int incremento_y) {
