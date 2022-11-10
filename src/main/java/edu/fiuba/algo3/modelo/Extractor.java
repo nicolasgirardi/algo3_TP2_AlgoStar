@@ -8,9 +8,10 @@ public class Extractor extends Edificio {
     private Volcan volcan;
     private final int CANTIDAD_TURNOS_OPERATIVO = 6;
 
-    public Extractor(int cantTurnosParaSerOperativo){
+    public Extractor(int cantTurnosParaSerOperativo,HitPoints HP){
 
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
+        hp=HP;
     }
 
     public  Extractor(Volcan volcan, HitPoints HP){
@@ -48,5 +49,10 @@ public class Extractor extends Edificio {
         if( zanganosTrabajando.size() == 3 ){
             throw new EdificioNoOperativoError();
         }
+    }
+    public void ejecutarTurno() {
+
+        cantTurnosParaSerOperativo--;
+        hp.regenerar();
     }
 }

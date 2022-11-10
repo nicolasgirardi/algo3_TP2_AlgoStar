@@ -9,10 +9,7 @@ public abstract class Edificio {
         cantTurnosParaSerOperativo = 0;
     }
 
-    public void ejecutarTurno() {
-        cantTurnosParaSerOperativo  --;
-        this.recuperarHP();
-    }
+    public abstract void ejecutarTurno();
 
     public void tirarEdificioNoOperativoError() {
         if(cantTurnosParaSerOperativo > 0 ){
