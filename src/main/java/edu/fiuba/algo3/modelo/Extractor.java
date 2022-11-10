@@ -50,4 +50,9 @@ public class Extractor extends Edificio {
             throw new EdificioNoOperativoError();
         }
     }
+    public void ejecutarTurno() {
+
+        cantTurnosParaSerOperativo--;
+        hp.regenerar();
+    }
 }
