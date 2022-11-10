@@ -71,7 +71,9 @@ public class entrega0Test {
         unaRaza.ejecutarTurno();
         unaRaza.ejecutarTurno();
         unaRaza.ejecutarTurno();
-        assertEquals(3, unaRaza.getCantidadLarvas());
+        int cantidadLarvas = unaRaza.getCantidadLarvas();
+
+        assertEquals(3, cantidadLarvas);
     }
 
     @Test
