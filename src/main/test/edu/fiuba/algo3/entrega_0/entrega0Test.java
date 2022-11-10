@@ -2,6 +2,7 @@ package edu.fiuba.algo3.entrega_0;
 
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
+import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 
@@ -90,8 +91,8 @@ public class entrega0Test {
 
     @Test
     public void testSeConstruyeUnExtractorNuevoYSeLeQuiereAgregarUnZanganoDeberiaTirarExcepcionEdificioNoOperativoError(){
-
-        Extractor unExtractor = new Extractor(6);
+        HitPoints HPmock = mock(HitPoints.class);
+        Extractor unExtractor = new Extractor(6,HPmock);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unExtractor.agregarZangano(new Zangano(new Posicion()));
         });
@@ -99,8 +100,8 @@ public class entrega0Test {
 
     @Test
     public void testSeConstruyeUnaReservaDeReproduccionNuevaYSeLaQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
-
-        ReservaDeReproduccion unaReserva = new ReservaDeReproduccion(12);
+        HitPoints HPmock = mock(HitPoints.class);
+        ReservaDeReproduccion unaReserva = new ReservaDeReproduccion(12,HPmock);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unaReserva.evolucionarLarvas();
         });
@@ -108,8 +109,8 @@ public class entrega0Test {
 
     @Test
     public void testSeConstruyeUnaGuaridaNuevaYSeLaQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
-
-        Guarida unaGuarida = new Guarida(12);
+        HitPoints HPmock = mock(HitPoints.class);
+        Guarida unaGuarida = new Guarida(12,HPmock);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unaGuarida.evolucionarLarvas();
         });
@@ -117,8 +118,8 @@ public class entrega0Test {
 
     @Test
     public void testSeConstruyeUnaEspiralNuevaYSeLaQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
-
-        Espiral unaEspiral = new Espiral(10);
+        HitPoints HPmock = mock(HitPoints.class);
+        Espiral unaEspiral = new Espiral(10,HPmock);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unaEspiral.crear();
         });
