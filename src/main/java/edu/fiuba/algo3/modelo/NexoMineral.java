@@ -8,11 +8,15 @@ public class NexoMineral extends Edificio{
     }
 
     public NexoMineral(int cantTurnosParaSerOperativo){
+
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
+
     }
 
     public void ejecutarTurno() {
+
         cantTurnosParaSerOperativo--;
+        hp.regenerar();
     }
 
     public void recolectar(){

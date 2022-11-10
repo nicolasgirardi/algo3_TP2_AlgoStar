@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CasoDeUso11 {
     @Test
-    public void UnEdificioProtosReciBeDañoYUsaElMetodoRecibirDañoDeHitPoints(){
+    public void UnNexoMineralProtosReciBeDañoYUsaElMetodoRecibirDañoDeHitPoints(){
         HitPoints HPmock = mock(HitPoints.class);
         Edificio edificio = new NexoMineral(HPmock); //podría ser cualquier edificio
 
@@ -18,10 +18,10 @@ public class CasoDeUso11 {
     }
 
     @Test
-    public void UnEdificioZergRecibeDañoySeRegeneraPorTurno(){
+    public void UnNexoMineralRecibeDañoySeRegeneraPorTurno(){
 
         HitPoints HPmock = mock(HitPoints.class);
-        Edificio edificio = new Criadero(HPmock); //podría ser cualquier edificio
+        Edificio edificio = new NexoMineral(HPmock); //podría ser cualquier edificio
 
         edificio.recibirDaño(30);
         when(HPmock.vida()).thenReturn(250);
@@ -36,4 +36,117 @@ public class CasoDeUso11 {
         assertEquals(250,edificio.escudoActual());
     }
 
+    @Test
+    public void UnPilonProtosReciBeDañoYUsaElMetodoRecibirDañoDeHitPoints(){
+        HitPoints HPmock = mock(HitPoints.class);
+        Edificio edificio = new Pilon(0,HPmock); //podría ser cualquier edificio
+
+        edificio.recibirDaño(30);
+
+        verify(HPmock,times(1)).recibirDaño(30);
+    }
+
+    @Test
+    public void UnPilonRecibeDañoySeRegeneraPorTurno(){
+
+        HitPoints HPmock = mock(HitPoints.class);
+        Edificio edificio = new Pilon(0,HPmock); //podría ser cualquier edificio
+
+        edificio.recibirDaño(30);
+        when(HPmock.vida()).thenReturn(300);
+        when(HPmock.escudo()).thenReturn(300);
+        for(int i=0; i<10;i++){
+            edificio.ejecutarTurno();
+        }
+
+        verify(HPmock,times(10)).regenerar();
+
+        assertEquals(300,edificio.vidaActual());
+        assertEquals(300,edificio.escudoActual());
+    }
+    @Test
+    public void UnAsimiladorProtosReciBeDañoYUsaElMetodoRecibirDañoDeHitPoints(){
+        HitPoints HPmock = mock(HitPoints.class);
+        Edificio edificio = new Asimilador(0,HPmock); //podría ser cualquier edificio
+
+        edificio.recibirDaño(30);
+
+        verify(HPmock,times(1)).recibirDaño(30);
+    }
+
+    @Test
+    public void UnAsimiladorRecibeDañoySeRegeneraPorTurno(){
+
+        HitPoints HPmock = mock(HitPoints.class);
+        Edificio edificio = new Asimilador(0,HPmock); //podría ser cualquier edificio
+
+        edificio.recibirDaño(30);
+        when(HPmock.vida()).thenReturn(450);
+        when(HPmock.escudo()).thenReturn(450);
+        for(int i=0; i<10;i++){
+            edificio.ejecutarTurno();
+        }
+
+        verify(HPmock,times(10)).regenerar();
+
+        assertEquals(450,edificio.vidaActual());
+        assertEquals(450,edificio.escudoActual());
+    }
+    @Test
+    public void UnAccesoProtosReciBeDañoYUsaElMetodoRecibirDañoDeHitPoints(){
+        HitPoints HPmock = mock(HitPoints.class);
+        Edificio edificio = new Acceso(0,HPmock); //podría ser cualquier edificio
+
+        edificio.recibirDaño(30);
+
+        verify(HPmock,times(1)).recibirDaño(30);
+    }
+
+    @Test
+    public void UnAccesoRecibeDañoySeRegeneraPorTurno(){
+
+        HitPoints HPmock = mock(HitPoints.class);
+        Edificio edificio = new Acceso(0,HPmock); //podría ser cualquier edificio
+
+        edificio.recibirDaño(30);
+        when(HPmock.vida()).thenReturn(500);
+        when(HPmock.escudo()).thenReturn(500);
+        for(int i=0; i<10;i++){
+            edificio.ejecutarTurno();
+        }
+
+        verify(HPmock,times(10)).regenerar();
+
+        assertEquals(500,edificio.vidaActual());
+        assertEquals(500,edificio.escudoActual());
+    }
+
+    @Test
+    public void UnPuertoEstelarReciBeDañoYUsaElMetodoRecibirDañoDeHitPoints(){
+        HitPoints HPmock = mock(HitPoints.class);
+        Edificio edificio = new PuertoEstelar(0,HPmock); //podría ser cualquier edificio
+
+        edificio.recibirDaño(30);
+
+        verify(HPmock,times(1)).recibirDaño(30);
+    }
+
+    @Test
+    public void UnPuertoEstelarRecibeDañoySeRegeneraPorTurno(){
+
+        HitPoints HPmock = mock(HitPoints.class);
+        Edificio edificio = new PuertoEstelar(0,HPmock); //podría ser cualquier edificio
+
+        edificio.recibirDaño(30);
+        when(HPmock.vida()).thenReturn(600);
+        when(HPmock.escudo()).thenReturn(600);
+        for(int i=0; i<10;i++){
+            edificio.ejecutarTurno();
+        }
+
+        verify(HPmock,times(10)).regenerar();
+
+        assertEquals(600,edificio.vidaActual());
+        assertEquals(600,edificio.escudoActual());
+    }
 }
