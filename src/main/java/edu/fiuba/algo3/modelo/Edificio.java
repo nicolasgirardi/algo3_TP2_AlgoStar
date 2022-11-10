@@ -4,6 +4,8 @@ public abstract class Edificio {
     protected int cantTurnosParaSerOperativo;
     protected HitPoints hp;
 
+    protected static Esquina posicion;
+
     public Edificio(){
 
         cantTurnosParaSerOperativo = 0;
@@ -34,6 +36,10 @@ public abstract class Edificio {
 
     public int escudoActual(){
         return hp.escudo();
+    }
+
+    public static Esquina obtenerPosicion() {
+        return posicion;
     }
 
 

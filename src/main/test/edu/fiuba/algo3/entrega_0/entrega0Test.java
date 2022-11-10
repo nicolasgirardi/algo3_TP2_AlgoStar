@@ -90,8 +90,8 @@ public class entrega0Test {
 
     @Test
     public void testSeConstruyeUnExtractorNuevoYSeLeQuiereAgregarUnZanganoDeberiaTirarExcepcionEdificioNoOperativoError(){
-
-        Extractor unExtractor = new Extractor(6);
+        Esquina posicionConstruir = new Esquina(2, 0);
+        Extractor unExtractor = new Extractor(6,posicionConstruir);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unExtractor.agregarZangano(new Zangano(new Posicion()));
         });
@@ -99,8 +99,8 @@ public class entrega0Test {
 
     @Test
     public void testSeConstruyeUnaReservaDeReproduccionNuevaYSeLaQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
-
-        ReservaDeReproduccion unaReserva = new ReservaDeReproduccion(12);
+        Esquina posicionConstruir = new Esquina(5, 3);
+        ReservaDeReproduccion unaReserva = new ReservaDeReproduccion(12, posicionConstruir);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unaReserva.evolucionarLarvas();
         });
@@ -108,8 +108,8 @@ public class entrega0Test {
 
     @Test
     public void testSeConstruyeUnaGuaridaNuevaYSeLaQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
-
-        Guarida unaGuarida = new Guarida(12);
+        Esquina posicionConstruir = new Esquina(7, 9);
+        Guarida unaGuarida = new Guarida(12, posicionConstruir);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unaGuarida.evolucionarLarvas();
         });
@@ -117,8 +117,8 @@ public class entrega0Test {
 
     @Test
     public void testSeConstruyeUnaEspiralNuevaYSeLaQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
-
-        Espiral unaEspiral = new Espiral(10);
+        Esquina posicionConstruir = new Esquina(2, 0);
+        Espiral unaEspiral = new Espiral(10, posicionConstruir);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unaEspiral.crear();
         });

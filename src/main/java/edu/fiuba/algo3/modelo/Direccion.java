@@ -5,9 +5,9 @@ public class Direccion {
 
     public Direccion(Mapa mapa) {this.mapa = mapa;}
 
-    public void mover(Esquina esquina) {
+    /*public void mover(Esquina esquina) {
         esquina.actualizar(5, 5);
-    }
+    }*/
 
 
     public Esquina obtenerSiguiente(Esquina unaEsquina) {

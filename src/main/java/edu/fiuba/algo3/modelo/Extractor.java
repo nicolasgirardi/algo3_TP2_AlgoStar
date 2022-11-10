@@ -8,9 +8,10 @@ public class Extractor extends Edificio {
     private Volcan volcan;
     private final int CANTIDAD_TURNOS_OPERATIVO = 6;
 
-    public Extractor(int cantTurnosParaSerOperativo){
+    public Extractor(int cantTurnosParaSerOperativo, Esquina unaEsquina){
 
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
+        this.posicion = unaEsquina;
     }
 
     public  Extractor(Volcan volcan, HitPoints HP){

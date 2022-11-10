@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 public class Moho {
     protected Esquina posicion_anterior;
     protected Esquina posicion;
+    public int cantTurnosParaCrecer;
 
 
     public Esquina obtenerPosicionAnterior() {
@@ -11,6 +12,8 @@ public class Moho {
 
     public Moho(Esquina unaEsquina) {
         this.posicion = unaEsquina;
+        this.cantTurnosParaCrecer = 2;
+
     }
 
     public void mover(Direccion unaDireccion) {
@@ -22,4 +25,15 @@ public class Moho {
     public Esquina obtenerPosicion() {
         return posicion;
     }
+
+    /*public void ejecutarTurno(Mapa mapa) {
+
+        cantTurnosParaCrece++;
+
+        if(cantTurnosParaCrecer%2 == 0){
+            mover(new Direccion(mapa));
+        }
+    }*/
+
+
 }
