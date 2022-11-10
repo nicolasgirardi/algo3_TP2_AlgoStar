@@ -136,8 +136,8 @@ public class entrega0Test {
 
     @Test
     public void testSeConstruyeUnNuevoPilonYSeLoQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
-
-        Pilon unPilon = new Pilon(5);
+        HitPoints HPmock = mock(HitPoints.class);
+        Pilon unPilon = new Pilon(5,HPmock);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unPilon.utilizar();
         });
@@ -145,8 +145,8 @@ public class entrega0Test {
 
     @Test
     public void testSeConstruyeUnNuevoAsimiladorYSeLoQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
-
-        Asimilador unAsimilador = new Asimilador(6);
+        HitPoints HPmock = mock(HitPoints.class);
+        Asimilador unAsimilador = new Asimilador(6,HPmock);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unAsimilador.procesarGas();
         });
@@ -154,8 +154,8 @@ public class entrega0Test {
 
     @Test
     public void testSeConstruyeUnNuevoAccesoYSeLoQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
-
-        Acceso unAcceso = new Acceso(8);
+        HitPoints HPmock = mock(HitPoints.class);
+        Acceso unAcceso = new Acceso(8,HPmock);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unAcceso.transportarTropas();
         });
@@ -163,8 +163,8 @@ public class entrega0Test {
 
     @Test
     public void testSeConstruyeUnNuevoPuertoEstelarYSeLoQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
-
-        PuertoEstelar unPuertoEstelar = new PuertoEstelar(10);
+        HitPoints HPmock = mock(HitPoints.class);
+        PuertoEstelar unPuertoEstelar = new PuertoEstelar(10,HPmock);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unPuertoEstelar.transportarUnidades();
         });
