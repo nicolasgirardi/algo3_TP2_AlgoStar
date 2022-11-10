@@ -1,13 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
-public class NexoMineral extends Edificio{
+public class Pilon extends Edificio{
 
-    public NexoMineral(HitPoints HP){
-        hp = HP;
-        cantTurnosParaSerOperativo = 0;
-    }
-
-    public NexoMineral(int cantTurnosParaSerOperativo){
+    public Pilon(int cantTurnosParaSerOperativo){
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
     }
 
@@ -15,8 +10,7 @@ public class NexoMineral extends Edificio{
         cantTurnosParaSerOperativo--;
     }
 
-    public void recolectar(){
+    public void utilizar(){
         this.tirarEdificioNoOperativoError();
     }
-
 }

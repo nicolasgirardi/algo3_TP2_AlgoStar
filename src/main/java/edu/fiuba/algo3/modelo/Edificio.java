@@ -14,10 +14,6 @@ public abstract class Edificio {
         this.recuperarHP();
     }
 
-    public int extraer() {
-        return -1;
-    }
-
     public void tirarEdificioNoOperativoError() {
         if(cantTurnosParaSerOperativo > 0 ){
             throw new EdificioNoOperativoError();

@@ -7,9 +7,7 @@ public class RazaZerg {
     private RazaRecursos razaRecursos;
     private ArrayList<Individuo> individuos;
     private ArrayList<Edificio> edificios;
-
     private ArrayList<Edificio> edificiosExtractores;
-
 
     public RazaZerg(){
         individuos = new ArrayList<Individuo>();
@@ -31,9 +29,13 @@ public class RazaZerg {
         return larvas;
     }
 
-    public void agregarNuevoEdificio(Edificio unCriadero) {
+    public void evolucionarLarvaAZangano() {
 
-        edificios.add(unCriadero);
+    }
+
+    public void agregarNuevoEdificio(Edificio unEdificio) {
+
+        edificios.add(unEdificio);
     }
 
     public void agregarNuevoEdificioExtractor(Extractor unExtractor) {
@@ -62,6 +64,10 @@ public class RazaZerg {
         for(Edificio edificio: edificios){
             edificio.ejecutarTurno();
         }
+        /*
+        for(Extractor extractor: edificiosExtractores){
+           int aux = extractor.extraer();
+        }*/
     }
 
     public int getCantidadGas() {

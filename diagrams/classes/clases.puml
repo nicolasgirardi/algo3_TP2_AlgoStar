@@ -9,21 +9,29 @@ class Juego {
 }
 
 class Zangano{
-
+    -extraer()
+    +ejecutarTurno(razaRecursos: RazaRecursos)
+    +setTrabajo(trabajoZangano: TrabajoZangano)
 }
 class Larva{
-
+    +evolucionar(): Zangano
 }
+
 class RazaZerg{
-    -unidadesDeGas: int
-    -unidadesDeMineral: int
+    -razaRecursos: razaRecursos
     + obtenerZangano(): Zangano
     +ejecutarTurno():void
+    +agregarNuevoEdificio(unEdificio: Edificio)
+    +agregarNuevoEdificioExtractor(unExtractor: Extractor)
+    +evolucionarUnZangano(unCriadero: Criadero)
+    +getCantidadGas()
 }
 class Criadero{
     -Larvas:ArrayList
+    #cantTurnosParaSerOperativo: Int
     +removerLarva():Individuo
     +ejecutarTurno():void
+    -cargarTodaslasLarvas()
 }
 
 
@@ -36,8 +44,9 @@ abstract class Edificio{
 }
 
 class Extractor{
-    -zanganos
+    -zanganos: ArrayList
     +ejecutarTurno()
+    +agregarZangano(nuevoZangano: Zangano)
 }
 
 abstract class Individuo {
