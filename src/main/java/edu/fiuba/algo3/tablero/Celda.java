@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.tablero;
 
 public class Celda {
     private int posicion_x;

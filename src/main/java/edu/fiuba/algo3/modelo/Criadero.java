@@ -1,11 +1,14 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.tablero.Celda;
+
 import java.util.ArrayList;
 
 public class Criadero extends  Edificio {
     ArrayList<Larva> larvas;
 
-    public Criadero(){
+    public Criadero(Celda unaCelda){
+        posicion = unaCelda;
         cantTurnosParaSerOperativo = 0;
         larvas = new ArrayList<Larva>();
         cargarTodaslasLarvas();

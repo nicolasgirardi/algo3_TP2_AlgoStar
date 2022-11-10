@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.tablero.Celda;
+
 public class Guarida extends Edificio {
 
     public Guarida(int cantTurnosParaSerOperativo, Celda unaCelda){

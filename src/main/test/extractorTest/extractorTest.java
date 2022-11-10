@@ -1,6 +1,7 @@
 package extractorTest;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.tablero.Celda;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;

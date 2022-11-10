@@ -1,13 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.tablero.Celda;
+
 public abstract class Edificio {
     protected int cantTurnosParaSerOperativo;
     protected HitPoints hp;
 
     protected static Celda posicion;
 
-    public Edificio(){
 
+    public Edificio(){
         cantTurnosParaSerOperativo = 0;
     }
 

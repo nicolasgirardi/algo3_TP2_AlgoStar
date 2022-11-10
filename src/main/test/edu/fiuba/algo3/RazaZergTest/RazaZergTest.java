@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.RazaZergTest;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.tablero.Celda;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,8 +23,9 @@ public class RazaZergTest {
 
     @Test
     public void test02SeCreaLaRazaZergSeAgregan3LarvasYSeEvolucionaUnLarvaDeberiamosTener2LarvasYUnZangano(){
+        Celda posicionConstruir = new Celda(0, 0);
         RazaZerg unaRaza  = new RazaZerg();
-        Criadero unCriadero = new Criadero();  // hay 3 larvas adentro.
+        Criadero unCriadero = new Criadero(posicionConstruir);  // hay 3 larvas adentro.
         unaRaza.agregarNuevoEdificio(unCriadero);
         unaRaza.evolucionarUnZangano(unCriadero);
 
