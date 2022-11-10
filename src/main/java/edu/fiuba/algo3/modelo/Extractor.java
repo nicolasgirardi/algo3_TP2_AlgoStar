@@ -5,10 +5,19 @@ import java.util.ArrayList;
 public class Extractor extends Edificio {
 
     ArrayList<Zangano> zanganosTrabajando;
+    private Volcan volcan;
+    private final int CANTIDAD_TURNOS_OPERATIVO = 6;
 
     public Extractor(int cantTurnosParaSerOperativo){
 
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
+    }
+
+    public  Extractor(Volcan volcan, HitPoints HP){
+        this.cantTurnosParaSerOperativo = CANTIDAD_TURNOS_OPERATIVO;
+        this.volcan = volcan;
+        hp = HP;
+        zanganosTrabajando = new ArrayList<Zangano>();
     }
 
     public int getCantidadZanganos() {
@@ -17,7 +26,7 @@ public class Extractor extends Edificio {
     }
 
 
-    public int extraer() {
+    /*public int extraer() {
         cantTurnosParaSerOperativo--;
         int gasTotal = 0;
         if(cantTurnosParaSerOperativo < 0 && zanganosTrabajando.size() > 0) {
@@ -26,11 +35,12 @@ public class Extractor extends Edificio {
             }
         }
         return gasTotal;
-    }
+    }*/
 
     public void agregarZangano(Zangano nuevoZangano){
         tirarEdificioNoOperativoError();
         tirarMaximaCantidadDeZanganosError();
+        nuevoZangano.setTrabajo(new TrabajoGas(volcan));
         zanganosTrabajando.add(nuevoZangano);
     }
 

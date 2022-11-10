@@ -15,8 +15,10 @@ class Larva{
 
 }
 class RazaZerg{
-    +unidadesDeGas
-    -
+    -unidadesDeGas: int
+    -unidadesDeMineral: int
+    + obtenerZangano(): Zangano
+    +ejecutarTurno():void
 }
 class Criadero{
     -Larvas:ArrayList
@@ -27,6 +29,10 @@ class Criadero{
 
 abstract class Edificio{
     -posicion
+    +regenerarVida()
+    +vidaActual()
+    +escudoActual()
+    +recibirDaño()
 }
 
 class Extractor{
@@ -60,6 +66,7 @@ class Volcan{
     +extraer()
 }
 
+
 interface hitPoints{
 
 +recibirDaño()
@@ -72,6 +79,8 @@ Zangano  -up--|> Individuo
 Larva    -up--|> Individuo
 RazaZerg "1"  o-- "*" Edificio
 RazaZerg "1"  o-- "*" Individuo
+RazaZerg   ..|>  Ejecutable
+
 Criadero -up--|> Edificio
 Extractor -up--|> Edificio
 Juego "1"  o-- "1" RazaZerg
