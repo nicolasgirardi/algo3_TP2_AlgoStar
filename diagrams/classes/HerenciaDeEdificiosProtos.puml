@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class NexoMineral{
+
+}
+
+class Pilon{
+
+}
+
+class Asimilador{
+
+}
+
+class Acceso{
+
+}
+
+class PuertoEstelar{
+
+}
+
+abstract class Edificio {
+    #hp: HitPoints
+    #cantTurnosParaSerOperativo: Int
+    +regenerarVida()
+    +vidaActual()
+    +escudoActual()
+    +recibirDaño()
+}
+
+Edificio <|-- NexoMineral
+Edificio <|-- Pilon
+Edificio <|-- Asimilador
+Edificio <|-- Acceso
+Edificio <|-- PuertoEstelar
+@enduml

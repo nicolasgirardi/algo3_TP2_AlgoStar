@@ -33,9 +33,9 @@ public class RazaZerg {
 
     }
 
-    public void agregarNuevoEdificio(Edificio unCriadero) {
+    public void agregarNuevoEdificio(Edificio unEdificio) {
 
-        edificios.add(unCriadero);
+        edificios.add(unEdificio);
     }
 
     public void agregarNuevoEdificioExtractor(Extractor unExtractor) {
