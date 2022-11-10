@@ -29,6 +29,10 @@ class Criadero{
 
 abstract class Edificio{
     -posicion
+    +regenerarVida()
+    +vidaActual()
+    +escudoActual()
+    +recibirDaño()
 }
 
 class Extractor{
@@ -62,10 +66,14 @@ class Volcan{
     +extraer()
 }
 
-interface Ejecutable {
-   + {abstract} ejecutarTurno(): void
-}
 
+interface hitPoints{
+
++recibirDaño()
++regenerar()
++vida()
++escudo()
+}
 
 Zangano  -up--|> Individuo
 Larva    -up--|> Individuo
@@ -82,6 +90,8 @@ Recursos <|-- Volcan
 Recursos <|-- NodoMineral
 Criadero o-- Moho
 RazaZerg "1"  o-- "*" Extractor
+
+Edificio -> "1" hitPoints
 
 @enduml
 
