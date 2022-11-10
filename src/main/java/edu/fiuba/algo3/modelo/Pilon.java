@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class Pilon extends Edificio{
+public class Pilon extends EdificioProtoss{
 
     public Pilon(int cantTurnosParaSerOperativo){
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class Asimilador extends Edificio{
+public class Asimilador extends EdificioProtoss{
 
     public Asimilador(int cantTurnosParaSerOperativo){
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
