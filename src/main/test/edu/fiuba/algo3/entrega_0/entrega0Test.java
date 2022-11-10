@@ -3,8 +3,6 @@ package edu.fiuba.algo3.entrega_0;
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
@@ -90,7 +88,7 @@ public class entrega0Test {
 
     @Test
     public void testSeConstruyeUnExtractorNuevoYSeLeQuiereAgregarUnZanganoDeberiaTirarExcepcionEdificioNoOperativoError(){
-        Esquina posicionConstruir = new Esquina(2, 0);
+        Celda posicionConstruir = new Celda(2, 0);
         Extractor unExtractor = new Extractor(6,posicionConstruir);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unExtractor.agregarZangano(new Zangano(new Posicion()));
@@ -99,7 +97,7 @@ public class entrega0Test {
 
     @Test
     public void testSeConstruyeUnaReservaDeReproduccionNuevaYSeLaQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
-        Esquina posicionConstruir = new Esquina(5, 3);
+        Celda posicionConstruir = new Celda(5, 3);
         ReservaDeReproduccion unaReserva = new ReservaDeReproduccion(12, posicionConstruir);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unaReserva.evolucionarLarvas();
@@ -108,7 +106,7 @@ public class entrega0Test {
 
     @Test
     public void testSeConstruyeUnaGuaridaNuevaYSeLaQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
-        Esquina posicionConstruir = new Esquina(7, 9);
+        Celda posicionConstruir = new Celda(7, 9);
         Guarida unaGuarida = new Guarida(12, posicionConstruir);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unaGuarida.evolucionarLarvas();
@@ -117,7 +115,7 @@ public class entrega0Test {
 
     @Test
     public void testSeConstruyeUnaEspiralNuevaYSeLaQuiereUtilizarDeberiaTirarExcepcionEdificioNoOperativoError(){
-        Esquina posicionConstruir = new Esquina(2, 0);
+        Celda posicionConstruir = new Celda(2, 0);
         Espiral unaEspiral = new Espiral(10, posicionConstruir);
         assertThrows( EdificioNoOperativoError.class, ()-> {
             unaEspiral.crear();

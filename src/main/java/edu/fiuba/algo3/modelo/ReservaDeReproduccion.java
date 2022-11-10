@@ -2,9 +2,9 @@ package edu.fiuba.algo3.modelo;
 
 public class ReservaDeReproduccion extends Edificio {
 
-    public ReservaDeReproduccion(int cantTurnosParaSerOperativo, Esquina unaEsquina){
+    public ReservaDeReproduccion(int cantTurnosParaSerOperativo, Celda unaCelda){
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
-        this.posicion = unaEsquina;
+        this.posicion = unaCelda;
     }
 
     public void ejecutarTurno() {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Mapa {
     private ArrayList<Linea> lineas;
-    private ArrayList<Esquina> esquinas;
+    private ArrayList<Celda> celdas;
     private int dimension_x;
     private int dimension_y;
 
@@ -12,7 +12,7 @@ public class Mapa {
 
     public Mapa() {
         lineas = new ArrayList<>();
-        esquinas = new ArrayList<>();
+        celdas = new ArrayList<>();
         dimension_x = 10;
         dimension_y = 10;
 

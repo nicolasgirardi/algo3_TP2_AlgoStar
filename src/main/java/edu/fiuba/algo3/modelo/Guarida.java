@@ -2,9 +2,9 @@ package edu.fiuba.algo3.modelo;
 
 public class Guarida extends Edificio {
 
-    public Guarida(int cantTurnosParaSerOperativo, Esquina unaEsquina){
+    public Guarida(int cantTurnosParaSerOperativo, Celda unaCelda){
         this.cantTurnosParaSerOperativo = cantTurnosParaSerOperativo;
-        this.posicion = unaEsquina;
+        this.posicion = unaCelda;
     }
 
     public void ejecutarTurno() {

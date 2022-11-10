@@ -9,7 +9,7 @@ public class extractorTest {
 
     @Test
     public void testSeConstruyeUnExtractorNuevoYSeLeQuiereAgregarUnZanganoYLanzaExcepcionEdificioNoOperativoError(){
-        Esquina posicionConstruir = new Esquina(9, 1);
+        Celda posicionConstruir = new Celda(9, 1);
         //Arrange
         Extractor unExtractor = new Extractor(6, posicionConstruir);
         Zangano unZangano = new Zangano( new Posicion() );

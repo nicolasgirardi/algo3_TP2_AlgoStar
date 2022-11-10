@@ -4,17 +4,17 @@ import java.util.ArrayList;
 
 
 public class Linea {
-    private Esquina esquinaUno;
-    private Esquina esquinaDos;
+    private Celda celdaUno;
+    private Celda celdaDos;
     private ArrayList<Moho> moho;
 
     private ArrayList<Edificio> edificio;
     //private ArrayList<Moho> obstaculos;
     //private ArrayList<Edificios> sorpresas;
 
-    public Linea(Esquina esquinaUno, Esquina esquinaDos) {
-        this.esquinaUno = esquinaUno;
-        this.esquinaDos = esquinaDos;
+    public Linea(Celda celdaUno, Celda celdaDos) {
+        this.celdaUno = celdaUno;
+        this.celdaDos = celdaDos;
         this.moho = new ArrayList<>();
         this.edificio = new ArrayList<>();
     }
@@ -24,7 +24,7 @@ public class Linea {
     }
 
     public void agregarNuevoEdificio(Edificio edificio) {
-        if (esquinaDos.obtenerPosicionX() >= edificio.obtenerPosicion().obtenerPosicionX()){
+        if (celdaDos.obtenerPosicionX() >= edificio.obtenerPosicion().obtenerPosicionX()){
             this.edificio.add(edificio);
         }
         //error

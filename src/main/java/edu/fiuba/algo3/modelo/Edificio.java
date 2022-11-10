@@ -4,7 +4,7 @@ public abstract class Edificio {
     protected int cantTurnosParaSerOperativo;
     protected HitPoints hp;
 
-    protected static Esquina posicion;
+    protected static Celda posicion;
 
     public Edificio(){
 
@@ -38,7 +38,7 @@ public abstract class Edificio {
         return hp.escudo();
     }
 
-    public static Esquina obtenerPosicion() {
+    public static Celda obtenerPosicion() {
         return posicion;
     }
 

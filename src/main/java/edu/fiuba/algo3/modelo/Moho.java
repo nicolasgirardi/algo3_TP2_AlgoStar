@@ -1,17 +1,17 @@
 package edu.fiuba.algo3.modelo;
 
 public class Moho {
-    protected Esquina posicion_anterior;
-    protected Esquina posicion;
+    protected Celda posicion_anterior;
+    protected Celda posicion;
     public int cantTurnosParaCrecer;
 
 
-    public Esquina obtenerPosicionAnterior() {
+    public Celda obtenerPosicionAnterior() {
         return posicion_anterior;
     }
 
-    public Moho(Esquina unaEsquina) {
-        this.posicion = unaEsquina;
+    public Moho(Celda unaCelda) {
+        this.posicion = unaCelda;
         this.cantTurnosParaCrecer = 2;
 
     }
@@ -22,7 +22,7 @@ public class Moho {
 
     }
 
-    public Esquina obtenerPosicion() {
+    public Celda obtenerPosicion() {
         return posicion;
     }
 

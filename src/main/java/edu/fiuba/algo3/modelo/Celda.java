@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
-public class Esquina {
+public class Celda {
     private int posicion_x;
     private int posicion_y;
 
-    public Esquina(int x, int y) {
+    public Celda(int x, int y) {
         this.posicion_x = x;
         this.posicion_y = y;
     }
@@ -14,8 +14,8 @@ public class Esquina {
         this.posicion_y += incremento_y;
     }
 
-    public Esquina obtenerSiguiente(int incremento_x, int incremento_y) {
-        return new Esquina(posicion_x + incremento_x, posicion_y + incremento_y);
+    public Celda obtenerSiguiente(int incremento_x, int incremento_y) {
+        return new Celda(posicion_x + incremento_x, posicion_y + incremento_y);
     }
     public int obtenerPosicionX() {
         return posicion_x;

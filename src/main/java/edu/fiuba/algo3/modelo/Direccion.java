@@ -5,12 +5,12 @@ public class Direccion {
 
     public Direccion(Mapa mapa) {this.mapa = mapa;}
 
-    /*public void mover(Esquina esquina) {
+    /*public void mover(Celda celda) {
         esquina.actualizar(5, 5);
     }*/
 
 
-    public Esquina obtenerSiguiente(Esquina unaEsquina) {
-        return unaEsquina.obtenerSiguiente(5, 5);
+    public Celda obtenerSiguiente(Celda unaCelda) {
+        return unaCelda.obtenerSiguiente(5, 5);
     }
 }
