@@ -26,6 +26,9 @@ recoge 10 unidades de mineral turno.
     estar operativo y tendra sus 3 larvas inicales.
 6. Zangano se puede transforma en un nuevo criadero.
 7.
+8. suponer lo que queramos en vida.
+9. suponer el radio de moho. el moho crece y si esta encima esta dentro del area de la construccion.
+El moho son 5 celdas penciam de la edificacion. suponer compas.
 
 
 

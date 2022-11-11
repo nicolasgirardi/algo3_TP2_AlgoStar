@@ -46,7 +46,7 @@ public class RazaZerg extends Raza{
 
     public Zangano evolucionarUnZangano(Criadero unCriadero) {
 
-        Zangano unZangano = unCriadero.removerLarva() ;
+        Zangano unZangano = unCriadero.evolucionarLarva() ;
         individuos.add( unZangano );
         return unZangano;
     }

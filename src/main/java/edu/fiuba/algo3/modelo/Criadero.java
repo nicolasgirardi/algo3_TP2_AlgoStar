@@ -35,7 +35,7 @@ public class Criadero extends  Edificio {
         return larvas.size();
     }
 
-    public Zangano removerLarva() {
+    public Zangano evolucionarLarva() {
         this.verificarEdificioEsOperativo();
         Larva larvaAuxiliar = larvas.get(0);
         larvas.remove(0);
@@ -60,5 +60,40 @@ public class Criadero extends  Edificio {
         larvas.add( new Larva() );
         larvas.add( new Larva() );
         larvas.add( new Larva() );
+    }
+
+    public void agregarLarva(Larva larvaUno) {
+        agregarLarva(larvaUno);
+    }
+
+    public Zangano evolucionar() {
+        Larva larva = larvas.remove(0);
+        return larva.evolucionar();
+    }
+
+    @Override
+    public boolean equals(Object object){
+        if (!(object instanceof Criadero)) return false;
+        Criadero criadero = (Criadero) object;
+
+        return criadero.tieneMismaCantidad(larvas.size());
+    }
+
+    private boolean tieneMismaCantidad(int size) {
+        return larvas.size() == size;
+    }
+
+
+    public void ejecutarTurnoRegenerar() {
+        cantTurnosParaSerOperativo--;
+        if(cantTurnosParaSerOperativo < 0 ){
+            if(larvas.size() < 3){
+                larvas.add( new Larva() );
+            }
+        }
+        if(cantTurnosParaSerOperativo == 0 ){
+            cargarTodaslasLarvas();
+        }
+
     }
 }

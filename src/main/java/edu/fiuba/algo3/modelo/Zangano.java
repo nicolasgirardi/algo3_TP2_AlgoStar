@@ -9,6 +9,9 @@ public class Zangano extends Individuo {
         posicion = posInicial;
     }
 
+    public Zangano(){
+
+    }
     private void extraer(RazaRecursos razaRecursos){
         trabajoZangano.extraer(razaRecursos);
     }
@@ -30,4 +33,5 @@ public class Zangano extends Individuo {
     public boolean tieneMismaPosicion(Volcan volcan) {
         return volcan.TieneMismaPosicion(posicion);
     }
+
 }

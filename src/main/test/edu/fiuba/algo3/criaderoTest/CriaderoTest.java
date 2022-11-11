@@ -16,7 +16,7 @@ public class CriaderoTest {
     public void testSeCreaUnCriaderoSeEvoluciona1LarvaYAlSiguienteTurnoDeberiaTener3Larvas(){
         HitPoints hp = mock(HitPoints.class);
         Criadero unCriadero = new Criadero(hp);  // hay 3 larvas adentro.
-        unCriadero.removerLarva();
+        unCriadero.evolucionarLarva();
         unCriadero.ejecutarTurno();
         assertEquals(3, unCriadero.getCantidadLarvas());
     }
@@ -33,8 +33,8 @@ public class CriaderoTest {
     public void testSeCreaUnCriaderoSeEvolucionDosLarvasDeberiamosTener2LarvasDespuesDelTurno(){
         HitPoints hp = mock(HitPoints.class);
         Criadero unCriadero = new Criadero(hp);  // hay 3 larvas adentro.
-        unCriadero.removerLarva();
-        unCriadero.removerLarva();
+        unCriadero.evolucionarLarva();
+        unCriadero.evolucionarLarva();
         unCriadero.ejecutarTurno();
         assertEquals(2, unCriadero.getCantidadLarvas());
     }
