@@ -35,6 +35,21 @@ public class CasoDeUso1 {
         //assert
         assertTrue(  criaderoBajoPrueba.equals(criaderoNormal) );
     }
+    @Test
+    public void testCriaderoSeIniciaCon3larvasSeEvolucionanLasTresLarvasYNoDeberiaSerIgualAUnCriaderoSinEvolucionarLarvas(){
+        Criadero criaderoBajoPrueba = new Criadero();
+        Criadero criaderoNormal = new Criadero();
+
+        //act
+        Zangano zanganoUno = criaderoBajoPrueba.evolucionarLarva();
+        Zangano zanganoDos = criaderoBajoPrueba.evolucionarLarva();
+        Zangano zanganoTres = criaderoBajoPrueba.evolucionarLarva();
+        criaderoBajoPrueba.ejecutarTurnoRegenerar();
+
+        //assert
+        assertFalse(  criaderoBajoPrueba.equals(criaderoNormal) );
+    }
+
 
 
 }
