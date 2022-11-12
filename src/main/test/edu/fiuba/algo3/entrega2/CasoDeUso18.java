@@ -83,18 +83,18 @@ public class CasoDeUso18 {
         assertEquals(dañoEsperado,unidad.AtacarAire());
     }
     @Test
-    public void UnScoutAtacaTierrayCausa14Daño(){
+    public void UnScoutAtacaTierrayCausa8Daño(){
         Unidad unidad = new Scout();
 
-        int dañoEsperado = 14;
+        int dañoEsperado = 8;
 
         assertEquals(dañoEsperado,unidad.AtacarAire());
     }
     @Test
-    public void UnScoutAtacaAireyCausa8Daño(){
+    public void UnScoutAtacaAireyCausa14Daño(){
         Unidad unidad = new Scout();
 
-        int dañoEsperado = 8;
+        int dañoEsperado = 14;
 
         assertEquals(dañoEsperado,unidad.AtacarAire());
     }
