@@ -12,7 +12,6 @@ public class Mapa {
 
     public Mapa() {
         celdas = new ArrayList<>();
-
         dimension_x = 10;
         dimension_y = 10;
 

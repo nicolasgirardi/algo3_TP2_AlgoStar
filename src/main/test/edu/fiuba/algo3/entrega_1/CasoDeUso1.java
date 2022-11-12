@@ -12,8 +12,8 @@ public class CasoDeUso1 {
     @Test
     public void testCriaderoSeIniciaCon3larvasSeConsumeUnaParaEngendrarUnzánganoLeDeberiaQuedarDos(){
         //arrange
-        Criadero criaderoBajoPrueba = new Criadero();
-        Criadero criaderoNormal = new Criadero();
+        Criadero criaderoBajoPrueba = new Criadero(0);
+        Criadero criaderoNormal = new Criadero(0);
 
         //act
         Zangano zangano = criaderoBajoPrueba.evolucionarLarva();
@@ -25,8 +25,8 @@ public class CasoDeUso1 {
     @Test
     public void testCriaderoSeIniciaCon3larvasSeConsumeUnaParaEngendrarUnzánganoLeDeberiaQuedarDosYDeberiaTenerUnZangano(){
         //arrange
-        Criadero criaderoBajoPrueba = new Criadero();
-        Criadero criaderoNormal = new Criadero();
+        Criadero criaderoBajoPrueba = new Criadero(0);
+        Criadero criaderoNormal = new Criadero(0);
 
         //act
         Zangano zangano = criaderoBajoPrueba.evolucionarLarva();
@@ -37,8 +37,8 @@ public class CasoDeUso1 {
     }
     @Test
     public void testCriaderoSeIniciaCon3larvasSeEvolucionanLasTresLarvasYNoDeberiaSerIgualAUnCriaderoSinEvolucionarLarvas(){
-        Criadero criaderoBajoPrueba = new Criadero();
-        Criadero criaderoNormal = new Criadero();
+        Criadero criaderoBajoPrueba = new Criadero(0);
+        Criadero criaderoNormal = new Criadero(0);
 
         //act
         Zangano zanganoUno = criaderoBajoPrueba.evolucionarLarva();
