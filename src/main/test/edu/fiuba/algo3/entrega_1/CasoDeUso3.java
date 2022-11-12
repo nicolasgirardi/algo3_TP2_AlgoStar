@@ -15,10 +15,10 @@ public class CasoDeUso3 {
 
         ubicacion.asignarRecurso(volcan);
 
-        Asimilador unAsimilador = new Asimilador();
+        Edificio unEdificio = new Asimilador();
 
         assertDoesNotThrow( ()-> {
-            ubicacion.asignarEdifico(unAsimilador);
+            ubicacion.asignarEdifico(unEdificio);
         });
     }
     @Test
@@ -28,10 +28,114 @@ public class CasoDeUso3 {
 
         ubicacion.asignarRecurso(volcan);
 
-        Edificio unExtractor = new Extractor();
+        Edificio unEdificio = new Extractor();
 
         assertDoesNotThrow( ()-> {
-            ubicacion.asignarEdifico(unExtractor);
+            ubicacion.asignarEdifico(unEdificio);
+        });
+    }
+    @Test
+    public void testCriaderoNoSePuedeConstruirSobreElGas(){
+        Ubicacion ubicacion = new Ubicacion();
+        Volcan volcan = new Volcan();
+
+        ubicacion.asignarRecurso(volcan);
+
+        Edificio unEdificio = new Criadero();
+
+        assertDoesNotThrow( ()-> {
+            ubicacion.asignarEdifico(unEdificio);
+        });
+    }
+    @Test
+    public void testReservaDeProduccionNoSePuedeConstruirSobreElGas(){
+        Ubicacion ubicacion = new Ubicacion();
+        Volcan volcan = new Volcan();
+
+        ubicacion.asignarRecurso(volcan);
+
+        Edificio unEdificio = new ReservaDeReproduccion();
+
+        assertDoesNotThrow( ()-> {
+            ubicacion.asignarEdifico(unEdificio);
+        });
+    }
+    @Test
+    public void testGuaridaNoSePuedeConstruirSobreElGas(){
+        Ubicacion ubicacion = new Ubicacion();
+        Volcan volcan = new Volcan();
+
+        ubicacion.asignarRecurso(volcan);
+
+        Edificio unEdificio = new Guarida();
+
+        assertDoesNotThrow( ()-> {
+            ubicacion.asignarEdifico(unEdificio);
+        });
+    }
+    @Test
+    public void testEspiralNoSePuedeConstruirSobreElGas(){
+        Ubicacion ubicacion = new Ubicacion();
+        Volcan volcan = new Volcan();
+
+        ubicacion.asignarRecurso(volcan);
+
+        Edificio unEdificio = new Espiral();
+
+        assertDoesNotThrow( ()-> {
+            ubicacion.asignarEdifico(unEdificio);
+        });
+    }
+    @Test
+    public void testNexoMineralNoSePuedeConstruirSobreElGas(){
+        Ubicacion ubicacion = new Ubicacion();
+        Volcan volcan = new Volcan();
+
+        ubicacion.asignarRecurso(volcan);
+
+        Edificio unEdificio = new NexoMineral();
+
+        assertDoesNotThrow( ()-> {
+            ubicacion.asignarEdifico(unEdificio);
+        });
+    }
+    @Test
+    public void testPilonNoSePuedeConstruirSobreElGas(){
+        Ubicacion ubicacion = new Ubicacion();
+        Volcan volcan = new Volcan();
+
+        ubicacion.asignarRecurso(volcan);
+
+        Edificio unEdificio = new Pilon();
+
+        assertDoesNotThrow( ()-> {
+            ubicacion.asignarEdifico(unEdificio);
+        });
+    }
+    @Test
+    public void testAccesoNoSePuedeConstruirSobreElGas(){
+        Ubicacion ubicacion = new Ubicacion();
+        Volcan volcan = new Volcan();
+
+        ubicacion.asignarRecurso(volcan);
+
+        Edificio unEdificio = new Acceso();
+
+        assertDoesNotThrow( ()-> {
+            ubicacion.asignarEdifico(unEdificio);
+        });
+    }
+    @Test
+    public void testPuertoEstelarNoSePuedeConstruirSobreElGas(){
+        Ubicacion ubicacion = new Ubicacion();
+        Volcan volcan = new Volcan();
+
+        ubicacion.asignarRecurso(volcan);
+
+        Edificio unEdificio = new PuertoEstelar();
+
+        assertDoesNotThrow( ()-> {
+            ubicacion.asignarEdifico(unEdificio);
         });
     }
 }
