@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo;
 public class Nodo {
     private Nodo norte;
     private Nodo sur;
-    private Nodo noreste;
+    private Nodo este;
     private Nodo sureste;
     private Nodo noroeste;
     private Nodo suroeste;
