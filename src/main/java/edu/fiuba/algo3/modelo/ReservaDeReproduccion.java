@@ -2,17 +2,15 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-public class ReservaDeReproduccion {
+public class ReservaDeReproduccion extends Edificio{
 
-    private final int CANTIDAD_TURNOS_OPERATIVO = 12;
-
-    private int turnosRestantesParaSerOperativo;
+    private static final int CANTIDAD_TURNOS_OPERATIVO = 12;
 
     private ArrayList<Larva> larvas;
 
     public ReservaDeReproduccion(){
+        super(CANTIDAD_TURNOS_OPERATIVO);
         larvas = new ArrayList<Larva>();
-        turnosRestantesParaSerOperativo = CANTIDAD_TURNOS_OPERATIVO;
         cargarTodaslasLarvas();
     }
 
@@ -24,14 +22,9 @@ public class ReservaDeReproduccion {
 
 
     public Zerling evolucionarLarva(Larva larva) {
-        if(turnosRestantesParaSerOperativo > 0 ){
-            throw  new EdificioNoOperativoError();
-        }
+        verififarEdificioOperativo();
         return larva.evolucionar(this);
 
     }
 
-    public void ejecutarTurno() {
-        turnosRestantesParaSerOperativo--;
-    }
 }

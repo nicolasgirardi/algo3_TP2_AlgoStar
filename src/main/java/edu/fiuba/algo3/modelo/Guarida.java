@@ -2,27 +2,18 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-public class Guarida {
-    private final int CANTIDAD_TURNOS_OPERATIVO = 12;
-
-    private int turnosRestantesParaSerOperativo;
-
+public class Guarida extends Edificio{
+    private static final int CANTIDAD_TURNOS_OPERATIVO = 12;
     private ArrayList<Larva> larvas;
 
     public Guarida(){
+        super(CANTIDAD_TURNOS_OPERATIVO);
         larvas = new ArrayList<Larva>();
-        turnosRestantesParaSerOperativo = CANTIDAD_TURNOS_OPERATIVO;
     }
 
 
     public Hidralisco evolucionar(Larva unaLarva) {
-        if(turnosRestantesParaSerOperativo > 0 ){
-            throw new EdificioNoOperativoError();
-        }
+        verififarEdificioOperativo();
         return unaLarva.evolucionar(this);
-    }
-
-    public void ejecutarTurno() {
-        turnosRestantesParaSerOperativo--;
     }
 }

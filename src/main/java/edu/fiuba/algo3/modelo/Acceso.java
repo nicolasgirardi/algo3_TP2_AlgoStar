@@ -1,24 +1,16 @@
 package edu.fiuba.algo3.modelo;
 
-public class Acceso {
+public class Acceso extends Edificio{
 
-    private final int CANTIDAD_TURNOS_OPERATIVO = 6;
-
-    private int turnosRestantesParaSerOperativo;
+    private static final int CANTIDAD_TURNOS_OPERATIVO = 6;
 
 
     public Acceso(){
-        turnosRestantesParaSerOperativo = CANTIDAD_TURNOS_OPERATIVO;
-    }
-
-    public void ejecutarTurno() {
-        turnosRestantesParaSerOperativo--;
+        super(CANTIDAD_TURNOS_OPERATIVO);
     }
 
 
     public void transportarTropas() {
-        if(turnosRestantesParaSerOperativo > 0 ){
-            throw new EdificioNoOperativoError();
-        }
+        verififarEdificioOperativo();
     }
 }

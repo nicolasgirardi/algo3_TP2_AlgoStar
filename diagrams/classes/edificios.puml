@@ -1,0 +1,12 @@
+@startuml
+
+
+class Edificio{
+
+}
+class Criadero{
+
+   +evolucionarLarva()
+}
+
+@enduml
