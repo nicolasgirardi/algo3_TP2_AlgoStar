@@ -8,4 +8,8 @@ public class Larva {
     public Zerling evolucionar(ReservaDeReproduccion reserva) {
         return new Zerling();
     }
+
+    public Hidralisco evolucionar(Guarida guarida) {
+        return new Hidralisco();
+    }
 }
