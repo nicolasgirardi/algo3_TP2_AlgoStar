@@ -6,35 +6,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CasoDeUso18 {
 
-    @Test
-    public void UnZanganoAtacaTierrayCausa0Daño(){
-        Unidad unidad = new Zangano();
 
-        int dañoEsperado = 0;
-
-        assertEquals(dañoEsperado,unidad.AtacarAire());
-    }
-    @Test
-    public void UnZanganoAtacaAireyCausa0Daño(){
-        Unidad unidad = new Zangano();
-
-        int dañoEsperado = 0;
-
-        assertEquals(dañoEsperado,unidad.AtacarAire());
-    }
     @Test
     public void UnZerlingAtacaTierrayCausa4Daño(){
         Unidad unidad = new Zerling();
 
         int dañoEsperado = 4;
-
-        assertEquals(dañoEsperado,unidad.AtacarAire());
-    }
-    @Test
-    public void UnZerlingAtacaAireyCausa0Daño(){
-        Unidad unidad = new Zerling();
-
-        int dañoEsperado = 0;
 
         assertEquals(dañoEsperado,unidad.AtacarAire());
     }
@@ -80,27 +57,12 @@ public class CasoDeUso18 {
 
         assertEquals(dañoEsperado,unidad.AtacarAire());
     }
-    @Test
-    public void UnGuardianAtacaAireyCausa0Daño(){
-        Unidad unidad = new Guardian();
 
-        int dañoEsperado = 0;
-
-        assertEquals(dañoEsperado,unidad.AtacarAire());
-    }
     @Test
     public void UnZealotAtacaTierrayCausa8Daño(){
         Unidad unidad = new Zealot();
 
         int dañoEsperado = 8;
-
-        assertEquals(dañoEsperado,unidad.AtacarAire());
-    }
-    @Test
-    public void UnZealotAtacaAireyCausa0Daño(){
-        Unidad unidad = new Zealot();
-
-        int dañoEsperado = 0;
 
         assertEquals(dañoEsperado,unidad.AtacarAire());
     }
