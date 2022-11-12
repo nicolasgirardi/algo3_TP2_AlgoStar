@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 
 public class Criadero{
+    int cantidadTurnosParaSerOperativo;
     private ArrayList<Larva> larvas;
 
     public Criadero(){
