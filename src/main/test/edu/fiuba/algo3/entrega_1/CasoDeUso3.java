@@ -10,7 +10,7 @@ public class CasoDeUso3 {
 
     @Test
     public void testAsimiladorSoloSePuedeConstruirSobreElGas(){
-        Ubicacion ubicacion = new Ubicacion();
+        Celda ubicacion = new Celda();
         Volcan volcan = new Volcan();
 
         ubicacion.asignarRecurso(volcan);
@@ -23,7 +23,7 @@ public class CasoDeUso3 {
     }
     @Test
     public void testExtractorSoloSePuedeConstruirSobreElGas(){
-        Ubicacion ubicacion = new Ubicacion();
+        Celda ubicacion = new Celda();
         Volcan volcan = new Volcan();
 
         ubicacion.asignarRecurso(volcan);
@@ -36,7 +36,7 @@ public class CasoDeUso3 {
     }
     @Test
     public void testCriaderoNoSePuedeConstruirSobreElGas(){
-        Ubicacion ubicacion = new Ubicacion();
+        Celda ubicacion = new Celda();
         Volcan volcan = new Volcan();
 
         ubicacion.asignarRecurso(volcan);
@@ -49,7 +49,7 @@ public class CasoDeUso3 {
     }
     @Test
     public void testReservaDeProduccionNoSePuedeConstruirSobreElGas(){
-        Ubicacion ubicacion = new Ubicacion();
+        Celda ubicacion = new Celda();
         Volcan volcan = new Volcan();
 
         ubicacion.asignarRecurso(volcan);
@@ -62,7 +62,7 @@ public class CasoDeUso3 {
     }
     @Test
     public void testGuaridaNoSePuedeConstruirSobreElGas(){
-        Ubicacion ubicacion = new Ubicacion();
+        Celda ubicacion = new Celda();
         Volcan volcan = new Volcan();
 
         ubicacion.asignarRecurso(volcan);
@@ -75,7 +75,7 @@ public class CasoDeUso3 {
     }
     @Test
     public void testEspiralNoSePuedeConstruirSobreElGas(){
-        Ubicacion ubicacion = new Ubicacion();
+        Celda ubicacion = new Celda();
         Volcan volcan = new Volcan();
 
         ubicacion.asignarRecurso(volcan);
@@ -88,7 +88,7 @@ public class CasoDeUso3 {
     }
     @Test
     public void testNexoMineralNoSePuedeConstruirSobreElGas(){
-        Ubicacion ubicacion = new Ubicacion();
+        Celda ubicacion = new Celda();
         Volcan volcan = new Volcan();
 
         ubicacion.asignarRecurso(volcan);
@@ -101,7 +101,7 @@ public class CasoDeUso3 {
     }
     @Test
     public void testPilonNoSePuedeConstruirSobreElGas(){
-        Ubicacion ubicacion = new Ubicacion();
+        Celda ubicacion = new Celda();
         Volcan volcan = new Volcan();
 
         ubicacion.asignarRecurso(volcan);
@@ -114,7 +114,7 @@ public class CasoDeUso3 {
     }
     @Test
     public void testAccesoNoSePuedeConstruirSobreElGas(){
-        Ubicacion ubicacion = new Ubicacion();
+        Celda ubicacion = new Celda();
         Volcan volcan = new Volcan();
 
         ubicacion.asignarRecurso(volcan);
@@ -127,7 +127,7 @@ public class CasoDeUso3 {
     }
     @Test
     public void testPuertoEstelarNoSePuedeConstruirSobreElGas(){
-        Ubicacion ubicacion = new Ubicacion();
+        Celda ubicacion = new Celda();
         Volcan volcan = new Volcan();
 
         ubicacion.asignarRecurso(volcan);
