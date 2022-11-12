@@ -43,7 +43,7 @@ public class CasoDeUso3 {
 
         Edificio unEdificio = new Criadero();
 
-        assertDoesNotThrow( ()-> {
+        assertThrows( EdificioIncorrecto.class, ()-> {
             ubicacion.asignarEdifico(unEdificio);
         });
     }
@@ -56,7 +56,7 @@ public class CasoDeUso3 {
 
         Edificio unEdificio = new ReservaDeReproduccion();
 
-        assertDoesNotThrow( ()-> {
+        assertThrows( EdificioIncorrecto.class, ()-> {
             ubicacion.asignarEdifico(unEdificio);
         });
     }
@@ -69,7 +69,7 @@ public class CasoDeUso3 {
 
         Edificio unEdificio = new Guarida();
 
-        assertDoesNotThrow( ()-> {
+        assertThrows( EdificioIncorrecto.class, ()-> {
             ubicacion.asignarEdifico(unEdificio);
         });
     }
@@ -82,7 +82,7 @@ public class CasoDeUso3 {
 
         Edificio unEdificio = new Espiral();
 
-        assertDoesNotThrow( ()-> {
+        assertThrows( EdificioIncorrecto.class, ()-> {
             ubicacion.asignarEdifico(unEdificio);
         });
     }
@@ -95,7 +95,7 @@ public class CasoDeUso3 {
 
         Edificio unEdificio = new NexoMineral();
 
-        assertDoesNotThrow( ()-> {
+        assertThrows( EdificioIncorrecto.class, ()-> {
             ubicacion.asignarEdifico(unEdificio);
         });
     }
@@ -108,7 +108,7 @@ public class CasoDeUso3 {
 
         Edificio unEdificio = new Pilon();
 
-        assertDoesNotThrow( ()-> {
+        assertThrows( EdificioIncorrecto.class, ()-> {
             ubicacion.asignarEdifico(unEdificio);
         });
     }
@@ -121,7 +121,7 @@ public class CasoDeUso3 {
 
         Edificio unEdificio = new Acceso();
 
-        assertDoesNotThrow( ()-> {
+        assertThrows( EdificioIncorrecto.class, ()-> {
             ubicacion.asignarEdifico(unEdificio);
         });
     }
@@ -134,7 +134,7 @@ public class CasoDeUso3 {
 
         Edificio unEdificio = new PuertoEstelar();
 
-        assertDoesNotThrow( ()-> {
+        assertThrows( EdificioIncorrecto.class, ()-> {
             ubicacion.asignarEdifico(unEdificio);
         });
     }
