@@ -21,6 +21,17 @@ public class CasoDeUso3 {
             ubicacion.asignarEdifico(unAsimilador);
         });
     }
+    @Test
+    public void testExtractorSoloSePuedeConstruirSobreElGas(){
+        Ubicacion ubicacion = new Ubicacion();
+        Volcan volcan = new Volcan();
 
+        ubicacion.asignarRecurso(volcan);
 
+        Edificio unExtractor = new Extractor();
+
+        assertDoesNotThrow( ()-> {
+            ubicacion.asignarEdifico(unExtractor);
+        });
+    }
 }

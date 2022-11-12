@@ -12,7 +12,7 @@ public class Ubicacion {
 
     }
 
-    public void asignarEdifico(Asimilador asimilador){
+    public void asignarEdifico(Edificio asimilador){
 
     }
 
