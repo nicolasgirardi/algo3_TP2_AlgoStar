@@ -74,17 +74,65 @@ public class CasoDeUso18 {
     }
     @Test
     public void UnGuardianAtacaTierrayCausa25Daño(){
-        Unidad unidad = new Mutalisco();
+        Unidad unidad = new Guardian();
 
         int dañoEsperado = 25;
 
         assertEquals(dañoEsperado,unidad.AtacarAire());
     }
     @Test
-    public void UnMutaliscoAtacaAireyCausa0Daño(){
-        Unidad unidad = new Mutalisco();
+    public void UnGuardianAtacaAireyCausa0Daño(){
+        Unidad unidad = new Guardian();
 
         int dañoEsperado = 0;
+
+        assertEquals(dañoEsperado,unidad.AtacarAire());
+    }
+    @Test
+    public void UnZealotAtacaTierrayCausa8Daño(){
+        Unidad unidad = new Zealot();
+
+        int dañoEsperado = 8;
+
+        assertEquals(dañoEsperado,unidad.AtacarAire());
+    }
+    @Test
+    public void UnZealotAtacaAireyCausa0Daño(){
+        Unidad unidad = new Zealot();
+
+        int dañoEsperado = 0;
+
+        assertEquals(dañoEsperado,unidad.AtacarAire());
+    }
+    @Test
+    public void UnDragonAtacaTierrayCausa20Daño(){
+        Unidad unidad = new Dragon();
+
+        int dañoEsperado = 20;
+
+        assertEquals(dañoEsperado,unidad.AtacarAire());
+    }
+    @Test
+    public void UnDragonAtacaAireyCausa20Daño(){
+        Unidad unidad = new Dragon();
+
+        int dañoEsperado = 20;
+
+        assertEquals(dañoEsperado,unidad.AtacarAire());
+    }
+    @Test
+    public void UnScoutAtacaTierrayCausa14Daño(){
+        Unidad unidad = new Scout();
+
+        int dañoEsperado = 14;
+
+        assertEquals(dañoEsperado,unidad.AtacarAire());
+    }
+    @Test
+    public void UnScoutAtacaAireyCausa8Daño(){
+        Unidad unidad = new Scout();
+
+        int dañoEsperado = 8;
 
         assertEquals(dañoEsperado,unidad.AtacarAire());
     }
