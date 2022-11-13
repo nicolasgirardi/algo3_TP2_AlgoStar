@@ -10,30 +10,36 @@ public class CasoDeUso16 {
     @Test
     public void testSeConstruyeUnExtractorSobreUnVolcanNoSePuedeConstruirOtroExtractorSobreElMismoVolcan(){
         Volcan volcan = new Volcan();
-        Extractor extractor = new Extractor(volcan);
+        Extractor extractor = new Extractor();
+        volcan.agregarEdificio(extractor);
 
-        assertThrows( VolcanOcupadoError.class, ()-> {
-            Extractor extractorDos = new Extractor(volcan);
+        assertThrows( RecursoOcupadoError.class, ()-> {
+            Extractor extractorDos = new Extractor();
+            volcan.agregarEdificio(extractorDos);
         });
     }
 
     @Test
     public void testSeConstruyeUnExtractorSobreUnVolcanNoSePuedeConstruirUnAsimiladorSobreElVolcan(){
         Volcan volcan = new Volcan();
-        Extractor extractor = new Extractor(volcan);
+        Edificio extractor = new Extractor();
+        volcan.agregarEdificio(extractor);
 
-        assertThrows( VolcanOcupadoError.class, ()-> {
-            Asimilador asimilador = new Asimilador(volcan);
+        assertThrows( RecursoOcupadoError.class, ()-> {
+            Asimilador asimilador = new Asimilador();
+            volcan.agregarEdificio(asimilador);
         });
     }
 
     @Test
     public void testSeConstruyeUnAsimiladorSobreUnVolcanNoSePuedeConstruirUnExtractorSobreElVolcan(){
         Volcan volcan = new Volcan();
-        Asimilador asimilador = new Asimilador(volcan);
+        Asimilador asimilador = new Asimilador();
+        volcan.agregarEdificio(asimilador);
 
-        assertThrows( VolcanOcupadoError.class, ()-> {
-            Extractor extractor = new Extractor(volcan);
+        assertThrows( RecursoOcupadoError.class, ()-> {
+            Extractor extractor = new Extractor();
+            volcan.agregarEdificio(extractor);
         });
     }
 

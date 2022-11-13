@@ -5,18 +5,12 @@ import java.util.ArrayList;
 public class Extractor extends Edificio{
     private static final int CANTIDAD_TURNOS_OPERATIVO = 6;
     private ArrayList<Zangano> zanganos;
-    private Volcan volcan;
 
-    public Extractor(Volcan unVolcan){
+    public Extractor(){
         super(CANTIDAD_TURNOS_OPERATIVO);
-        ocuparVolcan(unVolcan);
-        this.volcan = unVolcan;
         zanganos = new ArrayList<Zangano>();
     }
 
-    private void ocuparVolcan(Volcan unVolcan) {
-        unVolcan.ocuparVolcan(new VolcanOcupado());
-    }
 
     public void agregarZangano(Zangano zangano){
 
@@ -25,7 +19,7 @@ public class Extractor extends Edificio{
         zanganos.add(zangano);
     }
 
-    public int extraer(){
+    public int extraer(Volcan volcan){
         verififarEdificioOperativo();
         int gasAcumulado = 0;
         for(Zangano zangano: zanganos){
@@ -39,4 +33,12 @@ public class Extractor extends Edificio{
             throw new ExtractorCantidadMaximaDeZanganosError();
         }
     }
+
+
+    @Override
+    public void construirEdificioEn(Recurso recurso) {
+        recurso.agregarEdificio(this);
+    }
+
+
 }

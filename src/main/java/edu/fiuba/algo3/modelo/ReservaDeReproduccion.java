@@ -27,4 +27,9 @@ public class ReservaDeReproduccion extends Edificio{
 
     }
 
+    @Override
+    public void construirEdificioEn(Recurso recurso) {
+        throw new ConstruccionIncorrectaError();
+    }
+
 }

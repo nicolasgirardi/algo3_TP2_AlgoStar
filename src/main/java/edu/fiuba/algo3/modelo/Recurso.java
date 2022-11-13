@@ -1,7 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
-public class Recurso {
+public  abstract class Recurso {
     protected int unidades;
+    protected Edificio edificio;
 
     public Recurso(int unidades){
         this.unidades = unidades;
@@ -23,5 +24,6 @@ public class Recurso {
     }
 
 
+    public abstract void agregarEdificio(Edificio edificio);
 
 }

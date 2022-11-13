@@ -20,17 +20,20 @@ public class Celda {
     }
 
     public void tirarEdificioIncorrectoError(Edificio unEdificio){
-
+    /*
         if( verificarClases(unEdificio) ){
             throw new EdificioIncorrectoError();
         }
-    }
 
+
+     */
+    }
+    /*
     private boolean verificarClases(Edificio unEdificio){
         Volcan unVolcan = new Volcan();
         Asimilador unAsimilador = new Asimilador(unVolcan);
         Extractor unExtractor = new Extractor(new Volcan());
         return ( recurso.getClass() == unVolcan.getClass() && unEdificio.getClass() != unAsimilador.getClass() && unEdificio.getClass() != (unExtractor.getClass()));
     }
-
+    */
 }

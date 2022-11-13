@@ -5,6 +5,7 @@ public class Volcan extends Recurso{
 
     public Volcan() {
         super(5000);
+        edificio = null;
         estado = new VolcanLibre();
     }
 
@@ -16,6 +17,15 @@ public class Volcan extends Recurso{
 
         throw new VolcanOcupadoError();
     }
+
+
+    public void agregarEdificio(Edificio edificio) {
+        if(this.edificio != null){
+            throw new RecursoOcupadoError();
+        }
+        this.edificio = edificio;
+    }
+
 
 
 }

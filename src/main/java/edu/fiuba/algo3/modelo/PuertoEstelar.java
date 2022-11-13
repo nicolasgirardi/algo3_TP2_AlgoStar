@@ -12,4 +12,9 @@ public class PuertoEstelar extends Edificio{
         verififarEdificioOperativo();
     }
 
+    @Override
+    public void construirEdificioEn(Recurso recurso) {
+        throw new ConstruccionIncorrectaError();
+    }
+
 }

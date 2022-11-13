@@ -13,4 +13,9 @@ public class Acceso extends Edificio{
     public void transportarTropas() {
         verififarEdificioOperativo();
     }
+
+    @Override
+    public void construirEdificioEn(Recurso recurso) {
+        throw new ConstruccionIncorrectaError();
+    }
 }

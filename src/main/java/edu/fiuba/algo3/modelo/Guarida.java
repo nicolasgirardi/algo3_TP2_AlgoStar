@@ -11,6 +11,11 @@ public class Guarida extends Edificio{
         larvas = new ArrayList<Larva>();
     }
 
+    @Override
+    public void construirEdificioEn(Recurso recurso) {
+        throw new ConstruccionIncorrectaError();
+    }
+
 
     public Hidralisco evolucionar(Larva unaLarva) {
         verififarEdificioOperativo();

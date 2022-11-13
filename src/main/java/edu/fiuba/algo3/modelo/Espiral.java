@@ -15,4 +15,10 @@ public class Espiral extends Edificio{
         return new Mutalisco();
 
     }
+
+    @Override
+    public void construirEdificioEn(Recurso recurso) {
+        throw new ConstruccionIncorrectaError();
+    }
+
 }

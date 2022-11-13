@@ -10,4 +10,10 @@ public class Pilon extends Edificio{
     public void energizar() {
         verififarEdificioOperativo();
     }
+
+    @Override
+    public void construirEdificioEn(Recurso recurso) {
+        throw new ConstruccionIncorrectaError();
+    }
+
 }

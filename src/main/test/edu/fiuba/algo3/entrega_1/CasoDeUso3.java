@@ -10,93 +10,74 @@ public class CasoDeUso3 {
 
     @Test
     public void testAsimiladorSoloSePuedeConstruirSobreElGas(){
-        Celda celda = new Celda();
         Volcan volcan = new Volcan();
-
-        celda.asignarRecurso(volcan);
-
-        Edificio unEdificio = new Asimilador(volcan);
+        Edificio unEdificio = new Asimilador();
 
         assertDoesNotThrow( ()-> {
-            celda.asignarEdifico(unEdificio);
+            unEdificio.construirEdificioEn(volcan);
         });
     }
+
     @Test
     public void testExtractorSoloSePuedeConstruirSobreElGas(){
-        Celda celda = new Celda();
         Volcan volcan = new Volcan();
 
-        celda.asignarRecurso(volcan);
-
-        Edificio unEdificio = new Extractor(new Volcan());
+        Edificio unEdificio = new Extractor();
 
         assertDoesNotThrow( ()-> {
-            celda.asignarEdifico(unEdificio);
+            unEdificio.construirEdificioEn(volcan);
         });
     }
     @Test
     public void testCriaderoNoSePuedeConstruirSobreElGas(){
-        Celda celda = new Celda();
         Volcan volcan = new Volcan();
 
-        celda.asignarRecurso(volcan);
 
         Edificio unEdificio = new Criadero();
 
-        assertThrows( EdificioIncorrectoError.class, ()-> {
-            celda.asignarEdifico(unEdificio);
+        assertThrows( ConstruccionIncorrectaError.class, ()-> {
+            unEdificio.construirEdificioEn(volcan);
         });
     }
+
     @Test
     public void testReservaDeProduccionNoSePuedeConstruirSobreElGas(){
-        Celda celda = new Celda();
         Volcan volcan = new Volcan();
-
-        celda.asignarRecurso(volcan);
-
         Edificio unEdificio = new ReservaDeReproduccion();
 
-        assertThrows( EdificioIncorrectoError.class, ()-> {
-            celda.asignarEdifico(unEdificio);
+        assertThrows( ConstruccionIncorrectaError.class, ()-> {
+            unEdificio.construirEdificioEn(volcan);
         });
+
     }
     @Test
     public void testGuaridaNoSePuedeConstruirSobreElGas(){
-        Celda celda = new Celda();
         Volcan volcan = new Volcan();
-
-        celda.asignarRecurso(volcan);
-
         Edificio unEdificio = new Guarida();
 
-        assertThrows( EdificioIncorrectoError.class, ()-> {
-            celda.asignarEdifico(unEdificio);
+        assertThrows( ConstruccionIncorrectaError.class, ()-> {
+            unEdificio.construirEdificioEn(volcan);
         });
     }
+
     @Test
     public void testEspiralNoSePuedeConstruirSobreElGas(){
-        Celda celda = new Celda();
         Volcan volcan = new Volcan();
-
-        celda.asignarRecurso(volcan);
-
         Edificio unEdificio = new Espiral();
 
-        assertThrows( EdificioIncorrectoError.class, ()-> {
-            celda.asignarEdifico(unEdificio);
+        assertThrows( ConstruccionIncorrectaError.class, ()-> {
+            unEdificio.construirEdificioEn(volcan);
         });
     }
+
+    /*
     @Test
     public void testNexoMineralNoSePuedeConstruirSobreElGas(){
-        Celda celda = new Celda();
-        Volcan volcan = new Volcan();
         NodoMineral nodoMineral = new NodoMineral();
-        celda.asignarRecurso(volcan);
-
         Edificio unEdificio = new NexoMineral(nodoMineral);
 
         assertThrows( EdificioIncorrectoError.class, ()-> {
-            celda.asignarEdifico(unEdificio);
+            unEdificio.construirEdificioEn(nodoMineral);
         });
     }
     @Test
@@ -138,4 +119,7 @@ public class CasoDeUso3 {
             celda.asignarEdifico(unEdificio);
         });
     }
+
+
+ */
 }

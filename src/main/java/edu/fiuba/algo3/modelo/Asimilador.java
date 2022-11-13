@@ -1,17 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
 public class Asimilador extends Edificio {
-    private Volcan volcan;
     private static final int CANTIDAD_TURNOS_OPERATIVO = 6;
 
-    public Asimilador(Volcan volcan){
+    public Asimilador(){
         super(CANTIDAD_TURNOS_OPERATIVO);
-        ocuparVolcan(volcan);
-        this.volcan = volcan;
-    }
-
-    private void ocuparVolcan(Volcan unVolcan) {
-        unVolcan.ocuparVolcan(new VolcanOcupado());
     }
 
 
@@ -20,7 +13,12 @@ public class Asimilador extends Edificio {
 
     }
 
-    public int extraer() {
+    public int extraer(Volcan volcan) {
         return volcan.extraer(20);
+    }
+
+    @Override
+    public void construirEdificioEn(Recurso recurso) {
+        recurso.agregarEdificio(this);
     }
 }

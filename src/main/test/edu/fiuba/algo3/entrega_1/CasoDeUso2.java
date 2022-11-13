@@ -85,7 +85,7 @@ public class CasoDeUso2 {
     @Test
     public void EdificoExtractorCon6TurnosParaSerOperativoSeLeAgregaUnZanganoDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
         //Arrange
-        Extractor extractor = new Extractor(new Volcan());
+        Extractor extractor = new Extractor();
         Zangano unZangano = new Zangano();
         //Acy y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
@@ -97,7 +97,7 @@ public class CasoDeUso2 {
     @Test
     public void EdificoExtractorCon6TurnosParaSerOperativoSeEjecutan4TurnosSeLeAgregaUnZanganoDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
         //Arrange
-        Extractor extractor = new Extractor(new Volcan());
+        Extractor extractor = new Extractor();
         Zangano unZangano = new Zangano();
         //Act
         for(int i = 0 ; i < 4 ; i++){
@@ -112,7 +112,7 @@ public class CasoDeUso2 {
     @Test
     public void EdificoExtractorCon6TurnosParaSerOperativoSeEjecutan6TurnosSeLeAgregaUnZanganoNoDeberiaLanzarExcepcionPorqueYaEstaOperativo(){
         //Arrange
-        Extractor extractor = new Extractor(new Volcan());
+        Extractor extractor = new Extractor( );
         Zangano unZangano = new Zangano();
         //Act
         for(int i = 0 ; i < 6 ; i++){
@@ -305,7 +305,7 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAsimiladorCon6TurnosParaSerOperativoSeLeMandaPrepararCapsulaDeberiaLanzarExcepcion(){
         //Arrange
-        Asimilador asimilador = new Asimilador(new Volcan() );
+        Asimilador asimilador = new Asimilador( );
 
         // Act y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
@@ -316,7 +316,7 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAsimiladorCon6TurnosParaSerOperativoSeEjecuta2TurnosYSeLeMandaPrepararCapsulaDeberiaLanzarExcepcion(){
         //Arrange
-        Asimilador asimilador = new Asimilador( new Volcan() ) ;
+        Asimilador asimilador = new Asimilador( ) ;
 
         //Act
         asimilador.ejecutarTurno();
@@ -332,7 +332,7 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAsimiladorCon6TurnosParaSerOperativoSeEjecuta6TurnosYSeLeMandaPrepararCapsulaNoDeberiaLanzarExcepcion(){
         //Arrange
-        Asimilador asimilador = new Asimilador( new Volcan() );
+        Asimilador asimilador = new Asimilador(  );
 
         //Act
         asimilador.ejecutarTurno();

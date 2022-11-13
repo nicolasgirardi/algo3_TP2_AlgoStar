@@ -12,6 +12,10 @@ public class NexoMineral extends Edificio{
         this.nodoMineral = nodoMineral;
     }
 
+    @Override
+    public void construirEdificioEn(Recurso recurso) {
+        recurso.agregarEdificio(this);
+    }
 
     public Mineral recolectarMineral() {
         verififarEdificioOperativo();

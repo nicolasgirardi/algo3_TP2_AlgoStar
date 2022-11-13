@@ -18,6 +18,11 @@ public class Criadero extends Edificio{
         if (cantidadTurnosParaSerOperativo == 0 ) cargarTodaslasLarvas();
     }
 
+    @Override
+    public void construirEdificioEn(Recurso recurso) {
+        throw new ConstruccionIncorrectaError();
+    }
+
     public Zangano evolucionarLarva() {
         verififarEdificioOperativo();
         Larva larvaAuxiliar = larvas.get(0);
