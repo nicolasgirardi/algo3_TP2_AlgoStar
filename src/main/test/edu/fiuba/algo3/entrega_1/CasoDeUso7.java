@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CasoDeUso7 {
     @Test
-    public void testUnZanganoTrabajandoEnUnMineralEnUnTurnoDeberia10Minerales(){
+    public void testUnZanganoTrabajandoEnUnMineralEnUnTurnoDeberiaExtraer10Minerales(){
         //Arrange
         Zangano zangano = new Zangano();
         NodoMineral nodoMineral = new NodoMineral();
@@ -23,7 +23,7 @@ public class CasoDeUso7 {
     }
 
     @Test
-    public void testNexoMineralCuandoEstaOperativoExtrae10MineralesDeUnNodoMineral(){
+    public void testNexoMineralCuandoEstaOperativoDeberiaExtraer10MineralesDeUnNodoMineral(){
         //Arrange
         NodoMineral nodoMineral = new NodoMineral();
         NexoMineral nexoMineral = new NexoMineral(nodoMineral);
@@ -41,7 +41,7 @@ public class CasoDeUso7 {
     }
 
     @Test
-    public void testNexoMineralNoPuedeExtraerSiNoEstaOperativo(){
+    public void testNexoMineralNoDeberiaExtraerSiNoEstaOperativo(){
         //Arrange
         NodoMineral nodoMineral = new NodoMineral();
         NexoMineral nexoMineral = new NexoMineral(nodoMineral);
