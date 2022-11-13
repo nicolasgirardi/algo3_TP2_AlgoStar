@@ -12,9 +12,15 @@ public class NexoMineral extends Edificio{
         this.nodoMineral = nodoMineral;
     }
 
+    //Estoy haciendo este segundo constructor para caso 3, pero creo que despues tengo que refac
+    //torizar como con volcan para que quede solo 1 constructor.
+    public NexoMineral(){
+        super(CANTIDAD_TURNOS_OPERATIVO) ;
+    }
+
     @Override
     public void construirEdificioEn(Recurso recurso) {
-        recurso.agregarEdificio(this);
+        throw new ConstruccionIncorrectaError();
     }
 
     public Mineral recolectarMineral() {

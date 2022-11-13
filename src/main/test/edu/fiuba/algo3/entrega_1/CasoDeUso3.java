@@ -70,56 +70,43 @@ public class CasoDeUso3 {
         });
     }
 
-    /*
-    @Test
-    public void testNexoMineralNoSePuedeConstruirSobreElGas(){
-        NodoMineral nodoMineral = new NodoMineral();
-        Edificio unEdificio = new NexoMineral(nodoMineral);
 
-        assertThrows( EdificioIncorrectoError.class, ()-> {
-            unEdificio.construirEdificioEn(nodoMineral);
+    @Test //ACA
+    public void testNexoMineralNoSePuedeConstruirSobreElGas(){
+        Volcan volcan = new Volcan();
+        Edificio unEdificio = new NexoMineral();
+
+        assertThrows( ConstruccionIncorrectaError.class, ()-> {
+            unEdificio.construirEdificioEn(volcan);
         });
     }
     @Test
     public void testPilonNoSePuedeConstruirSobreElGas(){
-        Celda celda = new Celda();
         Volcan volcan = new Volcan();
-
-        celda.asignarRecurso(volcan);
-
         Edificio unEdificio = new Pilon();
 
-        assertThrows( EdificioIncorrectoError.class, ()-> {
-            celda.asignarEdifico(unEdificio);
+        assertThrows( ConstruccionIncorrectaError.class, ()-> {
+            unEdificio.construirEdificioEn(volcan);
         });
     }
     @Test
     public void testAccesoNoSePuedeConstruirSobreElGas(){
-        Celda celda = new Celda();
         Volcan volcan = new Volcan();
-
-        celda.asignarRecurso(volcan);
-
         Edificio unEdificio = new Acceso();
 
-        assertThrows( EdificioIncorrectoError.class, ()-> {
-            celda.asignarEdifico(unEdificio);
+        assertThrows( ConstruccionIncorrectaError.class, ()-> {
+            unEdificio.construirEdificioEn(volcan);
         });
     }
     @Test
     public void testPuertoEstelarNoSePuedeConstruirSobreElGas(){
-        Celda celda = new Celda();
         Volcan volcan = new Volcan();
-
-        celda.asignarRecurso(volcan);
-
         Edificio unEdificio = new PuertoEstelar();
 
-        assertThrows( EdificioIncorrectoError.class, ()-> {
-            celda.asignarEdifico(unEdificio);
+        assertThrows( ConstruccionIncorrectaError.class, ()-> {
+            unEdificio.construirEdificioEn(volcan);
         });
     }
 
 
- */
 }
