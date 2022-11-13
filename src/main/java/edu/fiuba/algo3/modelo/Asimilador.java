@@ -6,7 +6,12 @@ public class Asimilador extends Edificio {
 
     public Asimilador(Volcan volcan){
         super(CANTIDAD_TURNOS_OPERATIVO);
+        ocuparVolcan(volcan);
         this.volcan = volcan;
+    }
+
+    private void ocuparVolcan(Volcan unVolcan) {
+        unVolcan.ocuparVolcan(new VolcanOcupado());
     }
 
 

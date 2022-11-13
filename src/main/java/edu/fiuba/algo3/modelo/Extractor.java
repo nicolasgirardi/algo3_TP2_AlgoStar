@@ -9,8 +9,13 @@ public class Extractor extends Edificio{
 
     public Extractor(Volcan unVolcan){
         super(CANTIDAD_TURNOS_OPERATIVO);
-        zanganos = new ArrayList<Zangano>();
+        ocuparVolcan(unVolcan);
         this.volcan = unVolcan;
+        zanganos = new ArrayList<Zangano>();
+    }
+
+    private void ocuparVolcan(Volcan unVolcan) {
+        unVolcan.ocuparVolcan(new VolcanOcupado());
     }
 
     public void agregarZangano(Zangano zangano){
