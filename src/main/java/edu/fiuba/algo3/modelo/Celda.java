@@ -22,7 +22,7 @@ public class Celda {
     public void tirarEdificioIncorrectoError(Edificio unEdificio){
 
         if( verificarClases(unEdificio) ){
-            throw new EdificioIncorrecto();
+            throw new EdificioIncorrectoError();
         }
     }
 

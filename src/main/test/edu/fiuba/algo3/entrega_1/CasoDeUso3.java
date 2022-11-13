@@ -43,7 +43,7 @@ public class CasoDeUso3 {
 
         Edificio unEdificio = new Criadero();
 
-        assertThrows( EdificioIncorrecto.class, ()-> {
+        assertThrows( EdificioIncorrectoError.class, ()-> {
             celda.asignarEdifico(unEdificio);
         });
     }
@@ -56,7 +56,7 @@ public class CasoDeUso3 {
 
         Edificio unEdificio = new ReservaDeReproduccion();
 
-        assertThrows( EdificioIncorrecto.class, ()-> {
+        assertThrows( EdificioIncorrectoError.class, ()-> {
             celda.asignarEdifico(unEdificio);
         });
     }
@@ -69,7 +69,7 @@ public class CasoDeUso3 {
 
         Edificio unEdificio = new Guarida();
 
-        assertThrows( EdificioIncorrecto.class, ()-> {
+        assertThrows( EdificioIncorrectoError.class, ()-> {
             celda.asignarEdifico(unEdificio);
         });
     }
@@ -82,7 +82,7 @@ public class CasoDeUso3 {
 
         Edificio unEdificio = new Espiral();
 
-        assertThrows( EdificioIncorrecto.class, ()-> {
+        assertThrows( EdificioIncorrectoError.class, ()-> {
             celda.asignarEdifico(unEdificio);
         });
     }
@@ -90,12 +90,12 @@ public class CasoDeUso3 {
     public void testNexoMineralNoSePuedeConstruirSobreElGas(){
         Celda celda = new Celda();
         Volcan volcan = new Volcan();
-
+        NodoMineral nodoMineral = new NodoMineral();
         celda.asignarRecurso(volcan);
 
-        Edificio unEdificio = new NexoMineral();
+        Edificio unEdificio = new NexoMineral(nodoMineral);
 
-        assertThrows( EdificioIncorrecto.class, ()-> {
+        assertThrows( EdificioIncorrectoError.class, ()-> {
             celda.asignarEdifico(unEdificio);
         });
     }
@@ -108,7 +108,7 @@ public class CasoDeUso3 {
 
         Edificio unEdificio = new Pilon();
 
-        assertThrows( EdificioIncorrecto.class, ()-> {
+        assertThrows( EdificioIncorrectoError.class, ()-> {
             celda.asignarEdifico(unEdificio);
         });
     }
@@ -121,7 +121,7 @@ public class CasoDeUso3 {
 
         Edificio unEdificio = new Acceso();
 
-        assertThrows( EdificioIncorrecto.class, ()-> {
+        assertThrows( EdificioIncorrectoError.class, ()-> {
             celda.asignarEdifico(unEdificio);
         });
     }
@@ -134,7 +134,7 @@ public class CasoDeUso3 {
 
         Edificio unEdificio = new PuertoEstelar();
 
-        assertThrows( EdificioIncorrecto.class, ()-> {
+        assertThrows( EdificioIncorrectoError.class, ()-> {
             celda.asignarEdifico(unEdificio);
         });
     }

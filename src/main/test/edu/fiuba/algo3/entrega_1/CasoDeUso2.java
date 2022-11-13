@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class CasosDeUso2 {
+public class CasoDeUso2 {
 
     @Test
     public void EdificoCriaderoCon4TurnosParaSerOperativoSeLeMandaAEvolucionarLarvaDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
@@ -215,7 +215,8 @@ public class CasosDeUso2 {
     @Test
     public void testEdificoNexoMineralCon4TurnosParaSerOperativoSeLeMandaRecolectarMineralDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
         //Arrange
-        NexoMineral nexoMineral = new NexoMineral();
+        NodoMineral nodoMineral = new NodoMineral();
+        NexoMineral nexoMineral = new NexoMineral(nodoMineral);
         //Acy y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
             Mineral mineral = nexoMineral.recolectarMineral();
@@ -225,7 +226,8 @@ public class CasosDeUso2 {
     @Test
     public void testEdificoNexoMineralCon4TurnosSeEjecuta2TurnosParaSerOperativoYSeLeMandaRecolectarMineralDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
         //Arrange
-        NexoMineral nexoMineral = new NexoMineral();
+        NodoMineral nodoMineral = new NodoMineral();
+        NexoMineral nexoMineral = new NexoMineral(nodoMineral);
 
         //Act
         nexoMineral.ejecutarTurno();
@@ -240,7 +242,8 @@ public class CasosDeUso2 {
     @Test
     public void testEdificoNexoMineralCon4TurnosParaSerOperativoSeEjecuta4TurnosYSeLeMandaRecolectarMineralNoDeberiaLanzarExcepcionPorqueYaEstaOperativo(){
         //Arrange
-        NexoMineral nexoMineral = new NexoMineral();
+        NodoMineral nodoMineral = new NodoMineral();
+        NexoMineral nexoMineral = new NexoMineral(nodoMineral);
 
         //Act
         nexoMineral.ejecutarTurno();
