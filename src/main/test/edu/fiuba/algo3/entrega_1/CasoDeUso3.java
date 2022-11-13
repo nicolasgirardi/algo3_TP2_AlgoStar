@@ -18,7 +18,7 @@ public class CasoDeUso3 {
         Edificio unEdificio = new Asimilador(volcan);
 
         assertDoesNotThrow( ()-> {
-            celda.asignarEdifico(unEdificio);
+            celda.asignarEdificoZerg(unEdificio);
         });
     }
     @Test
@@ -31,7 +31,7 @@ public class CasoDeUso3 {
         Edificio unEdificio = new Extractor(new Volcan());
 
         assertDoesNotThrow( ()-> {
-            celda.asignarEdifico(unEdificio);
+            celda.asignarEdificoZerg(unEdificio);
         });
     }
     @Test
@@ -44,7 +44,7 @@ public class CasoDeUso3 {
         Edificio unEdificio = new Criadero();
 
         assertThrows( EdificioIncorrectoError.class, ()-> {
-            celda.asignarEdifico(unEdificio);
+            celda.asignarEdificoZerg(unEdificio);
         });
     }
     @Test
@@ -57,7 +57,7 @@ public class CasoDeUso3 {
         Edificio unEdificio = new ReservaDeReproduccion();
 
         assertThrows( EdificioIncorrectoError.class, ()-> {
-            celda.asignarEdifico(unEdificio);
+            celda.asignarEdificoZerg(unEdificio);
         });
     }
     @Test
@@ -70,7 +70,7 @@ public class CasoDeUso3 {
         Edificio unEdificio = new Guarida();
 
         assertThrows( EdificioIncorrectoError.class, ()-> {
-            celda.asignarEdifico(unEdificio);
+            celda.asignarEdificoZerg(unEdificio);
         });
     }
     @Test
@@ -83,7 +83,7 @@ public class CasoDeUso3 {
         Edificio unEdificio = new Espiral();
 
         assertThrows( EdificioIncorrectoError.class, ()-> {
-            celda.asignarEdifico(unEdificio);
+            celda.asignarEdificoZerg(unEdificio);
         });
     }
     @Test
@@ -96,7 +96,7 @@ public class CasoDeUso3 {
         Edificio unEdificio = new NexoMineral(nodoMineral);
 
         assertThrows( EdificioIncorrectoError.class, ()-> {
-            celda.asignarEdifico(unEdificio);
+            celda.asignarEdificoZerg(unEdificio);
         });
     }
     @Test
@@ -109,7 +109,7 @@ public class CasoDeUso3 {
         Edificio unEdificio = new Pilon();
 
         assertThrows( EdificioIncorrectoError.class, ()-> {
-            celda.asignarEdifico(unEdificio);
+            celda.asignarEdificoZerg(unEdificio);
         });
     }
     @Test
@@ -122,7 +122,7 @@ public class CasoDeUso3 {
         Edificio unEdificio = new Acceso();
 
         assertThrows( EdificioIncorrectoError.class, ()-> {
-            celda.asignarEdifico(unEdificio);
+            celda.asignarEdificoZerg(unEdificio);
         });
     }
     @Test
@@ -135,7 +135,7 @@ public class CasoDeUso3 {
         Edificio unEdificio = new PuertoEstelar();
 
         assertThrows( EdificioIncorrectoError.class, ()-> {
-            celda.asignarEdifico(unEdificio);
+            celda.asignarEdificoZerg(unEdificio);
         });
     }
 }

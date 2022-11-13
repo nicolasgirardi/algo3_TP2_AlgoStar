@@ -1,13 +1,15 @@
 package edu.fiuba.algo3.modelo.tablero;
 
+import edu.fiuba.algo3.modelo.Celda;
+
 import java.util.ArrayList;
 
 public class Ocupante {
 
     private Mapa mapa;
-    private CeldaMapa posicion;
+    private Celda posicion;
 
-    public Ocupante(CeldaMapa unaCelda) {
+    public Ocupante(Celda unaCelda) {
 
         this.posicion = unaCelda;
         this.mapa = new Mapa();
@@ -15,7 +17,7 @@ public class Ocupante {
 
     }
 
-    public CeldaMapa obtenerPosicion() {
+    public Celda obtenerPosicion() {
         return posicion;
     }
 }
