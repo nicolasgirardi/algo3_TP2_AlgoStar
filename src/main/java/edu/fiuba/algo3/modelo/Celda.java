@@ -29,7 +29,7 @@ public class Celda {
     private boolean verificarClases(Edificio unEdificio){
         Volcan unVolcan = new Volcan();
         Asimilador unAsimilador = new Asimilador();
-        Extractor unExtractor = new Extractor();
+        Extractor unExtractor = new Extractor(new Volcan());
         return ( recurso.getClass() == unVolcan.getClass() && unEdificio.getClass() != unAsimilador.getClass() && unEdificio.getClass() != (unExtractor.getClass()));
     }
 

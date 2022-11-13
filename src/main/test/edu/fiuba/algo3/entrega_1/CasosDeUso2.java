@@ -83,26 +83,9 @@ public class CasosDeUso2 {
 
 
     @Test
-    public void EdificoReservaDeReproduccionCon12TurnosParaSerOperativoPasan12TurnosSeLeMandaEvolucionarZerlingNoDeberiaLanzarExcepcionPorqueYaEstaOperativo(){
-        //Arrange
-
-        ReservaDeReproduccion reserva = new ReservaDeReproduccion();
-        Larva larva = new Larva();
-        //Act
-        for(int i = 0 ; i < 12 ; i++){
-            reserva.ejecutarTurno();
-        }
-
-        //Assert
-        assertDoesNotThrow( ()-> {
-            Zerling zerling = reserva.evolucionarLarva(larva);
-        });
-    }
-
-    @Test
     public void EdificoExtractorCon6TurnosParaSerOperativoSeLeAgregaUnZanganoDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
         //Arrange
-        Extractor extractor = new Extractor();
+        Extractor extractor = new Extractor(new Volcan());
         Zangano unZangano = new Zangano();
         //Acy y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
@@ -114,7 +97,7 @@ public class CasosDeUso2 {
     @Test
     public void EdificoExtractorCon6TurnosParaSerOperativoSeEjecutan4TurnosSeLeAgregaUnZanganoDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
         //Arrange
-        Extractor extractor = new Extractor();
+        Extractor extractor = new Extractor(new Volcan());
         Zangano unZangano = new Zangano();
         //Act
         for(int i = 0 ; i < 4 ; i++){
@@ -129,7 +112,7 @@ public class CasosDeUso2 {
     @Test
     public void EdificoExtractorCon6TurnosParaSerOperativoSeEjecutan6TurnosSeLeAgregaUnZanganoNoDeberiaLanzarExcepcionPorqueYaEstaOperativo(){
         //Arrange
-        Extractor extractor = new Extractor();
+        Extractor extractor = new Extractor(new Volcan());
         Zangano unZangano = new Zangano();
         //Act
         for(int i = 0 ; i < 6 ; i++){
