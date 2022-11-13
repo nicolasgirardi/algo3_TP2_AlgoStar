@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.tablero;
 
 import edu.fiuba.algo3.modelo.Edificio;
+import edu.fiuba.algo3.modelo.Moho;
 
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ public class Celda {
 
     //private ArrayList<Ocupante> ocupantes;
     private Edificio edificio;
+    private Moho moho;
 
     public Celda(int x, int y) {
         this.posicion_x = x;
@@ -31,5 +33,9 @@ public class Celda {
 
     public Boolean tieneMoho(){
         return true;
+    }
+
+    public Boolean estaOcupado(Moho moho){
+        if moho.
     }
 }
