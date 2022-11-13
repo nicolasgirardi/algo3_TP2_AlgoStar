@@ -26,4 +26,11 @@ public  abstract class Recurso {
 
     public abstract void agregarEdificio(Edificio edificio);
 
+    public void verificarRecursoOcupado(){
+        if(this.edificio != null){
+            throw new RecursoOcupadoError();
+        }
+    }
+
+
 }

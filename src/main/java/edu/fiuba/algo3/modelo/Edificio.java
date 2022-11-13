@@ -17,7 +17,7 @@ public abstract class Edificio {
         turnosRestantesParaSerOperativo--;
     }
 
-
-
     public abstract void construirEdificioEn(Recurso recurso);
+
+
 }

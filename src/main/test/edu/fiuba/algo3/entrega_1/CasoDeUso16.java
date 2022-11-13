@@ -43,12 +43,30 @@ public class CasoDeUso16 {
         });
     }
 
-/*    @Test
-    public void testUnZanganoTrabajaSobreUnNodoMineralNoPuedeConstruirseUnNexoMineral(){
-        Zangano zangano = new Zangano();
-        NodoMineral nodoMineral = new NodoMineral();
-        zangano.extraer(nodoMineral);
-    }*/
+    @Test
+    public void testUnNodoMineralTieneUnNexoNoDeberiaPoderRecibirUnZangano(){
 
+        NodoMineral nodoMineral = new NodoMineral();
+        NexoMineral nexoMineral = new NexoMineral();
+        Zangano zangano = new Zangano();
+        nodoMineral.agregarEdificio(nexoMineral);
+
+        assertThrows( RecursoOcupadoError.class, ()-> {
+            zangano.extraerMineral(nodoMineral);
+        });
+
+    }
+    @Test
+    public void testUnZanganoTrabajaSobreUnNodoMineralNoDeberiaPoderConstruirseUnNexoMineral(){
+
+        NodoMineral nodoMineral = new NodoMineral();
+        NexoMineral nexoMineral = new NexoMineral();
+        Zangano zangano = new Zangano();
+        nodoMineral.agregarZangano(zangano);
+
+        assertThrows( RecursoOcupadoError.class, ()-> {
+            nodoMineral.agregarEdificio(nexoMineral);
+        });
+    }
 
 }

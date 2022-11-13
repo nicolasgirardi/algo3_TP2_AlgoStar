@@ -6,4 +6,7 @@ public class Zangano {
         return recurso.extraer(10);
     }
 
+    public int extraerMineral(NodoMineral nodoMineral){
+        return  nodoMineral.extraerConZangano(10, this);
+    }
 }
