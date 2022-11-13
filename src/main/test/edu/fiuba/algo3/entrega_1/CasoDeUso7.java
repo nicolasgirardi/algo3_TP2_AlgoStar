@@ -14,7 +14,6 @@ public class CasoDeUso7 {
         Zangano zangano = new Zangano();
         NodoMineral nodoMineral = new NodoMineral();
 
-
         //Act
         int cantidadMineral = zangano.extraer(nodoMineral);
 

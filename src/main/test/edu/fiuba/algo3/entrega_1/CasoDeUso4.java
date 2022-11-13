@@ -3,7 +3,7 @@ package edu.fiuba.algo3.entrega_1;
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-/*
+
 public class CasoDeUso4 {
 
     @Test
@@ -19,10 +19,8 @@ public class CasoDeUso4 {
             extractor.ejecutarTurno();
         }
 
-
         //Act
-        int cantidadGas = extractor.extraer();
-
+        int cantidadGas = extractor.extraer(volcan);
 
         //Assert
         assertEquals(resultadoEsperado, cantidadGas);
@@ -45,7 +43,7 @@ public class CasoDeUso4 {
         extractor.agregarZangano(new Zangano());
 
         //Act
-        int cantidadGas = extractor.extraer();
+        int cantidadGas = extractor.extraer(volcan);
 
         //Assert
         assertEquals(resultadoEsperado, cantidadGas);
@@ -68,7 +66,7 @@ public class CasoDeUso4 {
         extractor.agregarZangano(new Zangano());
 
         //Act
-        int cantidadGas = extractor.extraer();
+        int cantidadGas = extractor.extraer(volcan);
 
         //Assert
         assertEquals(resultadoEsperado, cantidadGas);
@@ -92,7 +90,7 @@ public class CasoDeUso4 {
         extractor.agregarZangano(new Zangano());
 
         //Act
-        int cantidadGas = extractor.extraer();
+        int cantidadGas = extractor.extraer(volcan);
 
         //Assert
         assertEquals(resultadoEsperado, cantidadGas);
@@ -129,8 +127,8 @@ public class CasoDeUso4 {
 
         //Act y assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            extractor.extraer();
+            extractor.extraer(volcan);
         });
     }
 }
-*/
+

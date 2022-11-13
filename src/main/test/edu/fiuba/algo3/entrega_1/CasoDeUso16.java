@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class CasoDeUso16 {
 
     @Test
-    public void testSeConstruyeUnExtractorSobreUnVolcanNoSePuedeConstruirOtroExtractorSobreElMismoVolcan(){
+    public void testSeConstruyeUnExtractorSobreUnVolcanNoSeDeberiaonstruirOtroExtractorSobreElMismoVolcan(){
         Volcan volcan = new Volcan();
         Extractor extractor = new Extractor();
         volcan.agregarEdificio(extractor);
@@ -20,7 +20,7 @@ public class CasoDeUso16 {
     }
 
     @Test
-    public void testSeConstruyeUnExtractorSobreUnVolcanNoSePuedeConstruirUnAsimiladorSobreElVolcan(){
+    public void testSeConstruyeUnExtractorSobreUnVolcanNoSeDeberiaConstruirUnAsimiladorSobreElVolcan(){
         Volcan volcan = new Volcan();
         Edificio extractor = new Extractor();
         volcan.agregarEdificio(extractor);
@@ -32,7 +32,7 @@ public class CasoDeUso16 {
     }
 
     @Test
-    public void testSeConstruyeUnAsimiladorSobreUnVolcanNoSePuedeConstruirUnExtractorSobreElVolcan(){
+    public void testSeConstruyeUnAsimiladorSobreUnVolcanNoSeDeberiaConstruirUnExtractorSobreElVolcan(){
         Volcan volcan = new Volcan();
         Asimilador asimilador = new Asimilador();
         volcan.agregarEdificio(asimilador);

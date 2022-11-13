@@ -6,19 +6,19 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso15 {
-/*
+
     @Test
     public void RazaZergDejaDeConseguirGasDelVolcanCuandoSeQuedaSinUnidadesDeGas(){
         //Arrange
         Volcan volcan = new Volcan();
         Extractor extractor = new Extractor();
 
-        // dejo el Extrractor operrable en 6 turnos
+        // dejo el Extractor operrable en 6 turnos
         for(int i = 0; i <6; i++ ){
             extractor.ejecutarTurno();
         }
 
-        for(int i = 0; i <3; i++ ){
+        for(int i = 0; i < 3; i++ ){
             extractor.agregarZangano(new Zangano());
         }
 
@@ -29,13 +29,13 @@ public class CasoDeUso15 {
 
         //Act
         for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElGas ; i++ ){
-            cantidadGas += extractor.extraer();
+            cantidadGas += extractor.extraer(volcan);
         }
 
         // Intentamos extraer 5 veces mas el Volcan
 
         for(int i = 0; i < 5 ; i++){
-            cantidadGasExceso += extractor.extraer();
+            cantidadGasExceso += extractor.extraer(volcan);
         }
 
 
@@ -75,12 +75,11 @@ public class CasoDeUso15 {
 
     }
 
-
     @Test
     public void RazaProtoDejaDeConseguirGasDelVolcanCuandoSeQuedaSinUnidadesDeGas(){
         //Arrange
         Volcan volcan = new Volcan();
-        Asimilador asimilador = new Asimilador(volcan);
+        Asimilador asimilador = new Asimilador();
 
         // dejo el Asimilador operrable en 6 turnos
         for(int i = 0; i <6; i++ ){
@@ -93,13 +92,13 @@ public class CasoDeUso15 {
         int cantidadGasExceso = 0;
         //Act
         for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElGas; i++ ){
-            cantidadGas += asimilador.extraer();
+            cantidadGas += asimilador.extraer(volcan);
         }
 
         // Intentamos extraer 5 veces mas en el volcan
 
         for(int i = 0; i < 5 ; i++){
-            cantidadGasExceso += asimilador.extraer();
+            cantidadGasExceso += asimilador.extraer(volcan);
         }
 
         //Assert
@@ -141,5 +140,4 @@ public class CasoDeUso15 {
 
     }
 
-*/
 }
