@@ -16,4 +16,7 @@ public class Pilon extends Edificio{
         throw new ConstruccionIncorrectaError();
     }
 
+    public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 100 , 900000000);
+    }
 }

@@ -41,4 +41,7 @@ public class Extractor extends Edificio{
     }
 
 
+    public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 100 , 900000000);
+    }
 }

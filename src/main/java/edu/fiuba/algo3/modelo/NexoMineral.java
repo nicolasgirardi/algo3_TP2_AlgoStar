@@ -32,4 +32,8 @@ public class NexoMineral extends Edificio{
         verififarEdificioOperativo();
         return nodoMineral.extraer(CANTIDAD_EXTRACCION );
     }
+
+    public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 50 , 900000000);
+    }
 }

@@ -55,4 +55,8 @@ public class Criadero extends Edificio{
             larvas.add( new Larva() );
         }
     }
+
+    public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 50 , 900000000);
+    }
 }

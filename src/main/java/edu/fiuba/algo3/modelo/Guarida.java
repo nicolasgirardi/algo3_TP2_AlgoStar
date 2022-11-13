@@ -21,4 +21,8 @@ public class Guarida extends Edificio{
         verififarEdificioOperativo();
         return unaLarva.evolucionar(this);
     }
+
+    public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 200 , 100);
+    }
 }

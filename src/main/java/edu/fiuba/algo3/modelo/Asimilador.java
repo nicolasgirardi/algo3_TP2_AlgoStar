@@ -21,4 +21,8 @@ public class Asimilador extends Edificio {
     public void construirEdificioEn(Recurso recurso) {
         recurso.agregarEdificio(this);
     }
+
+    public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 100 , 900000000);
+    }
 }

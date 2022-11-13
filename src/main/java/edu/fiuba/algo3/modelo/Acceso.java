@@ -18,4 +18,8 @@ public class Acceso extends Edificio{
     public void construirEdificioEn(Recurso recurso) {
         throw new ConstruccionIncorrectaError();
     }
+
+    public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 150 , 900000000);
+    }
 }

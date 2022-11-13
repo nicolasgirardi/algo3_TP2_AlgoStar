@@ -17,4 +17,8 @@ public class PuertoEstelar extends Edificio{
         throw new ConstruccionIncorrectaError();
     }
 
+    public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 150 , 150);
+    }
+
 }
