@@ -15,7 +15,7 @@ public class CasoDeUso3 {
 
         celda.asignarRecurso(volcan);
 
-        Edificio unEdificio = new Asimilador();
+        Edificio unEdificio = new Asimilador(volcan);
 
         assertDoesNotThrow( ()-> {
             celda.asignarEdifico(unEdificio);

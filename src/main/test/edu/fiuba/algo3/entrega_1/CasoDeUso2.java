@@ -305,7 +305,7 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAsimiladorCon6TurnosParaSerOperativoSeLeMandaPrepararCapsulaDeberiaLanzarExcepcion(){
         //Arrange
-        Asimilador asimilador = new Asimilador();
+        Asimilador asimilador = new Asimilador(new Volcan() );
 
         // Act y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
@@ -316,7 +316,7 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAsimiladorCon6TurnosParaSerOperativoSeEjecuta2TurnosYSeLeMandaPrepararCapsulaDeberiaLanzarExcepcion(){
         //Arrange
-        Asimilador asimilador = new Asimilador();
+        Asimilador asimilador = new Asimilador( new Volcan() ) ;
 
         //Act
         asimilador.ejecutarTurno();
@@ -332,7 +332,7 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAsimiladorCon6TurnosParaSerOperativoSeEjecuta6TurnosYSeLeMandaPrepararCapsulaNoDeberiaLanzarExcepcion(){
         //Arrange
-        Asimilador asimilador = new Asimilador();
+        Asimilador asimilador = new Asimilador( new Volcan() );
 
         //Act
         asimilador.ejecutarTurno();

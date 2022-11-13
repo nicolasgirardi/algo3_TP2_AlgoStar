@@ -13,7 +13,6 @@ public class Recurso {
         if (this.unidades == 0){
             return 0;
         }
-
         if (this.unidades < unidades){
             retorno = this.unidades;
             this.unidades = 0;
@@ -22,4 +21,5 @@ public class Recurso {
         }
         return retorno;
     }
+
 }
