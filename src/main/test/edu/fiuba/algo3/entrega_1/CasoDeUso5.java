@@ -16,7 +16,7 @@ public class CasoDeUso5 {
 
         Celda celdaCriadero = new Celda(0,0);
         //act
-        celdaCriadero.asignarMoho(new Criadero(), celdaCriadero);
+        celdaCriadero.asignarMoho(new Criadero());
 
         Celda celdaEdificio = new Celda(8,8);
 
@@ -34,7 +34,7 @@ public class CasoDeUso5 {
 
         Celda celdaPilon = new Celda(0,0);
 
-        celdaPilon.asignarRangoPilon(new Pilon(), celdaPilon);
+        celdaPilon.asignarRangoPilon(new Pilon());
         //act
 
         Celda celdaEdificio = new Celda(5,5);

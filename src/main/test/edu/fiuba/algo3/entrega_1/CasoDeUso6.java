@@ -12,11 +12,11 @@ public class CasoDeUso6 {
 
     @Test
     public void testElMohoSeMueve5Posiciones(){
-        Mapa mapa = new Mapa();
+        //Mapa mapa = new Mapa();
         Celda celda = new Celda(0,0);
 
         //act
-        celda.asignarMoho(new Criadero(), celda);
+        celda.asignarMoho(new Criadero());
 
         //assert
         assertFalse(celda.vacio());
@@ -28,9 +28,9 @@ public class CasoDeUso6 {
 
         Criadero unCriadero = new Criadero();
         //act
-        celda.asignarMoho(unCriadero, celda);//primera vez que se mueve (5 posiciones)
+        celda.asignarMoho(unCriadero);//primera vez que se mueve (5 posiciones)
 
-        celda.asignarMoho(unCriadero, celda); //segunda vez que se mueve (1 posicion)
+        celda.asignarMoho(unCriadero); //segunda vez que se mueve (1 posicion)
 
         //assert
         assertFalse(celda.vacio());

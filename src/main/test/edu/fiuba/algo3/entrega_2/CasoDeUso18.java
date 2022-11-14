@@ -28,8 +28,8 @@ public class CasoDeUso18 {
         int dañoEsperado = 0;
 
         assertEquals(dañoEsperado,unidad.AtacarAire());
-    }
-    @Test
+    }*/
+    /*@Test
     public void UnZerlingAtacaTierrayCausa4Daño(){
         Unidad unidad = new Zerling();
 
@@ -94,7 +94,7 @@ public class CasoDeUso18 {
         int dañoEsperado = 0;
 
         assertEquals(dañoEsperado,unidad.AtacarAire());
-    }
+    }*/
 
     */
 }

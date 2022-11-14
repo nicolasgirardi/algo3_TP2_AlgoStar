@@ -17,14 +17,14 @@ public class CasoDeUso14 {
 
         Criadero unCriadero = new Criadero();
         //act
-        celdaMoho.asignarMoho(unCriadero, celdaMoho);//primera vez que se mueve (5 posiciones)
+        celdaMoho.asignarMoho(unCriadero);//primera vez que se mueve (5 posiciones)
 
 
         Celda celdaPilon = new Celda(4,4);
 
         Pilon unPilon = new Pilon();
 
-        celdaPilon.asignarRangoPilon(unPilon, celdaPilon);
+        celdaPilon.asignarRangoPilon(unPilon);
 
         Edificio unEdificio = new PuertoEstelar();
 
