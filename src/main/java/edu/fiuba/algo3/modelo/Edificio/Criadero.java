@@ -73,4 +73,19 @@ public class Criadero extends Edificio {
     public int consumirMineral(int unidadesDeMineral) {
         return unidadesDeMineral-50;
     }
+
+    @Override
+    public void verificarCorrelativas(ArrayList<Edificio> edificios) {
+        return;
+    }
+
+    @Override
+    protected boolean esNecesarioParaConstruirGuarida() {
+        return false;
+    }
+
+    @Override
+    protected boolean esNecesarioParaPuertoEstelar() {
+        return false;
+    }
 }
