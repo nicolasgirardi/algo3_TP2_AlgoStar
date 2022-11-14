@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_2;
 
-import edu.fiuba.algo3.modelo.Unidad*;
+import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.HitPoints.*;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ public class CasoDeUso18 {
         int dañoEsperado = 0;
 
         assertEquals(dañoEsperado,unidad.AtacarAire());
-    }*/
+    }
     @Test
     public void UnZerlingAtacaTierrayCausa4Daño(){
         Unidad unidad = new Zerling();
@@ -94,6 +94,6 @@ public class CasoDeUso18 {
 
         assertEquals(dañoEsperado,unidad.AtacarAire());
     }
-
+    */
 
 }

@@ -3,12 +3,15 @@ package edu.fiuba.algo3.modelo.Edificio;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 
 import java.util.ArrayList;
 
 public abstract class Edificio {
     private int turnosRestantesParaSerOperativo;
     private HitPoints hp;
+
+    private Ubicacion ubicacion;
 
     public Edificio(int turnosRestantesParaSerOperativo){
         this.turnosRestantesParaSerOperativo = turnosRestantesParaSerOperativo;
@@ -64,4 +67,9 @@ public abstract class Edificio {
     protected abstract boolean esNecesarioParaConstruirGuarida();
 
     protected abstract boolean esNecesarioParaPuertoEstelar();
+
+    public void ubicar(Ubicacion unLugar){
+        ubicacion = unLugar;
+    }
+    public void desalojar(Ubicacion unLugar) { ubicacion = null;}
 }
