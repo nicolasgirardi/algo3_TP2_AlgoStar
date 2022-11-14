@@ -54,10 +54,16 @@ public class Celda {
         edificio = unEdificio;
     }
     public void asignarEdificoProtos(Edificio unEdificio){
+        if (moho == null){
+            edificio = unEdificio;
+        }
+
         if(rangoPilon == null) {
             throw new ConstruccionFueraDelRangoPilonError();
         }
-        edificio = unEdificio;
+
+        throw new ConstruccionProtoEnMohoError();
+
     }
 
     public void tirarEdificioIncorrectoError(Edificio unEdificio){
@@ -95,9 +101,9 @@ public class Celda {
             posicion_x = unaCelda.posicion_x + 1;
             posicion_y = unaCelda.posicion_y + 1;
             Celda celda = new Celda(posicion_x ,posicion_y);
-            Moho unMoho = new Moho();
+            RangoPilon unRangoPilon = new RangoPilon();
             edificio = unPilon;
-            moho = unMoho;
+            rangoPilon = unRangoPilon;
 
         }
 
