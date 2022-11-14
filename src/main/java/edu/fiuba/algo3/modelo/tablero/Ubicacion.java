@@ -17,7 +17,7 @@ public class Ubicacion {
         edificio.ubicar(this);
     }
     public void desalojar(){
-        edificio.desalojar(this);
+        edificio.desalojar();
         edificio = null;
     }
 }

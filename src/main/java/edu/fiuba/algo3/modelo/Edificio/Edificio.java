@@ -68,5 +68,11 @@ public abstract class Edificio {
 
     protected abstract boolean esNecesarioParaPuertoEstelar();
 
+    public void ubicar(Ubicacion unLugar){
+        ubicacion = unLugar;
+    }
 
+    public void desalojar(){
+        ubicacion = null;
+    }
 }

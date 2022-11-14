@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 import org.junit.jupiter.api.Test;
 import edu.fiuba.algo3.modelo.tablero.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
