@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.EdificioNoOperativoError;
-import edu.fiuba.algo3.modelo.NexoMineral;
-import edu.fiuba.algo3.modelo.NodoMineral;
-import edu.fiuba.algo3.modelo.Zangano;
+import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
+import edu.fiuba.algo3.modelo.Edificio.NexoMineral;
+import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
+import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,7 +13,6 @@ public class CasoDeUso7 {
         //Arrange
         Zangano zangano = new Zangano();
         NodoMineral nodoMineral = new NodoMineral();
-
 
         //Act
         int cantidadMineral = zangano.extraer(nodoMineral);

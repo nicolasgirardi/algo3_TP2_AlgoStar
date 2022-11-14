@@ -1,7 +1,8 @@
 package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.tablero.Mapa;
+import edu.fiuba.algo3.modelo.Edificio.*;
+import edu.fiuba.algo3.modelo.tablero.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

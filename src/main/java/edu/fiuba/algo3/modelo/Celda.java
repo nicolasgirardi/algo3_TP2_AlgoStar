@@ -1,5 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Edificio.*;
+import edu.fiuba.algo3.modelo.Recurso.*;
+
+
 public class Celda {
 
     private Edificio edificio;
@@ -67,18 +71,24 @@ public class Celda {
     }
 
     public void tirarEdificioIncorrectoError(Edificio unEdificio){
-
+    /*
         if( verificarClases(unEdificio) ){
             throw new EdificioIncorrectoError();
         }
+
+
+     */
     }
 
-    private boolean verificarClases(Edificio unEdificio){
+
+
+    /*private boolean verificarClases(Edificio unEdificio){
         Volcan unVolcan = new Volcan();
         Asimilador unAsimilador = new Asimilador(unVolcan);
         Extractor unExtractor = new Extractor(new Volcan());
         return ( recurso.getClass() == unVolcan.getClass() && unEdificio.getClass() != unAsimilador.getClass() && unEdificio.getClass() != (unExtractor.getClass()));
-    }
+    }*/
+
 
     public void asignarMoho(Criadero unCriadero, Celda unaCelda) {
         int baldosas = 1;
@@ -123,5 +133,7 @@ public class Celda {
     public int obtenerPosicionX() {
         return posicion_x;
     }
+
+
 
 }

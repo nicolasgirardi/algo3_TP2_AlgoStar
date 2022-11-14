@@ -1,6 +1,10 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
+import edu.fiuba.algo3.modelo.Edificio.Extractor;
+import edu.fiuba.algo3.modelo.Edificio.ExtractorCantidadMaximaDeZanganosError;
+import edu.fiuba.algo3.modelo.Recurso.Volcan;
+import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,7 +15,7 @@ public class CasoDeUso4 {
 
         //Arrange
         Volcan volcan = new Volcan();
-        Extractor extractor = new Extractor(volcan);
+        Extractor extractor = new Extractor();
         int resultadoEsperado = 0;
 
         // dejo el Extrractor operrable en 6 turnos
@@ -19,10 +23,8 @@ public class CasoDeUso4 {
             extractor.ejecutarTurno();
         }
 
-
         //Act
-        int cantidadGas = extractor.extraer();
-
+        int cantidadGas = extractor.extraer(volcan);
 
         //Assert
         assertEquals(resultadoEsperado, cantidadGas);
@@ -34,7 +36,7 @@ public class CasoDeUso4 {
 
         //Arrange
         Volcan volcan = new Volcan();
-        Extractor extractor = new Extractor(volcan);
+        Extractor extractor = new Extractor();
         int resultadoEsperado = 10;
 
         // dejo el Extrractor operrable en 6 turnos
@@ -45,7 +47,7 @@ public class CasoDeUso4 {
         extractor.agregarZangano(new Zangano());
 
         //Act
-        int cantidadGas = extractor.extraer();
+        int cantidadGas = extractor.extraer(volcan);
 
         //Assert
         assertEquals(resultadoEsperado, cantidadGas);
@@ -56,7 +58,7 @@ public class CasoDeUso4 {
 
         //Arrange
         Volcan volcan = new Volcan();
-        Extractor extractor = new Extractor(volcan);
+        Extractor extractor = new Extractor();
         int resultadoEsperado = 20;
 
         // dejo el Extrractor operrable en 6 turnos
@@ -68,7 +70,7 @@ public class CasoDeUso4 {
         extractor.agregarZangano(new Zangano());
 
         //Act
-        int cantidadGas = extractor.extraer();
+        int cantidadGas = extractor.extraer(volcan);
 
         //Assert
         assertEquals(resultadoEsperado, cantidadGas);
@@ -79,7 +81,7 @@ public class CasoDeUso4 {
 
         //Arrange
         Volcan volcan = new Volcan();
-        Extractor extractor = new Extractor(volcan);
+        Extractor extractor = new Extractor();
         int resultadoEsperado = 30;
 
         // dejo el Extrractor operrable en 6 turnos
@@ -92,7 +94,7 @@ public class CasoDeUso4 {
         extractor.agregarZangano(new Zangano());
 
         //Act
-        int cantidadGas = extractor.extraer();
+        int cantidadGas = extractor.extraer(volcan);
 
         //Assert
         assertEquals(resultadoEsperado, cantidadGas);
@@ -103,7 +105,7 @@ public class CasoDeUso4 {
 
         //Arrange
         Volcan volcan = new Volcan();
-        Extractor extractor = new Extractor(volcan);
+        Extractor extractor = new Extractor();
         // dejo el Extrractor operrable en 6 turnos
         for(int i = 0; i < 6; i++ ){
             extractor.ejecutarTurno();
@@ -125,11 +127,12 @@ public class CasoDeUso4 {
 
         //Arrange
         Volcan volcan = new Volcan();
-        Extractor extractor = new Extractor(volcan);
+        Extractor extractor = new Extractor();
 
         //Act y assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            extractor.extraer();
+            extractor.extraer(volcan);
         });
     }
 }
+

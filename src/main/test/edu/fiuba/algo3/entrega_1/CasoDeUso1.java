@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.Criadero;
-import edu.fiuba.algo3.modelo.Zangano;
+import edu.fiuba.algo3.modelo.Edificio.Criadero;
+import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

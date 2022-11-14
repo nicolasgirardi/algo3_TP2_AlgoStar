@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.entrega_1;
 
+
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.tablero.Mapa;
+import edu.fiuba.algo3.modelo.Edificio.*;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -10,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class CasoDeUso5 {
     @Test
     public void testNoSePuedeConstruirFueraDelMoho(){
-        Mapa mapa = new Mapa();
+        //Mapa mapa = new Mapa();
 
         Celda celdaCriadero = new Celda(0,0);
         //act
@@ -28,7 +30,7 @@ public class CasoDeUso5 {
     }
     @Test
     public void testNoSePuedeConstruirFueraDelRangoDelPilon(){
-        Mapa mapa = new Mapa();
+        //Mapa mapa = new Mapa();
 
         Celda celdaPilon = new Celda(0,0);
 

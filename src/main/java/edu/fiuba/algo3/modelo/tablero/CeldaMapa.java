@@ -1,6 +1,5 @@
 /*package edu.fiuba.algo3.modelo.tablero;
 
-import edu.fiuba.algo3.modelo.Edificio;
 import edu.fiuba.algo3.modelo.Moho;
 
 public class CeldaMapa {
