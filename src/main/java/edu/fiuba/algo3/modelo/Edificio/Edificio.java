@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Edificio;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 
+import java.util.ArrayList;
+
 public abstract class Edificio {
     private int turnosRestantesParaSerOperativo;
 
@@ -33,4 +35,5 @@ public abstract class Edificio {
     public abstract int consumirGas(int unidadesDeGas);
 
     public abstract int consumirMineral(int unidadesDeMineral);
+
 }

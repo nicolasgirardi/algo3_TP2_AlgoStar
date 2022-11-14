@@ -39,4 +39,5 @@ public class Guarida extends Edificio {
     public int consumirMineral(int unidadesDeMineral) {
         return unidadesDeMineral-200;
     }
+
 }
