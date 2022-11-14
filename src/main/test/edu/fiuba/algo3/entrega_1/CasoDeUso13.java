@@ -13,7 +13,7 @@ public class CasoDeUso13 {
     public void SePuedeConstruirSobreElMohoQueDejoUnCriaderoDestruido(){
         Celda celdaCriadero = new Celda(0,0);
         //act
-        celdaCriadero.asignarMoho(new Criadero(), celdaCriadero);
+        celdaCriadero.asignarMoho(new Criadero());
 
         Celda celdaAEliminar = new Celda(0,0);
 

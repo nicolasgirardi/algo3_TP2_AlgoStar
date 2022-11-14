@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.tablero;
 
 import edu.fiuba.algo3.modelo.Celda;
+import edu.fiuba.algo3.modelo.Edificio.Pilon;
 import edu.fiuba.algo3.modelo.Moho;
 
 import java.util.ArrayList;
