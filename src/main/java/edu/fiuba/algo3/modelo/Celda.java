@@ -82,14 +82,6 @@ public class Celda {
 
 
 
-    /*private boolean verificarClases(Edificio unEdificio){
-        Volcan unVolcan = new Volcan();
-        Asimilador unAsimilador = new Asimilador(unVolcan);
-        Extractor unExtractor = new Extractor(new Volcan());
-        return ( recurso.getClass() == unVolcan.getClass() && unEdificio.getClass() != unAsimilador.getClass() && unEdificio.getClass() != (unExtractor.getClass()));
-    }*/
-
-
     public void asignarMoho(Criadero unCriadero, Celda unaCelda) {
         int baldosas = 1;
         if (edificio == null){
