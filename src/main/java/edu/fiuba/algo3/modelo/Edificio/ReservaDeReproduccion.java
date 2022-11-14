@@ -50,4 +50,19 @@ public class ReservaDeReproduccion extends Edificio {
         return unidadesDeMineral - 150;
     }
 
+    @Override
+    public void verificarCorrelativas(ArrayList<Edificio> edificios) {
+        return;
+    }
+
+    @Override
+    protected boolean esNecesarioParaConstruirGuarida() {
+        return true;
+    }
+
+    @Override
+    protected boolean esNecesarioParaPuertoEstelar() {
+        return false;
+    }
+
 }

@@ -59,4 +59,9 @@ public abstract class Edificio {
         hp.regenerar();
     }
 
+    public abstract void verificarCorrelativas(ArrayList<Edificio> edificios);
+
+    protected abstract boolean esNecesarioParaConstruirGuarida();
+
+    protected abstract boolean esNecesarioParaPuertoEstelar();
 }

@@ -4,6 +4,8 @@ package edu.fiuba.algo3.modelo.Edificio;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 
+import java.util.ArrayList;
+
 public class NexoMineral extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 4;
     private static final int CANTIDAD_EXTRACCION = 20;
@@ -37,5 +39,20 @@ public class NexoMineral extends Edificio {
     @Override
     public int consumirMineral(int unidadesDeMineral) {
         return unidadesDeMineral-50;
+    }
+
+    @Override
+    public void verificarCorrelativas(ArrayList<Edificio> edificios) {
+        return;
+    }
+
+    @Override
+    protected boolean esNecesarioParaConstruirGuarida() {
+        return false;
+    }
+
+    @Override
+    protected boolean esNecesarioParaPuertoEstelar() {
+        return false;
     }
 }

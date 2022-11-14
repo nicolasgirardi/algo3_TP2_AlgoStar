@@ -40,4 +40,25 @@ public class Guarida extends Edificio {
         return unidadesDeMineral-200;
     }
 
+    @Override
+    public void verificarCorrelativas(ArrayList<Edificio> edificios) {
+        for(Edificio edificioAct : edificios){
+            if(edificioAct.esNecesarioParaConstruirGuarida() ){
+                return;
+            }
+        }
+        throw new CorrelativaDeConstruccionIncumplidaError();
+    }
+
+    @Override
+    protected boolean esNecesarioParaConstruirGuarida() {
+        return false;
+    }
+
+
+    @Override
+    protected boolean esNecesarioParaPuertoEstelar() {
+        return false;
+    }
+
 }

@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.Edificio;
 
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 
+import java.util.ArrayList;
+
 public class PuertoEstelar extends Edificio {
 
     private static final int CANTIDAD_TURNOS_OPERATIVO = 10;
@@ -31,6 +33,26 @@ public class PuertoEstelar extends Edificio {
     @Override
     public int consumirMineral(int unidadesDeMineral) {
         return unidadesDeMineral - 150 ;
+    }
+
+    @Override
+    public void verificarCorrelativas(ArrayList<Edificio> edificios) {
+        for(Edificio edificioAct : edificios){
+            if(edificioAct.esNecesarioParaPuertoEstelar() ){
+                return;
+            }
+        }
+        throw new CorrelativaDeConstruccionIncumplidaError();
+    }
+
+    @Override
+    protected boolean esNecesarioParaConstruirGuarida() {
+        return false;
+    }
+
+    @Override
+    protected boolean esNecesarioParaPuertoEstelar() {
+        return false;
     }
 
 }

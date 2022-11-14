@@ -18,24 +18,10 @@ public abstract class Raza {
 
     public void agregarEdificio(Edificio edificio){
         edificio.verificarSiPuedeSerConstruido(unidadesDeMineral, unidadesDeGas);
-        verificarCorrelativas(edificio);
+        edificio.verificarCorrelativas(edificios);
         unidadesDeGas = edificio.consumirGas(unidadesDeGas);
         unidadesDeMineral = edificio.consumirMineral(unidadesDeMineral);
         edificios.add(edificio);
-    }
-
-    private void verificarCorrelativas(Edificio edificio) {
-        if(edificio.getClass() == Guarida.class){
-            boolean encontroCorrelativa = false;
-            for(Edificio edificioAct : edificios){
-                if( edificioAct.getClass() == ReservaDeReproduccion.class){
-                    encontroCorrelativa = true;
-                }
-            }
-            if( !encontroCorrelativa ){
-                throw new CorrelativaDeConstruccionIncumplidaError();
-            }
-        }
     }
 
     public void aumentarRecursos(int unidadesDeMineral, int unidadesDeGas ){

@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.Unidad;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 
-public class Zangano {
+public class Zangano implements Unidad{
 
     public int extraer(Recurso recurso){
         return recurso.extraer(10);
