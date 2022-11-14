@@ -34,5 +34,6 @@ public abstract class Raza {
         if( this.unidadesDeMineral < cantMineralConsumir || this.unidadesDeGas < cantGasConsumir ) {
             throw new RecursosInsuficientesError();
         }
+
     }
 }

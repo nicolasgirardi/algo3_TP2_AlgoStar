@@ -17,6 +17,7 @@ public class NexoMineral extends Edificio {
         nodoMineral.ocuparConEdificio(this);
     }
 
+
     @Override
     public void construirEdificioEn(Recurso recurso) {
         throw new ConstruccionIncorrectaError();
