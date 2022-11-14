@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Raza;
 
 import edu.fiuba.algo3.modelo.Edificio.*;
+import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 
 import java.util.ArrayList;
 
@@ -27,5 +28,11 @@ public abstract class Raza {
     public void aumentarRecursos(int unidadesDeMineral, int unidadesDeGas ){
         this.unidadesDeGas += unidadesDeGas;
         this.unidadesDeMineral += unidadesDeMineral;
+    }
+
+    public void verficarConsumoRecurso(int cantMineralConsumir, int cantGasConsumir){
+        if( this.unidadesDeMineral < cantMineralConsumir || this.unidadesDeGas < cantGasConsumir ) {
+            throw new RecursosInsuficientesError();
+        }
     }
 }
