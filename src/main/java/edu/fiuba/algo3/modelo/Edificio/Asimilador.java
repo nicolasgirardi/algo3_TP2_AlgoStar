@@ -1,26 +1,32 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Edificio;
 
-public class Acceso extends Edificio{
+import edu.fiuba.algo3.modelo.Recurso.Recurso;
+import edu.fiuba.algo3.modelo.Recurso.Volcan;
 
+public class Asimilador extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 6;
 
-
-    public Acceso(){
+    public Asimilador(){
         super(CANTIDAD_TURNOS_OPERATIVO);
     }
 
 
-    public void transportarTropas() {
+    public void prepararCapsula() {
         verififarEdificioOperativo();
+
+    }
+
+    public int extraer(Volcan volcan) {
+        return volcan.extraer(20);
     }
 
     @Override
     public void construirEdificioEn(Recurso recurso) {
-        throw new ConstruccionIncorrectaError();
+        recurso.agregarEdificio(this);
     }
 
     public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
-        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 150 , 0);
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 100 , 0);
     }
 
     @Override
@@ -30,6 +36,6 @@ public class Acceso extends Edificio{
 
     @Override
     public int consumirMineral(int unidadesDeMineral) {
-        return unidadesDeMineral - 150;
+        return (unidadesDeMineral-100);
     }
 }

@@ -1,4 +1,7 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Unidad;
+
+import edu.fiuba.algo3.modelo.Edificio.Guarida;
+import edu.fiuba.algo3.modelo.Edificio.ReservaDeReproduccion;
 
 public class Larva {
     public Zangano evolucionar() {

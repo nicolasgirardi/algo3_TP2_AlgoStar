@@ -1,19 +1,16 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Edificio;
 
-public class Espiral extends Edificio{
+import edu.fiuba.algo3.modelo.Recurso.Recurso;
 
-    private static final int CANTIDAD_TURNOS_OPERATIVO = 10;
+public class Pilon extends Edificio {
 
-    private int turnosRestantesParaSerOperativo;
+    private static final int CANTIDAD_TURNOS_OPERATIVO = 5;
 
-    public Espiral() {
+    public Pilon(){
         super(CANTIDAD_TURNOS_OPERATIVO);
     }
-
-    public Mutalisco crearMutalisco() {
+    public void energizar() {
         verififarEdificioOperativo();
-        return new Mutalisco();
-
     }
 
     @Override
@@ -22,17 +19,16 @@ public class Espiral extends Edificio{
     }
 
     public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
-        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 150 , 100);
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 100 , 0);
     }
 
     @Override
     public int consumirGas(int unidadesDeGas) {
-        return unidadesDeGas-100;
+        return unidadesDeGas;
     }
 
     @Override
     public int consumirMineral(int unidadesDeMineral) {
-        return unidadesDeMineral-150;
+        return unidadesDeMineral-100;
     }
-
 }

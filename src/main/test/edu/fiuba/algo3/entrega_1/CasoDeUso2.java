@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.Edificio.*;
+import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
+import edu.fiuba.algo3.modelo.Unidad.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -219,7 +222,7 @@ public class CasoDeUso2 {
         NexoMineral nexoMineral = new NexoMineral(nodoMineral);
         //Acy y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            Mineral mineral = nexoMineral.recolectarMineral();
+            nexoMineral.extraer();
         });
     }
 
@@ -235,7 +238,7 @@ public class CasoDeUso2 {
 
         //Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            Mineral mineral = nexoMineral.recolectarMineral();
+            nexoMineral.extraer();
         });
     }
 
@@ -253,7 +256,7 @@ public class CasoDeUso2 {
 
         //Assert
         assertDoesNotThrow( ()-> {
-            Mineral mineral = nexoMineral.recolectarMineral();
+            nexoMineral.extraer();
         });
     }
 

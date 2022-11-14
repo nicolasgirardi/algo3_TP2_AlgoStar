@@ -1,4 +1,7 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Unidad;
+
+import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
+import edu.fiuba.algo3.modelo.Recurso.Recurso;
 
 public class Zangano {
 

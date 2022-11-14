@@ -1,8 +1,10 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Edificio;
 
-import java.util.ArrayList;
 
-public class NexoMineral extends Edificio{
+import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
+import edu.fiuba.algo3.modelo.Recurso.Recurso;
+
+public class NexoMineral extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 4;
     private static final int CANTIDAD_EXTRACCION = 20;
     private NodoMineral nodoMineral;
@@ -16,11 +18,6 @@ public class NexoMineral extends Edificio{
     @Override
     public void construirEdificioEn(Recurso recurso) {
         throw new ConstruccionIncorrectaError();
-    }
-
-    public Mineral recolectarMineral() {
-        verififarEdificioOperativo();
-        return new Mineral();
     }
 
     public int extraer(){

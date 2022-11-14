@@ -1,6 +1,8 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Recurso;
 
-import java.util.ArrayList;
+import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Edificio.NexoMineral;
+import edu.fiuba.algo3.modelo.Unidad.Zangano;
 
 public class NodoMineral extends Recurso{
 

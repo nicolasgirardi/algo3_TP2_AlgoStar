@@ -1,4 +1,7 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Edificio;
+
+import edu.fiuba.algo3.modelo.Recurso.Recurso;
+import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 
 public abstract class Edificio {
     private int turnosRestantesParaSerOperativo;

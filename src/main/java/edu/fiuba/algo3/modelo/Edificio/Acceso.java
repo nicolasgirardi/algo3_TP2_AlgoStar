@@ -1,30 +1,19 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Edificio;
 
-import java.util.ArrayList;
+import edu.fiuba.algo3.modelo.Recurso.Recurso;
 
-public class ReservaDeReproduccion extends Edificio{
+public class Acceso extends Edificio {
 
-    private static final int CANTIDAD_TURNOS_OPERATIVO = 12;
+    private static final int CANTIDAD_TURNOS_OPERATIVO = 6;
 
-    private ArrayList<Larva> larvas;
 
-    public ReservaDeReproduccion(){
+    public Acceso(){
         super(CANTIDAD_TURNOS_OPERATIVO);
-        larvas = new ArrayList<Larva>();
-        cargarTodaslasLarvas();
-    }
-
-    private  void cargarTodaslasLarvas(){
-        larvas.add( new Larva() );
-        larvas.add( new Larva() );
-        larvas.add( new Larva() );
     }
 
 
-    public Zerling evolucionarLarva(Larva larva) {
+    public void transportarTropas() {
         verififarEdificioOperativo();
-        return larva.evolucionar(this);
-
     }
 
     @Override
@@ -45,5 +34,4 @@ public class ReservaDeReproduccion extends Edificio{
     public int consumirMineral(int unidadesDeMineral) {
         return unidadesDeMineral - 150;
     }
-
 }

@@ -1,6 +1,8 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Edificio;
 
-public class PuertoEstelar extends Edificio{
+import edu.fiuba.algo3.modelo.Recurso.Recurso;
+
+public class PuertoEstelar extends Edificio {
 
     private static final int CANTIDAD_TURNOS_OPERATIVO = 10;
 

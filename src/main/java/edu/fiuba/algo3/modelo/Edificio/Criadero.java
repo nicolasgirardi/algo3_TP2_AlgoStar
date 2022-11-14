@@ -1,8 +1,12 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Edificio;
+
+import edu.fiuba.algo3.modelo.Unidad.Larva;
+import edu.fiuba.algo3.modelo.Recurso.Recurso;
+import edu.fiuba.algo3.modelo.Unidad.Zangano;
 
 import java.util.ArrayList;
 
-public class Criadero extends Edificio{
+public class Criadero extends Edificio {
     private final int CANTIDAD_TURNOS_OPERATIVO = 4;
 
     private ArrayList<Larva> larvas;

@@ -1,8 +1,12 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Edificio;
+
+import edu.fiuba.algo3.modelo.Recurso.Recurso;
+import edu.fiuba.algo3.modelo.Recurso.Volcan;
+import edu.fiuba.algo3.modelo.Unidad.Zangano;
 
 import java.util.ArrayList;
 
-public class Extractor extends Edificio{
+public class Extractor extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 6;
     private ArrayList<Zangano> zanganos;
 

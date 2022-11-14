@@ -1,6 +1,10 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
+import edu.fiuba.algo3.modelo.Edificio.Extractor;
+import edu.fiuba.algo3.modelo.Edificio.ExtractorCantidadMaximaDeZanganosError;
+import edu.fiuba.algo3.modelo.Recurso.Volcan;
+import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,8 +1,12 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Edificio;
+
+import edu.fiuba.algo3.modelo.Unidad.Hidralisco;
+import edu.fiuba.algo3.modelo.Unidad.Larva;
+import edu.fiuba.algo3.modelo.Recurso.Recurso;
 
 import java.util.ArrayList;
 
-public class Guarida extends Edificio{
+public class Guarida extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 12;
     private ArrayList<Larva> larvas;
 
