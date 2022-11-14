@@ -42,6 +42,11 @@ public class Celda {
 
     }
 
+    public void asignarEdifico(Edificio unEdificio){
+        tirarEdificioIncorrectoError(unEdificio);
+        edificio = unEdificio;
+    }
+
     public void asignarEdificoZerg(Edificio unEdificio){
         if(moho == null) {
             throw new ConstruccionFueraDelMohoError();

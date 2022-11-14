@@ -40,7 +40,7 @@ public class CasoDeUso5 {
 
         //assert
         assertThrows( ConstruccionFueraDelRangoPilonError.class, ()-> {
-            celdaEdificio.asignarEdificoProtos(unEdificio);
+            celdaEdificio.asignarEdificoZerg(unEdificio);
         });
 
     }
