@@ -1,6 +1,6 @@
 /*package edu.fiuba.algo3.modelo.tablero;
 
-import edu.fiuba.algo3.modelo.Moho;
+import edu.fiuba.algo3.modelo.tablero.Moho;
 
 public class CeldaMapa {
     private int posicion_x;

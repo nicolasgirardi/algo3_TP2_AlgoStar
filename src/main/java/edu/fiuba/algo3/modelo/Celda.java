@@ -2,13 +2,11 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.Recurso.*;
-import edu.fiuba.algo3.modelo.tablero.Mapa;
-
-import java.util.ArrayList;
+import edu.fiuba.algo3.modelo.tablero.*;
 
 
 public class Celda {
-
+/*
     private Edificio edificio;
 
     private Recurso recurso; //desp refactorizar y que sean recursos
@@ -78,12 +76,12 @@ public class Celda {
     }
 
     public void tirarEdificioIncorrectoError(Edificio unEdificio){
-    /*
+
         if( verificarClases(unEdificio) ){
             throw new EdificioIncorrectoError();
         }
 
-     */
+
     }
 
 
@@ -160,4 +158,5 @@ public class Celda {
         }
 
     }
+    */
 }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Ocupante {
 
+    /*
     private Mapa mapa;
     private Celda posicion;
 
@@ -19,5 +20,5 @@ public class Ocupante {
 
     public Celda obtenerPosicion() {
         return posicion;
-    }
+    }*/
 }

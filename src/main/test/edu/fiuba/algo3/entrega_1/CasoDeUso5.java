@@ -4,6 +4,9 @@ package edu.fiuba.algo3.entrega_1;
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.Edificio.*;
 
+import edu.fiuba.algo3.modelo.tablero.Coordenada;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
+import edu.fiuba.algo3.modelo.tablero.Tierra;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -14,17 +17,15 @@ public class CasoDeUso5 {
     public void testNoSePuedeConstruirFueraDelMoho(){
         //Mapa mapa = new Mapa();
 
-        Celda celdaCriadero = new Celda(0,0);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+
         //act
-        celdaCriadero.asignarMoho(new Criadero());
+        ubicacion.darTipo(new Tierra());
 
-        Celda celdaEdificio = new Celda(8,8);
-
-        Edificio unEdificio = new Guarida();
         //assert
 
         assertThrows( ConstruccionFueraDelMohoError.class, ()-> {
-            celdaEdificio.asignarEdificoZerg(unEdificio);
+            ubicacion.ubicar(new Criadero());
         });
 
     }
@@ -32,17 +33,16 @@ public class CasoDeUso5 {
     public void testNoSePuedeConstruirFueraDelRangoDelPilon(){
         //Mapa mapa = new Mapa();
 
-        Celda celdaPilon = new Celda(0,0);
-
-        celdaPilon.asignarRangoPilon(new Pilon());
+        Ubicacion ubicacionPilon = new Ubicacion(new Coordenada(5,5));
+        Pilon unPilon = new Pilon();
+        ubicacionPilon.ubicar(unPilon);
         //act
 
-        Celda celdaEdificio = new Celda(5,5);
-        Edificio unEdificio = new PuertoEstelar();
+        Ubicacion ubicacionPuerto = new Ubicacion(new Coordenada(10,10));
 
         //assert
         assertThrows( ConstruccionFueraDelRangoPilonError.class, ()-> {
-            celdaEdificio.asignarEdificoProtos(unEdificio);
+            ubicacionPuerto.ubicar(new Acceso(),unPilon);
         });
 
     }

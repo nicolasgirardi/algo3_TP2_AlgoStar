@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CasoDeUso14 {
-    @Test
+    /*@Test
     public void testNoPuedenHaberConstruccionesProtossEnELMoho(){
 
         Mapa mapa = new Mapa();
@@ -36,4 +36,5 @@ public class CasoDeUso14 {
     }
     @Test
     public void testElMohoNOPuedeInvadirConstrucciones(){}
+}*/
 }

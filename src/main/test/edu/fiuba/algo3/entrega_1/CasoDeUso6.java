@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CasoDeUso6 {
+public class CasoDeUso6 {/*
 
     @Test
     public void testElMohoSeMueve5Posiciones(){
@@ -36,7 +36,7 @@ public class CasoDeUso6 {
         assertFalse(celda.vacio());
 
     }
-    /*@Test
+    @Test
     public void testCreoMoho(){
         Mapa mapa = new Mapa();
         Celda celda = new Celda(78, 98);
