@@ -49,6 +49,9 @@ public abstract class Edificio {
     public int vidaActual(){
         return hp.vida();
     }
+    public int escudoActual(){
+        return hp.escudo();
+    }
     public void regeneracionFinDeTurno(){
         hp.regenerar();
     }
