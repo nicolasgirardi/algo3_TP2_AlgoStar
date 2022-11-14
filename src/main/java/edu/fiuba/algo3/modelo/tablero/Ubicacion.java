@@ -11,7 +11,7 @@ public class Ubicacion {
     public Ubicacion(Coordenada coordenada){
         coor = coordenada;
     }
-
+/*
     public void ubicar(Edificio Edificio){
         edificio = Edificio;
         edificio.ubicar(this);
@@ -20,4 +20,7 @@ public class Ubicacion {
         edificio.desalojar(this);
         edificio = null;
     }
+
+
+ */
 }

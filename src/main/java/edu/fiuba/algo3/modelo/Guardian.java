@@ -4,14 +4,14 @@ import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
 
 public class Guardian {
     public void atacarUnidad(Mutalisco mutalisco) {
-        throw new NoSePuedeAtacarALaUnidadError();
+        throw new NoPuedeAtacarUnidadDeAireError();
     }
 
     public void atacarUnidad(Guardian guardianDos) {
-        throw new NoSePuedeAtacarALaUnidadError();
+        throw new NoPuedeAtacarUnidadDeAireError();
     }
 
     public void atacarUnidad(Scout scout) {
-        throw new NoSePuedeAtacarALaUnidadError();
+        throw new NoPuedeAtacarUnidadDeAireError();
     }
 }

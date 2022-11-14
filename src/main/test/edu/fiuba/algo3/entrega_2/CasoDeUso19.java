@@ -1,12 +1,9 @@
 package edu.fiuba.algo3.entrega_2;
 
-import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
-import edu.fiuba.algo3.modelo.Edificio.PuertoEstelar;
 import edu.fiuba.algo3.modelo.Guardian;
-import edu.fiuba.algo3.modelo.NoSePuedeAtacarALaUnidadError;
+import edu.fiuba.algo3.modelo.NoPuedeAtacarUnidadDeAireError;
 import edu.fiuba.algo3.modelo.Scout;
 import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
-import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.Unidad.Zerling;
 import edu.fiuba.algo3.modelo.Zealot;
 import org.junit.jupiter.api.Test;
@@ -26,15 +23,15 @@ public class CasoDeUso19 {
         Guardian guardian = new Guardian();
         Scout scout = new Scout();
 
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
+        assertThrows( NoPuedeAtacarUnidadDeAireError.class, ()-> {
             zerling.atacarUnidad(mutalisco);
         });
 
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
+        assertThrows( NoPuedeAtacarUnidadDeAireError.class, ()-> {
             zerling.atacarUnidad(guardian);
         });
 
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
+        assertThrows( NoPuedeAtacarUnidadDeAireError.class, ()-> {
             zerling.atacarUnidad(scout);
         });
     }
@@ -46,15 +43,15 @@ public class CasoDeUso19 {
         Guardian guardian = new Guardian();
         Scout scout = new Scout();
 
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
+        assertThrows( NoPuedeAtacarUnidadDeAireError.class, ()-> {
             zealot.atacarUnidad(mutalisco);
         });
 
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
+        assertThrows( NoPuedeAtacarUnidadDeAireError.class, ()-> {
             zealot.atacarUnidad(guardian);
         });
 
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
+        assertThrows( NoPuedeAtacarUnidadDeAireError.class, ()-> {
             zealot.atacarUnidad(scout);
         });
     }
@@ -66,15 +63,15 @@ public class CasoDeUso19 {
         Guardian guardianDos = new Guardian();
         Scout scout = new Scout();
 
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
+        assertThrows( NoPuedeAtacarUnidadDeAireError.class, ()-> {
             guardian.atacarUnidad(mutalisco);
         });
 
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
+        assertThrows( NoPuedeAtacarUnidadDeAireError.class, ()-> {
             guardian.atacarUnidad(guardianDos);
         });
 
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
+        assertThrows( NoPuedeAtacarUnidadDeAireError.class, ()-> {
             guardian.atacarUnidad(scout);
         });
     }
