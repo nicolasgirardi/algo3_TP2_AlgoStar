@@ -1,9 +1,0 @@
-@startuml
-'https://plantuml.com/sequence-diagram
-
-class Mapa{
-
-}
-
-
-@enduml
