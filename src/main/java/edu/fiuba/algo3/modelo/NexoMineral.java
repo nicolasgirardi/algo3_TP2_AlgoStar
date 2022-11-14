@@ -10,12 +10,7 @@ public class NexoMineral extends Edificio{
     public NexoMineral(NodoMineral nodoMineral){
         super(CANTIDAD_TURNOS_OPERATIVO) ;
         this.nodoMineral = nodoMineral;
-    }
-
-    //Estoy haciendo este segundo constructor para caso 3, pero creo que despues tengo que refac
-    //torizar como con volcan para que quede solo 1 constructor.
-    public NexoMineral(){
-        super(CANTIDAD_TURNOS_OPERATIVO) ;
+        nodoMineral.ocuparConEdificio(this);
     }
 
     @Override

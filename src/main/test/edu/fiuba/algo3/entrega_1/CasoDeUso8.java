@@ -80,7 +80,7 @@ public class CasoDeUso8 {
 
         //Arrange
         RazaProtoss razaProtoss = new RazaProtoss();
-        NexoMineral nexoMineral = new NexoMineral();
+        NexoMineral nexoMineral = new NexoMineral( new NodoMineral() );
 
         //Act y assert
         assertDoesNotThrow(  ()-> {
@@ -167,7 +167,7 @@ public class CasoDeUso8 {
         RazaProtoss razaProtoss = new RazaProtoss();
         Pilon pilon = new Pilon();
         Asimilador asimilador = new Asimilador();
-        NexoMineral nexoMineral = new NexoMineral();
+        NexoMineral nexoMineral = new NexoMineral( new NodoMineral() );
 
         //Act
         razaProtoss.agregarEdificio(pilon); // gasto 100 de mineral
@@ -181,4 +181,5 @@ public class CasoDeUso8 {
         });
 
     }
+
 }

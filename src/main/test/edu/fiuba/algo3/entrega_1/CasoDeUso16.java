@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class CasoDeUso16 {
 
     @Test
-    public void testSeConstruyeUnExtractorSobreUnVolcanNoSeDeberiaonstruirOtroExtractorSobreElMismoVolcan(){
+    public void testSeConstruyeUnExtractorSobreUnVolcanNoSeDeberiaConstruirOtroExtractorSobreElMismoVolcan(){
         Volcan volcan = new Volcan();
         Extractor extractor = new Extractor();
         volcan.agregarEdificio(extractor);
@@ -47,9 +47,8 @@ public class CasoDeUso16 {
     public void testUnNodoMineralTieneUnNexoNoDeberiaPoderRecibirUnZangano(){
 
         NodoMineral nodoMineral = new NodoMineral();
-        NexoMineral nexoMineral = new NexoMineral();
+        NexoMineral nexoMineral = new NexoMineral(nodoMineral);
         Zangano zangano = new Zangano();
-        nodoMineral.agregarEdificio(nexoMineral);
 
         assertThrows( RecursoOcupadoError.class, ()-> {
             zangano.extraerMineral(nodoMineral);
@@ -60,12 +59,11 @@ public class CasoDeUso16 {
     public void testUnZanganoTrabajaSobreUnNodoMineralNoDeberiaPoderConstruirseUnNexoMineral(){
 
         NodoMineral nodoMineral = new NodoMineral();
-        NexoMineral nexoMineral = new NexoMineral();
         Zangano zangano = new Zangano();
         nodoMineral.agregarZangano(zangano);
 
         assertThrows( RecursoOcupadoError.class, ()-> {
-            nodoMineral.agregarEdificio(nexoMineral);
+            NexoMineral nexoMineral = new NexoMineral(nodoMineral);
         });
     }
 

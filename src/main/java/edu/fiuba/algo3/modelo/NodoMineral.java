@@ -32,4 +32,10 @@ public class NodoMineral extends Recurso{
             throw new RecursoOcupadoError();
         }
     }
+
+    public void ocuparConEdificio(NexoMineral nexoMineral) {
+        verificarRecursoOcupado();
+        verificarRecursoOcupadoPorZangano();
+        edificio = nexoMineral;
+    }
 }

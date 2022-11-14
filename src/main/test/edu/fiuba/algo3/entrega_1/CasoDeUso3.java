@@ -74,7 +74,7 @@ public class CasoDeUso3 {
     @Test //ACA
     public void testNexoMineralNoSePuedeConstruirSobreElGas(){
         Volcan volcan = new Volcan();
-        Edificio unEdificio = new NexoMineral();
+        Edificio unEdificio = new NexoMineral( new NodoMineral() );
 
         assertThrows( ConstruccionIncorrectaError.class, ()-> {
             unEdificio.construirEdificioEn(volcan);
