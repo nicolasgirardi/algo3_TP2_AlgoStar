@@ -1,4 +1,4 @@
 package edu.fiuba.algo3.modelo.Unidad;
 
-public class Zerling {
+public class Zerling implements Unidad{
 }

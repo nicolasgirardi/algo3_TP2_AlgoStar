@@ -11,7 +11,7 @@ class Juego {
 class Zangano{
     -extraer()
     +ejecutarTurno(razaRecursos: RazaRecursos)
-    +setTrabajo(trabajoZangano: TrabajoZangano)
+        +setTrabajo(trabajoZangano: TrabajoZangano)
 }
 class Larva{
     +evolucionar(): Zangano
