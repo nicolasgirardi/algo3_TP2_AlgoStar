@@ -4,6 +4,8 @@ import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 
+import java.util.ArrayList;
+
 public abstract class Edificio {
     private int turnosRestantesParaSerOperativo;
     private HitPoints hp;
@@ -40,6 +42,7 @@ public abstract class Edificio {
 
     public abstract int consumirMineral(int unidadesDeMineral);
 
+
     public void asignarHP(HitPoints HP){
         hp = HP;
     }
@@ -55,4 +58,5 @@ public abstract class Edificio {
     public void regeneracionFinDeTurno(){
         hp.regenerar();
     }
+
 }
