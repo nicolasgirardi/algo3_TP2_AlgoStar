@@ -21,4 +21,14 @@ public class PuertoEstelar extends Edificio{
         verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 150 , 150);
     }
 
+    @Override
+    public int consumirGas(int unidadesDeGas) {
+        return unidadesDeGas - 150;
+    }
+
+    @Override
+    public int consumirMineral(int unidadesDeMineral) {
+        return unidadesDeMineral - 150 ;
+    }
+
 }

@@ -57,6 +57,16 @@ public class Criadero extends Edificio{
     }
 
     public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
-        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 50 , 900000000);
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 50 , 0);
+    }
+
+    @Override
+    public int consumirGas(int unidadesDeGas) {
+        return unidadesDeGas;
+    }
+
+    @Override
+    public int consumirMineral(int unidadesDeMineral) {
+        return unidadesDeMineral-50;
     }
 }

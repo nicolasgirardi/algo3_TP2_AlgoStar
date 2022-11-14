@@ -26,4 +26,8 @@ public abstract class Edificio {
     }
 
     public abstract void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas);
+
+    public abstract int consumirGas(int unidadesDeGas);
+
+    public abstract int consumirMineral(int unidadesDeMineral);
 }

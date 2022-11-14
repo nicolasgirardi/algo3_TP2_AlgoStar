@@ -25,4 +25,14 @@ public class Guarida extends Edificio{
     public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
         verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 200 , 100);
     }
+
+    @Override
+    public int consumirGas(int unidadesDeGas) {
+        return unidadesDeGas-100;
+    }
+
+    @Override
+    public int consumirMineral(int unidadesDeMineral) {
+        return unidadesDeMineral-200;
+    }
 }

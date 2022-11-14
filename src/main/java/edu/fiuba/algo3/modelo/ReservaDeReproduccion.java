@@ -33,7 +33,17 @@ public class ReservaDeReproduccion extends Edificio{
     }
 
     public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
-        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 150 , 900000000);
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 150 , 0);
+    }
+
+    @Override
+    public int consumirGas(int unidadesDeGas) {
+        return unidadesDeGas;
+    }
+
+    @Override
+    public int consumirMineral(int unidadesDeMineral) {
+        return unidadesDeMineral - 150;
     }
 
 }

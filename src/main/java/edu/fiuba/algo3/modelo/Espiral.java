@@ -22,7 +22,17 @@ public class Espiral extends Edificio{
     }
 
     public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
-        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 100 , 900000000);
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 150 , 100);
+    }
+
+    @Override
+    public int consumirGas(int unidadesDeGas) {
+        return unidadesDeGas-100;
+    }
+
+    @Override
+    public int consumirMineral(int unidadesDeMineral) {
+        return unidadesDeMineral-150;
     }
 
 }
