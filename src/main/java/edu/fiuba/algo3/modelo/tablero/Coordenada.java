@@ -22,4 +22,4 @@ public class Coordenada {
             return vertical;
         }
     }
-}
+
