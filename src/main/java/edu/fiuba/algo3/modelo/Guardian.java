@@ -1,20 +1,17 @@
-package edu.fiuba.algo3.modelo.Unidad;
+package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Guardian;
-import edu.fiuba.algo3.modelo.NoSePuedeAtacarALaUnidadError;
-import edu.fiuba.algo3.modelo.Scout;
+import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
 
-public class Zerling implements Unidad{
+public class Guardian {
     public void atacarUnidad(Mutalisco mutalisco) {
         throw new NoSePuedeAtacarALaUnidadError();
     }
 
-    public void atacarUnidad(Guardian guardian) {
+    public void atacarUnidad(Guardian guardianDos) {
         throw new NoSePuedeAtacarALaUnidadError();
     }
 
     public void atacarUnidad(Scout scout) {
         throw new NoSePuedeAtacarALaUnidadError();
-
     }
 }
