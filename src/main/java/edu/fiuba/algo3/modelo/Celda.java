@@ -71,9 +71,9 @@ public class Celda {
         if(rangoPilon == null) {
             throw new ConstruccionFueraDelRangoPilonError();
         }
-        if (moho != null){
-            throw new ConstruccionProtoEnMohoError();
-        }
+
+        throw new ConstruccionProtoEnMohoError();
+
 
     }
 

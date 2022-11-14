@@ -12,7 +12,7 @@ public class CasoDeUso14 {
     @Test
     public void testNoPuedenHaberConstruccionesProtossEnELMoho(){
 
-        Mapa mapa = new Mapa();
+        //Mapa mapa = new Mapa();
         Celda celdaMoho = new Celda(5,5);
 
         Criadero unCriadero = new Criadero();
