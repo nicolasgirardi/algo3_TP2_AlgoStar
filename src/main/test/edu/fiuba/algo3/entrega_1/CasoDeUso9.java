@@ -26,7 +26,7 @@ public class CasoDeUso9 {
         Rangopilon1.eliminarRangoPilon();
         Rangopilon2.ReasignarRangoPilon();
         Rangopilon2.asignarEdificoProtos(unEdificio);
-
+        //
         //assert
         //assertFalse(Rangopilon2.estaFuncional(unEdificio));
     }
