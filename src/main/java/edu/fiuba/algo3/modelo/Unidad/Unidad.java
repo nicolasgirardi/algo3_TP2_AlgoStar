@@ -4,11 +4,13 @@ import edu.fiuba.algo3.modelo.Atacable;
 import edu.fiuba.algo3.modelo.Atacante;
 import edu.fiuba.algo3.modelo.Ataque.Ataque;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 
 public abstract class  Unidad implements Atacable, Atacante {
     protected HitPoints hp;
     private TipoSuperficie tipoSuperficie;
-
+    private Ubicacion ubicacion;
+    private int rango;
     private Ataque ataque;
 
     public Unidad(HitPoints vida){
@@ -22,12 +24,29 @@ public abstract class  Unidad implements Atacable, Atacante {
     }
 
     public void atacar(Atacable atacable){
-        atacable.recibirAtaque(ataque);
+        if(ubicacion.distancia(atacable.ubicacion())> rango){
+            throw new EnemigoFueraDeRangoError();
+        }
+        else {
+            atacable.recibirAtaque(ataque);
+        }
     }
 
     public void recibirAtaque(Ataque ataque){
         tipoSuperficie.recibirAtaque(ataque, hp);
     }
 
-    
+    public void asignarLugar(Ubicacion unLugar){
+        ubicacion=unLugar;
+    }
+
+    public void atacar(Ubicacion ubicacion){
+
+    }
+    public Ubicacion ubicacion(){
+        return ubicacion;
+    }
+    public void asignarRango(int Rango){
+        rango = Rango;
+    }
 }

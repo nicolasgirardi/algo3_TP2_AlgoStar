@@ -1,10 +1,12 @@
 package edu.fiuba.algo3.modelo.tablero;
 import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;;import java.util.ArrayList;
+import edu.fiuba.algo3.modelo.Unidad.*;
 
 public class Ubicacion {
     private Edificio edificio;
     private Recurso recurso;
+    private Unidad unidad;
     private Tipo tipo;
 
     private Coordenada coor;
@@ -58,5 +60,9 @@ public class Ubicacion {
         if(edificio == null){
             tipo = new Moho();
         }
+    }
+    public void asignarUnidad(Unidad unaUnidad){
+        unidad = unaUnidad;
+        unaUnidad.asignarLugar(this);
     }
 }
