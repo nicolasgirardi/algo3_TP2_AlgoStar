@@ -51,15 +51,7 @@ public abstract class  Unidad implements Atacable, Atacante {
         rango = Rango;
     }
 
-<<<<<<< HEAD
     public void volar(){
         tipoSuperficie.volar();
     }
-=======
-
-    protected void recibirDanio(Hidralisco hidralisco, int danio, int danio2) {
-
-    }
-    
->>>>>>> 84e2df0 (Revert "Actualizo")
 }
