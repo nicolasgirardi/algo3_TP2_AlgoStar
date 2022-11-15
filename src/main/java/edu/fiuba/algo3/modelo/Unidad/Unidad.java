@@ -50,4 +50,8 @@ public abstract class  Unidad implements Atacable, Atacante {
     public void asignarRango(int Rango){
         rango = Rango;
     }
+
+    public void volar(){
+        tipoSuperficie.volar();
+    }
 }

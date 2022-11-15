@@ -8,4 +8,5 @@ public class TipoAire implements TipoSuperficie {
     public void recibirAtaque(Ataque ataque, HitPoints hp) {
         ataque.aplicarDanioViento(hp);
     }
+    public void volar(){}
 }
