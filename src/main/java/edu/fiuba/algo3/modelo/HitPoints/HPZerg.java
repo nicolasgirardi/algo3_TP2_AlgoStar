@@ -32,4 +32,11 @@ public class HPZerg implements HitPoints {
     private int cura(){
         return vidaMax/10;
     }
+
+    @Override
+    public boolean equals(Object o){
+        if(!(o instanceof HPZerg)) return false;
+        HPZerg hpZerg = (HPZerg) o;
+        return hpZerg.vidaActual == vidaActual;
+    }
 }

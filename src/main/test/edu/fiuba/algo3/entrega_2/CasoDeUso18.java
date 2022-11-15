@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.entrega_2;
 
-import edu.fiuba.algo3.modelo.Atacable;
+import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.HitPoints.*;
-import edu.fiuba.algo3.modelo.Zealot;
 import org.junit.jupiter.api.Test;
 
 import java.security.interfaces.RSAKey;
@@ -20,16 +19,16 @@ public class CasoDeUso18 {
     @Test
     public void testUnZanganoAtacaAUnZealotQueEsUnaUnidadDeSuperficieTierrayLeDeberiaCausar0Danio(){
         //Arrange
-        Zangano zangano = new Zangano();
-        HitPoints HpZealot = new HPProtoss(60,100);
-        Atacable zealot = new Zealot(HpZealot);
-        HitPoints HpEsperado = new HPProtoss(60,100);
+        Atacante zangano = new Zangano();
+        HitPoints hpZealot = new HPProtoss(60,100);
+        Atacable zealot = new Zealot(hpZealot);
+        HitPoints hpEsperado = new HPProtoss(60,100);
 
         //Act
         zangano.atacar(zealot);
 
         //Assert
-        assertEquals(HpZealot,HpEsperado);
+        assertEquals(hpEsperado,hpZealot);
 
     }
 
@@ -37,105 +36,193 @@ public class CasoDeUso18 {
     @Test
     public void testUnZerlingAtacaAUnZealotQueEsUnaUnidadDeSuperficieTierrayLeDeberiaCausar4Danio(){
         //Arrange
-        HitPoints HpZerling = new HPZerg(35);
-        HitPoints HpZealot = new HPProtoss(60,100);
-        HitPoints HpEsperado = new HPProtoss(60,96);
-        Unidad zerling = new Zerling(HpZerling);
-        Atacable zealot = new Zealot(HpZealot);
+        HitPoints hpZealot = new HPProtoss(60,100);
+        HitPoints hpEsperado = new HPProtoss(60,96);
+        Atacante zerling = new Zerling();
+        Atacable zealot = new Zealot(hpZealot);
 
 
         //Act
         zerling.atacar(zealot);
 
         //Assert
-        assertEquals(HpZealot,HpEsperado);
+        assertEquals(hpEsperado,hpZealot);
 
     }
 
     @Test
-    public void testUnHidraliscoAtacaAUnZealotQueEsUnaUnidadDeSuperficieVientoyLeDeberiaCausar10Danio(){
+    public void testUnHidraliscoAtacaAUnZealotQueEsUnaUnidadDeSuperficieTierrayLeDeberiaCausar10Danio(){
         //Arrange
-        HitPoints HpZerling = new HPZerg(35);
-        HitPoints HpZealot = new HPProtoss(60,100);
-        HitPoints HpEsperado = new HPProtoss(60,90);
+        HitPoints hpZealot = new HPProtoss(60,100);
+        HitPoints hpEsperado = new HPProtoss(60,90);
 
-        Unidad hidralisco = new Hidralisco(HpZerling);
-        Atacable zealot = new Zealot(HpZealot);
+        Atacante hidralisco = new Hidralisco();
+        Atacable zealot = new Zealot(hpZealot);
 
 
         //Act
         hidralisco.atacar(zealot);
 
         //Assert
-        assertEquals(HpZealot,HpEsperado);
+        assertEquals(hpEsperado,hpZealot);
     }
 
-    /*
-    @Test
-    public void UnZerlingAtacaTierrayCausa4Daño(){
-        Unidad unidad = new Zerling();
-
-        int dañoEsperado = 4;
-
-        assertEquals(dañoEsperado,unidad.AtacarAire());
-    }
-    @Test
-    public void UnZerlingAtacaAireyCausa0Daño(){
-        Unidad unidad = new Zerling();
-
-        int dañoEsperado = 0;
-
-        assertEquals(dañoEsperado,unidad.AtacarAire());
-    }
 
     @Test
-    public void UnHidraliscoAtacaTierrayCausa10Daño(){
-        Unidad unidad = new Hidralisco();
+    public void testUnHidraliscoAtacaAUnZealotQueEsUnaUnidadDeSuperficieVVientoyLeDeberiaCausar10Danio(){
+        //Arrange
+        HitPoints hpScout = new HPProtoss(150,100);
+        HitPoints hpEsperado = new HPProtoss(150,90);
 
-        int dañoEsperado = 10;
+        Atacante hidralisco = new Hidralisco();
+        Atacable scout = new Scout(hpScout);
 
-        assertEquals(dañoEsperado,unidad.AtacarAire());
-    }
-    @Test
-    public void UnHidraliscoAtacaAireyCausa10Daño(){
-        Unidad unidad = new Hidralisco();
 
-        int dañoEsperado = 10;
+        //Act
+        hidralisco.atacar(scout);
 
-        assertEquals(dañoEsperado,unidad.AtacarAire());
+        //Assert
+        assertEquals(hpEsperado,hpScout);
     }
 
     @Test
-    public void UnMutaliscoAtacaTierrayCausa9Daño(){
-        Unidad unidad = new Mutalisco();
+    public void testUnMutaliscoAtacaAUnZealotQueEsUnaUnidadDeSuperficieTierrayLeDeberiaCausar9Danio(){
+        //Arrange
+        HitPoints hpZealot = new HPProtoss(60,100);
+        HitPoints hpEsperado = new HPProtoss(60,91);
 
-        int dañoEsperado = 9;
+        Atacante mutalisco = new Mutalisco();
+        Atacable zealot = new Zealot(hpZealot);
 
-        assertEquals(dañoEsperado,unidad.AtacarAire());
+
+        //Act
+        mutalisco.atacar(zealot);
+
+        //Assert
+        assertEquals(hpEsperado,hpZealot);
     }
+
+
     @Test
-    public void UnMutaliscoAtacaAireyCausa9Daño(){
-        Unidad unidad = new Mutalisco();
+    public void testUnMutaliscoAtacaAUnZealotQueEsUnaUnidadDeSuperficieVVientoyLeDeberiaCausar9Danio(){
+        //Arrange
+        HitPoints hpScout = new HPProtoss(150,100);
+        HitPoints hpEsperado = new HPProtoss(150,91);
 
-        int dañoEsperado = 9;
+        Atacante mutalisco = new Mutalisco();
+        Atacable scout = new Scout(hpScout);
 
-        assertEquals(dañoEsperado,unidad.AtacarAire());
+
+        //Act
+        mutalisco.atacar(scout);
+
+        //Assert
+        assertEquals(hpEsperado,hpScout);
     }
+
     @Test
-    public void UnGuardianAtacaTierrayCausa25Daño(){
-        Unidad unidad = new Mutalisco();
+    public void testUnGuardianAtacaAUnZealotQueEsUnaUnidadDeSuperficieTierrayLeDeberiaCausar25Danio(){
+        //Arrange
+        HitPoints hpZealot = new HPProtoss(60,100);
+        HitPoints hpEsperado = new HPProtoss(60,75);
 
-        int dañoEsperado = 25;
+        Atacante mutalisco = new Guardian();
+        Atacable zealot = new Zealot(hpZealot);
 
-        assertEquals(dañoEsperado,unidad.AtacarAire());
+
+        //Act
+        mutalisco.atacar(zealot);
+
+        //Assert
+        assertEquals(hpEsperado,hpZealot);
     }
+
+
+
     @Test
-    public void UnMutaliscoAtacaAireyCausa0Daño(){
-        Unidad unidad = new Mutalisco();
+    public void testUnZealotAtacaAUnZerlingQueEsUnaUnidadDeSuperficieTierrayLeDeberiaCausar8Danio(){
+        //Arrange
+        HitPoints hpZerling = new HPZerg(35);
+        HitPoints hpEsperado = new HPZerg(27);
 
-        int dañoEsperado = 0;
+        Atacante zealot = new Zealot();
+        Atacable zerling = new Zerling(hpZerling);
 
-        assertEquals(dañoEsperado,unidad.AtacarAire());
-    }*/
+
+        //Act
+        zealot.atacar(zerling);
+
+        //Assert
+        assertEquals(hpEsperado,hpZerling);
+    }
+
+    @Test
+    public void testUnDragonAtacaAUnZerlingQueEsUnaUnidadDeSuperficieTierrayLeDeberiaCausar8Danio(){
+        //Arrange
+        HitPoints hpZerling = new HPZerg(35);
+        HitPoints hpEsperado = new HPZerg(15);
+
+        Atacante dragon = new Dragon();
+        Atacable zerling = new Zerling(hpZerling);
+
+
+        //Act
+        dragon.atacar(zerling);
+
+        //Assert
+        assertEquals(hpEsperado,hpZerling);
+    }
+
+    @Test
+    public void testUnDragonAtacaAUnGuardianQueEsUnaUnidadDeSuperficieVientoyLeDeberiaCausar20Danio(){
+        //Arrange
+        HitPoints hpGuardian = new HPZerg(100);
+        HitPoints hpEsperado = new HPZerg(80);
+
+        Atacante dragon = new Dragon();
+        Atacable guardian = new Guardian(hpGuardian);
+
+
+        //Act
+        dragon.atacar(guardian);
+
+        //Assert
+        assertEquals(hpEsperado,hpGuardian);
+    }
+
+
+    @Test
+    public void testUnScoutAtacaAUnZerlingQueEsUnaUnidadDeSuperficieTierrayLeDeberiaCausar8Danio(){
+        //Arrange
+        HitPoints hpZerling = new HPZerg(35);
+        HitPoints hpEsperado = new HPZerg(27);
+
+        Atacante scout = new Scout();
+        Atacable zerling = new Zerling(hpZerling);
+
+
+        //Act
+        scout.atacar(zerling);
+
+        //Assert
+        assertEquals(hpEsperado,hpZerling);
+    }
+
+    @Test
+    public void testUnScoutAtacaAUnGuardianQueEsUnaUnidadDeSuperficieVientoyLeDeberiaCausar14Danio(){
+        //Arrange
+        HitPoints hpGuardian = new HPZerg(100);
+        HitPoints hpEsperado = new HPZerg(86);
+
+        Atacante scout = new Scout();
+        Atacable guardian = new Guardian(hpGuardian);
+
+
+        //Act
+        scout.atacar(guardian);
+
+        //Assert
+        assertEquals(hpEsperado,hpGuardian);
+    }
 
 }

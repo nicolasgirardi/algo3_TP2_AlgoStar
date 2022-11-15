@@ -1,13 +1,20 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.HitPoints.HPProtoss;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Unidad.TipoAire;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 
 public class Scout extends Unidad {
 
+
+    public Scout(){
+        super(new HPProtoss(150,100), new TipoAire(), new AtaqueTierraYViento(8,14));
+
+    }
+
     public Scout(HitPoints hp){
-        super(hp, new TipoAire(), new AtaqueTierraYViento(14,8));
+        super(hp, new TipoAire(), new AtaqueTierraYViento(8,14));
 
     }
 }

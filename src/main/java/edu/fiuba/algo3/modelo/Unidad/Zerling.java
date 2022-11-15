@@ -9,6 +9,14 @@ import edu.fiuba.algo3.modelo.Scout;
 
 public class Zerling extends Unidad {
 
+    public Zerling(){
+        super(
+                new HPZerg(35),
+                new TipoTierra(),
+                new AtaqueSoloTierra(4)
+        );
+    }
+
     public Zerling(HitPoints vida){
         super(
                 vida,
