@@ -15,9 +15,9 @@ public class CasoDeUso24 {
     @Test
     public void LasBasesDe2JugadoresSeInicianEnExtremos() {
 
-        Juego elJuego = new Juego(new Mapa(20,20),new Coordenada(0,0),new Coordenada(20,20));
+        Juego elJuego = new Juego(new Mapa(20,20),new Coordenada(0,0),new Coordenada(19,19));
 
-        int distanciaEsperada = 40;
+        int distanciaEsperada = 38;
 
         assertEquals(distanciaEsperada, elJuego.distanciaEntreBases());
     }

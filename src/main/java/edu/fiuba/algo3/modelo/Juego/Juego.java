@@ -14,8 +14,8 @@ public class Juego {
 
     public Juego(Mapa Mapa,Coordenada coor1,Coordenada coor2){
         mapa = Mapa;
-        baseJugador1 = new Ubicacion(coor1);
-       baseJugador2 = new Ubicacion(coor2);
+        baseJugador1 = mapa.buscar(coor1);
+        baseJugador2 = mapa.buscar(coor2);
         baseJugador1.darTipo(new Moho()); //necesito moho para instalar un criadero
         baseJugador1.ubicar(new Criadero()); //el criadero base
         baseJugador2.ubicar(new Pilon()); //el pilon base
