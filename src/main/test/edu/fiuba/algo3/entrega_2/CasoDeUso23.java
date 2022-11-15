@@ -27,7 +27,7 @@ public class CasoDeUso23 {
         atacante.asignarRango(1);
 
         assertThrows( EnemigoFueraDeRangoError.class, ()-> {
-            atacante.atacar(objetivo);
+            atacante.atacarSobreUbicacion(objetivo);
         });
     }
     @Test
@@ -41,7 +41,7 @@ public class CasoDeUso23 {
         atacante.asignarRango(4);
 
         assertThrows( EnemigoFueraDeRangoError.class, ()-> {
-            atacante.atacar(objetivo);
+            atacante.atacarSobreUbicacion(objetivo);
         });
     }
     @Test
@@ -55,7 +55,7 @@ public class CasoDeUso23 {
         atacante.asignarRango(3);
 
         assertThrows( EnemigoFueraDeRangoError.class, ()-> {
-            atacante.atacar(objetivo);
+            atacante.atacarSobreUbicacion(objetivo);
         });
     }
     @Test
@@ -69,7 +69,7 @@ public class CasoDeUso23 {
         atacante.asignarRango(10);
 
         assertThrows( EnemigoFueraDeRangoError.class, ()-> {
-            atacante.atacar(objetivo);
+            atacante.atacarSobreUbicacion(objetivo);
         });
     }
     @Test
@@ -83,7 +83,7 @@ public class CasoDeUso23 {
         atacante.asignarRango(1);
 
         assertThrows( EnemigoFueraDeRangoError.class, ()-> {
-            atacante.atacar(objetivo);
+            atacante.atacarSobreUbicacion(objetivo);
         });
     }
     @Test
@@ -97,7 +97,7 @@ public class CasoDeUso23 {
         atacante.asignarRango(4);
 
         assertThrows( EnemigoFueraDeRangoError.class, ()-> {
-            atacante.atacar(objetivo);
+            atacante.atacarSobreUbicacion(objetivo);
         });
     }
     @Test
@@ -111,7 +111,7 @@ public class CasoDeUso23 {
         atacante.asignarRango(4);
 
         assertThrows( EnemigoFueraDeRangoError.class, ()-> {
-            atacante.atacar(objetivo);
+            atacante.atacarSobreUbicacion(objetivo);
         });
     }
 }

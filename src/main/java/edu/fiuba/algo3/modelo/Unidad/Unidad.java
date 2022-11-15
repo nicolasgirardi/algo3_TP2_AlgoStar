@@ -24,13 +24,9 @@ public abstract class  Unidad implements Atacable, Atacante {
     }
 
     public void atacar(Atacable atacable){
-        if(ubicacion.distancia(atacable.ubicacion())> rango){
-            throw new EnemigoFueraDeRangoError();
-        }
-        else {
-            atacable.recibirAtaque(ataque);
-        }
+        atacable.recibirAtaque(ataque);
     }
+
 
     public void recibirAtaque(Ataque ataque){
         tipoSuperficie.recibirAtaque(ataque, hp);
@@ -40,8 +36,13 @@ public abstract class  Unidad implements Atacable, Atacante {
         ubicacion=unLugar;
     }
 
-    public void atacar(Ubicacion ubicacion){
-
+    public void atacarSobreUbicacion(Atacable atacable){
+        if(ubicacion.distancia(atacable.ubicacion())> rango){
+            throw new EnemigoFueraDeRangoError();
+        }
+        else {
+            atacar(atacable);
+        }
     }
     public Ubicacion ubicacion(){
         return ubicacion;
