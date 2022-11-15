@@ -10,7 +10,7 @@ public class Zerling extends Unidad {
         super(
                 new HPZerg(35),
                 new TipoTierra(),
-                new AtaqueSoloTierra(4)
+                new AtaqueSoloTierra(4), 2
         );
     }
 
@@ -18,29 +18,8 @@ public class Zerling extends Unidad {
         super(
                 vida,
                 new TipoTierra(),
-                new AtaqueSoloTierra(4)
+                new AtaqueSoloTierra(4),2
         );
     }
 
-
-<<<<<<< HEAD
-=======
-    public void atacarUnidad(Mutalisco mutalisco) {
-        throw new NoPuedeAtacarUnidadDeAireError();
-    }
-
-    public void atacarUnidad(Guardian guardian) {
-        throw new NoPuedeAtacarUnidadDeAireError();
-    }
-
-    public void atacarUnidad(Scout scout) {
-        throw new NoPuedeAtacarUnidadDeAireError();
-    }
-
-
-    @Override
-    public void atacar(Unidad unidad) {
-        unidad.recibirDanio(4);
-    }
->>>>>>> 84e2df0 (Revert "Actualizo")
 }

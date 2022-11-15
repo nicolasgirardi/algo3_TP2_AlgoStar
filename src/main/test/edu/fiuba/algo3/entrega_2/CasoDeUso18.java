@@ -19,10 +19,15 @@ public class CasoDeUso18 {
     @Test
     public void testUnZanganoAtacaAUnZealotQueEsUnaUnidadDeSuperficieTierrayLeDeberiaCausar0Danio(){
         //Arrange
-        Atacante zangano = new Zangano();
+        Unidad zangano = new Zangano();
         HitPoints hpZealot = new HPProtoss(60,100);
         Atacable zealot = new Zealot(hpZealot);
         HitPoints hpEsperado = new HPProtoss(60,100);
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 1; i++){
+            zangano.ejecutarTurno();
+        }
 
         //Act
         zangano.atacar(zealot);
@@ -37,8 +42,13 @@ public class CasoDeUso18 {
         //Arrange
         HitPoints hpZealot = new HPProtoss(60,100);
         HitPoints hpEsperado = new HPProtoss(60,96);
-        Atacante zerling = new Zerling();
+        Unidad zerling = new Zerling();
         Atacable zealot = new Zealot(hpZealot);
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 2; i++){
+            zerling.ejecutarTurno();
+        }
 
         //Act
         zerling.atacar(zealot);
@@ -54,9 +64,13 @@ public class CasoDeUso18 {
         HitPoints hpZealot = new HPProtoss(60,100);
         HitPoints hpEsperado = new HPProtoss(60,90);
 
-        Atacante hidralisco = new Hidralisco();
+        Unidad hidralisco = new Hidralisco();
         Atacable zealot = new Zealot(hpZealot);
 
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 4; i++){
+            hidralisco.ejecutarTurno();
+        }
 
         //Act
         hidralisco.atacar(zealot);
@@ -72,9 +86,13 @@ public class CasoDeUso18 {
         HitPoints hpScout = new HPProtoss(150,100);
         HitPoints hpEsperado = new HPProtoss(150,90);
 
-        Atacante hidralisco = new Hidralisco();
+        Unidad hidralisco = new Hidralisco();
         Atacable scout = new Scout(hpScout);
 
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 4; i++){
+            hidralisco.ejecutarTurno();
+        }
 
         //Act
         hidralisco.atacar(scout);
@@ -89,9 +107,13 @@ public class CasoDeUso18 {
         HitPoints hpZealot = new HPProtoss(60,100);
         HitPoints hpEsperado = new HPProtoss(60,91);
 
-        Atacante mutalisco = new Mutalisco();
+        Unidad mutalisco = new Mutalisco();
         Atacable zealot = new Zealot(hpZealot);
 
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 7; i++){
+            mutalisco.ejecutarTurno();
+        }
 
         //Act
         mutalisco.atacar(zealot);
@@ -107,9 +129,13 @@ public class CasoDeUso18 {
         HitPoints hpScout = new HPProtoss(150,100);
         HitPoints hpEsperado = new HPProtoss(150,91);
 
-        Atacante mutalisco = new Mutalisco();
+        Unidad mutalisco = new Mutalisco();
         Atacable scout = new Scout(hpScout);
 
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 7; i++){
+            mutalisco.ejecutarTurno();
+        }
 
         //Act
         mutalisco.atacar(scout);
@@ -124,12 +150,16 @@ public class CasoDeUso18 {
         HitPoints hpZealot = new HPProtoss(60,100);
         HitPoints hpEsperado = new HPProtoss(60,75);
 
-        Atacante mutalisco = new Guardian();
+        Unidad guardian = new Guardian();
         Atacable zealot = new Zealot(hpZealot);
 
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 4; i++){
+            guardian.ejecutarTurno();
+        }
 
         //Act
-        mutalisco.atacar(zealot);
+        guardian.atacar(zealot);
 
         //Assert
         assertEquals(hpEsperado,hpZealot);
@@ -143,9 +173,13 @@ public class CasoDeUso18 {
         HitPoints hpZerling = new HPZerg(35);
         HitPoints hpEsperado = new HPZerg(27);
 
-        Atacante zealot = new Zealot();
+        Unidad zealot = new Zealot();
         Atacable zerling = new Zerling(hpZerling);
 
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 4; i++){
+            zealot.ejecutarTurno();
+        }
 
         //Act
         zealot.atacar(zerling);
@@ -160,9 +194,13 @@ public class CasoDeUso18 {
         HitPoints hpZerling = new HPZerg(35);
         HitPoints hpEsperado = new HPZerg(15);
 
-        Atacante dragon = new Dragon();
+        Unidad dragon = new Dragon();
         Atacable zerling = new Zerling(hpZerling);
 
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 6; i++){
+            dragon.ejecutarTurno();
+        }
 
         //Act
         dragon.atacar(zerling);
@@ -177,9 +215,13 @@ public class CasoDeUso18 {
         HitPoints hpGuardian = new HPZerg(100);
         HitPoints hpEsperado = new HPZerg(80);
 
-        Atacante dragon = new Dragon();
+        Unidad dragon = new Dragon();
         Atacable guardian = new Guardian(hpGuardian);
 
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 6; i++){
+            dragon.ejecutarTurno();
+        }
 
         //Act
         dragon.atacar(guardian);
@@ -195,9 +237,13 @@ public class CasoDeUso18 {
         HitPoints hpZerling = new HPZerg(35);
         HitPoints hpEsperado = new HPZerg(27);
 
-        Atacante scout = new Scout();
+        Unidad scout = new Scout();
         Atacable zerling = new Zerling(hpZerling);
 
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 9; i++){
+            scout.ejecutarTurno();
+        }
 
         //Act
         scout.atacar(zerling);
@@ -212,9 +258,13 @@ public class CasoDeUso18 {
         HitPoints hpGuardian = new HPZerg(100);
         HitPoints hpEsperado = new HPZerg(86);
 
-        Atacante scout = new Scout();
+        Unidad scout = new Scout();
         Atacable guardian = new Guardian(hpGuardian);
 
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 9; i++){
+            scout.ejecutarTurno();
+        }
 
         //Act
         scout.atacar(guardian);
@@ -228,11 +278,16 @@ public class CasoDeUso18 {
     @Test
     public void testUnZanganoAtacaAUnPilonDeberiaCausarle0Danio(){
         //Arrange
-        Atacante zangano = new Zangano();
+        Unidad zangano = new Zangano();
         HitPoints hpPilon = new HPProtoss(300,300);
         Atacable pilon = new Pilon(hpPilon);
 
         HitPoints hpEsperado = new HPProtoss(300,300);
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 1; i++){
+            zangano.ejecutarTurno();
+        }
 
         //Act
         zangano.atacar(pilon);
@@ -245,11 +300,16 @@ public class CasoDeUso18 {
     @Test
     public void testUnZerlingAtacaAUnPilonDeberiaCausarle4Danio(){
         //Arrange
-        Atacante zerling = new Zerling();
+        Unidad zerling = new Zerling();
         HitPoints hpPilon = new HPProtoss(300,300);
         Atacable pilon = new Pilon(hpPilon);
 
         HitPoints hpEsperado = new HPProtoss(300,296);
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 2; i++){
+            zerling.ejecutarTurno();
+        }
 
         //Act
         zerling.atacar(pilon);
@@ -261,11 +321,16 @@ public class CasoDeUso18 {
     @Test
     public void testUnHidraliscoAtacaAUnPilonDeberiaCausarle10Danio(){
         //Arrange
-        Atacante hidralisco = new Hidralisco();
+        Unidad hidralisco = new Hidralisco();
         HitPoints hpPilon = new HPProtoss(300,300);
         Atacable pilon = new Pilon(hpPilon);
 
         HitPoints hpEsperado = new HPProtoss(300,290);
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 4; i++){
+            hidralisco.ejecutarTurno();
+        }
 
         //Act
         hidralisco.atacar(pilon);
@@ -277,11 +342,16 @@ public class CasoDeUso18 {
     @Test
     public void testUnMutaliscoAtacaAUnPilonDeberiaCausarle9Danio(){
         //Arrange
-        Atacante mutalisco = new Mutalisco();
+        Unidad mutalisco = new Mutalisco();
         HitPoints hpPilon = new HPProtoss(300,300);
         Atacable pilon = new Pilon(hpPilon);
 
         HitPoints hpEsperado = new HPProtoss(300,291);
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 7; i++){
+            mutalisco.ejecutarTurno();
+        }
 
         //Act
         mutalisco.atacar(pilon);
@@ -293,11 +363,16 @@ public class CasoDeUso18 {
     @Test
     public void testUnGuardianAtacaAUnPilonDeberiaCausarle25Danio(){
         //Arrange
-        Atacante guardian = new Guardian();
+        Unidad guardian = new Guardian();
         HitPoints hpPilon = new HPProtoss(300,300);
         Atacable pilon = new Pilon(hpPilon);
 
         HitPoints hpEsperado = new HPProtoss(300,275);
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 4; i++){
+            guardian.ejecutarTurno();
+        }
 
         //Act
         guardian.atacar(pilon);
@@ -309,11 +384,16 @@ public class CasoDeUso18 {
     @Test
     public void testUnZealotAtacaAUnaGuaridaDeberiaCausarle8Danio(){
         //Arrange
-        Atacante zealot = new Zealot();
+        Unidad zealot = new Zealot();
         HitPoints hpGuarida = new HPZerg(1250);
         Atacable guarida = new Guarida(hpGuarida);
 
         HitPoints hpEsperado = new HPZerg(1242);
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 4; i++){
+            zealot.ejecutarTurno();
+        }
 
         //Act
         zealot.atacar(guarida);
@@ -325,11 +405,16 @@ public class CasoDeUso18 {
     @Test
     public void testUnDragonAtacaAUnaGuaridaDeberiaCausarle20Danio(){
         //Arrange
-        Atacante dragon = new Dragon();
+        Unidad dragon = new Dragon();
         HitPoints hpGuarida = new HPZerg(1250);
         Atacable guarida = new Guarida(hpGuarida);
 
         HitPoints hpEsperado = new HPZerg(1230);
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 6; i++){
+            dragon.ejecutarTurno();
+        }
 
         //Act
         dragon.atacar(guarida);
@@ -341,11 +426,16 @@ public class CasoDeUso18 {
     @Test
     public void testUnScoutAtacaAUnaGuaridaDeberiaCausarle8Danio(){
         //Arrange
-        Atacante scout = new Scout();
+        Unidad scout = new Scout();
         HitPoints hpGuarida = new HPZerg(1250);
         Atacable guarida = new Guarida(hpGuarida);
 
         HitPoints hpEsperado = new HPZerg(1242);
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 9; i++){
+            scout.ejecutarTurno();
+        }
 
         //Act
         scout.atacar(guarida);
