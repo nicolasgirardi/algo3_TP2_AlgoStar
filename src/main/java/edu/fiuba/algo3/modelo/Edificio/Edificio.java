@@ -75,4 +75,12 @@ public abstract class Edificio {
     public void desalojar(){
         ubicacion = null;
     }
+
+    public int distancia(Ubicacion unaUbicacion){
+        return unaUbicacion.distancia(ubicacion);
+    }
+
+    public Ubicacion ubicacion() {
+        return ubicacion;
+    }
 }

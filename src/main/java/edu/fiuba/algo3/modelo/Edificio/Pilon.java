@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Edificio;
 
+import edu.fiuba.algo3.modelo.ConstruccionFueraDelRangoPilonError;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 
 import java.util.ArrayList;
 
@@ -48,4 +50,23 @@ public class Pilon extends Edificio {
     protected boolean esNecesarioParaPuertoEstelar() {
         return false;
     }
+    public void enRango(Ubicacion unaUbicacion){
+        if(distancia(unaUbicacion)>3){
+            throw new ConstruccionFueraDelRangoPilonError();
+        }
+    }
+    public void enRango(Ubicacion unaUbicacion,ArrayList<Pilon> lista){
+        boolean enRango = false;
+        int i = 0;
+        while(!enRango && i < lista.size()){
+            if(distancia(unaUbicacion)<=3){
+                enRango=true;
+            }
+            i++;
+        }
+        if(!enRango){
+            throw new ConstruccionFueraDelRangoPilonError();
+        }
+    }
 }
+
