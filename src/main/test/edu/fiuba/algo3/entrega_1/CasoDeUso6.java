@@ -8,44 +8,46 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CasoDeUso6 {/*
+public class CasoDeUso6 {
 
     @Test
-    public void testElMohoSeMueve5Posiciones(){
-        //Mapa mapa = new Mapa();
-        Celda celda = new Celda(0,0);
+    public void testElMohoCreceEnUno(){
+        Mapa mapa = new Mapa(10,10);
+        Ubicacion ubicacion1 = mapa.buscar(new Coordenada(5,5));
+        ubicacion1.darTipo(new Moho());
 
         //act
-        celda.asignarMoho(new Criadero());
-
+        ubicacion1.crecer(1,mapa);
+        Ubicacion ubicacion2 = mapa.buscar(new Coordenada(4,5));
+        Ubicacion ubicacion3 = mapa.buscar(new Coordenada(4,4));
         //assert
-        assertFalse(celda.vacio());
-    }
-    @Test
-    public void testElMohoSeMueve1PosicionesPorTurno(){
-        Mapa mapa = new Mapa();
-        Celda celda = new Celda(0,0);
-
-        Criadero unCriadero = new Criadero();
-        //act
-        celda.asignarMoho(unCriadero);//primera vez que se mueve (5 posiciones)
-
-        celda.asignarMoho(unCriadero); //segunda vez que se mueve (1 posicion)
-
-        //assert
-        assertFalse(celda.vacio());
+        assertDoesNotThrow( ()-> {
+            ubicacion2.ubicar(new Criadero());
+        });
+        assertThrows( ConstruccionFueraDelMohoError.class, ()-> {
+            ubicacion3.ubicar(new Criadero());;
+        });
 
     }
     @Test
-    public void testCreoMoho(){
-        Mapa mapa = new Mapa();
-        Celda celda = new Celda(78, 98);
+    public void testElMohoCreceEn2Turnos(){
+        Mapa mapa = new Mapa(10,10);
+        Ubicacion ubicacion1 = mapa.buscar(new Coordenada(5,5));
+        ubicacion1.darTipo(new Moho());
 
-        Moho moho = new Moho(celda);
+        //act
+        ubicacion1.crecer(2,mapa);
+        Ubicacion ubicacion2 = mapa.buscar(new Coordenada(4,5));
+        Ubicacion ubicacion3 = mapa.buscar(new Coordenada(4,4));
+        //assert
+        assertDoesNotThrow( ()-> {
+            ubicacion2.ubicar(new Criadero());
+        });
+        assertDoesNotThrow( ()-> {
+            ubicacion3.ubicar(new Criadero());
+        });
 
-        assertFalse(mapa.posicionValida(moho));
-
-    }*/
+    }
 
 
 }

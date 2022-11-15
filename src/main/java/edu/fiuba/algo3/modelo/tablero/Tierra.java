@@ -32,5 +32,5 @@ public class Tierra implements Tipo {
         }
         return false;
     }
-
+    public void crecer(Coordenada coor,Mapa mapa,int radio){}
 }

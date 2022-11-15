@@ -7,4 +7,5 @@ public class Especial implements Tipo{
     public void instalar(Edificio edificio){
 
     }
+    public void crecer(Coordenada coor,Mapa mapa,int radio){}
 }

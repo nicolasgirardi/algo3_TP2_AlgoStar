@@ -40,4 +40,13 @@ public class Ubicacion {
     public Coordenada coordenada(){
         return coor;
     }
+
+    public void crecer(int radio,Mapa mapa){
+        tipo.crecer(coor,mapa,radio);
+    }
+    public void infectar(){
+        if(edificio == null){
+            tipo = new Moho();
+        }
+    }
 }

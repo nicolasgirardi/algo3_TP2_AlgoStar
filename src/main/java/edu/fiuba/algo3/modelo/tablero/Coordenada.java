@@ -21,5 +21,11 @@ public class Coordenada {
         public int vertical(){
             return vertical;
         }
+        public boolean esIgual(Coordenada coor){
+            if(horizontal != coor.horizontal || vertical != coor.vertical()){
+                return false;
+            }
+            else{return true;}
+        }
     }
 
