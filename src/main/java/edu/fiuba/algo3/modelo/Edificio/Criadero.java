@@ -12,7 +12,7 @@ public class Criadero extends Edificio {
     private ArrayList<Larva> larvas;
 
     public Criadero(){
-        super(4);
+        super(0);
         larvas = new ArrayList<Larva>();
         cargarTodaslasLarvas();
     }
@@ -20,6 +20,13 @@ public class Criadero extends Edificio {
         super(cantidadTurnosParaSerOperativo);
         larvas = new ArrayList<Larva>();
         if (cantidadTurnosParaSerOperativo == 0 ) cargarTodaslasLarvas();
+    }
+
+    @Override
+    public void ejecutarTurno() {
+
+        super.ejecutarTurno();
+        if (turnosRestantesParaSerOperativo == 0 ) cargarTodaslasLarvas();
     }
 
     @Override

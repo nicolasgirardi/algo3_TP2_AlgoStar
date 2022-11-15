@@ -5,35 +5,36 @@ import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.tablero.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CasoDeUso14 {
     @Test
     public void testNoPuedenHaberConstruccionesProtossEnELMoho(){
 
-        //Mapa mapa = new Mapa();
-        Celda celdaMoho = new Celda(5,5);
+        Ubicacion ubicacion= new Ubicacion(new Coordenada(5,5));
+        ubicacion.darTipo(new Moho());
 
-        Criadero unCriadero = new Criadero();
-        //act
-        celdaMoho.asignarMoho(unCriadero);//primera vez que se mueve (5 posiciones)
-
-
-        Celda celdaPilon = new Celda(4,4);
-
-        Pilon unPilon = new Pilon();
-
-        celdaPilon.asignarRangoPilon(unPilon);
-
-        Edificio unEdificio = new PuertoEstelar();
-
-        //assert
         assertThrows( ConstruccionProtoEnMohoError.class, ()-> {
-            celdaPilon.asignarEdificoProtos(unEdificio);
+            ubicacion.ubicar(new Pilon());;
         });
 
     }
     @Test
-    public void testElMohoNOPuedeInvadirConstrucciones(){}
+    public void testElMohoNOPuedeInvadirConstrucciones(){
+        Mapa mapa = new Mapa(12,12);
+        Ubicacion ubicacion1 = mapa.buscar(new Coordenada(6,6));
+        Ubicacion ubicacion2 = mapa.buscar(new Coordenada(5,5));
+        ubicacion1.darTipo(new Moho());
+        ubicacion2.ubicar(new Pilon());
+
+        ubicacion1.crecer(5,mapa);
+        ubicacion2.desalojar();
+
+        assertDoesNotThrow( ()-> {
+            ubicacion2.ubicar(new Pilon());
+        });
+
+    }
+
+
 }

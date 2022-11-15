@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.Unidad;
 
-import edu.fiuba.algo3.modelo.Ataque;
-import edu.fiuba.algo3.modelo.AtaqueSoloTierra;
+import edu.fiuba.algo3.modelo.Ataque.AtaqueSoloTierra;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
@@ -14,7 +13,7 @@ public class Zangano extends Unidad {
                 new HPZerg(25),
                 new TipoTierra(),
                 new AtaqueSoloTierra(0) {
-        });
+        }, 1);
     }
 
     public Zangano(HitPoints vida){
@@ -29,9 +28,4 @@ public class Zangano extends Unidad {
         return  nodoMineral.extraerConZangano(10, this);
     }
 
-    @Override
-    public void atacar(Unidad unidad) {
-        unidad.recibirDanio(0);
-
-    }
 }

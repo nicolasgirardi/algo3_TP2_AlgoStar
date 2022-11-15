@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Unidad;
 
-import edu.fiuba.algo3.modelo.AtaqueTierraYViento;
+import edu.fiuba.algo3.modelo.Ataque.AtaqueTierraYViento;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
@@ -8,7 +8,7 @@ import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 public class Mutalisco extends Unidad{
 
     public Mutalisco() {
-        super(new HPZerg(120), new TipoAire(), new AtaqueTierraYViento(9,9));
+        super(new HPZerg(120), new TipoAire(), new AtaqueTierraYViento(9,9), 7);
     }
 
     public Mutalisco(HitPoints vida) {
@@ -19,8 +19,4 @@ public class Mutalisco extends Unidad{
         raza.verficarConsumoRecurso(50,100);
     }
 
-    @Override
-    public void atacar(Unidad unidad) {
-
-    }
 }

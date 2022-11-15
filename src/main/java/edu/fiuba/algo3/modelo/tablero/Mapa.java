@@ -1,46 +1,51 @@
 package edu.fiuba.algo3.modelo.tablero;
 
-import edu.fiuba.algo3.modelo.Celda;
-import edu.fiuba.algo3.modelo.Edificio.Pilon;
-import edu.fiuba.algo3.modelo.Moho;
-
 import java.util.ArrayList;
 
 public class Mapa {
 
-    private ArrayList<Celda> celdas;
-    private int dimension_x;
-    private int dimension_y;
+    private Ubicacion[][] mapa;
+    private int base;
+    private int altura;
 
-    public Mapa() {
-
-        celdas = new ArrayList<>();
-        dimension_x = 10;
-        dimension_y = 10;
-
-    }
-
-    public void crearMapa() {
-        // Me creo la matriz de esquinas
-        for (int x = 0; x < dimension_x; x++) {
-            for (int y = 0; y < dimension_y; y++) {
-                Celda celda = new Celda(x,y);
-                this.agregarCelda(celda);
+    public Mapa(int Base, int Altura) {
+        mapa = new Ubicacion[Base+1][Altura+1];
+        base = Base;
+        altura = Altura;
+        for (int i = 0; i <= Base; i++) {
+            for (int j = 0; j <= Altura; j++) {
+                mapa[i][j] = new Ubicacion(new Coordenada(i, j));
             }
         }
     }
 
-    private void agregarCelda(Celda celda) {
-        this.celdas.add(celda);
+    public Ubicacion buscar(Coordenada coordenada) {
+        for (int i = 0; i <= base; i++) {
+            for (int j = 0; j <= altura; j++) {
+                if (coordenada.esIgual(mapa[i][j].coordenada())) {
+                    return mapa[i][j];
+                }
+            }
+
+        }
+        throw new UbicacionFueraDelMapa();
+    }
+    public ArrayList<Ubicacion> buscar(Coordenada coordenada,int radio){
+        ArrayList<Ubicacion> lista = new ArrayList<Ubicacion>();
+        for (int i =0;i<=base;i++){
+            for (int j = 0;j<=altura;j++){
+                if (coordenada.distancia(mapa[i][j].coordenada())<= radio){
+                    lista.add(mapa[i][j]);
+                }
+            }
+        }
+        return lista;
+        }
+    public int distanciaMaxima(){
+        return mapa[0][0].distancia(mapa[base][altura]);
+    }
+    public Ubicacion buscarOpuesto(Coordenada coor){
+        return buscar(coor.opuesta(base,altura));
     }
 
-    public ArrayList<Celda> getCeldas() {
-        return celdas;
-    }
-
-    public Boolean posicionValida(Moho moho) {
-        Celda posCelda = moho.obtenerPosicion();
-        return posCelda.coordenadasValidas(0, 0, dimension_x - 1, dimension_y - 1);
-
-    }
 }
