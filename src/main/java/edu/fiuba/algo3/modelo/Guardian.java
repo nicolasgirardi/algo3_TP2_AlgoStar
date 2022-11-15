@@ -11,11 +11,11 @@ public class Guardian extends Unidad {
 
 
     public Guardian(){
-        super(new HPZerg(100), new TipoAire(), new AtaqueSoloTierra(25));
+        super(new HPZerg(100), new TipoAire(), new AtaqueSoloTierra(25), 4);
     }
 
     public Guardian(HitPoints hp){
-        super(hp, new TipoAire(), new AtaqueSoloTierra(25));
+        super(hp, new TipoAire(), new AtaqueSoloTierra(25), 4);
     }
 
 }

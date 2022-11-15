@@ -10,7 +10,7 @@ public class Zerling extends Unidad {
         super(
                 new HPZerg(35),
                 new TipoTierra(),
-                new AtaqueSoloTierra(4)
+                new AtaqueSoloTierra(4), 2
         );
     }
 
@@ -18,9 +18,8 @@ public class Zerling extends Unidad {
         super(
                 vida,
                 new TipoTierra(),
-                new AtaqueSoloTierra(4)
+                new AtaqueSoloTierra(4),2
         );
     }
-
 
 }

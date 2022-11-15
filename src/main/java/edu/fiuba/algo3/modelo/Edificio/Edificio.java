@@ -27,7 +27,6 @@ public abstract class Edificio implements Atacable {
         turnosRestantesParaSerOperativo = 0;
     }
 
-
     public void verififarEdificioOperativo() {
         if(turnosRestantesParaSerOperativo > 0 ){
             throw  new EdificioNoOperativoError();

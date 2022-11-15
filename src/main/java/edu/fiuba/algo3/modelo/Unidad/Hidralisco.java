@@ -7,11 +7,11 @@ import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 public class Hidralisco extends Unidad {
 
     public Hidralisco() {
-        super(new HPZerg(35), new TipoTierra(), new AtaqueTierraYViento(10,10));
+        super(new HPZerg(35), new TipoTierra(), new AtaqueTierraYViento(10,10), 4);
     }
 
     public Hidralisco(HitPoints vida) {
-        super(vida, new TipoTierra(), new AtaqueTierraYViento(10,10));
+        super(vida, new TipoTierra(), new AtaqueTierraYViento(10,10), 4);
     }
 
 
