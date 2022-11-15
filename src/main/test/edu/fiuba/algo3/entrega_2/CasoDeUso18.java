@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class CasoDeUso18 {
 
     /*
-     * - Verificar que todas las unidades cuasen el daño que dicen que causan en sus ataques.*/
+    * - Verificar que todas las unidades cuasen el daño que dicen que causan en sus ataques.*/
 
     @Test
     public void testUnZanganoAtacaAUnZealotQueEsUnaUnidadDeSuperficieTierrayLeDeberiaCausar0Danio(){

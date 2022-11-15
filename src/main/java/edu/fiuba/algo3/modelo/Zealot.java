@@ -25,6 +25,7 @@ public class Zealot extends Unidad {
 
     @Override
     public void atacar(Unidad unidad) {
+
     }
 
     public void atacarUnidad(Mutalisco mutalisco) {

@@ -41,6 +41,6 @@ public class Zerling extends Unidad {
 
     @Override
     public void atacar(Unidad unidad) {
-
+        unidad.recibirDanio(4);
     }
 }
