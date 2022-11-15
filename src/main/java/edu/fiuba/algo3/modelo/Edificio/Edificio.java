@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public abstract class Edificio {
 
     private Ubicacion ubicacion;
-    private int turnosRestantesParaSerOperativo;
+    protected int turnosRestantesParaSerOperativo;
     private HitPoints hp;
 
     public Edificio(int turnosRestantesParaSerOperativo){
