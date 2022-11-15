@@ -1,15 +1,10 @@
 package edu.fiuba.algo3.entrega_2;
 
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.HitPoints.HPProtoss;
-import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
-import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
-import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.Unidad.Zerling;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CasoDeUso19 {
@@ -19,45 +14,121 @@ public class CasoDeUso19 {
     */
 
     @Test
-    public void testUnidadZerlingNoDeberiaPoderAtacarAUnidadesDeAire(){
+    public void testUnidadZerlingNoDeberiaPoderAtacarAUnScout(){
+
         //Arrange
         Atacante atacante = new Zerling();
-        Atacable zealot = new Scout();
+        Atacable scout = new Scout();
 
 
         //Act y Assert
         assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
-            atacante.atacar(zealot);
+            atacante.atacar(scout);
         });
 
     }
 
     @Test
-    public void testUnidadGuardianNoDeberiaPoderAtacarAUnidadesDeAire(){
+    public void testUnidadZerlingNoDeberiaPoderAtacarAUnMutalisco(){
         //Arrange
         Atacante atacante = new Zerling();
-        Atacable zealot = new Scout();
+        Atacable mutalisco = new Mutalisco();
 
 
         //Act y Assert
         assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
-            atacante.atacar(zealot);
+            atacante.atacar(mutalisco);
         });
 
     }
 
     @Test
-    public void testUnidadZealotNoDeberiaPoderAtacarAUnidadesDeAire(){
+    public void testUnidadZerlingNoDeberiaPoderAtacarAUnGuardian(){
         //Arrange
-        Atacante atacante = new Zealot();
+        Atacante atacante = new Zerling();
         Atacable guardian = new Guardian();
-
 
         //Act y Assert
         assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
             atacante.atacar(guardian);
         });
+    }
 
+    @Test
+    public void testUnidadGuardianNoDeberiaPoderAtacarAUnMutalisco(){
+        //Arrange
+        Atacante guardian = new Guardian();
+        Atacable mutalisco = new Mutalisco();
+
+        //Act y Assert
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+            guardian.atacar(mutalisco);
+        });
+    }
+
+    @Test
+    public void testUnidadGuardianNoDeberiaPoderAtacarAOtroGuardian(){
+        //Arrange
+        Atacante guardian = new Guardian();
+        Atacable guardianDos = new Guardian();
+
+        //Act y Assert
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+            guardian.atacar(guardianDos);
+        });
+
+    }
+
+    @Test
+    public void testUnidadGuardianNoDeberiaPoderAtacarAUnScout(){
+        //Arrange
+        Atacante guardian = new Guardian();
+        Atacable scout = new Scout();
+
+        //Act y Assert
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+            guardian.atacar(scout);
+        });
+    }
+
+
+    @Test
+    public void testUnidadZealotNoDeberiaPoderAtacarAUnMutalisco(){
+        //Arrange
+        Atacante zealot = new Zealot();
+        Atacable mutalisco = new Mutalisco();
+
+        //Act y Assert
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+            zealot.atacar(mutalisco);
+        });
+
+    }
+
+
+    @Test
+    public void testUnidadZealotNoDeberiaPoderAtacarAUnGuardian(){
+        //Arrange
+        Atacante zealot = new Zealot();
+        Atacable guardian = new Guardian();
+
+        //Act y Assert
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+            zealot.atacar(guardian);
+        });
+
+    }
+
+    @Test
+    public void testUnidadZealotNoDeberiaPoderAtacarAUnScout(){
+        //Arrange
+        Atacante zealot = new Zealot();
+        Atacable scout = new Scout();
+
+        //Act y Assert
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+            zealot.atacar(scout);
+        });
     }
 
 }

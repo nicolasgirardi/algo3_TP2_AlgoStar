@@ -1,6 +1,7 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Ataque;
 
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.NoPuedeAplicarDanioUnidadTipoAire;
 
 public class AtaqueSoloTierra extends Ataque{
 

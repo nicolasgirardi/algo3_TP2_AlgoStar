@@ -15,7 +15,7 @@ public class CasoDeUso2 {
     @Test
     public void EdificoCriaderoCon4TurnosParaSerOperativoSeLeMandaAEvolucionarLarvaDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
         //Arrange
-        Criadero criadero = new Criadero();
+        Criadero criadero = new Criadero(4);
         //Act y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
             Zangano zangano = criadero.evolucionarLarva();
@@ -27,7 +27,7 @@ public class CasoDeUso2 {
     public void EdificoCriaderoCon4TurnosParaSerOperativoPasan2TurnosYSeLeMandaAEvolucionarLarvaDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
 
         //Arrange
-        Criadero criadero = new Criadero();
+        Criadero criadero = new Criadero(4);
 
         //Act
         criadero.ejecutarTurno();
@@ -42,7 +42,7 @@ public class CasoDeUso2 {
     @Test
     public void EdificoCriaderoCon4TurnosParaSerOperativoPasan4TurnosYSeLeMandaAEvolucionarLarvaNoDeberiaLanzarExcepcion(){
         //Arrange
-        Criadero criadero = new Criadero();
+        Criadero criadero = new Criadero(4);
 
         //Act
         criadero.ejecutarTurno();
