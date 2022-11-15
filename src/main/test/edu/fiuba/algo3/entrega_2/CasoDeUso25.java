@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Juego.*;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import org.junit.jupiter.api.Test;
-import javafx.scene.paint.Color;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,7 +16,7 @@ public class CasoDeUso25 {
 
         //Act y Assert
         assertThrows(JugadorNombreError.class, () -> {
-            new Jugador(nombre, Color.GREEN, new RazaZerg());
+            new Jugador(nombre, Color.VERDE, new RazaZerg());
         });
     }
 
@@ -27,7 +27,7 @@ public class CasoDeUso25 {
 
         //Act y Assert
         assertDoesNotThrow( () -> {
-            new Jugador(nombre, Color.GREEN, new RazaZerg());
+            new Jugador(nombre, Color.VERDE, new RazaZerg());
         });
     }
 
@@ -35,10 +35,10 @@ public class CasoDeUso25 {
     public void seCreaJugadoreesConMismosNombreDevuelveJugadorMismoNombreError(){
         //Average
         String jugadorUnoNombre = "Steven";
-        Color jugadorUnoColor = Color.GREEN;
+        Color jugadorUnoColor = Color.VERDE;
         Jugador jugadorUno = new Jugador(jugadorUnoNombre,jugadorUnoColor, new RazaZerg());
 
-        Color jugadorDosColor = Color.RED;
+        Color jugadorDosColor = Color.ROJO;
         Jugador jugadorDos = new Jugador(jugadorUnoNombre,jugadorDosColor, new RazaProtoss());
 
         //Act y Assert
@@ -52,11 +52,11 @@ public class CasoDeUso25 {
     public void jugadoresConLosMismosColoresDevuelveJugadorMismoColorError(){
         //Average
         String jugadorUnoNombre = "Steven";
-        Color jugadorUnoColor = Color.GREEN;
+        Color jugadorUnoColor = Color.VERDE;
         Jugador jugadorUno = new Jugador(jugadorUnoNombre,jugadorUnoColor, new RazaZerg());
 
         String jugadorDosNombre = "Kevin_s ";
-        Color jugadorDosColor = Color.GREEN;
+        Color jugadorDosColor = Color.VERDE;
         Jugador jugadorDos = new Jugador(jugadorDosNombre,jugadorDosColor, new RazaProtoss());
 
         //Act y Assert
@@ -69,11 +69,11 @@ public class CasoDeUso25 {
     public void jugadoresConLasMismasRazasDevuelveJugadorMismaRazaError(){
         //Average
         String jugadorUnoNombre = "Steven";
-        Color jugadorUnoColor = Color.GREEN;
+        Color jugadorUnoColor = Color.VERDE;
         Jugador jugadorUno = new Jugador(jugadorUnoNombre,jugadorUnoColor, new RazaZerg());
 
         String jugadorDosNombre = "Kevin_s ";
-        Color jugadorDosColor = Color.RED;
+        Color jugadorDosColor = Color.ROJO;
         Jugador jugadorDos = new Jugador(jugadorDosNombre,jugadorDosColor, new RazaZerg());
 
         //Act y Assert
@@ -86,11 +86,11 @@ public class CasoDeUso25 {
     public void seCreanJugadoresExitosamenteConDiferentesNombresColoresRazas(){
         //Average
         String jugadorUnoNombre = "Steven";
-        Color jugadorUnoColor = Color.GREEN;
+        Color jugadorUnoColor = Color.VERDE;
         Jugador jugadorUno = new Jugador(jugadorUnoNombre,jugadorUnoColor, new RazaZerg());
 
         String jugadorDosNombre = "Kevin_s ";
-        Color jugadorDosColor = Color.RED;
+        Color jugadorDosColor = Color.ROJO;
         Jugador jugadorDos = new Jugador(jugadorDosNombre,jugadorDosColor, new RazaProtoss());
 
         //Act y Assert
