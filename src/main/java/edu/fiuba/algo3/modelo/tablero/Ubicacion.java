@@ -41,6 +41,8 @@ public class Ubicacion {
         tipo = unTipo;
     }
 
+
+    //calcula distancia entre 2 ubicaciones
     public int distancia(Ubicacion unaUbicacion){
         return coor.distancia(unaUbicacion.coor);
     }
