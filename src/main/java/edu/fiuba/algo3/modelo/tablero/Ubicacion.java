@@ -62,6 +62,7 @@ public class Ubicacion {
         }
     }
     public void asignarUnidad(Unidad unaUnidad){
+        tipo.ubicar(unaUnidad);
         unidad = unaUnidad;
         unaUnidad.asignarLugar(this);
     }

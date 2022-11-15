@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.tablero;
 
 import edu.fiuba.algo3.modelo.ConstruccionFueraDelMohoError;
 import edu.fiuba.algo3.modelo.Edificio.*;
+import edu.fiuba.algo3.modelo.Unidad.Unidad;
 
 public class Tierra implements Tipo {
 
@@ -33,4 +34,5 @@ public class Tierra implements Tipo {
         return false;
     }
     public void crecer(Coordenada coor,Mapa mapa,int radio){}
+    public void ubicar(Unidad unaUnidad){}
 }

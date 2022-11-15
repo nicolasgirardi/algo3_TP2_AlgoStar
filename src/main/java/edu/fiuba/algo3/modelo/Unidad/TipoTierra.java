@@ -8,4 +8,9 @@ public class TipoTierra implements TipoSuperficie {
     public void recibirAtaque(Ataque ataque, HitPoints hp) {
         ataque.aplicarDanioTierra(hp);
     }
+
+    @Override
+    public void volar() {
+        throw new UnidadNoVuelaError();
+    }
 }

@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Celda;
 import edu.fiuba.algo3.modelo.ConstruccionFueraDelMohoError;
 import edu.fiuba.algo3.modelo.ConstruccionProtoEnMohoError;
 import edu.fiuba.algo3.modelo.Edificio.*;
+import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 
 import java.util.ArrayList;
@@ -43,4 +44,5 @@ public class Moho implements Tipo{
             ubicaciones.get(i).infectar();
         }
     }
+    public void ubicar(Unidad unaUnidad){};
 }
