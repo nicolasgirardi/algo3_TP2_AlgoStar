@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.HitPoints;
 
+import edu.fiuba.algo3.modelo.Edificio.Criadero;
+
 public class HPProtoss implements HitPoints {
 
     private int vidaMax;
@@ -17,7 +19,6 @@ public class HPProtoss implements HitPoints {
     public void recibirDaño(int daño) {
         vidaActual = Math.min(vidaActual,escudoActual+vidaActual-daño);
         escudoActual = Math.max(escudoActual-daño,0);
-
     }
 
     @Override
@@ -37,4 +38,13 @@ public class HPProtoss implements HitPoints {
     private int cura(){
         return escudoMax/4;
     }
+
+    @Override
+    public boolean equals(Object object){
+        if (!(object instanceof HPProtoss)) return false;
+
+        HPProtoss hpProtoss = (HPProtoss) object;
+        return (vidaActual == hpProtoss.vidaActual) && (escudoActual == hpProtoss.escudoActual)  ; //preguntar a diego;
+    }
+
 }

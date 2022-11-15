@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class CasoDeUso9 {
-
+    /*
     @Test
     public void unEdificioProtossEnRangoDe2PilonesSigueEnergizadoSiSeDestruyeUno(){
         //para probar esto se van a crear 2 pilones, ponemos un edificio cerca de estos, destruimos uno
@@ -39,5 +39,5 @@ public class CasoDeUso9 {
             acceso.transportarTropas();
         });
 
-    }
+    }*/
 }

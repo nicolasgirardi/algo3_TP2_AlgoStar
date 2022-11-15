@@ -3,6 +3,7 @@ package edu.fiuba.algo3.entrega_1;
 import edu.fiuba.algo3.modelo.Edificio.Asimilador;
 import edu.fiuba.algo3.modelo.Edificio.Extractor;
 import edu.fiuba.algo3.modelo.Edificio.NexoMineral;
+import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
@@ -24,7 +25,7 @@ public class CasoDeUso15 {
         }
 
         for(int i = 0; i < 3; i++ ){
-            extractor.agregarZangano(new Zangano());
+            extractor.agregarZangano(new Zangano(new HPZerg(25)));
         }
 
         int maximaCantidadGasExtraible = 5000;
@@ -55,7 +56,7 @@ public class CasoDeUso15 {
     public void RazaZergDejaDeConseguirMineralCuandoDelNodoMineralCuandoSeQuedaSinUnidadesDeMineral(){
         //Arrange
         NodoMineral nodoMineral = new NodoMineral();
-        Zangano zangano = new Zangano();
+        Zangano zangano = new Zangano(new HPZerg(25));
         int maximaCantidadGasExtraible = 2000;
         int cantidadDeTurnosParaSacarTodoElGas = 200;
         int cantidadMineral = 0;

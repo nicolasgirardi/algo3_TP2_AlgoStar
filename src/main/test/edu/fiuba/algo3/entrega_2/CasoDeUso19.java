@@ -1,16 +1,15 @@
 package edu.fiuba.algo3.entrega_2;
 
-import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
-import edu.fiuba.algo3.modelo.Edificio.PuertoEstelar;
-import edu.fiuba.algo3.modelo.Guardian;
-import edu.fiuba.algo3.modelo.NoSePuedeAtacarALaUnidadError;
-import edu.fiuba.algo3.modelo.Scout;
+import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.HitPoints.HPProtoss;
+import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
+import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.Unidad.Zerling;
-import edu.fiuba.algo3.modelo.Zealot;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CasoDeUso19 {
@@ -21,65 +20,44 @@ public class CasoDeUso19 {
 
     @Test
     public void testUnidadZerlingNoDeberiaPoderAtacarAUnidadesDeAire(){
-        Zerling zerling = new Zerling();
-        Mutalisco mutalisco = new Mutalisco();
-        Guardian guardian = new Guardian();
-        Scout scout = new Scout();
+        //Arrange
+        Atacante atacante = new Zerling();
+        Atacable zealot = new Scout();
 
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
-            zerling.atacarUnidad(mutalisco);
+
+        //Act y Assert
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+            atacante.atacar(zealot);
         });
 
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
-            zerling.atacarUnidad(guardian);
-        });
-
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
-            zerling.atacarUnidad(scout);
-        });
-    }
-
-    @Test
-    public void testUnidadZealotNoDeberiaPoderAtacarAUnidadesDeAire(){
-        Zealot zealot = new Zealot();
-        Mutalisco mutalisco = new Mutalisco();
-        Guardian guardian = new Guardian();
-        Scout scout = new Scout();
-
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
-            zealot.atacarUnidad(mutalisco);
-        });
-
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
-            zealot.atacarUnidad(guardian);
-        });
-
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
-            zealot.atacarUnidad(scout);
-        });
     }
 
     @Test
     public void testUnidadGuardianNoDeberiaPoderAtacarAUnidadesDeAire(){
-        Guardian guardian = new Guardian();
-        Mutalisco mutalisco = new Mutalisco();
-        Guardian guardianDos = new Guardian();
-        Scout scout = new Scout();
+        //Arrange
+        Atacante atacante = new Zerling();
+        Atacable zealot = new Scout();
 
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
-            guardian.atacarUnidad(mutalisco);
+
+        //Act y Assert
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+            atacante.atacar(zealot);
         });
 
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
-            guardian.atacarUnidad(guardianDos);
-        });
-
-        assertThrows( NoSePuedeAtacarALaUnidadError.class, ()-> {
-            guardian.atacarUnidad(scout);
-        });
     }
 
+    @Test
+    public void testUnidadZealotNoDeberiaPoderAtacarAUnidadesDeAire(){
+        //Arrange
+        Atacante atacante = new Zealot();
+        Atacable guardian = new Guardian();
 
 
+        //Act y Assert
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+            atacante.atacar(guardian);
+        });
+
+    }
 
 }

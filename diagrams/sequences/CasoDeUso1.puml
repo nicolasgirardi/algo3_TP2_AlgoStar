@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+jugador -> Mapa: construirEdificio(posicion)
+Mapa -> Celda: celdaDentroDelMapa(posicion)
+Celda -> Mapa: true
+Mapa -> Celda: construirEdificio(posicion)
+Celda -> Celda: posicionOcupada()
+Celda -> Celda: false
+Celda -> Criadero: agregarLarvas()
+group 3 veces
+      Criadero -> Larva: agregarLarvas()
+      Larva -> Criadero: larva
+end
+Criadero -> Celda: criadero
+Celda -> Mapa: criadero
+Mapa -> jugador: criadero
+jugador -> jugador: ejecutar turno
+jugador -> Celda: evolucionarLarva()
+Celda -> Criadero: evolucionarLarva()
+Criadero -> Criadero: eliminarLarva()
+Criadero -> Larva: evolucionar()
+Larva -> Larva: evolucionar
+Larva -> Criadero: zangano
+Criadero -> jugador: zangano
+@enduml

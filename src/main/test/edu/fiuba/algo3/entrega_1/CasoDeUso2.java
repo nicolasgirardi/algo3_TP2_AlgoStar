@@ -2,6 +2,7 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.Edificio.*;
+import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Unidad.*;
 import org.junit.jupiter.api.Test;
@@ -89,7 +90,7 @@ public class CasoDeUso2 {
     public void EdificoExtractorCon6TurnosParaSerOperativoSeLeAgregaUnZanganoDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
         //Arrange
         Extractor extractor = new Extractor();
-        Zangano unZangano = new Zangano();
+        Zangano unZangano = new Zangano(new HPZerg(25));
         //Acy y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
             extractor.agregarZangano(unZangano);
@@ -101,7 +102,7 @@ public class CasoDeUso2 {
     public void EdificoExtractorCon6TurnosParaSerOperativoSeEjecutan4TurnosSeLeAgregaUnZanganoDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
         //Arrange
         Extractor extractor = new Extractor();
-        Zangano unZangano = new Zangano();
+        Zangano unZangano = new Zangano(new HPZerg(25));
         //Act
         for(int i = 0 ; i < 4 ; i++){
             extractor.ejecutarTurno();
@@ -116,7 +117,7 @@ public class CasoDeUso2 {
     public void EdificoExtractorCon6TurnosParaSerOperativoSeEjecutan6TurnosSeLeAgregaUnZanganoNoDeberiaLanzarExcepcionPorqueYaEstaOperativo(){
         //Arrange
         Extractor extractor = new Extractor( );
-        Zangano unZangano = new Zangano();
+        Zangano unZangano = new Zangano(new HPZerg(25));
         //Act
         for(int i = 0 ; i < 6 ; i++){
             extractor.ejecutarTurno();
