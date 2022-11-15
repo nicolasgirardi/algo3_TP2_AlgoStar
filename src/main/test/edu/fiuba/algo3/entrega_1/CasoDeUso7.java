@@ -2,6 +2,7 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.NexoMineral;
+import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ public class CasoDeUso7 {
     @Test
     public void testUnZanganoTrabajandoEnUnMineralEnUnTurnoDeberiaExtraer10Minerales(){
         //Arrange
-        Zangano zangano = new Zangano();
+        Zangano zangano = new Zangano(new HPZerg(25));
         NodoMineral nodoMineral = new NodoMineral();
 
         //Act

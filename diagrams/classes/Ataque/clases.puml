@@ -1,0 +1,57 @@
+@startuml
+
+class Zangano(){
+
+}
+
+class Hidralisco(){
+
+}
+
+interface Atacable{
++ {abstract} recibirDanio(danio:int):void
+
+}
+abstract class Ataque{
+
+}
+abstract class Edificio{
+# hp:HitPoints
++recibirDanio(danio:int);
+}
+
+abstract class Unidad{
+# hp:HitPoints
+
++{abstract} atacar(Unidad: unidad)
++recibirDanio(danio:int);
+}
+
+Atacable <|-- Edificio
+Atacable <|-- Unidad
+Unidad <|-- Zangano
+Unidad <|--Hidralisco
+
+@enduml
+//  >>Zangano atacar (atacable).
+atacable.RecibirDanio(0)
+
+
+>>Unidad recibirDanio:unDanio
+hitPoints.recibirDanio(unDanio)
+
+
+
+ataque = new AtaqueNulo()
+//Que al evolucionar un zanagano se cree un edificio en la misma pos
+// y se elimine el zangano.
+
+//Juego en el metodo actualizarPosiciones le pide a cada
+//individuo y edificio sus posiciones y se las envia a mapa
+
+//Hay que hacer una clase Posicion que tenga como atributo
+//coordenadas x e y.
+
+//Para construir un edificio hice que lo haga la clase juego, asi
+//soluciono el tema de chequear que el edificio se construya sobre
+//lo que debe. Pero no se si van a quedar demasaidos métodos en Juego.

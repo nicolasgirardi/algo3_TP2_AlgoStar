@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Edificio;
 
+import edu.fiuba.algo3.modelo.HitPoints.HPProtoss;
+import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 
@@ -17,7 +19,7 @@ public class Espiral extends Edificio {
 
     public Mutalisco crearMutalisco() {
         verififarEdificioOperativo();
-        return new Mutalisco();
+        return new Mutalisco(new HPZerg(120));
 
     }
 

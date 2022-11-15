@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Edificio.Asimilador;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.Extractor;
 import edu.fiuba.algo3.modelo.Edificio.NexoMineral;
+import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.RecursoOcupadoError;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
@@ -55,7 +56,7 @@ public class CasoDeUso16 {
 
         NodoMineral nodoMineral = new NodoMineral();
         NexoMineral nexoMineral = new NexoMineral(nodoMineral);
-        Zangano zangano = new Zangano();
+        Zangano zangano = new Zangano(new HPZerg(25));
 
         assertThrows( RecursoOcupadoError.class, ()-> {
             zangano.extraerMineral(nodoMineral);
@@ -66,7 +67,7 @@ public class CasoDeUso16 {
     public void testUnZanganoTrabajaSobreUnNodoMineralNoDeberiaPoderConstruirseUnNexoMineral(){
 
         NodoMineral nodoMineral = new NodoMineral();
-        Zangano zangano = new Zangano();
+        Zangano zangano = new Zangano(new HPZerg(25));
         nodoMineral.agregarZangano(zangano);
 
         assertThrows( RecursoOcupadoError.class, ()-> {

@@ -1,8 +1,18 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
+import edu.fiuba.algo3.modelo.Unidad.Unidad;
 
-public class Zealot {
+public class Zealot extends Unidad {
+    public Zealot(HitPoints hpZealot) {
+        super(hpZealot);
+    }
+
+    @Override
+    public void atacar(Unidad unidad) {
+
+    }
 
     public void atacarUnidad(Mutalisco mutalisco) {
         throw new NoPuedeAtacarUnidadDeAireError();

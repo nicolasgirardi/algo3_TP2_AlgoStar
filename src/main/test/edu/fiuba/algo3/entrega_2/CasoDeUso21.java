@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_2;
 
+import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
@@ -13,7 +14,7 @@ public class CasoDeUso21 {
     @Test
     public void testMutaliscoNoPuedeEvolucionarAGuardianSiNoHayRecursosSuficientes(){
         RazaZerg raza = new RazaZerg(); // se crea con 200 mineral y 0 gas.
-        Mutalisco mutalisco =  new Mutalisco();
+        Mutalisco mutalisco =  new Mutalisco(new HPZerg(120));
 
 
         assertThrows( RecursosInsuficientesError.class, ()-> {
@@ -30,7 +31,7 @@ public class CasoDeUso21 {
     public void testMutaliscoSiPuedeEvolucionarAGuardianPorqueoHayRecursosSuficientes(){
         RazaZerg raza = new RazaZerg(); // se crea con 200 mineral y 0 gas.
         raza.aumentarRecursos(500,500);
-        Mutalisco mutalisco =  new Mutalisco();
+        Mutalisco mutalisco =  new Mutalisco(new HPZerg(120));
 
 
         assertDoesNotThrow(  ()-> {

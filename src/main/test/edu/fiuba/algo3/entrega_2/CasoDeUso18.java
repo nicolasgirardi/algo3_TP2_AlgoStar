@@ -3,6 +3,7 @@ package edu.fiuba.algo3.entrega_2;
 import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.HitPoints.*;
+import edu.fiuba.algo3.modelo.Zealot;
 import org.junit.jupiter.api.Test;
 
 import java.security.interfaces.RSAKey;
@@ -11,25 +12,53 @@ import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 public class CasoDeUso18 {
-    @Test
-    public void UnZanganoAtacaTierrayCausa0Daño(){
-        Unidad unidad = new Zangano();
-
-        int dañoEsperado = 0;
-
-        //assertEquals(dañoEsperado,unidad.AtacarAire());
-    }
 
     /*
+    * - Verificar que todas las unidades cuasen el daño que dicen que causan en sus ataques.*/
     @Test
-    public void UnZanganoAtacaAireyCausa0Daño(){
-        Unidad unidad = new Zangano();
+    public void testUnZanganoAtacaAUnZealotQueEsUnaUnidadDeTierrayLeDeberiaCausar0Danio(){
+        HitPoints HpZangano = new HPZerg(20);
+        HitPoints HpZealot = new HPProtoss(60,100);
 
-        int dañoEsperado = 0;
+        Unidad zanganoUno = new Zangano(HpZangano);
+        Unidad zealot = new Zealot(HpZealot);
 
-        assertEquals(dañoEsperado,unidad.AtacarAire());
-    }*/
-    /*@Test
+        zanganoUno.atacar(zealot);
+        HitPoints HPRestante = new HPProtoss(60,100);
+
+        assertEquals(HpZealot,HPRestante);
+    }
+
+    @Test
+    public void testUnZerlingAtacaAUnZealotQueEsUnaUnidadTierayLeDeberiaCausar4Danio(){
+        HitPoints HpZerling = new HPZerg(35);
+        HitPoints HpZealot = new HPProtoss(60,100);
+
+        Unidad zerling = new Zerling(HpZerling);
+        Unidad zealot = new Zealot(HpZealot);
+
+        zerling.atacar(zealot);
+        HitPoints HPRestante = new HPProtoss(60,96);
+
+        assertEquals(HpZealot,HPRestante);
+    }
+/* ----------TEST QUE FALLA PENSARLO
+    @Test
+    public void testUnHidraliscoAtacaAUnZealotQueEsUnaUnidadTierayLeDeberiaCausar10Danio(){
+        HitPoints HpZerling = new HPZerg(35);
+        HitPoints HpZealot = new HPProtoss(60,100);
+
+        Unidad hidralisco = new Hidralisco(HpZerling);
+        Unidad zealot = new Zealot(HpZealot);
+
+        hidralisco.atacar(zealot);
+        HitPoints HPRestante = new HPProtoss(60,96);
+
+        assertEquals(HpZealot,HPRestante);
+    }
+*/
+    /*
+    @Test
     public void UnZerlingAtacaTierrayCausa4Daño(){
         Unidad unidad = new Zerling();
 

@@ -15,7 +15,7 @@ public class CasoDeUso19 {
     Verificar que todas las unidades que no tienen ataque de aire no puedan atacar a una
      unidad voladora. Idem para todas las combinaciones.
     */
-
+/*
     @Test
     public void testUnidadZerlingNoDeberiaPoderAtacarAUnidadesDeAire(){
         Zerling zerling = new Zerling();
@@ -78,5 +78,5 @@ public class CasoDeUso19 {
 
 
 
-
+*/
 }

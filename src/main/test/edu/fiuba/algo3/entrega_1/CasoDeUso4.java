@@ -3,6 +3,7 @@ package edu.fiuba.algo3.entrega_1;
 import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.Extractor;
 import edu.fiuba.algo3.modelo.Edificio.ExtractorCantidadMaximaDeZanganosError;
+import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import org.junit.jupiter.api.Test;
@@ -44,7 +45,7 @@ public class CasoDeUso4 {
             extractor.ejecutarTurno();
         }
 
-        extractor.agregarZangano(new Zangano());
+        extractor.agregarZangano(new Zangano(new HPZerg(25)));
 
         //Act
         int cantidadGas = extractor.extraer(volcan);
@@ -66,8 +67,8 @@ public class CasoDeUso4 {
             extractor.ejecutarTurno();
         }
 
-        extractor.agregarZangano(new Zangano());
-        extractor.agregarZangano(new Zangano());
+        extractor.agregarZangano(new Zangano(new HPZerg(25)));
+        extractor.agregarZangano(new Zangano(new HPZerg(25)));
 
         //Act
         int cantidadGas = extractor.extraer(volcan);
@@ -89,9 +90,9 @@ public class CasoDeUso4 {
             extractor.ejecutarTurno();
         }
 
-        extractor.agregarZangano(new Zangano());
-        extractor.agregarZangano(new Zangano());
-        extractor.agregarZangano(new Zangano());
+        extractor.agregarZangano(new Zangano(new HPZerg(25)));
+        extractor.agregarZangano(new Zangano(new HPZerg(25)));
+        extractor.agregarZangano(new Zangano(new HPZerg(25)));
 
         //Act
         int cantidadGas = extractor.extraer(volcan);
@@ -112,13 +113,13 @@ public class CasoDeUso4 {
         }
 
         //Act
-        extractor.agregarZangano(new Zangano());
-        extractor.agregarZangano(new Zangano());
-        extractor.agregarZangano(new Zangano());
+        extractor.agregarZangano(new Zangano(new HPZerg(25)));
+        extractor.agregarZangano(new Zangano(new HPZerg(25)));
+        extractor.agregarZangano(new Zangano(new HPZerg(25)));
 
         //Assert
         assertThrows( ExtractorCantidadMaximaDeZanganosError.class, ()-> {
-            extractor.agregarZangano(new Zangano());
+            extractor.agregarZangano(new Zangano(new HPZerg(25)));
         });
     }
 
