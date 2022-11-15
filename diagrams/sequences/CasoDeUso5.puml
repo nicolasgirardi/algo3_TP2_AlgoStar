@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+jugador -> Mapa: construirEdificio(posicion)
+Mapa -> Celda: celdaDentroDelMapa(posicion)
+Celda -> Mapa: true
+Mapa -> Celda: construirEdificio(posicion)
+Celda -> Celda: posicionOcupada()
+Celda -> Celda: false
+Celda -> Moho: mohoEnLaCelda()
+Moho -> Celda: false
+Celda -> Edificio: construirEdificio()
+Edificio -> Celda: false
+Celda -> Mapa: ConstruccionFueraDelMohoError
+Mapa -> jugador: ConstruccionFueraDelMohoError
+
+
+
+
+
+
+
+@enduml
