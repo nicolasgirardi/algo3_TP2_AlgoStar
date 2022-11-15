@@ -20,6 +20,7 @@ public class Ubicacion {
         edificio.ubicar(this);
     }
     public void ubicar(Edificio Edificio,Pilon unPilon){
+        tipo.instalar(Edificio);
         unPilon.enRango(this);
         edificio = Edificio;
         edificio.ubicar(this);
