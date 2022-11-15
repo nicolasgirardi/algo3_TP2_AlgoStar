@@ -1,11 +1,21 @@
 package edu.fiuba.algo3.modelo.Unidad;
 
+import edu.fiuba.algo3.modelo.Ataque;
+import edu.fiuba.algo3.modelo.AtaqueSoloTierra;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 
 public class Zangano extends Unidad {
+
+    public Zangano(){
+        super(
+                new HPZerg(25),
+                new TipoTierra(),
+                new AtaqueSoloTierra(0) {
+        });
+    }
 
     public Zangano(HitPoints vida){
         super(vida);

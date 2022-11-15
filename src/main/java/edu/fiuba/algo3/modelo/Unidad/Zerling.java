@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Unidad;
 
+import edu.fiuba.algo3.modelo.AtaqueSoloTierra;
 import edu.fiuba.algo3.modelo.Guardian;
+import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.NoPuedeAtacarUnidadDeAireError;
 import edu.fiuba.algo3.modelo.Scout;
@@ -8,7 +10,11 @@ import edu.fiuba.algo3.modelo.Scout;
 public class Zerling extends Unidad {
 
     public Zerling(HitPoints vida){
-        super(vida);
+        super(
+                vida,
+                new TipoTierra(),
+                new AtaqueSoloTierra(4)
+        );
     }
 
 

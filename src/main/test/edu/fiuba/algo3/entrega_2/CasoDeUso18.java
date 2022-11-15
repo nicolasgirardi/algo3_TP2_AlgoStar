@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_2;
 
+import edu.fiuba.algo3.modelo.Atacable;
 import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.HitPoints.*;
@@ -15,48 +16,60 @@ public class CasoDeUso18 {
 
     /*
     * - Verificar que todas las unidades cuasen el daño que dicen que causan en sus ataques.*/
+
     @Test
-    public void testUnZanganoAtacaAUnZealotQueEsUnaUnidadDeTierrayLeDeberiaCausar0Danio(){
-        HitPoints HpZangano = new HPZerg(20);
+    public void testUnZanganoAtacaAUnZealotQueEsUnaUnidadDeSuperficieTierrayLeDeberiaCausar0Danio(){
+        //Arrange
+        Zangano zangano = new Zangano();
         HitPoints HpZealot = new HPProtoss(60,100);
+        Atacable zealot = new Zealot(HpZealot);
+        HitPoints HpEsperado = new HPProtoss(60,100);
 
-        Unidad zanganoUno = new Zangano(HpZangano);
-        Unidad zealot = new Zealot(HpZealot);
+        //Act
+        zangano.atacar(zealot);
 
-        zanganoUno.atacar(zealot);
-        HitPoints HPRestante = new HPProtoss(60,100);
+        //Assert
+        assertEquals(HpZealot,HpEsperado);
 
-        assertEquals(HpZealot,HPRestante);
     }
 
+
     @Test
-    public void testUnZerlingAtacaAUnZealotQueEsUnaUnidadTierayLeDeberiaCausar4Danio(){
+    public void testUnZerlingAtacaAUnZealotQueEsUnaUnidadDeSuperficieTierrayLeDeberiaCausar4Danio(){
+        //Arrange
         HitPoints HpZerling = new HPZerg(35);
         HitPoints HpZealot = new HPProtoss(60,100);
-
+        HitPoints HpEsperado = new HPProtoss(60,96);
         Unidad zerling = new Zerling(HpZerling);
-        Unidad zealot = new Zealot(HpZealot);
+        Atacable zealot = new Zealot(HpZealot);
 
+
+        //Act
         zerling.atacar(zealot);
-        HitPoints HPRestante = new HPProtoss(60,96);
 
-        assertEquals(HpZealot,HPRestante);
+        //Assert
+        assertEquals(HpZealot,HpEsperado);
+
     }
-/* ----------TEST QUE FALLA PENSARLO
+
     @Test
-    public void testUnHidraliscoAtacaAUnZealotQueEsUnaUnidadTierayLeDeberiaCausar10Danio(){
+    public void testUnHidraliscoAtacaAUnZealotQueEsUnaUnidadDeSuperficieVientoyLeDeberiaCausar10Danio(){
+        //Arrange
         HitPoints HpZerling = new HPZerg(35);
         HitPoints HpZealot = new HPProtoss(60,100);
+        HitPoints HpEsperado = new HPProtoss(60,90);
 
         Unidad hidralisco = new Hidralisco(HpZerling);
-        Unidad zealot = new Zealot(HpZealot);
+        Atacable zealot = new Zealot(HpZealot);
 
+
+        //Act
         hidralisco.atacar(zealot);
-        HitPoints HPRestante = new HPProtoss(60,96);
 
-        assertEquals(HpZealot,HPRestante);
+        //Assert
+        assertEquals(HpZealot,HpEsperado);
     }
-*/
+
     /*
     @Test
     public void UnZerlingAtacaTierrayCausa4Daño(){

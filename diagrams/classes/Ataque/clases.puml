@@ -1,57 +1,104 @@
 @startuml
+abstract  class Unidad{
+   Unidad(tipoSuperficie:TipoSuperficie, ataque: Ataque)
+   + recibirDanio(ataque:Ataque): void
+   + atacar(atacable: Atacable): void
+}
+note left of Unidad::recibirDanio
+  tipoSuperficie.recibirAtaque(ataque);
+end note
+note left of Unidad::atacar
+  atacable.recibirDanio(ataque);
+end note
 
-class Zangano(){
+
+
+interface TipoSuperficie {
+   + {abstract} recibirAtaque(ataque: Ataque, hp: HitPoints): void
+}
+
+class TipoAire implements TipoSuperficie{
+   +  recibirAtaque(ataque: Ataque, hp: HitPoints): void
+}
+note left of TipoAire::recibirAtaque
+  ataque.aplicarDanioViento(hp)
+end note
+
+class TipoTierra implements TipoSuperficie{
+   +  recibirAtaque(ataque: Ataque, hp: HitPoints): void
+}
+note left of TipoTierra::recibirAtaque
+  ataque.aplicarDanioTierra(hp)
+end note
+
+
+class Mutalisco {
+   + Mutalisco()
+}
+note left of Mutalisco::Mutalisco
+  super(new TipoAire(),new AtaqueTierraViento(9,9))
+end note
+
+
+
+interface Atacable {
+   + {abstract} recibirDanio(ataque:Ataque): void
+}
+
+interface Atacante {
+   + {abstract} atacar(atacable: Atacable): void
+}
+
+abstract class Ataque {
+   -danioTierra: int
+   + Ataque(danioTierra: int)
+   + aplicarDanioTierra(hp:HitPoint)
+   + {abstract} aplicarDanioViento(hp:HitPoint)
+}
+
+class AtaqueSoloTierra {
+    AtaqueTierra(danioTierra: int)
+
+   +  aplicarDanioViento(hp:HitPoint)
+}
+note right of AtaqueSoloTierra::aplicarDanioViento
+  throw new Exception()
+end note
+
+
+class AtaqueTierraYViento {
+    - danioViento: int
+    + AtaqueTierraViento(danioTierra: int, danioViento: int)
+
+   +  aplicarDanioViento(hp:HitPoint)
+}
+note left of AtaqueTierraYViento::aplicarDanioViento
+  hp.recibirDaño(danioVIento)
+end note
+
+
+
+interface HitPoints {
+
+    + recibirDaño(int daño): void
+    + regenerar(): void
+    + vida(): int
+    + escudo(): int
 
 }
 
-class Hidralisco(){
 
-}
+Atacable <|.. Unidad
 
-interface Atacable{
-+ {abstract} recibirDanio(danio:int):void
+Atacante <|.. Unidad
 
-}
-abstract class Ataque{
+Ataque <|-- AtaqueSoloTierra
+Ataque <|-- AtaqueTierraYViento
 
-}
-abstract class Edificio{
-# hp:HitPoints
-+recibirDanio(danio:int);
-}
 
-abstract class Unidad{
-# hp:HitPoints
-
-+{abstract} atacar(Unidad: unidad)
-+recibirDanio(danio:int);
-}
-
-Atacable <|-- Edificio
-Atacable <|-- Unidad
-Unidad <|-- Zangano
-Unidad <|--Hidralisco
+Unidad <|-- Mutalisco
+Unidad --> HitPoints
+Unidad --> Ataque
+Unidad --> TipoSuperficie
 
 @enduml
-//  >>Zangano atacar (atacable).
-atacable.RecibirDanio(0)
-
-
->>Unidad recibirDanio:unDanio
-hitPoints.recibirDanio(unDanio)
-
-
-
-ataque = new AtaqueNulo()
-//Que al evolucionar un zanagano se cree un edificio en la misma pos
-// y se elimine el zangano.
-
-//Juego en el metodo actualizarPosiciones le pide a cada
-//individuo y edificio sus posiciones y se las envia a mapa
-
-//Hay que hacer una clase Posicion que tenga como atributo
-//coordenadas x e y.
-
-//Para construir un edificio hice que lo haga la clase juego, asi
-//soluciono el tema de chequear que el edificio se construya sobre
-//lo que debe. Pero no se si van a quedar demasaidos métodos en Juego.
