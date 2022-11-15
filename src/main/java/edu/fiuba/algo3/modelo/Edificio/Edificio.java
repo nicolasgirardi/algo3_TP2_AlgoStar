@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Edificio;
 
+import edu.fiuba.algo3.modelo.Atacable;
+import edu.fiuba.algo3.modelo.Ataque.Ataque;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
@@ -7,7 +9,7 @@ import edu.fiuba.algo3.modelo.tablero.*;
 
 import java.util.ArrayList;
 
-public abstract class Edificio {
+public abstract class Edificio implements Atacable {
 
     private Ubicacion ubicacion;
     protected int turnosRestantesParaSerOperativo;
@@ -20,6 +22,11 @@ public abstract class Edificio {
         this.turnosRestantesParaSerOperativo = turnosRestantesParaSerOperativo;
         this.hp = HP;
     }
+    public Edificio(HitPoints HP){
+        hp = HP;
+        turnosRestantesParaSerOperativo = 0;
+    }
+
 
     public void verififarEdificioOperativo() {
         if(turnosRestantesParaSerOperativo > 0 ){
@@ -76,11 +83,19 @@ public abstract class Edificio {
         ubicacion = null;
     }
 
+
     public int distancia(Ubicacion unaUbicacion){
         return unaUbicacion.distancia(ubicacion);
     }
 
+
+
     public Ubicacion ubicacion() {
         return ubicacion;
     }
+    @Override
+    public void recibirAtaque(Ataque unAtaque){
+        unAtaque.aplicarDanioTierra(hp);
+    }
+
 }

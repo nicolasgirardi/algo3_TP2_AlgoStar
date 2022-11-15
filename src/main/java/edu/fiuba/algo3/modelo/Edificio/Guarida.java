@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Edificio;
 
+import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Unidad.Hidralisco;
 import edu.fiuba.algo3.modelo.Unidad.Larva;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
@@ -14,6 +15,11 @@ public class Guarida extends Edificio {
         super(CANTIDAD_TURNOS_OPERATIVO);
         larvas = new ArrayList<Larva>();
     }
+    public Guarida(HitPoints hp){
+        super(hp);
+        larvas = new ArrayList<Larva>();
+    }
+
 
     @Override
     public void construirEdificioEn(Recurso recurso) {
