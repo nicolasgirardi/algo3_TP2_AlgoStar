@@ -27,5 +27,22 @@ public class Coordenada {
             }
             else{return true;}
         }
+
+    public Coordenada obtenerOpuestoConDim(int posXMax, int posYMax) {
+            int posicionX = obtenerOpuesto(horizontal, posXMax);
+            int posicionY = obtenerOpuesto(vertical, posYMax);
+
+            return new Coordenada(posicionX, posicionY);
     }
+
+    private int obtenerOpuesto(int valor, int valorTope) {
+            if(valor == 0) return valorTope;
+            else if (valor == valorTope) return 0;
+            return valor;
+    }
+
+    public boolean EsIgual(Coordenada coor) {
+            return (horizontal == coor.horizontal && vertical == coor.vertical);
+    }
+}
 

@@ -66,4 +66,14 @@ public class Ubicacion {
         unidad = unaUnidad;
         unaUnidad.asignarLugar(this);
     }
+
+    @Override
+    public boolean equals(Object object){
+        if (!(object instanceof Ubicacion)) return false;
+        Ubicacion otraUbicacion = (Ubicacion) object;
+
+        return coor.EsIgual(otraUbicacion.coor);
+    }
+
+
 }

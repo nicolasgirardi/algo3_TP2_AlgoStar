@@ -43,6 +43,7 @@ public class CasoDeUso20 {
             ubicacion.asignarUnidad(unidad);
         });
     }
+
     @Test
     public void UnDragonNoPuedeUbicarseEnUnaUbicacionEspecial(){
         Ubicacion ubicacion = new Ubicacion(new Coordenada(5,5));
@@ -83,6 +84,7 @@ public class CasoDeUso20 {
             ubicacion.asignarUnidad(unidad);
         });
     }
+
     @Test
     public void UnZanganoNoPuedeUbicarseEnUnaUbicacionEspecial(){
         Ubicacion ubicacion = new Ubicacion(new Coordenada(5,5));
@@ -93,4 +95,5 @@ public class CasoDeUso20 {
             ubicacion.asignarUnidad(unidad);
         });
     }
+
 }
