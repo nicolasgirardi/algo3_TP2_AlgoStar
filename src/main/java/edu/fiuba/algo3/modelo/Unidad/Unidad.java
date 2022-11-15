@@ -37,9 +37,5 @@ public abstract class  Unidad implements Atacable, Atacante {
         hp.recibirDaño(danio);
     }
 
-
-    protected void recibirDanio(Hidralisco hidralisco, int danio, int danio2) {
-
-    }
     
 }

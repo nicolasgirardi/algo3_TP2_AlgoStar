@@ -18,6 +18,19 @@ public class Hidralisco extends Unidad {
     @Override
     public void atacar(Unidad unidad) {
 
+        unidad.recibirDañoTierra(10);
+        unidad.recibirDañoAire(10);
+        /*
+        Cada unidad tiene un TipoUnidad. Hidralisco es de tierra pero realiza ataques
+        tanto a aire como tierra.
+        unidad.recibirDañoTierra(10)
+        unidad.RecibirDañoAire(10)
+
+        En unidad, estos metodos delegan a TipoUnidad el recibirDañoTierra y si la unidad es de tierra
+        se aplica el daño de recibirDañoTierra y recibirDañoAire no lo aplica nada.
+
+        Osea tengo clases tipoAgua, tipoTierra.
+         */
     }
 
 }
