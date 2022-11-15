@@ -21,60 +21,43 @@ public class CasoDeUso19 {
     @Test
     public void testUnidadZerlingNoDeberiaPoderAtacarAUnidadesDeAire(){
         //Arrange
-        HitPoints HpZerling = new HPZerg(35);
-        HitPoints HpZealot = new HPProtoss(60,100);
-        Unidad zerling = new Zerling(HpZerling);
-        Atacable zealot = new Scout(HpZealot);
+        Atacante atacante = new Zerling();
+        Atacable zealot = new Scout();
 
 
         //Act y Assert
         assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
-            zerling.atacar(zealot);
+            atacante.atacar(zealot);
         });
 
-    }
-    /*
-    @Test
-    public void testUnidadZealotNoDeberiaPoderAtacarAUnidadesDeAire(){
-        Zealot zealot = new Zealot();
-        Mutalisco mutalisco = new Mutalisco();
-        Guardian guardian = new Guardian();
-        Scout scout = new Scout();
-
-        assertThrows( NoPuedeAtacarUnidadDeAireError.class, ()-> {
-            zealot.atacarUnidad(mutalisco);
-        });
-
-        assertThrows( NoPuedeAtacarUnidadDeAireError.class, ()-> {
-            zealot.atacarUnidad(guardian);
-        });
-
-        assertThrows( NoPuedeAtacarUnidadDeAireError.class, ()-> {
-            zealot.atacarUnidad(scout);
-        });
     }
 
     @Test
     public void testUnidadGuardianNoDeberiaPoderAtacarAUnidadesDeAire(){
-        Guardian guardian = new Guardian();
-        Mutalisco mutalisco = new Mutalisco();
-        Guardian guardianDos = new Guardian();
-        Scout scout = new Scout();
+        //Arrange
+        Atacante atacante = new Zerling();
+        Atacable zealot = new Scout();
 
-        assertThrows( NoPuedeAtacarUnidadDeAireError.class, ()-> {
-            guardian.atacarUnidad(mutalisco);
+
+        //Act y Assert
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+            atacante.atacar(zealot);
         });
 
-        assertThrows( NoPuedeAtacarUnidadDeAireError.class, ()-> {
-            guardian.atacarUnidad(guardianDos);
-        });
-
-        assertThrows( NoPuedeAtacarUnidadDeAireError.class, ()-> {
-            guardian.atacarUnidad(scout);
-        });
     }
 
+    @Test
+    public void testUnidadZealotNoDeberiaPoderAtacarAUnidadesDeAire(){
+        //Arrange
+        Atacante atacante = new Zealot();
+        Atacable guardian = new Guardian();
 
 
-*/
+        //Act y Assert
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+            atacante.atacar(guardian);
+        });
+
+    }
+
 }
