@@ -14,10 +14,10 @@ public class CasoDeUso24 {
 
     @Test
     public void LasBasesDe2JugadoresSeInicianEnExtremos() {
+        Mapa mapa =new Mapa(20,20);
+        Juego elJuego = new Juego(mapa,new Coordenada(0,0),new Coordenada(19,19));
 
-        Juego elJuego = new Juego(new Mapa(20,20),new Coordenada(0,0),new Coordenada(19,19));
-
-        int distanciaEsperada = 38;
+        int distanciaEsperada = mapa.distanciaMaxima();
 
         assertEquals(distanciaEsperada, elJuego.distanciaEntreBases());
     }

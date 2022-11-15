@@ -41,5 +41,7 @@ public class Mapa {
         }
         return lista;
         }
-
+    public int distanciaMaxima(){
+        return mapa[0][0].distancia(mapa[base-1][altura-1]);
+    }
 }
