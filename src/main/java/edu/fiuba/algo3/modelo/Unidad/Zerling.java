@@ -23,4 +23,24 @@ public class Zerling extends Unidad {
     }
 
 
+<<<<<<< HEAD
+=======
+    public void atacarUnidad(Mutalisco mutalisco) {
+        throw new NoPuedeAtacarUnidadDeAireError();
+    }
+
+    public void atacarUnidad(Guardian guardian) {
+        throw new NoPuedeAtacarUnidadDeAireError();
+    }
+
+    public void atacarUnidad(Scout scout) {
+        throw new NoPuedeAtacarUnidadDeAireError();
+    }
+
+
+    @Override
+    public void atacar(Unidad unidad) {
+        unidad.recibirDanio(4);
+    }
+>>>>>>> 84e2df0 (Revert "Actualizo")
 }

@@ -23,5 +23,12 @@ public class Zealot extends Unidad {
         );
     }
 
+<<<<<<< HEAD
+=======
+    @Override
+    public void atacar(Unidad unidad) {
+
+    }
+>>>>>>> 84e2df0 (Revert "Actualizo")
 
 }
