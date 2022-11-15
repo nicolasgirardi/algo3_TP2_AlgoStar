@@ -223,4 +223,136 @@ public class CasoDeUso18 {
         assertEquals(hpEsperado,hpGuardian);
     }
 
+    //Con Edificios:
+    @Test
+    public void testUnZanganoAtacaAUnPilonDeberiaCausarle0Danio(){
+        //Arrange
+        Atacante zangano = new Zangano();
+        HitPoints hpPilon = new HPProtoss(300,300);
+        Atacable pilon = new Pilon(hpPilon);
+
+        HitPoints hpEsperado = new HPProtoss(300,300);
+
+        //Act
+        zangano.atacar(pilon);
+
+        //Assert
+        assertEquals(hpEsperado,hpPilon);
+
+    }
+
+    @Test
+    public void testUnZerlingAtacaAUnPilonDeberiaCausarle4Danio(){
+        //Arrange
+        Atacante zerling = new Zerling();
+        HitPoints hpPilon = new HPProtoss(300,300);
+        Atacable pilon = new Pilon(hpPilon);
+
+        HitPoints hpEsperado = new HPProtoss(300,296);
+
+        //Act
+        zerling.atacar(pilon);
+
+        //Assert
+        assertEquals(hpEsperado,hpPilon);
+    }
+
+    @Test
+    public void testUnHidraliscoAtacaAUnPilonDeberiaCausarle10Danio(){
+        //Arrange
+        Atacante hidralisco = new Hidralisco();
+        HitPoints hpPilon = new HPProtoss(300,300);
+        Atacable pilon = new Pilon(hpPilon);
+
+        HitPoints hpEsperado = new HPProtoss(300,290);
+
+        //Act
+        hidralisco.atacar(pilon);
+
+        //Assert
+        assertEquals(hpEsperado,hpPilon);
+    }
+
+    @Test
+    public void testUnMutaliscoAtacaAUnPilonDeberiaCausarle9Danio(){
+        //Arrange
+        Atacante mutalisco = new Mutalisco();
+        HitPoints hpPilon = new HPProtoss(300,300);
+        Atacable pilon = new Pilon(hpPilon);
+
+        HitPoints hpEsperado = new HPProtoss(300,291);
+
+        //Act
+        mutalisco.atacar(pilon);
+
+        //Assert
+        assertEquals(hpEsperado,hpPilon);
+    }
+
+    @Test
+    public void testUnGuardianAtacaAUnPilonDeberiaCausarle25Danio(){
+        //Arrange
+        Atacante guardian = new Guardian();
+        HitPoints hpPilon = new HPProtoss(300,300);
+        Atacable pilon = new Pilon(hpPilon);
+
+        HitPoints hpEsperado = new HPProtoss(300,275);
+
+        //Act
+        guardian.atacar(pilon);
+
+        //Assert
+        assertEquals(hpEsperado,hpPilon);
+    }
+
+    @Test
+    public void testUnZealotAtacaAUnaGuaridaDeberiaCausarle8Danio(){
+        //Arrange
+        Atacante zealot = new Zealot();
+        HitPoints hpGuarida = new HPZerg(1250);
+        Atacable guarida = new Guarida(hpGuarida);
+
+        HitPoints hpEsperado = new HPZerg(1242);
+
+        //Act
+        zealot.atacar(guarida);
+
+        //Assert
+        assertEquals(hpEsperado,hpGuarida);
+    }
+
+    @Test
+    public void testUnDragonAtacaAUnaGuaridaDeberiaCausarle20Danio(){
+        //Arrange
+        Atacante dragon = new Dragon();
+        HitPoints hpGuarida = new HPZerg(1250);
+        Atacable guarida = new Guarida(hpGuarida);
+
+        HitPoints hpEsperado = new HPZerg(1230);
+
+        //Act
+        dragon.atacar(guarida);
+
+        //Assert
+        assertEquals(hpEsperado,hpGuarida);
+    }
+
+    @Test
+    public void testUnScoutAtacaAUnaGuaridaDeberiaCausarle8Danio(){
+        //Arrange
+        Atacante scout = new Scout();
+        HitPoints hpGuarida = new HPZerg(1250);
+        Atacable guarida = new Guarida(hpGuarida);
+
+        HitPoints hpEsperado = new HPZerg(1242);
+
+        //Act
+        scout.atacar(guarida);
+
+        //Assert
+        assertEquals(hpEsperado,hpGuarida);
+    }
+
+
+
 }

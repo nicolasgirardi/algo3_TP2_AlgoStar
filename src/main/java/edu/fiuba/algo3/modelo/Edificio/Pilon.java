@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Edificio;
 
+import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 
 import java.util.ArrayList;
@@ -11,6 +12,11 @@ public class Pilon extends Edificio {
     public Pilon(){
         super(CANTIDAD_TURNOS_OPERATIVO);
     }
+
+    public Pilon(HitPoints hp ){
+        super(hp);
+    }
+
     public void energizar() {
         verififarEdificioOperativo();
     }
