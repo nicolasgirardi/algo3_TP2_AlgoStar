@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Ataque.AtaqueSoloTierra;
 import edu.fiuba.algo3.modelo.HitPoints.HPProtoss;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
-import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
 import edu.fiuba.algo3.modelo.Unidad.TipoTierra;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 
@@ -23,21 +23,5 @@ public class Zealot extends Unidad {
         );
     }
 
-    @Override
-    public void atacar(Unidad unidad) {
 
-    }
-
-    public void atacarUnidad(Mutalisco mutalisco) {
-        throw new NoPuedeAtacarUnidadDeAireError();
-    }
-
-    public void atacarUnidad(Guardian guardian) {
-        throw new NoPuedeAtacarUnidadDeAireError();
-
-    }
-
-    public void atacarUnidad(Scout scout) {
-        throw new NoPuedeAtacarUnidadDeAireError();
-    }
 }

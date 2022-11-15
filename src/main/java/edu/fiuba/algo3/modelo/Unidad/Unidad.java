@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.Unidad;
 
 import edu.fiuba.algo3.modelo.Atacable;
 import edu.fiuba.algo3.modelo.Atacante;
-import edu.fiuba.algo3.modelo.Ataque;
+import edu.fiuba.algo3.modelo.Ataque.Ataque;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 
 public abstract class  Unidad implements Atacable, Atacante {
@@ -29,17 +29,5 @@ public abstract class  Unidad implements Atacable, Atacante {
         tipoSuperficie.recibirAtaque(ataque, hp);
     }
 
-    public void  atacar(Unidad unidad){
-
-    }
-
-    protected void recibirDanio(int danio) {
-        hp.recibirDaño(danio);
-    }
-
-
-    protected void recibirDanio(Hidralisco hidralisco, int danio, int danio2) {
-
-    }
     
 }

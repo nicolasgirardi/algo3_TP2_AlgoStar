@@ -32,7 +32,6 @@ public class CasoDeUso18 {
 
     }
 
-
     @Test
     public void testUnZerlingAtacaAUnZealotQueEsUnaUnidadDeSuperficieTierrayLeDeberiaCausar4Danio(){
         //Arrange
@@ -40,7 +39,6 @@ public class CasoDeUso18 {
         HitPoints hpEsperado = new HPProtoss(60,96);
         Atacante zerling = new Zerling();
         Atacable zealot = new Zealot(hpZealot);
-
 
         //Act
         zerling.atacar(zealot);
@@ -82,7 +80,7 @@ public class CasoDeUso18 {
         hidralisco.atacar(scout);
 
         //Assert
-        assertEquals(hpEsperado,hpScout);
+        assertEquals(hpEsperado, hpScout);
     }
 
     @Test
