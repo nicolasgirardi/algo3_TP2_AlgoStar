@@ -15,10 +15,18 @@ public class CasoDeUso24 {
     @Test
     public void LasBasesDe2JugadoresSeInicianEnExtremos() {
         Mapa mapa =new Mapa(20,20);
-        Juego elJuego = new Juego(mapa,new Coordenada(0,0),new Coordenada(19,19));
+        Juego elJuego = new Juego(mapa,new Coordenada(0,0));
 
         int distanciaEsperada = mapa.distanciaMaxima();
 
         assertEquals(distanciaEsperada, elJuego.distanciaEntreBases());
+    }
+    @Test
+    public void BasesEnPuntosNoExtremosOpuestosTiranError(){
+        Mapa mapa =new Mapa(20,20);
+
+        assertThrows(CoordenadaNoEsExtremoDelMapa.class, () -> {
+            new Juego(mapa,new Coordenada(1,1));
+        });
     }
 }

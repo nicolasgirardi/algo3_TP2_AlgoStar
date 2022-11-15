@@ -9,19 +9,19 @@ public class Mapa {
     private int altura;
 
     public Mapa(int Base, int Altura) {
-        mapa = new Ubicacion[Base][Altura];
+        mapa = new Ubicacion[Base+1][Altura+1];
         base = Base;
         altura = Altura;
-        for (int i = 0; i < Base; i++) {
-            for (int j = 0; j < Altura; j++) {
+        for (int i = 0; i <= Base; i++) {
+            for (int j = 0; j <= Altura; j++) {
                 mapa[i][j] = new Ubicacion(new Coordenada(i, j));
             }
         }
     }
 
     public Ubicacion buscar(Coordenada coordenada) {
-        for (int i = 0; i < base; i++) {
-            for (int j = 0; j < altura; j++) {
+        for (int i = 0; i <= base; i++) {
+            for (int j = 0; j <= altura; j++) {
                 if (coordenada.esIgual(mapa[i][j].coordenada())) {
                     return mapa[i][j];
                 }
@@ -32,8 +32,8 @@ public class Mapa {
     }
     public ArrayList<Ubicacion> buscar(Coordenada coordenada,int radio){
         ArrayList<Ubicacion> lista = new ArrayList<Ubicacion>();
-        for (int i =0;i<base;i++){
-            for (int j = 0;j<altura;j++){
+        for (int i =0;i<=base;i++){
+            for (int j = 0;j<=altura;j++){
                 if (coordenada.distancia(mapa[i][j].coordenada())<= radio){
                     lista.add(mapa[i][j]);
                 }
@@ -42,6 +42,10 @@ public class Mapa {
         return lista;
         }
     public int distanciaMaxima(){
-        return mapa[0][0].distancia(mapa[base-1][altura-1]);
+        return mapa[0][0].distancia(mapa[base][altura]);
     }
+    public Ubicacion buscarOpuesto(Coordenada coor){
+        return buscar(coor.opuesta(base,altura));
+    }
+
 }

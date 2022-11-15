@@ -27,5 +27,10 @@ public class Coordenada {
             }
             else{return true;}
         }
+
+        public Coordenada opuesta(int base,int altura){
+            return new Coordenada(base-horizontal,altura-vertical);
+        }
+
     }
 
