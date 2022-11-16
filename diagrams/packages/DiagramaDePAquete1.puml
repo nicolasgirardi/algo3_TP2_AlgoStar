@@ -1,0 +1,41 @@
+@startuml
+
+package  {
+    class Juego
+
+}
+package  Modelo{
+
+    package Ataque {
+
+    }
+    package Edificio {
+
+        }
+    package HitPoints {
+
+        }
+    package Raza {
+
+            }
+    package Recurso {
+
+            }
+    package Tablero {
+
+            }
+    package Unidad {
+
+            }
+
+}
+package Exepciones {
+
+    class Excepciones
+
+}
+Juego <-- Modelo
+Juego <-- Exepciones
+
+
+@enduml
