@@ -1,0 +1,50 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Mapa{
+    -base:int
+    -altura:int
+    +buscar(unaCoordenada):unaUbicacion
+    +buscar(unaCoordenada,unaDistancia):Lista(ubicaciones)
+}
+
+class Ubicacion{
+    -unEdificio: Edificio
+    -unRecurso: Recurso
+
+    +ubicar(unEdificio)
+    +ubicar(unEdificio,unPilon)
+    +desalojar()
+    +darTipo(unTipo)
+    +distancia(unaUbicacion): unaDistancia
+    +coordenada():unaCoordenada
+    +crecer(unRadio,unMapa)
+    +infectar()
+}
+
+interface Tipo {
+    +instalar(unEdificio)
+    +crecer(unaCoordenada,unMapa,unRadio)
+}
+
+class Tierra{
+     +instalar(unEdificio)
+     +crecer(unaCoordenada,unMapa,unRadio)
+     -edificioEsZerg(unEdificio):bool
+}
+class Moho{
+     +instalar(unEdificio)
+     +crecer(unaCoordenada,unMapa,unRadio)
+     -edificioEsProtoss(unEdificio):bool
+}
+class Especial{
+     +instalar(unEdificio)
+     +crecer(unaCoordenada,unMapa,unRadio)
+}
+
+Mapa -> "n" Ubicacion
+Ubicacion -> Tipo
+Tierra ..> Tipo
+Moho ..> Tipo
+Especial ..> Tipo
+@enduml

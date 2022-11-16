@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+jugador -> Mapa: construirCriadero(posicion)
+Mapa -> Mapa: celdaDentroDelMapa()
+Mapa -> Mapa: true
+
+Mapa -> Celda: construirCriadero(posicion)
+Celda -> Celda: posicionOcupada()
+Celda -> Celda: false
+Celda -> Edificio: construirCriadero()
+Edificio -> Celda: Criadero
+group 5 veces
+    Celda -> Mapa: pasarALaSiguienteCelda(posicion)
+    Mapa -> Celda: agregarMoho(newPosicion)
+    Celda -> Celda: posicionOcupada()
+    Celda -> Celda: false
+    Celda -> Moho: agregarMoho()
+    Moho -> Celda: moho
+end
+Celda -> Mapa: moho
+Mapa -> jugador: mapaActualizado
+group 2 veces
+      jugador -> Mapa: ejecutar turno
+end
+Mapa -> Celda: actualizarMoho(newPosicion)
+Celda -> Moho: agregarMoho()
+Moho -> Celda: moho
+Celda -> Mapa: moho
+Mapa -> jugador: mapaActualizado
+
+
+
+
+@enduml

@@ -1,143 +1,149 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.Edificio.Asimilador;
+import edu.fiuba.algo3.modelo.Edificio.Extractor;
+import edu.fiuba.algo3.modelo.Edificio.NexoMineral;
+import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
+import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
+import edu.fiuba.algo3.modelo.Recurso.Volcan;
+import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
 
 public class CasoDeUso15 {
 
     @Test
-    public void RazaZergDejaDeConseguirGasCuandoDelVolcanCuandoSeQuedaSinUnidadesDeGas(){
+    public void RazaZergDejaDeConseguirGasDelVolcanCuandoSeQuedaSinUnidadesDeGas(){
         //Arrange
-        RazaZerg unaRaza  = new RazaZerg();
-        HitPoints hp = mock(HitPoints.class);
-        HitPoints hpExtractor = mock(HitPoints.class);
-        Criadero unCriadero = new Criadero(hp);  // hay 3 larvas adentro. estructura compleja
         Volcan volcan = new Volcan();
-        Extractor extractor = new Extractor(volcan, hpExtractor);
-        unaRaza.agregarNuevoEdificio(extractor);
+        Extractor extractor = new Extractor();
 
-        // dejo el Extrractor operrable en 6 turnos
-        for(int i = 0; i <10; i++ ){
-            unaRaza.ejecutarTurno();
+        // dejo el Extractor operrable en 6 turnos
+        for(int i = 0; i <6; i++ ){
+            extractor.ejecutarTurno();
         }
 
-
-
-        for(int i = 0; i <3; i++ ){
-            Zangano zangano = unaRaza.evolucionarUnZangano(unCriadero);
-            extractor.agregarZangano(zangano);
+        for(int i = 0; i < 3; i++ ){
+            extractor.agregarZangano(new Zangano(new HPZerg(25)));
         }
 
         int maximaCantidadGasExtraible = 5000;
         int cantidadDeTurnosParaSacarTodoElGas = 167;
-
+        int cantidadGas = 0;
+        int cantidadGasExceso = 0;
 
         //Act
         for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElGas ; i++ ){
-            unaRaza.ejecutarTurno();
+            cantidadGas += extractor.extraer(volcan);
         }
-        unaRaza.ejecutarTurno();
-        int cantidadGas = unaRaza.getCantidadGas();
+
+        // Intentamos extraer 5 veces mas el Volcan
+
+        for(int i = 0; i < 5 ; i++){
+            cantidadGasExceso += extractor.extraer(volcan);
+        }
+
+
         //Assert
+        assertEquals(maximaCantidadGasExtraible, cantidadGas);
 
-        assertEquals(true, cantidadGas == maximaCantidadGasExtraible);
-
+        assertEquals(0,cantidadGasExceso );
     }
+
 
     @Test
     public void RazaZergDejaDeConseguirMineralCuandoDelNodoMineralCuandoSeQuedaSinUnidadesDeMineral(){
         //Arrange
-        RazaZerg unaRaza  = new RazaZerg();
-        HitPoints HPmock = mock(HitPoints.class);
-        HitPoints hp = mock(HitPoints.class);
-        HitPoints hpExtractor = mock(HitPoints.class);
-        Criadero unCriadero = new Criadero(hp);  // hay 3 larvas adentro.
-        Zangano zangano = unaRaza.evolucionarUnZangano(unCriadero);
         NodoMineral nodoMineral = new NodoMineral();
-        zangano.setTrabajo(new TrabajoMineral(nodoMineral));
-
-
-
-
+        Zangano zangano = new Zangano(new HPZerg(25));
         int maximaCantidadGasExtraible = 2000;
         int cantidadDeTurnosParaSacarTodoElGas = 200;
-
+        int cantidadMineral = 0;
+        int cantidadMineralExceso = 0;
 
         //Act
-        for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElGas + 10 ; i++ ){
-            unaRaza.ejecutarTurno();
-        }
-        unaRaza.ejecutarTurno();
-        int cantidadMineral = unaRaza.getCantidadMineral();
-        //Assert
 
-        assertEquals(true, cantidadMineral == maximaCantidadGasExtraible);
+        for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElGas ; i++ ){
+            cantidadMineral += zangano.extraer(nodoMineral);
+        }
+
+        // Intentamos extraer 5 veces mas en el nodoMineral
+
+        for(int i = 0; i < 5 ; i++){
+            cantidadMineralExceso += zangano.extraer(nodoMineral);
+        }
+
+
+        //Assert
+        assertEquals( maximaCantidadGasExtraible, cantidadMineral);
+        assertEquals(0,cantidadMineralExceso );
 
     }
 
     @Test
     public void RazaProtoDejaDeConseguirGasDelVolcanCuandoSeQuedaSinUnidadesDeGas(){
         //Arrange
-        RazaProtoss unaRaza  = new RazaProtoss();
-        HitPoints hp = mock(HitPoints.class);
         Volcan volcan = new Volcan();
-        Asimilador asimilador = new Asimilador(volcan,hp);
-        unaRaza.agregarNuevoEdificio(asimilador);
+        Asimilador asimilador = new Asimilador();
 
         // dejo el Asimilador operrable en 6 turnos
         for(int i = 0; i <6; i++ ){
-            unaRaza.ejecutarTurno();
+            asimilador.ejecutarTurno();
         }
-
-
 
         int maximaCantidadGasExtraible = 5000;
         int cantidadDeTurnosParaSacarTodoElGas = 250;
-
-
+        int cantidadGas = 0;
+        int cantidadGasExceso = 0;
         //Act
-        for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElGas + 10 ; i++ ){
-            unaRaza.ejecutarTurno();
+        for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElGas; i++ ){
+            cantidadGas += asimilador.extraer(volcan);
         }
-        int cantidadGas = unaRaza.getCantidadGas();
 
+        // Intentamos extraer 5 veces mas en el volcan
+
+        for(int i = 0; i < 5 ; i++){
+            cantidadGasExceso += asimilador.extraer(volcan);
+        }
 
         //Assert
-        assertEquals(true, cantidadGas == maximaCantidadGasExtraible);
+        assertEquals(maximaCantidadGasExtraible, cantidadGas);
+
+        assertEquals(0, cantidadGasExceso);
 
     }
 
     @Test
     public void RazaProtossDejaDeConseguirMineralCuandoDelNodoMineralCuandoSeQuedaSinUnidadesDeMineral(){
         //Arrange
-        RazaProtoss unaRaza  = new RazaProtoss();
-        HitPoints hp = mock(HitPoints.class);
-        Volcan volcan = new Volcan();
-        Asimilador asimilador = new Asimilador(volcan,hp);
-        unaRaza.agregarNuevoEdificio(asimilador);
+        NexoMineral nexoMineral = new NexoMineral( new NodoMineral() );
 
         // dejo el Asimilador operrable en 6 turnos
-        for(int i = 0; i <6; i++ ){
-            unaRaza.ejecutarTurno();
+        for(int i = 0; i <4; i++ ){
+            nexoMineral.ejecutarTurno();
         }
 
-
-
-        int maximaCantidadGasExtraible = 5000;
+        int maximaCantidadGasExtraible = 2000;
         int cantidadDeTurnosParaSacarTodoElGas = 250;
-
+        int cantidadGas = 0;
+        int cantidadGasExceso = 0;
 
         //Act
-        for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElGas + 10 ; i++ ){
-            unaRaza.ejecutarTurno();
+        for(int i = 0; i < cantidadDeTurnosParaSacarTodoElGas; i++ ){
+            cantidadGas += nexoMineral.extraer();
         }
-        int cantidadGas = unaRaza.getCantidadGas();
 
+        // Intentamos extraer 5 veces mas en el nexoMineral
+        for(int i = 0; i < 5 ; i++){
+            cantidadGasExceso += nexoMineral.extraer();
+        }
 
         //Assert
-        assertEquals(true, cantidadGas == maximaCantidadGasExtraible);
+        assertEquals(maximaCantidadGasExtraible, cantidadGas);
+
+        assertEquals(0, cantidadGasExceso );
+
     }
+
 }
