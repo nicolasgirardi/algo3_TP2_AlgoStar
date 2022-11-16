@@ -2,17 +2,11 @@
 'https://plantuml.com/sequence-diagram
 
 autonumber
-user -> Criadero: new(0)
-Criadero -> user: criaderoBajoPrueba
-
-user -> Criadero: new(0)
-Criadero -> user: criaderoNormal
-
-user -> "criaderoBajoPrueba:Criadero": evolucionarlarva()
-
-"criaderoBajoPrueba:Criadero" -> user: unZangano
-
-user ->  "criaderoBajoPrueba:Criadero": equals(criaderoNormal)
-"criaderoBajoPrueba:Criadero" -> user: false
+":jugador" -> ":Criadero": evolucionarLarva()
+":Criadero" -> ":Criadero": evolucionarLarva()
+":Criadero" -> ":Larva": evolucionarLarva()
+":Larva" -> ":Zangano": evolucionarLarva()
+":Zangano" -> ":Criadero": zangano
+":Criadero" -> ":jugador": zangano
 
 @enduml

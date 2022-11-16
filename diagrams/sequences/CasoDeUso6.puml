@@ -2,33 +2,32 @@
 'https://plantuml.com/sequence-diagram
 
 autonumber
-jugador -> Mapa: construirCriadero(posicion)
-Mapa -> Mapa: celdaDentroDelMapa()
-Mapa -> Mapa: true
+":jugador" -> ":Mapa": newMapa(coordenadas)
+":Mapa" -> ":jugador": mapa
 
-Mapa -> Celda: construirCriadero(posicion)
-Celda -> Celda: posicionOcupada()
-Celda -> Celda: false
-Celda -> Edificio: construirCriadero()
-Edificio -> Celda: Criadero
-group 5 veces
-    Celda -> Mapa: pasarALaSiguienteCelda(posicion)
-    Mapa -> Celda: agregarMoho(newPosicion)
-    Celda -> Celda: posicionOcupada()
-    Celda -> Celda: false
-    Celda -> Moho: agregarMoho()
-    Moho -> Celda: moho
-end
-Celda -> Mapa: moho
-Mapa -> jugador: mapaActualizado
+":jugador" -> ":Mapa": buscar(coordenadas)
+":Mapa" -> ":Mapa": celdaDentroDelMapa()
+":Mapa" -> ":Mapa": true
+
+":Mapa" -> ":Ubicacion": buscar(coordenadas)
+":Ubicacion" -> ":Moho": darTipo()
+":Moho" -> ":Ubicacion": Moho
+":Ubicacion" -> ":Ubicacion": crecer(unRadio, Moho)
+":Ubicacion" -> ":Tipo": crecer(coord, mapa ,unRadio)
+":Tipo" -> ":Ubicacion": crecerMoho
+":Ubicacion" -> ":Ubicacion": crecer moho en un radio
+":Ubicacion" -> ":Mapa": mapaActualizado
+":Mapa" -> ":jugador": mapaActualizado
 group 2 veces
-      jugador -> Mapa: ejecutar turno
+      ":jugador" -> ":Mapa": ejecutarTurno
 end
-Mapa -> Celda: actualizarMoho(newPosicion)
-Celda -> Moho: agregarMoho()
-Moho -> Celda: moho
-Celda -> Mapa: moho
-Mapa -> jugador: mapaActualizado
+":Mapa" -> ":Ubicacion": buscar(coordenadas)
+":Ubicacion" -> ":Ubicacion": crecer(unRadio, Moho)
+":Ubicacion" -> ":Tipo": crecer(coord, mapa ,unRadio)
+":Tipo" -> ":Ubicacion": crecerMoho
+":Ubicacion" -> ":Ubicacion": crecer moho en un radio
+":Ubicacion" -> ":Mapa": mapaActualizado
+":Mapa" -> ":jugador": mapaActualizado
 
 
 
