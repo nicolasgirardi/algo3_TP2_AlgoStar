@@ -51,4 +51,8 @@ public class Acceso extends Edificio {
     protected boolean esNecesarioParaPuertoEstelar() {
         return true;
     }
+
+    public void energizado(ArrayList<Pilon> lista){
+        lista.get(0).enRango(ubicacion(),lista);
+    }
 }
