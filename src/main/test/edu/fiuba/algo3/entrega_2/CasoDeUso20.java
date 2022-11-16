@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.entrega_2;
-import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
-import edu.fiuba.algo3.modelo.Scout;
+import edu.fiuba.algo3.modelo.Unidad.Scout;
 import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Especial;

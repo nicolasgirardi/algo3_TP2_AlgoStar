@@ -1,16 +1,10 @@
 package edu.fiuba.algo3.entrega_2;
 
-import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.Unidad.*;
-import edu.fiuba.algo3.modelo.Edificio.*;
-import edu.fiuba.algo3.modelo.HitPoints.*;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import org.junit.jupiter.api.Test;
 
-import java.security.interfaces.RSAKey;
-
-import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

@@ -6,9 +6,6 @@ import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.HitPoints.*;
 import org.junit.jupiter.api.Test;
 
-import java.security.interfaces.RSAKey;
-
-import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 public class CasoDeUso18 {
