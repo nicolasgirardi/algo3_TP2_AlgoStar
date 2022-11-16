@@ -11,7 +11,6 @@ public class Espiral extends Edificio {
 
     private static final int CANTIDAD_TURNOS_OPERATIVO = 10;
 
-    private int turnosRestantesParaSerOperativo;
 
     public Espiral() {
         super(CANTIDAD_TURNOS_OPERATIVO);
@@ -20,7 +19,6 @@ public class Espiral extends Edificio {
     public Mutalisco crearMutalisco() {
         verififarEdificioOperativo();
         return new Mutalisco(new HPZerg(120));
-
     }
 
     @Override

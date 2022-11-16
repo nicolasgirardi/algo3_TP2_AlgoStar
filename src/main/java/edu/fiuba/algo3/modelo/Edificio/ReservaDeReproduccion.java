@@ -10,18 +10,9 @@ public class ReservaDeReproduccion extends Edificio {
 
     private static final int CANTIDAD_TURNOS_OPERATIVO = 12;
 
-    private ArrayList<Larva> larvas;
 
     public ReservaDeReproduccion(){
         super(CANTIDAD_TURNOS_OPERATIVO);
-        larvas = new ArrayList<Larva>();
-        cargarTodaslasLarvas();
-    }
-
-    private  void cargarTodaslasLarvas(){
-        larvas.add( new Larva() );
-        larvas.add( new Larva() );
-        larvas.add( new Larva() );
     }
 
 
