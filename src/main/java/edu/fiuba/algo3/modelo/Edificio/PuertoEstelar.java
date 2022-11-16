@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Edificio;
 
+import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 
 import java.util.ArrayList;
@@ -36,23 +37,11 @@ public class PuertoEstelar extends Edificio {
     }
 
     @Override
-    public void verificarCorrelativas(ArrayList<Edificio> edificios) {
-        for(Edificio edificioAct : edificios){
-            if(edificioAct.esNecesarioParaPuertoEstelar() ){
-                return;
-            }
+    public void fueAgregado(Raza raza) {
+        if( ! raza.existePuerto() ){
+            throw new CorrelativaDeConstruccionIncumplidaError();
         }
-        throw new CorrelativaDeConstruccionIncumplidaError();
-    }
 
-    @Override
-    protected boolean esNecesarioParaConstruirGuarida() {
-        return false;
-    }
-
-    @Override
-    protected boolean esNecesarioParaPuertoEstelar() {
-        return false;
     }
 
 }

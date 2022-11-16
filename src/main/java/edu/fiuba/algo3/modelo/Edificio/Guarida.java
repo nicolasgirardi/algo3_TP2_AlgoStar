@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Edificio;
 
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Unidad.Hidralisco;
 import edu.fiuba.algo3.modelo.Unidad.Larva;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
@@ -44,24 +45,10 @@ public class Guarida extends Edificio {
     }
 
     @Override
-    public void verificarCorrelativas(ArrayList<Edificio> edificios) {
-        for(Edificio edificioAct : edificios){
-            if(edificioAct.esNecesarioParaConstruirGuarida() ){
-                return;
-            }
+    public void fueAgregado(Raza raza) {
+        if( ! raza.existeReserva() ){
+            throw new CorrelativaDeConstruccionIncumplidaError();
         }
-        throw new CorrelativaDeConstruccionIncumplidaError();
-    }
-
-    @Override
-    protected boolean esNecesarioParaConstruirGuarida() {
-        return false;
-    }
-
-
-    @Override
-    protected boolean esNecesarioParaPuertoEstelar() {
-        return false;
     }
 
 }
