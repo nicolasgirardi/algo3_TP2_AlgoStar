@@ -58,7 +58,7 @@ public class Pilon extends Edificio {
         boolean enRango = false;
         int i = 0;
         while(!enRango && i < lista.size()){
-            if(distancia(unaUbicacion)<=3){
+            if(lista.get(0).distancia(unaUbicacion)<=3){
                 enRango=true;
             }
             i++;
