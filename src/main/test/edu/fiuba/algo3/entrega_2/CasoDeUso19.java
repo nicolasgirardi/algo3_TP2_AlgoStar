@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.entrega_2;
 
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
-import edu.fiuba.algo3.modelo.Unidad.Zerling;
+import edu.fiuba.algo3.modelo.Unidad.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -17,9 +16,13 @@ public class CasoDeUso19 {
     public void testUnidadZerlingNoDeberiaPoderAtacarAUnScout(){
 
         //Arrange
-        Atacante atacante = new Zerling();
+        Unidad atacante = new Zerling();
         Atacable scout = new Scout();
 
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 2; i++){
+            atacante.ejecutarTurno();
+        }
 
         //Act y Assert
         assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
@@ -31,9 +34,13 @@ public class CasoDeUso19 {
     @Test
     public void testUnidadZerlingNoDeberiaPoderAtacarAUnMutalisco(){
         //Arrange
-        Atacante atacante = new Zerling();
+        Unidad atacante = new Zerling();
         Atacable mutalisco = new Mutalisco();
 
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 2; i++){
+            atacante.ejecutarTurno();
+        }
 
         //Act y Assert
         assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
@@ -45,8 +52,13 @@ public class CasoDeUso19 {
     @Test
     public void testUnidadZerlingNoDeberiaPoderAtacarAUnGuardian(){
         //Arrange
-        Atacante atacante = new Zerling();
+        Unidad atacante = new Zerling();
         Atacable guardian = new Guardian();
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 2; i++){
+            atacante.ejecutarTurno();
+        }
 
         //Act y Assert
         assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
@@ -57,8 +69,13 @@ public class CasoDeUso19 {
     @Test
     public void testUnidadGuardianNoDeberiaPoderAtacarAUnMutalisco(){
         //Arrange
-        Atacante guardian = new Guardian();
+        Unidad guardian = new Guardian();
         Atacable mutalisco = new Mutalisco();
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 4; i++){
+            guardian.ejecutarTurno();
+        }
 
         //Act y Assert
         assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
@@ -69,8 +86,13 @@ public class CasoDeUso19 {
     @Test
     public void testUnidadGuardianNoDeberiaPoderAtacarAOtroGuardian(){
         //Arrange
-        Atacante guardian = new Guardian();
+        Unidad guardian = new Guardian();
         Atacable guardianDos = new Guardian();
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 4; i++){
+            guardian.ejecutarTurno();
+        }
 
         //Act y Assert
         assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
@@ -82,8 +104,13 @@ public class CasoDeUso19 {
     @Test
     public void testUnidadGuardianNoDeberiaPoderAtacarAUnScout(){
         //Arrange
-        Atacante guardian = new Guardian();
+        Unidad guardian = new Guardian();
         Atacable scout = new Scout();
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 4; i++){
+            guardian.ejecutarTurno();
+        }
 
         //Act y Assert
         assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
@@ -95,8 +122,13 @@ public class CasoDeUso19 {
     @Test
     public void testUnidadZealotNoDeberiaPoderAtacarAUnMutalisco(){
         //Arrange
-        Atacante zealot = new Zealot();
+        Unidad zealot = new Zealot();
         Atacable mutalisco = new Mutalisco();
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 4; i++){
+            zealot.ejecutarTurno();
+        }
 
         //Act y Assert
         assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
@@ -109,8 +141,13 @@ public class CasoDeUso19 {
     @Test
     public void testUnidadZealotNoDeberiaPoderAtacarAUnGuardian(){
         //Arrange
-        Atacante zealot = new Zealot();
+        Unidad zealot = new Zealot();
         Atacable guardian = new Guardian();
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 4; i++){
+            zealot.ejecutarTurno();
+        }
 
         //Act y Assert
         assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
@@ -122,8 +159,13 @@ public class CasoDeUso19 {
     @Test
     public void testUnidadZealotNoDeberiaPoderAtacarAUnScout(){
         //Arrange
-        Atacante zealot = new Zealot();
+        Unidad zealot = new Zealot();
         Atacable scout = new Scout();
+
+        //Dejo operativa a la unidad:
+        for (int i = 0; i < 4; i++){
+            zealot.ejecutarTurno();
+        }
 
         //Act y Assert
         assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {

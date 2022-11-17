@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Edificio;
 
-import edu.fiuba.algo3.modelo.HitPoints.HPProtoss;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
+import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 
@@ -11,7 +11,6 @@ public class Espiral extends Edificio {
 
     private static final int CANTIDAD_TURNOS_OPERATIVO = 10;
 
-    private int turnosRestantesParaSerOperativo;
 
     public Espiral() {
         super(CANTIDAD_TURNOS_OPERATIVO);
@@ -20,7 +19,6 @@ public class Espiral extends Edificio {
     public Mutalisco crearMutalisco() {
         verififarEdificioOperativo();
         return new Mutalisco(new HPZerg(120));
-
     }
 
     @Override
@@ -43,18 +41,8 @@ public class Espiral extends Edificio {
     }
 
     @Override
-    public void verificarCorrelativas(ArrayList<Edificio> edificios) {
+    public void fueAgregado(Raza raza) {
         return;
-    }
-
-    @Override
-    protected boolean esNecesarioParaConstruirGuarida() {
-        return false;
-    }
-
-    @Override
-    protected boolean esNecesarioParaPuertoEstelar() {
-        return false;
     }
 
 }

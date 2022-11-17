@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Unidad;
 
 import edu.fiuba.algo3.modelo.Ataque.AtaqueSoloTierra;
 import edu.fiuba.algo3.modelo.HitPoints.HPProtoss;
@@ -11,7 +11,7 @@ public class Zealot extends Unidad {
         super(
                 hpZealot,
                 new TipoTierra(),
-                new AtaqueSoloTierra(8)
+                new AtaqueSoloTierra(8), 4
         );
     }
 
@@ -19,9 +19,8 @@ public class Zealot extends Unidad {
         super(
                 new HPProtoss(100,60),
                 new TipoTierra(),
-                new AtaqueSoloTierra(8)
+                new AtaqueSoloTierra(8), 4
         );
     }
-
 
 }

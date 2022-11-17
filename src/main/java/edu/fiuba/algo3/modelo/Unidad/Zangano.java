@@ -13,7 +13,7 @@ public class Zangano extends Unidad {
                 new HPZerg(25),
                 new TipoTierra(),
                 new AtaqueSoloTierra(0) {
-        });
+        }, 1);
     }
 
     public Zangano(HitPoints vida){

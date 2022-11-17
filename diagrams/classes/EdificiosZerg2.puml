@@ -1,0 +1,73 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Edificio {
+    -hp: HitPoints
+    #cantTurnosParaSerOperativo: Int
+    -ubicacion: Ubicacion
+    +ejecutarTurno():void
+    + {abstract} construirEdificioEn(recurso: Recurso)
+    + {abstract} verificarSiPuedeSerConstruido(unidadesDeMineral:Int, unidadesDeGas:Int)
+    + {abstract} consumirGas(UnidadesDeGas:Int):Int
+    + {abstract} consumirMineral(UnidadesDeMineral:Int):Int
+    +recibirDaño(int daño)
+    +regeneracionFinDeTurno()
+    +vidaActual():Int
+    +escudoActual():Int
+    + {abstract} verificarCorrelativas(edificios: ArrayList)
+    + {abstract} esNecesarioParaConstruirGuarida():Boolean
+    + {abstract} esNecesarioParaPuertoEstelar():Boolean
+    + ubicar(unLugar:Ubicacion)
+    + distancia(unaUbicacion: Ubicacion): int
+    +recibirAtaque(unAtaque: Ataque)
+}
+
+class Extractor{
+
+    -zanganos: ArrayList
+
+    +agregarZangano(zangano: Zangano)
+    +extraer(volcan: Volcan)
+    +construirEdificioEn(recurso: Recurso)
+    +verificarSiPuedeSerConstruido(unidadesDeMineral:Int, unidadesDeGas:Int)
+    + consumirGas(UnidadesDeGas:Int):Int
+    + consumirMineral(UnidadesDeMineral:Int):Int
+    + verificarCorrelativas(edificios: ArrayList)
+    + esNecesarioParaConstruirGuarida():Boolean
+    + esNecesarioParaPuertoEstelar():Boolean
+    -verificarExtractorCantidadMaximaDeZanganos()
+}
+
+class Espiral{
+
+    +crearMutalisco(): Mutalisco
+    +construirEdificioEn(recurso: Recurso)
+    +verificarSiPuedeSerConstruido(unidadesDeMineral:Int, unidadesDeGas:Int)
+    + consumirGas(UnidadesDeGas:Int):Int
+    + consumirMineral(UnidadesDeMineral:Int):Int
+    + verificarCorrelativas(edificios: ArrayList)
+    + esNecesarioParaConstruirGuarida():Boolean
+    + esNecesarioParaPuertoEstelar():Boolean
+}
+
+class Guarida{
+
+    +evolucionar(unaLarva: Larva): Hidralisco
+    +construirEdificioEn(recurso: Recurso)
+    +verificarSiPuedeSerConstruido(unidadesDeMineral:Int, unidadesDeGas:Int)
+    + consumirGas(UnidadesDeGas:Int):Int
+    + consumirMineral(UnidadesDeMineral:Int):Int
+    + verificarCorrelativas(edificios: ArrayList)
+    + esNecesarioParaConstruirGuarida():Boolean
+    + esNecesarioParaPuertoEstelar():Boolean
+}
+interface Atacable {
+    +recibirAtaque(ataque: Ataque)
+}
+
+Edificio <|-- Extractor
+Edificio <|-- Espiral
+Edificio <|-- Guarida
+Atacable <|.. Edificio
+
+@enduml

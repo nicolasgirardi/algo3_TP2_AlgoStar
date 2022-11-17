@@ -1,0 +1,62 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Edificio {
+    -hp: HitPoints
+    #cantTurnosParaSerOperativo: Int
+    -ubicacion: Ubicacion
+    +ejecutarTurno():void
+    + {abstract} construirEdificioEn(recurso: Recurso)
+    + {abstract} verificarSiPuedeSerConstruido(unidadesDeMineral:Int, unidadesDeGas:Int)
+    + {abstract} consumirGas(UnidadesDeGas:Int):Int
+    + {abstract} consumirMineral(UnidadesDeMineral:Int):Int
+    +recibirDaño(int daño)
+    +regeneracionFinDeTurno()
+    +vidaActual():Int
+    +escudoActual():Int
+    + {abstract} verificarCorrelativas(edificios: ArrayList)
+    + {abstract} esNecesarioParaConstruirGuarida():Boolean
+    + {abstract} esNecesarioParaPuertoEstelar():Boolean
+    + ubicar(unLugar:Ubicacion)
+    + distancia(unaUbicacion: Ubicacion): int
+    +recibirAtaque(unAtaque: Ataque)
+}
+
+class Criadero{
+
+    -larvas: ArrayList
+    +ejecutarTurno()
+    +evolucionarLarva(): Zangano
+    +ejecutarTurnoRegenerar()
+    -cargarTodaslasLarvas()
+    +construirEdificioEn(recurso: Recurso)
+    +verificarSiPuedeSerConstruido(unidadesDeMineral:Int, unidadesDeGas:Int)
+    + consumirGas(UnidadesDeGas:Int):Int
+    + consumirMineral(UnidadesDeMineral:Int):Int
+    + verificarCorrelativas(edificios: ArrayList)
+    + esNecesarioParaConstruirGuarida():Boolean
+    + esNecesarioParaPuertoEstelar():Boolean
+
+}
+
+class ReservaDeReproduccion{
+
+    +evolucionarLarva(larva: Larva): Zerling
+    +construirEdificioEn(recurso: Recurso)
+    +verificarSiPuedeSerConstruido(unidadesDeMineral:Int, unidadesDeGas:Int)
+    + consumirGas(UnidadesDeGas:Int):Int
+    + consumirMineral(UnidadesDeMineral:Int):Int
+    + verificarCorrelativas(edificios: ArrayList)
+    + esNecesarioParaConstruirGuarida():Boolean
+    + esNecesarioParaPuertoEstelar():Boolean
+}
+
+interface Atacable {
+    +recibirAtaque(ataque: Ataque)
+}
+
+Edificio <|-- Criadero
+Edificio <|-- ReservaDeReproduccion
+Atacable <|.. Edificio
+
+@enduml

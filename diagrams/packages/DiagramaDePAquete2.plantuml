@@ -1,0 +1,22 @@
+@startuml
+
+package Junit {
+        class CasoDeUso24
+}
+package Jugadores {
+        class Jugador1
+        class Jugador2
+        class AgregagarJugador
+}
+package Raza {
+        class Zerg
+        class Protoss
+
+}
+
+CasoDeUso24 <-- AgregagarJugador
+AgregagarJugador <|-- Jugador1
+AgregagarJugador <|-- Jugador2
+Jugador1 <-- Zerg
+Jugador2 <-- Protoss
+@enduml

@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Edificio;
 import edu.fiuba.algo3.modelo.ConstruccionFueraDelRangoPilonError;
 
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 
@@ -44,19 +45,10 @@ public class Pilon extends Edificio {
     }
 
     @Override
-    public void verificarCorrelativas(ArrayList<Edificio> edificios) {
+    public void fueAgregado(Raza raza) {
         return;
     }
 
-    @Override
-    protected boolean esNecesarioParaConstruirGuarida() {
-        return false;
-    }
-
-    @Override
-    protected boolean esNecesarioParaPuertoEstelar() {
-        return false;
-    }
     public void enRango(Ubicacion unaUbicacion){
         if(distancia(unaUbicacion)>3){
             throw new ConstruccionFueraDelRangoPilonError();

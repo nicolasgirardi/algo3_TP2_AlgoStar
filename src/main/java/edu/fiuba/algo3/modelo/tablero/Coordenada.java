@@ -28,11 +28,10 @@ public class Coordenada {
             else{return true;}
         }
 
-    public Coordenada obtenerOpuestoConDim(int posXMax, int posYMax) {
-            int posicionX = obtenerOpuesto(horizontal, posXMax);
-            int posicionY = obtenerOpuesto(vertical, posYMax);
+        public Coordenada opuesta(int base,int altura){
+            return new Coordenada(base-horizontal,altura-vertical);
+        }
 
-            return new Coordenada(posicionX, posicionY);
     }
 
     private int obtenerOpuesto(int valor, int valorTope) {

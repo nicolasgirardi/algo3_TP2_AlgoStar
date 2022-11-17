@@ -2,11 +2,11 @@ package edu.fiuba.algo3.modelo.Juego;
 
 
 import edu.fiuba.algo3.modelo.Raza.Raza;
-import javafx.scene.paint.Color;
+
 
 public class Jugador {
     private String nombre;
-    private Color color;
+    private  Color color;
     private Raza raza;
 
     public Jugador(String nombre, Color color, Raza raza){

@@ -1,0 +1,76 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class NexoMineral{
+
+    -nodoMineral: NodoMineral
+    +extraer():Int
+    +construirEdificioEn(recurso: Recurso)
+    +verificarSiPuedeSerConstruido(uDeMineral:Int, uDeGas:Int)
+    + consumirGas(UnidadesDeGas:Int):Int
+    + consumirMineral(UnidadesDeMineral:Int):Int
+    + verificarCorrelativas(edificios: ArrayList)
+    + esNecesarioParaConstruirGuarida():Boolean
+    + esNecesarioParaPuertoEstelar():Boolean
+
+}
+
+class Pilon{
+
+    +energizar()
+    +construirEdificioEn(recurso: Recurso)
+    +verificarSiPuedeSerConstruido(uDeMineral:Int, uDeGas:Int)
+    + consumirGas(UnidadesDeGas:Int):Int
+    + consumirMineral(UnidadesDeMineral:Int):Int
+    + verificarCorrelativas(edificios: ArrayList)
+    + esNecesarioParaConstruirGuarida():Boolean
+    + esNecesarioParaPuertoEstelar():Boolean
+    + enRango(unaUbicacion: Ubicacion): Void
+    + enRango(unaUbicacion: Ubicacion, lista: ArrayList): Void
+}
+
+class Asimilador{
+
+    +extraer(volcan: Volcan)
+    +construirEdificioEn(recurso: Recurso)
+    +verificarSiPuedeSerConstruido(uDeMineral:Int, uDeGas:Int)
+    + consumirGas(UnidadesDeGas:Int):Int
+    + consumirMineral(UnidadesDeMineral:Int):Int
+    + verificarCorrelativas(edificios: ArrayList)
+    + esNecesarioParaConstruirGuarida():Boolean
+    + esNecesarioParaPuertoEstelar():Boolean
+}
+
+
+
+interface Atacable {
+    +recibirAtaque(ataque: Ataque)
+}
+
+
+abstract class Edificio {
+    -hp: HitPoints
+    #cantTurnosParaSerOperativo: Int
+    -ubicacion: Ubicacion
+    +ejecutarTurno():void
+    + {abstract} construirEdificioEn(recurso: Recurso)
+    + {abstract} verificarSiPuedeSerConstruido(unidadesDeMineral:Int, unidadesDeGas:Int)
+    + {abstract} consumirGas(UnidadesDeGas:Int):Int
+    + {abstract} consumirMineral(UnidadesDeMineral:Int):Int
+    +recibirDaño(int daño)
+    +regeneracionFinDeTurno()
+    +vidaActual():Int
+    +escudoActual():Int
+    + {abstract} verificarCorrelativas(edificios: ArrayList)
+    + {abstract} esNecesarioParaConstruirGuarida():Boolean
+    + {abstract} esNecesarioParaPuertoEstelar():Boolean
+    + ubicar(unLugar:Ubicacion)
+    + distancia(unaUbicacion: Ubicacion): int
+    +recibirAtaque(unAtaque: Ataque)
+}
+
+Edificio <|-- NexoMineral
+Edificio <|-- Pilon
+Edificio <|-- Asimilador
+Atacable <|.. Edificio
+@enduml

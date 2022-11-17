@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Edificio;
 
+import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Unidad.Larva;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Unidad.Zerling;
@@ -10,18 +11,9 @@ public class ReservaDeReproduccion extends Edificio {
 
     private static final int CANTIDAD_TURNOS_OPERATIVO = 12;
 
-    private ArrayList<Larva> larvas;
 
     public ReservaDeReproduccion(){
         super(CANTIDAD_TURNOS_OPERATIVO);
-        larvas = new ArrayList<Larva>();
-        cargarTodaslasLarvas();
-    }
-
-    private  void cargarTodaslasLarvas(){
-        larvas.add( new Larva() );
-        larvas.add( new Larva() );
-        larvas.add( new Larva() );
     }
 
 
@@ -51,18 +43,8 @@ public class ReservaDeReproduccion extends Edificio {
     }
 
     @Override
-    public void verificarCorrelativas(ArrayList<Edificio> edificios) {
-        return;
-    }
-
-    @Override
-    protected boolean esNecesarioParaConstruirGuarida() {
-        return true;
-    }
-
-    @Override
-    protected boolean esNecesarioParaPuertoEstelar() {
-        return false;
+    public void fueAgregado(Raza raza) {
+        raza.fueAgregadoReserva();
     }
 
 }
