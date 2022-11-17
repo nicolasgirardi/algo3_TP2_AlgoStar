@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Edificio;
 
+import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Unidad.Larva;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Unidad.Zerling;
@@ -42,18 +43,8 @@ public class ReservaDeReproduccion extends Edificio {
     }
 
     @Override
-    public void verificarCorrelativas(ArrayList<Edificio> edificios) {
-        return;
-    }
-
-    @Override
-    protected boolean esNecesarioParaConstruirGuarida() {
-        return true;
-    }
-
-    @Override
-    protected boolean esNecesarioParaPuertoEstelar() {
-        return false;
+    public void fueAgregado(Raza raza) {
+        raza.fueAgregadoReserva();
     }
 
 }

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Edificio;
 
 
+import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 
@@ -43,17 +44,7 @@ public class NexoMineral extends Edificio {
     }
 
     @Override
-    public void verificarCorrelativas(ArrayList<Edificio> edificios) {
+    public void fueAgregado(Raza raza) {
         return;
-    }
-
-    @Override
-    protected boolean esNecesarioParaConstruirGuarida() {
-        return false;
-    }
-
-    @Override
-    protected boolean esNecesarioParaPuertoEstelar() {
-        return false;
     }
 }

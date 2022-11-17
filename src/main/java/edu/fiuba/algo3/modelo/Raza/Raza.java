@@ -11,15 +11,20 @@ public abstract class Raza {
     private int unidadesDeGas;
     private ArrayList<Edificio> edificios;
 
+    int cantReservas;
+
+    int cantAccesos;
     public Raza(){
         unidadesDeGas = 0;
         unidadesDeMineral = 200;
         edificios = new ArrayList<Edificio>();
+        cantAccesos = 0;
+        cantReservas = 0;
     }
 
     public void agregarEdificio(Edificio edificio){
         edificio.verificarSiPuedeSerConstruido(unidadesDeMineral, unidadesDeGas);
-        edificio.verificarCorrelativas(edificios);
+        edificio.fueAgregado(this);
         unidadesDeGas = edificio.consumirGas(unidadesDeGas);
         unidadesDeMineral = edificio.consumirMineral(unidadesDeMineral);
         edificios.add(edificio);
@@ -35,5 +40,23 @@ public abstract class Raza {
             throw new RecursosInsuficientesError();
         }
 
+    }
+
+    public boolean existeReserva() {
+        return (cantReservas > 0) ;
+    }
+
+    public void fueAgregadoReserva() {
+        cantReservas++;
+    }
+
+
+    public void fueAgregadoAcceso() {
+        cantAccesos++;
+    }
+
+
+    public boolean existePuerto() {
+        return (cantAccesos>0);
     }
 }

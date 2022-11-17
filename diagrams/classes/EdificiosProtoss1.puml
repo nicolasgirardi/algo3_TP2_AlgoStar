@@ -9,9 +9,7 @@ class NexoMineral{
     +verificarSiPuedeSerConstruido(uDeMineral:Int, uDeGas:Int)
     + consumirGas(UnidadesDeGas:Int):Int
     + consumirMineral(UnidadesDeMineral:Int):Int
-    + verificarCorrelativas(edificios: ArrayList)
-    + esNecesarioParaConstruirGuarida():Boolean
-    + esNecesarioParaPuertoEstelar():Boolean
+    + fueAgregado(raza: Raza)
 
 }
 
@@ -22,11 +20,9 @@ class Pilon{
     +verificarSiPuedeSerConstruido(uDeMineral:Int, uDeGas:Int)
     + consumirGas(UnidadesDeGas:Int):Int
     + consumirMineral(UnidadesDeMineral:Int):Int
-    + verificarCorrelativas(edificios: ArrayList)
-    + esNecesarioParaConstruirGuarida():Boolean
-    + esNecesarioParaPuertoEstelar():Boolean
     + enRango(unaUbicacion: Ubicacion): Void
     + enRango(unaUbicacion: Ubicacion, lista: ArrayList): Void
+    + fueAgregado(raza: Raza)
 }
 
 class Asimilador{
@@ -36,9 +32,7 @@ class Asimilador{
     +verificarSiPuedeSerConstruido(uDeMineral:Int, uDeGas:Int)
     + consumirGas(UnidadesDeGas:Int):Int
     + consumirMineral(UnidadesDeMineral:Int):Int
-    + verificarCorrelativas(edificios: ArrayList)
-    + esNecesarioParaConstruirGuarida():Boolean
-    + esNecesarioParaPuertoEstelar():Boolean
+    + fueAgregado(raza: Raza)
 }
 
 
@@ -61,12 +55,10 @@ abstract class Edificio {
     +regeneracionFinDeTurno()
     +vidaActual():Int
     +escudoActual():Int
-    + {abstract} verificarCorrelativas(edificios: ArrayList)
-    + {abstract} esNecesarioParaConstruirGuarida():Boolean
-    + {abstract} esNecesarioParaPuertoEstelar():Boolean
     + ubicar(unLugar:Ubicacion)
     + distancia(unaUbicacion: Ubicacion): int
     +recibirAtaque(unAtaque: Ataque)
+    + {abstract} fueAgregado(raza: Raza)
 }
 
 Edificio <|-- NexoMineral
