@@ -23,7 +23,7 @@ public class Juego {
             baseJugador2.ubicar(new Pilon()); //el pilon base
         }
         else{
-            throw new CoordenadaNoEsExtremoDelMapa();
+            throw new CoordenadaNoEsExtremoDelMapaError();
         }
 
     }
