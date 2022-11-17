@@ -5,20 +5,26 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
+
+import java.io.File;
 
 public class BotonRazaEventHandler implements EventHandler<ActionEvent> {
-    Label labelRazaIngresada;
     String razaSeleccionada;
-    public BotonRazaEventHandler(Label razaIngresada, String zerg) {
-        this.labelRazaIngresada = razaIngresada;
+    Label labelRazaResult;
+    public BotonRazaEventHandler(String zerg, Label razaResulHBox) {
         this.razaSeleccionada = zerg;
+        this.labelRazaResult = razaResulHBox;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        Image image = new Image(getClass().getResourceAsStream("imagenes/simboloProtoss.jpeg"));
-        labelRazaIngresada.setGraphic(new ImageView(image));
-        //labelRazaIngresada.setText(razaSeleccionada);
+        if(razaSeleccionada == "ZERG"){
+           labelRazaResult.setText( "ZERG");
+        }
+        else{
+            labelRazaResult.setText( "PROTOSS");
+        }
 
     }
 }

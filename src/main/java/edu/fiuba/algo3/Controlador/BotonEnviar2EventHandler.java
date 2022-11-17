@@ -24,7 +24,6 @@ public class BotonEnviar2EventHandler implements EventHandler<ActionEvent> {
 
         else{
             labelNombreResult.setText(campoNombre.getText());
-            this.labelNombreResult.setTextFill(Color.rgb(0,255,0));
             this.labelNombreResult.requestFocus();
         }
 
