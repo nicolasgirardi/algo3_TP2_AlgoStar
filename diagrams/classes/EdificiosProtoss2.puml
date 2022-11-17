@@ -14,12 +14,10 @@ abstract class Edificio {
     +regeneracionFinDeTurno()
     +vidaActual():Int
     +escudoActual():Int
-    + {abstract} verificarCorrelativas(edificios: ArrayList)
-    + {abstract} esNecesarioParaConstruirGuarida():Boolean
-    + {abstract} esNecesarioParaPuertoEstelar():Boolean
     + ubicar(unLugar:Ubicacion)
     + distancia(unaUbicacion: Ubicacion): int
     +recibirAtaque(unAtaque: Ataque)
+    + {abstract} fueAgregado(raza: Raza)
 }
 
 class Acceso{
@@ -31,7 +29,7 @@ class Acceso{
     + verificarCorrelativas(edificios: ArrayList)
     + esNecesarioParaConstruirGuarida():Boolean
     + esNecesarioParaPuertoEstelar():Boolean
-
+    + fueAgregado(raza: Raza)
 }
 
 class PuertoEstelar{
@@ -41,9 +39,7 @@ class PuertoEstelar{
     +verificarSiPuedeSerConstruido(unidadesDeMineral:Int, unidadesDeGas:Int)
     + consumirGas(UnidadesDeGas:Int):Int
     + consumirMineral(UnidadesDeMineral:Int):Int
-    + verificarCorrelativas(edificios: ArrayList)
-    + esNecesarioParaConstruirGuarida():Boolean
-    + esNecesarioParaPuertoEstelar():Boolean
+    + fueAgregado(raza: Raza)
 }
 
 interface Atacable {
