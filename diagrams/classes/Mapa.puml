@@ -6,6 +6,8 @@ class Mapa{
     -altura:int
     +buscar(unaCoordenada):unaUbicacion
     +buscar(unaCoordenada,unaDistancia):Lista(ubicaciones)
+    +distanciaMaxima()
+    +buscarOpuesto()
 }
 
 class Ubicacion{
@@ -14,32 +16,38 @@ class Ubicacion{
 
     +ubicar(unEdificio)
     +ubicar(unEdificio,unPilon)
+    +ubicar(unEdificio,Lista<pilon>)
     +desalojar()
     +darTipo(unTipo)
     +distancia(unaUbicacion): unaDistancia
     +coordenada():unaCoordenada
     +crecer(unRadio,unMapa)
     +infectar()
+    +asignarUnidad(unaUnidad)
 }
 
 interface Tipo {
     +instalar(unEdificio)
     +crecer(unaCoordenada,unMapa,unRadio)
+    +ubicar(unaUnidad)
 }
 
 class Tierra{
      +instalar(unEdificio)
      +crecer(unaCoordenada,unMapa,unRadio)
      -edificioEsZerg(unEdificio):bool
+     +ubicar(unaUnidad)
 }
 class Moho{
      +instalar(unEdificio)
      +crecer(unaCoordenada,unMapa,unRadio)
      -edificioEsProtoss(unEdificio):bool
+     +ubicar(unaUnidad)
 }
 class Especial{
      +instalar(unEdificio)
      +crecer(unaCoordenada,unMapa,unRadio)
+     +ubicar(unaUnidad)
 }
 
 Mapa -> "n" Ubicacion
