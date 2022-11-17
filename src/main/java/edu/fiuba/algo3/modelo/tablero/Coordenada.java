@@ -32,8 +32,6 @@ public class Coordenada {
             return new Coordenada(base-horizontal,altura-vertical);
         }
 
-    }
-
     private int obtenerOpuesto(int valor, int valorTope) {
             if(valor == 0) return valorTope;
             else if (valor == valorTope) return 0;

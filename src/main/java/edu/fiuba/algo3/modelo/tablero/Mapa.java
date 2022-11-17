@@ -48,9 +48,4 @@ public class Mapa {
         return buscar(coor.opuesta(base,altura));
     }
 
-    public Ubicacion obtenerOpuesto(Coordenada coordenada) {
-        Coordenada coordOpuesta = coordenada.obtenerOpuestoConDim(base-1,altura-1);
-        return buscar(coordOpuesta);
-
-    }
 }
