@@ -1,0 +1,42 @@
+@startuml
+
+package Vista{
+    package InterfazGrafica{}
+    }
+
+package Controlador{
+    class Juego
+    }
+
+package  Modelo{
+
+    package Jugador {}
+    package Ataque {}
+    package Edificio {}
+    package HitPoints {}
+
+    package Raza {
+        class Zerg
+        class Protos
+        }
+    package Recurso {}
+
+    package Tablero {}
+
+    package Unidad {}
+
+    package Excepciones {
+        class Excepciones
+        }
+    }
+
+package Excepciones {
+    class Excepciones
+    }
+
+Controlador -> Modelo
+Vista --> Modelo
+Controlador -> Vista
+
+
+@enduml
