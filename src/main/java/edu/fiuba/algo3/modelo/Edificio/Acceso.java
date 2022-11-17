@@ -46,4 +46,5 @@ public class Acceso extends Edificio {
     public void energizado(ArrayList<Pilon> lista){
         lista.get(0).enRango(ubicacion(),lista);
     }
+
 }

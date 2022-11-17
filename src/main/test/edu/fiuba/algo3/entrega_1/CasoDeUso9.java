@@ -44,6 +44,7 @@ public class CasoDeUso9 {
         });
 
     }
+
     @Test
     public void unEdificioProtossEnRangoDe1PilonNOEstaEnergizadoSiSeDestruyeElPilon(){
         //para probar esto se van a crear 2 pilones, ponemos un edificio cerca de estos, destruimos uno
