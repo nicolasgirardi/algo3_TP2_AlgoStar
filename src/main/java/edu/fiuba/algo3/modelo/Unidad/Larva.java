@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 
 public class Larva {
     public Zangano evolucionar() {
-        return new Zangano(new HPZerg(25));
+        return new Zangano();
     }
 
     public Zerling evolucionar(ReservaDeReproduccion reserva) {

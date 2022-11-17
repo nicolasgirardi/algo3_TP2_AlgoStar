@@ -36,8 +36,7 @@ public class Criadero extends Edificio {
 
     public Zangano evolucionarLarva() {
         verififarEdificioOperativo();
-        Larva larvaAuxiliar = larvas.get(0);
-        larvas.remove(0);
+        Larva larvaAuxiliar = larvas.remove(0);
         return larvaAuxiliar.evolucionar();
     }
 
