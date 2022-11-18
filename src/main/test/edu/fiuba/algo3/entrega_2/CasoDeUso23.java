@@ -18,7 +18,8 @@ public class CasoDeUso23 {
         Ubicacion ubicacion2 = new Ubicacion(new Coordenada(3,3));
         ubicacion1.asignarUnidad(atacante);
         ubicacion2.asignarUnidad(objetivo);
-        atacante.asignarRango(1);
+        atacante.asignarRango(1); //dejarlo pero no lo forzelmos a llamarlo y no dejar un bobjeto incosistene.
+        //NO PUEDE EXISTIR UN ZERLING O ZEALOT SIN RANGO TENES QUE INICIALIZARLO EN EL CONSTRUCTOR
 
         assertThrows( EnemigoFueraDeRangoError.class, ()-> {
             atacante.atacarSobreUbicacion(objetivo);

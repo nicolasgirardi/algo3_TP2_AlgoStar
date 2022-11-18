@@ -19,7 +19,7 @@ public class CasoDeUso24 {
 
         int distanciaEsperada = mapa.distanciaMaxima();
 
-        assertEquals(distanciaEsperada, elJuego.distanciaEntreBases());
+        assertEquals(distanciaEsperada, elJuego.distanciaEntreBases() );
     }
     @Test
     public void BasesEnPuntosNoExtremosOpuestosTiranError(){

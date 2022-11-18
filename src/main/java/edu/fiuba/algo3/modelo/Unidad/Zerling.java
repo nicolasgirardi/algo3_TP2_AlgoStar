@@ -11,7 +11,7 @@ public class Zerling extends Unidad {
                 new HPZerg(35),
                 new TipoTierra(),
                 new AtaqueSoloTierra(4), 2
-        );
+        ); // no puede existir un zerling sin rango dejarlo consistente.
     }
 
     public Zerling(HitPoints vida){

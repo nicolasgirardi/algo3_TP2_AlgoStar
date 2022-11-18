@@ -1,17 +1,14 @@
 @startuml
 'https://plantuml.com/sequence-diagram
-
+title: "Movimiento del moho en el mapa luego de 5 turnos debe aumentar el radio de  moho"
 autonumber
-":jugador" -> ":Mapa": newMapa(coordenadas)
-":Mapa" -> ":jugador": mapa
+create ":Mapa"
+":jugador" -> ":Mapa": new Mapa(20,20)
 
 ":jugador" -> ":Mapa": buscar(coordenadas)
-":Mapa" -> ":Mapa": celdaDentroDelMapa()
-":Mapa" -> ":Mapa": true
-
-":Mapa" -> ":Ubicacion": buscar(coordenadas)
-":Ubicacion" -> ":Moho": darTipo()
-":Moho" -> ":Ubicacion": Moho
+create ":Moho"
+":jugador" -> ":Moho": new()
+":jugador" -> ":Ubicacion": darTipo(moho)
 ":Ubicacion" -> ":Ubicacion": crecer(unRadio, Moho)
 ":Ubicacion" -> ":Tipo": crecer(coord, mapa ,unRadio)
 ":Tipo" -> ":Ubicacion": crecerMoho

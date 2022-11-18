@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CasoDeUso6 {
 
-    @Test
+    @Test     // el jugador deberia serr TestCase.
     public void testElMohoCreceEnUno(){
         Mapa mapa = new Mapa(10,10);
         Ubicacion ubicacion1 = mapa.buscar(new Coordenada(5,5));

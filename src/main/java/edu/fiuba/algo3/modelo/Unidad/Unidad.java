@@ -20,7 +20,7 @@ public abstract class  Unidad implements Atacable, Atacante {
         hp = vida;
     }
 
-    public void verificarUnidadOperativa() {
+    public void verificarUnidadOperativa() { // es protected.
         if(turnosRestantesParaSerOperativo > 0 ){
             throw  new UnidadNoOperativaError();
         }

@@ -35,8 +35,10 @@ public class CasoDeUso21 {
 
 
         assertDoesNotThrow(  ()-> {
-            mutalisco.evolucionar(raza) ; //busca un mutalisco y lo hace evolucionar .
-        });
+            Guardian guardian = mutalisco.evolucionar(raza) ; //busca un mutalisco y lo hace evolucionar.  mutalisco se tineen que comprotar como guardian.
+        });                               // revisar el patron strategy y state.
+        // pensarlo.  vos no podes borrar la linea 34. el chavon tiene que actualizar la linea 34 si es que hay que actualizar.
+        // coleccion de unidades y mutalisco a evolucionar. vos no podes sacar el mutalisco y evolucionar. .
 
         // Dos posibles maneras de hacerlo.
         //raza.agregarUnidad(mutalisco); o como esta dentro de la excepcion

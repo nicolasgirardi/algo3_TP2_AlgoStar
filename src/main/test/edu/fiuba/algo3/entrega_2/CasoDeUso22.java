@@ -216,7 +216,7 @@ public class CasoDeUso22 {
 
         //Assert
         assertDoesNotThrow(  ()->{
-            unidad.atacar(new Zerling());
+            unidad.atacar(new Zerling());   // que se produzca un ataque verficiar que se pierda vida la unidad.
         });
     }
 }
