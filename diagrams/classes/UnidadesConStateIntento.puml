@@ -1,0 +1,110 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+interface TipoUnidad {
+
+}
+
+class Unidad {
+    +Unidad(entidadInicial: Entidad)
+    +cambiarEntidad(nuevaEntidad: Entidad)
+    +metodos()  //PROBLEMA*
+}
+
+class Zangano {
+}
+
+class Zerling {
+
+}
+
+abstract class Entidad {
+    -cantTurnosParaSerOperativo: Int
+    -hp: HitPoints
+    -ubicacion: Ubicacion
+    -unidad //si es necesario
+    +verificarEntidadOperativa()
+    +ejecutarTurno()
+    +recibirAtaque(ataque: Ataque)
+    +ubicar(unLugar: Ubicacion)
+}
+
+interface Atacable {
+
+}
+
+interface Atacante {
+
+}
+
+abstract class Individuo {
+    -tipoSuperficie: TipoSuperficie
+    -rango: Int
+    -ataque: Ataque
+    +atacarSobreUbicacion(atacable: Atacable)
+    +atacar(atacable: Atacable) //que cambia con el de arriba?
+    +asignarLugar(Ubicacion unLugar)
+    +volar() //No hace nada
+    asignarRango(int Rango) //Sacarlo y q sea x constructor
+}
+
+abstract class Edificio {
+    + {abstract} construirEdificioEn(recurso: Recurso)
+    + {abstract} verificarSiPuedeSerConstruido(unidadesDeMineral:Int, unidadesDeGas:Int)
+    + {abstract} consumirGas(UnidadesDeGas:Int):Int
+    + {abstract} consumirMineral(UnidadesDeMineral:Int):Int
+    + {abstract} fueAgregado(raza: Raza)
+    + regeneracionFinDeTurno()
+    + vidaActual():Int      //GETTER
+    + escudoActual():Int    //GETTER
+    + ubicar(unLugar:Ubicacion)
+    + distancia(unaUbicacion: Ubicacion): int
+
+}
+
+Zangano --|> Individuo
+Zerling --|> Individuo
+Unidad "1" --> "1" TipoUnidad
+Entidad ..|> TipoUnidad
+Entidad ..|> Atacable
+Individuo --|> Entidad
+Edificio --|> Entidad
+Pilon  --|> Edificio
+Criadero  --|> Edificio
+Individuo --|> Atacante
+
+@enduml
+
+Edificio y Unidad (actual) tienen como atributos en común
+cantTurnosParaSerOperativo, HP y ubicacion.
+Además ambos implementan atacable. Por eso los englobo
+bajo una clase abstracta Entidad, para no repetir codigo.
+"Para evitar la duplicación de código similar a través de varios estados,
+puedes incluir clases abstractas intermedias que encapsulen algún comportamiento común."
+Pero en este diagrama Unidad pasa a ser el objeto que en el ejemplo sería Context,
+el que se le puede cambiar el comportamiento dinamicamente. Es decir,
+Esta nueva Unidad podria tener como atributo un Zangano y permite hacerlo evolucionar
+en edificio o en mutalisco.
+A su vez es necesario diferenciar entre Edificio e Individuo si o si ya que tienen comportamiento
+muy diferente, a pesar de que Edificio no tiene un atributo extra.
+ANTES REPETIAMOS  CODIGO CON LAS COSAS QUE TIENEN EDIFICIO Y UNIDAD EN COMUN
+
+El atributo unidad de entidad se debe a lo que dice en
+la pagina que nos envió Diego:
+"Los objetos de estado pueden almacenar una referencia
+inversa al objeto de contexto. A través de esta referencia,
+el estado puede extraer cualquier información requerida
+del objeto de contexto, así como iniciar transiciones de estado."
+
+EL TEMA DE RECIBIR ATAQUE/DAÑO NO LO PENSE (xq hay dos cosas parecidas)
+
+*PROBLEMA: state esta pensado para clases que tienen metodos con la misma firma
+pero diferente implementacion, pero nosotros necesitamos que los metodos sean diferentes
+xq edificios e individuos actuan muy diferente. Pero esto soluciona el tema de evolucionar
+zanganos a edificios.
+Esta bien en este caso tener un getter del estado y así usar esos métodos?
+unaUnidad.getTipoEntidad().atacar(...)
+unaUnidad.getTipoEntidad().construirEdificioEn(...)
+peero asi se podria dar una situacion donde se le manda un mensaje incorrecto segun
+el tipo
