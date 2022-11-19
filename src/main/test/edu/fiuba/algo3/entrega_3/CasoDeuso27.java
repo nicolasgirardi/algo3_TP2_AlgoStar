@@ -28,7 +28,6 @@ public class CasoDeuso27 {
     public void testMutaliscoNoPuedeEvolucionarADevoradorPorqueoNoHayRecursosSuficientes() {
         RazaZerg raza = new RazaZerg(); // se crea con 200 mineral y 0 gas.
         Mutalisco mutalisco = new Mutalisco(new HPZerg(120));
-
         assertThrows( RecursosInsuficientesError.class, ()-> {
             mutalisco.evolucionarDevorador(raza) ; //busca un mutalisco y lo hace evolucionar .
         });

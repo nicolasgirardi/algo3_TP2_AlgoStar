@@ -78,8 +78,9 @@ public class Criadero extends Edificio {
 
     @Override
     public int consumirMineral(int unidadesDeMineral) {
-        return unidadesDeMineral-50;
+        return unidadesDeMineral-200;
     }
+    //en entrega 3 dice que cuesta 200 minerales construir un criadero
 
     @Override
     public void fueAgregado(Raza raza) {
