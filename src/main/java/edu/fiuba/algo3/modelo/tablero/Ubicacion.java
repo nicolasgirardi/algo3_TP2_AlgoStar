@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.tablero;
 import edu.fiuba.algo3.modelo.Edificio.*;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;;import java.util.ArrayList;
 import edu.fiuba.algo3.modelo.Unidad.*;
 
@@ -21,7 +22,7 @@ public class Ubicacion {
         edificio = Edificio;
         edificio.ubicar(this);
     }
-    public void ubicar(Edificio Edificio,Pilon unPilon){
+    public void ubicar(Edificio Edificio, Pilon unPilon){
         tipo.instalar(Edificio);
         unPilon.enRango(this);
         edificio = Edificio;

@@ -93,7 +93,6 @@ public abstract class Edificio implements Atacable {
     }
 
 
-
     public Ubicacion ubicacion() {
         return ubicacion;
     }
@@ -103,5 +102,11 @@ public abstract class Edificio implements Atacable {
     }
 
     public abstract void fueAgregado(Raza raza);
+
+
+    public abstract void instalar(Tierra tierra);
+
+    public abstract void instalar(Moho moho);
+
 
 }

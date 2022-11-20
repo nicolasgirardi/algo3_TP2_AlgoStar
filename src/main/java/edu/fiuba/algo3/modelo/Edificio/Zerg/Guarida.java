@@ -1,13 +1,18 @@
-package edu.fiuba.algo3.modelo.Edificio;
+package edu.fiuba.algo3.modelo.Edificio.Zerg;
 
+import edu.fiuba.algo3.modelo.ConstruccionFueraDelMohoError;
+import edu.fiuba.algo3.modelo.Edificio.ConstruccionIncorrectaError;
+import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
+import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Unidad.Hidralisco;
 import edu.fiuba.algo3.modelo.Unidad.Larva;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
+import edu.fiuba.algo3.modelo.tablero.Moho;
+import edu.fiuba.algo3.modelo.tablero.Tierra;
 
-import java.util.ArrayList;
 
 public class Guarida extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 12;
@@ -40,6 +45,16 @@ public class Guarida extends Edificio {
         if( ! raza.existeReserva() ){
             throw new CorrelativaDeConstruccionIncumplidaError();
         }
+    }
+
+    @Override
+    public void instalar(Tierra tierra) {
+        throw new ConstruccionFueraDelMohoError();
+    }
+
+    @Override
+    public void instalar(Moho moho) {
+        return;
     }
 
 }

@@ -1,9 +1,13 @@
-package edu.fiuba.algo3.modelo.Edificio;
+package edu.fiuba.algo3.modelo.Edificio.Protoss;
 
+import edu.fiuba.algo3.modelo.ConstruccionProtoEnMohoError;
+import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
+import edu.fiuba.algo3.modelo.tablero.Moho;
+import edu.fiuba.algo3.modelo.tablero.Tierra;
 
 import java.util.ArrayList;
 
@@ -36,5 +40,15 @@ public class Asimilador extends Edificio {
     @Override
     public void fueAgregado(Raza raza) {
         return;
+    }
+
+    @Override
+    public void instalar(Tierra tierra) {
+        return;
+    }
+
+    @Override
+    public void instalar(Moho moho) {
+        throw new ConstruccionProtoEnMohoError();
     }
 }

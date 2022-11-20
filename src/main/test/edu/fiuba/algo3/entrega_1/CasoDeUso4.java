@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
-import edu.fiuba.algo3.modelo.Edificio.Extractor;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Extractor;
 import edu.fiuba.algo3.modelo.Edificio.ExtractorCantidadMaximaDeZanganosError;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;

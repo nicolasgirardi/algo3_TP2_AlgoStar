@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.Edificio.*;
-import edu.fiuba.algo3.modelo.Raza.Raza;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.PuertoEstelar;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Guarida;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.ReservaDeReproduccion;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;

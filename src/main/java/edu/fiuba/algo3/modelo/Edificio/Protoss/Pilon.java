@@ -1,11 +1,16 @@
-package edu.fiuba.algo3.modelo.Edificio;
+package edu.fiuba.algo3.modelo.Edificio.Protoss;
 
 import edu.fiuba.algo3.modelo.ConstruccionFueraDelRangoPilonError;
 
+import edu.fiuba.algo3.modelo.ConstruccionProtoEnMohoError;
+import edu.fiuba.algo3.modelo.Edificio.ConstruccionIncorrectaError;
+import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
+import edu.fiuba.algo3.modelo.tablero.Moho;
+import edu.fiuba.algo3.modelo.tablero.Tierra;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 
 import java.util.ArrayList;
@@ -38,6 +43,16 @@ public class Pilon extends Edificio {
     @Override
     public void fueAgregado(Raza raza) {
         return;
+    }
+
+    @Override
+    public void instalar(Tierra tierra) {
+        return;
+    }
+
+    @Override
+    public void instalar(Moho moho) {
+        throw new ConstruccionProtoEnMohoError();
     }
 
     public void enRango(Ubicacion unaUbicacion){
