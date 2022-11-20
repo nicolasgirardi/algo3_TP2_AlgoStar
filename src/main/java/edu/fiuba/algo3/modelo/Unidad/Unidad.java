@@ -62,9 +62,6 @@ public abstract class  Unidad implements Atacable, Atacante {
     public Ubicacion ubicacion(){
         return ubicacion;
     }
-    public void asignarRango(int Rango){
-        rango = Rango;
-    }
 
     public void volar(){
         verificarUnidadOperativa();

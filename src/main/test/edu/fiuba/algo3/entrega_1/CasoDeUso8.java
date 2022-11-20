@@ -143,8 +143,8 @@ public class CasoDeUso8 {
         });
     }
 
-   /* @Test
-    public void testRazaZergSeCreaUnCriaderoYUnaReservaDeReproduccionDespuesNoSeDeberiaPoderCrearUnCriaderoMas(){
+   @Test
+    public void testRazaZergSeCreaUnCriaderoDespuesNoSeDeberiaPoderCrearUnCriaderoMas(){
         //Arrange
         RazaZerg razaZerg = new RazaZerg();
         Criadero criadero = new Criadero();
@@ -152,8 +152,7 @@ public class CasoDeUso8 {
         Criadero criaderoExtra = new Criadero();
 
         //Act
-        razaZerg.agregarEdificio(criadero); // gasto 50 de mineral
-        razaZerg.agregarEdificio(reservaDeReproduccion); //gasta 150 de minerla
+        razaZerg.agregarEdificio(criadero); // gasto 200 de mineral
 
         //se quedo sin mineral lanza excepcion al intentar crear sin mineral un criadero.
 
@@ -162,7 +161,7 @@ public class CasoDeUso8 {
             razaZerg.agregarEdificio(criaderoExtra);
         });
 
-    }*/
+    }
 
     @Test
     public void testRazaProtosSeCreaUnPilonYUnAsimiladorDespuesNoSeDeberiaPoderCrearUnNexoMineral(){

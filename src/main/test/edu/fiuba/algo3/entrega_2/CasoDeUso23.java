@@ -18,7 +18,6 @@ public class CasoDeUso23 {
         Ubicacion ubicacion2 = new Ubicacion(new Coordenada(3,3));
         ubicacion1.asignarUnidad(atacante);
         ubicacion2.asignarUnidad(objetivo);
-        atacante.asignarRango(1);
 
         assertThrows( EnemigoFueraDeRangoError.class, ()-> {
             atacante.atacarSobreUbicacion(objetivo);
@@ -32,7 +31,6 @@ public class CasoDeUso23 {
         Ubicacion ubicacion2 = new Ubicacion(new Coordenada(4,5));
         ubicacion1.asignarUnidad(atacante);
         ubicacion2.asignarUnidad(objetivo);
-        atacante.asignarRango(4);
 
         assertThrows( EnemigoFueraDeRangoError.class, ()-> {
             atacante.atacarSobreUbicacion(objetivo);
@@ -46,7 +44,6 @@ public class CasoDeUso23 {
         Ubicacion ubicacion2 = new Ubicacion(new Coordenada(4,4));
         ubicacion1.asignarUnidad(atacante);
         ubicacion2.asignarUnidad(objetivo);
-        atacante.asignarRango(3);
 
         assertThrows( EnemigoFueraDeRangoError.class, ()-> {
             atacante.atacarSobreUbicacion(objetivo);
@@ -60,7 +57,6 @@ public class CasoDeUso23 {
         Ubicacion ubicacion2 = new Ubicacion(new Coordenada(7,8));
         ubicacion1.asignarUnidad(atacante);
         ubicacion2.asignarUnidad(objetivo);
-        atacante.asignarRango(10);
 
         assertThrows( EnemigoFueraDeRangoError.class, ()-> {
             atacante.atacarSobreUbicacion(objetivo);
@@ -74,7 +70,6 @@ public class CasoDeUso23 {
         Ubicacion ubicacion2 = new Ubicacion(new Coordenada(3,3));
         ubicacion1.asignarUnidad(atacante);
         ubicacion2.asignarUnidad(objetivo);
-        atacante.asignarRango(1);
 
         assertThrows( EnemigoFueraDeRangoError.class, ()-> {
             atacante.atacarSobreUbicacion(objetivo);
@@ -88,7 +83,6 @@ public class CasoDeUso23 {
         Ubicacion ubicacion2 = new Ubicacion(new Coordenada(4,5));
         ubicacion1.asignarUnidad(atacante);
         ubicacion2.asignarUnidad(objetivo);
-        atacante.asignarRango(4);
 
         assertThrows( EnemigoFueraDeRangoError.class, ()-> {
             atacante.atacarSobreUbicacion(objetivo);
@@ -102,7 +96,6 @@ public class CasoDeUso23 {
         Ubicacion ubicacion2 = new Ubicacion(new Coordenada(4,5));
         ubicacion1.asignarUnidad(atacante);
         ubicacion2.asignarUnidad(objetivo);
-        atacante.asignarRango(4);
 
         assertThrows( EnemigoFueraDeRangoError.class, ()-> {
             atacante.atacarSobreUbicacion(objetivo);
