@@ -16,20 +16,24 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CasoDeuso27 {
     @Test
     public void testMutaliscoSiPuedeEvolucionarADevoradorPorqueoHayRecursosSuficientes() {
+        //Arrange
         RazaZerg raza = new RazaZerg(); // se crea con 200 mineral y 0 gas.
         raza.aumentarMineral(new GestionRecurso(500));
         raza.aumentarGas(new GestionRecurso(500));
         Mutalisco mutalisco = new Mutalisco(new HPZerg(120));
 
         //Devorador devorador = mutalisco.evolucionarDevorador(raza);
+        //Act y Assert
         assertDoesNotThrow(() -> {
             mutalisco.evolucionarDevorador(raza);
         });
     }
     @Test
     public void testMutaliscoNoPuedeEvolucionarADevoradorPorqueoNoHayRecursosSuficientes() {
+        //Arrange
         RazaZerg raza = new RazaZerg(); // se crea con 200 mineral y 0 gas.
         Mutalisco mutalisco = new Mutalisco(new HPZerg(120));
+        //Act y Assert
         assertThrows( RecursosInsuficientesError.class, ()-> {
             mutalisco.evolucionarDevorador(raza) ; //busca un mutalisco y lo hace evolucionar .
         });
