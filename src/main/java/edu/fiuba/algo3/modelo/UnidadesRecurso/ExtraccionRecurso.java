@@ -7,7 +7,7 @@ public class ExtraccionRecurso {
         unidadesRecurso = new UnidadesRecurso(cantidad);
     }
 
-    public UnidadesRecurso extraer(int cantidad){
+    public GestionRecurso extraer(int cantidad){
         try {
             return unidadesRecurso.extraer(cantidad);
         } catch (CantidadInsuficienteError e ){

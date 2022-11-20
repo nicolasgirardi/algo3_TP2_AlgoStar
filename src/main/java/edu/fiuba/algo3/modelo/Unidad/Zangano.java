@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 public class Zangano extends Unidad {
 
@@ -20,11 +21,11 @@ public class Zangano extends Unidad {
         super(vida);
     }
 
-    public int extraer(Recurso recurso){
+    public GestionRecurso extraer(Recurso recurso){
         return recurso.extraer(10);
     }
 
-    public int extraerMineral(NodoMineral nodoMineral){
+    public GestionRecurso extraerMineral(NodoMineral nodoMineral){
         return  nodoMineral.extraerConZangano(10, this);
     }
 

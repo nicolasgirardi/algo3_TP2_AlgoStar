@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Edificio.ExtractorCantidadMaximaDeZanganosError;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,7 +18,7 @@ public class CasoDeUso4 {
         //Arrange
         Volcan volcan = new Volcan();
         Extractor extractor = new Extractor();
-        int resultadoEsperado = 0;
+        GestionRecurso resultadoEsperado = new GestionRecurso();
 
         // dejo el Extrractor operrable en 6 turnos
         for(int i = 0; i < 6; i++ ){
@@ -25,7 +26,7 @@ public class CasoDeUso4 {
         }
 
         //Act
-        int cantidadGas = extractor.extraer(volcan);
+        GestionRecurso cantidadGas = extractor.extraer(volcan);
 
         //Assert
         assertEquals(resultadoEsperado, cantidadGas);
@@ -38,7 +39,7 @@ public class CasoDeUso4 {
         //Arrange
         Volcan volcan = new Volcan();
         Extractor extractor = new Extractor();
-        int resultadoEsperado = 10;
+        GestionRecurso resultadoEsperado = new GestionRecurso(10);
 
         // dejo el Extrractor operrable en 6 turnos
         for(int i = 0; i < 6; i++ ){
@@ -48,7 +49,7 @@ public class CasoDeUso4 {
         extractor.agregarZangano(new Zangano(new HPZerg(25)));
 
         //Act
-        int cantidadGas = extractor.extraer(volcan);
+        GestionRecurso cantidadGas = extractor.extraer(volcan);
 
         //Assert
         assertEquals(resultadoEsperado, cantidadGas);
@@ -60,7 +61,7 @@ public class CasoDeUso4 {
         //Arrange
         Volcan volcan = new Volcan();
         Extractor extractor = new Extractor();
-        int resultadoEsperado = 20;
+        GestionRecurso resultadoEsperado = new GestionRecurso(20);
 
         // dejo el Extrractor operrable en 6 turnos
         for(int i = 0; i < 6; i++ ){
@@ -71,7 +72,7 @@ public class CasoDeUso4 {
         extractor.agregarZangano(new Zangano(new HPZerg(25)));
 
         //Act
-        int cantidadGas = extractor.extraer(volcan);
+        GestionRecurso cantidadGas = extractor.extraer(volcan);
 
         //Assert
         assertEquals(resultadoEsperado, cantidadGas);
@@ -83,7 +84,7 @@ public class CasoDeUso4 {
         //Arrange
         Volcan volcan = new Volcan();
         Extractor extractor = new Extractor();
-        int resultadoEsperado = 30;
+        GestionRecurso resultadoEsperado = new GestionRecurso(30);
 
         // dejo el Extrractor operrable en 6 turnos
         for(int i = 0; i < 6; i++ ){
@@ -95,7 +96,7 @@ public class CasoDeUso4 {
         extractor.agregarZangano(new Zangano(new HPZerg(25)));
 
         //Act
-        int cantidadGas = extractor.extraer(volcan);
+        GestionRecurso cantidadGas =  extractor.extraer(volcan);
 
         //Assert
         assertEquals(resultadoEsperado, cantidadGas);

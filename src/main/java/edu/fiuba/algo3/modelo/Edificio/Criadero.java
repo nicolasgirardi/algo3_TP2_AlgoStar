@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Unidad.Larva;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 import java.util.ArrayList;
 
@@ -13,12 +14,12 @@ public class Criadero extends Edificio {
     private ArrayList<Larva> larvas;
 
     public Criadero(){
-        super(0);
+        super(0,200,0);
         larvas = new ArrayList<Larva>();
         cargarTodaslasLarvas();
     }
     public Criadero(int cantidadTurnosParaSerOperativo){
-        super(cantidadTurnosParaSerOperativo);
+        super(cantidadTurnosParaSerOperativo, 200, 0);
         larvas = new ArrayList<Larva>();
         if (cantidadTurnosParaSerOperativo == 0 ) cargarTodaslasLarvas();
     }
@@ -67,20 +68,10 @@ public class Criadero extends Edificio {
         }
     }
 
-    public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
-        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 50 , 0);
+    public void verificarSiPuedeSerConstruido(GestionRecurso unidadesDeMineral, GestionRecurso unidadesDeGas){
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas);
     }
 
-    @Override
-    public int consumirGas(int unidadesDeGas) {
-        return unidadesDeGas;
-    }
-
-    @Override
-    public int consumirMineral(int unidadesDeMineral) {
-        return unidadesDeMineral-200;
-    }
-    //en entrega 3 dice que cuesta 200 minerales construir un criadero
 
     @Override
     public void fueAgregado(Raza raza) {

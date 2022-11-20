@@ -10,15 +10,15 @@ public class UnidadesRecurso {
         return this.cantidad >= cantidad;
     }
 
-    public UnidadesRecurso extraer(int cantidad){
+    public GestionRecurso extraer(int cantidad){
         if(!puedeExtraer(cantidad))
             throw  new CantidadInsuficienteError();
         this.cantidad -= cantidad;
-        return new UnidadesRecurso(cantidad);
+        return new GestionRecurso(cantidad);
     }
 
-    public UnidadesRecurso extraerTodo(){
-        UnidadesRecurso retorno = new UnidadesRecurso(cantidad);
+    public GestionRecurso extraerTodo(){
+        GestionRecurso retorno = new GestionRecurso(cantidad);
         cantidad = 0;
         return retorno;
     }
@@ -26,5 +26,12 @@ public class UnidadesRecurso {
     public void aumentar(UnidadesRecurso unidadesRecurso){
         cantidad += unidadesRecurso.cantidad;
         unidadesRecurso.cantidad = 0;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(!(o instanceof UnidadesRecurso)) return false;
+        UnidadesRecurso unidadesRecurso = (UnidadesRecurso) o;
+        return cantidad == unidadesRecurso.cantidad;
     }
 }

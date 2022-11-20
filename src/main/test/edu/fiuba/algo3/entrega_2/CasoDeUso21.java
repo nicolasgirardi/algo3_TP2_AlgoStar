@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -30,7 +31,8 @@ public class CasoDeUso21 {
     @Test
     public void testMutaliscoSiPuedeEvolucionarAGuardianPorqueoHayRecursosSuficientes(){
         RazaZerg raza = new RazaZerg(); // se crea con 200 mineral y 0 gas.
-        raza.aumentarRecursos(500,500);
+        raza.aumentarMineral(new GestionRecurso(500));
+        raza.aumentarGas(new GestionRecurso(500));
         Mutalisco mutalisco =  new Mutalisco(new HPZerg(120));
 
 

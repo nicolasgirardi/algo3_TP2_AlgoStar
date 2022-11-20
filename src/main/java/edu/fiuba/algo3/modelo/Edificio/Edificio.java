@@ -6,22 +6,28 @@ import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.*;
-
-import java.util.ArrayList;
 
 public abstract class Edificio implements Atacable {
 
     private Ubicacion ubicacion;
     protected int turnosRestantesParaSerOperativo;
+    protected int costoMineral;
+    protected int costoGas;
+
     private HitPoints hp;
 
-    public Edificio(int turnosRestantesParaSerOperativo){
+    public Edificio(int turnosRestantesParaSerOperativo, int mineralNecesario, int gasNecesario){
         this.turnosRestantesParaSerOperativo = turnosRestantesParaSerOperativo;
+        this.costoMineral = mineralNecesario;
+        this.costoGas = gasNecesario;
     }
-    public Edificio(int turnosRestantesParaSerOperativo,HitPoints HP){
+    public Edificio(int turnosRestantesParaSerOperativo,HitPoints HP, int mineralNecesario, int gasNecesario){
         this.turnosRestantesParaSerOperativo = turnosRestantesParaSerOperativo;
         this.hp = HP;
+        this.costoMineral = mineralNecesario;
+        this.costoGas = gasNecesario;
     }
     public Edificio(HitPoints HP){
         hp = HP;
@@ -40,17 +46,21 @@ public abstract class Edificio implements Atacable {
 
     public abstract void construirEdificioEn(Recurso recurso);
 
-    public void verificarSiPuedeSerConstruidoSegunRecursos(int mineral, int gas, int mineralNecesario, int gasNecesario){
-        if(gas < gasNecesario || mineral < mineralNecesario){
+    public void verificarSiPuedeSerConstruidoSegunRecursos(GestionRecurso mineral, GestionRecurso gas){
+        if(!gas.puedeConsumir(costoGas) || !mineral.puedeConsumir(costoMineral)){
             throw new RecursosInsuficientesError();
         }
     }
 
-    public abstract void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas);
+    public abstract void verificarSiPuedeSerConstruido(GestionRecurso unidadesDeMineral, GestionRecurso unidadesDeGas);
 
-    public abstract int consumirGas(int unidadesDeGas);
+    public  void consumirGas(GestionRecurso gas){
+        gas.consumir(costoGas);
+    }
 
-    public abstract int consumirMineral(int unidadesDeMineral);
+    public  void consumirMineral(GestionRecurso mineral){
+        mineral.consumir(costoMineral);
+    }
 
 
     public void asignarHP(HitPoints HP){

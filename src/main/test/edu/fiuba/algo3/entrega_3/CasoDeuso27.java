@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.NoPuedeAplicarDanioUnidadTipoAire;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.Unidad.*;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,7 +17,8 @@ public class CasoDeuso27 {
     @Test
     public void testMutaliscoSiPuedeEvolucionarADevoradorPorqueoHayRecursosSuficientes() {
         RazaZerg raza = new RazaZerg(); // se crea con 200 mineral y 0 gas.
-        raza.aumentarRecursos(400, 420);
+        raza.aumentarMineral(new GestionRecurso(500));
+        raza.aumentarGas(new GestionRecurso(500));
         Mutalisco mutalisco = new Mutalisco(new HPZerg(120));
 
         //Devorador devorador = mutalisco.evolucionarDevorador(raza);

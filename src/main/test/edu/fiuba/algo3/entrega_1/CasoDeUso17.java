@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -16,7 +17,10 @@ public class CasoDeUso17 {
 
         //Arrange
         RazaZerg raza = new RazaZerg();
-        raza.aumentarRecursos(500,500);
+        raza.aumentarMineral(new GestionRecurso(500));
+        raza.aumentarGas(new GestionRecurso(500));
+
+
         //Act y Assert
         assertThrows(CorrelativaDeConstruccionIncumplidaError.class, ()-> {
             raza.agregarEdificio(new Guarida());
@@ -29,7 +33,8 @@ public class CasoDeUso17 {
 
         //Arrange
         RazaZerg raza = new RazaZerg();
-        raza.aumentarRecursos(500,500);
+        raza.aumentarMineral(new GestionRecurso(500));
+        raza.aumentarGas(new GestionRecurso(500));
         raza.agregarEdificio(new ReservaDeReproduccion());
 
         //Act y Assert
@@ -43,7 +48,8 @@ public class CasoDeUso17 {
 
         //Arrange
         RazaProtoss raza = new RazaProtoss();
-        raza.aumentarRecursos(500,500);
+        raza.aumentarMineral(new GestionRecurso(500));
+        raza.aumentarGas(new GestionRecurso(500));
 
         //Act y Assert
         assertThrows( CorrelativaDeConstruccionIncumplidaError.class, ()-> {
@@ -56,7 +62,8 @@ public class CasoDeUso17 {
     public void testRazaProtossQuiereConstruirUnPuertoEstelarSiDeberiaPoderSiTieneAcceso(){
         //Arrange
         RazaProtoss raza = new RazaProtoss();
-        raza.aumentarRecursos(500,500);
+        raza.aumentarMineral(new GestionRecurso(500));
+        raza.aumentarGas(new GestionRecurso(500));
 
         raza.agregarEdificio(new Acceso());
 

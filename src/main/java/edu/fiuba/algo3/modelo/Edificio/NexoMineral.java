@@ -4,6 +4,7 @@ package edu.fiuba.algo3.modelo.Edificio;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ public class NexoMineral extends Edificio {
     private NodoMineral nodoMineral;
 
     public NexoMineral(NodoMineral nodoMineral){
-        super(CANTIDAD_TURNOS_OPERATIVO) ;
+        super(CANTIDAD_TURNOS_OPERATIVO,50,0) ;
         this.nodoMineral = nodoMineral;
         nodoMineral.ocuparConEdificio(this);
     }
@@ -24,23 +25,13 @@ public class NexoMineral extends Edificio {
         throw new ConstruccionIncorrectaError();
     }
 
-    public int extraer(){
+    public GestionRecurso extraer(){
         verififarEdificioOperativo();
-        return nodoMineral.extraer(CANTIDAD_EXTRACCION );
+        return nodoMineral.extraer(CANTIDAD_EXTRACCION);
     }
 
-    public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
-        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 50 , 0);
-    }
-
-    @Override
-    public int consumirGas(int unidadesDeGas) {
-        return unidadesDeGas;
-    }
-
-    @Override
-    public int consumirMineral(int unidadesDeMineral) {
-        return unidadesDeMineral-50;
+    public void verificarSiPuedeSerConstruido(GestionRecurso unidadesDeMineral,GestionRecurso unidadesDeGas){
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas);
     }
 
     @Override

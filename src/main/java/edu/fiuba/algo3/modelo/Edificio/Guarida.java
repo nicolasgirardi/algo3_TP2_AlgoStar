@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Unidad.Hidralisco;
 import edu.fiuba.algo3.modelo.Unidad.Larva;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ public class Guarida extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 12;
 
     public Guarida(){
-        super(CANTIDAD_TURNOS_OPERATIVO);
+        super(CANTIDAD_TURNOS_OPERATIVO,200,100);
     }
     public Guarida(HitPoints hp){
         super(hp);
@@ -30,18 +31,8 @@ public class Guarida extends Edificio {
         return unaLarva.evolucionar(this);
     }
 
-    public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
-        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 200 , 100);
-    }
-
-    @Override
-    public int consumirGas(int unidadesDeGas) {
-        return unidadesDeGas-100;
-    }
-
-    @Override
-    public int consumirMineral(int unidadesDeMineral) {
-        return unidadesDeMineral-200;
+    public void verificarSiPuedeSerConstruido(GestionRecurso unidadesDeMineral, GestionRecurso unidadesDeGas){
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas);
     }
 
     @Override

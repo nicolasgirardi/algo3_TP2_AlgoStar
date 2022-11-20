@@ -6,6 +6,9 @@ public class GestionRecurso {
     public GestionRecurso(){
         this.unidadesRecurso = new UnidadesRecurso(0);
     }
+    public GestionRecurso(int cantidad){
+        this.unidadesRecurso = new UnidadesRecurso(cantidad);
+    }
 
     public void consumir(int cantidad){
         unidadesRecurso.extraer(cantidad);
@@ -14,7 +17,14 @@ public class GestionRecurso {
         return unidadesRecurso.puedeExtraer(cantidad);
     }
 
-    public void auemntar(UnidadesRecurso unidadesRecurso){
-        unidadesRecurso.aumentar(unidadesRecurso);
+    public void aumentar(GestionRecurso gestionRecurso){
+        unidadesRecurso.aumentar(gestionRecurso.unidadesRecurso);
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(!(o instanceof GestionRecurso)) return false;
+        GestionRecurso gestionRecurso = (GestionRecurso) o;
+        return unidadesRecurso.equals(gestionRecurso.unidadesRecurso);
     }
 }

@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Edificio.NexoMineral;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,10 +17,10 @@ public class CasoDeUso7 {
         NodoMineral nodoMineral = new NodoMineral();
 
         //Act
-        int cantidadMineral = zangano.extraer(nodoMineral);
+        GestionRecurso cantidadMineral = zangano.extraer(nodoMineral);
 
         //Assert
-        assertEquals(10,cantidadMineral);
+        assertEquals(new GestionRecurso(10),cantidadMineral);
     }
 
     @Test
@@ -34,10 +35,10 @@ public class CasoDeUso7 {
         nexoMineral.ejecutarTurno();
         nexoMineral.ejecutarTurno();
         nexoMineral.ejecutarTurno();
-        int cantidadMineral = nexoMineral.extraer();
+        GestionRecurso cantidadMineral = nexoMineral.extraer();
 
         //Assert
-        assertEquals(20,cantidadMineral);
+        assertEquals(new GestionRecurso(20),cantidadMineral);
     }
 
     @Test

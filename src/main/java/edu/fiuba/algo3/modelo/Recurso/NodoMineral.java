@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Recurso;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.NexoMineral;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.UnidadesRecurso;
 
 public class NodoMineral extends Recurso{
 
@@ -18,7 +20,7 @@ public class NodoMineral extends Recurso{
         this.edificio = edificio;
     }
 
-    public int extraerConZangano(int unidades , Zangano zangano){
+    public GestionRecurso extraerConZangano(int unidades , Zangano zangano){
         verificarRecursoOcupado();
         this.zangano = zangano;
         return extraer(unidades);

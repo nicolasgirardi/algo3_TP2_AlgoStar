@@ -4,6 +4,8 @@ import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.UnidadesRecurso;
 
 import java.util.ArrayList;
 
@@ -12,7 +14,7 @@ public class Extractor extends Edificio {
     private ArrayList<Zangano> zanganos;
 
     public Extractor(){
-        super(CANTIDAD_TURNOS_OPERATIVO);
+        super(CANTIDAD_TURNOS_OPERATIVO,100,0);
         zanganos = new ArrayList<Zangano>();
     }
 
@@ -24,11 +26,11 @@ public class Extractor extends Edificio {
         zanganos.add(zangano);
     }
 
-    public int extraer(Volcan volcan){
+    public GestionRecurso extraer(Volcan volcan){
         verififarEdificioOperativo();
-        int gasAcumulado = 0;
+        GestionRecurso gasAcumulado = new GestionRecurso();
         for(Zangano zangano: zanganos){
-            gasAcumulado += zangano.extraer(volcan);
+            gasAcumulado.aumentar( zangano.extraer(volcan) );
         }
         return gasAcumulado;
     }
@@ -46,19 +48,10 @@ public class Extractor extends Edificio {
     }
 
 
-    public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
-        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 100 , 0);
+    public void verificarSiPuedeSerConstruido(GestionRecurso unidadesDeMineral,GestionRecurso unidadesDeGas){
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas);
     }
 
-    @Override
-    public int consumirGas(int unidadesDeGas) {
-        return unidadesDeGas;
-    }
-
-    @Override
-    public int consumirMineral(int unidadesDeMineral) {
-        return unidadesDeMineral -100 ;
-    }
 
     @Override
     public void fueAgregado(Raza raza) {

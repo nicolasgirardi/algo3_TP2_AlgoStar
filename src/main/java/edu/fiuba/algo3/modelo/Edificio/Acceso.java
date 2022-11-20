@@ -2,16 +2,19 @@ package edu.fiuba.algo3.modelo.Edificio;
 
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 import java.util.ArrayList;
 
 public class Acceso extends Edificio {
 
     private static final int CANTIDAD_TURNOS_OPERATIVO = 6;
+    private static final int COSTO_GAS = 0;
+    private static final int COSTO_MINERAL = 150;
 
 
     public Acceso(){
-        super(CANTIDAD_TURNOS_OPERATIVO);
+        super(CANTIDAD_TURNOS_OPERATIVO, COSTO_MINERAL, COSTO_GAS);
     }
 
 
@@ -24,18 +27,8 @@ public class Acceso extends Edificio {
         throw new ConstruccionIncorrectaError();
     }
 
-    public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
-        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 150 , 0);
-    }
-
-    @Override
-    public int consumirGas(int unidadesDeGas) {
-        return unidadesDeGas;
-    }
-
-    @Override
-    public int consumirMineral(int unidadesDeMineral) {
-        return unidadesDeMineral - 150;
+    public void verificarSiPuedeSerConstruido(GestionRecurso unidadesDeMineral,GestionRecurso unidadesDeGas){
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas);
     }
 
     @Override

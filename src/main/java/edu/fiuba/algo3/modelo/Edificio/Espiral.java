@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ public class Espiral extends Edificio {
 
 
     public Espiral() {
-        super(CANTIDAD_TURNOS_OPERATIVO);
+        super(CANTIDAD_TURNOS_OPERATIVO,150,100);
     }
 
     public Mutalisco crearMutalisco() {
@@ -26,18 +27,8 @@ public class Espiral extends Edificio {
         throw new ConstruccionIncorrectaError();
     }
 
-    public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
-        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 150 , 100);
-    }
-
-    @Override
-    public int consumirGas(int unidadesDeGas) {
-        return unidadesDeGas-100;
-    }
-
-    @Override
-    public int consumirMineral(int unidadesDeMineral) {
-        return unidadesDeMineral-150;
+    public void verificarSiPuedeSerConstruido(GestionRecurso unidadesDeMineral, GestionRecurso unidadesDeGas){
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas);
     }
 
     @Override

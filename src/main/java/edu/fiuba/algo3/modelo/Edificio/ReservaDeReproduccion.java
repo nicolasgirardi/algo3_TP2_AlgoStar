@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Unidad.Larva;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Unidad.Zerling;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ public class ReservaDeReproduccion extends Edificio {
 
 
     public ReservaDeReproduccion(){
-        super(CANTIDAD_TURNOS_OPERATIVO);
+        super(CANTIDAD_TURNOS_OPERATIVO,150,0);
     }
 
 
@@ -28,18 +29,8 @@ public class ReservaDeReproduccion extends Edificio {
         throw new ConstruccionIncorrectaError();
     }
 
-    public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
-        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 150 , 0);
-    }
-
-    @Override
-    public int consumirGas(int unidadesDeGas) {
-        return unidadesDeGas;
-    }
-
-    @Override
-    public int consumirMineral(int unidadesDeMineral) {
-        return unidadesDeMineral - 150;
+    public void verificarSiPuedeSerConstruido(GestionRecurso unidadesDeMineral, GestionRecurso unidadesDeGas){
+        verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas);
     }
 
     @Override
