@@ -16,7 +16,7 @@ public class CasoDeUso26 {
         RazaZerg raza = new RazaZerg(); // se crea con 200 mineral y 0 gas.
         Mutalisco mutalisco = new Mutalisco(new HPZerg(120));
         assertThrows( RecursosInsuficientesError.class, ()-> {
-            mutalisco.evolucionar(raza) ;
+            raza.agregarUnidad(mutalisco) ;
         });
     }
     @Test

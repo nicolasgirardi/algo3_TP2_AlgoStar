@@ -18,7 +18,7 @@ public class Zangano extends Unidad {
     }
 
     public Zangano(HitPoints vida){
-        super(vida);
+        super(vida,1);
     }
 
     public GestionRecurso extraer(Recurso recurso){
@@ -29,4 +29,7 @@ public class Zangano extends Unidad {
         return  nodoMineral.extraerConZangano(10, this);
     }
 
+    public void verificarSiPuedeSerCreado(GestionRecurso unidadesDeSuministro){
+        verificarSiPuedeSerCreadoSegunSuministro(unidadesDeSuministro);
+    }
 }

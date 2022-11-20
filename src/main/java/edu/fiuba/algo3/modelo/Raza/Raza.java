@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Raza;
 
 import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
+import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ public abstract class Raza {
 
     private GestionRecurso mineral;
     private GestionRecurso gas;
+    private GestionRecurso suministro;
     private ArrayList<Edificio> edificios;
 
     int cantReservas;
@@ -18,6 +20,7 @@ public abstract class Raza {
     public Raza(){
         gas = new GestionRecurso(0);
         mineral = new GestionRecurso(200);
+        suministro = new GestionRecurso(0);
         edificios = new ArrayList<Edificio>();
         cantAccesos = 0;
         cantReservas = 0;
@@ -29,6 +32,11 @@ public abstract class Raza {
         edificio.consumirGas(gas);
         edificio.consumirMineral(mineral);
         edificios.add(edificio);
+    }
+
+    public void agregarUnidad(Unidad unidad){
+        unidad.verificarSiPuedeSerCreado(suministro);
+        unidad.consumirSuministro(suministro);
     }
 
     public void aumentarGas(GestionRecurso gas ){
@@ -61,5 +69,11 @@ public abstract class Raza {
 
     public boolean existePuerto() {
         return (cantAccesos>0);
+    }
+
+    public void verficarConsumoSuministros(int cantSuministroConsumiro){
+        if(!this.mineral.puedeConsumir(cantSuministroConsumiro)) {
+            throw new RecursosInsuficientesError();
+        }
     }
 }

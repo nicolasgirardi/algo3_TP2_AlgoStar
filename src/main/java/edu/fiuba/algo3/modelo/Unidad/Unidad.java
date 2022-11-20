@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Atacante;
 import edu.fiuba.algo3.modelo.Ataque.Ataque;
 import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 
 public abstract class  Unidad implements Atacable, Atacante {
@@ -14,10 +16,13 @@ public abstract class  Unidad implements Atacable, Atacante {
     private int rango;
     private Ataque ataque;
 
+    protected int costoSuministro;
+
     protected int turnosRestantesParaSerOperativo;
 
-    public Unidad(HitPoints vida){
+    public Unidad(HitPoints vida, int suministroNecesario){
         hp = vida;
+        costoSuministro = suministroNecesario;
     }
 
     public void verificarUnidadOperativa() {
@@ -67,5 +72,17 @@ public abstract class  Unidad implements Atacable, Atacante {
     public void volar(){
         verificarUnidadOperativa();
         tipoSuperficie.volar();
+    }
+
+    public void consumirSuministro(GestionRecurso suministro){
+        suministro.consumir(costoSuministro);
+    }
+    public abstract void verificarSiPuedeSerCreado(GestionRecurso unidadesSuministro);
+
+
+    public void verificarSiPuedeSerCreadoSegunSuministro(GestionRecurso suministro){
+        if(!suministro.puedeConsumir(costoSuministro) ){
+            throw new RecursosInsuficientesError();
+        }
     }
 }

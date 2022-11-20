@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Ataque.AtaqueTierraYViento;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 public class Mutalisco extends Unidad{
 
@@ -12,7 +13,7 @@ public class Mutalisco extends Unidad{
     }
 
     public Mutalisco(HitPoints vida) {
-        super(vida);
+        super(vida, 4);
     }
 
     public void evolucionar(RazaZerg raza) {
@@ -21,6 +22,9 @@ public class Mutalisco extends Unidad{
     public Devorador evolucionarDevorador(RazaZerg raza) {
         raza.verficarConsumoRecurso(150,50);
         return new Devorador();
+    }
+    public void verificarSiPuedeSerCreado(GestionRecurso unidadesDeSuministro){
+        verificarSiPuedeSerCreadoSegunSuministro(unidadesDeSuministro);
     }
 
 }

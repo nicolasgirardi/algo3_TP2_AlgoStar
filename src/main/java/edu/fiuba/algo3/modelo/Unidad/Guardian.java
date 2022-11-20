@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
 import edu.fiuba.algo3.modelo.Unidad.TipoAire;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 public class Guardian extends Unidad {
 
@@ -18,4 +19,8 @@ public class Guardian extends Unidad {
         super(hp, new TipoAire(), new AtaqueSoloTierra(25), 4);
     }
 
+
+    public void verificarSiPuedeSerCreado(GestionRecurso unidadesDeSuministro){
+        verificarSiPuedeSerCreadoSegunSuministro(unidadesDeSuministro);
+    }
 }

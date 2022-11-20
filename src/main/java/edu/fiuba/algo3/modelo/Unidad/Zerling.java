@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Unidad;
 import edu.fiuba.algo3.modelo.Ataque.AtaqueSoloTierra;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 public class Zerling extends Unidad {
 
@@ -19,7 +20,11 @@ public class Zerling extends Unidad {
                 vida,
                 new TipoTierra(),
                 new AtaqueSoloTierra(4),2
-        );
+        )
+        ;
+    }
+    public void verificarSiPuedeSerCreado(GestionRecurso unidadesDeSuministro){
+        verificarSiPuedeSerCreadoSegunSuministro(unidadesDeSuministro);
     }
 
 }
