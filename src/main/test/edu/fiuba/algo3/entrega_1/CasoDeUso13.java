@@ -1,10 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.Celda;
-import edu.fiuba.algo3.modelo.ConstruccionFueraDelMohoError;
-import edu.fiuba.algo3.modelo.Edificio.Criadero;
-import edu.fiuba.algo3.modelo.Edificio.Edificio;
-import edu.fiuba.algo3.modelo.Edificio.Guarida;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 import edu.fiuba.algo3.modelo.tablero.Moho;

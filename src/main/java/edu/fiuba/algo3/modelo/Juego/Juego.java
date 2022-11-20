@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Juego;
 
-import edu.fiuba.algo3.modelo.Edificio.Criadero;
-import edu.fiuba.algo3.modelo.Edificio.Pilon;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 import edu.fiuba.algo3.modelo.tablero.Moho;

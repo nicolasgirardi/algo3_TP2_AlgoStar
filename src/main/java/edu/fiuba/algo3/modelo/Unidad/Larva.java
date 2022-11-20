@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Unidad;
 
-import edu.fiuba.algo3.modelo.Edificio.Guarida;
-import edu.fiuba.algo3.modelo.Edificio.ReservaDeReproduccion;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Guarida;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.ReservaDeReproduccion;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 
 public class Larva {

@@ -1,9 +1,8 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.Celda;
 import edu.fiuba.algo3.modelo.ConstruccionFueraDelRangoPilonError;
-import edu.fiuba.algo3.modelo.Edificio.*;
-import edu.fiuba.algo3.modelo.tablero.Mapa;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import org.junit.jupiter.api.Test;
 import edu.fiuba.algo3.modelo.tablero.*;
 

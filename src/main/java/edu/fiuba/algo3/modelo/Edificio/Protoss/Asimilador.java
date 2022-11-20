@@ -1,50 +1,36 @@
-package edu.fiuba.algo3.modelo.Edificio;
+package edu.fiuba.algo3.modelo.Edificio.Protoss;
 
+import edu.fiuba.algo3.modelo.ConstruccionProtoEnMohoError;
+import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
-import edu.fiuba.algo3.modelo.Unidad.Zangano;
+import edu.fiuba.algo3.modelo.tablero.Moho;
+import edu.fiuba.algo3.modelo.tablero.Tierra;
 
 import java.util.ArrayList;
 
-public class Extractor extends Edificio {
+public class Asimilador extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 6;
-    private ArrayList<Zangano> zanganos;
 
-    public Extractor(){
+    public Asimilador(){
         super(CANTIDAD_TURNOS_OPERATIVO);
-        zanganos = new ArrayList<Zangano>();
     }
 
 
-    public void agregarZangano(Zangano zangano){
-
-        verificarExtractorCantidadMaximaDeZanganos();
+    public void prepararCapsula() {
         verififarEdificioOperativo();
-        zanganos.add(zangano);
+
     }
 
-    public int extraer(Volcan volcan){
-        verififarEdificioOperativo();
-        int gasAcumulado = 0;
-        for(Zangano zangano: zanganos){
-            gasAcumulado += zangano.extraer(volcan);
-        }
-        return gasAcumulado;
+    public int extraer(Volcan volcan) {
+        return volcan.extraer(20);
     }
-
-    private void verificarExtractorCantidadMaximaDeZanganos(){
-        if(zanganos.size() == 3 ){
-            throw new ExtractorCantidadMaximaDeZanganosError();
-        }
-    }
-
 
     @Override
     public void construirEdificioEn(Recurso recurso) {
         recurso.agregarEdificio(this);
     }
-
 
     public void verificarSiPuedeSerConstruido(int unidadesDeMineral, int unidadesDeGas){
         verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas, 100 , 0);
@@ -57,7 +43,7 @@ public class Extractor extends Edificio {
 
     @Override
     public int consumirMineral(int unidadesDeMineral) {
-        return unidadesDeMineral -100 ;
+        return (unidadesDeMineral-100);
     }
 
     @Override
@@ -65,4 +51,13 @@ public class Extractor extends Edificio {
         return;
     }
 
+    @Override
+    public void instalar(Tierra tierra) {
+        return;
+    }
+
+    @Override
+    public void instalar(Moho moho) {
+        throw new ConstruccionProtoEnMohoError();
+    }
 }

@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo.HitPoints;
 
-import edu.fiuba.algo3.modelo.Edificio.Criadero;
-
 public class HPProtoss implements HitPoints {
 
     private int vidaMax;
