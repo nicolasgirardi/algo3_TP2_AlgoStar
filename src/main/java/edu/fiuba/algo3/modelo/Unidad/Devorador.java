@@ -9,11 +9,11 @@ public class Devorador extends Unidad {
 
 
     public Devorador(){
-        super(new HPZerg(200), new TipoAire(), new AtaqueTierraYViento(0,25), 4);
+        super(new HPZerg(200), new TipoAire(), new AtaqueTierraYViento(0,25), 4, 5);
     }
 
     public Devorador(HitPoints hp){
-        super(hp, new TipoAire(), new AtaqueTierraYViento(0,25), 4);
+        super(hp, new TipoAire(), new AtaqueTierraYViento(0,25), 4, 5);
     }
 
     /*public Zangano evolucionar() {

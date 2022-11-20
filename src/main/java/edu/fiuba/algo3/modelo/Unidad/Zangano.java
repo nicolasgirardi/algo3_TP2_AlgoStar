@@ -9,11 +9,7 @@ import edu.fiuba.algo3.modelo.Recurso.Recurso;
 public class Zangano extends Unidad {
 
     public Zangano(){
-        super(
-                new HPZerg(25),
-                new TipoTierra(),
-                new AtaqueSoloTierra(0) {
-        }, 1);
+        super(new HPZerg(25), new TipoTierra(), new AtaqueSoloTierra(0) {}, 1, 0);
     }
 
     public Zangano(HitPoints vida){

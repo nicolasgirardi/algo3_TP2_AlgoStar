@@ -16,6 +16,7 @@ public abstract class  Unidad implements Atacable, Atacante {
 
     protected int turnosRestantesParaSerOperativo;
 
+
     public Unidad(HitPoints vida){
         hp = vida;
     }
@@ -25,11 +26,12 @@ public abstract class  Unidad implements Atacable, Atacante {
             throw  new UnidadNoOperativaError();
         }
     }
-    public Unidad(HitPoints vida, TipoSuperficie tipoSuperficie, Ataque ataque, int turnosRestantesParaSerOperativo){
+    public Unidad(HitPoints vida, TipoSuperficie tipoSuperficie, Ataque ataque, int turnosRestantesParaSerOperativo, int rango){
         hp = vida;
         this.tipoSuperficie = tipoSuperficie;
         this.ataque = ataque;
         this.turnosRestantesParaSerOperativo = turnosRestantesParaSerOperativo;
+        this.rango = rango;
     }
 
     public void atacar(Atacable atacable){
