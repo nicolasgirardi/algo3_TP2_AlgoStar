@@ -17,11 +17,22 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CasoDeUso29 {
 
+
+    @Test
+    public void LaCapacidadLlegaA200Con40AmosSupremos() {
+        Raza razaZerg = new RazaZerg();
+        razaZerg.aumentarMineral(new GestionRecurso(1050));
+        for (int i =0 ;i<40;i++) {
+            razaZerg.agregarUnidad(new AmoSupremo());
+        }
+
+        assertTrue(razaZerg.suministros().equals(new GestionRecurso(200)));
+    }
     @Test
     public void LaCapacidadNoAumentaAlTener200() {
         Raza razaZerg = new RazaZerg();
         razaZerg.aumentarMineral(new GestionRecurso(1050));
-        for (int i =0 ;i<21;i++) {
+        for (int i =0 ;i<41;i++) {
             razaZerg.agregarUnidad(new AmoSupremo());
         }
 
