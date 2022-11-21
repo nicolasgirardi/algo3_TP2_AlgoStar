@@ -21,16 +21,6 @@ public class CasoDeUso29 {
     public void LaCapacidadNoAumentaAlTener200() {
         Raza razaZerg = new RazaZerg();
         razaZerg.aumentarMineral(new GestionRecurso(1050));
-        for (int i =0 ;i<20;i++) {
-            razaZerg.agregarUnidad(new AmoSupremo());
-        }
-
-        assertTrue(razaZerg.suministros().equals(new GestionRecurso(200)));
-    }
-    @Test
-    public void LaCapacidadNoAumentaAlTener200() {
-        Raza razaZerg = new RazaZerg();
-        razaZerg.aumentarMineral(new GestionRecurso(1050));
         for (int i =0 ;i<21;i++) {
             razaZerg.agregarUnidad(new AmoSupremo());
         }
