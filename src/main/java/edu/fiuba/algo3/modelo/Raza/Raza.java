@@ -14,6 +14,8 @@ public abstract class Raza {
     private GestionRecurso suministro;
     private ArrayList<Edificio> edificios;
 
+    private ArrayList<Unidad> unidades;
+
     int cantReservas;
 
     int cantAccesos;
@@ -22,6 +24,7 @@ public abstract class Raza {
         mineral = new GestionRecurso(200);
         suministro = new GestionRecurso(0);
         edificios = new ArrayList<Edificio>();
+        unidades = new ArrayList<Unidad>();
         cantAccesos = 0;
         cantReservas = 0;
     }
@@ -37,6 +40,8 @@ public abstract class Raza {
     public void agregarUnidad(Unidad unidad){
         unidad.verificarSiPuedeSerCreado(suministro);
         unidad.consumirSuministro(suministro);
+        unidades.add(unidad);
+
     }
 
     public void aumentarGas(GestionRecurso gas ){
@@ -76,4 +81,6 @@ public abstract class Raza {
             throw new RecursosInsuficientesError();
         }
     }
+
+
 }
