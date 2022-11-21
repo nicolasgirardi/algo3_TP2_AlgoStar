@@ -82,7 +82,5 @@ public abstract class Raza {
         }
     }
 
-    public GestionRecurso suministros(){
-        return new GestionRecurso(0);
-    }
+
 }
