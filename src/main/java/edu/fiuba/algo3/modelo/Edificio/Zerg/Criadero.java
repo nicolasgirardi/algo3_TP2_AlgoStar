@@ -105,7 +105,7 @@ public class Criadero extends Edificio implements EstadoZangano {
 
     @Override
     public void fueAgregado(Raza raza) {
-        raza.aumentarPoblacion(5);
+        raza.aumentarCapacidad(5);
     }
 
     @Override
@@ -117,10 +117,16 @@ public class Criadero extends Edificio implements EstadoZangano {
     public void instalar(Moho moho) {
         return;
     }
-
     @Override
     public Mutalisco crearMutalisco() {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
+
+
+
+    public void disminuirCapacidad(Raza unaRaza){
+        unaRaza.disminuirCapacidad(5);
+    }
+
 
 }

@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.Poblacion;
 
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ public abstract class Raza {
     private GestionRecurso mineral;
     private GestionRecurso gas;
     private GestionRecurso suministro;
-    private int poblacion;
+    private Poblacion poblacion;
     private ArrayList<Edificio> edificios;
 
     private ArrayList<Unidad> unidades;
@@ -23,7 +24,7 @@ public abstract class Raza {
     public Raza(){
         gas = new GestionRecurso(0);
         mineral = new GestionRecurso(200);
-        poblacion = 0;
+        poblacion = new Poblacion(200);
         edificios = new ArrayList<Edificio>();
         unidades = new ArrayList<Unidad>();
         cantAccesos = 0;
@@ -36,12 +37,14 @@ public abstract class Raza {
         edificio.consumirGas(gas);
         edificio.consumirMineral(mineral);
         edificios.add(edificio);
+
     }
 
     public void agregarUnidad(Unidad unidad){
-        unidad.verificarSiPuedeSerCreado(poblacion);
-        unidad.disminuirPoblacion(this);
+        //unidad.verificarSiPuedeSerCreado(poblacion);
+        unidad.aumentarPoblacion(this);
         unidades.add(unidad);
+
     }
 
     public void aumentarGas(GestionRecurso gas ){
@@ -83,12 +86,33 @@ public abstract class Raza {
     }
 
 
-    public void aumentarPoblacion(int unaPoblacion) {
-        poblacion +=  unaPoblacion;
+    public void aumentarCapacidad(int unaPoblacion) {
+        poblacion.aumentarCapacidad(unaPoblacion);
+    }
+
+    public void disminuirCapacidad(int unaPoblacion) {
+        poblacion.disminuirCapacidad(unaPoblacion);
+    }
+
+    public void aumentarPoblacion(int costoPoblacion) {
+        poblacion.aumentarPoblacion(costoPoblacion);
     }
 
     public void disminuirPoblacion(int costoPoblacion) {
-        poblacion -= costoPoblacion;
+        poblacion.disminuirPoblacion(costoPoblacion);
+    }
+    public int capacidadReal(){
+        return poblacion.capacidadReal();
+    }
+
+    public void destruirEdificio(Edificio unEdificio){
+        edificios.remove(unEdificio);
+        unEdificio.disminuirCapacidad(this);
+    }
+
+    public void matarUnidad(Unidad unaUnidad){
+        unidades.remove(unaUnidad);
+        unaUnidad.disminuirPoblacion(this);
     }
 
 
