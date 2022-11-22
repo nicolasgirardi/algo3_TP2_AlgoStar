@@ -42,7 +42,7 @@ public class Pilon extends Edificio {
 
     @Override
     public void fueAgregado(Raza raza) {
-        return;
+        raza.aumentarCapacidad(5);
     }
 
     @Override
