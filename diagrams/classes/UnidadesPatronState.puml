@@ -79,7 +79,9 @@ Unidad o-- TipoDeUnidad
 
 @enduml
 
-Unidad es Context, zangano es una
-de las ConcreteClasses, TipoDeUnidad es
+Unidad es Context, zangano es unade las ConcreteClasses, TipoDeUnidad es
 la interfaz State.
 evolucionar es changeState
+Voy a tener que hacer que las clases concretas conozcan los atributos
+de unidad.
+Todas las clases concretas van a tener que implementar evolucionar y extraer
