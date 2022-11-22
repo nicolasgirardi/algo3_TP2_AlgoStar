@@ -1,0 +1,65 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+class Zangano {
+}
+
+class Zerling {
+
+}
+
+abstract class Entidad {
+    -cantTurnosParaSerOperativo: Int
+    -hp: HitPoints
+    -ubicacion: Ubicacion
+    -unidad //si es necesario
+    +verificarEntidadOperativa()
+    +ejecutarTurno()
+    +recibirAtaque(ataque: Ataque)
+    +ubicar(unLugar: Ubicacion)
+}
+
+interface Atacable {
+
+}
+
+interface Atacante {
+
+}
+
+abstract class Unidad {
+    -tipoSuperficie: TipoSuperficie
+    -rango: Int
+    -ataque: Ataque
+    +atacarSobreUbicacion(atacable: Atacable)
+    +atacar(atacable: Atacable) //que cambia con el de arriba?
+    +asignarLugar(Ubicacion unLugar)
+    +volar() //No hace nada
+    asignarRango(int Rango) //Sacarlo y q sea x constructor
+}
+
+abstract class Edificio {
+    + {abstract} construirEdificioEn(recurso: Recurso)
+    + {abstract} verificarSiPuedeSerConstruido(unidadesDeMineral:Int, unidadesDeGas:Int)
+    + {abstract} consumirGas(UnidadesDeGas:Int):Int
+    + {abstract} consumirMineral(UnidadesDeMineral:Int):Int
+    + {abstract} fueAgregado(raza: Raza)
+    + regeneracionFinDeTurno()
+    + vidaActual():Int      //GETTER
+    + escudoActual():Int    //GETTER
+    + ubicar(unLugar:Ubicacion)
+    + distancia(unaUbicacion: Ubicacion): int
+
+}
+
+Zangano --|> Unidad
+Zerling --|> Unidad
+Entidad ..|> Atacable
+Unidad --|> Entidad
+Edificio --|> Entidad
+Pilon  --|> Edificio
+Criadero  --|> Edificio
+Unidad --|> Atacante
+
+@enduml
