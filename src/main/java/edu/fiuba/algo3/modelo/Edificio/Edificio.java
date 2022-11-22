@@ -4,9 +4,9 @@ import edu.fiuba.algo3.modelo.Atacable;
 import edu.fiuba.algo3.modelo.Ataque.Ataque;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.Raza;
-import edu.fiuba.algo3.modelo.Recurso.Recurso;
+import edu.fiuba.algo3.modelo.Recurso.*;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
-import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.*;
 import edu.fiuba.algo3.modelo.tablero.*;
 
 public abstract class Edificio implements Atacable {

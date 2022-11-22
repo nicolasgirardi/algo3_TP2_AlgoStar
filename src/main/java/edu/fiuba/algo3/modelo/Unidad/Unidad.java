@@ -87,6 +87,6 @@ public abstract class  Unidad implements Atacable, Atacante {
 
 
     public void disminuirPoblacion(Raza raza) {
-        raza.disminuirPoblacion(costoPoblacion);
+        raza.aumentarPoblacion(costoPoblacion);
     }
 }

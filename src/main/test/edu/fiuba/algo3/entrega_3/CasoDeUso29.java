@@ -14,7 +14,7 @@ import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-/*
+
 public class CasoDeUso29 {
 
 
@@ -26,7 +26,7 @@ public class CasoDeUso29 {
             razaZerg.agregarUnidad(new AmoSupremo());
         }
 
-        assertTrue(razaZerg.suministros().equals(new GestionRecurso(200)));
+        assertEquals(200,razaZerg.capacidadReal());
     }
     @Test
     public void LaCapacidadNoAumentaAlTener200() {
@@ -36,7 +36,6 @@ public class CasoDeUso29 {
             razaZerg.agregarUnidad(new AmoSupremo());
         }
 
-        assertTrue(razaZerg.suministros().equals(new GestionRecurso(200)));
+        assertEquals(200,razaZerg.capacidadReal());
     }
 }
-*/
