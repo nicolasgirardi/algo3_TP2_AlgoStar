@@ -1,0 +1,85 @@
+@startuml
+interface EstadoZangano{
++{abstract} evolucionarLarva():Zangano
++{abstract} agregarseAEstaRaza(raza:RazaZerg):void
++{abstract} crearMutalisco():Mutalisco
++{abstract} ejecutarTurno():void
++{abstract} agregarZangano(zangano:Zangano):void
++{abstract} extraer(recurso:Recurso):GestionRecurso
++{abstract} evolucionarLarvaAHidra(larva:Larva):Hidralisco
++{abstract} evolucionarLarvaAZerli(larva:Larva):Zerling
+
+}
+class Criadero{
++evolucionarLarva():Zangano
++agregarseAEstaRaza(raza:RazaZerg):void
++crearMutalisco():Mutalisco
++ejecutarTurno():void
++agregarZangano(zangano:Zangano):void
++extraer(recurso:Recurso):GestionRecurso
++evolucionarLarvaAHidra(larva:Larva):Hidralisco
++evolucionarLarvaAZerli(larva:Larva):Zerling
+}
+
+class Espiral{
++evolucionarLarva():Zangano
++agregarseAEstaRaza(raza:RazaZerg):void
++crearMutalisco():Mutalisco
++ejecutarTurno():void
++agregarZangano(zangano:Zangano):void
++extraer(recurso:Recurso):GestionRecurso
++evolucionarLarvaAHidra(larva:Larva):Hidralisco
++evolucionarLarvaAZerli(larva:Larva):Zerling
+}
+class Extractor{
++evolucionarLarva():Zangano
++agregarseAEstaRaza(raza:RazaZerg):void
++crearMutalisco():Mutalisco
++ejecutarTurno():void
++agregarZangano(zangano:Zangano):void
++extraer(recurso:Recurso):GestionRecurso
++evolucionarLarvaAHidra(larva:Larva):Hidralisco
++evolucionarLarvaAZerli(larva:Larva):Zerling
+}
+
+class Guarida{
++evolucionarLarva():Zangano
++agregarseAEstaRaza(raza:RazaZerg):void
++crearMutalisco():Mutalisco
++ejecutarTurno():void
++agregarZangano(zangano:Zangano):void
++extraer(recurso:Recurso):GestionRecurso
++evolucionarLarvaAHidra(larva:Larva):Hidralisco
++evolucionarLarvaAZerli(larva:Larva):Zerling
+}
+class ReservaDeReproduccion{
++evolucionarLarva():Zangano
++agregarseAEstaRaza(raza:RazaZerg):void
++crearMutalisco():Mutalisco
++ejecutarTurno():void
++agregarZangano(zangano:Zangano):void
++extraer(recurso:Recurso):GestionRecurso
++evolucionarLarvaAHidra(larva:Larva):Hidralisco
++evolucionarLarvaAZerli(larva:Larva):Zerling
+}
+
+class Zangano{
++evolucionarLarva():Zangano
++agregarseAEstaRaza(raza:RazaZerg):void
++crearMutalisco():Mutalisco
++ejecutarTurno():void
++agregarZangano(zangano:Zangano):void
++extraer(recurso:Recurso):GestionRecurso
++evolucionarLarvaAHidra(larva:Larva):Hidralisco
++evolucionarLarvaAZerli(larva:Larva):Zerling
+}
+
+EstadoZangano <|.. Criadero
+EstadoZangano <|.. Espiral
+EstadoZangano <|.. Extractor
+EstadoZangano <|.. Guarida
+EstadoZangano <|.. ReservaDeReproduccion
+Zangano *- EstadoZangano
+
+
+@enduml

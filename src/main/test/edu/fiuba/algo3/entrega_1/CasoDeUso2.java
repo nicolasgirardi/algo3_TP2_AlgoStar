@@ -65,7 +65,7 @@ public class CasoDeUso2 {
         Larva larva = new Larva();
         //Act y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            Zerling zerling = reserva.evolucionarLarva(larva);
+            Zerling zerling = reserva.evolucionarLarvaAZerli(larva);
         });
     }
 
@@ -82,7 +82,7 @@ public class CasoDeUso2 {
 
         //Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            Zerling zerling = reserva.evolucionarLarva(larva);
+            Zerling zerling = reserva.evolucionarLarvaAZerli(larva);
         });
     }
 
@@ -139,7 +139,7 @@ public class CasoDeUso2 {
         Larva unaLarva = new Larva();
         //Acy y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            Hidralisco hidralisco = guarida.evolucionar(unaLarva);
+            Hidralisco hidralisco = guarida.evolucionarLarvaAHidra(unaLarva);
         });
 
     }
@@ -155,7 +155,7 @@ public class CasoDeUso2 {
         }
         //Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            Hidralisco hidralisco = guarida.evolucionar(unaLarva);
+            Hidralisco hidralisco = guarida.evolucionarLarvaAHidra(unaLarva);
         });
 
     }
@@ -171,7 +171,7 @@ public class CasoDeUso2 {
         }
         //Assert
         assertDoesNotThrow(  ()-> {
-            Hidralisco hidralisco = guarida.evolucionar(unaLarva);
+            Hidralisco hidralisco = guarida.evolucionarLarvaAHidra(unaLarva);
         });
     }
 

@@ -1,18 +1,13 @@
 package edu.fiuba.algo3.modelo.Unidad;
 
 import edu.fiuba.algo3.modelo.Ataque.AtaqueSoloTierra;
-import edu.fiuba.algo3.modelo.Edificio.Edificacion;
-import edu.fiuba.algo3.modelo.Edificio.Edificio;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Espiral;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Extractor;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.*;
 import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
-import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 public class Zangano extends Unidad{
@@ -92,6 +87,31 @@ public class Zangano extends Unidad{
     // wrapper del extractor.
     public void agregarZangano(Zangano zangano) {
         estadoZangano.agregarZangano(zangano);
+    }
+
+
+    public void mutarGuarida(RazaZerg raza) {
+        verificarEstadoLibreZangano();
+        estadoZangano = new Guarida();
+        raza.agregarEsteEdificio(estadoZangano);
+    }
+
+
+    public Hidralisco evolucionarLarvaAHidra(Larva larva) {
+        return estadoZangano.evolucionarLarvaAHidra(larva);
+    }
+
+    public Zerling evolucionarLarvaAZerli(Larva larva) {
+        return estadoZangano.evolucionarLarvaAZerli(larva);
+    }
+
+
+
+
+    public void mutarReservaReproduccion(RazaZerg raza) {
+        verificarEstadoLibreZangano();
+        estadoZangano = new ReservaDeReproduccion();
+        raza.agregarEsteEdificio(estadoZangano);
     }
 
 

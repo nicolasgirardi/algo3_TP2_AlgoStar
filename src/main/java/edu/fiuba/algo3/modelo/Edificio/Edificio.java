@@ -10,7 +10,7 @@ import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.*;
 
-public abstract class Edificio implements Atacable,Edificacion {
+public abstract class Edificio implements Atacable {
 
     private Ubicacion ubicacion;
     protected int turnosRestantesParaSerOperativo;

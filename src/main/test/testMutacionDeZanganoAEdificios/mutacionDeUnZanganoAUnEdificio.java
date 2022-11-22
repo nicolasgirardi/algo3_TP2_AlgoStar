@@ -1,13 +1,10 @@
 package testMutacionDeZanganoAEdificios;
 
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Espiral;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Extractor;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.*;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
-import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
-import edu.fiuba.algo3.modelo.Unidad.Zangano;
+import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import org.junit.jupiter.api.Test;
 
@@ -32,7 +29,7 @@ public class mutacionDeUnZanganoAUnEdificio {
     }
 
     @Test
-    public void testZanganoMutaEnUnEspiralLosMutaliscoQueSeCreanDeberianSerIguales(){
+    public void testZanganoMutaAUnEspiralDeberiamosPoderObtenerUnMutaliscoYCompararlos(){
         //act
         RazaZerg raza = new RazaZerg();
         raza.aumentarMineral(new GestionRecurso(100) );
@@ -56,7 +53,7 @@ public class mutacionDeUnZanganoAUnEdificio {
     }
 
     @Test
-    public void testZanganoMutaAUnExtractorDeberiaPoderExtraerMinerales(){
+    public void testZanganoMutaAUnExtractorSeAgregaUnZanganoAlVolcanDeberiaPoderExtraerGas(){
         //act
         RazaZerg raza = new RazaZerg();
         raza.aumentarMineral(new GestionRecurso(100) );
@@ -77,7 +74,57 @@ public class mutacionDeUnZanganoAUnEdificio {
         assertEquals(resultadoEsperado, cantidadGas);
     }
 
+
     @Test
-    public void testZangano
+    public void testZanganoMutaALaReservaDeReproduccion(){
+        //act
+        RazaZerg raza = new RazaZerg();
+        raza.aumentarMineral(new GestionRecurso(100) );
+        raza.aumentarGas(new GestionRecurso(100) );
+        Zangano unZangano = new Zangano();
+        ReservaDeReproduccion reservaDeReproduccion = new ReservaDeReproduccion();
+
+        //Arrange
+        unZangano.mutarReservaReproduccion(raza);
+        for(int i = 0; i < 12 ; i++){                   //dejamos operativos los edificios.
+            reservaDeReproduccion.ejecutarTurno();
+            unZangano.ejecutarTurno();
+        }
+
+        Zerling unZerling = unZangano.evolucionarLarvaAZerli(new Larva());
+        Zerling otroZerling = reservaDeReproduccion.evolucionarLarvaAZerli(new Larva() );
+
+        assertEquals(unZerling, otroZerling );
+    }
+
+
+    @Test
+    public void testZanganoMutaAUnaGuaridaDeberiamosPoderObtenerUnMutaliscoYCompararlos(){
+
+        //act
+        RazaZerg raza = new RazaZerg();
+        raza.aumentarMineral(new GestionRecurso(500) );
+        raza.aumentarGas(new GestionRecurso(500) );
+        Zangano unZangano = new Zangano();
+        Zangano otroZangano = new Zangano();
+        Guarida guarida = new Guarida();
+
+        //arrange
+        otroZangano.mutarReservaReproduccion(raza);  //para poder crear la guarida necesitamos primero la reserva
+        unZangano.mutarGuarida(raza);
+        for(int i = 0; i < 12 ; i++){           //dejamos operativos los edificios.
+            guarida.ejecutarTurno();
+            unZangano.ejecutarTurno();
+        }
+
+
+        Hidralisco hidraliscoUno = guarida.evolucionarLarvaAHidra(new Larva());
+        Hidralisco hidraliscoDos = unZangano.evolucionarLarvaAHidra(new Larva() );
+
+        //assert
+        assertEquals(hidraliscoUno, hidraliscoDos);
+
+    }
+
 
 }

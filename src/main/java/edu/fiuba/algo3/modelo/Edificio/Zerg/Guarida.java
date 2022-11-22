@@ -8,11 +8,8 @@ import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
-import edu.fiuba.algo3.modelo.Unidad.Hidralisco;
-import edu.fiuba.algo3.modelo.Unidad.Larva;
+import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
-import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
-import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
@@ -34,10 +31,15 @@ public class Guarida extends Edificio implements EstadoZangano {
         throw new ConstruccionIncorrectaError();
     }
 
-
-    public Hidralisco evolucionar(Larva unaLarva) {
+    @Override
+    public Hidralisco evolucionarLarvaAHidra(Larva unaLarva) {
         verififarEdificioOperativo();
         return unaLarva.evolucionar(this);
+    }
+
+    @Override
+    public Zerling evolucionarLarvaAZerli(Larva larva) {
+        throw new NoDeberiaEjecutarEsteMetodoError();
     }
 
     public void verificarSiPuedeSerConstruido(GestionRecurso unidadesDeMineral, GestionRecurso unidadesDeGas){

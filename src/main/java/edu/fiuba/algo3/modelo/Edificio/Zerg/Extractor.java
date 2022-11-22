@@ -7,8 +7,7 @@ import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
-import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
-import edu.fiuba.algo3.modelo.Unidad.Zangano;
+import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
@@ -39,6 +38,16 @@ public class Extractor extends Edificio implements EstadoZangano {
             gasAcumulado.aumentar( zangano.extraer(recurso) );
         }
         return gasAcumulado;
+    }
+
+    @Override
+    public Hidralisco evolucionarLarvaAHidra(Larva larva) {
+        throw new NoDeberiaEjecutarEsteMetodoError();
+    }
+
+    @Override
+    public Zerling evolucionarLarvaAZerli(Larva larva) {
+        throw new NoDeberiaEjecutarEsteMetodoError();
     }
 
     private void verificarExtractorCantidadMaximaDeZanganos(){

@@ -6,11 +6,8 @@ import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
-import edu.fiuba.algo3.modelo.Unidad.Larva;
+import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
-import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
-import edu.fiuba.algo3.modelo.Unidad.Zangano;
-import edu.fiuba.algo3.modelo.Unidad.Zerling;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
@@ -24,8 +21,8 @@ public class ReservaDeReproduccion extends Edificio implements EstadoZangano {
         super(CANTIDAD_TURNOS_OPERATIVO,150,0);
     }
 
-
-    public Zerling evolucionarLarva(Larva larva) {
+    @Override
+    public Zerling evolucionarLarvaAZerli(Larva larva) {
         verififarEdificioOperativo();
         return larva.evolucionar(this);
 
@@ -80,5 +77,13 @@ public class ReservaDeReproduccion extends Edificio implements EstadoZangano {
     public GestionRecurso extraer(Recurso recurso) {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
+
+    @Override
+    public Hidralisco evolucionarLarvaAHidra(Larva larva) {
+        throw  new NoDeberiaEjecutarEsteMetodoError();
+    }
+
+
+
 
 }
