@@ -35,7 +35,169 @@ public class CasoDeUso26 {
         });
     }
 
+    @Test
+    public void testSeIniciaElJuegoConUnCriaderoYAlAgregarZerlingNoDeberiaTirarError(){
+        RazaZerg raza = new RazaZerg();
+        Criadero criadero = new Criadero(0);
+        Zerling zerling = new Zerling();
+        raza.agregarEdificio(criadero);
 
+        assertDoesNotThrow(() -> {
+            raza.agregarUnidad(zerling);
+        });
+    }
+    @Test
+    public void testSeIntentaAgregarUnZerlingSinCapacidadDeberiaTirarError(){
+        RazaZerg raza = new RazaZerg();
+        Zerling zerling = new Zerling();
+
+        assertThrows( PoblacionExedidaError.class, ()-> {
+            raza.agregarUnidad(zerling);
+        });
+    }
+
+    @Test
+    public void testSeIniciaElJuegoConUnCriaderoYAlAgregarZealotNoDeberiaTirarError(){
+        RazaZerg raza = new RazaZerg();
+        Criadero criadero = new Criadero(0);
+        Zealot zealot = new Zealot();
+        raza.agregarEdificio(criadero);
+
+        assertDoesNotThrow(() -> {
+            raza.agregarUnidad(zealot);
+        });
+    }
+    @Test
+    public void testSeIntentaAgregarUnZealotSinCapacidadDeberiaTirarError(){
+        RazaZerg raza = new RazaZerg();
+        Zealot zealot = new Zealot();
+
+        assertThrows( PoblacionExedidaError.class, ()-> {
+            raza.agregarUnidad(zealot);
+        });
+    }
+
+    @Test
+    public void testSeIniciaElJuegoConUnCriaderoYAlAgregarScoutNoDeberiaTirarError(){
+        RazaZerg raza = new RazaZerg();
+        Criadero criadero = new Criadero(0);
+        Scout scout = new Scout();
+        raza.agregarEdificio(criadero);
+
+        assertDoesNotThrow(() -> {
+            raza.agregarUnidad(scout);
+        });
+    }
+    @Test
+    public void testSeIntentaAgregarUnScoutSinCapacidadDeberiaTirarError(){
+        RazaZerg raza = new RazaZerg();
+        Scout scout = new Scout();
+
+        assertThrows( PoblacionExedidaError.class, ()-> {
+            raza.agregarUnidad(scout);
+        });
+    }
+    @Test
+    public void testSeIniciaElJuegoConUnCriaderoYAlAgregarMutaliscoNoDeberiaTirarError(){
+        RazaZerg raza = new RazaZerg();
+        Criadero criadero = new Criadero(0);
+        Mutalisco mutalisco = new Mutalisco();
+        raza.agregarEdificio(criadero);
+
+        assertDoesNotThrow(() -> {
+            raza.agregarUnidad(mutalisco);
+        });
+    }
+    @Test
+    public void testSeIntentaAgregarUnMutaliscoSinCapacidadDeberiaTirarError(){
+        RazaZerg raza = new RazaZerg();
+        Mutalisco mutalisco = new Mutalisco();
+
+        assertThrows( PoblacionExedidaError.class, ()-> {
+            raza.agregarUnidad(mutalisco);
+        });
+    }
+    @Test
+    public void testSeIniciaElJuegoConUnCriaderoYAlAgregarHidraliscoNoDeberiaTirarError(){
+        RazaZerg raza = new RazaZerg();
+        Criadero criadero = new Criadero(0);
+        Hidralisco hidralisco = new Hidralisco();
+        raza.agregarEdificio(criadero);
+
+        assertDoesNotThrow(() -> {
+            raza.agregarUnidad(hidralisco);
+        });
+    }
+    @Test
+    public void testSeIntentaAgregarUnHidraliscoSinCapacidadDeberiaTirarError(){
+        RazaZerg raza = new RazaZerg();
+        Hidralisco hidralisco = new Hidralisco();
+
+        assertThrows( PoblacionExedidaError.class, ()-> {
+            raza.agregarUnidad(hidralisco);
+        });
+    }
+    @Test
+    public void testSeIniciaElJuegoConUnCriaderoYAlAgregarGuardianNoDeberiaTirarError(){
+        RazaZerg raza = new RazaZerg();
+        Criadero criadero = new Criadero(0);
+        Guardian guardian = new Guardian();
+        raza.agregarEdificio(criadero);
+
+        assertDoesNotThrow(() -> {
+            raza.agregarUnidad(guardian);
+        });
+    }
+    @Test
+    public void testSeAgregarUnGuardianNoDeberiaTirarError(){
+        RazaZerg raza = new RazaZerg();
+        Guardian guardian = new Guardian();
+
+        assertDoesNotThrow(() -> {
+            raza.agregarUnidad(guardian);
+        });
+    }
+    @Test
+    public void testSeIniciaElJuegoConUnCriaderoYAlAgregarDragonNoDeberiaTirarError(){
+        RazaZerg raza = new RazaZerg();
+        Criadero criadero = new Criadero(0);
+        Dragon dragon = new Dragon();
+        raza.agregarEdificio(criadero);
+
+        assertDoesNotThrow(() -> {
+            raza.agregarUnidad(dragon);
+        });
+    }
+    @Test
+    public void testSeIntentaAgregarUnDragonSinCapacidadDeberiaTirarError(){
+        RazaZerg raza = new RazaZerg();
+        Dragon dragon = new Dragon();
+
+        assertThrows( PoblacionExedidaError.class, ()-> {
+            raza.agregarUnidad(dragon);
+        });
+    }
+    @Test
+    public void testSeIniciaElJuegoConUnCriaderoYAlAgregarDevoradorNoDeberiaTirarError(){
+        RazaZerg raza = new RazaZerg();
+        Criadero criadero = new Criadero(0);
+        Devorador devorador = new Devorador();
+        raza.agregarEdificio(criadero);
+
+        assertDoesNotThrow(() -> {
+            raza.agregarUnidad(devorador);
+        });
+    }
+
+    @Test
+    public void testSeAgregarUnDevoradorNoDeberiaTirarError(){
+        RazaZerg raza = new RazaZerg();
+        Devorador devorador = new Devorador();
+
+        assertDoesNotThrow(() -> {
+            raza.agregarUnidad(devorador);
+        });
+    }
 
 }
 
