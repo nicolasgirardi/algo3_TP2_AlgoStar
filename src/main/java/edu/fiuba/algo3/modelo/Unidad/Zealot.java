@@ -12,7 +12,7 @@ public class Zealot extends Unidad {
         super(
                 hpZealot,
                 new TipoTierra(),
-                new AtaqueSoloTierra(8), 4
+                new AtaqueSoloTierra(8), 4,2
         );
     }
 
@@ -20,11 +20,8 @@ public class Zealot extends Unidad {
         super(
                 new HPProtoss(100,60),
                 new TipoTierra(),
-                new AtaqueSoloTierra(8), 4
+                new AtaqueSoloTierra(8), 4,2
         );
-    }
-    public void verificarSiPuedeSerCreado(GestionRecurso unidadesDeSuministro){
-        verificarSiPuedeSerCreadoSegunSuministro(unidadesDeSuministro);
     }
 
 }

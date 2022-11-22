@@ -8,7 +8,7 @@ import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 public class AmoSupremo extends Unidad {
     public AmoSupremo() {
-        super(new HPZerg(200), new TipoAire(), new AtaqueTierraYViento(0,0), 5);
+        super(new HPZerg(200), new TipoAire(), new AtaqueTierraYViento(0,0), 5,0);
     }
     public AmoSupremo(HitPoints vida) {
         super(vida,5);
@@ -17,8 +17,5 @@ public class AmoSupremo extends Unidad {
         raza.verficarConsumoRecurso(50,0);
     }
 
-    public void verificarSiPuedeSerCreado(GestionRecurso unidadesDeSuministro){
-        verificarSiPuedeSerCreadoSegunSuministro(unidadesDeSuministro);
-    }
 
 }

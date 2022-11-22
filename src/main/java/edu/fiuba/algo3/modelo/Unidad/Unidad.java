@@ -3,9 +3,9 @@ package edu.fiuba.algo3.modelo.Unidad;
 import edu.fiuba.algo3.modelo.Atacable;
 import edu.fiuba.algo3.modelo.Atacante;
 import edu.fiuba.algo3.modelo.Ataque.Ataque;
-import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
-import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
+import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
+import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 
@@ -17,6 +17,7 @@ public abstract class  Unidad implements Atacable, Atacante {
     private Ataque ataque;
 
     protected int costoSuministro;
+    protected int costoPoblacion;
 
     protected int turnosRestantesParaSerOperativo;
 
@@ -30,11 +31,12 @@ public abstract class  Unidad implements Atacable, Atacante {
             throw  new UnidadNoOperativaError();
         }
     }
-    public Unidad(HitPoints vida, TipoSuperficie tipoSuperficie, Ataque ataque, int turnosRestantesParaSerOperativo){
+    public Unidad(HitPoints vida, TipoSuperficie tipoSuperficie, Ataque ataque, int turnosRestantesParaSerOperativo, int costoPoblacion){
         hp = vida;
         this.tipoSuperficie = tipoSuperficie;
         this.ataque = ataque;
         this.turnosRestantesParaSerOperativo = turnosRestantesParaSerOperativo;
+        this.costoPoblacion = costoPoblacion;
     }
 
     public void atacar(Atacable atacable){
@@ -77,12 +79,14 @@ public abstract class  Unidad implements Atacable, Atacante {
     public void consumirSuministro(GestionRecurso suministro){
         suministro.consumir(costoSuministro);
     }
-    public abstract void verificarSiPuedeSerCreado(GestionRecurso unidadesSuministro);
-
-
-    public void verificarSiPuedeSerCreadoSegunSuministro(GestionRecurso suministro){
-        if(!suministro.puedeConsumir(costoSuministro) ){
-            throw new RecursosInsuficientesError();
+    public void verificarSiPuedeSerCreado(int poblacion){
+        if(poblacion-costoPoblacion < 0){
+            throw new PoblacionExedidaError();
         }
+    }
+
+
+    public void disminuirPoblacion(Raza raza) {
+        raza.disminuirPoblacion(costoPoblacion);
     }
 }

@@ -1,3 +1,4 @@
+
 package edu.fiuba.algo3.entrega_3;
 
 import edu.fiuba.algo3.modelo.Atacable;
@@ -12,7 +13,7 @@ import edu.fiuba.algo3.modelo.UnidadesRecurso.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
+/*
 public class CasoDeUso30 {
 
     @Test
@@ -32,3 +33,4 @@ public class CasoDeUso30 {
     }
 
 }
+*/

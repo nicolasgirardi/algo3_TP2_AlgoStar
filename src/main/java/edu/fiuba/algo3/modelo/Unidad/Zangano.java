@@ -10,11 +10,13 @@ import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 public class Zangano extends Unidad {
 
     public Zangano(){
+
         super(
                 new HPZerg(25),
                 new TipoTierra(),
                 new AtaqueSoloTierra(0) {
-        }, 1);
+        }, 1,1);
+
     }
 
     public Zangano(HitPoints vida){
@@ -29,7 +31,4 @@ public class Zangano extends Unidad {
         return  nodoMineral.extraerConZangano(10, this);
     }
 
-    public void verificarSiPuedeSerCreado(GestionRecurso unidadesDeSuministro){
-        verificarSiPuedeSerCreadoSegunSuministro(unidadesDeSuministro);
-    }
 }
