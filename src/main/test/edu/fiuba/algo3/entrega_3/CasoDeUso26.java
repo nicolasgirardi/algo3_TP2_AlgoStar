@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.entrega_3;
 
 
+import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
+import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.*;
 import org.junit.jupiter.api.Test;
@@ -230,13 +232,23 @@ public class CasoDeUso26 {
         });
     }
     @Test
-    public void testSeAgregaUnAmoSupremoNoDeberiaTirarError(){
+    public void testSeAgregaUnAmoSupremoDeberiaSumarMas5Poblacion(){
         //Arrange
         RazaZerg raza = new RazaZerg();
         AmoSupremo amoSupremo = new AmoSupremo();
         //Act y Assert
         assertDoesNotThrow(() -> {
             raza.agregarUnidad(amoSupremo);
+        });
+    }
+    @Test
+    public void testSeAgregaUnPilonDeberiaSumarMas5Poblacion(){
+        //Arrange
+        RazaProtoss raza = new RazaProtoss();
+        Pilon pilon = new Pilon();
+        //Act y Assert
+        assertDoesNotThrow(() -> {
+            raza.agregarEdificio(pilon);
         });
     }
 
