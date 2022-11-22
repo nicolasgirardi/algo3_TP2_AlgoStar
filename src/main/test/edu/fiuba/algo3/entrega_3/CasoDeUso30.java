@@ -13,7 +13,7 @@ import edu.fiuba.algo3.modelo.UnidadesRecurso.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
-/*
+
 public class CasoDeUso30 {
 
     @Test
@@ -27,10 +27,9 @@ public class CasoDeUso30 {
             razaZerg.agregarUnidad(new Zangano());
         }
 
-        assertThrows( CantidadInsuficienteError.class, ()-> {
+        assertThrows( PoblacionExedidaError.class, ()-> {
             razaZerg.agregarUnidad(new Zangano()) ;
         });
     }
 
 }
-*/
