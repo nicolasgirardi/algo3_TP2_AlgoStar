@@ -42,7 +42,7 @@ public abstract class Raza {
 
     public void agregarUnidad(Unidad unidad){
         //unidad.verificarSiPuedeSerCreado(poblacion);
-        unidad.disminuirPoblacion(this);
+        unidad.aumentarPoblacion(this);
         unidades.add(unidad);
 
     }
@@ -90,10 +90,28 @@ public abstract class Raza {
         poblacion.aumentarCapacidad(unaPoblacion);
     }
 
+    public void disminuirCapacidad(int unaPoblacion) {
+        poblacion.disminuirCapacidad(unaPoblacion);
+    }
+
     public void aumentarPoblacion(int costoPoblacion) {
         poblacion.aumentarPoblacion(costoPoblacion);
     }
+
+    public void disminuirPoblacion(int costoPoblacion) {
+        poblacion.disminuirPoblacion(costoPoblacion);
+    }
     public int capacidadReal(){
         return poblacion.capacidadReal();
+    }
+
+    public void destruirEdificio(Edificio unEdificio){
+        edificios.remove(unEdificio);
+        unEdificio.disminuirCapacidad(this);
+    }
+
+    public void matarUnidad(Unidad unaUnidad){
+        unidades.remove(unaUnidad);
+        unaUnidad.disminuirPoblacion(this);
     }
 }
