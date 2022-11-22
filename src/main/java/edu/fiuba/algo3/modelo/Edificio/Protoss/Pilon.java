@@ -73,5 +73,8 @@ public class Pilon extends Edificio {
             throw new ConstruccionFueraDelRangoPilonError();
         }
     }
+    public void disminuirCapacidad(Raza unaRaza){
+        unaRaza.disminuirCapacidad(5);
+    }
 }
 

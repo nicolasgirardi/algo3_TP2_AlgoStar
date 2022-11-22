@@ -93,4 +93,8 @@ public class Criadero extends Edificio {
         return;
     }
 
+    public void disminuirCapacidad(Raza unaRaza){
+        unaRaza.disminuirCapacidad(5);
+    }
+
 }

@@ -108,5 +108,7 @@ public abstract class Edificio implements Atacable {
 
     public abstract void instalar(Moho moho);
 
-
+    public void disminuirCapacidad(Raza unaRaza){
+        unaRaza.disminuirCapacidad(0);
+    }
 }

@@ -27,7 +27,7 @@ public class Poblacion {
             throw new PoblacionExedidaError();
         }
     }
-    public void disminuirrPoblacion(int pob){
+    public void disminuirPoblacion(int pob){
         if(poblacion-pob < 0){
             poblacion = 0;
         }

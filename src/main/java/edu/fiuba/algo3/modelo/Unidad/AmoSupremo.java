@@ -17,7 +17,10 @@ public class AmoSupremo extends Unidad {
         raza.verficarConsumoRecurso(50,0);
     }
 
-    public void disminuirPoblacion(Raza raza){
+    public void aumentarPoblacion(Raza raza){
         raza.aumentarCapacidad(5);
+    }
+    public void disminuirCapacidad(Raza raza){
+        raza.disminuirCapacidad(5);
     }
 }
