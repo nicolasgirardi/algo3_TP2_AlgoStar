@@ -3,9 +3,12 @@ package edu.fiuba.algo3.modelo.Edificio.Zerg;
 import edu.fiuba.algo3.modelo.ConstruccionFueraDelMohoError;
 import edu.fiuba.algo3.modelo.Edificio.ConstruccionIncorrectaError;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.Raza.Raza;
+import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.Larva;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
+import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
@@ -13,7 +16,7 @@ import edu.fiuba.algo3.modelo.tablero.Tierra;
 
 import java.util.ArrayList;
 
-public class Criadero extends Edificio {
+public class Criadero extends Edificio implements EstadoZangano {
     private final int CANTIDAD_TURNOS_OPERATIVO = 4;
 
     private ArrayList<Larva> larvas;
@@ -31,9 +34,18 @@ public class Criadero extends Edificio {
 
     @Override
     public void ejecutarTurno() {
-
         super.ejecutarTurno();
         if (turnosRestantesParaSerOperativo == 0 ) cargarTodaslasLarvas();
+    }
+
+    @Override
+    public void agregarZangano(Zangano zangano) {
+        throw new NoDeberiaEjecutarEsteMetodoError();
+    }
+
+    @Override
+    public GestionRecurso extraer(Recurso recurso) {
+        throw new NoDeberiaEjecutarEsteMetodoError();
     }
 
     @Override
@@ -45,6 +57,11 @@ public class Criadero extends Edificio {
         verififarEdificioOperativo();
         Larva larvaAuxiliar = larvas.remove(0);
         return larvaAuxiliar.evolucionar();
+    }
+
+    @Override
+    public void agregarseAEstaRaza(RazaZerg razaZerg) {
+        razaZerg.agregarEdificio(this);
     }
 
     private  void cargarTodaslasLarvas(){
@@ -91,6 +108,11 @@ public class Criadero extends Edificio {
     @Override
     public void instalar(Moho moho) {
         return;
+    }
+
+    @Override
+    public Mutalisco crearMutalisco() {
+        throw new NoDeberiaEjecutarEsteMetodoError();
     }
 
 }

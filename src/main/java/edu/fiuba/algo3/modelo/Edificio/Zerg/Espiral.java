@@ -3,15 +3,18 @@ package edu.fiuba.algo3.modelo.Edificio.Zerg;
 import edu.fiuba.algo3.modelo.ConstruccionFueraDelMohoError;
 import edu.fiuba.algo3.modelo.Edificio.ConstruccionIncorrectaError;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Raza.Raza;
+import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
+import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
 
-public class Espiral extends Edificio {
+public class Espiral extends Edificio implements EstadoZangano {
 
     private static final int CANTIDAD_TURNOS_OPERATIVO = 10;
 
@@ -23,6 +26,16 @@ public class Espiral extends Edificio {
     public Mutalisco crearMutalisco() {
         verififarEdificioOperativo();
         return new Mutalisco(new HPZerg(120));
+    }
+
+    @Override
+    public void agregarZangano(Zangano zangano) {
+        throw new NoDeberiaEjecutarEsteMetodoError();
+    }
+
+    @Override
+    public GestionRecurso extraer(Recurso recurso) {
+        throw new NoDeberiaEjecutarEsteMetodoError();
     }
 
     @Override
@@ -48,5 +61,17 @@ public class Espiral extends Edificio {
     public void instalar(Moho moho) {
         return;
     }
+
+
+    @Override
+    public Zangano evolucionarLarva() {
+        throw new NoDeberiaEjecutarEsteMetodoError();
+    }
+
+    @Override
+    public void agregarseAEstaRaza(RazaZerg razaZerg) {
+        razaZerg.agregarEdificio(this);
+    }
+
 
 }

@@ -90,4 +90,6 @@ public abstract class Raza {
     public void disminuirPoblacion(int costoPoblacion) {
         poblacion -= costoPoblacion;
     }
+
+
 }

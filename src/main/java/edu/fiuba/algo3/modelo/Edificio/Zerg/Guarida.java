@@ -4,17 +4,21 @@ import edu.fiuba.algo3.modelo.ConstruccionFueraDelMohoError;
 import edu.fiuba.algo3.modelo.Edificio.ConstruccionIncorrectaError;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.Raza;
+import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.Hidralisco;
 import edu.fiuba.algo3.modelo.Unidad.Larva;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
+import edu.fiuba.algo3.modelo.Unidad.Mutalisco;
+import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
 
 
-public class Guarida extends Edificio {
+public class Guarida extends Edificio implements EstadoZangano {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 12;
 
     public Guarida(){
@@ -56,5 +60,32 @@ public class Guarida extends Edificio {
     public void instalar(Moho moho) {
         return;
     }
+
+
+    @Override
+    public Zangano evolucionarLarva() {
+        throw new NoDeberiaEjecutarEsteMetodoError();
+    }
+
+    @Override
+    public void agregarseAEstaRaza(RazaZerg razaZerg) {
+        razaZerg.agregarEdificio(this);
+    }
+
+    @Override
+    public Mutalisco crearMutalisco() {
+        throw new NoDeberiaEjecutarEsteMetodoError();
+    }
+
+    @Override
+    public void agregarZangano(Zangano zangano) {
+        throw new NoDeberiaEjecutarEsteMetodoError();
+    }
+
+    @Override
+    public GestionRecurso extraer(Recurso recurso) {
+        throw new NoDeberiaEjecutarEsteMetodoError();
+    }
+
 
 }
