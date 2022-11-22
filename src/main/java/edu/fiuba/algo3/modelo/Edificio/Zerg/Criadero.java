@@ -9,19 +9,22 @@ import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
-import edu.fiuba.algo3.modelo.tablero.Tierra;
+import edu.fiuba.algo3.modelo.tablero.*;
 
 import java.util.ArrayList;
 
 public class Criadero extends Edificio {
     private final int CANTIDAD_TURNOS_OPERATIVO = 4;
-
+    private int radioMoho;
+    private int turnos;
     private ArrayList<Larva> larvas;
 
     public Criadero(){
         super(0,200,0);
         larvas = new ArrayList<Larva>();
         cargarTodaslasLarvas();
+        radioMoho = 5;
+        turnos = 0;
     }
     public Criadero(int cantidadTurnosParaSerOperativo){
         super(cantidadTurnosParaSerOperativo, 200, 0);
@@ -33,7 +36,11 @@ public class Criadero extends Edificio {
     public void ejecutarTurno() {
 
         super.ejecutarTurno();
-        if (turnosRestantesParaSerOperativo == 0 ) cargarTodaslasLarvas();
+        if (turnosRestantesParaSerOperativo == 0 ) {
+            cargarTodaslasLarvas();
+            turnos++;
+
+        }
     }
 
     @Override
@@ -96,5 +103,8 @@ public class Criadero extends Edificio {
     public void disminuirCapacidad(Raza unaRaza){
         unaRaza.disminuirCapacidad(5);
     }
-
+    public void ubicar(Ubicacion unaUbicacion,Mapa mapa){
+        ubicacion = unaUbicacion;
+        unaUbicacion.crecer(radioMoho,mapa);
+    }
 }

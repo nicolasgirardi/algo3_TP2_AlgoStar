@@ -10,6 +10,7 @@ public class Ubicacion {
     private Unidad unidad;
     private Tipo tipo;
 
+
     private Coordenada coor;
 
     public Ubicacion(Coordenada coordenada){

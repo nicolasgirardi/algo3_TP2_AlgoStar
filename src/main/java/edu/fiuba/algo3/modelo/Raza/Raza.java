@@ -1,26 +1,28 @@
 package edu.fiuba.algo3.modelo.Raza;
 
 import edu.fiuba.algo3.modelo.Edificio.*;
+import edu.fiuba.algo3.modelo.Juego.FinDePartida;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.Poblacion;
+import edu.fiuba.algo3.modelo.tablero.*;
 
 import java.util.ArrayList;
 
 public abstract class Raza {
 
-    private GestionRecurso mineral;
-    private GestionRecurso gas;
-    private GestionRecurso suministro;
-    private Poblacion poblacion;
-    private ArrayList<Edificio> edificios;
+    protected GestionRecurso mineral;
+    protected GestionRecurso gas;
+    protected GestionRecurso suministro;
+    protected Poblacion poblacion;
+    protected ArrayList<Edificio> edificios;
 
-    private ArrayList<Unidad> unidades;
+    protected ArrayList<Unidad> unidades;
 
-    int cantReservas;
+    protected int cantReservas;
 
-    int cantAccesos;
+    protected int cantAccesos;
     public Raza(){
         gas = new GestionRecurso(0);
         mineral = new GestionRecurso(200);
@@ -108,10 +110,13 @@ public abstract class Raza {
     public void destruirEdificio(Edificio unEdificio){
         edificios.remove(unEdificio);
         unEdificio.disminuirCapacidad(this);
+        if (edificios.size()==0)
+            throw new FinDePartida();
     }
 
     public void matarUnidad(Unidad unaUnidad){
         unidades.remove(unaUnidad);
         unaUnidad.disminuirPoblacion(this);
     }
+    public abstract void construirBase(Ubicacion unaUbicacion,Mapa mapa);
 }

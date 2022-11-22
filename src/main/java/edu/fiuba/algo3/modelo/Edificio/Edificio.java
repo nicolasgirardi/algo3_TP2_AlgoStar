@@ -11,12 +11,12 @@ import edu.fiuba.algo3.modelo.tablero.*;
 
 public abstract class Edificio implements Atacable {
 
-    private Ubicacion ubicacion;
+    protected Ubicacion ubicacion;
     protected int turnosRestantesParaSerOperativo;
     protected int costoMineral;
     protected int costoGas;
 
-    private HitPoints hp;
+    protected HitPoints hp;
 
     public Edificio(int turnosRestantesParaSerOperativo, int mineralNecesario, int gasNecesario){
         this.turnosRestantesParaSerOperativo = turnosRestantesParaSerOperativo;
@@ -110,5 +110,9 @@ public abstract class Edificio implements Atacable {
 
     public void disminuirCapacidad(Raza unaRaza){
         unaRaza.disminuirCapacidad(0);
+    }
+    public void ubicar(Ubicacion unaUbicacion,Mapa mapa){
+        ubicacion = unaUbicacion;
+
     }
 }

@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Juego;
 
 
 import edu.fiuba.algo3.modelo.Raza.Raza;
+import edu.fiuba.algo3.modelo.tablero.*;
 
 
 public class Jugador {
@@ -20,5 +21,8 @@ public class Jugador {
         if(jugador.nombre == nombre) throw  new JugadorMismoNombreError();
         if(jugador.color.equals(color)) throw new JugadorMismoColorError();
         if(jugador.raza.getClass() == raza.getClass()) throw new JugadorMismaRazaError();
+    }
+    public void asignarBase(Ubicacion unaUbicacion,Mapa mapa){
+        raza.construirBase(unaUbicacion,mapa);
     }
 }
