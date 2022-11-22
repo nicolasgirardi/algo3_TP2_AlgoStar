@@ -80,7 +80,7 @@ public class Criadero extends Edificio {
 
     @Override
     public void fueAgregado(Raza raza) {
-        raza.aumentarPoblacion(5);
+        raza.aumentarCapacidad(5);
     }
 
     @Override
