@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Unidad;
 import edu.fiuba.algo3.modelo.Ataque.AtaqueSoloTierra;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 public class Zerling extends Unidad {
@@ -22,6 +23,10 @@ public class Zerling extends Unidad {
                 new AtaqueSoloTierra(4),2,1
         )
         ;
+    }
+    @Override
+    public void fueAgregado(Raza raza) {
+        return;
     }
 
 }

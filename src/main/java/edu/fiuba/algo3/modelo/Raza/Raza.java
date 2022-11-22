@@ -39,6 +39,7 @@ public abstract class Raza {
     }
 
     public void agregarUnidad(Unidad unidad){
+        unidad.fueAgregado(this);
         unidad.verificarSiPuedeSerCreado(poblacion);
         unidad.disminuirPoblacion(this);
         unidades.add(unidad);
