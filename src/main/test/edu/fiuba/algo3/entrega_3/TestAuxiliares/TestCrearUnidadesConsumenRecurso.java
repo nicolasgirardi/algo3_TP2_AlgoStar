@@ -39,7 +39,7 @@ public class TestCrearUnidadesConsumenRecurso {
 
 
         //Act
-        Zangano unidad = criadero.crearZangano(raza);
+        Zangano unidad = criadero.crearZangano();
 
         //Assert
         assertEquals(mineralEsperado, mineral);
@@ -57,7 +57,7 @@ public class TestCrearUnidadesConsumenRecurso {
 
 
         //Act
-        Zerling unidad = edificio.crearZerling(raza);
+        Zerling unidad = edificio.crearZerling();
 
         //Assert
         assertEquals(mineralEsperado, mineral);

@@ -130,7 +130,7 @@ public class Criadero extends Edificio implements EstadoZangano {
         unaRaza.disminuirCapacidad(5);
     }
 
-    public Zangano crearZangano(Raza raza){
+    public Zangano crearZangano(){
         Zangano zangano = new Zangano();
         raza.agregarUnidad(zangano);
         return zangano;
