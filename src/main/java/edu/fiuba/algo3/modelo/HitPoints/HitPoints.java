@@ -7,4 +7,6 @@ public interface HitPoints {
     public int vida();
     public int escudo();
 
+    public boolean vidaDestruida();
+
 }

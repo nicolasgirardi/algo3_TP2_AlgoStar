@@ -28,7 +28,7 @@ public class Poblacion {
         }
     }
     public void disminuirPoblacion(int pob){
-        if(poblacion-pob < 0){
+        if( poblacion - pob < 0){
             poblacion = 0;
         }
         else {
@@ -37,6 +37,6 @@ public class Poblacion {
     }
 
     public int capacidadReal(){
-        return Math.min(capcaidadMaxima,capacidadInstalada);
+        return Math.min(capcaidadMaxima, capacidadInstalada);
     }
 }

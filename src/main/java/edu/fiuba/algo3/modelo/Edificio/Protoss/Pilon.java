@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.ConstruccionFueraDelRangoPilonError;
 import edu.fiuba.algo3.modelo.ConstruccionProtoEnMohoError;
 import edu.fiuba.algo3.modelo.Edificio.ConstruccionIncorrectaError;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.HitPoints.HPProtoss;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
@@ -20,7 +21,7 @@ public class Pilon extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 5;
 
     public Pilon(){
-        super(CANTIDAD_TURNOS_OPERATIVO,100,0);
+        super(CANTIDAD_TURNOS_OPERATIVO,new HPProtoss(300,300),100,0);
     }
 
     public Pilon(HitPoints hp ){
@@ -42,6 +43,7 @@ public class Pilon extends Edificio {
 
     @Override
     public void fueAgregado(Raza raza) {
+        this.raza = raza;
         raza.aumentarCapacidad(5);
     }
 

@@ -16,6 +16,7 @@ public abstract class Edificio implements Atacable {
     protected int turnosRestantesParaSerOperativo;
     protected int costoMineral;
     protected int costoGas;
+    protected Raza raza;
 
     private HitPoints hp;
 
@@ -100,6 +101,9 @@ public abstract class Edificio implements Atacable {
     @Override
     public void recibirAtaque(Ataque unAtaque){
         unAtaque.aplicarDanioTierra(hp);
+        if(hp.vidaDestruida()){
+            raza.destruirEdificio(this);          //puede mejorar pero los edificios tienen que tener una referencia a raza.
+        }
     }
 
     public abstract void fueAgregado(Raza raza);

@@ -9,4 +9,10 @@ public class RazaZerg extends Raza{
         estadoZangano.agregarseAEstaRaza(this);
     }
 
+    @Override
+    public void existenAunEdificios() {
+        if(edificios.size() == 0){
+            throw new FinDelJuegoGanaronLosProtoss();
+        }
+    }
 }

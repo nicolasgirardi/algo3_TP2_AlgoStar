@@ -12,9 +12,10 @@ public abstract class Raza {
 
     private GestionRecurso mineral;
     private GestionRecurso gas;
+
     private GestionRecurso suministro;
     private Poblacion poblacion;
-    private ArrayList<Edificio> edificios;
+    protected ArrayList<Edificio> edificios;
 
     private ArrayList<Unidad> unidades;
 
@@ -44,7 +45,6 @@ public abstract class Raza {
         //unidad.verificarSiPuedeSerCreado(poblacion);
         unidad.aumentarPoblacion(this);
         unidades.add(unidad);
-
     }
 
     public void aumentarGas(GestionRecurso gas ){
@@ -116,4 +116,5 @@ public abstract class Raza {
     }
 
 
+    public abstract void existenAunEdificios();
 }
