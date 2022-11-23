@@ -1,0 +1,84 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Atacable {
+
+}
+
+interface Atacante {
+
+}
+
+ class Unidad {
+    -cantTurnosParaSerOperativo: Int
+    -hp: HitPoints
+    -ubicacion: Ubicacion
+    -tipoSuperficie: TipoSuperficie
+    -rango: Int
+    -ataque: Ataque
+    +Unidad(tipoInicial)
+    +atacar(atacable: Atacable)
+    +atacarSobreUbicacion(atacable: Atacable)
+    +asignarLugar(Ubicacion unLugar)
+    +volar() //No hace nada
+    +verificarEntidadOperativa()
+    +ejecutarTurno()
+    +recibirAtaque(ataque: Ataque)
+    +ubicar(unLugar: Ubicacion)
+    +evolucionar(unidad: TipoDeUnidad)
+}
+
+note left of Unidad::Unidad
+  this.tipoDeUnidad = tipoInicial;
+  tipoDeUnidad.setContext(this);
+end note
+
+note left of Unidad::atacar
+  tipoDeUnidad.atacar(atacable: Atacable);
+end note
+
+class Mutalisco {
+    -unidad:Unidad
+    +evolucionar()
+        +atacar(atacable: Atacable)
+        +atacarSobreUbicacion(atacable: Atacable)
+        +asignarLugar(Ubicacion unLugar)
+        +volar() //No hace nada
+        +verificarEntidadOperativa()
+        +ejecutarTurno()
+        +recibirAtaque(ataque: Ataque)
+        +ubicar(unLugar: Ubicacion)
+}
+
+note right of Mutalisco::evolucionar
+    Guardian guardian = new Guardian()
+    unidad.evolucionar(guardian)
+end note
+
+interface TipoDeUnidad {
+    +atacarSobreUbicacion(atacable: Atacable)
+    +atacar(atacable: Atacable)
+    +volar() //No hace nada
+    +asignarRango(int Rango) //Sacarlo y q sea x constructor
+    +verificarEntidadOperativa()
+    +ejecutarTurno()
+    +recibirAtaque(ataque: Ataque)
+    +ubicar(unLugar: Ubicacion)
+    +evolucionar()
+}
+
+
+
+Mutalisco ..|> TipoDeUnidad
+Unidad ..|> Atacable
+Unidad ..|> Atacante
+Unidad o-- TipoDeUnidad
+
+@enduml
+
+Unidad es Context, zangano es unade las ConcreteClasses, TipoDeUnidad es
+la interfaz State.
+evolucionar es changeState
+Voy a tener que hacer que las clases concretas conozcan los atributos
+de unidad.
+Todas las clases concretas van a tener que implementar evolucionar y extraer
