@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.ConstruccionProtoEnMohoError;
 import edu.fiuba.algo3.modelo.Edificio.ConstruccionIncorrectaError;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.HitPoints.HPProtoss;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Unidad.Scout;
@@ -17,7 +18,7 @@ public class PuertoEstelar extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 10;
 
     public PuertoEstelar(){
-    super(CANTIDAD_TURNOS_OPERATIVO,150,150);
+        super(CANTIDAD_TURNOS_OPERATIVO,new HPProtoss(600,600),150,150);
     }
 
     public void transportarUnidades() {
