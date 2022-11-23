@@ -4,14 +4,19 @@ import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.*;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.*;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
+import edu.fiuba.algo3.modelo.Raza.Raza;
+import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Unidad.*;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CasoDeUso2 {
+
 
     @Test
     public void EdificoCriaderoCon4TurnosParaSerOperativoSeLeMandaAEvolucionarLarvaDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
@@ -43,8 +48,9 @@ public class CasoDeUso2 {
     @Test
     public void EdificoCriaderoCon4TurnosParaSerOperativoPasan4TurnosYSeLeMandaAEvolucionarLarvaNoDeberiaLanzarExcepcion(){
         //Arrange
+        Raza raza = new RazaZerg(new GestionRecurso(500), new GestionRecurso(500));
         Criadero criadero = new Criadero(4);
-
+        raza.agregarEdificio(criadero);
         //Act
         criadero.ejecutarTurno();
         criadero.ejecutarTurno();
@@ -183,7 +189,7 @@ public class CasoDeUso2 {
         Espiral espiral = new Espiral();
         //Acy y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            Mutalisco mutalisco = espiral.crearMutalisco();
+            Mutalisco mutalisco = espiral.crearMutalisco(new Larva());
         });
 
     }
@@ -198,7 +204,7 @@ public class CasoDeUso2 {
         }
         //Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            Mutalisco mutalisco = espiral.crearMutalisco();
+            Mutalisco mutalisco = espiral.crearMutalisco(new Larva());
         });
 
     }

@@ -91,4 +91,9 @@ public class Guarida extends Edificio implements EstadoZangano {
     }
 
 
+    public Hidralisco crearHidralisco(Larva larva) {
+        Hidralisco hidralisco = larva.evolucionar(this);
+        raza.agregarUnidad(hidralisco);
+        return hidralisco;
+    }
 }

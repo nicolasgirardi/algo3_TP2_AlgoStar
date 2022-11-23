@@ -65,7 +65,9 @@ public class Criadero extends Edificio implements EstadoZangano {
     public Zangano evolucionarLarva() {
         verififarEdificioOperativo();
         Larva larvaAuxiliar = larvas.remove(0);
-        return larvaAuxiliar.evolucionar();
+        Zangano zangano = larvaAuxiliar.evolucionar();
+        raza.agregarUnidad(zangano);
+        return zangano;
     }
 
     @Override
@@ -130,10 +132,5 @@ public class Criadero extends Edificio implements EstadoZangano {
         unaRaza.disminuirCapacidad(5);
     }
 
-    public Zangano crearZangano(){
-        Zangano zangano = new Zangano();
-        raza.agregarUnidad(zangano);
-        return zangano;
-    }
 
 }

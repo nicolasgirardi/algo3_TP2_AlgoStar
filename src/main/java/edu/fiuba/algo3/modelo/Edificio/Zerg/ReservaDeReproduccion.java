@@ -54,8 +54,9 @@ public class ReservaDeReproduccion extends Edificio implements EstadoZangano {
     }
 
 
-    public Zerling crearZerling() {
-        Zerling zerling = new Zerling();
+    public Zerling crearZerling(Larva larva) {
+        verififarEdificioOperativo();
+        Zerling zerling = larva.evolucionar(this);
         raza.agregarUnidad(zerling);
         return zerling;
     }

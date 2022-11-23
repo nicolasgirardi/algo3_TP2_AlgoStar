@@ -15,7 +15,7 @@ public class mutacionDeUnZanganoAUnEdificio {
     @Test
     public void testZanganoMutaEnUnCriaderoElZanganoQueCreaDeSerEquivalenteAOtroZanganoCreado(){
         //act
-        RazaZerg raza = new RazaZerg();
+        RazaZerg raza = new RazaZerg(new GestionRecurso(1000), new GestionRecurso(1000));
         Zangano unZangano = new Zangano();
 
         //arrange
@@ -45,7 +45,7 @@ public class mutacionDeUnZanganoAUnEdificio {
             unZangano.ejecutarTurno();
         }
 
-        Mutalisco mutaliscoUno = espiralCreado.crearMutalisco();
+        Mutalisco mutaliscoUno = espiralCreado.crearMutalisco(new Larva());
         Mutalisco mutaliscoDos = unZangano.crearMutalisco();
 
         //asert

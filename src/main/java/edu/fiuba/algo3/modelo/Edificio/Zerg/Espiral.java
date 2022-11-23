@@ -22,10 +22,7 @@ public class Espiral extends Edificio implements EstadoZangano {
         super(CANTIDAD_TURNOS_OPERATIVO,150,100);
     }
 
-    public Mutalisco crearMutalisco() {
-        verififarEdificioOperativo();
-        return new Mutalisco(new HPZerg(120));
-    }
+
 
     @Override
     public void agregarZangano(Zangano zangano) {
@@ -81,6 +78,18 @@ public class Espiral extends Edificio implements EstadoZangano {
     @Override
     public void agregarseAEstaRaza(RazaZerg razaZerg) {
         razaZerg.agregarEdificio(this);
+    }
+
+    public Mutalisco crearMutalisco(Larva larva) {
+        verififarEdificioOperativo();
+        Mutalisco mutalisco = larva.evolucionar(this);
+        raza.agregarUnidad(mutalisco);
+        return mutalisco;
+    }
+
+    @Override
+    public Mutalisco crearMutalisco() {
+        return null;
     }
 
 
