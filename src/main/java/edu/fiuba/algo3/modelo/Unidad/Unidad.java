@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Unidad;
 import edu.fiuba.algo3.modelo.Atacable;
 import edu.fiuba.algo3.modelo.Atacante;
 import edu.fiuba.algo3.modelo.Ataque.Ataque;
+import edu.fiuba.algo3.modelo.Ataque.ZealotNoPuedeSerAtacadaError;
 import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
@@ -24,6 +25,7 @@ public abstract class  Unidad implements Atacable, Atacante {
     protected int costoPoblacion;
 
     protected int turnosRestantesParaSerOperativo;
+    protected int unidadesAsesinadas;
 
     public Unidad(HitPoints vida, int suministroNecesario){
         hp = vida;
@@ -43,11 +45,16 @@ public abstract class  Unidad implements Atacable, Atacante {
         this.costoPoblacion = costoPoblacion;
         this.costoMineral = costoMineral;
         this.costoGas = costoGas;
+        unidadesAsesinadas = 0;
     }
 
     public void atacar(Atacable atacable){
         verificarUnidadOperativa();
-        atacable.recibirAtaque(ataque);
+        try {
+            atacable.recibirAtaque(ataque);
+        } catch (UnidadMuertaError e){
+            unidadesAsesinadas++;
+        }
     }
 
     public void ejecutarTurno() {
@@ -116,4 +123,5 @@ public abstract class  Unidad implements Atacable, Atacante {
     public void consumirMineral(GestionRecurso mineral) {
         mineral.consumir(costoMineral);
     }
+
 }

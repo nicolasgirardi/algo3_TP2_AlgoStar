@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.HitPoints;
 
+import edu.fiuba.algo3.modelo.Unidad.UnidadMuertaError;
+
 public class HPZerg implements HitPoints {
 
     private int vidaMax;
@@ -12,6 +14,9 @@ public class HPZerg implements HitPoints {
     @Override
     public void recibirDaño(int daño) {
         vidaActual = vidaActual - daño;
+        if(vidaActual <= 0){
+            throw new UnidadMuertaError();
+        }
     }
 
     @Override
