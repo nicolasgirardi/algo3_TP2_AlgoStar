@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
+import edu.fiuba.algo3.modelo.Unidad.Scout;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
@@ -50,4 +51,9 @@ public class PuertoEstelar extends Edificio {
         throw new ConstruccionProtoEnMohoError();
     }
 
+    public Scout crearScout() {
+        Scout scout = new Scout();
+        raza.agregarUnidad(scout);
+        return scout;
+    }
 }
