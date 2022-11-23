@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Juego;
 
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
+import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 import edu.fiuba.algo3.modelo.tablero.Moho;
@@ -31,4 +32,10 @@ public class Juego {
     public int distanciaEntreBases(){
         return baseJugador1.distancia(baseJugador2);
     }
+
+    public void esElfinDeJuego(Raza unaRaza, Raza otraRaza){
+        unaRaza.existenAunEdificios();
+        otraRaza.existenAunEdificios();
+    }
+
 }

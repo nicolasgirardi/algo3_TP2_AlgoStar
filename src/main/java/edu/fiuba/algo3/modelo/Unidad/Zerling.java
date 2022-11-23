@@ -26,4 +26,12 @@ public class Zerling extends Unidad {
         ;
     }
 
+    @Override
+    public boolean equals(Object object){
+        if (!(object instanceof Zerling)) return false;
+        Zerling zerling = (Zerling) object;
+
+        return zerling.hp.equals(hp) ;
+    }
+
 }

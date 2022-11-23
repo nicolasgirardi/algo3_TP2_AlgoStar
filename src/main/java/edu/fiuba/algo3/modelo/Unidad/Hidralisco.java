@@ -20,5 +20,13 @@ public class Hidralisco extends Unidad {
         super(vida, new TipoTierra(), new AtaqueTierraYViento(10,10), 4,2,75,25);
     }
 
+    @Override
+    public boolean equals(Object object){
+        if (!(object instanceof Hidralisco)) return false;
+        Hidralisco hidralisco = (Hidralisco) object;
+
+        return hidralisco.hp.equals(hp);
+    }
+
 
 }
