@@ -70,6 +70,7 @@ public class Extractor extends Edificio implements EstadoZangano {
 
     @Override
     public void fueAgregado(Raza raza) {
+        this.raza = raza;
         return;
     }
 
