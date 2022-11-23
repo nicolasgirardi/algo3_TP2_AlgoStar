@@ -11,10 +11,12 @@ public class Ubicacion {
     private Tipo tipo;
 
     private Coordenada coor;
+    private boolean visibilidad;
 
     public Ubicacion(Coordenada coordenada){
         coor = coordenada;
         tipo = new Tierra();
+        visibilidad = false;
     }
 
     public void ubicar(Edificio Edificio){
@@ -66,5 +68,11 @@ public class Ubicacion {
         tipo.ubicar(unaUnidad);
         unidad = unaUnidad;
         unaUnidad.asignarLugar(this);
+    }
+
+    public void energizar(){
+        if(edificio == null){
+            visibilidad = true;
+        }
     }
 }

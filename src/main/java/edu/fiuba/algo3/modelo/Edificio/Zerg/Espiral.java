@@ -13,6 +13,8 @@ import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
 
+import java.util.ArrayList;
+
 public class Espiral extends Edificio implements EstadoZangano {
 
     private static final int CANTIDAD_TURNOS_OPERATIVO = 10;
@@ -21,8 +23,10 @@ public class Espiral extends Edificio implements EstadoZangano {
     public Espiral() {
         super(CANTIDAD_TURNOS_OPERATIVO,150,100);
     }
-
-
+/*
+    public Espiral(){
+        super(CANTIDAD_TURNOS_OPERATIVO,new HPZerg(500),150,100);
+    }*/
 
     @Override
     public void agregarZangano(Zangano zangano) {
