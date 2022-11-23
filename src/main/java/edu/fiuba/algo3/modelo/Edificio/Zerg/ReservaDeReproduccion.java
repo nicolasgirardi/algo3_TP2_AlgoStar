@@ -51,4 +51,9 @@ public class ReservaDeReproduccion extends Edificio {
         return;
     }
 
+    public Zerling crearZerling(Raza raza) {
+        Zerling zerling = new Zerling();
+        raza.agregarUnidad(zerling);
+        return zerling;
+    }
 }

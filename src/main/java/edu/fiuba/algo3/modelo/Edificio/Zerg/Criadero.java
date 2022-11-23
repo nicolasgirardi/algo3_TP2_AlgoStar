@@ -97,4 +97,10 @@ public class Criadero extends Edificio {
         unaRaza.disminuirCapacidad(5);
     }
 
+    public Zangano crearZangano(Raza raza){
+        Zangano zangano = new Zangano();
+        raza.agregarUnidad(zangano);
+        return zangano;
+    }
+
 }

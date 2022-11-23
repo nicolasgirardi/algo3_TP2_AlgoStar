@@ -14,9 +14,8 @@ public class Zangano extends Unidad {
         super(
                 new HPZerg(25),
                 new TipoTierra(),
-                new AtaqueSoloTierra(0)
-                {
-        }, 1,1);
+                new AtaqueSoloTierra(0),
+                1,1,25,0);
 
     }
 

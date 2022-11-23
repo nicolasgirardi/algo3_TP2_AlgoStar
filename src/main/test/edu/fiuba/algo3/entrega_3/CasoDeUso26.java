@@ -20,6 +20,8 @@ public class CasoDeUso26 {
         Criadero criadero = new Criadero(0);
         Zangano zangano = new Zangano();
         raza.agregarEdificio(criadero);
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertDoesNotThrow(() -> {
             raza.agregarUnidad(zangano);
@@ -29,6 +31,8 @@ public class CasoDeUso26 {
     public void testSeIntentaAgregarUnZanganoSinCapacidadDeberiaTirarError(){
         RazaZerg raza = new RazaZerg();
         Zangano zangano = new Zangano();
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertThrows( PoblacionExedidaError.class, ()-> {
             raza.agregarUnidad(zangano);
@@ -41,6 +45,8 @@ public class CasoDeUso26 {
         Criadero criadero = new Criadero(0);
         Zerling zerling = new Zerling();
         raza.agregarEdificio(criadero);
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertDoesNotThrow(() -> {
             raza.agregarUnidad(zerling);
@@ -50,6 +56,8 @@ public class CasoDeUso26 {
     public void testSeIntentaAgregarUnZerlingSinCapacidadDeberiaTirarError(){
         RazaZerg raza = new RazaZerg();
         Zerling zerling = new Zerling();
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertThrows( PoblacionExedidaError.class, ()-> {
             raza.agregarUnidad(zerling);
@@ -62,6 +70,8 @@ public class CasoDeUso26 {
         Criadero criadero = new Criadero(0);
         Zealot zealot = new Zealot();
         raza.agregarEdificio(criadero);
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertDoesNotThrow(() -> {
             raza.agregarUnidad(zealot);
@@ -71,6 +81,8 @@ public class CasoDeUso26 {
     public void testSeIntentaAgregarUnZealotSinCapacidadDeberiaTirarError(){
         RazaZerg raza = new RazaZerg();
         Zealot zealot = new Zealot();
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertThrows( PoblacionExedidaError.class, ()-> {
             raza.agregarUnidad(zealot);
@@ -83,6 +95,8 @@ public class CasoDeUso26 {
         Criadero criadero = new Criadero(0);
         Scout scout = new Scout();
         raza.agregarEdificio(criadero);
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertDoesNotThrow(() -> {
             raza.agregarUnidad(scout);
@@ -92,6 +106,8 @@ public class CasoDeUso26 {
     public void testSeIntentaAgregarUnScoutSinCapacidadDeberiaTirarError(){
         RazaZerg raza = new RazaZerg();
         Scout scout = new Scout();
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertThrows( PoblacionExedidaError.class, ()-> {
             raza.agregarUnidad(scout);
@@ -103,6 +119,8 @@ public class CasoDeUso26 {
         Criadero criadero = new Criadero(0);
         Mutalisco mutalisco = new Mutalisco();
         raza.agregarEdificio(criadero);
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertDoesNotThrow(() -> {
             raza.agregarUnidad(mutalisco);
@@ -112,6 +130,8 @@ public class CasoDeUso26 {
     public void testSeIntentaAgregarUnMutaliscoSinCapacidadDeberiaTirarError(){
         RazaZerg raza = new RazaZerg();
         Mutalisco mutalisco = new Mutalisco();
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertThrows( PoblacionExedidaError.class, ()-> {
             raza.agregarUnidad(mutalisco);
@@ -123,6 +143,8 @@ public class CasoDeUso26 {
         Criadero criadero = new Criadero(0);
         Hidralisco hidralisco = new Hidralisco();
         raza.agregarEdificio(criadero);
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertDoesNotThrow(() -> {
             raza.agregarUnidad(hidralisco);
@@ -132,6 +154,8 @@ public class CasoDeUso26 {
     public void testSeIntentaAgregarUnHidraliscoSinCapacidadDeberiaTirarError(){
         RazaZerg raza = new RazaZerg();
         Hidralisco hidralisco = new Hidralisco();
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertThrows( PoblacionExedidaError.class, ()-> {
             raza.agregarUnidad(hidralisco);
@@ -143,6 +167,8 @@ public class CasoDeUso26 {
         Criadero criadero = new Criadero(0);
         Guardian guardian = new Guardian();
         raza.agregarEdificio(criadero);
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertDoesNotThrow(() -> {
             raza.agregarUnidad(guardian);
@@ -152,6 +178,8 @@ public class CasoDeUso26 {
     public void testSeAgregarUnGuardianNoDeberiaTirarError(){
         RazaZerg raza = new RazaZerg();
         Guardian guardian = new Guardian();
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertDoesNotThrow(() -> {
             raza.agregarUnidad(guardian);
@@ -163,6 +191,8 @@ public class CasoDeUso26 {
         Criadero criadero = new Criadero(0);
         Dragon dragon = new Dragon();
         raza.agregarEdificio(criadero);
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertDoesNotThrow(() -> {
             raza.agregarUnidad(dragon);
@@ -172,6 +202,8 @@ public class CasoDeUso26 {
     public void testSeIntentaAgregarUnDragonSinCapacidadDeberiaTirarError(){
         RazaZerg raza = new RazaZerg();
         Dragon dragon = new Dragon();
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertThrows( PoblacionExedidaError.class, ()-> {
             raza.agregarUnidad(dragon);
@@ -183,6 +215,8 @@ public class CasoDeUso26 {
         Criadero criadero = new Criadero(0);
         Devorador devorador = new Devorador();
         raza.agregarEdificio(criadero);
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertDoesNotThrow(() -> {
             raza.agregarUnidad(devorador);
@@ -193,6 +227,8 @@ public class CasoDeUso26 {
     public void testSeAgregarUnDevoradorNoDeberiaTirarError(){
         RazaZerg raza = new RazaZerg();
         Devorador devorador = new Devorador();
+        raza.aumentarMineral(new GestionRecurso(10000));
+        raza.aumentarGas(new GestionRecurso(10000));
 
         assertDoesNotThrow(() -> {
             raza.agregarUnidad(devorador);

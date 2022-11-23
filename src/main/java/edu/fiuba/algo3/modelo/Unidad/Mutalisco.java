@@ -9,7 +9,12 @@ import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 public class Mutalisco extends Unidad{
 
     public Mutalisco() {
-        super(new HPZerg(120), new TipoAire(), new AtaqueTierraYViento(9,9), 7,4);
+
+        super(
+                new HPZerg(120),
+                new TipoAire(),
+                new AtaqueTierraYViento(9,9),
+                7,4,100,100);
     }
 
     public Mutalisco(HitPoints vida) {

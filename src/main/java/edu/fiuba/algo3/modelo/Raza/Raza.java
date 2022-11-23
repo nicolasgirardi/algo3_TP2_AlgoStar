@@ -30,6 +30,15 @@ public abstract class Raza {
         cantAccesos = 0;
         cantReservas = 0;
     }
+    public Raza(GestionRecurso mineral, GestionRecurso gas){
+        this.mineral = mineral;
+        this.gas = gas;
+        poblacion = new Poblacion(200);
+        edificios = new ArrayList<Edificio>();
+        unidades = new ArrayList<Unidad>();
+        cantAccesos = 0;
+        cantReservas = 0;
+    }
 
     public void agregarEdificio(Edificio edificio){
         edificio.verificarSiPuedeSerConstruido(mineral, gas);
@@ -41,7 +50,9 @@ public abstract class Raza {
     }
 
     public void agregarUnidad(Unidad unidad){
-        //unidad.verificarSiPuedeSerCreado(poblacion);
+        unidad.verificarConsumoRecurso(mineral,gas);
+        unidad.consumirGas(gas);
+        unidad.consumirMineral(mineral);
         unidad.aumentarPoblacion(this);
         unidades.add(unidad);
 
