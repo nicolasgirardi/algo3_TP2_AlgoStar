@@ -56,6 +56,7 @@ public abstract class  Unidad implements Atacable, Atacante {
 
     public void recibirAtaque(Ataque ataque){
         tipoSuperficie.recibirAtaque(ataque, hp);
+
     }
 
     public void asignarLugar(Ubicacion unLugar){

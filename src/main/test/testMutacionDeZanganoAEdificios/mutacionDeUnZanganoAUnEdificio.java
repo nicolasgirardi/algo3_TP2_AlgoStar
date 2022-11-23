@@ -21,6 +21,7 @@ public class mutacionDeUnZanganoAUnEdificio {
         //arrange
         unZangano.mutarCriadero(raza);
         Criadero criaderoNormal = new Criadero(0);
+        criaderoNormal.fueAgregado(raza);
         Zangano otroZangano =  unZangano.evolucionarLarva();
         Zangano tercerZangano = criaderoNormal.evolucionarLarva();
 
@@ -32,10 +33,12 @@ public class mutacionDeUnZanganoAUnEdificio {
     public void testZanganoMutaAUnEspiralDeberiamosPoderObtenerUnMutaliscoYCompararlos(){
         //act
         RazaZerg raza = new RazaZerg();
-        raza.aumentarMineral(new GestionRecurso(100) );
-        raza.aumentarGas(new GestionRecurso(100) );
+        raza.aumentarMineral(new GestionRecurso(400) );
+        raza.aumentarGas(new GestionRecurso(400) );
+        raza.agregarEdificio(new Criadero());
         Zangano unZangano = new Zangano();
         Espiral espiralCreado = new Espiral();
+        espiralCreado.fueAgregado(raza);
 
         //arrange
         unZangano.mutarEspiral(raza);

@@ -89,7 +89,7 @@ public class Espiral extends Edificio implements EstadoZangano {
 
     @Override
     public Mutalisco crearMutalisco() {
-        return null;
+        return new Mutalisco();
     }
 
 
