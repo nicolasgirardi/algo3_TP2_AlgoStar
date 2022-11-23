@@ -69,7 +69,7 @@ public class CasoDeUso28 {
         });
 
     }
-/*
+
     @Test
     public void testUnZealotDestruye3EdificiosDeberiaVolverseInvisible(){
         //Arrange

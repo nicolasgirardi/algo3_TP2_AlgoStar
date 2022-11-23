@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Edificio.Protoss;
 
 import edu.fiuba.algo3.modelo.ConstruccionProtoEnMohoError;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.HitPoints.HPProtoss;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
@@ -15,7 +16,7 @@ public class Asimilador extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 6;
 
     public Asimilador(){
-        super(CANTIDAD_TURNOS_OPERATIVO,100,0);
+        super(CANTIDAD_TURNOS_OPERATIVO,new HPProtoss(450,450),100,0);
     }
 
 
