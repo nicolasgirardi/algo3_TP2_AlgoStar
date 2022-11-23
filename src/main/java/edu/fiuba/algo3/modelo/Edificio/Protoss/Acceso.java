@@ -40,6 +40,7 @@ public class Acceso extends Edificio {
     @Override
     public void fueAgregado(Raza raza) {
         raza.fueAgregadoAcceso();
+        this.raza = raza;
     }
 
     @Override

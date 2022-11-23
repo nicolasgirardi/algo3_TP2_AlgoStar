@@ -39,6 +39,7 @@ public class NexoMineral extends Edificio {
 
     @Override
     public void fueAgregado(Raza raza) {
+        this.raza = raza;
         return;
     }
 

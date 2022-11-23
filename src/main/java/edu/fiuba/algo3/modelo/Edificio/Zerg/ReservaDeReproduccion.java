@@ -40,6 +40,7 @@ public class ReservaDeReproduccion extends Edificio implements EstadoZangano {
     @Override
     public void fueAgregado(Raza raza) {
         raza.fueAgregadoReserva();
+        this.raza = raza;
     }
 
     @Override
