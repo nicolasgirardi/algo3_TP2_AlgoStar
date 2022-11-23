@@ -11,12 +11,16 @@ public class Scout extends Unidad {
 
 
     public Scout(){
-        super(new HPProtoss(150,100), new TipoAire(), new AtaqueTierraYViento(8,14), 9,4);
+        super(
+                new HPProtoss(150,100),
+                new TipoAire(),
+                new AtaqueTierraYViento(8,14),
+                9,4,300,150);
 
     }
 
     public Scout(HitPoints hp){
-        super(hp, new TipoAire(), new AtaqueTierraYViento(8,14), 9,4);
+        super(hp, new TipoAire(), new AtaqueTierraYViento(8,14), 9,4,300,150);
 
     }
 }

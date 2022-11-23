@@ -7,7 +7,12 @@ import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 public class Dragon extends Unidad {
 
     public Dragon() {
-        super(new HPProtoss(100,80), new TipoTierra(), new AtaqueTierraYViento(20,20), 6,3);
+
+        super(
+                new HPProtoss(100,80),
+                new TipoTierra(),
+                new AtaqueTierraYViento(20,20),
+                6,3,125,50);
     }
 
 }

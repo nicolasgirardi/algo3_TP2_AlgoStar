@@ -37,7 +37,7 @@ public class PuertoEstelar extends Edificio {
         if( ! raza.existePuerto() ){
             throw new CorrelativaDeConstruccionIncumplidaError();
         }
-
+        this.raza = raza;
     }
 
     @Override

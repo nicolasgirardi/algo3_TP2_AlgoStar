@@ -29,6 +29,12 @@ public class HPZerg implements HitPoints {
     public int escudo() {
         return 0;
     }
+
+    @Override
+    public boolean vidaDestruida() {
+        return (vidaActual == 0);
+    }
+
     private int cura(){
         return vidaMax/10;
     }

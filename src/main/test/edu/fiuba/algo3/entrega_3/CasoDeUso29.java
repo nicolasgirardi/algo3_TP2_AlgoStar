@@ -23,7 +23,7 @@ public class CasoDeUso29 {
     @Test
     public void LaCapacidadLlegaA200Con40AmosSupremos() {
         Raza razaZerg = new RazaZerg();
-        razaZerg.aumentarMineral(new GestionRecurso(1050));
+        razaZerg.aumentarMineral(new GestionRecurso(2050));
         for (int i =0 ;i<40;i++) {
             razaZerg.agregarUnidad(new AmoSupremo());
         }
@@ -33,7 +33,7 @@ public class CasoDeUso29 {
     @Test
     public void LaCapacidadNoAumentaAlTener200() {
         Raza razaZerg = new RazaZerg();
-        razaZerg.aumentarMineral(new GestionRecurso(1050));
+        razaZerg.aumentarMineral(new GestionRecurso(2050));
         for (int i =0 ;i<41;i++) {
             razaZerg.agregarUnidad(new AmoSupremo());
         }

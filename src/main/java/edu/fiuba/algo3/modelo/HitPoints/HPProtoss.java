@@ -33,6 +33,12 @@ public class HPProtoss implements HitPoints {
     public int escudo() {
         return escudoActual;
     }
+
+    @Override
+    public boolean vidaDestruida() {
+        return (vidaActual == 0);
+    }
+
     private int cura(){
         return escudoMax/4;
     }

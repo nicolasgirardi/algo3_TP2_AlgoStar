@@ -11,7 +11,8 @@ public class Zerling extends Unidad {
         super(
                 new HPZerg(35),
                 new TipoTierra(),
-                new AtaqueSoloTierra(4), 2,1
+                new AtaqueSoloTierra(4),
+                2,1,25,0
         );
     }
 
@@ -19,9 +20,18 @@ public class Zerling extends Unidad {
         super(
                 vida,
                 new TipoTierra(),
-                new AtaqueSoloTierra(4),2,1
+                new AtaqueSoloTierra(4),
+                2,1,25,0
         )
         ;
+    }
+
+    @Override
+    public boolean equals(Object object){
+        if (!(object instanceof Zerling)) return false;
+        Zerling zerling = (Zerling) object;
+
+        return zerling.hp.equals(hp) ;
     }
 
 }

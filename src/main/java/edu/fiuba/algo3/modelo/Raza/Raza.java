@@ -1,31 +1,39 @@
 package edu.fiuba.algo3.modelo.Raza;
 
 import edu.fiuba.algo3.modelo.Edificio.*;
-import edu.fiuba.algo3.modelo.Juego.FinDePartida;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.Poblacion;
-import edu.fiuba.algo3.modelo.tablero.*;
 
 import java.util.ArrayList;
 
 public abstract class Raza {
 
-    protected GestionRecurso mineral;
-    protected GestionRecurso gas;
-    protected GestionRecurso suministro;
-    protected Poblacion poblacion;
+    private GestionRecurso mineral;
+    private GestionRecurso gas;
+
+    private GestionRecurso suministro;
+    private Poblacion poblacion;
     protected ArrayList<Edificio> edificios;
 
-    protected ArrayList<Unidad> unidades;
+    private ArrayList<Unidad> unidades;
 
-    protected int cantReservas;
+    int cantReservas;
 
-    protected int cantAccesos;
+    int cantAccesos;
     public Raza(){
         gas = new GestionRecurso(0);
         mineral = new GestionRecurso(200);
+        poblacion = new Poblacion(200);
+        edificios = new ArrayList<Edificio>();
+        unidades = new ArrayList<Unidad>();
+        cantAccesos = 0;
+        cantReservas = 0;
+    }
+    public Raza(GestionRecurso mineral, GestionRecurso gas){
+        this.mineral = mineral;
+        this.gas = gas;
         poblacion = new Poblacion(200);
         edificios = new ArrayList<Edificio>();
         unidades = new ArrayList<Unidad>();
@@ -43,10 +51,11 @@ public abstract class Raza {
     }
 
     public void agregarUnidad(Unidad unidad){
-        //unidad.verificarSiPuedeSerCreado(poblacion);
+        unidad.verificarConsumoRecurso(mineral,gas);
+        unidad.consumirGas(gas);
+        unidad.consumirMineral(mineral);
         unidad.aumentarPoblacion(this);
         unidades.add(unidad);
-
     }
 
     public void aumentarGas(GestionRecurso gas ){
@@ -110,13 +119,13 @@ public abstract class Raza {
     public void destruirEdificio(Edificio unEdificio){
         edificios.remove(unEdificio);
         unEdificio.disminuirCapacidad(this);
-        if (edificios.size()==0)
-            throw new FinDePartida();
     }
 
     public void matarUnidad(Unidad unaUnidad){
         unidades.remove(unaUnidad);
         unaUnidad.disminuirPoblacion(this);
     }
-    public abstract void construirBase(Ubicacion unaUbicacion,Mapa mapa);
+
+
+    public abstract void existenAunEdificios();
 }

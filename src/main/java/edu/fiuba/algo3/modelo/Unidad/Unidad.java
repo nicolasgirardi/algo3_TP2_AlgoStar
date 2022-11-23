@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Unidad;
 import edu.fiuba.algo3.modelo.Atacable;
 import edu.fiuba.algo3.modelo.Atacante;
 import edu.fiuba.algo3.modelo.Ataque.Ataque;
+import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
 import edu.fiuba.algo3.modelo.Raza.Raza;
@@ -15,6 +16,9 @@ public abstract class  Unidad implements Atacable, Atacante {
     private Ubicacion ubicacion;
     private int rango;
     private Ataque ataque;
+
+    protected  int costoGas;
+    protected  int costoMineral;
 
     protected int costoSuministro;
     protected int costoPoblacion;
@@ -31,12 +35,14 @@ public abstract class  Unidad implements Atacable, Atacante {
             throw  new UnidadNoOperativaError();
         }
     }
-    public Unidad(HitPoints vida, TipoSuperficie tipoSuperficie, Ataque ataque, int turnosRestantesParaSerOperativo, int costoPoblacion){
+    public Unidad(HitPoints vida, TipoSuperficie tipoSuperficie, Ataque ataque, int turnosRestantesParaSerOperativo, int costoPoblacion, int costoMineral, int costoGas){
         hp = vida;
         this.tipoSuperficie = tipoSuperficie;
         this.ataque = ataque;
         this.turnosRestantesParaSerOperativo = turnosRestantesParaSerOperativo;
         this.costoPoblacion = costoPoblacion;
+        this.costoMineral = costoMineral;
+        this.costoGas = costoGas;
     }
 
     public void atacar(Atacable atacable){
@@ -50,6 +56,7 @@ public abstract class  Unidad implements Atacable, Atacante {
 
     public void recibirAtaque(Ataque ataque){
         tipoSuperficie.recibirAtaque(ataque, hp);
+
     }
 
     public void asignarLugar(Ubicacion unLugar){
@@ -96,5 +103,18 @@ public abstract class  Unidad implements Atacable, Atacante {
     }
     protected void disminuirCapacidad(Raza unaRaza){
         unaRaza.disminuirCapacidad(0);
+    }
+
+    public void verificarConsumoRecurso(GestionRecurso mineral, GestionRecurso gas) {
+        if(!mineral.puedeConsumir(costoMineral) && !gas.puedeConsumir(costoGas))
+            throw new InsuficientesRecursosParaCrearUnidad();
+    }
+
+    public void consumirGas(GestionRecurso gas) {
+        gas.consumir(costoGas);
+    }
+
+    public void consumirMineral(GestionRecurso mineral) {
+        mineral.consumir(costoMineral);
     }
 }

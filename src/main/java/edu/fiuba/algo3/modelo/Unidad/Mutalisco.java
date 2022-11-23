@@ -9,7 +9,12 @@ import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 public class Mutalisco extends Unidad{
 
     public Mutalisco() {
-        super(new HPZerg(120), new TipoAire(), new AtaqueTierraYViento(9,9), 7,4);
+
+        super(
+                new HPZerg(120),
+                new TipoAire(),
+                new AtaqueTierraYViento(9,9),
+                7,4,100,100);
     }
 
     public Mutalisco(HitPoints vida) {
@@ -23,6 +28,17 @@ public class Mutalisco extends Unidad{
         raza.verficarConsumoRecurso(150,50);
         return new Devorador();
     }
+
+
+    @Override
+    public boolean equals(Object object){
+        if (!(object instanceof Mutalisco)) return false;
+        Mutalisco mutalisco = (Mutalisco) object;
+
+        return mutalisco.hp.equals(hp)  ;
+    }
+
+
 
 
 }
