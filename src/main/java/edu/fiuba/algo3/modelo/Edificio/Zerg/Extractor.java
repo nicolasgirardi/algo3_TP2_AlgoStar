@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.ConstruccionFueraDelMohoError;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.ExtractorCantidadMaximaDeZanganosError;
 import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
+import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
@@ -19,10 +20,9 @@ public class Extractor extends Edificio implements EstadoZangano {
     private ArrayList<Zangano> zanganos;
 
     public Extractor(){
-        super(CANTIDAD_TURNOS_OPERATIVO,100,0);
+        super(CANTIDAD_TURNOS_OPERATIVO,new HPZerg(750),100,0);
         zanganos = new ArrayList<Zangano>();
     }
-
 
     public void agregarZangano(Zangano zangano){
 

@@ -19,14 +19,9 @@ public class Espiral extends Edificio implements EstadoZangano {
 
     private static final int CANTIDAD_TURNOS_OPERATIVO = 10;
 
-
-    public Espiral() {
-        super(CANTIDAD_TURNOS_OPERATIVO,150,100);
-    }
-/*
     public Espiral(){
-        super(CANTIDAD_TURNOS_OPERATIVO,new HPZerg(500),150,100);
-    }*/
+        super(CANTIDAD_TURNOS_OPERATIVO,new HPZerg(1300),150,100);
+    }
 
     @Override
     public void agregarZangano(Zangano zangano) {
