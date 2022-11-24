@@ -1,9 +1,7 @@
 package edu.fiuba.algo3.entrega_3;
 
 import edu.fiuba.algo3.modelo.Ataque.ZealotNoPuedeSerAtacadaError;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Espiral;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Extractor;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.*;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.AmoSupremo;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
@@ -69,7 +67,6 @@ public class CasoDeUso28 {
         assertDoesNotThrow( ()-> {
             zangano.atacar(zealot);
         });
-
     }
 
     @Test
@@ -95,18 +92,18 @@ public class CasoDeUso28 {
             zealot.atacar(espiral);
         }
 
-        Criadero criadero2 = new Criadero();
-        unaRaza.agregarEdificio(criadero2);
+        Criadero criadero = new Criadero();
+        unaRaza.agregarEdificio(criadero);
 
         for (int i = 0 ; i < 63; i++){
-            zealot.atacar(criadero2);
+            zealot.atacar(criadero);
         }
 
-        Criadero criadero3 = new Criadero();
-        unaRaza.agregarEdificio(criadero3);
+        Extractor extractor = new Extractor();
+        unaRaza.agregarEdificio(extractor);
 
-        for (int i = 0 ; i < 63; i++){
-            zealot.atacar(criadero3);
+        for (int i = 0 ; i < 94; i++){
+            zealot.atacar(extractor);
         }
 
         //Assert y Act
@@ -115,17 +112,23 @@ public class CasoDeUso28 {
         });
 
     }
-    /*
+
     @Test
     public void testUnZealotInvisiblePeroBajoElRangoDeUnAmoSupremoSiDeberiaSerAtacado(){
         Mapa mapa = new Mapa(10,10);
         Ubicacion ubicacion1 = mapa.buscar(new Coordenada(5,5));
         Ubicacion ubicacion2 = mapa.buscar(new Coordenada(4,5));
         AmoSupremo amoSupremo = new AmoSupremo();
-        ubicacion1.asignarUnidad(amoSupremo);   //aca tengo que hacer que expanda su vision
+        ubicacion1.asignarAmoSupremo(amoSupremo, mapa);
         Zangano zangano = new Zangano();
         Zealot zealot = new Zealot();
         ubicacion2.asignarUnidad(zealot);
+
+        //Dejo al zealot y al zealot operativos
+        for(int i = 0; i < 4; i++){
+            zealot.ejecutarTurno();
+        }
+        zangano.ejecutarTurno();
 
         //Hago que el zealot mate a 3 unidades
         Zangano zangano1 = new Zangano();
@@ -142,10 +145,55 @@ public class CasoDeUso28 {
         for (int i = 0 ; i < 4; i++){
             zealot.atacar(zangano3);
         }
+
+        //Act
+        zealot.actualizarVisibilidad();
+
         //assert
         assertDoesNotThrow( ()-> {
             zangano.atacar(zealot);
         });
+    }
 
-    }*/
+    @Test
+    public void testUnZealotInvisibleYNoEstaBajoElRangoDeUnAmoSupremoSiDeberiaSerAtacado(){
+        Mapa mapa = new Mapa(10,10);
+        Ubicacion ubicacion1 = mapa.buscar(new Coordenada(1,1));
+        Ubicacion ubicacion2 = mapa.buscar(new Coordenada(9,9));
+        AmoSupremo amoSupremo = new AmoSupremo();
+        ubicacion1.asignarAmoSupremo(amoSupremo, mapa);
+        Zangano zangano = new Zangano();
+        Zealot zealot = new Zealot();
+        ubicacion2.asignarUnidad(zealot);
+
+        //Dejo al zealot y al zealot operativos
+        for(int i = 0; i < 4; i++){
+            zealot.ejecutarTurno();
+        }
+        zangano.ejecutarTurno();
+
+        //Hago que el zealot mate a 3 unidades
+        Zangano zangano1 = new Zangano();
+        for (int i = 0 ; i < 4; i++){
+            zealot.atacar(zangano1);
+        }
+
+        Zangano zangano2 = new Zangano();
+        for (int i = 0 ; i < 4; i++){
+            zealot.atacar(zangano2);
+        }
+
+        Zangano zangano3 = new Zangano();
+        for (int i = 0 ; i < 4; i++){
+            zealot.atacar(zangano3);
+        }
+
+        //Act
+        zealot.actualizarVisibilidad();
+
+        //assert
+        assertThrows( ZealotNoPuedeSerAtacadaError.class, ()-> {
+            zangano.atacar(zealot);
+        });
+    }
 }

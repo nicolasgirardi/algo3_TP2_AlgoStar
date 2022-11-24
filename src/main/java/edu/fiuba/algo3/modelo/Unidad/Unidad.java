@@ -125,5 +125,4 @@ public abstract class  Unidad implements Atacable, Atacante {
         mineral.consumir(costoMineral);
     }
 
-    //agrego comentario
 }

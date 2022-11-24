@@ -33,11 +33,17 @@ public class Zealot extends Unidad {
     @Override
     public void atacar(Atacable atacable){
         super.atacar(atacable);
-        if(unidadesAsesinadas >= 3){    // && ubicacion.visibilidad() ?
+        if(unidadesAsesinadas >= 3 ){
             visibilidad = false;
         }
     }
 
+
+    public void actualizarVisibilidad(){
+        if(ubicacion().estaBajoElRangoDeUnAmoSupremo()){
+           visibilidad = true;
+        }
+    }
     @Override
     public void recibirAtaque(Ataque ataque){
         if(visibilidad){

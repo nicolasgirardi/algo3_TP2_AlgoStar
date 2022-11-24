@@ -5,6 +5,11 @@ import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.*;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
+import edu.fiuba.algo3.modelo.tablero.Coordenada;
+import edu.fiuba.algo3.modelo.tablero.Mapa;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
+
+import java.util.ArrayList;
 
 public class AmoSupremo extends Unidad {
     public AmoSupremo() {
@@ -26,5 +31,14 @@ public class AmoSupremo extends Unidad {
     }
     public void disminuirCapacidad(Raza raza){
         raza.disminuirCapacidad(5);
+    }
+
+
+    public void asignarLugarAmoSupremo(Ubicacion unLugar, Mapa unMapa){
+        super.asignarLugar(unLugar);
+        ArrayList<Ubicacion> ubicaciones = unMapa.buscar(unLugar.coordenada(),4);
+        for(int i=0;i<ubicaciones.size();i++){
+            ubicaciones.get(i).establecerEnRangoAmoSupremo();
+        }
     }
 }

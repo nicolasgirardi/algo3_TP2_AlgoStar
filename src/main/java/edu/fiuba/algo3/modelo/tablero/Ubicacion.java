@@ -70,9 +70,19 @@ public class Ubicacion {
         unaUnidad.asignarLugar(this);
     }
 
-    public void energizar(){
+    public void asignarAmoSupremo(AmoSupremo unAmoSupremo, Mapa unMapa){
+        tipo.ubicar(unAmoSupremo);
+        unidad = unAmoSupremo;
+        unAmoSupremo.asignarLugarAmoSupremo(this, unMapa);
+    }
+
+    public void establecerEnRangoAmoSupremo(){
         if(edificio == null){
             enRangoAmoSupremo++;
         }
+    }
+
+    public boolean estaBajoElRangoDeUnAmoSupremo(){
+        return enRangoAmoSupremo > 0;
     }
 }
