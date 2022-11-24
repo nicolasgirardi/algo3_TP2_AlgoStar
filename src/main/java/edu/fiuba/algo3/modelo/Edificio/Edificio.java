@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.*;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
+import edu.fiuba.algo3.modelo.Unidad.UnidadMuertaError;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.*;
 import edu.fiuba.algo3.modelo.tablero.*;
 
@@ -100,10 +101,16 @@ public abstract class Edificio implements Atacable {
     }
     @Override
     public void recibirAtaque(Ataque unAtaque){
-        unAtaque.aplicarDanioTierra(hp);
-        if(hp.vidaDestruida()){
-            raza.destruirEdificio(this);          //puede mejorar pero los edificios tienen que tener una referencia a raza.
+        try{
+            unAtaque.aplicarDanioTierra(hp);
+        }catch (UnidadMuertaError e){
+            raza.destruirEdificio(this);
+            throw new UnidadMuertaError();
         }
+
+/*        if(hp.vidaDestruida()){
+            raza.destruirEdificio(this);          //puede mejorar pero los edificios tienen que tener una referencia a raza.
+        }*/
     }
 
     public abstract void fueAgregado(Raza raza);
