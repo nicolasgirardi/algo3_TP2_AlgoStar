@@ -3,8 +3,6 @@ package edu.fiuba.algo3.modelo.Unidad;
 import edu.fiuba.algo3.modelo.Atacable;
 import edu.fiuba.algo3.modelo.Atacante;
 import edu.fiuba.algo3.modelo.Ataque.Ataque;
-import edu.fiuba.algo3.modelo.Ataque.ZealotNoPuedeSerAtacadaError;
-import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
 import edu.fiuba.algo3.modelo.Raza.Raza;
@@ -114,7 +112,7 @@ public abstract class  Unidad implements Atacable, Atacante {
 
     public void verificarConsumoRecurso(GestionRecurso mineral, GestionRecurso gas) {
         if(!mineral.puedeConsumir(costoMineral) && !gas.puedeConsumir(costoGas))
-            throw new InsuficientesRecursosParaCrearUnidad();
+            throw new InsuficientesRecursosParaCrearUnidadError();
     }
 
     public void consumirGas(GestionRecurso gas) {

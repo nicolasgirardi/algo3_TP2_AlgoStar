@@ -1,14 +1,8 @@
 package edu.fiuba.algo3.entrega_3;
-import edu.fiuba.algo3.modelo.Atacable;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
-import edu.fiuba.algo3.modelo.HitPoints.HPProtoss;
-import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
-import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
-import edu.fiuba.algo3.modelo.NoPuedeAplicarDanioUnidadTipoAire;
 import edu.fiuba.algo3.modelo.Raza.*;
-import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.*;
 import org.junit.jupiter.api.Test;
@@ -21,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class CasoDeUso31 {
 
     @Test
-    public void destruirUnCriaderoDisminuyeLaCapacidad(){
+    public void testDestruirUnCriaderoDisminuyeLaCapacidad(){
         Raza razaZerg = new RazaZerg();
         razaZerg.aumentarMineral(new GestionRecurso(10000));
         for (int i =0 ;i<4;i++) {
@@ -34,7 +28,7 @@ public class CasoDeUso31 {
         assertEquals(20,razaZerg.capacidadReal());
     }
     @Test
-    public void destruirUnPilonoDisminuyeLaCapacidad(){
+    public void testDestruirUnPilonoDisminuyeLaCapacidad(){
         Raza razaProtos = new RazaZerg();
         razaProtos.aumentarMineral(new GestionRecurso(10000));
         for (int i =0 ;i<4;i++) {
@@ -48,7 +42,7 @@ public class CasoDeUso31 {
     }
 
     @Test
-    public void MatarUnAmoSupremoDisminuyeLaCapacidad(){
+    public void testMatarUnAmoSupremoDisminuyeLaCapacidad(){
         Raza razaZerg = new RazaZerg();
         razaZerg.aumentarMineral(new GestionRecurso(10000));
         for (int i =0 ;i<4;i++) {

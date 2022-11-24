@@ -25,7 +25,7 @@ public class CasoDeUso19 {
         }
 
         //Act y Assert
-        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAireError.class, () -> {
             atacante.atacar(scout);
         });
 
@@ -43,7 +43,7 @@ public class CasoDeUso19 {
         }
 
         //Act y Assert
-        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAireError.class, () -> {
             atacante.atacar(mutalisco);
         });
 
@@ -61,7 +61,7 @@ public class CasoDeUso19 {
         }
 
         //Act y Assert
-        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAireError.class, () -> {
             atacante.atacar(guardian);
         });
     }
@@ -78,7 +78,7 @@ public class CasoDeUso19 {
         }
 
         //Act y Assert
-        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAireError.class, () -> {
             guardian.atacar(mutalisco);
         });
     }
@@ -95,7 +95,7 @@ public class CasoDeUso19 {
         }
 
         //Act y Assert
-        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAireError.class, () -> {
             guardian.atacar(guardianDos);
         });
 
@@ -113,7 +113,7 @@ public class CasoDeUso19 {
         }
 
         //Act y Assert
-        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAireError.class, () -> {
             guardian.atacar(scout);
         });
     }
@@ -131,7 +131,7 @@ public class CasoDeUso19 {
         }
 
         //Act y Assert
-        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAireError.class, () -> {
             zealot.atacar(mutalisco);
         });
 
@@ -150,7 +150,7 @@ public class CasoDeUso19 {
         }
 
         //Act y Assert
-        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAireError.class, () -> {
             zealot.atacar(guardian);
         });
 
@@ -168,7 +168,7 @@ public class CasoDeUso19 {
         }
 
         //Act y Assert
-        assertThrows(NoPuedeAplicarDanioUnidadTipoAire.class, () -> {
+        assertThrows(NoPuedeAplicarDanioUnidadTipoAireError.class, () -> {
             zealot.atacar(scout);
         });
     }

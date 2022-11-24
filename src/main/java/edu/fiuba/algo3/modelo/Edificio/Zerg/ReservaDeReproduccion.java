@@ -19,7 +19,7 @@ public class ReservaDeReproduccion extends Edificio implements EstadoZangano {
 
 
     public ReservaDeReproduccion(){
-        super(CANTIDAD_TURNOS_OPERATIVO,new HPZerg(1300),150,0);
+        super(CANTIDAD_TURNOS_OPERATIVO,new HPZerg(1000),150,0);
     }
 
     @Override
