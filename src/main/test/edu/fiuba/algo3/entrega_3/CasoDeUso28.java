@@ -44,7 +44,7 @@ public class CasoDeUso28 {
         Zangano zangano3 = new Zangano();
         for (int i = 0 ; i < 4; i++){
             zealot.atacar(zangano3);
-        }   //PROBAR LO MISMO CON EDIFICIOS
+        }
 
         //Assert y Act
         assertThrows( ZealotNoPuedeSerAtacadaError.class, ()-> {
@@ -115,19 +115,22 @@ public class CasoDeUso28 {
         });
 
     }
-/*
+    /*
     @Test
     public void testUnZealotInvisiblePeroBajoElRangoDeUnAmoSupremoSiDeberiaSerAtacado(){
         Mapa mapa = new Mapa(10,10);
         Ubicacion ubicacion1 = mapa.buscar(new Coordenada(5,5));
+        Ubicacion ubicacion2 = mapa.buscar(new Coordenada(4,5));
         AmoSupremo amoSupremo = new AmoSupremo();
         ubicacion1.asignarUnidad(amoSupremo);   //aca tengo que hacer que expanda su vision
         Zangano zangano = new Zangano();
         Zealot zealot = new Zealot();
+        ubicacion2.asignarUnidad(zealot);
 
+        //Hago que el zealot mate a 3 unidades
         Zangano zangano1 = new Zangano();
         for (int i = 0 ; i < 4; i++){
-            zealot.atacar(zangano1);    //se muere al cuarto ataque
+            zealot.atacar(zangano1);
         }
 
         Zangano zangano2 = new Zangano();

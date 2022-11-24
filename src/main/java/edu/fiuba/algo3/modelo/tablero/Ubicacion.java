@@ -11,12 +11,12 @@ public class Ubicacion {
     private Tipo tipo;
 
     private Coordenada coor;
-    private boolean visibilidad;
+    private int enRangoAmoSupremo;
 
     public Ubicacion(Coordenada coordenada){
         coor = coordenada;
         tipo = new Tierra();
-        visibilidad = false;
+        enRangoAmoSupremo = 0;
     }
 
     public void ubicar(Edificio Edificio){
@@ -72,7 +72,7 @@ public class Ubicacion {
 
     public void energizar(){
         if(edificio == null){
-            visibilidad = true;
+            enRangoAmoSupremo++;
         }
     }
 }
