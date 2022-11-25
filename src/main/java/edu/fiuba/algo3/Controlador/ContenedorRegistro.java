@@ -16,12 +16,13 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.util.Objects;
 
-public class Ejemplo2 {
+public class ContenedorRegistro extends VBox{
 
-    public Ejemplo2(){
-    }
-    public void ejecutar(Stage stage){
 
+    public ContenedorRegistro(Stage stage) {
+        super();
+        this.setAlignment(Pos.CENTER);
+        this.setSpacing(15);
         stage.setTitle("AlgoStar");
         Label labelJugador = new Label();
         labelJugador.setText("Jugador 1");
@@ -162,9 +163,6 @@ public class Ejemplo2 {
 
         stage.setScene(escena);
 
-        stage.show();
-
-
     }
 
     private VBox obtenerContVer(String nombreRaza, Label labelRaza, Button botonRaza) {
@@ -182,5 +180,6 @@ public class Ejemplo2 {
         labelRaza.setGraphic(new ImageView(imagenRaza) );
         return new VBox(labelRaza, botonRaza);
     }
+
 
 }
