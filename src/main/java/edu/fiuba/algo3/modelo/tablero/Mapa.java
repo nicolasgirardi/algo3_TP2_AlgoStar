@@ -28,7 +28,7 @@ public class Mapa {
             }
 
         }
-        throw new UbicacionFueraDelMapa();
+        throw new UbicacionFueraDelMapaError();
     }
     public ArrayList<Ubicacion> buscar(Coordenada coordenada,int radio){
         ArrayList<Ubicacion> lista = new ArrayList<Ubicacion>();

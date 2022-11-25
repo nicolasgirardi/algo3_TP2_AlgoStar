@@ -1,12 +1,13 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.Edificio.Asimilador;
-import edu.fiuba.algo3.modelo.Edificio.Extractor;
-import edu.fiuba.algo3.modelo.Edificio.NexoMineral;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.Asimilador;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Extractor;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.NexoMineral;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -28,27 +29,26 @@ public class CasoDeUso15 {
             extractor.agregarZangano(new Zangano(new HPZerg(25)));
         }
 
-        int maximaCantidadGasExtraible = 5000;
-        int cantidadDeTurnosParaSacarTodoElGas = 167;
-        int cantidadGas = 0;
-        int cantidadGasExceso = 0;
+        GestionRecurso maximaCantidadRecursoExtraible = new GestionRecurso(5000);
+        int cantidadDeTurnosParaSacarTodoElRecurso = 167;
+        GestionRecurso recursoExtraido = new GestionRecurso();
+        GestionRecurso cantidadRecursoExceso = new GestionRecurso();
 
         //Act
-        for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElGas ; i++ ){
-            cantidadGas += extractor.extraer(volcan);
+        for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElRecurso ; i++ ){
+            recursoExtraido.aumentar(extractor.extraer(volcan));
         }
 
         // Intentamos extraer 5 veces mas el Volcan
 
         for(int i = 0; i < 5 ; i++){
-            cantidadGasExceso += extractor.extraer(volcan);
+            cantidadRecursoExceso.aumentar(extractor.extraer(volcan));
         }
 
 
         //Assert
-        assertEquals(maximaCantidadGasExtraible, cantidadGas);
-
-        assertEquals(0,cantidadGasExceso );
+        assertEquals(maximaCantidadRecursoExtraible, recursoExtraido);
+        assertEquals(new GestionRecurso(),cantidadRecursoExceso );
     }
 
 
@@ -57,27 +57,28 @@ public class CasoDeUso15 {
         //Arrange
         NodoMineral nodoMineral = new NodoMineral();
         Zangano zangano = new Zangano(new HPZerg(25));
-        int maximaCantidadGasExtraible = 2000;
-        int cantidadDeTurnosParaSacarTodoElGas = 200;
-        int cantidadMineral = 0;
-        int cantidadMineralExceso = 0;
+        GestionRecurso maximaCantidadRecursoExtraible = new GestionRecurso(2000);
+        int cantidadDeTurnosParaSacarTodoElRecurso = 200;
+        GestionRecurso recursoExtraido = new GestionRecurso();
+        GestionRecurso cantidadRecursoExceso = new GestionRecurso();
+
 
         //Act
 
-        for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElGas ; i++ ){
-            cantidadMineral += zangano.extraer(nodoMineral);
+        for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElRecurso ; i++ ){
+            recursoExtraido.aumentar(zangano.extraer(nodoMineral));
         }
 
         // Intentamos extraer 5 veces mas en el nodoMineral
 
         for(int i = 0; i < 5 ; i++){
-            cantidadMineralExceso += zangano.extraer(nodoMineral);
+            cantidadRecursoExceso.aumentar(zangano.extraer(nodoMineral));
         }
 
 
         //Assert
-        assertEquals( maximaCantidadGasExtraible, cantidadMineral);
-        assertEquals(0,cantidadMineralExceso );
+        assertEquals(maximaCantidadRecursoExtraible, recursoExtraido);
+        assertEquals(new GestionRecurso(),cantidadRecursoExceso );
 
     }
 
@@ -92,26 +93,25 @@ public class CasoDeUso15 {
             asimilador.ejecutarTurno();
         }
 
-        int maximaCantidadGasExtraible = 5000;
-        int cantidadDeTurnosParaSacarTodoElGas = 250;
-        int cantidadGas = 0;
-        int cantidadGasExceso = 0;
+        GestionRecurso maximaCantidadRecursoExtraible = new GestionRecurso(5000);
+        int cantidadDeTurnosParaSacarTodoElRecurso = 250;
+        GestionRecurso recursoExtraido = new GestionRecurso();
+        GestionRecurso cantidadRecursoExceso = new GestionRecurso();
+
         //Act
-        for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElGas; i++ ){
-            cantidadGas += asimilador.extraer(volcan);
+        for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElRecurso; i++ ){
+            recursoExtraido.aumentar(asimilador.extraer(volcan));
         }
 
         // Intentamos extraer 5 veces mas en el volcan
 
         for(int i = 0; i < 5 ; i++){
-            cantidadGasExceso += asimilador.extraer(volcan);
+            cantidadRecursoExceso.aumentar(asimilador.extraer(volcan));
         }
 
         //Assert
-        assertEquals(maximaCantidadGasExtraible, cantidadGas);
-
-        assertEquals(0, cantidadGasExceso);
-
+        assertEquals(maximaCantidadRecursoExtraible, recursoExtraido);
+        assertEquals(new GestionRecurso(),cantidadRecursoExceso );
     }
 
     @Test
@@ -124,26 +124,25 @@ public class CasoDeUso15 {
             nexoMineral.ejecutarTurno();
         }
 
-        int maximaCantidadGasExtraible = 2000;
-        int cantidadDeTurnosParaSacarTodoElGas = 250;
-        int cantidadGas = 0;
-        int cantidadGasExceso = 0;
+        GestionRecurso maximaCantidadRecursoExtraible = new GestionRecurso(2000);
+        int cantidadDeTurnosParaSacarTodoElRecurso = 250;
+        GestionRecurso recursoExtraido = new GestionRecurso();
+        GestionRecurso cantidadRecursoExceso = new GestionRecurso();
 
         //Act
-        for(int i = 0; i < cantidadDeTurnosParaSacarTodoElGas; i++ ){
-            cantidadGas += nexoMineral.extraer();
+        for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElRecurso ; i++ ){
+            recursoExtraido.aumentar(nexoMineral.extraer());
         }
 
-        // Intentamos extraer 5 veces mas en el nexoMineral
+        // Intentamos extraer 5 veces mas en el nodoMineral
+
         for(int i = 0; i < 5 ; i++){
-            cantidadGasExceso += nexoMineral.extraer();
+            cantidadRecursoExceso.aumentar(nexoMineral.extraer());
         }
 
         //Assert
-        assertEquals(maximaCantidadGasExtraible, cantidadGas);
-
-        assertEquals(0, cantidadGasExceso );
-
+        assertEquals(maximaCantidadRecursoExtraible, recursoExtraido);
+        assertEquals(new GestionRecurso(),cantidadRecursoExceso );
     }
 
 }

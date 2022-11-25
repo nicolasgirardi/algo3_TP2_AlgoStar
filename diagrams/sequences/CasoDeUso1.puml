@@ -1,12 +1,11 @@
 @startuml
-'https://plantuml.com/sequence-diagram
 
 autonumber
 ":jugador" -> ":Criadero": evolucionarLarva()
-":Criadero" -> ":Criadero": evolucionarLarva()
-":Criadero" -> ":Larva": evolucionarLarva()
-":Larva" -> ":Zangano": evolucionarLarva()
-":Zangano" -> ":Criadero": zangano
-":Criadero" -> ":jugador": zangano
+":Criadero" -> ":Criadero": verififarEdificioOperativo()
+":Criadero" -> ":Criadero": sacarLarva()
+":Criadero" -> "larbaSacada:Larva": evolucionar()
+return new Zangano()
+":Criadero" --> ":jugador": zangano
 
 @enduml

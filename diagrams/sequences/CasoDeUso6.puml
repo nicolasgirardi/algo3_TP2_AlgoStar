@@ -1,33 +1,34 @@
 @startuml
 'https://plantuml.com/sequence-diagram
-
+mainframe crecimiento de Moho
 autonumber
 ":jugador" -> ":Mapa": newMapa(coordenadas)
-":Mapa" -> ":jugador": mapa
+":Mapa" --> ":jugador": mapa
 
 ":jugador" -> ":Mapa": buscar(coordenadas)
 ":Mapa" -> ":Mapa": celdaDentroDelMapa()
 ":Mapa" -> ":Mapa": true
 
 ":Mapa" -> ":Ubicacion": buscar(coordenadas)
-":Ubicacion" -> ":Moho": darTipo()
-":Moho" -> ":Ubicacion": Moho
+":Ubicacion" -> ":Moho": new()
+":Moho" --> ":Ubicacion": Moho
+":Ubicacion" -> ":Ubicacion": darTipo( Moho)
 ":Ubicacion" -> ":Ubicacion": crecer(unRadio, Moho)
 ":Ubicacion" -> ":Tipo": crecer(coord, mapa ,unRadio)
-":Tipo" -> ":Ubicacion": crecerMoho
+":Tipo" --> ":Ubicacion": crecerMoho
 ":Ubicacion" -> ":Ubicacion": crecer moho en un radio
-":Ubicacion" -> ":Mapa": mapaActualizado
-":Mapa" -> ":jugador": mapaActualizado
+":Ubicacion" --> ":Mapa": mapaActualizado
+":Mapa" --> ":jugador": mapaActualizado
 group 2 veces
       ":jugador" -> ":Mapa": ejecutarTurno
 end
 ":Mapa" -> ":Ubicacion": buscar(coordenadas)
 ":Ubicacion" -> ":Ubicacion": crecer(unRadio, Moho)
 ":Ubicacion" -> ":Tipo": crecer(coord, mapa ,unRadio)
-":Tipo" -> ":Ubicacion": crecerMoho
+":Tipo" --> ":Ubicacion": crecerMoho
 ":Ubicacion" -> ":Ubicacion": crecer moho en un radio
-":Ubicacion" -> ":Mapa": mapaActualizado
-":Mapa" -> ":jugador": mapaActualizado
+":Ubicacion" --> ":Mapa": mapaActualizado
+":Mapa" --> ":jugador": mapaActualizado
 
 
 

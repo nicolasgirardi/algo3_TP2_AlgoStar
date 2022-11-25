@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.tablero;
 import edu.fiuba.algo3.modelo.Edificio.*;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;;import java.util.ArrayList;
 import edu.fiuba.algo3.modelo.Unidad.*;
 
@@ -10,10 +11,12 @@ public class Ubicacion {
     private Tipo tipo;
 
     private Coordenada coor;
+    private int enRangoAmoSupremo;
 
     public Ubicacion(Coordenada coordenada){
         coor = coordenada;
         tipo = new Tierra();
+        enRangoAmoSupremo = 0;
     }
 
     public void ubicar(Edificio Edificio){
@@ -21,7 +24,7 @@ public class Ubicacion {
         edificio = Edificio;
         edificio.ubicar(this);
     }
-    public void ubicar(Edificio Edificio,Pilon unPilon){
+    public void ubicar(Edificio Edificio, Pilon unPilon){
         tipo.instalar(Edificio);
         unPilon.enRango(this);
         edificio = Edificio;
@@ -67,13 +70,19 @@ public class Ubicacion {
         unaUnidad.asignarLugar(this);
     }
 
-    @Override
-    public boolean equals(Object object){
-        if (!(object instanceof Ubicacion)) return false;
-        Ubicacion otraUbicacion = (Ubicacion) object;
-
-        return coor.EsIgual(otraUbicacion.coor);
+    public void asignarAmoSupremo(AmoSupremo unAmoSupremo, Mapa unMapa){
+        tipo.ubicar(unAmoSupremo);
+        unidad = unAmoSupremo;
+        unAmoSupremo.asignarLugarAmoSupremo(this, unMapa);
     }
 
+    public void establecerEnRangoAmoSupremo(){
+        if(edificio == null){
+            enRangoAmoSupremo++;
+        }
+    }
 
+    public boolean estaBajoElRangoDeUnAmoSupremo(){
+        return enRangoAmoSupremo > 0;
+    }
 }

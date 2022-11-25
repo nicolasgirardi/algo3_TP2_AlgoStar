@@ -3,8 +3,10 @@ package edu.fiuba.algo3.modelo.Unidad;
 import edu.fiuba.algo3.modelo.Atacable;
 import edu.fiuba.algo3.modelo.Atacante;
 import edu.fiuba.algo3.modelo.Ataque.Ataque;
-import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
+import edu.fiuba.algo3.modelo.Raza.Raza;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 
 public abstract class  Unidad implements Atacable, Atacante {
@@ -14,10 +16,18 @@ public abstract class  Unidad implements Atacable, Atacante {
     private int rango;
     private Ataque ataque;
 
-    protected int turnosRestantesParaSerOperativo;
+    protected  int costoGas;
+    protected  int costoMineral;
 
-    public Unidad(HitPoints vida){
+    protected int costoSuministro;
+    protected int costoPoblacion;
+
+    protected int turnosRestantesParaSerOperativo;
+    protected int unidadesAsesinadas;
+
+    public Unidad(HitPoints vida, int suministroNecesario){
         hp = vida;
+        costoSuministro = suministroNecesario;
     }
 
     public void verificarUnidadOperativa() {
@@ -25,16 +35,24 @@ public abstract class  Unidad implements Atacable, Atacante {
             throw  new UnidadNoOperativaError();
         }
     }
-    public Unidad(HitPoints vida, TipoSuperficie tipoSuperficie, Ataque ataque, int turnosRestantesParaSerOperativo){
+    public Unidad(HitPoints vida, TipoSuperficie tipoSuperficie, Ataque ataque, int turnosRestantesParaSerOperativo, int costoPoblacion, int costoMineral, int costoGas){
         hp = vida;
         this.tipoSuperficie = tipoSuperficie;
         this.ataque = ataque;
         this.turnosRestantesParaSerOperativo = turnosRestantesParaSerOperativo;
+        this.costoPoblacion = costoPoblacion;
+        this.costoMineral = costoMineral;
+        this.costoGas = costoGas;
+        unidadesAsesinadas = 0;
     }
 
     public void atacar(Atacable atacable){
         verificarUnidadOperativa();
-        atacable.recibirAtaque(ataque);
+        try {
+            atacable.recibirAtaque(ataque);
+        } catch (UnidadMuertaError e){
+            unidadesAsesinadas++;
+        }
     }
 
     public void ejecutarTurno() {
@@ -43,6 +61,7 @@ public abstract class  Unidad implements Atacable, Atacante {
 
     public void recibirAtaque(Ataque ataque){
         tipoSuperficie.recibirAtaque(ataque, hp);
+
     }
 
     public void asignarLugar(Ubicacion unLugar){
@@ -68,4 +87,40 @@ public abstract class  Unidad implements Atacable, Atacante {
         verificarUnidadOperativa();
         tipoSuperficie.volar();
     }
+
+    public void consumirSuministro(GestionRecurso suministro){
+        suministro.consumir(costoSuministro);
+    }
+    public void verificarSiPuedeSerCreado(int poblacion){
+        if(poblacion-costoPoblacion < 0){
+            throw new PoblacionExedidaError();
+        }
+    }
+
+
+    public void aumentarPoblacion(Raza raza) {
+        raza.aumentarPoblacion(costoPoblacion);
+    }
+
+    public void disminuirPoblacion(Raza unaRaza){
+        unaRaza.disminuirPoblacion(costoPoblacion);
+        disminuirCapacidad(unaRaza);
+    }
+    protected void disminuirCapacidad(Raza unaRaza){
+        unaRaza.disminuirCapacidad(0);
+    }
+
+    public void verificarConsumoRecurso(GestionRecurso mineral, GestionRecurso gas) {
+        if(!mineral.puedeConsumir(costoMineral) && !gas.puedeConsumir(costoGas))
+            throw new InsuficientesRecursosParaCrearUnidadError();
+    }
+
+    public void consumirGas(GestionRecurso gas) {
+        gas.consumir(costoGas);
+    }
+
+    public void consumirMineral(GestionRecurso mineral) {
+        mineral.consumir(costoMineral);
+    }
+
 }

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.HitPoints;
 
-import edu.fiuba.algo3.modelo.Edificio.Criadero;
+import edu.fiuba.algo3.modelo.Unidad.UnidadMuertaError;
 
 public class HPProtoss implements HitPoints {
 
@@ -17,8 +17,12 @@ public class HPProtoss implements HitPoints {
     }
     @Override
     public void recibirDaño(int daño) {
+
         vidaActual = Math.min(vidaActual,escudoActual+vidaActual-daño);
         escudoActual = Math.max(escudoActual-daño,0);
+        if(vidaActual <= 0){
+            throw new UnidadMuertaError();
+        }
     }
 
     @Override
@@ -35,6 +39,12 @@ public class HPProtoss implements HitPoints {
     public int escudo() {
         return escudoActual;
     }
+
+    @Override
+    public boolean vidaDestruida() {
+        return (vidaActual == 0);
+    }
+
     private int cura(){
         return escudoMax/4;
     }

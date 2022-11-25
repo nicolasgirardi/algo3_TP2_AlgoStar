@@ -1,13 +1,16 @@
 @startuml
 'https://plantuml.com/sequence-diagram
+mainframe Construir edificio Zerg en moho
+actor "actor"
+activate "actor"
+"actor" -> ":Ubicacion": construirEdificio(coordenadas)
+":Ubicacion" -> ":Moho": new()
+":Moho" --> ":Ubicacion": Moho
+":Ubicacion" -> ":Ubicacion": darTipo(Moho)
+":Ubicacion" -> ":Criadero": new()
+":Criadero" --> ":Ubicacion": Criadero
 
-":jugador" -> ":Mapa": construirEdificio(coordenadas)
-":Mapa" -> ":Ubicacion": construirEdificio(coordenadas)
-":Ubicacion" -> ":Tierra": darTipo()
-":Tierra" -> ":Ubicacion": tierra
-":Ubicacion" -> ":Ubicacion": moho null
-":Ubicacion" -> ":Mapa": ConstruccionFueraDelMohoError
-":Mapa" -> ":jugador": ConstruccionFueraDelMohoError
+
 
 
 @enduml
