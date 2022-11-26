@@ -118,19 +118,19 @@ public class Ejemplo2 {
         BotonEnviar2EventHandler botonEnviar2EventHandler = new BotonEnviar2EventHandler(campoNombre, nombreIngresado);
         botonEnviarNombre.setOnAction(botonEnviar2EventHandler);
 
-        BotonColorEventHandler botonColorEventHandlerRojo = new BotonColorEventHandler( Color.rgb(255,0,0) , colorIngresado);
+        BotonColorEventHandler botonColorEventHandlerRojo = new BotonColorEventHandler( Color.rgb(255,0,0) , colorIngresado, "Rojo");
         botonColorRojo.setOnAction(botonColorEventHandlerRojo);
 
-        BotonColorEventHandler botonColorEventHandlerAzul = new BotonColorEventHandler( Color.rgb(0,0,255) , colorIngresado);
+        BotonColorEventHandler botonColorEventHandlerAzul = new BotonColorEventHandler( Color.rgb(0,0,255) , colorIngresado, "Rojo");
         botonColorAzul.setOnAction(botonColorEventHandlerAzul);
 
-        BotonColorEventHandler botonColorEventHandlerVerde = new BotonColorEventHandler(Color.rgb(94,255,0), colorIngresado);
+        BotonColorEventHandler botonColorEventHandlerVerde = new BotonColorEventHandler(Color.rgb(94,255,0), colorIngresado, "Rojo");
         botonColorVerde.setOnAction(botonColorEventHandlerVerde);
 
-        BotonColorEventHandler botonColorEventHandlerAmarillo = new BotonColorEventHandler(Color.rgb(255,244,0), colorIngresado);
+        BotonColorEventHandler botonColorEventHandlerAmarillo = new BotonColorEventHandler(Color.rgb(255,244,0), colorIngresado, "Rojo");
         botonColorAmarillo.setOnAction(botonColorEventHandlerAmarillo);
 
-        BotonColorEventHandler botonColorEventHandlerCeleste = new BotonColorEventHandler(Color.rgb(0,255,180), colorIngresado);
+        BotonColorEventHandler botonColorEventHandlerCeleste = new BotonColorEventHandler(Color.rgb(0,255,180), colorIngresado, "Rojo");
         botonColorCeleste.setOnAction(botonColorEventHandlerCeleste);
 
 

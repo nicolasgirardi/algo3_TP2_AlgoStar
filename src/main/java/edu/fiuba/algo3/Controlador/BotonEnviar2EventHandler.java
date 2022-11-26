@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.Controlador;
 
+import edu.fiuba.algo3.modelo.Juego.Juego;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
@@ -9,6 +10,7 @@ import javafx.scene.paint.Color;
 public class BotonEnviar2EventHandler implements EventHandler<ActionEvent> {
     TextField campoNombre;
     Label labelNombreResult;
+
     public BotonEnviar2EventHandler(TextField campoNombre, Label nombreIngresado) {
         labelNombreResult = nombreIngresado;
         this.campoNombre = campoNombre;

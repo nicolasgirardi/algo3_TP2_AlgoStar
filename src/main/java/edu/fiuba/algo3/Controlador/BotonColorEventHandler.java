@@ -8,16 +8,18 @@ import javafx.scene.paint.Color;
 public class BotonColorEventHandler implements EventHandler<ActionEvent> {
     Color unColor;
     Label label;
+    String colorEnString;
 
-    public BotonColorEventHandler(Color colorIngresado, Label label) {
+    public BotonColorEventHandler(Color colorIngresado, Label label, String colorEnString) {
         unColor = colorIngresado;
         this.label = label;
+        this.colorEnString = colorEnString;
     }
 
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        label.setText("Color seleccionado");
+        label.setText(colorEnString);
         label.setTextFill(unColor);
     }
 
