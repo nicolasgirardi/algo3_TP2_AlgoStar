@@ -15,7 +15,6 @@ public abstract class  Unidad implements Atacable, Atacante {
     private Ubicacion ubicacion;
     private int rango;
     private Ataque ataque;
-
     protected  int costoGas;
     protected  int costoMineral;
 

@@ -38,7 +38,6 @@ public class Zealot extends Unidad {
         }
     }
 
-
     public void actualizarVisibilidad(){
         if(ubicacion().estaBajoElRangoDeUnAmoSupremo()){
            visibilidad = true;

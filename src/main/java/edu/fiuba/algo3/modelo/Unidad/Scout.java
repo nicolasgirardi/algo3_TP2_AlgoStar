@@ -16,7 +16,6 @@ public class Scout extends Unidad {
                 new TipoAire(),
                 new AtaqueTierraYViento(8,14),
                 9,4,300,150);
-
     }
 
     public Scout(HitPoints hp){

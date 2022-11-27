@@ -19,12 +19,6 @@ public class AmoSupremo extends Unidad {
                 new AtaqueTierraYViento(0,0)
                 , 5,0,50,0 );
     }
-    public AmoSupremo(HitPoints vida) {
-        super(vida,5);
-    }
-    public void costoCreacion(RazaZerg raza) {
-        raza.verficarConsumoRecurso(50,0);
-    }
 
     public void aumentarPoblacion(Raza raza){
         raza.aumentarCapacidad(5);

@@ -18,12 +18,4 @@ public class Devorador extends Unidad {
                 4,0,150,50);
     }
 
-    public Devorador(HitPoints hp){
-        super(
-                hp,
-                new TipoAire(),
-                new AtaqueTierraYViento(0,25),
-                4,0,150,50);
-    }
-
 }

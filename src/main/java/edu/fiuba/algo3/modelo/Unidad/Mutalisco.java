@@ -29,7 +29,6 @@ public class Mutalisco extends Unidad{
 
     }
 
-
     @Override
     public boolean equals(Object object){
         if (!(object instanceof Mutalisco)) return false;

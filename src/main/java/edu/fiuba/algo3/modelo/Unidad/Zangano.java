@@ -94,13 +94,11 @@ public class Zangano extends Unidad{
         estadoZangano.agregarZangano(zangano);
     }
 
-
     public void mutarGuarida(RazaZerg raza) {
         verificarEstadoLibreZangano();
         estadoZangano = new Guarida();
         raza.agregarEsteEdificio(estadoZangano);
     }
-
 
     public Hidralisco evolucionarLarvaAHidra(Larva larva) {
         return estadoZangano.evolucionarLarvaAHidra(larva);
@@ -109,8 +107,6 @@ public class Zangano extends Unidad{
     public Zerling evolucionarLarvaAZerli(Larva larva) {
         return estadoZangano.evolucionarLarvaAZerli(larva);
     }
-
-
 
 
     public void mutarReservaReproduccion(RazaZerg raza) {

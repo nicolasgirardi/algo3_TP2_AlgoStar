@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Unidad.*;
 
 public interface Tipo {
 
-    public void instalar(Edificio edificio);
-    public void crecer(Coordenada coor,Mapa mapa,int radio);
-    public void ubicar(Unidad unaUnidad);
+    void instalar(Edificio edificio);
+    void crecer(Coordenada coor,Mapa mapa,int radio);
+    void ubicar(Unidad unaUnidad);
 }
