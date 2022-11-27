@@ -24,9 +24,9 @@ public class Mutalisco extends Unidad{
     public void evolucionar(RazaZerg raza) {
         raza.verficarConsumoRecurso(50,100);
     }
-    public Devorador evolucionarDevorador(RazaZerg raza) {
+    public void evolucionarDevorador(RazaZerg raza) {
         raza.verficarConsumoRecurso(150,50);
-        return new Devorador();
+
     }
 
 
