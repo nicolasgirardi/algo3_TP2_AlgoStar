@@ -88,15 +88,6 @@ public abstract class  Unidad implements Atacable, Atacante {
         tipoSuperficie.volar();
     }
 
-    public void consumirSuministro(GestionRecurso suministro){
-        suministro.consumir(costoSuministro);
-    }
-    public void verificarSiPuedeSerCreado(int poblacion){
-        if(poblacion-costoPoblacion < 0){
-            throw new PoblacionExedidaError();
-        }
-    }
-
 
     public void aumentarPoblacion(Raza raza) {
         raza.aumentarPoblacion(costoPoblacion);
