@@ -32,5 +32,14 @@ public class Coordenada {
             return new Coordenada(base-horizontal,altura-vertical);
         }
 
+    private int obtenerOpuesto(int valor, int valorTope) {
+            if(valor == 0) return valorTope;
+            else if (valor == valorTope) return 0;
+            return valor;
     }
+
+    public boolean EsIgual(Coordenada coor) {
+            return (horizontal == coor.horizontal && vertical == coor.vertical);
+    }
+}
 
