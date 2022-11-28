@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class BotonContinuarEventHandler implements EventHandler<ActionEvent> {
+public class BotonContinuarHandler implements EventHandler<ActionEvent> {
 
     private Button botonContinuar;
 
@@ -14,7 +14,7 @@ public class BotonContinuarEventHandler implements EventHandler<ActionEvent> {
 
     private Stage stage;
 
-    public BotonContinuarEventHandler(Button botonContinuar, Scene escenaRegistro, Stage stage) {
+    public BotonContinuarHandler(Button botonContinuar, Scene escenaRegistro, Stage stage) {
         this.botonContinuar = botonContinuar;
         this.escenaRegistro = escenaRegistro;
         this.stage = stage;
@@ -23,9 +23,7 @@ public class BotonContinuarEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-
         stage.setScene(escenaRegistro);
-
     }
 
 }

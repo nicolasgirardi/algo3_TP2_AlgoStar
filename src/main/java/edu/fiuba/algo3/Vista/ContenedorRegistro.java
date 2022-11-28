@@ -22,46 +22,34 @@ public class ContenedorRegistro extends VBox{
 
     public ContenedorRegistro(Stage stage, Juego algoStart) {
         stage.setTitle("AlgoStar");
-        Label labelJugador = new Label();
-        labelJugador.setText("Jugador  " + String.valueOf(algoStart.cantidadJugadores())  );
+        Label labelJugador = new Label("Jugador  " + String.valueOf(algoStart.cantidadJugadores()) );
         labelJugador.setFont(Font.font(40));
         labelJugador.setTextFill(Color.rgb(0, 0, 200, 1));
 
-        Label labelIngreseNombre = new Label();
-        labelIngreseNombre.setText("Nombre: ");
+        Label labelIngreseNombre = new Label("Nombre: ");
         labelIngreseNombre.setFont(Font.font(25));
         labelJugador.setTextFill(Color.rgb(0, 0, 200, 1));
 
         TextField campoNombre = new TextField();
         campoNombre.setPromptText("Ingrese Su Nombre Aqui");
 
-        Button botonEnviarNombre = new Button();
-        botonEnviarNombre.setText("Enviar");
+        Button botonEnviarNombre = new Button("Enviar");
 
         HBox contHorizNombre = new HBox(labelIngreseNombre, campoNombre, botonEnviarNombre);
         contHorizNombre.setSpacing(50);
         contHorizNombre.setPadding(new Insets(20) );
         contHorizNombre.setAlignment(Pos.BASELINE_CENTER);       //para centrarlo al medio
 
-        Label labelColor = new Label();
-        labelColor.setText("Seleccione un color: ");
+        Label labelColor = new Label("Seleccione un color: ");
         labelColor.setFont(Font.font(30));
         labelColor.setTextFill(Color.rgb(0, 0, 200, 1));
 
-        Button botonColorRojo = new Button();
-        botonColorRojo.setText("Rojo");
+        Button botonColorRojo = new Button("Rojo");
+        Button botonColorAzul = new Button("Azul");
+        Button botonColorVerde = new Button("Verde");
+        Button botonColorAmarillo = new Button("Amarillo");
+        Button botonColorCeleste = new Button("Celeste");
 
-        Button botonColorAzul = new Button();
-        botonColorAzul.setText("Azul");
-
-        Button botonColorVerde = new Button();
-        botonColorVerde.setText("Verde");
-
-        Button botonColorAmarillo = new Button();
-        botonColorAmarillo.setText("Amarillo");
-
-        Button botonColorCeleste = new Button();
-        botonColorCeleste.setText("Celeste");
 
         HBox contHorzColores = new HBox(botonColorRojo, botonColorAzul, botonColorVerde, botonColorAmarillo, botonColorCeleste );
         contHorzColores.setSpacing(40);
@@ -73,21 +61,17 @@ public class ContenedorRegistro extends VBox{
         contVertColores.setAlignment(Pos.BASELINE_CENTER);
 
 
-        Label seleccionRaza = new Label();
-        seleccionRaza.setText("Seleccione su raza: ");
+        Label seleccionRaza = new Label("Seleccione su raza: ");
         seleccionRaza.setFont(Font.font(30));
         seleccionRaza.setPadding(new Insets(10));
         seleccionRaza.setTextFill(Color.rgb(0, 0, 200, 1));
 
-        Label labelImgZerg = new Label();
         Button botonZerg = new Button();
-        VBox contVertZerg = obtenerContVer("ZERG", labelImgZerg, botonZerg);
+        VBox contVertZerg = obtenerContVer("ZERG", new Label(), botonZerg);
         contVertZerg.setAlignment(Pos.CENTER);
 
-
-        Label labelImgProtoss = new Label();
         Button botonProtoss = new Button();
-        VBox contVertProtoss = obtenerContVer("PROTOSS", labelImgProtoss, botonProtoss);
+        VBox contVertProtoss = obtenerContVer("PROTOSS", new Label(), botonProtoss);
         contVertProtoss.setAlignment(Pos.CENTER);
 
 
@@ -95,17 +79,13 @@ public class ContenedorRegistro extends VBox{
         contHorzRazas.setSpacing(30);
         contHorzRazas.setAlignment(Pos.CENTER);
 
-        Label nombreIngresado = new Label();
-        nombreIngresado.setText("");
+        Label nombreIngresado = new Label("");
         nombreIngresado.setFont(Font.font(20));
 
-        Label colorIngresado = new Label();
-        colorIngresado.setText("");
+        Label colorIngresado = new Label("");
         colorIngresado.setFont(Font.font(20));
 
-
-        Label razaIngresada = new Label();
-        razaIngresada.setText("");
+        Label razaIngresada = new Label("");
         razaIngresada.setFont(Font.font(20));
 
 
@@ -114,33 +94,33 @@ public class ContenedorRegistro extends VBox{
         resultadoFinal.setAlignment(Pos.CENTER);
         resultadoFinal.getChildren();
 
-        BotonEnviar2EventHandler botonEnviar2EventHandler = new BotonEnviar2EventHandler(campoNombre, nombreIngresado);
-        botonEnviarNombre.setOnAction(botonEnviar2EventHandler);
+        BotonEnviar2Handler botonEnviar2Handler = new BotonEnviar2Handler(campoNombre, nombreIngresado);
+        botonEnviarNombre.setOnAction(botonEnviar2Handler);
 
-        BotonColorEventHandler botonColorEventHandlerRojo = new BotonColorEventHandler( Color.rgb(255,0,0) , colorIngresado,"Rojo");
-        botonColorRojo.setOnAction(botonColorEventHandlerRojo);
+        BotonColorHandler botonColorHandlerRojo = new BotonColorHandler( Color.rgb(255,0,0) , colorIngresado,"Rojo");
+        botonColorRojo.setOnAction(botonColorHandlerRojo);
 
-        BotonColorEventHandler botonColorEventHandlerAzul = new BotonColorEventHandler( Color.rgb(0,0,255) , colorIngresado, "Azul");
-        botonColorAzul.setOnAction(botonColorEventHandlerAzul);
+        BotonColorHandler botonColorHandlerAzul = new BotonColorHandler( Color.rgb(0,0,255) , colorIngresado, "Azul");
+        botonColorAzul.setOnAction(botonColorHandlerAzul);
 
-        BotonColorEventHandler botonColorEventHandlerVerde = new BotonColorEventHandler(Color.rgb(94,255,0), colorIngresado, "Verde");
-        botonColorVerde.setOnAction(botonColorEventHandlerVerde);
+        BotonColorHandler botonColorHandlerVerde = new BotonColorHandler(Color.rgb(94,255,0), colorIngresado, "Verde");
+        botonColorVerde.setOnAction(botonColorHandlerVerde);
 
-        BotonColorEventHandler botonColorEventHandlerAmarillo = new BotonColorEventHandler(Color.rgb(255,244,0), colorIngresado, "Amarillo");
-        botonColorAmarillo.setOnAction(botonColorEventHandlerAmarillo);
+        BotonColorHandler botonColorHandlerAmarillo = new BotonColorHandler(Color.rgb(255,244,0), colorIngresado, "Amarillo");
+        botonColorAmarillo.setOnAction(botonColorHandlerAmarillo);
 
-        BotonColorEventHandler botonColorEventHandlerCeleste = new BotonColorEventHandler(Color.rgb(0,255,180), colorIngresado, "Celeste");
-        botonColorCeleste.setOnAction(botonColorEventHandlerCeleste);
+        BotonColorHandler botonColorHandlerCeleste = new BotonColorHandler(Color.rgb(0,255,180), colorIngresado, "Celeste");
+        botonColorCeleste.setOnAction(botonColorHandlerCeleste);
 
 
-        BotonRazaEventHandler botonRazaEventHandlerZerg = new BotonRazaEventHandler("ZERG", razaIngresada);
-        botonZerg.setOnAction(botonRazaEventHandlerZerg);
+        BotonRazaHandler botonRazaHandlerZerg = new BotonRazaHandler("ZERG", razaIngresada);
+        botonZerg.setOnAction(botonRazaHandlerZerg);
 
-        BotonRazaEventHandler botonRazaEventHandlerProt = new BotonRazaEventHandler("PROTOSS", razaIngresada);
-        botonProtoss.setOnAction(botonRazaEventHandlerProt);
+        BotonRazaHandler botonRazaHandlerProt = new BotonRazaHandler("PROTOSS", razaIngresada);
+        botonProtoss.setOnAction(botonRazaHandlerProt);
 
-        TextoEnterEventHandler textoEnterEventHandler = new TextoEnterEventHandler(botonEnviarNombre);
-        campoNombre.setOnKeyPressed(textoEnterEventHandler);
+        TextoEnterHandler textoEnterHandler = new TextoEnterHandler(botonEnviarNombre);
+        campoNombre.setOnKeyPressed(textoEnterHandler);
 
         File fileFondo = new File("images/fondoFinal.png");
         BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo.toURI().toString(),
@@ -151,9 +131,8 @@ public class ContenedorRegistro extends VBox{
         Button botonContinuar = new Button();
         botonContinuar.setText("Continuar");
 
-        BotonContinuarRegistroEventHandler botonContinuarRegistroEH = new BotonContinuarRegistroEventHandler(stage, this, nombreIngresado, colorIngresado, razaIngresada, algoStart);
+        BotonContinuarRegistroHandler botonContinuarRegistroEH = new BotonContinuarRegistroHandler(stage, this, nombreIngresado, colorIngresado, razaIngresada, algoStart);
         botonContinuar.setOnAction(botonContinuarRegistroEH);
-
 
         this.getChildren().addAll(labelJugador, contHorizNombre, contVertColores, seleccionRaza, contHorzRazas,  resultadoFinal,botonContinuar);
         this.setSpacing(10);

@@ -7,10 +7,10 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-public class TextoEnterEventHandler implements EventHandler<KeyEvent> {
+public class TextoEnterHandler implements EventHandler<KeyEvent> {
     Button botonEnviarNombre;
 
-    public TextoEnterEventHandler(Button botonEnviarNombre) {
+    public TextoEnterHandler(Button botonEnviarNombre) {
         this.botonEnviarNombre = botonEnviarNombre;
 
     }

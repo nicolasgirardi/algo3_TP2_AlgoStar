@@ -17,10 +17,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage){
-
-        //Ejemplo2 ejemplo2 = new Ejemplo2();
-        //ejemplo2.ejecutar(stage);
-
         Juego algoStart = new Juego();
         ContenedorRegistro contenedorRegistro = new ContenedorRegistro(stage,algoStart);
         Scene escenaRegistro = new Scene(contenedorRegistro, 1200, 900);

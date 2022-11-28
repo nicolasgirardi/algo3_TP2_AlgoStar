@@ -6,11 +6,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 
-public class BotonEnviarEventHandler implements EventHandler<ActionEvent> {
+public class BotonEnviarHandler implements EventHandler<ActionEvent> {
     TextField textField;
     Label label;
 
-    public BotonEnviarEventHandler(TextField texto, Label etiqueta){
+    public BotonEnviarHandler(TextField texto, Label etiqueta){
         textField = texto;
         label = etiqueta;
     }

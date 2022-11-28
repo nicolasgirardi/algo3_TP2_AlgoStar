@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.Vista;
 
-import edu.fiuba.algo3.Controlador.BotonContinuarEventHandler;
-import edu.fiuba.algo3.Controlador.BotonEnviar2EventHandler;
+import edu.fiuba.algo3.Controlador.BotonContinuarHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -27,10 +26,9 @@ public class ContenedorPantallaInicio extends VBox {
         Button botonContinuar = new Button();
         botonContinuar.setText("Continuar");
         botonContinuar.setMaxSize(200,100); //  (posx, posy?? no funciona)
-
-
-        BotonContinuarEventHandler botonContinuarEH = new BotonContinuarEventHandler(botonContinuar, escenaRegistro, stage);
+        BotonContinuarHandler botonContinuarEH = new BotonContinuarHandler(botonContinuar, escenaRegistro, stage);
         botonContinuar.setOnAction(botonContinuarEH);
+
 
         File fileFondo = new File("images/fondoInicioFin.png");
         BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo.toURI().toString(),

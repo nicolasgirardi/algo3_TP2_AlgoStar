@@ -36,11 +36,11 @@ public class Ejemplo1 {
         contenedorPrincipal.setSpacing(10);
         contenedorPrincipal.setPadding(new Insets(20) );
 
-        BotonLimpiarEventHandler botonLimpiarEventHandler = new BotonLimpiarEventHandler(texto);
+        BotonLimpiarHandler botonLimpiarEventHandler = new BotonLimpiarHandler(texto);
         botonLimpiar.setOnAction(botonLimpiarEventHandler);
 
-        BotonEnviarEventHandler botonEnviarEventHandler = new BotonEnviarEventHandler(texto,etiqueta);
-        botonEnviar.setOnAction(botonEnviarEventHandler);
+        BotonEnviarHandler botonEnviarHandler = new BotonEnviarHandler(texto,etiqueta);
+        botonEnviar.setOnAction(botonEnviarHandler);
 
         TextoEventHandler textoEventHandler = new TextoEventHandler(botonEnviar);
         texto.setOnKeyPressed(textoEventHandler);

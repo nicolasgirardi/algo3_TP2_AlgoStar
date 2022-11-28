@@ -115,33 +115,33 @@ public class Ejemplo2 {
         resultadoFinal.setSpacing(15);
         resultadoFinal.setAlignment(Pos.CENTER);
 
-        BotonEnviar2EventHandler botonEnviar2EventHandler = new BotonEnviar2EventHandler(campoNombre, nombreIngresado);
-        botonEnviarNombre.setOnAction(botonEnviar2EventHandler);
+        BotonEnviar2Handler botonEnviar2Handler = new BotonEnviar2Handler(campoNombre, nombreIngresado);
+        botonEnviarNombre.setOnAction(botonEnviar2Handler);
 
-        BotonColorEventHandler botonColorEventHandlerRojo = new BotonColorEventHandler( Color.rgb(255,0,0) , colorIngresado, "Rojo");
-        botonColorRojo.setOnAction(botonColorEventHandlerRojo);
+        BotonColorHandler botonColorHandlerRojo = new BotonColorHandler( Color.rgb(255,0,0) , colorIngresado, "Rojo");
+        botonColorRojo.setOnAction(botonColorHandlerRojo);
 
-        BotonColorEventHandler botonColorEventHandlerAzul = new BotonColorEventHandler( Color.rgb(0,0,255) , colorIngresado, "Rojo");
-        botonColorAzul.setOnAction(botonColorEventHandlerAzul);
+        BotonColorHandler botonColorHandlerAzul = new BotonColorHandler( Color.rgb(0,0,255) , colorIngresado, "Rojo");
+        botonColorAzul.setOnAction(botonColorHandlerAzul);
 
-        BotonColorEventHandler botonColorEventHandlerVerde = new BotonColorEventHandler(Color.rgb(94,255,0), colorIngresado, "Rojo");
-        botonColorVerde.setOnAction(botonColorEventHandlerVerde);
+        BotonColorHandler botonColorHandlerVerde = new BotonColorHandler(Color.rgb(94,255,0), colorIngresado, "Rojo");
+        botonColorVerde.setOnAction(botonColorHandlerVerde);
 
-        BotonColorEventHandler botonColorEventHandlerAmarillo = new BotonColorEventHandler(Color.rgb(255,244,0), colorIngresado, "Rojo");
-        botonColorAmarillo.setOnAction(botonColorEventHandlerAmarillo);
+        BotonColorHandler botonColorHandlerAmarillo = new BotonColorHandler(Color.rgb(255,244,0), colorIngresado, "Rojo");
+        botonColorAmarillo.setOnAction(botonColorHandlerAmarillo);
 
-        BotonColorEventHandler botonColorEventHandlerCeleste = new BotonColorEventHandler(Color.rgb(0,255,180), colorIngresado, "Rojo");
-        botonColorCeleste.setOnAction(botonColorEventHandlerCeleste);
+        BotonColorHandler botonColorHandlerCeleste = new BotonColorHandler(Color.rgb(0,255,180), colorIngresado, "Rojo");
+        botonColorCeleste.setOnAction(botonColorHandlerCeleste);
 
 
-        BotonRazaEventHandler botonRazaEventHandlerZerg = new BotonRazaEventHandler("ZERG", razaIngresada);
-        botonZerg.setOnAction(botonRazaEventHandlerZerg);
+        BotonRazaHandler botonRazaHandlerZerg = new BotonRazaHandler("ZERG", razaIngresada);
+        botonZerg.setOnAction(botonRazaHandlerZerg);
 
-        BotonRazaEventHandler botonRazaEventHandlerProt = new BotonRazaEventHandler("PROTOSS", razaIngresada);
-        botonProtoss.setOnAction(botonRazaEventHandlerProt);
+        BotonRazaHandler botonRazaHandlerProt = new BotonRazaHandler("PROTOSS", razaIngresada);
+        botonProtoss.setOnAction(botonRazaHandlerProt);
 
-        TextoEnterEventHandler textoEnterEventHandler = new TextoEnterEventHandler(botonEnviarNombre);
-        campoNombre.setOnKeyPressed(textoEnterEventHandler);
+        TextoEnterHandler textoEnterHandler = new TextoEnterHandler(botonEnviarNombre);
+        campoNombre.setOnKeyPressed(textoEnterHandler);
 
         File fileFondo = new File("images/fondoFinal.png");
         BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo.toURI().toString(),
