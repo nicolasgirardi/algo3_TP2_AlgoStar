@@ -5,7 +5,7 @@ autonumber
 title Raza Protoss gana
 "TestCase:" -> "unJuego: Juego": ejecutarTurno(): void
 "unJuego: Juego" -> "juan: Jugador": esElfinDeJuego(unaRaza): void
-"juan: Jugador" -> "zerg: Raza": existenUnEdificios(): void
+"juan: Jugador" -> "zerg: Raza": existenUnEdificios():
 "zerg: Raza" -> "zerg: Raza": edificios.size()
 
 "zerg: Raza" --> "juan: Jugador": FinDelJuegoGanaronLosProtoss()

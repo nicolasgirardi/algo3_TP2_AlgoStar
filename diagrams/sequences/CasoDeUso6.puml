@@ -1,13 +1,15 @@
 @startuml
 'https://plantuml.com/sequence-diagram
-title construccion Criadero con crecimiento de Moho
+title construccion Criadero con crecimiento de Moho al inicio de la partida
 autonumber
+create ":Mapa"
 ":TestCase" -> ":Mapa": Mapa(base, altura)
+create ":Moho"
 ":TestCase" -> ":Moho": Moho(Ubicacion)
+create ":Criadero"
 ":TestCase" -> ":Criadero": construirCriadero(Ubicacion)
 
-
-
+create ":Tipo"
 ":Moho" -> ":Tipo": crecer(unRadio, Moho)
 
 ":Tipo" --> ":Mapa": crecerMoho

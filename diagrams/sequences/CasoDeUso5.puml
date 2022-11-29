@@ -4,7 +4,10 @@
 
 title Construir edificio Zerg en Tierra
 ":TestCase" -> ":Ubicacion": construirEdificio(coordenadas)
+
+create ":Tierra"
 ":Ubicacion" -> ":Tierra": Tierra
+create ":Criadero"
 ":Ubicacion" -> ":Criadero": Criadero
 ":Criadero" --> ":Ubicacion": ConstruccionFueraDelMohoError
 ":Ubicacion" --> ":TestCase": ConstruccionFueraDelMohoError
