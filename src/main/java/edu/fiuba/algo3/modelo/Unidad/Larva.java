@@ -101,4 +101,8 @@ public class Larva extends Unidad{
     public void mutarReservaReproduccion(RazaZerg raza) {
         tipoDeUnidadZerg.mutarReservaReproduccion(raza);
     }
+
+    public TipoDeUnidadZerg getTipoDeUnidadZerg(){
+        return tipoDeUnidadZerg;
+    }
 }
