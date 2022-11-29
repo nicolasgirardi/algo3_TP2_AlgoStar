@@ -85,7 +85,7 @@ public class TestCrearUnidadesConsumenRecursoRazaZerg {
 
 
         //Act
-        Hidralisco unidad = edificio.crearHidralisco(larva);
+        edificio.evolucionarLarvaAHidra(larva);
 
         //Assert
         assertEquals(mineralEsperado, mineral);

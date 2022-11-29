@@ -84,7 +84,7 @@ public class Zerling extends Unidad implements TipoDeUnidadZerg{
     }
 
     @Override
-    public Hidralisco evolucionarLarvaAHidra(Larva larva) {
+    public void evolucionarLarvaAHidra(Larva larva) {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 

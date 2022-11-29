@@ -86,7 +86,7 @@ public class ReservaDeReproduccion extends Edificio implements EstadoZangano {
     }
 
     @Override
-    public Hidralisco evolucionarLarvaAHidra(Larva larva) {
+    public void evolucionarLarvaAHidra(Larva larva) {
         throw  new NoDeberiaEjecutarEsteMetodoError();
     }
 

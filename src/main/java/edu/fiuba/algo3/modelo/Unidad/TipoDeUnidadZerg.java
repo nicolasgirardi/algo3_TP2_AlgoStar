@@ -27,7 +27,7 @@ interface TipoDeUnidadZerg {
 
     void mutarGuarida(RazaZerg raza);
 
-    Hidralisco evolucionarLarvaAHidra(Larva larva) ;
+    void evolucionarLarvaAHidra(Larva larva) ;
 
     void evolucionarLarvaAZerli(Larva larva);
 

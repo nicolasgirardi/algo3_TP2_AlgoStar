@@ -100,8 +100,8 @@ public class Zangano extends Unidad implements TipoDeUnidadZerg {
         raza.agregarEsteEdificio(estadoZangano);
     }
 
-    public Hidralisco evolucionarLarvaAHidra(Larva larva) {
-        return estadoZangano.evolucionarLarvaAHidra(larva);
+    public void evolucionarLarvaAHidra(Larva larva) {
+        estadoZangano.evolucionarLarvaAHidra(larva);
     }
 
     public void evolucionarLarvaAZerli(Larva larva) {

@@ -18,7 +18,7 @@ public interface EstadoZangano {
 
     GestionRecurso extraer(Recurso recurso);
 
-    Hidralisco evolucionarLarvaAHidra(Larva larva);
+    void evolucionarLarvaAHidra(Larva larva);
 
     void evolucionarLarvaAZerli(Larva larva);
 }

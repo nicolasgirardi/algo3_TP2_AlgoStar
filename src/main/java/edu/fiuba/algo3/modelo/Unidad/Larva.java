@@ -27,11 +27,8 @@ public class Larva extends Unidad{
         tipoDeUnidadZerg = new Zerling();
     }
 
-    public Hidralisco evolucionar(Guarida guarida) {
-        return new Hidralisco(new HPZerg(10));
-        /*
-        tipoDeUnidad = new Hidralisco();
-        */
+    public void evolucionar(Guarida guarida) {
+        tipoDeUnidadZerg = new Hidralisco();
     }
 
     public Mutalisco evolucionar(Espiral espiral) {
@@ -87,8 +84,8 @@ public class Larva extends Unidad{
         tipoDeUnidadZerg.mutarGuarida(raza);
     }
 
-    public Hidralisco evolucionarLarvaAHidra(Larva larva) {
-        return tipoDeUnidadZerg.evolucionarLarvaAHidra(larva);
+    public void evolucionarLarvaAHidra(Larva larva) {
+        tipoDeUnidadZerg.evolucionarLarvaAHidra(larva);
     }
 
     public void evolucionarLarvaAZerli(Larva larva) {
