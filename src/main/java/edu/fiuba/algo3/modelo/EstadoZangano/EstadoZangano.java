@@ -20,5 +20,5 @@ public interface EstadoZangano {
 
     Hidralisco evolucionarLarvaAHidra(Larva larva);
 
-    Zerling evolucionarLarvaAZerli(Larva larva);
+    void evolucionarLarvaAZerli(Larva larva);
 }

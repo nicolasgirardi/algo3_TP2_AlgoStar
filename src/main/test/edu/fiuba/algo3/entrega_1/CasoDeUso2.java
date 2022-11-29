@@ -71,7 +71,7 @@ public class CasoDeUso2 {
         Larva larva = new Larva();
         //Act y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            Zerling zerling = reserva.evolucionarLarvaAZerli(larva);
+            reserva.evolucionarLarvaAZerli(larva);
         });
     }
 
@@ -88,7 +88,7 @@ public class CasoDeUso2 {
 
         //Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            Zerling zerling = reserva.evolucionarLarvaAZerli(larva);
+            reserva.evolucionarLarvaAZerli(larva);
         });
     }
 

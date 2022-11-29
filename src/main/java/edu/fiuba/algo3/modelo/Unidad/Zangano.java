@@ -104,8 +104,8 @@ public class Zangano extends Unidad implements TipoDeUnidadZerg {
         return estadoZangano.evolucionarLarvaAHidra(larva);
     }
 
-    public Zerling evolucionarLarvaAZerli(Larva larva) {
-        return estadoZangano.evolucionarLarvaAZerli(larva);
+    public void evolucionarLarvaAZerli(Larva larva) {
+        estadoZangano.evolucionarLarvaAZerli(larva);
     }
 
 

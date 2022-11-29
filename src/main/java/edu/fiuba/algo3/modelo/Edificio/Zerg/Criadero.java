@@ -53,7 +53,7 @@ public class Criadero extends Edificio implements EstadoZangano {
     }
 
     @Override
-    public Zerling evolucionarLarvaAZerli(Larva larva) {
+    public void evolucionarLarvaAZerli(Larva larva) {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 

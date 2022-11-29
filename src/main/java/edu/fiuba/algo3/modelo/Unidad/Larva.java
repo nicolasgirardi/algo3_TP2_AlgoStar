@@ -23,11 +23,8 @@ public class Larva extends Unidad{
         tipoDeUnidadZerg = new Zangano();
     }
 
-    public Zerling evolucionar(ReservaDeReproduccion reserva) {
-        return new Zerling(new HPZerg(35) );
-        /*
-        tipoDeUnidad = new Zerling();
-        */
+    public void evolucionar(ReservaDeReproduccion reserva) {
+        tipoDeUnidadZerg = new Zerling();
     }
 
     public Hidralisco evolucionar(Guarida guarida) {
@@ -94,8 +91,8 @@ public class Larva extends Unidad{
         return tipoDeUnidadZerg.evolucionarLarvaAHidra(larva);
     }
 
-    public Zerling evolucionarLarvaAZerli(Larva larva) {
-        return tipoDeUnidadZerg.evolucionarLarvaAZerli(larva);
+    public void evolucionarLarvaAZerli(Larva larva) {
+        tipoDeUnidadZerg.evolucionarLarvaAZerli(larva);
     }
 
     public void mutarReservaReproduccion(RazaZerg raza) {

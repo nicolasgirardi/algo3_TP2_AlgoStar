@@ -29,7 +29,7 @@ interface TipoDeUnidadZerg {
 
     Hidralisco evolucionarLarvaAHidra(Larva larva) ;
 
-    Zerling evolucionarLarvaAZerli(Larva larva);
+    void evolucionarLarvaAZerli(Larva larva);
 
     void mutarReservaReproduccion(RazaZerg raza);
 

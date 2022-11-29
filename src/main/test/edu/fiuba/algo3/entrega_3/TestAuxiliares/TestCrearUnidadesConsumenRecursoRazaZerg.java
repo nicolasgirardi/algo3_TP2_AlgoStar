@@ -60,7 +60,7 @@ public class TestCrearUnidadesConsumenRecursoRazaZerg {
         }
 
         //Act
-        Zerling unidad = edificio.crearZerling(larva);
+        edificio.crearZerling(larva);
 
         //Assert
         assertEquals(mineralEsperado, mineral);
