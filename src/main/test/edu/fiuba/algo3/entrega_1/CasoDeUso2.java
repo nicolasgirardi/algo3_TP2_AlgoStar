@@ -189,7 +189,7 @@ public class CasoDeUso2 {
         Espiral espiral = new Espiral();
         //Acy y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            Mutalisco mutalisco = espiral.crearMutalisco(new Larva());
+           espiral.crearMutalisco();
         });
 
     }
@@ -204,7 +204,7 @@ public class CasoDeUso2 {
         }
         //Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            Mutalisco mutalisco = espiral.crearMutalisco(new Larva());
+            espiral.crearMutalisco();
         });
 
     }
@@ -213,13 +213,18 @@ public class CasoDeUso2 {
     public void EdificoEspiralCon10TurnosParaSerOperativoSeEjecuta10TurnosYSeLeMandaCrearMutaliscoNoDeberiaLanzarExcepcionPorqueYaEstaOperativo(){
         //Arrange
         Espiral espiral = new Espiral();
+        RazaZerg raza = new RazaZerg();
+        raza.aumentarGas(new GestionRecurso(500));
+        raza.aumentarMineral(new GestionRecurso(500));
+        raza.agregarEdificio(new Criadero());
+        raza.agregarEdificio(espiral);
         //Act
         for(int i = 0 ; i < 10 ; i++){
             espiral.ejecutarTurno();
         }
         //Assert
         assertDoesNotThrow(  ()-> {
-            Mutalisco mutalisco = espiral.crearMutalisco();
+            espiral.crearMutalisco();
         });
     }
 

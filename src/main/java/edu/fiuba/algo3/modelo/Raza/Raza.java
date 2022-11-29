@@ -12,16 +12,12 @@ public abstract class Raza {
 
     private GestionRecurso mineral;
     private GestionRecurso gas;
-
-    private GestionRecurso suministro;
     private Poblacion poblacion;
     protected ArrayList<Edificio> edificios;
-
     private ArrayList<Unidad> unidades;
-
     int cantReservas;
-
     int cantAccesos;
+
     public Raza(){
         gas = new GestionRecurso(0);
         mineral = new GestionRecurso(200);

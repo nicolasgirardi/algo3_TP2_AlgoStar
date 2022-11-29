@@ -121,7 +121,7 @@ public class Criadero extends Edificio implements EstadoZangano {
         return;
     }
     @Override
-    public Mutalisco crearMutalisco() {
+    public void crearMutalisco() {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 

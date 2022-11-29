@@ -21,7 +21,7 @@ interface TipoDeUnidadZerg {
 
     void evolucionarLarva() ;
 
-    Mutalisco crearMutalisco() ;
+    void crearMutalisco() ;
 
     void agregarZangano(Zangano zangano);
 

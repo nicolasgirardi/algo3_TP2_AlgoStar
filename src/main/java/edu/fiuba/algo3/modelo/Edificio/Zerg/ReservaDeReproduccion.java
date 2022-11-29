@@ -71,7 +71,7 @@ public class ReservaDeReproduccion extends Edificio implements EstadoZangano {
     }
 
     @Override
-    public Mutalisco crearMutalisco() {
+    public void crearMutalisco() {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 

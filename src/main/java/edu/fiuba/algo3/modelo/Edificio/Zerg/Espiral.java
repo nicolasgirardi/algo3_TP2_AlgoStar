@@ -79,16 +79,10 @@ public class Espiral extends Edificio implements EstadoZangano {
         razaZerg.agregarEdificio(this);
     }
 
-    public Mutalisco crearMutalisco(Larva larva) {
+    public void crearMutalisco() {
         verififarEdificioOperativo();
-        Mutalisco mutalisco = larva.evolucionar(this);
+        Mutalisco mutalisco = new Mutalisco();
         raza.agregarUnidad(mutalisco);
-        return mutalisco;
-    }
-
-    @Override
-    public Mutalisco crearMutalisco() {
-        return new Mutalisco();
     }
 
 

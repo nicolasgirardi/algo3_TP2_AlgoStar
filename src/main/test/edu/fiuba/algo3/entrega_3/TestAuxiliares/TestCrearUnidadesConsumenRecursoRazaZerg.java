@@ -117,7 +117,7 @@ public class TestCrearUnidadesConsumenRecursoRazaZerg {
         }
 
         //Act
-        Mutalisco unidad = edificio.crearMutalisco(larva);
+        edificio.crearMutalisco();
 
         //Assert
         assertEquals(mineralEsperado, mineral);

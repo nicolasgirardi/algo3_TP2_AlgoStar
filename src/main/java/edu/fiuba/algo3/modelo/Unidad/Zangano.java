@@ -76,8 +76,8 @@ public class Zangano extends Unidad implements TipoDeUnidadZerg {
     }
 
     //wrapper de espiral:
-    public Mutalisco crearMutalisco() {
-        return estadoZangano.crearMutalisco();
+    public void crearMutalisco() {
+        estadoZangano.crearMutalisco();
     }
 
     @Override

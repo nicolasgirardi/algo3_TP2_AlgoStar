@@ -69,8 +69,8 @@ public class Larva extends Unidad{
         tipoDeUnidadZerg.evolucionarLarva();
     }
 
-    public Mutalisco crearMutalisco() {
-        return tipoDeUnidadZerg.crearMutalisco();
+    public void crearMutalisco() {
+        tipoDeUnidadZerg.crearMutalisco();
     }
 
     /*Esto creo que no es necesario

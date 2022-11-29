@@ -69,7 +69,7 @@ public class Zerling extends Unidad implements TipoDeUnidadZerg{
     }
 
     @Override
-    public Mutalisco crearMutalisco() {
+    public void crearMutalisco() {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 

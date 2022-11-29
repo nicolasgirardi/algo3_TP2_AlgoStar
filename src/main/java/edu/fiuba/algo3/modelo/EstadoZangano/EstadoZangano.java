@@ -10,7 +10,7 @@ public interface EstadoZangano {
 
     void agregarseAEstaRaza(RazaZerg razaZerg);
 
-    Mutalisco crearMutalisco();
+    void crearMutalisco();
 
     void ejecutarTurno();
 
