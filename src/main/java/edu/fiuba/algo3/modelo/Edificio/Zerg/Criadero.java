@@ -62,12 +62,11 @@ public class Criadero extends Edificio implements EstadoZangano {
         throw new ConstruccionIncorrectaError();
     }
 
-    public Zangano evolucionarLarva() {
+    public void evolucionarLarva() {
         verififarEdificioOperativo();
         Larva larvaAuxiliar = larvas.remove(0);
-        Zangano zangano = larvaAuxiliar.evolucionar();
-        raza.agregarUnidad(zangano);
-        return zangano;
+        larvaAuxiliar.evolucionar();
+        raza.agregarUnidad(larvaAuxiliar);
     }
 
     @Override

@@ -66,7 +66,7 @@ public class Guarida extends Edificio implements EstadoZangano {
 
 
     @Override
-    public Zangano evolucionarLarva() {
+    public void evolucionarLarva() {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 

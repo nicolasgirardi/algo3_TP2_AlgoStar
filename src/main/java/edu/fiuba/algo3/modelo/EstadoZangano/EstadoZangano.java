@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 public interface EstadoZangano {
-    Zangano evolucionarLarva();
+    void evolucionarLarva();
 
     void agregarseAEstaRaza(RazaZerg razaZerg);
 

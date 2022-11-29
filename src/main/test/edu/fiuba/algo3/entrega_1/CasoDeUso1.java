@@ -33,7 +33,7 @@ public class CasoDeUso1 {
         Criadero criaderoNormal = new Criadero(0);
         raza.agregarEdificio(criaderoBajoPrueba);
         //act
-        Zangano zangano = criaderoBajoPrueba.evolucionarLarva();
+        criaderoBajoPrueba.evolucionarLarva();
 
         //assert
         assertFalse(criaderoBajoPrueba.equals(criaderoNormal));
@@ -46,7 +46,7 @@ public class CasoDeUso1 {
         Criadero criaderoNormal = new Criadero(0);
         raza.agregarEdificio(criaderoBajoPrueba);
         //act
-        Zangano zangano = criaderoBajoPrueba.evolucionarLarva();
+        criaderoBajoPrueba.evolucionarLarva();
         criaderoBajoPrueba.ejecutarTurnoRegenerar();
 
         //assert
@@ -58,9 +58,9 @@ public class CasoDeUso1 {
         Criadero criaderoNormal = new Criadero(0);
         raza.agregarEdificio(criaderoBajoPrueba);
         //act
-        Zangano zanganoUno = criaderoBajoPrueba.evolucionarLarva();
-        Zangano zanganoDos = criaderoBajoPrueba.evolucionarLarva();
-        Zangano zanganoTres = criaderoBajoPrueba.evolucionarLarva();
+        criaderoBajoPrueba.evolucionarLarva();
+        criaderoBajoPrueba.evolucionarLarva();
+        criaderoBajoPrueba.evolucionarLarva();
         criaderoBajoPrueba.ejecutarTurnoRegenerar();
 
         //assert

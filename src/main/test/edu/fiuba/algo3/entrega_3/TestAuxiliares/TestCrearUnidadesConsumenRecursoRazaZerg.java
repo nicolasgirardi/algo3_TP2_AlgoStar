@@ -40,7 +40,7 @@ public class TestCrearUnidadesConsumenRecursoRazaZerg {
 
 
         //Act
-        Zangano unidad = criadero.evolucionarLarva();
+        criadero.evolucionarLarva();
 
         //Assert
         assertEquals(mineralEsperado, mineral);

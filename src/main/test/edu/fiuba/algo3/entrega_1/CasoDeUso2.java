@@ -24,7 +24,7 @@ public class CasoDeUso2 {
         Criadero criadero = new Criadero(4);
         //Act y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            Zangano zangano = criadero.evolucionarLarva();
+            criadero.evolucionarLarva();
         });
         //criadero tiene las 3 larvas adentro y recien las suelta para que caminen cuando sea operativo.
     }
@@ -41,7 +41,7 @@ public class CasoDeUso2 {
 
         //assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            Zangano zangano = criadero.evolucionarLarva();
+            criadero.evolucionarLarva();
         });
     }
 
@@ -59,7 +59,7 @@ public class CasoDeUso2 {
 
         //assert
        assertDoesNotThrow(  ()->{
-            Zangano zangano = criadero.evolucionarLarva();
+            criadero.evolucionarLarva();
        });
     }
 
