@@ -17,10 +17,8 @@ public abstract class  Unidad implements Atacable, Atacante {
     private Ataque ataque;
     protected  int costoGas;
     protected  int costoMineral;
-
     protected int costoSuministro;
     protected int costoPoblacion;
-
     protected int turnosRestantesParaSerOperativo;
     protected int unidadesAsesinadas;
 
@@ -60,7 +58,6 @@ public abstract class  Unidad implements Atacable, Atacante {
 
     public void recibirAtaque(Ataque ataque){
         tipoSuperficie.recibirAtaque(ataque, hp);
-
     }
 
     public void asignarLugar(Ubicacion unLugar){
@@ -87,7 +84,6 @@ public abstract class  Unidad implements Atacable, Atacante {
         tipoSuperficie.volar();
     }
 
-
     public void aumentarPoblacion(Raza raza) {
         raza.aumentarPoblacion(costoPoblacion);
     }
@@ -101,7 +97,7 @@ public abstract class  Unidad implements Atacable, Atacante {
     }
 
     public void verificarConsumoRecurso(GestionRecurso mineral, GestionRecurso gas) {
-        if(!mineral.puedeConsumir(costoMineral) && !gas.puedeConsumir(costoGas))
+        if(!mineral.puedeConsumir(costoMineral) || !gas.puedeConsumir(costoGas))
             throw new InsuficientesRecursosParaCrearUnidadError();
     }
 

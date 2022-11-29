@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 public class Mutalisco extends Unidad{
 
+    private TipoEvolucionDeMutalisco tipoEvolucionDeMutalisco;
     public Mutalisco() {
 
         super(
@@ -15,18 +16,22 @@ public class Mutalisco extends Unidad{
                 new TipoAire(),
                 new AtaqueTierraYViento(9,9),
                 7,4,100,100);
+        tipoEvolucionDeMutalisco = null;
     }
 
     public Mutalisco(HitPoints vida) {
             super(vida, 4);
+            tipoEvolucionDeMutalisco = null;
     }
 
-    public void evolucionar(RazaZerg raza) {
-        raza.verficarConsumoRecurso(50,100);
+    public void evolucionarAGuardian(RazaZerg raza) {
+        tipoEvolucionDeMutalisco = new Guardian();
+        raza.agregarUnidad((Unidad) this.getTipoEvolucionDeMutalisco());
     }
+
     public void evolucionarDevorador(RazaZerg raza) {
-        raza.verficarConsumoRecurso(150,50);
-
+        tipoEvolucionDeMutalisco = new Devorador();
+        raza.agregarUnidad((Unidad) this.getTipoEvolucionDeMutalisco());
     }
 
     @Override
@@ -37,7 +42,9 @@ public class Mutalisco extends Unidad{
         return mutalisco.hp.equals(hp)  ;
     }
 
-
+    public TipoEvolucionDeMutalisco getTipoEvolucionDeMutalisco(){
+        return tipoEvolucionDeMutalisco;
+    }
 
 
 }

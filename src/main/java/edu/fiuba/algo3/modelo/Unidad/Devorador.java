@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
-public class Devorador extends Unidad {
+public class Devorador extends Unidad implements TipoEvolucionDeMutalisco{
 
 
     public Devorador(){

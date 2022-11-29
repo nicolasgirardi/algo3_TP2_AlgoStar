@@ -9,7 +9,7 @@ import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
-public class Zerling extends Unidad implements TipoDeUnidadZerg{
+public class Zerling extends Unidad implements TipoEvolucionDeLarva {
 
     public Zerling(){
         super(

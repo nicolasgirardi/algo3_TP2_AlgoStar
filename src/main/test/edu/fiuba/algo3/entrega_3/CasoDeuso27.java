@@ -21,7 +21,6 @@ public class CasoDeuso27 {
         raza.aumentarGas(new GestionRecurso(500));
         Mutalisco mutalisco = new Mutalisco(new HPZerg(120));
 
-        //Devorador devorador = mutalisco.evolucionarDevorador(raza);
         //Act y Assert
         assertDoesNotThrow(() -> {
             mutalisco.evolucionarDevorador(raza);
@@ -33,8 +32,8 @@ public class CasoDeuso27 {
         RazaZerg raza = new RazaZerg(); // se crea con 200 mineral y 0 gas.
         Mutalisco mutalisco = new Mutalisco(new HPZerg(120));
         //Act y Assert
-        assertThrows( RecursosInsuficientesError.class, ()-> {
-            mutalisco.evolucionarDevorador(raza) ; //busca un mutalisco y lo hace evolucionar .
+        assertThrows( InsuficientesRecursosParaCrearUnidadError.class, ()-> {
+            mutalisco.evolucionarDevorador(raza) ;
         });
     }
     @Test

@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
-interface TipoDeUnidadZerg {
+interface TipoEvolucionDeLarva {
 
     GestionRecurso extraer(Recurso recurso);
 

@@ -8,7 +8,7 @@ import edu.fiuba.algo3.modelo.Unidad.TipoAire;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
-public class Guardian extends Unidad {
+public class Guardian extends Unidad implements TipoEvolucionDeMutalisco{
 
 
     public Guardian(){
