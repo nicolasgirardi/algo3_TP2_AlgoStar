@@ -42,7 +42,7 @@ public class TestCrearUnidadesConsumenRecursoRazaProtoss {
 
 
         //Act
-        Zealot unidad = edificio.crearZealot();
+        edificio.crearZealot();
 
         //Assert
         assertEquals(mineralEsperado, mineral);
@@ -62,7 +62,7 @@ public class TestCrearUnidadesConsumenRecursoRazaProtoss {
         }
 
         //Act
-        Dragon unidad = edificio.crearDragon();
+        edificio.crearDragon();
 
         //Assert
         assertEquals(mineralEsperado, mineral);
@@ -92,7 +92,7 @@ public class TestCrearUnidadesConsumenRecursoRazaProtoss {
         }
 
         //Act
-        Scout unidad = edificio.crearScout();
+        edificio.crearScout();
 
         //Assert
         assertEquals(mineralEsperado, mineral);

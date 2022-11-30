@@ -61,17 +61,15 @@ public class Acceso extends Edificio {
         lista.get(0).enRango(ubicacion(),lista);
     }
 
-    public Zealot crearZealot() {
+    public void crearZealot() {
         verififarEdificioOperativo();
         Zealot zealot = new Zealot();
         raza.agregarUnidad(zealot);
-        return zealot;
     }
 
-    public Dragon crearDragon() {
+    public void crearDragon() {
         verififarEdificioOperativo();
         Dragon dragon = new Dragon();
         raza.agregarUnidad(dragon);
-        return dragon;
     }
 }

@@ -52,11 +52,7 @@ public class Mutalisco extends Unidad implements TipoEvolucionDeMutalisco{
     // Delego los metodos de Unidad al tipo de Evolucion --------------------------------
 
     public Boolean verificarSiEsMutalisco(){
-        boolean esMutalisco = false;
-        if(tipoEvolucionDeMutalisco == null){
-            esMutalisco = true;
-        }
-        return esMutalisco;
+        return tipoEvolucionDeMutalisco == null;
     }
 
     public void atacar(Atacable atacable){
