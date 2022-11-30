@@ -13,6 +13,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+
 import java.io.File;
 
 public class ContenedorPantallaInicio extends VBox {
@@ -37,9 +38,9 @@ public class ContenedorPantallaInicio extends VBox {
         Scene scenaJuegoPrincipal = new Scene(contenedorJuego);
         botonContinuar.setOnAction(e -> stage.setScene(scenaJuegoPrincipal));
 
-
-
         File fileFondo = new File("images/fondoInicioFin.png");
+
+
         BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo.toURI().toString(),
                 1200,2500,true,true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
