@@ -6,11 +6,11 @@ import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
 public interface EstadoZangano {
-    Zangano evolucionarLarva();
+    void evolucionarLarva();
 
     void agregarseAEstaRaza(RazaZerg razaZerg);
 
-    Mutalisco crearMutalisco();
+    void crearMutalisco();
 
     void ejecutarTurno();
 
@@ -20,5 +20,5 @@ public interface EstadoZangano {
 
     Hidralisco evolucionarLarvaAHidra(Larva larva);
 
-    Zerling evolucionarLarvaAZerli(Larva larva);
+    void evolucionarLarvaAZerli(Larva larva);
 }

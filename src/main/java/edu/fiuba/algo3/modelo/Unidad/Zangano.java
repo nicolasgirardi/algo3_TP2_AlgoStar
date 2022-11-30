@@ -10,7 +10,7 @@ import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
-public class Zangano extends Unidad{
+public class Zangano extends Unidad implements TipoDeUnidadZerg {
     private EstadoZangano estadoZangano;
     public Zangano(){
         super(
@@ -71,13 +71,13 @@ public class Zangano extends Unidad{
     }
 
     //wrapper de criadero.
-    public Zangano evolucionarLarva() {
-        return estadoZangano.evolucionarLarva();
+    public void evolucionarLarva() {
+        estadoZangano.evolucionarLarva();
     }
 
     //wrapper de espiral:
-    public Mutalisco crearMutalisco() {
-        return estadoZangano.crearMutalisco();
+    public void crearMutalisco() {
+        estadoZangano.crearMutalisco();
     }
 
     @Override
@@ -104,8 +104,8 @@ public class Zangano extends Unidad{
         return estadoZangano.evolucionarLarvaAHidra(larva);
     }
 
-    public Zerling evolucionarLarvaAZerli(Larva larva) {
-        return estadoZangano.evolucionarLarvaAZerli(larva);
+    public void evolucionarLarvaAZerli(Larva larva) {
+        estadoZangano.evolucionarLarvaAZerli(larva);
     }
 
 

@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class mutacionDeUnZanganoAUnEdificio {
-
+/*
     @Test
     public void testZanganoMutaEnUnCriaderoElZanganoQueCreaDeSerEquivalenteAOtroZanganoCreado(){
         //act
@@ -128,5 +128,5 @@ public class mutacionDeUnZanganoAUnEdificio {
         assertEquals(hidraliscoUno, hidraliscoDos);
 
     }
-
+*/
 }

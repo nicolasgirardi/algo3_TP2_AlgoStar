@@ -40,7 +40,7 @@ public class TestCrearUnidadesConsumenRecursoRazaZerg {
 
 
         //Act
-        Zangano unidad = criadero.evolucionarLarva();
+        criadero.evolucionarLarva();
 
         //Assert
         assertEquals(mineralEsperado, mineral);
@@ -60,7 +60,7 @@ public class TestCrearUnidadesConsumenRecursoRazaZerg {
         }
 
         //Act
-        Zerling unidad = edificio.crearZerling(larva);
+        edificio.crearZerling(larva);
 
         //Assert
         assertEquals(mineralEsperado, mineral);
@@ -117,7 +117,7 @@ public class TestCrearUnidadesConsumenRecursoRazaZerg {
         }
 
         //Act
-        Mutalisco unidad = edificio.crearMutalisco(larva);
+        edificio.crearMutalisco();
 
         //Assert
         assertEquals(mineralEsperado, mineral);

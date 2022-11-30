@@ -23,10 +23,9 @@ public class ReservaDeReproduccion extends Edificio implements EstadoZangano {
     }
 
     @Override
-    public Zerling evolucionarLarvaAZerli(Larva larva) {
+    public void evolucionarLarvaAZerli(Larva larva) {
         verififarEdificioOperativo();
-        return larva.evolucionar(this);
-
+        larva.evolucionar(this);
     }
 
     @Override
@@ -55,15 +54,14 @@ public class ReservaDeReproduccion extends Edificio implements EstadoZangano {
     }
 
 
-    public Zerling crearZerling(Larva larva) {
+    public void crearZerling(Larva larva) {
         verififarEdificioOperativo();
-        Zerling zerling = larva.evolucionar(this);
-        raza.agregarUnidad(zerling);
-        return zerling;
+        larva.evolucionar(this);
+        raza.agregarUnidad((Unidad) larva.getTipoDeUnidadZerg());
     }
 
     @Override
-    public Zangano evolucionarLarva() {
+    public void evolucionarLarva() {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 
@@ -73,7 +71,7 @@ public class ReservaDeReproduccion extends Edificio implements EstadoZangano {
     }
 
     @Override
-    public Mutalisco crearMutalisco() {
+    public void crearMutalisco() {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 

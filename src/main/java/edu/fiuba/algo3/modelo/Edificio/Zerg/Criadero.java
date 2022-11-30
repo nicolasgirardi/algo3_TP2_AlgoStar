@@ -53,7 +53,7 @@ public class Criadero extends Edificio implements EstadoZangano {
     }
 
     @Override
-    public Zerling evolucionarLarvaAZerli(Larva larva) {
+    public void evolucionarLarvaAZerli(Larva larva) {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 
@@ -62,12 +62,11 @@ public class Criadero extends Edificio implements EstadoZangano {
         throw new ConstruccionIncorrectaError();
     }
 
-    public Zangano evolucionarLarva() {
+    public void evolucionarLarva() {
         verififarEdificioOperativo();
         Larva larvaAuxiliar = larvas.remove(0);
-        Zangano zangano = larvaAuxiliar.evolucionar();
-        raza.agregarUnidad(zangano);
-        return zangano;
+        larvaAuxiliar.evolucionar();
+        raza.agregarUnidad((Unidad) larvaAuxiliar.getTipoDeUnidadZerg());
     }
 
     @Override
@@ -122,7 +121,7 @@ public class Criadero extends Edificio implements EstadoZangano {
         return;
     }
     @Override
-    public Mutalisco crearMutalisco() {
+    public void crearMutalisco() {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 

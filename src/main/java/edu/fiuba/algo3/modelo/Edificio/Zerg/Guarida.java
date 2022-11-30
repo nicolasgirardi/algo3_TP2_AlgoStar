@@ -38,7 +38,7 @@ public class Guarida extends Edificio implements EstadoZangano {
     }
 
     @Override
-    public Zerling evolucionarLarvaAZerli(Larva larva) {
+    public void evolucionarLarvaAZerli(Larva larva) {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 
@@ -66,7 +66,7 @@ public class Guarida extends Edificio implements EstadoZangano {
 
 
     @Override
-    public Zangano evolucionarLarva() {
+    public void evolucionarLarva() {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 
@@ -76,7 +76,7 @@ public class Guarida extends Edificio implements EstadoZangano {
     }
 
     @Override
-    public Mutalisco crearMutalisco() {
+    public void crearMutalisco() {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 
