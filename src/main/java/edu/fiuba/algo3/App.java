@@ -1,10 +1,14 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.Controlador.*;
+import edu.fiuba.algo3.Vista.ContenedorPantallaInicio;
+import edu.fiuba.algo3.Vista.ContenedorRegistro;
+import edu.fiuba.algo3.modelo.Juego.Juego;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+import java.io.FileNotFoundException;
 
 /**
  * JavaFX App
@@ -12,13 +16,16 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     @Override
-    public void start(Stage stage) {
-        var javaVersion = SystemInfo.javaVersion();
-        var javafxVersion = SystemInfo.javafxVersion();
+    public void start(Stage stage){
+        Juego algoStart = new Juego();
+        ContenedorRegistro contenedorRegistro = new ContenedorRegistro(stage,algoStart);
+        Scene escenaRegistro = new Scene(contenedorRegistro, 1200, 900);
 
-        var label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        var scene = new Scene(new StackPane(label), 640, 480);
-        stage.setScene(scene);
+        ContenedorPantallaInicio contenedorPantallaInicio = new ContenedorPantallaInicio(stage, escenaRegistro);
+        Scene escenaInicial = new Scene(contenedorPantallaInicio, 1200, 900); // (posx, posy)
+
+
+        stage.setScene(escenaInicial);
         stage.show();
     }
 
