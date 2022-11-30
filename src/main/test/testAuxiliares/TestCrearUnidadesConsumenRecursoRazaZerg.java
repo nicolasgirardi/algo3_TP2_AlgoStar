@@ -1,4 +1,4 @@
-package TestAuxiliares;
+package testAuxiliares;
 
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Espiral;

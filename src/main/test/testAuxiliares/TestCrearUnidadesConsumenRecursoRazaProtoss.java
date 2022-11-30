@@ -1,12 +1,9 @@
-package TestAuxiliares;
+package testAuxiliares;
 
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.PuertoEstelar;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
-import edu.fiuba.algo3.modelo.Unidad.Dragon;
-import edu.fiuba.algo3.modelo.Unidad.Scout;
-import edu.fiuba.algo3.modelo.Unidad.Zealot;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
