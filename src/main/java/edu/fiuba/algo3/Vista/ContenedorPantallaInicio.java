@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.Vista;
 
 import edu.fiuba.algo3.Controlador.BotonContinuarHandler;
+import edu.fiuba.algo3.modelo.Juego.Juego;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -27,7 +28,12 @@ public class ContenedorPantallaInicio extends VBox {
         botonContinuar.setText("Continuar");
         botonContinuar.setMaxSize(200,100); //  (posx, posy?? no funciona)
         BotonContinuarHandler botonContinuarEH = new BotonContinuarHandler(botonContinuar, escenaRegistro, stage);
-        botonContinuar.setOnAction(botonContinuarEH);
+        //botonContinuar.setOnAction(botonContinuarEH);
+
+        ContenedorJuego contenedorJuego = new ContenedorJuego(stage, new Juego());
+        Scene scenaJuegoPrincipal = new Scene(contenedorJuego);
+        botonContinuar.setOnAction(e -> stage.setScene(scenaJuegoPrincipal));
+
 
 
         File fileFondo = new File("images/fondoInicioFin.png");
