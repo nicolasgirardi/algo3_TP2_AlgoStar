@@ -101,7 +101,7 @@ public class testEvolucionesDeLarva {
         //assert
         assertEquals(hpEsperado,hpZealot);
     }
-/*
+
     @Test
     public void testLarvaEvolucionaComoZanganoDeberiaPoderTrabajarEnExtractor(){
         //arrange
@@ -120,12 +120,12 @@ public class testEvolucionesDeLarva {
         for(int i = 0; i < 6; i++ ){
             extractor.ejecutarTurno();
         }
-        extractor.agregarZangano((Zangano) larva);
+        extractor.agregarZangano( larva);
 
         //act
         GestionRecurso cantidadGas = extractor.extraer(volcan);
 
         //assert
-        assertEquals(resultadoEsperado, cantidadGas)
-    }*/
+        assertEquals(resultadoEsperado, cantidadGas);
+    }
 }

@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Ataque.Ataque;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
 import edu.fiuba.algo3.modelo.Raza.Raza;
+import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 
@@ -109,4 +110,7 @@ public abstract class  Unidad implements Atacable, Atacante {
         mineral.consumir(costoMineral);
     }
 
+    public GestionRecurso extraer(Recurso recurso) {
+        return null;
+    }
 }

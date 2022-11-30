@@ -97,7 +97,7 @@ public class CasoDeUso2 {
     public void EdificoExtractorCon6TurnosParaSerOperativoSeLeAgregaUnZanganoDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
         //Arrange
         Extractor extractor = new Extractor();
-        Zangano unZangano = new Zangano(new HPZerg(25));
+        Zangano unZangano = new Zangano();
         //Acy y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
             extractor.agregarZangano(unZangano);

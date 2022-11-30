@@ -38,7 +38,7 @@ public class Criadero extends Edificio implements EstadoZangano {
     }
 
     @Override
-    public void agregarZangano(Zangano zangano) {
+    public void agregarZangano(Unidad zangano) {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 

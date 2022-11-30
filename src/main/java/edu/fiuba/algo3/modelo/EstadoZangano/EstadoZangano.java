@@ -14,7 +14,7 @@ public interface EstadoZangano {
 
     void ejecutarTurno();
 
-    void agregarZangano(Zangano zangano);
+    void agregarZangano(Unidad zangano);
 
     GestionRecurso extraer(Recurso recurso);
 
