@@ -128,10 +128,9 @@ public class ContenedorRegistro extends VBox{
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
 
-        Button botonContinuar = new Button();
-        botonContinuar.setText("Continuar");
-
-        BotonContinuarRegistroHandler botonContinuarRegistroEH = new BotonContinuarRegistroHandler(stage, this, nombreIngresado, colorIngresado, razaIngresada, algoStart);
+        Button botonContinuar = new Button("Continuar");
+        BotonContinuarRegistroHandler botonContinuarRegistroEH = new BotonContinuarRegistroHandler(stage,
+                this, nombreIngresado, colorIngresado, razaIngresada, algoStart);
         botonContinuar.setOnAction(botonContinuarRegistroEH);
 
         this.getChildren().addAll(labelJugador, contHorizNombre, contVertColores, seleccionRaza, contHorzRazas,  resultadoFinal,botonContinuar);

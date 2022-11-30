@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Juego;
 
 import edu.fiuba.algo3.modelo.Raza.Raza;
 
+import java.util.Objects;
+
 
 public class Jugador {
     private String nombre;
@@ -18,8 +20,8 @@ public class Jugador {
 
 
     public void compatibleCon(Jugador jugador) {
-        if(jugador.nombre == nombre) throw  new JugadorMismoNombreError();
-        if(jugador.color == color ) throw new JugadorMismoColorError();
+        if(Objects.equals(jugador.nombre, nombre)) throw  new JugadorMismoNombreError();
+        if(Objects.equals(jugador.color, color)) throw new JugadorMismoColorError();
         if(jugador.raza.getClass() == raza.getClass()) throw new JugadorMismaRazaError();
     }
 }

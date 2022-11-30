@@ -16,7 +16,11 @@ public class Juego {
     private Ubicacion baseJugador2;
     private Mapa mapa;
 
-    private ArrayList<Jugador> jugadores;
+    private Jugador jugador1;
+
+    private Jugador jugador2;
+
+    private  int contadorJugadores;
     public Juego(){
         this.mapa = new Mapa(400,400);
         Coordenada coord1 = new Coordenada(0,0);
@@ -30,7 +34,9 @@ public class Juego {
         else{
             throw new CoordenadaNoEsExtremoDelMapaError();
         }
-        jugadores = new ArrayList<Jugador>();
+        jugador1 = null;
+        jugador2 = null;
+        contadorJugadores = 0;
     }
     public Juego(Mapa Mapa,Coordenada coor1){
         mapa = Mapa;
@@ -57,14 +63,21 @@ public class Juego {
     }
 
     public void agregarJugador(Jugador unJugador){
-        jugadores.add(unJugador);
+        if(jugador1 == null){
+           jugador1 = unJugador;
+        }
+        else{
+            unJugador.compatibleCon(jugador1);
+            jugador2 = unJugador;
+        }
+        contadorJugadores++;
     }
     public boolean jugadoresCompletos(){
-        return (jugadores.size() == 2);
+        return (jugador2 != null && jugador1!= null);
     }
 
     public int cantidadJugadores(){
-        return jugadores.size()+1;
+        return  contadorJugadores+1;
     }
 
 }
