@@ -169,4 +169,9 @@ public class Larva extends Unidad{
         unidadActual.consumirMineral(mineral);
     }
 
+    public void ejecutarTurno() {
+        verificarSiEsUnaLarva();
+        Unidad unidadActual = (Unidad) tipoEvolucionDeLarva;
+        unidadActual.ejecutarTurno();
+    }
 }

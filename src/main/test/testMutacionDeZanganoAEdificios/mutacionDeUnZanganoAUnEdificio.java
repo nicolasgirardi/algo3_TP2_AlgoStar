@@ -14,11 +14,11 @@ public class mutacionDeUnZanganoAUnEdificio {
 /*
     @Test
     public void testZanganoMutaEnUnCriaderoElZanganoQueCreaDeSerEquivalenteAOtroZanganoCreado(){
-        //act
+        //arrange
         RazaZerg raza = new RazaZerg(new GestionRecurso(1000), new GestionRecurso(1000));
         Zangano unZangano = new Zangano();
 
-        //arrange
+        //act
         unZangano.mutarCriadero(raza);
         Criadero criaderoNormal = new Criadero(0);
         criaderoNormal.fueAgregado(raza);
@@ -31,7 +31,7 @@ public class mutacionDeUnZanganoAUnEdificio {
 
     @Test
     public void testZanganoMutaAUnEspiralDeberiamosPoderObtenerUnMutaliscoYCompararlos(){
-        //act
+        //arrange
         RazaZerg raza = new RazaZerg();
         raza.aumentarMineral(new GestionRecurso(400) );
         raza.aumentarGas(new GestionRecurso(400) );
@@ -40,7 +40,7 @@ public class mutacionDeUnZanganoAUnEdificio {
         Espiral espiralCreado = new Espiral();
         espiralCreado.fueAgregado(raza);
 
-        //arrange
+        //act
         unZangano.mutarEspiral(raza);
 
         for(int i = 0; i < 10 ; i++){                   //dejamos operativos los edificios.
@@ -48,7 +48,7 @@ public class mutacionDeUnZanganoAUnEdificio {
             unZangano.ejecutarTurno();
         }
 
-        Mutalisco mutaliscoUno = espiralCreado.crearMutalisco(new Larva());
+        Mutalisco mutaliscoUno = espiralCreado.crearMutalisco();
         Mutalisco mutaliscoDos = unZangano.crearMutalisco();
 
         //asert
@@ -57,7 +57,7 @@ public class mutacionDeUnZanganoAUnEdificio {
 
     @Test
     public void testZanganoMutaAUnExtractorSeAgregaUnZanganoAlVolcanDeberiaPoderExtraerGas(){
-        //act
+        //arrange
         RazaZerg raza = new RazaZerg();
         raza.aumentarMineral(new GestionRecurso(100) );
         raza.aumentarGas(new GestionRecurso(100) );
@@ -65,7 +65,7 @@ public class mutacionDeUnZanganoAUnEdificio {
         Volcan volcan = new Volcan();
         GestionRecurso resultadoEsperado = new GestionRecurso(10);
 
-        //arrange
+        //act
         unZangano.mutarExtractor(raza);
         for(int i = 0; i < 6; i++ ){            // dejo el extractor operable en 6 turnos
             unZangano.ejecutarTurno();
@@ -80,14 +80,14 @@ public class mutacionDeUnZanganoAUnEdificio {
 
     @Test
     public void testZanganoMutaALaReservaDeReproduccion(){
-        //act
+        //arrange
         RazaZerg raza = new RazaZerg();
         raza.aumentarMineral(new GestionRecurso(100) );
         raza.aumentarGas(new GestionRecurso(100) );
         Zangano unZangano = new Zangano();
         ReservaDeReproduccion reservaDeReproduccion = new ReservaDeReproduccion();
 
-        //Arrange
+        //act
         unZangano.mutarReservaReproduccion(raza);
         for(int i = 0; i < 12 ; i++){                   //dejamos operativos los edificios.
             reservaDeReproduccion.ejecutarTurno();
@@ -104,7 +104,7 @@ public class mutacionDeUnZanganoAUnEdificio {
     @Test
     public void testZanganoMutaAUnaGuaridaDeberiamosPoderObtenerUnMutaliscoYCompararlos(){
 
-        //act
+        //arrange
         RazaZerg raza = new RazaZerg();
         raza.aumentarMineral(new GestionRecurso(500) );
         raza.aumentarGas(new GestionRecurso(500) );
@@ -112,7 +112,7 @@ public class mutacionDeUnZanganoAUnEdificio {
         Zangano otroZangano = new Zangano();
         Guarida guarida = new Guarida();
 
-        //arrange
+        //act
         otroZangano.mutarReservaReproduccion(raza);  //para poder crear la guarida necesitamos primero la reserva
         unZangano.mutarGuarida(raza);
         for(int i = 0; i < 12 ; i++){           //dejamos operativos los edificios.
