@@ -5,6 +5,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.layout.*;
+import javafx.geometry.Insets;
 
 import java.io.File;
 
@@ -19,6 +21,7 @@ public class LabelRecursos {
         label.setGraphic(view);
         label.setFont(new Font(20));
         label.setTextFill(Color.RED);
+        label.setBackground(new Background(new BackgroundFill(Color.rgb(0, 0, 80, 0.7), new CornerRadii(5.0), new Insets(-5.0))));
     }
 
     public Label getLabel(){
