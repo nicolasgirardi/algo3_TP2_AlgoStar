@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.entrega_3.TestAuxiliares;
+package TestAuxiliares;
 
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.PuertoEstelar;
