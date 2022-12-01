@@ -24,9 +24,9 @@ public class ContenedorJuego extends BorderPane {
 
     public ContenedorJuego(Stage stage, Juego juego) {
 
-        Canvas canvas = new Canvas(1300,500);
+        Canvas canvas = new Canvas(500, 500);
         canvas.getGraphicsContext2D().setFill(Color.GRAY);
-        canvas.getGraphicsContext2D().fillRect(0,0,1300,500);
+        canvas.getGraphicsContext2D().fillRect(0,0,500,500);
         Group unGrupo = new Group(canvas);
         this.setBottom(unGrupo);
 
@@ -35,9 +35,9 @@ public class ContenedorJuego extends BorderPane {
         Criadero criadero = new Criadero();
 
         GridPane gridPane = new GridPane();
-        gridPane.setBackground(new Background(new BackgroundFill(Color.AQUA, CornerRadii.EMPTY, Insets.EMPTY)));
+        gridPane.setBackground(new Background(new BackgroundFill( Color.rgb(65, 40, 27, 1) , CornerRadii.EMPTY, Insets.EMPTY)));
         gridPane.setAlignment(Pos.CENTER);
-        final int TAMANIO = 100;
+        final int TAMANIO = 91;
 
         // Tierra
         File fileFondo = new File("images/tierra.png");
@@ -49,17 +49,13 @@ public class ContenedorJuego extends BorderPane {
                 BackgroundSize.DEFAULT
         );
 
-
-
-
-
         for(int i = 0; i < 10; i++){
             for(int j = 0; j < 10; j++){
                 try {
                     Button btn = new Button();
                     //btn.setGraphic( new ImageView(imagenRaza) );
-                    //btn.setMinSize(TAMANIO,TAMANIO);
-                    btn.setPrefSize(TAMANIO, TAMANIO);
+                    btn.setMinSize(TAMANIO,TAMANIO);
+                    //btn.setPrefSize(TAMANIO, TAMANIO);
                     btn.setBackground( new Background(primerBackGro) );
 
                     gridPane.add(btn, i, j);
@@ -104,7 +100,7 @@ public class ContenedorJuego extends BorderPane {
 
 
         // Volcan
-        File volcanFile = new File("images/volcan.png");
+        File volcanFile = new File("images/Volcan.png");
         Image volcanImage = new Image(volcanFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
         BackgroundImage volcanBackGro = new BackgroundImage(
                 volcanImage,
@@ -114,12 +110,12 @@ public class ContenedorJuego extends BorderPane {
         Button btnVolcan = new Button();
         btnVolcan.setMinSize(TAMANIO,TAMANIO);
         btnVolcan.setBackground( new Background(volcanBackGro) );
-        gridPane.add(btnVolcan, 2, 5);
+        gridPane.add(btnVolcan, 4, 3);
 
         Button btnVolcan2 = new Button();
         btnVolcan2.setMinSize(TAMANIO,TAMANIO);
         btnVolcan2.setBackground( new Background(volcanBackGro) );
-        gridPane.add(btnVolcan2, 7, 7);
+        gridPane.add(btnVolcan2, 3, 4);
 
 
         // Pilon
