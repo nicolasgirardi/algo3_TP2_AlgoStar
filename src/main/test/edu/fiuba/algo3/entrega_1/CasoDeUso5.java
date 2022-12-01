@@ -70,51 +70,44 @@ public class CasoDeUso5 {
         });
 
     }
-/*
+
     @Test
-    public void testNoSePuedeConstruirFueraDelRangoDelVariosPilones() {
-        //Mapa mapa = new Mapa();
+    public void testNoSeDeberiaPoderConstruirFueraDelRangoDelVariosPilones() {
+        //arrange
+        Mapa mapa = new Mapa(20,20);
+        Ubicacion ubicacionPilon1 =  mapa.buscar(new Coordenada(5,5));
+        Pilon pilon1 = new Pilon();
+        ubicacionPilon1.ubicar(pilon1, mapa);
+        Ubicacion ubicacionPilon2 =  mapa.buscar(new Coordenada(15, 15));
+        Pilon pilon2 = new Pilon();
+        ubicacionPilon2.ubicar(pilon2, mapa);
 
-        Ubicacion ubicacionPilon1 = new Ubicacion(new Coordenada(5, 5));
-        Pilon unPilon1 = new Pilon();
-        ubicacionPilon1.ubicar(unPilon1);
-        Ubicacion ubicacionPilon2 = new Ubicacion(new Coordenada(15, 15));
-        Pilon unPilon2 = new Pilon();
-        ubicacionPilon2.ubicar(unPilon2);
-        ArrayList<Pilon> lista = new ArrayList<Pilon>();
-        lista.add(unPilon1);
-        lista.add(unPilon2);
         //act
-
-        Ubicacion ubicacionPuerto = new Ubicacion(new Coordenada(10, 10));
+        Ubicacion ubicacionPuerto = mapa.buscar(new Coordenada(10, 10));
 
         //assert
-        assertThrows(ConstruccionFueraDelRangoPilonError.class, () -> {
-            ubicacionPuerto.ubicar(new Acceso(), lista);
+        assertThrows( ConstruccionFueraDelRangoPilonError.class, ()-> {
+            ubicacionPuerto.ubicar(new Acceso());
         });
     }
+
         @Test
         public void testSePuedeConstruirDentroDelRangoDelVariosPilones(){
-            //Mapa mapa = new Mapa();
+            //arrange
+            Mapa mapa = new Mapa(20,20);
+            Ubicacion ubicacionPilon1 =  mapa.buscar(new Coordenada(5,5));
+            Pilon pilon1 = new Pilon();
+            ubicacionPilon1.ubicar(pilon1, mapa);
+            Ubicacion ubicacionPilon2 =  mapa.buscar(new Coordenada(7, 7));
+            Pilon pilon2 = new Pilon();
+            ubicacionPilon2.ubicar(pilon2, mapa);
 
-            Ubicacion ubicacionPilon1 = new Ubicacion(new Coordenada(5,5));
-            Pilon unPilon1 = new Pilon();
-            ubicacionPilon1.ubicar(unPilon1);
-            Ubicacion ubicacionPilon2 = new Ubicacion(new Coordenada(6,6));
-            Pilon unPilon2 = new Pilon();
-            ubicacionPilon2.ubicar(unPilon2);
-            ArrayList<Pilon> lista = new ArrayList<Pilon>();
-            lista.add(unPilon1);
-            lista.add(unPilon2);
             //act
-
-            Ubicacion ubicacionPuerto = new Ubicacion(new Coordenada(5,6));
+            Ubicacion ubicacionPuerto = mapa.buscar(new Coordenada(6, 6));
 
             //assert
             assertDoesNotThrow( ()-> {
-                ubicacionPuerto.ubicar(new Acceso(), lista);
+                ubicacionPuerto.ubicar(new Acceso());
             });
-
-    }*/
-
+    }
 }

@@ -21,8 +21,7 @@ public class Ubicacion {
     }
 
     public void ubicar(Edificio Edificio){
-        //si es un edificio protoss, verificar la energia y si no esta energizada la
-        //ubicacion, tirar excepcion.
+
         tipo.instalar(Edificio);
         edificio = Edificio;
         edificio.ubicar(this);
@@ -32,13 +31,7 @@ public class Ubicacion {
         edificio = pilon;
         pilon.ubicarPilon(this, mapa);
     }
-    public void ubicar(Edificio Edificio, ArrayList<Pilon> lista){
-        tipo.instalar(Edificio);
-        lista.get(0).enRango(this,lista);
-        edificio = Edificio;
-        edificio.ubicar(this);
 
-    }
     public void desalojar(){
         edificio.desalojar();   //que desalojar para el pilon saque su rango de energia
         edificio = null;
