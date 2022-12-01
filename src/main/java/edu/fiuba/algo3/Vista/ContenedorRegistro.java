@@ -23,7 +23,7 @@ public class ContenedorRegistro extends VBox{
 
     public ContenedorRegistro(Stage stage, Juego algoStart) {
         stage.setTitle("AlgoStar");
-        Label labelJugador = new Label("Jugador  " + String.valueOf(algoStart.cantidadJugadores()) );
+        Label labelJugador = new Label("Jugador  " + String.valueOf(algoStart.cantidadJugadores() ) );
         labelJugador.setEffect(new DropShadow(2.0, Color.BLACK));
         labelJugador.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(5.0), new Insets(-5.0))));
 
@@ -33,9 +33,8 @@ public class ContenedorRegistro extends VBox{
         Label labelIngreseNombre = new Label("Nombre: ");
         labelIngreseNombre.setEffect(new DropShadow(2.0, Color.BLACK));
         labelIngreseNombre.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(5.0), new Insets(-5.0))));
-
         labelIngreseNombre.setFont(Font.font(25));
-        labelJugador.setTextFill(Color.WHITE);
+
 
         TextField campoNombre = new TextField();
         campoNombre.setPromptText("Ingrese Su Nombre Aqui");

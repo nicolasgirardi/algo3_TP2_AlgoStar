@@ -38,16 +38,16 @@ public class BotonContinuarRegistroHandler implements EventHandler<ActionEvent> 
         Jugador jugadorNuevo = null;
         RazaZerg zerg = null;
         RazaProtoss protoss = null;
+        jugadorNuevo = crearJugador();
 
-
-        capturadorDeErroresJugador( crearJugador() );
-
+        if(jugadorNuevo != null){
+            capturadorDeErroresJugador(jugadorNuevo);
+        }
         if(juego.jugadoresCompletos() ){
             ContenedorJuego contenedorJuego = new ContenedorJuego(stage, juego);
             Scene scenaJuegoPrincipal = new Scene(contenedorJuego);
             stage.setScene(scenaJuegoPrincipal);
         }
-
         else{
             ContenedorRegistro nuevoContenedorRegistro = new ContenedorRegistro(stage, juego);
             Scene escenaDeRegistro = new Scene( nuevoContenedorRegistro, 1200 ,900);
@@ -100,7 +100,6 @@ public class BotonContinuarRegistroHandler implements EventHandler<ActionEvent> 
         alert.setHeaderText(null);
         alert.setTitle("Error");
         try{
-            System.out.println("Se entra aca imposible.");
             juego.agregarJugador(jugadorNuevo);
         } catch ( JugadorMismaRazaError e){
             alert.setContentText("Error el Jugador 1 Tiene la misma raza");
@@ -119,8 +118,6 @@ public class BotonContinuarRegistroHandler implements EventHandler<ActionEvent> 
             alert.showAndWait();
             resetearScena();
         }
-
-
 
     }
 }

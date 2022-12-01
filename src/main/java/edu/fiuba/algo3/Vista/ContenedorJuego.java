@@ -23,17 +23,11 @@ import java.io.FileNotFoundException;
 public class ContenedorJuego extends BorderPane {
 
     public ContenedorJuego(Stage stage, Juego juego) {
-        Label labelHud = new Label("");
-        File fileHudJuego = new File("images/hudJuego.png");
-        Image imagenHudJuego = new Image(fileHudJuego.toURI().toString(),1700, 1600, true, true );
 
-
-
-        labelHud.setGraphic(new ImageView(imagenHudJuego) );
-        Canvas canvas = new Canvas(1700,1600);
+        Canvas canvas = new Canvas(1300,500);
         canvas.getGraphicsContext2D().setFill(Color.GRAY);
-        canvas.getGraphicsContext2D().fillRect(0,0,1700,1600);
-        Group unGrupo = new Group(canvas,labelHud);
+        canvas.getGraphicsContext2D().fillRect(0,0,1300,500);
+        Group unGrupo = new Group(canvas);
         this.setBottom(unGrupo);
 
 

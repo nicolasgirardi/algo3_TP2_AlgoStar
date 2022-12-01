@@ -34,9 +34,9 @@ public class ContenedorPantallaInicio extends VBox {
         BotonContinuarHandler botonContinuarEH = new BotonContinuarHandler(botonContinuar, escenaRegistro, stage);
         botonContinuar.setOnAction(botonContinuarEH);
 
-        ContenedorJuego contenedorJuego = new ContenedorJuego(stage, new Juego());
-        Scene scenaJuegoPrincipal = new Scene(contenedorJuego);
-        botonContinuar.setOnAction(e -> stage.setScene(scenaJuegoPrincipal));
+        //ContenedorJuego contenedorJuego = new ContenedorJuego(stage, new Juego());
+        //Scene scenaJuegoPrincipal = new Scene(contenedorJuego);
+        //botonContinuar.setOnAction(e -> stage.setScene(scenaJuegoPrincipal));
 
         File fileFondo = new File("images/fondoInicioFin.png");
 
