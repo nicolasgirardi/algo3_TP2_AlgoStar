@@ -32,7 +32,7 @@ public class ContenedorPantallaInicio extends VBox {
         Button botonSalir = new Button();
         botonSalir.setOnAction(new BotonSalirHandler(botonSalir));
         BotonContinuarHandler botonContinuarEH = new BotonContinuarHandler(botonContinuar, escenaRegistro, stage);
-        //botonContinuar.setOnAction(botonContinuarEH);
+        botonContinuar.setOnAction(botonContinuarEH);
 
         ContenedorJuego contenedorJuego = new ContenedorJuego(stage, new Juego());
         Scene scenaJuegoPrincipal = new Scene(contenedorJuego);

@@ -25,7 +25,7 @@ public class App extends Application {
         Scene escenaInicial = new Scene(contenedorPantallaInicio, 1200, 900); // (posx, posy)
 
 
-        stage.setScene(escenaInicial);
+        stage.setScene(escenaRegistro);
         stage.show();
     }
 

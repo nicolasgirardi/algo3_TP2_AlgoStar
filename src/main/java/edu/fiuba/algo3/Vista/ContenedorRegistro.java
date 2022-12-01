@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -23,15 +24,22 @@ public class ContenedorRegistro extends VBox{
     public ContenedorRegistro(Stage stage, Juego algoStart) {
         stage.setTitle("AlgoStar");
         Label labelJugador = new Label("Jugador  " + String.valueOf(algoStart.cantidadJugadores()) );
+        labelJugador.setEffect(new DropShadow(2.0, Color.BLACK));
+        labelJugador.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(5.0), new Insets(-5.0))));
+
         labelJugador.setFont(Font.font(40));
-        labelJugador.setTextFill(Color.rgb(0, 0, 200, 1));
+        labelJugador.setTextFill(Color.BLACK);
 
         Label labelIngreseNombre = new Label("Nombre: ");
+        labelIngreseNombre.setEffect(new DropShadow(2.0, Color.BLACK));
+        labelIngreseNombre.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(5.0), new Insets(-5.0))));
+
         labelIngreseNombre.setFont(Font.font(25));
-        labelJugador.setTextFill(Color.rgb(0, 0, 200, 1));
+        labelJugador.setTextFill(Color.WHITE);
 
         TextField campoNombre = new TextField();
         campoNombre.setPromptText("Ingrese Su Nombre Aqui");
+
 
         Button botonEnviarNombre = new Button("Enviar");
 
@@ -41,8 +49,12 @@ public class ContenedorRegistro extends VBox{
         contHorizNombre.setAlignment(Pos.BASELINE_CENTER);       //para centrarlo al medio
 
         Label labelColor = new Label("Seleccione un color: ");
+        labelColor.setEffect(new DropShadow(2.0, Color.BLACK));
+        labelColor.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(5.0), new Insets(-5.0))));
+
+
         labelColor.setFont(Font.font(30));
-        labelColor.setTextFill(Color.rgb(0, 0, 200, 1));
+        labelColor.setTextFill(Color.BLACK);
 
         Button botonColorRojo = new Button("Rojo");
         Button botonColorAzul = new Button("Azul");
@@ -62,9 +74,13 @@ public class ContenedorRegistro extends VBox{
 
 
         Label seleccionRaza = new Label("Seleccione su raza: ");
+        seleccionRaza.setEffect(new DropShadow(2.0, Color.BLACK));
+        seleccionRaza.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(5.0), new Insets(-5.0))));
+
+
         seleccionRaza.setFont(Font.font(30));
         seleccionRaza.setPadding(new Insets(10));
-        seleccionRaza.setTextFill(Color.rgb(0, 0, 200, 1));
+        seleccionRaza.setTextFill(Color.BLACK);
 
         Button botonZerg = new Button();
         VBox contVertZerg = obtenerContVer("ZERG", new Label(), botonZerg);
