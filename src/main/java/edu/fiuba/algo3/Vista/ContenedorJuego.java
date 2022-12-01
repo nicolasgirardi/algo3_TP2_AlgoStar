@@ -64,9 +64,10 @@ public class ContenedorJuego extends BorderPane {
                 try {
                     Button btn = new Button();
                     //btn.setGraphic( new ImageView(imagenRaza) );
-                    btn.setMinSize(TAMANIO,TAMANIO);
+                    //btn.setMinSize(TAMANIO,TAMANIO);
+                    btn.setPrefSize(TAMANIO, TAMANIO);
                     btn.setBackground( new Background(primerBackGro) );
-                    // btn.setStyle("-fx-background-color: #CA914B; -fx-border-width:1; -fx-border-color: #FFFFFF ");
+
                     gridPane.add(btn, i, j);
                 } catch (Exception e){
                     System.out.println(e);
@@ -89,14 +90,69 @@ public class ContenedorJuego extends BorderPane {
 
 
 
+        // Mineral
+        File mineralFile = new File("images/mineral.png");
+        Image mineralImage = new Image(mineralFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
+        BackgroundImage mineralBackGro = new BackgroundImage(
+                mineralImage,
+                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT
+        );
+        Button btnMineral = new Button();
+        btnMineral.setMinSize(TAMANIO,TAMANIO);
+        btnMineral.setBackground( new Background(mineralBackGro) );
+        gridPane.add(btnMineral, 3, 2);
+
+        Button btnMineral2 = new Button();
+        btnMineral2.setMinSize(TAMANIO,TAMANIO);
+        btnMineral2.setBackground( new Background(mineralBackGro) );
+        gridPane.add(btnMineral2, 6, 9);
+
+
+        // Volcan
+        File volcanFile = new File("images/volcan.png");
+        Image volcanImage = new Image(volcanFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
+        BackgroundImage volcanBackGro = new BackgroundImage(
+                volcanImage,
+                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT
+        );
+        Button btnVolcan = new Button();
+        btnVolcan.setMinSize(TAMANIO,TAMANIO);
+        btnVolcan.setBackground( new Background(volcanBackGro) );
+        gridPane.add(btnVolcan, 2, 5);
+
+        Button btnVolcan2 = new Button();
+        btnVolcan2.setMinSize(TAMANIO,TAMANIO);
+        btnVolcan2.setBackground( new Background(volcanBackGro) );
+        gridPane.add(btnVolcan2, 7, 7);
+
+
+        // Pilon
+        File pilonFile = new File("images/pilon.png");
+        Image pilonImage = new Image(pilonFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
+        BackgroundImage pilonBackGro = new BackgroundImage(
+                pilonImage,
+                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT
+        );
+        Button btnPilon = new Button();
+        btnPilon.setMinSize(TAMANIO,TAMANIO);
+        btnPilon.setBackground( new Background(pilonBackGro) );
+        gridPane.add(btnPilon, 9, 9);
 
         this.setCenter(gridPane);
-
-
-
     }
 
 
 
 
+
+    private int getRandom(int limite){
+        return (int) (Math.random() * limite);
+    }
+
+
 }
+
+
