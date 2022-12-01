@@ -81,4 +81,10 @@ public class Acceso extends Edificio {
         }
         super.ubicar(unLugar);
     }
+
+    public void verificarEnergia(){
+        if(!ubicacion.energizado()){
+            throw new ConstruccionFueraDelRangoPilonError();
+        }
+    }
 }

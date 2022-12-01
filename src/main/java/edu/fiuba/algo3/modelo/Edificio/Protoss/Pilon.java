@@ -87,5 +87,12 @@ public class Pilon extends Edificio {
             ubicaciones.get(i).energizar();
         }
     }
+    public void desalojarPilon(Mapa unMapa){
+        ArrayList<Ubicacion> ubicaciones = unMapa.buscar(ubicacion.coordenada(),3);
+        for(int i=0;i<ubicaciones.size();i++){
+            ubicaciones.get(i).desenergizar();
+        }
+        super.desalojar();
+    }
 }
 

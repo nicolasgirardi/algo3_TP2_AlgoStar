@@ -33,7 +33,13 @@ public class Ubicacion {
     }
 
     public void desalojar(){
-        edificio.desalojar();   //que desalojar para el pilon saque su rango de energia
+        edificio.desalojar();
+        edificio = null;
+    }
+
+    public void desalojarPilon(Mapa mapa){
+        Pilon aux = (Pilon) edificio;
+        aux.desalojarPilon(mapa);
         edificio = null;
     }
     public void darTipo(Tipo unTipo){
@@ -78,6 +84,12 @@ public class Ubicacion {
 
     public void energizar(){
         energizado++;
+    }
+
+    public void desenergizar(){
+        if(energizado()){
+            energizado--;
+        }
     }
 
     public boolean estaBajoElRangoDeUnAmoSupremo(){

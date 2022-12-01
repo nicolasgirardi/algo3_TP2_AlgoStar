@@ -13,7 +13,7 @@ import edu.fiuba.algo3.modelo.tablero.*;
 
 public abstract class Edificio implements Atacable {
 
-    private Ubicacion ubicacion;
+    protected Ubicacion ubicacion;
     protected int turnosRestantesParaSerOperativo;
     protected int costoMineral;
     protected int costoGas;
