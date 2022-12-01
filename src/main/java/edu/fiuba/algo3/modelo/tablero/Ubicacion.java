@@ -9,27 +9,28 @@ public class Ubicacion {
     private Recurso recurso;
     private Unidad unidad;
     private Tipo tipo;
-
     private Coordenada coor;
     private int enRangoAmoSupremo;
+    private int energizado;
 
     public Ubicacion(Coordenada coordenada){
         coor = coordenada;
         tipo = new Tierra();
         enRangoAmoSupremo = 0;
+        energizado = 0;
     }
 
     public void ubicar(Edificio Edificio){
+        //si es un edificio protoss, verificar la energia y si no esta energizada la
+        //ubicacion, tirar excepcion.
         tipo.instalar(Edificio);
         edificio = Edificio;
         edificio.ubicar(this);
     }
-    public void ubicar(Edificio Edificio, Pilon unPilon){
-        tipo.instalar(Edificio);
-        unPilon.enRango(this);
-        edificio = Edificio;
-        edificio.ubicar(this);
-
+    public void ubicar(Pilon pilon, Mapa mapa){
+        tipo.instalar(pilon);
+        edificio = pilon;
+        pilon.ubicarPilon(this, mapa);
     }
     public void ubicar(Edificio Edificio, ArrayList<Pilon> lista){
         tipo.instalar(Edificio);
@@ -39,7 +40,7 @@ public class Ubicacion {
 
     }
     public void desalojar(){
-        edificio.desalojar();
+        edificio.desalojar();   //que desalojar para el pilon saque su rango de energia
         edificio = null;
     }
     public void darTipo(Tipo unTipo){
@@ -82,7 +83,15 @@ public class Ubicacion {
         }
     }
 
+    public void energizar(){
+        energizado++;
+    }
+
     public boolean estaBajoElRangoDeUnAmoSupremo(){
         return enRangoAmoSupremo > 0;
+    }
+
+    public boolean energizado(){
+        return (0 < energizado);
     }
 }

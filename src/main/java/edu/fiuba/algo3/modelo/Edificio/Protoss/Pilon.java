@@ -10,6 +10,7 @@ import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
+import edu.fiuba.algo3.modelo.tablero.Mapa;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
@@ -77,6 +78,14 @@ public class Pilon extends Edificio {
     }
     public void disminuirCapacidad(Raza unaRaza){
         unaRaza.disminuirCapacidad(5);
+    }
+
+    public void ubicarPilon(Ubicacion unaUbicacion, Mapa unMapa){
+        super.ubicar(unaUbicacion);
+        ArrayList<Ubicacion> ubicaciones = unMapa.buscar(unaUbicacion.coordenada(),3);
+        for(int i=0;i<ubicaciones.size();i++){
+            ubicaciones.get(i).energizar();
+        }
     }
 }
 

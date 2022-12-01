@@ -11,6 +11,7 @@ import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 
 public class NexoMineral extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 4;
@@ -53,4 +54,5 @@ public class NexoMineral extends Edificio {
     public void instalar(Moho moho) {
         throw new ConstruccionProtoEnMohoError();
     }
+
 }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CasoDeUso9 {
-
+/*
     @Test
     public void unEdificioProtossEnRangoDe2PilonesSigueEnergizadoSiSeDestruyeUno(){
         //para probar esto se van a crear 2 pilones, ponemos un edificio cerca de estos, destruimos uno
@@ -74,5 +74,5 @@ public class CasoDeUso9 {
             acceso.energizado(lista);
         });
 
-    }
+    }*/
 }

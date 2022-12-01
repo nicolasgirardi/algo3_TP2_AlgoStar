@@ -18,7 +18,6 @@ public abstract class Edificio implements Atacable {
     protected int costoMineral;
     protected int costoGas;
     protected Raza raza;
-
     private HitPoints hp;
 
     public Edificio(int turnosRestantesParaSerOperativo, int mineralNecesario, int gasNecesario){
@@ -65,19 +64,22 @@ public abstract class Edificio implements Atacable {
         mineral.consumir(costoMineral);
     }
 
-
     public void asignarHP(HitPoints HP){
         hp = HP;
     }
+
     public void recibirDaño(int daño){
         hp.recibirDaño(daño);
     }
+
     public int vidaActual(){
         return hp.vida();
     }
+
     public int escudoActual(){
         return hp.escudo();
     }
+
     public void regeneracionFinDeTurno(){
         hp.regenerar();
     }

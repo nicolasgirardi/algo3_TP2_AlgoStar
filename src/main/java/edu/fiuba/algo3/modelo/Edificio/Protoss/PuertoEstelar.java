@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Edificio.Protoss;
 
+import edu.fiuba.algo3.modelo.ConstruccionFueraDelRangoPilonError;
 import edu.fiuba.algo3.modelo.ConstruccionProtoEnMohoError;
 import edu.fiuba.algo3.modelo.Edificio.ConstruccionIncorrectaError;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
@@ -11,11 +12,13 @@ import edu.fiuba.algo3.modelo.Unidad.Scout;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 
 
 public class PuertoEstelar extends Edificio {
 
     private static final int CANTIDAD_TURNOS_OPERATIVO = 10;
+
 
     public PuertoEstelar(){
         super(CANTIDAD_TURNOS_OPERATIVO,new HPProtoss(600,600),150,150);
@@ -55,5 +58,13 @@ public class PuertoEstelar extends Edificio {
     public void crearScout() {
         Scout scout = new Scout();
         raza.agregarUnidad(scout);
+    }
+
+    @Override
+    public void ubicar(Ubicacion unLugar){
+        if(!unLugar.energizado()){
+            throw new ConstruccionFueraDelRangoPilonError();
+        }
+        super.ubicar(unLugar);
     }
 }

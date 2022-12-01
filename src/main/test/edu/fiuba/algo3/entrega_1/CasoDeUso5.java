@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
+import edu.fiuba.algo3.modelo.tablero.Mapa;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
 import org.junit.jupiter.api.Test;
@@ -33,23 +34,43 @@ public class CasoDeUso5 {
 
     }
     @Test
-    public void testNoSePuedeConstruirFueraDelRangoDelPilon(){
-        //Mapa mapa = new Mapa();
+    public void testNoSeDeberiaPoderConstruirFueraDelRangoDelPilon(){
 
-        Ubicacion ubicacionPilon = new Ubicacion(new Coordenada(5,5));
+        //arrange
+        Mapa mapa = new Mapa(10,10);
+        Ubicacion ubicacionPilon =  mapa.buscar(new Coordenada(1,1));
         Pilon unPilon = new Pilon();
-        ubicacionPilon.ubicar(unPilon);
-        //act
+        ubicacionPilon.ubicar(unPilon, mapa);
 
-        Ubicacion ubicacionPuerto = new Ubicacion(new Coordenada(10,10));
+        //act
+        Ubicacion ubicacionPuerto = mapa.buscar(new Coordenada(5,5));
 
         //assert
         assertThrows( ConstruccionFueraDelRangoPilonError.class, ()-> {
-            ubicacionPuerto.ubicar(new Acceso(),unPilon);
+            ubicacionPuerto.ubicar(new Acceso());
         });
 
     }
 
+    @Test
+    public void testSiSeDeberiaPoderConstruirDentroDelRangoDelPilon(){
+
+        //arrange
+        Mapa mapa = new Mapa(10,10);
+        Ubicacion ubicacionPilon =  mapa.buscar(new Coordenada(4,4));
+        Pilon unPilon = new Pilon();
+        ubicacionPilon.ubicar(unPilon, mapa);
+
+        //act
+        Ubicacion ubicacionPuerto = mapa.buscar(new Coordenada(5,5));
+
+        //assert
+        assertDoesNotThrow( ()-> {
+            ubicacionPuerto.ubicar(new Acceso());
+        });
+
+    }
+/*
     @Test
     public void testNoSePuedeConstruirFueraDelRangoDelVariosPilones() {
         //Mapa mapa = new Mapa();
@@ -94,6 +115,6 @@ public class CasoDeUso5 {
                 ubicacionPuerto.ubicar(new Acceso(), lista);
             });
 
-    }
+    }*/
 
 }

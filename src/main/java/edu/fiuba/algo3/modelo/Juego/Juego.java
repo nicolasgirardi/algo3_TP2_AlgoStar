@@ -26,7 +26,6 @@ public class Juego {
         else{
             throw new CoordenadaNoEsExtremoDelMapaError();
         }
-
     }
 
     public int distanciaEntreBases(){
