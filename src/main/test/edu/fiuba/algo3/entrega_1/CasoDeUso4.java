@@ -46,7 +46,7 @@ public class CasoDeUso4 {
             extractor.ejecutarTurno();
         }
 
-        extractor.agregarZangano(new Zangano(new HPZerg(25)));
+        extractor.agregarZangano(new Zangano());
 
         //Act
         GestionRecurso cantidadGas = extractor.extraer(volcan);

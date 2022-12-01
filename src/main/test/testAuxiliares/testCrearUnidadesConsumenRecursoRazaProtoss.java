@@ -1,19 +1,16 @@
-package edu.fiuba.algo3.entrega_3.TestAuxiliares;
+package testAuxiliares;
 
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.PuertoEstelar;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
-import edu.fiuba.algo3.modelo.Unidad.Dragon;
-import edu.fiuba.algo3.modelo.Unidad.Scout;
-import edu.fiuba.algo3.modelo.Unidad.Zealot;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestCrearUnidadesConsumenRecursoRazaProtoss {
+public class testCrearUnidadesConsumenRecursoRazaProtoss {
     GestionRecurso mineral;
     GestionRecurso gas;
     Raza raza;
@@ -42,7 +39,7 @@ public class TestCrearUnidadesConsumenRecursoRazaProtoss {
 
 
         //Act
-        Zealot unidad = edificio.crearZealot();
+        edificio.crearZealot();
 
         //Assert
         assertEquals(mineralEsperado, mineral);
@@ -62,7 +59,7 @@ public class TestCrearUnidadesConsumenRecursoRazaProtoss {
         }
 
         //Act
-        Dragon unidad = edificio.crearDragon();
+        edificio.crearDragon();
 
         //Assert
         assertEquals(mineralEsperado, mineral);
@@ -92,7 +89,7 @@ public class TestCrearUnidadesConsumenRecursoRazaProtoss {
         }
 
         //Act
-        Scout unidad = edificio.crearScout();
+        edificio.crearScout();
 
         //Assert
         assertEquals(mineralEsperado, mineral);

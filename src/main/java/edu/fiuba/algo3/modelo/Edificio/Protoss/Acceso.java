@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.modelo.Edificio.Protoss;
 
+import edu.fiuba.algo3.modelo.ConstruccionFueraDelRangoPilonError;
 import edu.fiuba.algo3.modelo.ConstruccionProtoEnMohoError;
 import edu.fiuba.algo3.modelo.Edificio.ConstruccionIncorrectaError;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.HitPoints.HPProtoss;
-import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Unidad.Dragon;
@@ -12,6 +12,7 @@ import edu.fiuba.algo3.modelo.Unidad.Zealot;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 
 
 import java.util.ArrayList;
@@ -61,17 +62,29 @@ public class Acceso extends Edificio {
         lista.get(0).enRango(ubicacion(),lista);
     }
 
-    public Zealot crearZealot() {
+    public void crearZealot() {
         verififarEdificioOperativo();
         Zealot zealot = new Zealot();
         raza.agregarUnidad(zealot);
-        return zealot;
     }
 
-    public Dragon crearDragon() {
+    public void crearDragon() {
         verififarEdificioOperativo();
         Dragon dragon = new Dragon();
         raza.agregarUnidad(dragon);
-        return dragon;
+    }
+
+    @Override
+    public void ubicar(Ubicacion unLugar){
+        if(!unLugar.energizado()){
+            throw new ConstruccionFueraDelRangoPilonError();
+        }
+        super.ubicar(unLugar);
+    }
+
+    public void verificarEnergia(){
+        if(!ubicacion.energizado()){
+            throw new ConstruccionFueraDelRangoPilonError();
+        }
     }
 }
