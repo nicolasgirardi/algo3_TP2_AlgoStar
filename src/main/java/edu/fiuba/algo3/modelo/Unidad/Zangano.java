@@ -10,7 +10,7 @@ import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
-public class Zangano extends Unidad implements TipoDeUnidadZerg {
+public class Zangano extends Unidad implements TipoEvolucionDeLarva {
     private EstadoZangano estadoZangano;
     public Zangano(){
         super(
@@ -100,8 +100,8 @@ public class Zangano extends Unidad implements TipoDeUnidadZerg {
         raza.agregarEsteEdificio(estadoZangano);
     }
 
-    public Hidralisco evolucionarLarvaAHidra(Larva larva) {
-        return estadoZangano.evolucionarLarvaAHidra(larva);
+    public void evolucionarLarvaAHidra(Larva larva) {
+        estadoZangano.evolucionarLarvaAHidra(larva);
     }
 
     public void evolucionarLarvaAZerli(Larva larva) {

@@ -97,7 +97,7 @@ public class CasoDeUso2 {
     public void EdificoExtractorCon6TurnosParaSerOperativoSeLeAgregaUnZanganoDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
         //Arrange
         Extractor extractor = new Extractor();
-        Zangano unZangano = new Zangano(new HPZerg(25));
+        Zangano unZangano = new Zangano();
         //Acy y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
             extractor.agregarZangano(unZangano);
@@ -145,7 +145,7 @@ public class CasoDeUso2 {
         Larva unaLarva = new Larva();
         //Acy y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            Hidralisco hidralisco = guarida.evolucionarLarvaAHidra(unaLarva);
+            guarida.evolucionarLarvaAHidra(unaLarva);
         });
 
     }
@@ -161,7 +161,7 @@ public class CasoDeUso2 {
         }
         //Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            Hidralisco hidralisco = guarida.evolucionarLarvaAHidra(unaLarva);
+            guarida.evolucionarLarvaAHidra(unaLarva);
         });
 
     }
@@ -171,13 +171,19 @@ public class CasoDeUso2 {
         //Arrange
         Guarida guarida = new Guarida();
         Larva unaLarva = new Larva();
+        RazaZerg raza = new RazaZerg();
+        raza.aumentarGas(new GestionRecurso(500));
+        raza.aumentarMineral(new GestionRecurso(500));
+        raza.agregarEdificio(new Criadero());
+        raza.agregarEdificio(new ReservaDeReproduccion());
+        raza.agregarEdificio(guarida);
         //Act
         for(int i = 0 ; i < 12 ; i++){
             guarida.ejecutarTurno();
         }
         //Assert
         assertDoesNotThrow(  ()-> {
-            Hidralisco hidralisco = guarida.evolucionarLarvaAHidra(unaLarva);
+            guarida.evolucionarLarvaAHidra(unaLarva);
         });
     }
 

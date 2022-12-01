@@ -32,9 +32,10 @@ public class Guarida extends Edificio implements EstadoZangano {
     }
 
     @Override
-    public Hidralisco evolucionarLarvaAHidra(Larva unaLarva) {
+    public void evolucionarLarvaAHidra(Larva unaLarva) {
         verififarEdificioOperativo();
-        return unaLarva.evolucionar(this);
+        unaLarva.evolucionar(this);
+        raza.agregarUnidad((Unidad) unaLarva.getTipoDeUnidadZerg());
     }
 
     @Override
@@ -81,7 +82,7 @@ public class Guarida extends Edificio implements EstadoZangano {
     }
 
     @Override
-    public void agregarZangano(Zangano zangano) {
+    public void agregarZangano(Unidad zangano) {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 
@@ -90,10 +91,4 @@ public class Guarida extends Edificio implements EstadoZangano {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 
-
-    public Hidralisco crearHidralisco(Larva larva) {
-        Hidralisco hidralisco = larva.evolucionar(this);
-        raza.agregarUnidad(hidralisco);
-        return hidralisco;
-    }
 }

@@ -17,14 +17,14 @@ import java.util.ArrayList;
 
 public class Extractor extends Edificio implements EstadoZangano {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 6;
-    private ArrayList<Zangano> zanganos;
+    private ArrayList<Unidad> zanganos;
 
     public Extractor(){
         super(CANTIDAD_TURNOS_OPERATIVO,new HPZerg(750),100,0);
-        zanganos = new ArrayList<Zangano>();
+        zanganos = new ArrayList<Unidad>();
     }
 
-    public void agregarZangano(Zangano zangano){
+    public void agregarZangano(Unidad zangano){
 
         verificarExtractorCantidadMaximaDeZanganos();
         verififarEdificioOperativo();
@@ -34,14 +34,14 @@ public class Extractor extends Edificio implements EstadoZangano {
     public GestionRecurso extraer(Recurso recurso){
         verififarEdificioOperativo();
         GestionRecurso gasAcumulado = new GestionRecurso();
-        for(Zangano zangano: zanganos){
+        for(Unidad zangano: zanganos){
             gasAcumulado.aumentar( zangano.extraer(recurso) );
         }
         return gasAcumulado;
     }
 
     @Override
-    public Hidralisco evolucionarLarvaAHidra(Larva larva) {
+    public void evolucionarLarvaAHidra(Larva larva) {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 
@@ -99,5 +99,6 @@ public class Extractor extends Edificio implements EstadoZangano {
     public void crearMutalisco() {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
+
 
 }

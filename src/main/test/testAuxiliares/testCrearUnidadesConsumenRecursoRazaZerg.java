@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.entrega_3.TestAuxiliares;
+package testAuxiliares;
 
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Espiral;
@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class TestCrearUnidadesConsumenRecursoRazaZerg {
+public class testCrearUnidadesConsumenRecursoRazaZerg {
     GestionRecurso mineral;
     GestionRecurso gas;
     Raza raza;
@@ -85,7 +85,7 @@ public class TestCrearUnidadesConsumenRecursoRazaZerg {
 
 
         //Act
-        Hidralisco unidad = edificio.crearHidralisco(larva);
+        edificio.evolucionarLarvaAHidra(larva);
 
         //Assert
         assertEquals(mineralEsperado, mineral);
