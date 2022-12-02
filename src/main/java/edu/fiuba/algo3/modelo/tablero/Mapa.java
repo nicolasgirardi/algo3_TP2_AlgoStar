@@ -16,7 +16,7 @@ public class Mapa {
             for (int j = 0; j <= Altura; j++) {
                 mapa[i][j] = new Ubicacion(new Coordenada(i, j));
             }
-        }
+        } // falta definir los nodos minerales y los volcanes lugares ala mtitad del mapa lo definimos apriori.
     }
 
     public Ubicacion buscar(Coordenada coordenada) {

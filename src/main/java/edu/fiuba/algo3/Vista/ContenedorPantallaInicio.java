@@ -31,7 +31,7 @@ public class ContenedorPantallaInicio extends VBox {
         botonContinuar.setMaxSize(200,100); //  (posx, posy?? no funciona)
         Button botonSalir = new Button();
         botonSalir.setOnAction(new BotonSalirHandler(botonSalir));
-        BotonContinuarHandler botonContinuarEH = new BotonContinuarHandler(botonContinuar, escenaRegistro, stage);
+        BotonContinuarHandler botonContinuarEH = new BotonContinuarHandler(botonContinuar, escenaRegistro, stage); //refactor boton al pedo al handler
         botonContinuar.setOnAction(botonContinuarEH);
 
         //ContenedorJuego contenedorJuego = new ContenedorJuego(stage, new Juego());

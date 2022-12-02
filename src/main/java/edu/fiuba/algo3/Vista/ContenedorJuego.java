@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.Vista;
 
+import edu.fiuba.algo3.Controlador.BotonCriaderoHandler;
+import edu.fiuba.algo3.Controlador.BotonEdificioCriadero;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Juego.Juego;
+import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -9,10 +12,12 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -24,25 +29,21 @@ public class ContenedorJuego extends BorderPane {
 
     public ContenedorJuego(Stage stage, Juego juego) {
 
-        Canvas canvas = new Canvas(500, 500);
-        canvas.getGraphicsContext2D().setFill(Color.GRAY);
-        canvas.getGraphicsContext2D().fillRect(0,0,500,500);
-        Group unGrupo = new Group(canvas);
-        this.setBottom(unGrupo);
-
-
-
-        Criadero criadero = new Criadero();
-
         GridPane gridPane = new GridPane();
-        gridPane.setBackground(new Background(new BackgroundFill( Color.rgb(65, 40, 27, 1) , CornerRadii.EMPTY, Insets.EMPTY)));
+        gridPane.setBackground( new Background(new BackgroundFill( Color.rgb(65, 40, 27, 1) , CornerRadii.EMPTY, Insets.EMPTY) ) );
         gridPane.setAlignment(Pos.CENTER);
-        final int TAMANIO = 91;
+        Label labelMenu = new Label("Menu del Juego");
+        labelMenu.setEffect(new DropShadow(2.0, Color.BLACK));
+        labelMenu.setFont(Font.font(40));
+        labelMenu.setTextFill(Color.BLACK);
+        VBox menuVertical = new VBox( labelMenu );
+        menuVertical.setBackground( new Background(new BackgroundFill( Color.rgb(255, 255, 255, 1) , CornerRadii.EMPTY, Insets.EMPTY) ) );
+        gridPane.add(menuVertical,10,1);  // eje x , eje y
 
+        final int TAMANIO = 91;
         // Tierra
         File fileFondo = new File("images/tierra.png");
         Image imagenRaza = new Image(fileFondo.toURI().toString(),TAMANIO, TAMANIO, true, true );
-
         BackgroundImage primerBackGro = new BackgroundImage(
                 imagenRaza,
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
@@ -130,8 +131,14 @@ public class ContenedorJuego extends BorderPane {
         btnPilon.setMinSize(TAMANIO,TAMANIO);
         btnPilon.setBackground( new Background(pilonBackGro) );
         gridPane.add(btnPilon, 9, 9);
-
+        RazaZerg nuevaRaza = new RazaZerg();
+        Criadero criadero =  new Criadero();
+        BotonEdificioCriadero botonEdificioCriadero =  new BotonEdificioCriadero(criadero, nuevaRaza );
+        gridPane.add( botonEdificioCriadero, 10,4 ) ;
         this.setCenter(gridPane);
+        BotonCriaderoHandler botonCriaderoHandler = new BotonCriaderoHandler(menuVertical, criadero );
+        botonEdificioCriadero.setOnAction(botonCriaderoHandler);
+
     }
 
 
