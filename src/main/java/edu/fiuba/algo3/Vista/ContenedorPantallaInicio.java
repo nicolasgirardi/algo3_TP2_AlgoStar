@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
+
 public class ContenedorPantallaInicio extends VBox {
     public ContenedorPantallaInicio(Stage stage, Scene escenaRegistro) {
 
@@ -45,6 +46,8 @@ public class ContenedorPantallaInicio extends VBox {
         this.getChildren().addAll( inicioJuego, botonContinuar);
         this.setBackground( new Background(primerBackGro) );
         this.setAlignment(Pos.CENTER);
+
+
     }
 
 }

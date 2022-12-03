@@ -5,10 +5,12 @@ import edu.fiuba.algo3.Vista.ContenedorPantallaInicio;
 import edu.fiuba.algo3.Vista.ContenedorRegistro;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  * JavaFX App
@@ -21,12 +23,23 @@ public class App extends Application {
         ContenedorRegistro contenedorRegistro = new ContenedorRegistro(stage,algoStart);
         Scene escenaRegistro = new Scene(contenedorRegistro, 1200, 900);
 
-        ContenedorPantallaInicio contenedorPantallaInicio = new ContenedorPantallaInicio(stage, escenaRegistro);
+        /*ContenedorPantallaInicio contenedorPantallaInicio = new ContenedorPantallaInicio(stage, escenaRegistro);
         Scene escenaInicial = new Scene(contenedorPantallaInicio, 1200, 900); // (posx, posy)
-
-
         stage.setScene(escenaInicial);
-        stage.show();
+        stage.show();*/
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Prueba2.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setTitle("Hello!");
+            stage.setScene(scene);
+            stage.show();
+        }catch (IOException e){
+            System.out.println("IOException "+ e.getMessage());
+        }catch (Exception e){
+            System.out.println("Exception "+ e.getMessage());
+        }
+
+
     }
 
     public static void main(String[] args) {
