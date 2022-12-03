@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.Vista;
 
 import edu.fiuba.algo3.Controlador.BotonContinuarHandler;
+import edu.fiuba.algo3.Controlador.BotonSalirHandler;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,6 +12,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+
 
 import java.io.File;
 
@@ -28,25 +30,27 @@ public class ContenedorPantallaInicio extends VBox {
         Button botonContinuar = new Button();
         botonContinuar.setText("Continuar");
         botonContinuar.setMaxSize(200,100); //  (posx, posy?? no funciona)
+        Button botonSalir = new Button();
+        botonSalir.setOnAction(new BotonSalirHandler(botonSalir));
         BotonContinuarHandler botonContinuarEH = new BotonContinuarHandler(botonContinuar, escenaRegistro, stage);
-        //botonContinuar.setOnAction(botonContinuarEH);
+        botonContinuar.setOnAction(botonContinuarEH);
 
-        ContenedorJuego contenedorJuego = new ContenedorJuego(stage, new Juego());
-        Scene scenaJuegoPrincipal = new Scene(contenedorJuego);
-        botonContinuar.setOnAction(e -> stage.setScene(scenaJuegoPrincipal));
-
-
+        //ContenedorJuego contenedorJuego = new ContenedorJuego(stage, new Juego());
+        //Scene scenaJuegoPrincipal = new Scene(contenedorJuego);
+        //botonContinuar.setOnAction(e -> stage.setScene(scenaJuegoPrincipal));
 
         File fileFondo = new File("images/fondoInicioFin.png");
+
+
         BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo.toURI().toString(),
                 1200,2500,true,true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
 
-        this.getChildren().addAll( inicioJuego, botonContinuar);
+        this.getChildren().addAll( inicioJuego, botonContinuar,botonSalir);
         this.setBackground( new Background(primerBackGro) );
+        this.setSpacing(100);
         this.setAlignment(Pos.CENTER);
-
 
     }
 

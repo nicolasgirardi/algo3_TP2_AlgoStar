@@ -76,7 +76,7 @@ public class ReservaDeReproduccion extends Edificio implements EstadoZangano {
     }
 
     @Override
-    public void agregarZangano(Zangano zangano) {
+    public void agregarZangano(Unidad zangano) {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 
@@ -86,7 +86,7 @@ public class ReservaDeReproduccion extends Edificio implements EstadoZangano {
     }
 
     @Override
-    public Hidralisco evolucionarLarvaAHidra(Larva larva) {
+    public void evolucionarLarvaAHidra(Larva larva) {
         throw  new NoDeberiaEjecutarEsteMetodoError();
     }
 

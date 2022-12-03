@@ -3,6 +3,7 @@ package edu.fiuba.algo3.entrega_1;
 import edu.fiuba.algo3.modelo.ConstruccionFueraDelRangoPilonError;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.PuertoEstelar;
 import org.junit.jupiter.api.Test;
 import edu.fiuba.algo3.modelo.tablero.*;
 
@@ -13,66 +14,46 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CasoDeUso9 {
 
     @Test
-    public void unEdificioProtossEnRangoDe2PilonesSigueEnergizadoSiSeDestruyeUno(){
-        //para probar esto se van a crear 2 pilones, ponemos un edificio cerca de estos, destruimos uno
-        //y vemos que sigue activo
-        ArrayList<Pilon> lista = new ArrayList<Pilon>();
-        Pilon pilon1 = new Pilon(); //crea un primer pilon
-        lista.add(pilon1);
-        Pilon pilon2 = new Pilon(); //crea un segundo pilon
-        lista.add(pilon2);
-        Acceso acceso = new Acceso(); //crea un acceso
-        Ubicacion ubicacion1 = new Ubicacion(new Coordenada(2,2));
-        Ubicacion ubicacion2 = new Ubicacion(new Coordenada( 4,4 ));
-        Ubicacion ubicacion3 = new Ubicacion(new Coordenada(3,3));
-        ubicacion1.ubicar(pilon1);
-        ubicacion2.ubicar(pilon2);
-        ubicacion3.ubicar(acceso);
+    public void unEdificioProtossEnRangoDe2PilonesDebeSeguirEnergizadoSiSeDestruyeUno(){
+        //arrange
+        Mapa mapa = new Mapa(20,20);
+        Ubicacion ubicacionPilon1 =  mapa.buscar(new Coordenada(9,9));
+        Pilon pilon1 = new Pilon();
+        ubicacionPilon1.ubicar(pilon1, mapa);
+        Ubicacion ubicacionPilon2 =  mapa.buscar(new Coordenada(10, 10));
+        Pilon pilon2 = new Pilon();
+        ubicacionPilon2.ubicar(pilon2, mapa);
+        Ubicacion ubicacionPuerto = mapa.buscar(new Coordenada(11, 11));
+        PuertoEstelar puerto = new PuertoEstelar();
+        ubicacionPuerto.ubicar(puerto);
 
+        //act
+        ubicacionPilon1.desalojarPilon(mapa);
 
-        for(int i = 0; i < 8 ; i++){
-            acceso.ejecutarTurno();
-        }
-
-        ubicacion2.desalojar();
-        lista.remove(pilon2);
-
-
-        assertDoesNotThrow(  ()-> {
-            acceso.energizado(lista);
+        //assert
+        assertDoesNotThrow( ()-> {
+            puerto.verificarEnergia();
         });
-
     }
 
     @Test
-    public void unEdificioProtossEnRangoDe1PilonNOEstaEnergizadoSiSeDestruyeElPilon(){
-        //para probar esto se van a crear 2 pilones, ponemos un edificio cerca de estos, destruimos uno
-        //y vemos que sigue activo
-        ArrayList<Pilon> lista = new ArrayList<Pilon>();
-        Pilon pilon1 = new Pilon(); //crea un primer pilon
-        lista.add(pilon1);
-        Pilon pilon2 = new Pilon(); //crea un segundo pilon
-        lista.add(pilon2);
-        Acceso acceso = new Acceso(); //crea un acceso
-        Ubicacion ubicacion1 = new Ubicacion(new Coordenada(2,2));
-        Ubicacion ubicacion2 = new Ubicacion(new Coordenada( 3,3 ));
-        Ubicacion ubicacion3 = new Ubicacion(new Coordenada(4,4));
-        ubicacion1.ubicar(pilon1);
-        ubicacion2.ubicar(pilon2);
-        ubicacion3.ubicar(acceso);
+    public void unEdificioProtossEnRangoDe1PilonNoDeberiaEstarEnergizadoSiSeDestruyeElPilon(){
+        //arrange
+        Mapa mapa = new Mapa(20,20);
+        Ubicacion ubicacionPilon1 =  mapa.buscar(new Coordenada(9,9));
+        Pilon pilon1 = new Pilon();
+        ubicacionPilon1.ubicar(pilon1, mapa);
+        Ubicacion ubicacionPuerto = mapa.buscar(new Coordenada(10, 10));
+        PuertoEstelar puerto = new PuertoEstelar();
+        ubicacionPuerto.ubicar(puerto);
 
+        //act
+        ubicacionPilon1.desalojarPilon(mapa);
 
-        for(int i = 0; i < 8 ; i++){
-            acceso.ejecutarTurno();
-        }
-
-        ubicacion2.desalojar();
-        lista.remove(pilon2);
-
-
+        //assert
         assertThrows(ConstruccionFueraDelRangoPilonError.class, () -> {
-            acceso.energizado(lista);
+            puerto.verificarEnergia();
         });
-
     }
+
 }

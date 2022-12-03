@@ -61,13 +61,6 @@ public abstract class Raza {
         this.mineral.aumentar(mineral);
     }
 
-    public void verficarConsumoRecurso(int cantMineralConsumir, int cantGasConsumir){
-        if( !this.mineral.puedeConsumir(cantMineralConsumir) || !this.gas.puedeConsumir(cantGasConsumir)) {
-            throw new RecursosInsuficientesError();
-        }
-
-    }
-
     public boolean existeReserva() {
         return (cantReservas > 0) ;
     }

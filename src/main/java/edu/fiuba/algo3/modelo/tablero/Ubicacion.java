@@ -9,37 +9,37 @@ public class Ubicacion {
     private Recurso recurso;
     private Unidad unidad;
     private Tipo tipo;
-
     private Coordenada coor;
     private int enRangoAmoSupremo;
+    private int energizado;
 
     public Ubicacion(Coordenada coordenada){
         coor = coordenada;
         tipo = new Tierra();
         enRangoAmoSupremo = 0;
+        energizado = 0;
     }
 
     public void ubicar(Edificio Edificio){
-        tipo.instalar(Edificio);
-        edificio = Edificio;
-        edificio.ubicar(this);
-    }
-    public void ubicar(Edificio Edificio, Pilon unPilon){
-        tipo.instalar(Edificio);
-        unPilon.enRango(this);
-        edificio = Edificio;
-        edificio.ubicar(this);
 
-    }
-    public void ubicar(Edificio Edificio, ArrayList<Pilon> lista){
         tipo.instalar(Edificio);
-        lista.get(0).enRango(this,lista);
         edificio = Edificio;
         edificio.ubicar(this);
-
     }
+    public void ubicar(Pilon pilon, Mapa mapa){
+        tipo.instalar(pilon);
+        edificio = pilon;
+        pilon.ubicarPilon(this, mapa);
+    }
+
     public void desalojar(){
         edificio.desalojar();
+        edificio = null;
+    }
+
+    public void desalojarPilon(Mapa mapa){
+        Pilon aux = (Pilon) edificio;
+        aux.desalojarPilon(mapa);
         edificio = null;
     }
     public void darTipo(Tipo unTipo){
@@ -82,7 +82,21 @@ public class Ubicacion {
         }
     }
 
+    public void energizar(){
+        energizado++;
+    }
+
+    public void desenergizar(){
+        if(energizado()){
+            energizado--;
+        }
+    }
+
     public boolean estaBajoElRangoDeUnAmoSupremo(){
         return enRangoAmoSupremo > 0;
+    }
+
+    public boolean energizado(){
+        return (0 < energizado);
     }
 }

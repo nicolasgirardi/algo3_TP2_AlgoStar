@@ -34,7 +34,8 @@ public class App extends Application {
             stage.setScene(scene);
             stage.show();
         }catch (IOException e){
-            System.out.println("IOException "+ e.getMessage());
+            System.out.println("IOException " );
+            e.printStackTrace();
         }catch (Exception e){
             System.out.println("Exception "+ e.getMessage());
         }

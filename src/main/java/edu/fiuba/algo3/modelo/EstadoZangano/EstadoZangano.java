@@ -14,11 +14,11 @@ public interface EstadoZangano {
 
     void ejecutarTurno();
 
-    void agregarZangano(Zangano zangano);
+    void agregarZangano(Unidad zangano);
 
     GestionRecurso extraer(Recurso recurso);
 
-    Hidralisco evolucionarLarvaAHidra(Larva larva);
+    void evolucionarLarvaAHidra(Larva larva);
 
     void evolucionarLarvaAZerli(Larva larva);
 }

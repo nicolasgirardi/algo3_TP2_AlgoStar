@@ -1,13 +1,17 @@
 package edu.fiuba.algo3.modelo.Unidad;
 
+import edu.fiuba.algo3.modelo.Atacable;
+import edu.fiuba.algo3.modelo.Ataque.Ataque;
 import edu.fiuba.algo3.modelo.Ataque.AtaqueTierraYViento;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 
-public class Mutalisco extends Unidad{
+public class Mutalisco extends Unidad implements TipoEvolucionDeMutalisco{
 
+    private TipoEvolucionDeMutalisco tipoEvolucionDeMutalisco;
     public Mutalisco() {
 
         super(
@@ -15,18 +19,22 @@ public class Mutalisco extends Unidad{
                 new TipoAire(),
                 new AtaqueTierraYViento(9,9),
                 7,4,100,100);
+        tipoEvolucionDeMutalisco = null;
     }
 
     public Mutalisco(HitPoints vida) {
             super(vida, 4);
+            tipoEvolucionDeMutalisco = null;
     }
 
-    public void evolucionar(RazaZerg raza) {
-        raza.verficarConsumoRecurso(50,100);
+    public void evolucionarAGuardian(RazaZerg raza) {
+        tipoEvolucionDeMutalisco = new Guardian();
+        raza.agregarUnidad((Unidad) this.getTipoEvolucionDeMutalisco());
     }
+
     public void evolucionarDevorador(RazaZerg raza) {
-        raza.verficarConsumoRecurso(150,50);
-
+        tipoEvolucionDeMutalisco = new Devorador();
+        raza.agregarUnidad((Unidad) this.getTipoEvolucionDeMutalisco());
     }
 
     @Override
@@ -37,7 +45,122 @@ public class Mutalisco extends Unidad{
         return mutalisco.hp.equals(hp)  ;
     }
 
+    public TipoEvolucionDeMutalisco getTipoEvolucionDeMutalisco(){
+        return tipoEvolucionDeMutalisco;
+    }
 
+    // Delego los metodos de Unidad al tipo de Evolucion --------------------------------
 
+    public Boolean verificarSiEsMutalisco(){
+        return tipoEvolucionDeMutalisco == null;
+    }
 
+    public void atacar(Atacable atacable){
+
+        if(verificarSiEsMutalisco()){
+            super.atacar(atacable);
+        }else {
+            Unidad unidadActual = (Unidad) tipoEvolucionDeMutalisco;
+            unidadActual.atacar(atacable);
+        }
+    }
+
+    public void recibirAtaque(Ataque ataque){
+
+        if(verificarSiEsMutalisco()){
+            super.recibirAtaque(ataque);
+        }else {
+            Unidad unidadActual = (Unidad) tipoEvolucionDeMutalisco;
+            unidadActual.recibirAtaque(ataque);
+        }
+    }
+
+    public void atacarSobreUbicacion(Atacable atacable){
+        if(verificarSiEsMutalisco()){
+            super.atacarSobreUbicacion(atacable);
+        }else{
+            Unidad unidadActual = (Unidad) tipoEvolucionDeMutalisco;
+            unidadActual.atacarSobreUbicacion(atacable);
+        }
+    }
+
+    public void asignarRango(int Rango){
+        if(verificarSiEsMutalisco()){
+            super.asignarRango(Rango);
+     }else{
+            Unidad unidadActual = (Unidad) tipoEvolucionDeMutalisco;
+            unidadActual.asignarRango(Rango);
+        }
+    }
+
+    public void volar(){
+        if(verificarSiEsMutalisco()){
+            super.volar();
+        }else{
+            Unidad unidadActual = (Unidad) tipoEvolucionDeMutalisco;
+            unidadActual.volar();
+        }
+    }
+
+    public void aumentarPoblacion(Raza raza) {
+        if(verificarSiEsMutalisco()){
+           super.aumentarPoblacion(raza);
+        }else{
+            Unidad unidadActual = (Unidad) tipoEvolucionDeMutalisco;
+            unidadActual.aumentarPoblacion(raza);
+        }
+    }
+
+    public void disminuirPoblacion(Raza unaRaza){
+        if(verificarSiEsMutalisco()){
+            super.disminuirPoblacion(unaRaza);
+        }else{
+            Unidad unidadActual = (Unidad) tipoEvolucionDeMutalisco;
+            unidadActual.disminuirPoblacion(unaRaza);
+        }
+    }
+    protected void disminuirCapacidad(Raza unaRaza){
+        if(verificarSiEsMutalisco()){
+            super.disminuirCapacidad(unaRaza);
+        }else{
+            Unidad unidadActual = (Unidad) tipoEvolucionDeMutalisco;
+            unidadActual.disminuirCapacidad(unaRaza);
+        }
+    }
+
+    public void verificarConsumoRecurso(GestionRecurso mineral, GestionRecurso gas) {
+       if(verificarSiEsMutalisco()){
+            super.verificarConsumoRecurso(mineral, gas);
+       }else{
+           Unidad unidadActual = (Unidad) tipoEvolucionDeMutalisco;
+           unidadActual.verificarConsumoRecurso(mineral, gas);
+       }
+    }
+
+    public void consumirGas(GestionRecurso gas) {
+        if(verificarSiEsMutalisco()){
+            super.consumirGas(gas);
+        }else{
+            Unidad unidadActual = (Unidad) tipoEvolucionDeMutalisco;
+            unidadActual.consumirGas(gas);
+        }
+    }
+
+    public void consumirMineral(GestionRecurso mineral) {
+        if(verificarSiEsMutalisco()){
+            super.consumirMineral(mineral);
+        }else{
+            Unidad unidadActual = (Unidad) tipoEvolucionDeMutalisco;
+            unidadActual.consumirMineral(mineral);
+        }
+    }
+
+    public void ejecutarTurno() {
+        if(verificarSiEsMutalisco()){
+            super.ejecutarTurno();
+        }else{
+            Unidad unidadActual = (Unidad) tipoEvolucionDeMutalisco;
+            unidadActual.ejecutarTurno();
+        }
+    }
 }

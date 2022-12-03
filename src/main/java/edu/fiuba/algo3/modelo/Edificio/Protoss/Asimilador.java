@@ -9,6 +9,7 @@ import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 
 import java.util.ArrayList;
 
@@ -53,4 +54,5 @@ public class Asimilador extends Edificio {
     public void instalar(Moho moho) {
         throw new ConstruccionProtoEnMohoError();
     }
+
 }
