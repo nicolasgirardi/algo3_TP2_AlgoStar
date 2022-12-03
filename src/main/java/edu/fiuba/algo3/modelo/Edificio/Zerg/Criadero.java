@@ -132,4 +132,7 @@ public class Criadero extends Edificio implements EstadoZangano {
     }
 
 
+    public int getCantidadLarvas() {
+        return larvas.size();
+    }
 }
