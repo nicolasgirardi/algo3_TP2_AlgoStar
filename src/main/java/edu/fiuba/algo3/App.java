@@ -22,7 +22,7 @@ public class App extends Application {
         Scene escenaRegistro = new Scene(contenedorRegistro, 1200, 900);
 
         ContenedorPantallaInicio contenedorPantallaInicio = new ContenedorPantallaInicio(stage, escenaRegistro);
-        Scene escenaInicial = new Scene(contenedorPantallaInicio, 1200, 900); // (posx, posy)
+        Scene escenaInicial = new Scene(contenedorPantallaInicio, 1000, 562.5); // (posx, posy)
 
 
         stage.setScene(escenaInicial);

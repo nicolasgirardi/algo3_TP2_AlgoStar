@@ -25,6 +25,7 @@ public class ContenedorPantallaInicio extends VBox {
         inicioJuego.setFont(Font.font(40));
         inicioJuego.setTextFill(Color.rgb(255, 255, 255, 1));
         inicioJuego.setAlignment(Pos.CENTER);
+        //inicioJuego.setStyle("-fx-stroke-width: 10;-fx-stroke: black;");
 
         Button botonContinuar = new Button();
         botonContinuar.setText("Continuar");
@@ -42,7 +43,7 @@ public class ContenedorPantallaInicio extends VBox {
 
 
         BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo.toURI().toString(),
-                1200,2500,true,true),
+                1000, 562.5,true,true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
 
