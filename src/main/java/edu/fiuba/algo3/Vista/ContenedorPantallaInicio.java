@@ -4,6 +4,7 @@ import edu.fiuba.algo3.Controlador.BotonContinuarHandler;
 import edu.fiuba.algo3.Controlador.BotonSalirHandler;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 
@@ -40,7 +42,6 @@ public class ContenedorPantallaInicio extends VBox {
         //botonContinuar.setOnAction(e -> stage.setScene(scenaJuegoPrincipal));
 
         File fileFondo = new File("images/fondoInicioFin.png");
-
 
         BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo.toURI().toString(),
                 1000, 562.5,true,true),
