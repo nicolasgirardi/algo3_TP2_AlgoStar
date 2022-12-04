@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -84,28 +85,25 @@ public class InterfazJuegoControlador implements Initializable {
     }
 
     private void inicializar(){
-        grPane.setBackground( new Background(new BackgroundFill( Color.rgb(65, 40, 27, 1) , CornerRadii.EMPTY, Insets.EMPTY) ) );
+        //grPane.setBackground( new Background(new BackgroundFill( Color.rgb(65, 40, 27, 1) , CornerRadii.EMPTY, Insets.EMPTY) ) );
 
-        final int TAMANIO = 91;
+        final int TAMANIO = 35;
+
         // Tierra
         File fileFondo = new File("images/tierra.png");
-        Image imagenRaza = new Image(fileFondo.toURI().toString(),TAMANIO, TAMANIO, true, true );
-        BackgroundImage primerBackGro = new BackgroundImage(
-                imagenRaza,
-                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT
-        );
+        //Image imagenRaza = new Image(fileFondo.toURI().toString(),TAMANIO, TAMANIO, true, true );
 
-        for(int i = 0; i < 10; i++){
-            for(int j = 0; j < 10; j++){
+        for(int i = 0; i < 15; i++){
+            for(int j = 0; j < 15; j++){
                 try {
                     Button btn = new Button();
+                    //btn.setGraphic(new ImageView(imagenRaza) );
                     //btn.setGraphic( new ImageView(imagenRaza) );
                     btn.setMinSize(TAMANIO,TAMANIO);
-                    //btn.setPrefSize(TAMANIO, TAMANIO);
-                    btn.setBackground( new Background(primerBackGro) );
-                    btn.setStyle("-fx-border-width: 2; -fx-border-color: white;");
+                    btn.setPrefSize(TAMANIO,TAMANIO);
 
+                    //btn.setBackground( new Background(primerBackGro) );
+                    //btn.setStyle("-fx-border-width: 2; -fx-border-color: white;");
                     grPane.add(btn, i, j);
                 } catch (Exception e){
                     System.out.println(e);
@@ -114,6 +112,8 @@ public class InterfazJuegoControlador implements Initializable {
         }
 
 
+
+        /*
         // Criadero
         File criaderoFile = new File("images/criadero.png");
         Image criaderoImage = new Image(criaderoFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
@@ -166,7 +166,7 @@ public class InterfazJuegoControlador implements Initializable {
         btnVolcan2.setBackground( new Background(volcanBackGro) );
         grPane.add(btnVolcan2, 3, 4);
 
-
+    */
 
     }
 
@@ -175,4 +175,5 @@ public class InterfazJuegoControlador implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         inicializar();
     }
+
 }
