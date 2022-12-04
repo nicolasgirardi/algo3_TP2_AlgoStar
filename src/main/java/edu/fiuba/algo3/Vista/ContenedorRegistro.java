@@ -95,12 +95,15 @@ public class ContenedorRegistro extends VBox{
 
         Label nombreIngresado = new Label("");
         nombreIngresado.setFont(Font.font(20));
+        nombreIngresado.setBackground(new Background(new BackgroundFill(Color.rgb(255,255,255,0.6), new CornerRadii(5.0), new Insets(-5.0))));
 
         Label colorIngresado = new Label("");
         colorIngresado.setFont(Font.font(20));
+        colorIngresado.setBackground(new Background(new BackgroundFill(Color.rgb(255,255,255,0.6), new CornerRadii(5.0), new Insets(-5.0))));
 
         Label razaIngresada = new Label("");
         razaIngresada.setFont(Font.font(20));
+        razaIngresada.setBackground(new Background(new BackgroundFill(Color.rgb(255,255,255,0.6), new CornerRadii(5.0), new Insets(-5.0))));
 
 
         HBox resultadoFinal = new HBox(nombreIngresado, colorIngresado, razaIngresada );

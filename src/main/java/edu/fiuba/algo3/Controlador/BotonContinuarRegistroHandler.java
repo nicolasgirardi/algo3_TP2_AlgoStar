@@ -45,12 +45,12 @@ public class BotonContinuarRegistroHandler implements EventHandler<ActionEvent> 
         }
         if(juego.jugadoresCompletos() ){
             ContenedorJuego contenedorJuego = new ContenedorJuego(stage, juego);
-            Scene scenaJuegoPrincipal = new Scene(contenedorJuego, 1200, 900); // poner siempre dimensiones
+            Scene scenaJuegoPrincipal = new Scene(contenedorJuego, 1200 ,900); // poner siempre dimensiones
             stage.setScene(scenaJuegoPrincipal);
         }
         else{
             ContenedorRegistro nuevoContenedorRegistro = new ContenedorRegistro(stage, juego);
-            Scene escenaDeRegistro = new Scene( nuevoContenedorRegistro, 1200 ,900);
+            Scene escenaDeRegistro = new Scene( nuevoContenedorRegistro, 1060, 650);
             stage.setScene(escenaDeRegistro);
         }
     }
