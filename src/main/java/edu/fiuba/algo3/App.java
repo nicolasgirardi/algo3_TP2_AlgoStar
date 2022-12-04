@@ -23,22 +23,11 @@ public class App extends Application {
         ContenedorRegistro contenedorRegistro = new ContenedorRegistro(stage,algoStart);
         Scene escenaRegistro = new Scene(contenedorRegistro, 1200, 900);
 
-        /*ContenedorPantallaInicio contenedorPantallaInicio = new ContenedorPantallaInicio(stage, escenaRegistro);
+        ContenedorPantallaInicio contenedorPantallaInicio = new ContenedorPantallaInicio(stage, escenaRegistro);
         Scene escenaInicial = new Scene(contenedorPantallaInicio, 1200, 900); // (posx, posy)
         stage.setScene(escenaInicial);
-        stage.show();*/
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Prueba2.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            stage.setTitle("Hello!");
-            stage.setScene(scene);
-            stage.show();
-        }catch (IOException e){
-            System.out.println("IOException " );
-            e.printStackTrace();
-        }catch (Exception e){
-            System.out.println("Exception "+ e.getMessage());
-        }
+        stage.show();
+
 
 
     }

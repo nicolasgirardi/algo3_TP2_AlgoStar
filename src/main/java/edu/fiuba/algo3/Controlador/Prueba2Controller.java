@@ -6,6 +6,6 @@ import javafx.scene.control.Button;
 public class Prueba2Controller {
 
     @FXML
-    private Button btn;
+    public Button btn;
 
 }
