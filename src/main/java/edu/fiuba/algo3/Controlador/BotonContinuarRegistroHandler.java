@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.Controlador;
 
+import edu.fiuba.algo3.Controlador.ControllerFXML.InterfazJuegoControlador;
 import edu.fiuba.algo3.Vista.ContenedorJuego;
 import edu.fiuba.algo3.Vista.ContenedorRegistro;
 import edu.fiuba.algo3.modelo.Juego.*;
@@ -7,11 +8,13 @@ import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class BotonContinuarRegistroHandler implements EventHandler<ActionEvent> {
@@ -44,11 +47,23 @@ public class BotonContinuarRegistroHandler implements EventHandler<ActionEvent> 
             capturadorDeErroresJugador(jugadorNuevo);
         }
         if(juego.jugadoresCompletos() ){
-            ContenedorJuego contenedorJuego = new ContenedorJuego(stage, juego);
-            Scene scenaJuegoPrincipal = new Scene(contenedorJuego, 1400, 900); // poner siempre dimensiones (eje x, eje y )
+            //ContenedorJuego contenedorJuego = new ContenedorJuego(stage, juego);
+            //Scene scenaJuegoPrincipal = new Scene(contenedorJuego, 1400, 900); // poner siempre dimensiones (eje x, eje y )
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/VistaFxml/InterfazJuego.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                InterfazJuegoControlador interfazJuegoControlador = fxmlLoader.getController();
+                interfazJuegoControlador.setJuego(juego);
 
+                //RegistroJugadorControlador controlador = fxmlLoader.getController();
+                //controlador.setearJuego(new Juego());
 
-            stage.setScene(scenaJuegoPrincipal);
+                stage.setScene(scene);
+            }catch (IOException err){
+                err.printStackTrace();
+            }
+
+            //stage.setScene(scenaJuegoPrincipal);
         }
         else{
             ContenedorRegistro nuevoContenedorRegistro = new ContenedorRegistro(stage, juego);

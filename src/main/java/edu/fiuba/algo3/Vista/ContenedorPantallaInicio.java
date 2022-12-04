@@ -2,6 +2,7 @@ package edu.fiuba.algo3.Vista;
 
 import edu.fiuba.algo3.Controlador.BotonContinuarHandler;
 import edu.fiuba.algo3.Controlador.BotonSalirHandler;
+import edu.fiuba.algo3.Controlador.ControllerFXML.InterfazJuegoControlador;
 import edu.fiuba.algo3.Controlador.ControllerFXML.RegistroJugadorControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import javafx.fxml.FXMLLoader;
@@ -65,7 +66,19 @@ public class ContenedorPantallaInicio extends VBox {
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
 
-        this.getChildren().addAll( inicioJuego, botonContinuar,botonSalir);
+        Button buttonTest = new Button("TEST");
+        buttonTest.setOnAction(e -> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/VistaFxml/InterfazJuego.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                InterfazJuegoControlador interfazJuegoControlador = fxmlLoader.getController();
+                interfazJuegoControlador.setJuego(new Juego());
+                stage.setScene(scene);
+            }catch (IOException err){
+                err.printStackTrace();
+            }
+        });
+        this.getChildren().addAll( inicioJuego, botonContinuar,botonSalir,buttonTest);
         this.setBackground( new Background(primerBackGro) );
         this.setSpacing(100);
         this.setAlignment(Pos.CENTER);
