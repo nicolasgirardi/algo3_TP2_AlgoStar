@@ -87,11 +87,16 @@ public class InterfazJuegoControlador implements Initializable {
     private void inicializar(){
         //grPane.setBackground( new Background(new BackgroundFill( Color.rgb(65, 40, 27, 1) , CornerRadii.EMPTY, Insets.EMPTY) ) );
 
-        final int TAMANIO = 35;
+        final int TAMANIO = 67;
 
         // Tierra
         File fileFondo = new File("images/tierra.png");
-        //Image imagenRaza = new Image(fileFondo.toURI().toString(),TAMANIO, TAMANIO, true, true );
+        Image imagenRaza = new Image(fileFondo.toURI().toString(),TAMANIO, TAMANIO, true, true );
+        BackgroundImage primerBackGro = new BackgroundImage(
+                imagenRaza,
+                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT
+        );
 
         for(int i = 0; i < 15; i++){
             for(int j = 0; j < 15; j++){
@@ -102,7 +107,7 @@ public class InterfazJuegoControlador implements Initializable {
                     btn.setMinSize(TAMANIO,TAMANIO);
                     btn.setPrefSize(TAMANIO,TAMANIO);
 
-                    //btn.setBackground( new Background(primerBackGro) );
+                    btn.setBackground( new Background(primerBackGro) );
                     //btn.setStyle("-fx-border-width: 2; -fx-border-color: white;");
                     grPane.add(btn, i, j);
                 } catch (Exception e){
@@ -110,10 +115,10 @@ public class InterfazJuegoControlador implements Initializable {
                 }
             }
         }
+        grPane.setPrefSize(1000,950);
 
 
 
-        /*
         // Criadero
         File criaderoFile = new File("images/criadero.png");
         Image criaderoImage = new Image(criaderoFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
@@ -166,7 +171,18 @@ public class InterfazJuegoControlador implements Initializable {
         btnVolcan2.setBackground( new Background(volcanBackGro) );
         grPane.add(btnVolcan2, 3, 4);
 
-    */
+        // Pilon
+        File pilonFile = new File("images/pilon.png");
+        Image pilonImage = new Image(pilonFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
+        BackgroundImage pilonBackGro = new BackgroundImage(
+                pilonImage,
+                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT
+        );
+        Button btnPilon = new Button();
+        btnPilon.setMinSize(TAMANIO,TAMANIO);
+        btnPilon.setBackground( new Background(pilonBackGro) );
+        grPane.add(btnPilon, 9, 9);
 
     }
 
