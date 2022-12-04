@@ -39,7 +39,7 @@ public class Juego {
         jugador1 = null;
         jugador2 = null;
         contadorJugadores = 0;
-        inicializar_mapa();
+        inicializar_mapaM();
     }
 
     public Juego(Mapa Mapa, Coordenada coor1) {
