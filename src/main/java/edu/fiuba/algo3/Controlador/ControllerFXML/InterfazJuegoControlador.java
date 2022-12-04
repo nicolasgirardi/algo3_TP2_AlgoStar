@@ -113,7 +113,6 @@ public class InterfazJuegoControlador implements Initializable {
             }
         }
 
-        BotonEdificioCriadero botonEdificioCriadero = new BotonEdificioCriadero();
 
         // Criadero
         File criaderoFile = new File("images/criadero.png");

@@ -11,9 +11,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class testCrearUnidadesConsumenRecursoRazaProtoss {
-    GestionRecurso mineral;
-    GestionRecurso gas;
-    Raza raza;
+    public GestionRecurso mineral;
+    public GestionRecurso gas;
+    public Raza raza;
 
     @BeforeEach
     void setup() {

@@ -14,10 +14,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class testCrearUnidadesConsumenRecursoRazaZerg {
-    GestionRecurso mineral;
-    GestionRecurso gas;
-    Raza raza;
-    Larva larva;
+    public GestionRecurso mineral;
+    public GestionRecurso gas;
+    public Raza raza;
+    public Larva larva;
 
     @BeforeEach
     void setup() {
