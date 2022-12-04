@@ -99,4 +99,8 @@ public class Ubicacion {
     public boolean energizado(){
         return (0 < energizado);
     }
+
+    public void ubicarRecurso(Recurso unRecurso){
+        recurso = unRecurso;
+    }
 }
