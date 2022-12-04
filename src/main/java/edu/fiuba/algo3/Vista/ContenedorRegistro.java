@@ -78,7 +78,6 @@ public class ContenedorRegistro extends VBox{
 
 
         seleccionRaza.setFont(Font.font(30));
-        seleccionRaza.setPadding(new Insets(10));
         seleccionRaza.setTextFill(Color.BLACK);
 
         Button botonZerg = new Button();
@@ -96,12 +95,15 @@ public class ContenedorRegistro extends VBox{
 
         Label nombreIngresado = new Label("");
         nombreIngresado.setFont(Font.font(20));
+        nombreIngresado.setBackground(new Background(new BackgroundFill(Color.rgb(255,255,255,0.6), new CornerRadii(5.0), new Insets(-5.0))));
 
         Label colorIngresado = new Label("");
         colorIngresado.setFont(Font.font(20));
+        colorIngresado.setBackground(new Background(new BackgroundFill(Color.rgb(255,255,255,0.6), new CornerRadii(5.0), new Insets(-5.0))));
 
         Label razaIngresada = new Label("");
         razaIngresada.setFont(Font.font(20));
+        razaIngresada.setBackground(new Background(new BackgroundFill(Color.rgb(255,255,255,0.6), new CornerRadii(5.0), new Insets(-5.0))));
 
 
         HBox resultadoFinal = new HBox(nombreIngresado, colorIngresado, razaIngresada );
@@ -139,7 +141,7 @@ public class ContenedorRegistro extends VBox{
 
         File fileFondo = new File("images/fondoFinal.png");
         BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo.toURI().toString(),
-                1200,2500,true,true),
+                1060, 650,true,true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
 
@@ -169,7 +171,7 @@ public class ContenedorRegistro extends VBox{
             botonRaza.setText("RAZA PROTOSS");
         }
 
-        Image imagenRaza = new Image(fileRaza.toURI().toString(),400, 400, true, true );
+        Image imagenRaza = new Image(fileRaza.toURI().toString(),200, 200, true, true );
         labelRaza.setGraphic(new ImageView(imagenRaza) );
         return new VBox(labelRaza, botonRaza);
     }
