@@ -5,13 +5,13 @@ import edu.fiuba.algo3.modelo.ConstruccionProtoEnMohoError;
 import edu.fiuba.algo3.modelo.Edificio.ConstruccionIncorrectaError;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.HitPoints.HPProtoss;
+import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
-import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 
 public class NexoMineral extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 4;
@@ -22,6 +22,8 @@ public class NexoMineral extends Edificio {
         super(CANTIDAD_TURNOS_OPERATIVO,new HPProtoss(250,250),50,0);
         this.nodoMineral = nodoMineral;
         nodoMineral.ocuparConEdificio(this);
+        entidad = IDEDIFICIO.NEXOMINERAL;
+
     }
 
 

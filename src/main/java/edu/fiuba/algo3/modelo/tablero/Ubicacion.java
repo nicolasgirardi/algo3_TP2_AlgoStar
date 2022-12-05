@@ -1,9 +1,12 @@
 package edu.fiuba.algo3.modelo.tablero;
 import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
+import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
+import edu.fiuba.algo3.modelo.TIPOSUPERFICIE;
 import edu.fiuba.algo3.modelo.Unidad.*;
 
 public class Ubicacion {
@@ -127,4 +130,25 @@ public class Ubicacion {
     public Volcan getVolcan() {
         return (Volcan) recurso;
     }
+    public Edificio getEdificio(){
+        return edificio;
+    }
+
+    public Criadero getCriadero(){
+        if(edificio.getEntidad() == IDEDIFICIO.CRIADERO){
+            return (Criadero) edificio;
+        }
+        return null;
+    }
+
+    public Pilon getPilon(){
+        if(edificio.getEntidad() == IDEDIFICIO.PILON){
+            return (Pilon) edificio;
+        }
+        return null;
+    }
+    public TIPOSUPERFICIE getTipoSuperficie(){
+        return tipo.getTiposuperficie();
+    }
+
 }

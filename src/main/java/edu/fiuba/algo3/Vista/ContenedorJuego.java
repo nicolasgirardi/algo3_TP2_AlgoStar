@@ -130,8 +130,8 @@ public class ContenedorJuego extends BorderPane {
         BotonEdificioCriadero botonEdificioCriadero =  new BotonEdificioCriadero(criadero, nuevaRaza );
         gridPane.add( botonEdificioCriadero, 10,4 ) ;
         this.setCenter(gridPane);
-        BotonCriaderoHandler botonCriaderoHandler = new BotonCriaderoHandler(menuVertical, criadero );
-        botonEdificioCriadero.setOnAction(botonCriaderoHandler);
+        //BotonCriaderoHandler botonCriaderoHandler = new BotonCriaderoHandler(menuVertical, criadero );
+        //botonEdificioCriadero.setOnAction(botonCriaderoHandler);
 
     }
 

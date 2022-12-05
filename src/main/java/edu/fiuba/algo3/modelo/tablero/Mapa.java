@@ -54,9 +54,28 @@ public class Mapa {
         return buscar(coor.opuesta(base,altura));
     }
 
+    private void darTipoAlMapaInicio(){
+        for(int i = 0; i < base ; i++){
+            for(int j = 0; j < altura ; j++){
+                Ubicacion ubicacion1 = this.buscar(new Coordenada(i,j));
+                if( i == 0 && j == 0){
+                    ubicacion1.darTipo(new Moho());
+                }
+                else{
+                    ubicacion1.darTipo(new Tierra());
+                }
+            }
+        }
+        //damos tipo a los terrenos especiales
+
+        this.buscar(new Coordenada(4 , 6)).darTipo(new Especial() );
+        this.buscar(new Coordenada(5 , 3)).darTipo(new Especial() );
+        this.buscar(new Coordenada(7 , 5)).darTipo(new Especial() );
+
+    }
     public void inicializarMapa() {
-        Ubicacion ubicacion1 = this.buscar(new Coordenada(0,0));
-        ubicacion1.darTipo(new Moho());
+        darTipoAlMapaInicio();
+
         this.buscar(new Coordenada(0,0)).ubicar(new Criadero());
         this.buscar(new Coordenada(0,2)).ubicarRecurso(new NodoMineral());
         this.buscar(new Coordenada(2,0)).ubicarRecurso(new NodoMineral());

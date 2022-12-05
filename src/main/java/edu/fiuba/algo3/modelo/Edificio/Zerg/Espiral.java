@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Edificio.ConstruccionIncorrectaError;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
+import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.*;
@@ -13,14 +14,14 @@ import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
 
-import java.util.ArrayList;
-
 public class Espiral extends Edificio implements EstadoZangano {
 
     private static final int CANTIDAD_TURNOS_OPERATIVO = 10;
 
     public Espiral(){
         super(CANTIDAD_TURNOS_OPERATIVO,new HPZerg(1300),150,100);
+        entidad = IDEDIFICIO.ESPIRAL;
+
     }
 
     @Override

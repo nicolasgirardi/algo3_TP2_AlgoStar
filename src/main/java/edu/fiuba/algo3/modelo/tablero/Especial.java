@@ -1,10 +1,14 @@
 package edu.fiuba.algo3.modelo.tablero;
 
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.TIPOSUPERFICIE;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 
-public class Especial implements Tipo{
+public class Especial extends Tipo{
 
+    public Especial(){
+        tiposuperficie = TIPOSUPERFICIE.ESPECIAL;
+    }
     public void instalar(Edificio edificio){
 
     }

@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.*;
@@ -21,6 +22,8 @@ public class Guarida extends Edificio implements EstadoZangano {
 
     public Guarida(){
         super(CANTIDAD_TURNOS_OPERATIVO,new HPZerg(1250),200,100);
+        entidad = IDEDIFICIO.GUARIDA;
+
     }
     public Guarida(HitPoints hp){
         super(hp);

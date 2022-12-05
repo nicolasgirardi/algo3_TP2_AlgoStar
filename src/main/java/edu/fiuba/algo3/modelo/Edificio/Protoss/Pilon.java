@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Edificio.ConstruccionIncorrectaError;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.HitPoints.HPProtoss;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
@@ -23,6 +24,8 @@ public class Pilon extends Edificio {
 
     public Pilon(){
         super(CANTIDAD_TURNOS_OPERATIVO,new HPProtoss(300,300),100,0);
+        entidad = IDEDIFICIO.PILON;
+
     }
 
     public Pilon(HitPoints hp ){

@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Edificio.ConstruccionIncorrectaError;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
+import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.*;
@@ -20,6 +21,8 @@ public class ReservaDeReproduccion extends Edificio implements EstadoZangano {
 
     public ReservaDeReproduccion(){
         super(CANTIDAD_TURNOS_OPERATIVO,new HPZerg(1000),150,0);
+        entidad = IDEDIFICIO.RESERVADEREPRODUCCION;
+
     }
 
     @Override

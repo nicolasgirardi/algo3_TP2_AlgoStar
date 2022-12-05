@@ -15,7 +15,7 @@ public class BotonCriaderoHandler implements EventHandler<ActionEvent> {
     private  VBox vbox;
     private  Criadero criadero;
 
-    public BotonCriaderoHandler(VBox cajaParaRellenar, Criadero criadero){
+    public BotonCriaderoHandler(Criadero criadero, VBox cajaParaRellenar){
         this.vbox = cajaParaRellenar;
         this.criadero = criadero;
     }

@@ -3,12 +3,16 @@ package edu.fiuba.algo3.modelo.tablero;
 import edu.fiuba.algo3.modelo.ConstruccionProtoEnMohoError;
 import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.*;
+import edu.fiuba.algo3.modelo.TIPOSUPERFICIE;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 
 import java.util.ArrayList;
 
-public class Moho implements Tipo{
+public class Moho extends Tipo{
 
+    public Moho(){
+        tiposuperficie = TIPOSUPERFICIE.MOHO;
+    }
 
     public void instalar(Edificio edificio){
         edificio.instalar(this);

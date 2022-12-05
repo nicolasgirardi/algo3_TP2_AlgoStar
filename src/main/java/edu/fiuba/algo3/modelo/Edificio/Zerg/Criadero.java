@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Edificio.ConstruccionIncorrectaError;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
+import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.*;
@@ -24,6 +25,7 @@ public class Criadero extends Edificio implements EstadoZangano {
         super(0,new HPZerg(500),200,0);
         larvas = new ArrayList<Larva>();
         cargarTodaslasLarvas();
+        entidad = IDEDIFICIO.CRIADERO;
     }
     public Criadero(int cantidadTurnosParaSerOperativo){
         super(cantidadTurnosParaSerOperativo, 200, 0);
