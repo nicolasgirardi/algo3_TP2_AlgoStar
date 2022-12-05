@@ -119,7 +119,6 @@ public class InterfazJuegoControlador implements Initializable {
         grPane.setPrefSize(1000,950);
 
 
-
         // Criadero
         File criaderoFile = new File("images/criadero.png");
         Image criaderoImage = new Image(criaderoFile.toURI().toString(),TAMANIO, TAMANIO, true, true );

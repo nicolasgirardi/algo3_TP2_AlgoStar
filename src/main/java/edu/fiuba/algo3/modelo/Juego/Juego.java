@@ -41,7 +41,6 @@ public class Juego {
         jugador2 = null;
         contadorJugadores = 0;
         mapa.inicializarMapa();
-        inicializar_mapaM();
     }
 
     public Juego(Mapa Mapa, Coordenada coor1) {
@@ -84,104 +83,5 @@ public class Juego {
         return contadorJugadores + 1;
     }
 
-
-    private void inicializar_mapaXL() {
-        mapa.buscar(new Coordenada(1, 2)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(2, 2)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(4, 4)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(6, 2)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(3, 3)).ubicarRecurso(new Volcan());
-
-        mapa.buscar(new Coordenada(399, 2)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(398, 2)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(396, 4)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(394, 2)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(397, 3)).ubicarRecurso(new Volcan());
-
-        mapa.buscar(new Coordenada(399, 398)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(398, 398)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(396, 396)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(394, 398)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(397, 397)).ubicarRecurso(new Volcan());
-
-        mapa.buscar(new Coordenada(1, 398)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(2, 398)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(4, 396)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(6, 398)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(3, 397)).ubicarRecurso(new Volcan());
-
-        mapa.buscar(new Coordenada(1, 202)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(2, 202)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(4, 204)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(6, 202)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(3, 203)).ubicarRecurso(new Volcan());
-
-        mapa.buscar(new Coordenada(399, 202)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(398, 202)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(396, 204)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(394, 202)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(397, 203)).ubicarRecurso(new Volcan());
-        int random;
-        for (int i = 10; i < 390; i++) {
-            for (int j = 10; j < 390; j++) {
-                random = (int) (Math.random() * 100) + 1;
-                if (random <= 5)
-                    mapa.buscar(new Coordenada(i, j)).ubicarRecurso(new NodoMineral());
-                if (5 < random && random <= 7)
-                    mapa.buscar(new Coordenada(i, j)).ubicarRecurso(new Volcan());
-                if (7 < random && random <= 17)
-                    mapa.buscar(new Coordenada(i, j)).darTipo(new Especial());
-            }
-        }
-    }
-    private void inicializar_mapaM() {
-        mapa.buscar(new Coordenada(1, 2)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(2, 2)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(4, 4)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(6, 2)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(3, 3)).ubicarRecurso(new Volcan());
-
-        mapa.buscar(new Coordenada(39, 2)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(38, 2)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(36, 4)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(34, 2)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(37, 3)).ubicarRecurso(new Volcan());
-
-        mapa.buscar(new Coordenada(39, 38)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(38, 38)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(36, 36)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(34, 38)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(37, 37)).ubicarRecurso(new Volcan());
-
-        mapa.buscar(new Coordenada(1, 38)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(2, 38)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(4, 36)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(6, 38)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(3, 37)).ubicarRecurso(new Volcan());
-
-        mapa.buscar(new Coordenada(1, 22)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(2, 22)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(4, 24)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(6, 22)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(3, 23)).ubicarRecurso(new Volcan());
-
-        mapa.buscar(new Coordenada(39, 22)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(38, 22)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(36, 24)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(34, 22)).ubicarRecurso(new NodoMineral());
-        mapa.buscar(new Coordenada(37, 23)).ubicarRecurso(new Volcan());
-        int random;
-        for (int i = 8; i < 33; i++) {
-            for (int j = 8; j < 33; j++) {
-                random = (int) (Math.random() * 100) + 1;
-                if (random <= 5)
-                    mapa.buscar(new Coordenada(i, j)).ubicarRecurso(new NodoMineral());
-                if (5 < random && random <= 7)
-                    mapa.buscar(new Coordenada(i, j)).ubicarRecurso(new Volcan());
-                if (7 < random && random <= 17)
-                    mapa.buscar(new Coordenada(i, j)).darTipo(new Especial());
-            }
-        }
-    }
 }
 
