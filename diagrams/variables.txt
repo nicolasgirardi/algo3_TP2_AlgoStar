@@ -1,6 +1,6 @@
 Supuestos:
 
--Arranca el juego y en la raza zerg, tenemos un criadero si o si porque si no existe moho no tiene gracia el juego no podemos crear nada.
+-Arranca el juegoModelo y en la raza zerg, tenemos un criadero si o si porque si no existe moho no tiene gracia el juegoModelo no podemos crear nada.
 -El criadero si o si necesita moho, al igual que las demas construcciones de zerg.
 
 Criadero inicialmente tiene radio moho 5.

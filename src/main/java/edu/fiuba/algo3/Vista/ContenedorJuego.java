@@ -3,31 +3,25 @@ package edu.fiuba.algo3.Vista;
 import edu.fiuba.algo3.Controlador.BotonCriaderoHandler;
 import edu.fiuba.algo3.Controlador.BotonEdificioCriadero;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
-import edu.fiuba.algo3.modelo.Juego.Juego;
+import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 
 public class ContenedorJuego extends BorderPane {
 
-    public ContenedorJuego(Stage stage, Juego juego) {
+    public ContenedorJuego(Stage stage, JuegoModelo juegoModelo) {
 
         GridPane gridPane = new GridPane();
         gridPane.setBackground( new Background(new BackgroundFill( Color.rgb(65, 40, 27, 1) , CornerRadii.EMPTY, Insets.EMPTY) ) );

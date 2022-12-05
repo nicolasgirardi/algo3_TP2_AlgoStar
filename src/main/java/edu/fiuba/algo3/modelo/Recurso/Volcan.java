@@ -14,4 +14,9 @@ public class Volcan extends Recurso{
         this.edificio = edificio;
     }
 
+    @Override
+    public boolean contieneNodoMineral() {
+        return false;
+    }
+
 }

@@ -27,4 +27,9 @@ public  abstract class Recurso {
     }
 
 
+    public abstract boolean contieneNodoMineral();
+
+    public int cantidadRecurso(){
+        return extraccionRecurso.getCantidadRecurso();
+    }
 }

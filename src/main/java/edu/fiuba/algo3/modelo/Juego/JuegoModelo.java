@@ -3,17 +3,15 @@ package edu.fiuba.algo3.modelo.Juego;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Raza.Raza;
-import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
-import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import edu.fiuba.algo3.modelo.tablero.*;
 
-import java.util.ArrayList;
+import java.util.Observable;
 
-public class Juego {
+public class JuegoModelo extends Observable {
     private Ubicacion baseJugador1;
     private Ubicacion baseJugador2;
     private Mapa mapa;
@@ -24,7 +22,7 @@ public class Juego {
 
     private int contadorJugadores;
 
-    public Juego() {
+    public JuegoModelo() {
         Base base = new Base();
         this.mapa = base.getMapa();
         Coordenada coord1 = new Coordenada(0, 0);
@@ -43,7 +41,7 @@ public class Juego {
         mapa.inicializarMapa();
     }
 
-    public Juego(Mapa Mapa, Coordenada coor1) {
+    public JuegoModelo(Mapa Mapa, Coordenada coor1) {
         mapa = Mapa;
         if (mapa.buscar(coor1).distancia(mapa.buscarOpuesto(coor1)) == mapa.distanciaMaxima()) {
             baseJugador1 = mapa.buscar(coor1);
@@ -83,5 +81,12 @@ public class Juego {
         return contadorJugadores + 1;
     }
 
+    public  int dimensionTablero(){
+        return mapa.getDimension();
+    }
+
+    public Ubicacion buscar(Coordenada coordenada) {
+        return mapa.buscar(coordenada);
+    }
 }
 

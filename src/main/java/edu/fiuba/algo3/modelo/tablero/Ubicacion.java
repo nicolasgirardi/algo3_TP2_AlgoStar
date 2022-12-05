@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.modelo.tablero;
 import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
-import edu.fiuba.algo3.modelo.Recurso.Recurso;;import java.util.ArrayList;
+import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
+import edu.fiuba.algo3.modelo.Recurso.Recurso;;
+import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.Unidad.*;
 
 public class Ubicacion {
@@ -110,5 +112,19 @@ public class Ubicacion {
 
     public boolean existeRecurso() {
         return recurso != null;
+    }
+
+
+    public boolean contieneNodoMineral() {
+
+        return recurso.contieneNodoMineral();
+    }
+
+    public NodoMineral getNodoMineral() {
+        return (NodoMineral) recurso;
+    }
+
+    public Volcan getVolcan() {
+        return (Volcan) recurso;
     }
 }

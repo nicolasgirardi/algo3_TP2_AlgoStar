@@ -65,34 +65,36 @@ public class Mapa {
         this.buscar(new Coordenada(base,altura)).ubicar(new Pilon());
         this.buscar(new Coordenada(base - 2, altura)).ubicarRecurso(new NodoMineral());
         this.buscar(new Coordenada(base, altura - 2 )).ubicarRecurso(new NodoMineral());
-        this.buscar(new Coordenada(base - 2, altura - 2)).ubicarRecurso(new NodoMineral());
+        this.buscar(new Coordenada(base - 2, altura - 2)).ubicarRecurso(new Volcan());
 
-
-        if(base == 15){ // es factor 2 entonces.
+        if(base == 14){ // es factor 2 entonces.
             agregarBasesDiagonales();
         }
 
-        if(base == 18){  // es factor 3 entonces.
+        if(base == 17){  // es factor 3 entonces.
             agregarBasesDiagonales();
-            this.buscar(new Coordenada(7, 0)).ubicarRecurso(new NodoMineral());
-            this.buscar(new Coordenada(11, 0)).ubicarRecurso(new NodoMineral());
-            this.buscar(new Coordenada(9, 2)).ubicarRecurso(new Volcan());
+            this.buscar(new Coordenada(2, 9)).ubicarRecurso(new NodoMineral());
+            this.buscar(new Coordenada(2, 7)).ubicarRecurso(new NodoMineral());
+            this.buscar(new Coordenada(0, 8)).ubicarRecurso(new Volcan());
 
-            this.buscar(new Coordenada(7, 18)).ubicarRecurso(new NodoMineral());
-            this.buscar(new Coordenada(11, 18)).ubicarRecurso(new NodoMineral());
-            this.buscar(new Coordenada(9, 16)).ubicarRecurso(new Volcan());
+            this.buscar(new Coordenada(base-2, 7)).ubicarRecurso(new NodoMineral());
+            this.buscar(new Coordenada(base, 8)).ubicarRecurso(new Volcan());
+            this.buscar(new Coordenada(base-2, 9)).ubicarRecurso(new NodoMineral());
         }
     }
 
     private void agregarBasesDiagonales(){
-        this.buscar(new Coordenada(0, 13)).ubicarRecurso(new NodoMineral());
-        this.buscar(new Coordenada(2, 15)).ubicarRecurso(new NodoMineral());
-        this.buscar(new Coordenada(0, 15)).ubicarRecurso(new Volcan());
+        this.buscar(new Coordenada(0, altura)).ubicarRecurso(new Volcan());
+        this.buscar(new Coordenada(2, altura)).ubicarRecurso(new NodoMineral());
+        this.buscar(new Coordenada(0, altura-2)).ubicarRecurso(new NodoMineral());
 
-        this.buscar(new Coordenada(13, 0)).ubicarRecurso(new NodoMineral());
-        this.buscar(new Coordenada(15, 2)).ubicarRecurso(new NodoMineral());
-        this.buscar(new Coordenada(15, 0)).ubicarRecurso(new Volcan());
+        this.buscar(new Coordenada(base, 0)).ubicarRecurso(new Volcan());
+        this.buscar(new Coordenada(base, 2)).ubicarRecurso(new NodoMineral());
+        this.buscar(new Coordenada(base-2 , 0)).ubicarRecurso(new NodoMineral());
     }
 
 
+    public int getDimension() {
+        return base;
+    }
 }

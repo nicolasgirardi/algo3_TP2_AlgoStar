@@ -26,10 +26,10 @@ public class testBaseMapa {
         boolean resultado3 = mapa.buscar(new Coordenada(0,2)).existeRecurso();
         boolean resultado4 = mapa.buscar(new Coordenada(2,2)).existeRecurso();
 
-        boolean resultado5 = mapa.buscar(new Coordenada(10,10)).existeEdificio();
-        boolean resultado6 = mapa.buscar(new Coordenada(8,10)).existeRecurso();
-        boolean resultado7 = mapa.buscar(new Coordenada(10,8)).existeRecurso();
-        boolean resultado8 = mapa.buscar(new Coordenada(8,8)).existeRecurso();
+        boolean resultado5 = mapa.buscar(new Coordenada(9,9)).existeEdificio();
+        boolean resultado6 = mapa.buscar(new Coordenada(7,9)).existeRecurso();
+        boolean resultado7 = mapa.buscar(new Coordenada(9,7)).existeRecurso();
+        boolean resultado8 = mapa.buscar(new Coordenada(7,7)).existeRecurso();
 
         //Assert
         assertEquals(true, resultado);
@@ -49,27 +49,26 @@ public class testBaseMapa {
         Base base = new Base(2);
         Mapa mapa = base.getMapa();
         mapa.inicializarMapa();
-
+        //
         //Act
         boolean resultado0 = mapa.buscar(new Coordenada(0,0)).existeEdificio();
-        boolean resultado1 = mapa.buscar(new Coordenada(0,13)).existeRecurso();
-        boolean resultado2 = mapa.buscar(new Coordenada(2,15)).existeRecurso();
-        boolean resultado3 = mapa.buscar(new Coordenada(0,15)).existeRecurso();
+        boolean resultado1 = mapa.buscar(new Coordenada(0,14)).existeRecurso();
+        boolean resultado2 = mapa.buscar(new Coordenada(2,14)).existeRecurso();
+        boolean resultado3 = mapa.buscar(new Coordenada(0,12)).existeRecurso();
 
-        boolean resultado4 = mapa.buscar(new Coordenada(13,0)).existeRecurso();
-        boolean resultado5 = mapa.buscar(new Coordenada(15,2)).existeRecurso();
-        boolean resultado6 = mapa.buscar(new Coordenada(15,0)).existeRecurso();
-        boolean resultado7 = mapa.buscar(new Coordenada(15,15)).existeEdificio();
+        boolean resultado4 = mapa.buscar(new Coordenada(14,0)).existeRecurso();
+        boolean resultado5 = mapa.buscar(new Coordenada(14,2)).existeRecurso();
+        boolean resultado6 = mapa.buscar(new Coordenada(12,0)).existeRecurso();
+        boolean resultado7 = mapa.buscar(new Coordenada(14,14)).existeEdificio();
 
         boolean resultado8 = mapa.buscar(new Coordenada(0,0)).existeEdificio();
         boolean resultado9 = mapa.buscar(new Coordenada(2,0)).existeRecurso();
         boolean resultado10 = mapa.buscar(new Coordenada(0,2)).existeRecurso();
         boolean resultado11 = mapa.buscar(new Coordenada(2,2)).existeRecurso();
 
-        boolean resultado12 = mapa.buscar(new Coordenada(15,15)).existeEdificio();
-        boolean resultado13 = mapa.buscar(new Coordenada(13,15)).existeRecurso();
-        boolean resultado14 = mapa.buscar(new Coordenada(15,13)).existeRecurso();
-        boolean resultado15 = mapa.buscar(new Coordenada(13,13)).existeRecurso();
+        boolean resultado12 = mapa.buscar(new Coordenada(14,12)).existeRecurso();
+        boolean resultado13 = mapa.buscar(new Coordenada(12,14)).existeRecurso();
+        boolean resultado14 = mapa.buscar(new Coordenada(12,12)).existeRecurso();
 
         //Assert
         assertEquals(true, resultado0);
@@ -80,7 +79,6 @@ public class testBaseMapa {
         assertEquals(true, resultado5);
         assertEquals(true, resultado6);
         assertEquals(true, resultado7);
-
         assertEquals(true, resultado8);
         assertEquals(true, resultado9);
         assertEquals(true, resultado10);
@@ -89,7 +87,7 @@ public class testBaseMapa {
 
         assertEquals(true, resultado13);
         assertEquals(true, resultado14);
-        assertEquals(true, resultado15);
+
     }
 
     @Test
@@ -102,32 +100,30 @@ public class testBaseMapa {
 
         //Act
         boolean resultado0 = mapa.buscar(new Coordenada(0,0)).existeEdificio();
-        boolean resultado1 = mapa.buscar(new Coordenada(7,0)).existeRecurso();
-        boolean resultado2 = mapa.buscar(new Coordenada(11,0)).existeRecurso();
-        boolean resultado3 = mapa.buscar(new Coordenada(9,2)).existeRecurso();
+        boolean resultado1 = mapa.buscar(new Coordenada(0,8)).existeRecurso();
+        boolean resultado2 = mapa.buscar(new Coordenada(2,9)).existeRecurso();
+        boolean resultado3 = mapa.buscar(new Coordenada(2,7)).existeRecurso();
 
-        boolean resultado4 = mapa.buscar(new Coordenada(7,18)).existeRecurso();
-        boolean resultado5 = mapa.buscar(new Coordenada(11,18)).existeRecurso();
-        boolean resultado6 = mapa.buscar(new Coordenada(9,16)).existeRecurso();
-        boolean resultado7 = mapa.buscar(new Coordenada(18,18)).existeEdificio();
+        boolean resultado4 = mapa.buscar(new Coordenada(17,8)).existeRecurso();
+        boolean resultado5 = mapa.buscar(new Coordenada(15,7)).existeRecurso();
+        boolean resultado6 = mapa.buscar(new Coordenada(15,9)).existeRecurso();
+        boolean resultado7 = mapa.buscar(new Coordenada(17,17)).existeEdificio();
 
-        boolean resultado8 = mapa.buscar(new Coordenada(0,13)).existeRecurso();
-        boolean resultado9 = mapa.buscar(new Coordenada(2,15)).existeRecurso();
-        boolean resultado10 = mapa.buscar(new Coordenada(0,15)).existeRecurso();
+        boolean resultado8 = mapa.buscar(new Coordenada(17,0)).existeRecurso();
+        boolean resultado9 = mapa.buscar(new Coordenada(15,0)).existeRecurso();
+        boolean resultado10 = mapa.buscar(new Coordenada(17,2)).existeRecurso();
 
-        boolean resultado11 = mapa.buscar(new Coordenada(13,0)).existeRecurso();
-        boolean resultado12 = mapa.buscar(new Coordenada(15,2)).existeRecurso();
-        boolean resultado13 = mapa.buscar(new Coordenada(15,0)).existeRecurso();
+        boolean resultado11 = mapa.buscar(new Coordenada(0,15)).existeRecurso();
+        boolean resultado12 = mapa.buscar(new Coordenada(0,17)).existeRecurso();
+        boolean resultado13 = mapa.buscar(new Coordenada(2,17)).existeRecurso();
 
-        boolean resultado14 = mapa.buscar(new Coordenada(0,0)).existeEdificio();
-        boolean resultado15 = mapa.buscar(new Coordenada(2,0)).existeRecurso();
-        boolean resultado16 = mapa.buscar(new Coordenada(0,2)).existeRecurso();
-        boolean resultado17 = mapa.buscar(new Coordenada(2,2)).existeRecurso();
+        boolean resultado14 = mapa.buscar(new Coordenada(2,0)).existeRecurso();
+        boolean resultado15 = mapa.buscar(new Coordenada(0,2)).existeRecurso();
+        boolean resultado16 = mapa.buscar(new Coordenada(2,2)).existeRecurso();
 
-        boolean resultado18 = mapa.buscar(new Coordenada(18, 18)).existeEdificio();
-        boolean resultado19 = mapa.buscar(new Coordenada(16,18)).existeRecurso();
-        boolean resultado20 = mapa.buscar(new Coordenada(18,16)).existeRecurso();
-        boolean resultado21 = mapa.buscar(new Coordenada(16,16)).existeRecurso();
+        boolean resultado17 = mapa.buscar(new Coordenada(17,15)).existeRecurso();
+        boolean resultado18 = mapa.buscar(new Coordenada(15,15)).existeRecurso();
+        boolean resultado19 = mapa.buscar(new Coordenada(15,17)).existeRecurso();
 
 
         //Assert
@@ -151,8 +147,6 @@ public class testBaseMapa {
         assertEquals(true, resultado17);
         assertEquals(true, resultado18);
         assertEquals(true, resultado19);
-        assertEquals(true, resultado20);
-        assertEquals(true, resultado21);
 
     }
 

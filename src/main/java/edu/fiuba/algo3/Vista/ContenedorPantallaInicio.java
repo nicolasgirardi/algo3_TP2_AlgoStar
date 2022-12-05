@@ -3,14 +3,13 @@ package edu.fiuba.algo3.Vista;
 import edu.fiuba.algo3.Controlador.BotonContinuarHandler;
 import edu.fiuba.algo3.Controlador.BotonSalirHandler;
 import edu.fiuba.algo3.Controlador.ControllerFXML.InterfazJuegoControlador;
-import edu.fiuba.algo3.Controlador.ControllerFXML.RegistroJugadorControlador;
-import edu.fiuba.algo3.modelo.Juego.Juego;
+import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.geometry.Rectangle2D;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -18,7 +17,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 
@@ -73,15 +71,17 @@ public class ContenedorPantallaInicio extends VBox {
         buttonTest.setOnAction(e -> {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/VistaFxml/InterfazJuego.fxml"));
-                Scene scene = new Scene(fxmlLoader.load());
+                Parent variableCargando = fxmlLoader.load();
                 InterfazJuegoControlador interfazJuegoControlador = fxmlLoader.getController();
-                Juego juego = new Juego();
-                juego.agregarJugador(new Jugador("Jet_4466","verde",new RazaProtoss()));
-                juego.agregarJugador(new Jugador("Abranhan ","ROJO",new RazaZerg()));
-
-                interfazJuegoControlador.setJuego(juego);
+                JuegoModelo juegoModelo = new JuegoModelo();
+                juegoModelo.agregarJugador(new Jugador("Jet_4466","verde",new RazaProtoss()));
+                juegoModelo.agregarJugador(new Jugador("Abranhan ","ROJO",new RazaZerg()));
+                interfazJuegoControlador.setJuego(juegoModelo);
+                interfazJuegoControlador.inicializar();
+                Scene scene = new Scene(variableCargando);
                 stage.setScene(scene);
             }catch (IOException err){
+                System.out.println("Hola un error -ContenedorPantallaInicio");
                 err.printStackTrace();
             }
         });
@@ -89,7 +89,6 @@ public class ContenedorPantallaInicio extends VBox {
         this.setBackground( new Background(primerBackGro) );
         this.setSpacing(100);
         this.setAlignment(Pos.CENTER);
-
     }
 
 }

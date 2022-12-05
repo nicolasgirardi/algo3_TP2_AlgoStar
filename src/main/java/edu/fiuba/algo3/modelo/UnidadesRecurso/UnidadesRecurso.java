@@ -34,4 +34,8 @@ public class UnidadesRecurso {
         UnidadesRecurso unidadesRecurso = (UnidadesRecurso) o;
         return cantidad == unidadesRecurso.cantidad;
     }
+
+    public int getCantidad() {
+        return cantidad;
+    }
 }

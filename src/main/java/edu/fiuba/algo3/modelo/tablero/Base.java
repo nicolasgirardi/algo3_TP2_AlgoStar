@@ -18,9 +18,9 @@ public class Base {
 
     private void inicializarHasMap(){
         mapas = new HashMap<>();
-        mapas.put(1,new Mapa(10,10));
-        mapas.put(2,new Mapa(15,15));
-        mapas.put(3,new Mapa(18,18));
+        mapas.put(1,new Mapa(9,9)); // como va del 0 al 9 -> son 10 posiciones
+        mapas.put(2,new Mapa(14,14)); // idem
+        mapas.put(3,new Mapa(17,17)); // idem
     }
 
 

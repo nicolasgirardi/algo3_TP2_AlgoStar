@@ -33,7 +33,7 @@ public class RegistroJugadorControlador  implements Initializable {
     @FXML
     public TextField txtNombre;
 
-    private Juego juego;
+    private JuegoModelo juegoModelo;
 
     private HashMap<String,Raza> razas;
 
@@ -58,9 +58,9 @@ public class RegistroJugadorControlador  implements Initializable {
 
     }
 
-    public void setearJuego( Juego unJuego) {
-        this.juego = unJuego;
-        lblTitle.setText(lblTitle.getText()+" "+juego.cantidadJugadores());
+    public void setearJuego( JuegoModelo unJuegoModelo) {
+        this.juegoModelo = unJuegoModelo;
+        lblTitle.setText(lblTitle.getText()+" "+ juegoModelo.cantidadJugadores());
     }
 
     private void agregarJugador(Alert alert){
@@ -70,7 +70,7 @@ public class RegistroJugadorControlador  implements Initializable {
 
         try{
             Jugador jugadorNuevo = new Jugador(txtNombre.getText(),cmbColor.getSelectionModel().getSelectedItem().toString(),razas.get(radioButtonSelected.getText()));
-            juego.agregarJugador(jugadorNuevo);
+            juegoModelo.agregarJugador(jugadorNuevo);
             limpiarCampos();
         } catch ( JugadorMismaRazaError e){
             errorMensaje = "Error el Jugador 1 Tiene la misma raza";

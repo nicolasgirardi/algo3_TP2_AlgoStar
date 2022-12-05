@@ -1,30 +1,20 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
-import edu.fiuba.algo3.Controlador.BotonCriaderoHandler;
-import edu.fiuba.algo3.Controlador.BotonEdificioCriadero;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
-import edu.fiuba.algo3.modelo.Juego.Juego;
-import edu.fiuba.algo3.modelo.Raza.RazaZerg;
+import edu.fiuba.algo3.modelo.Juego.JuegoFinal;
+import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class InterfazJuegoControlador implements Initializable {
+public class InterfazJuegoControlador{
 
     @FXML
     public Button btnAccion1;
@@ -77,27 +67,36 @@ public class InterfazJuegoControlador implements Initializable {
     public void onClickTerminarTurno(MouseEvent event) {
 
     }
-    private Juego juego;
+
+    private JuegoModelo juegoModelo;
 
 
-    public void setJuego(Juego juego){
-        this.juego = juego;
+    public void setJuego(JuegoModelo juegoModelo){
+        this.juegoModelo = juegoModelo;
     }
 
-    private void inicializar(){
-        //grPane.setBackground( new Background(new BackgroundFill( Color.rgb(65, 40, 27, 1) , CornerRadii.EMPTY, Insets.EMPTY) ) );
+    public void inicializar(){
+
+        //setBackground( new Background(new BackgroundFill( Color.rgb(65, 40, 27, 1) , CornerRadii.EMPTY, Insets.EMPTY) ) );
+        JuegoFinal juegoVista = new JuegoFinal(juegoModelo);
+        juegoVista.iniciar(vBoxMenu);
+        juegoVista.agregarContenedor(contenedorMapa);
+
+        /*
+
         GridPane grPane = new GridPane();
-        final int MAPA_TAMANIO = 25;
-        final int TAMANIO = 30;
+        final int MAPA_TAMANIO = 18;
+        final int TAMANIO = (970/MAPA_TAMANIO) +1;
 
         // Tierra
         File fileFondo = new File("images/tierra.png");
-        Image imagenRaza = new Image(fileFondo.toURI().toString(),TAMANIO, TAMANIO, true, true );
-        BackgroundImage primerBackGro = new BackgroundImage(
-                imagenRaza,
+        Image imagenTierra = new Image(fileFondo.toURI().toString(),TAMANIO, TAMANIO, true, true );
+        BackgroundImage fondoTierra = new BackgroundImage(
+                imagenTierra,
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT
         );
+
 
         for(int i = 0; i < MAPA_TAMANIO; i++){
             for(int j = 0; j < MAPA_TAMANIO; j++){
@@ -107,8 +106,7 @@ public class InterfazJuegoControlador implements Initializable {
                     //btn.setGraphic( new ImageView(imagenRaza) );
                     btn.setMinSize(TAMANIO,TAMANIO);
                     btn.setPrefSize(TAMANIO,TAMANIO);
-
-                    btn.setBackground( new Background(primerBackGro) );
+                    btn.setBackground( new Background(fondoTierra) );
                     //btn.setStyle("-fx-border-width: 2; -fx-border-color: white;");
                     grPane.add(btn, i, j);
                 } catch (Exception e){
@@ -184,13 +182,17 @@ public class InterfazJuegoControlador implements Initializable {
         btnPilon.setBackground( new Background(pilonBackGro) );
         grPane.add(btnPilon, 9, 9);
 
+        //juegoModelo.agregarContenedor(contenedorMapa);
         contenedorMapa.getChildren().add(grPane);
+
+         */
     }
 
 
-    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        inicializar();
+        if(juegoModelo == null){
+            System.out.println("HUBO ERROR juegoModelo == null \n");
+        }
     }
 
 }

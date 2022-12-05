@@ -14,4 +14,7 @@ public class ExtraccionRecurso {
             return unidadesRecurso.extraerTodo();
         }
     }
+    public int getCantidadRecurso(){
+        return unidadesRecurso.getCantidad();
+    }
 }

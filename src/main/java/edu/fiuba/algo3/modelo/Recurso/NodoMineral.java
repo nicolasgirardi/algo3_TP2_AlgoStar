@@ -20,6 +20,11 @@ public class NodoMineral extends Recurso{
         this.edificio = edificio;
     }
 
+    @Override
+    public boolean contieneNodoMineral() {
+        return true;
+    }
+
     public GestionRecurso extraerConZangano(int unidades , Zangano zangano){
         verificarRecursoOcupado();
         this.zangano = zangano;

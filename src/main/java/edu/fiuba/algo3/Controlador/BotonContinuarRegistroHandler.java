@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.Controlador;
 
 import edu.fiuba.algo3.Controlador.ControllerFXML.InterfazJuegoControlador;
-import edu.fiuba.algo3.Vista.ContenedorJuego;
 import edu.fiuba.algo3.Vista.ContenedorRegistro;
 import edu.fiuba.algo3.modelo.Juego.*;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
@@ -15,7 +14,6 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class BotonContinuarRegistroHandler implements EventHandler<ActionEvent> {
 
@@ -25,15 +23,15 @@ public class BotonContinuarRegistroHandler implements EventHandler<ActionEvent> 
     Label labelColorIngresado;
     Label labelRaza;
 
-    Juego juego;
+    JuegoModelo juegoModelo;
 
-    public BotonContinuarRegistroHandler(Stage stage, ContenedorRegistro contenedorRegistro, Label nombreIngresado, Label colorIngresado, Label razaIngresada, Juego algoStart) {
+    public BotonContinuarRegistroHandler(Stage stage, ContenedorRegistro contenedorRegistro, Label nombreIngresado, Label colorIngresado, Label razaIngresada, JuegoModelo algoStart) {
         this.stage = stage;
         this.contenedorRegistro = contenedorRegistro;
         this.labelNombre = nombreIngresado;
         this.labelColorIngresado = colorIngresado;
         this.labelRaza = razaIngresada;
-        this.juego = algoStart;
+        this.juegoModelo = algoStart;
     }
 
     @Override
@@ -46,14 +44,14 @@ public class BotonContinuarRegistroHandler implements EventHandler<ActionEvent> 
         if(jugadorNuevo != null){
             capturadorDeErroresJugador(jugadorNuevo);
         }
-        if(juego.jugadoresCompletos() ){
+        if(juegoModelo.jugadoresCompletos() ){
             //ContenedorJuego contenedorJuego = new ContenedorJuego(stage, juego);
             //Scene scenaJuegoPrincipal = new Scene(contenedorJuego, 1400, 900); // poner siempre dimensiones (eje x, eje y )
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/VistaFxml/InterfazJuego.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 InterfazJuegoControlador interfazJuegoControlador = fxmlLoader.getController();
-                interfazJuegoControlador.setJuego(juego);
+                interfazJuegoControlador.setJuego(juegoModelo);
 
                 //RegistroJugadorControlador controlador = fxmlLoader.getController();
                 //controlador.setearJuego(new Juego());
@@ -66,7 +64,7 @@ public class BotonContinuarRegistroHandler implements EventHandler<ActionEvent> 
             //stage.setScene(scenaJuegoPrincipal);
         }
         else{
-            ContenedorRegistro nuevoContenedorRegistro = new ContenedorRegistro(stage, juego);
+            ContenedorRegistro nuevoContenedorRegistro = new ContenedorRegistro(stage, juegoModelo);
             Scene escenaDeRegistro = new Scene( nuevoContenedorRegistro, 1060, 650);
             stage.setScene(escenaDeRegistro);
         }
@@ -107,7 +105,7 @@ public class BotonContinuarRegistroHandler implements EventHandler<ActionEvent> 
     }
 
     private void resetearScena(){
-        ContenedorRegistro nuevoContenedorRegistro = new ContenedorRegistro(stage, juego);
+        ContenedorRegistro nuevoContenedorRegistro = new ContenedorRegistro(stage, juegoModelo);
         Scene escenaDeRegistro = new Scene( nuevoContenedorRegistro, 1200 ,900);
         stage.setScene(escenaDeRegistro);
     }
@@ -117,7 +115,7 @@ public class BotonContinuarRegistroHandler implements EventHandler<ActionEvent> 
         alert.setHeaderText(null);
         alert.setTitle("Error");
         try{
-            juego.agregarJugador(jugadorNuevo);
+            juegoModelo.agregarJugador(jugadorNuevo);
         } catch ( JugadorMismaRazaError e){
             alert.setContentText("Error el Jugador 1 Tiene la misma raza");
             alert.showAndWait();

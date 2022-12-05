@@ -2,7 +2,7 @@ package edu.fiuba.algo3.entrega_3;
 
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
-import edu.fiuba.algo3.modelo.Juego.Juego;
+import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Raza.*;
 import edu.fiuba.algo3.modelo.Unidad.Dragon;
 import edu.fiuba.algo3.modelo.Unidad.Hidralisco;
@@ -32,7 +32,7 @@ public class CasoDeUso32 {
         Dragon unDragon = new Dragon();
         razaProtoss.agregarUnidad(unDragon);
 
-        Juego unJuego = new Juego(new Mapa(100,100), new Coordenada(100,100));
+        JuegoModelo unJuegoModelo = new JuegoModelo(new Mapa(100,100), new Coordenada(100,100));
 
         for(int i = 0; i < 6 ; i++){               //dragon se construye en 6 turnos lo dejamos operativo;
             unDragon.ejecutarTurno();
@@ -43,7 +43,7 @@ public class CasoDeUso32 {
         }
 
         assertThrows( FinDelJuegoGanaronLosProtoss.class, ()-> {
-            unJuego.esElfinDeJuego(razaZerg, razaProtoss);
+            unJuegoModelo.esElfinDeJuego(razaZerg, razaProtoss);
         });
 
     }
@@ -65,7 +65,7 @@ public class CasoDeUso32 {
         razaProtoss.aumentarMineral(new GestionRecurso(5000));
         razaProtoss.agregarEdificio(unPilon);
 
-        Juego unJuego = new Juego(new Mapa(100,100), new Coordenada(100,100));
+        JuegoModelo unJuegoModelo = new JuegoModelo(new Mapa(100,100), new Coordenada(100,100));
 
         for(int i = 0; i < 4 ; i++){               //hidralisco se construye en 4 turnos lo dejamos operativo;
             hidralisco.ejecutarTurno();
@@ -76,7 +76,7 @@ public class CasoDeUso32 {
         }
 
         assertThrows( FinDelJuegoGanaronLosZerg.class, ()-> {
-            unJuego.esElfinDeJuego(razaZerg, razaProtoss);
+            unJuegoModelo.esElfinDeJuego(razaZerg, razaProtoss);
         });
     }
 
@@ -95,7 +95,7 @@ public class CasoDeUso32 {
         razaProtoss.agregarEdificio(new Pilon());
         Dragon unDragon = new Dragon();
         razaProtoss.agregarUnidad(unDragon);
-        Juego unJuego = new Juego(new Mapa(100,100), new Coordenada(100,100));
+        JuegoModelo unJuegoModelo = new JuegoModelo(new Mapa(100,100), new Coordenada(100,100));
         for(int i = 0; i < 6 ; i++){               //dragon se construye en 6 turnos lo dejamos operativo;
             unDragon.ejecutarTurno();
         }
@@ -105,7 +105,7 @@ public class CasoDeUso32 {
         }
 
         assertDoesNotThrow(() -> {
-            unJuego.esElfinDeJuego(razaZerg, razaProtoss);
+            unJuegoModelo.esElfinDeJuego(razaZerg, razaProtoss);
         });
 
     }
@@ -124,7 +124,7 @@ public class CasoDeUso32 {
         Pilon pilon = new Pilon();
         razaProtoss.agregarEdificio(pilon);
 
-        Juego unJuego = new Juego(new Mapa(100,100), new Coordenada(100,100));
+        JuegoModelo unJuegoModelo = new JuegoModelo(new Mapa(100,100), new Coordenada(100,100));
         for(int i = 0; i < 4 ; i++){               //hidralisco se construye en 4 turnos lo dejamos operativo;
             hidralisco.ejecutarTurno();
         }
@@ -134,7 +134,7 @@ public class CasoDeUso32 {
         }
 
         assertDoesNotThrow(() -> {
-            unJuego.esElfinDeJuego(razaZerg, razaProtoss);
+            unJuegoModelo.esElfinDeJuego(razaZerg, razaProtoss);
         });
 
     }

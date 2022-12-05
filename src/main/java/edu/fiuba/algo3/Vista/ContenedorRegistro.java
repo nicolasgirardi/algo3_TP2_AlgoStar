@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.Vista;
 
 import edu.fiuba.algo3.Controlador.*;
-import edu.fiuba.algo3.modelo.Juego.Juego;
+import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -21,7 +21,7 @@ import java.util.Objects;
 public class ContenedorRegistro extends VBox{
 
 
-    public ContenedorRegistro(Stage stage, Juego algoStart) {
+    public ContenedorRegistro(Stage stage, JuegoModelo algoStart) {
         stage.setTitle("AlgoStar");
         Label labelJugador = new Label("Jugador  " + String.valueOf(algoStart.cantidadJugadores() ) );
         labelJugador.setEffect(new DropShadow(2.0, Color.BLACK));
