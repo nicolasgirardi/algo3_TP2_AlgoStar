@@ -5,6 +5,9 @@ import edu.fiuba.algo3.Controlador.BotonSalirHandler;
 import edu.fiuba.algo3.Controlador.ControllerFXML.InterfazJuegoControlador;
 import edu.fiuba.algo3.Controlador.ControllerFXML.RegistroJugadorControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
+import edu.fiuba.algo3.modelo.Juego.Jugador;
+import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
+import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
@@ -72,7 +75,11 @@ public class ContenedorPantallaInicio extends VBox {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/VistaFxml/InterfazJuego.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 InterfazJuegoControlador interfazJuegoControlador = fxmlLoader.getController();
-                interfazJuegoControlador.setJuego(new Juego());
+                Juego juego = new Juego();
+                juego.agregarJugador(new Jugador("Jet_4466","verde",new RazaProtoss()));
+                juego.agregarJugador(new Jugador("Abranhan ","ROJO",new RazaZerg()));
+
+                interfazJuegoControlador.setJuego(juego);
                 stage.setScene(scene);
             }catch (IOException err){
                 err.printStackTrace();

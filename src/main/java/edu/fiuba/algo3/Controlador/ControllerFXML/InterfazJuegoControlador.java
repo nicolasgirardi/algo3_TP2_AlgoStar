@@ -63,7 +63,7 @@ public class InterfazJuegoControlador implements Initializable {
     public Button btnAccion9;
 
     @FXML
-    public GridPane grPane;
+    public AnchorPane contenedorMapa;
 
     @FXML
     public VBox vBoxMenu;
@@ -86,8 +86,9 @@ public class InterfazJuegoControlador implements Initializable {
 
     private void inicializar(){
         //grPane.setBackground( new Background(new BackgroundFill( Color.rgb(65, 40, 27, 1) , CornerRadii.EMPTY, Insets.EMPTY) ) );
-
-        final int TAMANIO = 67;
+        GridPane grPane = new GridPane();
+        final int MAPA_TAMANIO = 25;
+        final int TAMANIO = 30;
 
         // Tierra
         File fileFondo = new File("images/tierra.png");
@@ -98,8 +99,8 @@ public class InterfazJuegoControlador implements Initializable {
                 BackgroundSize.DEFAULT
         );
 
-        for(int i = 0; i < 15; i++){
-            for(int j = 0; j < 15; j++){
+        for(int i = 0; i < MAPA_TAMANIO; i++){
+            for(int j = 0; j < MAPA_TAMANIO; j++){
                 try {
                     Button btn = new Button();
                     //btn.setGraphic(new ImageView(imagenRaza) );
@@ -184,6 +185,7 @@ public class InterfazJuegoControlador implements Initializable {
         btnPilon.setBackground( new Background(pilonBackGro) );
         grPane.add(btnPilon, 9, 9);
 
+        contenedorMapa.getChildren().add(grPane);
     }
 
 
