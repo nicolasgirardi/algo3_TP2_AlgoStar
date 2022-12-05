@@ -103,4 +103,12 @@ public class Ubicacion {
     public void ubicarRecurso(Recurso unRecurso){
         recurso = unRecurso;
     }
+
+    public boolean existeEdificio() {
+        return edificio != null;
+    }
+
+    public boolean existeRecurso() {
+        return recurso != null;
+    }
 }

@@ -1,5 +1,9 @@
 package edu.fiuba.algo3.modelo.tablero;
 
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
+import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
+import edu.fiuba.algo3.modelo.Recurso.Volcan;
+
 import java.util.ArrayList;
 
 public class Mapa {
@@ -49,8 +53,15 @@ public class Mapa {
     }
 
     public void inicializarMapa() {
-        if (base == 10){
+        this.buscar(new Coordenada(0,0)).ubicar(new Criadero());
+        this.buscar(new Coordenada(0,2)).ubicarRecurso(new NodoMineral());
+        this.buscar(new Coordenada(2,0)).ubicarRecurso(new NodoMineral());
+        this.buscar(new Coordenada(2,2)).ubicarRecurso(new Volcan());
 
-        }
+        this.buscar(new Coordenada(base-1,altura-1)).ubicar(new Criadero());
+        this.buscar(new Coordenada(base-3,altura)).ubicarRecurso(new NodoMineral());
+        this.buscar(new Coordenada(base,altura-3)).ubicarRecurso(new NodoMineral());
+        this.buscar(new Coordenada(base-3,altura-3)).ubicarRecurso(new NodoMineral());
+
     }
 }
