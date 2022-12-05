@@ -48,4 +48,9 @@ public class Mapa {
         return buscar(coor.opuesta(base,altura));
     }
 
+    public void inicializarMapa() {
+        if (base == 10){
+
+        }
+    }
 }

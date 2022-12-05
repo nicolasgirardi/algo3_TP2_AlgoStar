@@ -2,6 +2,7 @@ package testAuxiliares;
 
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
+import edu.fiuba.algo3.modelo.tablero.Base;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +14,9 @@ public class testBaseMapa {
     public void SeCreaUnaBaseConFactor1YLasDimencionesDelMapaDeberianSer10x10YYDeberiaHaberEnTotalBases() {
 
         //Average
-        Mapa mapa = new Mapa();
+
+        Base base = new Base();
+        Mapa mapa = base.getMapa();
 
         //Act
         edificio.crearDragon();

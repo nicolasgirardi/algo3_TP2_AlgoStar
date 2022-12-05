@@ -25,7 +25,8 @@ public class Juego {
     private int contadorJugadores;
 
     public Juego() {
-        this.mapa = new Mapa(400, 400);
+        Base base = new Base();
+        this.mapa = base.getMapa();
         Coordenada coord1 = new Coordenada(0, 0);
         if (mapa.buscar(coord1).distancia(mapa.buscarOpuesto(coord1)) == mapa.distanciaMaxima()) {
             baseJugador1 = mapa.buscar(coord1);
@@ -39,6 +40,7 @@ public class Juego {
         jugador1 = null;
         jugador2 = null;
         contadorJugadores = 0;
+        mapa.inicializarMapa();
         inicializar_mapaM();
     }
 
