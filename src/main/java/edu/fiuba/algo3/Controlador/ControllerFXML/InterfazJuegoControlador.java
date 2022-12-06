@@ -57,6 +57,9 @@ public class InterfazJuegoControlador{
     public VBox vBoxMenu;
 
     @FXML
+    public Button btnTerminarTurno;
+
+    @FXML
     public void btnTerminarTurno(ActionEvent event) {
 
     }
