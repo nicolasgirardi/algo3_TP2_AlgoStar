@@ -15,11 +15,8 @@ public class JuegoModelo extends Observable {
     private Ubicacion baseJugador1;
     private Ubicacion baseJugador2;
     private Mapa mapa;
-
     private Jugador jugador1;
-
     private Jugador jugador2;
-
     private int contadorJugadores;
 
     public JuegoModelo() {

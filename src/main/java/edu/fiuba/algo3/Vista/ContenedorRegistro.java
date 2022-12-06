@@ -141,7 +141,7 @@ public class ContenedorRegistro extends VBox{
 
         File fileFondo = new File("images/fondoFinal.png");
         BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo.toURI().toString(),
-                1060, 650,true,true),
+                1200, 750,true,true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
 

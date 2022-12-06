@@ -12,7 +12,7 @@ import javafx.scene.layout.*;
 
 import java.util.HashMap;
 
-public class JuegoFinal {
+public class JuegoVista {
     private GridPane grPane;
     private  JuegoModelo juegoModelo;
     private  final int MAPA_TAMANIO;
@@ -20,7 +20,7 @@ public class JuegoFinal {
     private final int TAMANIO;
 
 
-    public JuegoFinal(JuegoModelo juegoModelo){
+    public JuegoVista(JuegoModelo juegoModelo){
         if(juegoModelo == null){
             System.out.println("HUBO ERROR");
         }
@@ -58,6 +58,24 @@ public class JuegoFinal {
 
         grPane.setPrefSize(1000,950);
     }
+/*
+    public void actualizarMapa(VBox vBoxMenu){
+        for(int i = 0; i <= MAPA_TAMANIO; i++){
+            for(int j = 0; j <= MAPA_TAMANIO; j++){
+                try {
+                    Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
+                    if (ubicacion.existeEdificio() ){
+                        System.out.println("Entre aca es edificio");
+                        System.out.println(i);
+                        System.out.println(j);
+                        agregarBotonEdificio(ubicacion, i, j, vBoxMenu);
+                    } else if ()
+                } catch (Exception e){
+                    System.out.println(e);
+                }
+            }
+        }
+    }*/
 
 
     private void agregarBotonRecurso(Ubicacion ubicacion, int i , int j, VBox vBoxMenu) {

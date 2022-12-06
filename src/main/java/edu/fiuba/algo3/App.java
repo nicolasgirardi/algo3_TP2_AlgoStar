@@ -16,10 +16,10 @@ public class App extends Application {
     public void start(Stage stage){
         JuegoModelo algoStart = new JuegoModelo();
         ContenedorRegistro contenedorRegistro = new ContenedorRegistro(stage,algoStart);
-        Scene escenaRegistro = new Scene(contenedorRegistro, 1060, 650);
+        Scene escenaRegistro = new Scene(contenedorRegistro, 1200, 750);
 
         ContenedorPantallaInicio contenedorPantallaInicio = new ContenedorPantallaInicio(stage, escenaRegistro);
-        Scene escenaInicial = new Scene(contenedorPantallaInicio, 1200, 900); // (posx, posy)
+        Scene escenaInicial = new Scene(contenedorPantallaInicio, 1200, 675); // (posx, posy)
 
         stage.setScene(escenaInicial);
         stage.show();

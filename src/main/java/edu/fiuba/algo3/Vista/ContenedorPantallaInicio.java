@@ -63,7 +63,7 @@ public class ContenedorPantallaInicio extends VBox {
         File fileFondo = new File("images/fondoInicioFin.png");
 
         BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo.toURI().toString(),
-                1000, 562.5,true,true),
+                1200, 675,true,true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
 

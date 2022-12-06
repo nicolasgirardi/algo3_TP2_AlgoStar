@@ -1,16 +1,14 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
-import edu.fiuba.algo3.modelo.Juego.JuegoFinal;
+import edu.fiuba.algo3.modelo.Juego.JuegoVista;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
-import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -78,7 +76,7 @@ public class InterfazJuegoControlador{
     public void inicializar(){
 
         //setBackground( new Background(new BackgroundFill( Color.rgb(65, 40, 27, 1) , CornerRadii.EMPTY, Insets.EMPTY) ) );
-        JuegoFinal juegoVista = new JuegoFinal(juegoModelo);
+        JuegoVista juegoVista = new JuegoVista(juegoModelo);
         juegoVista.iniciar(vBoxMenu);
         juegoVista.agregarContenedor(contenedorMapa);
 
