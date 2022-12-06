@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
 
 public class BotonVolcanHandler implements EventHandler<ActionEvent> {

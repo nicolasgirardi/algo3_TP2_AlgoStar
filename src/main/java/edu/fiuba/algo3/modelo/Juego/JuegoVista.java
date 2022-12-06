@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.Juego;
 
 import edu.fiuba.algo3.Controlador.*;
 import edu.fiuba.algo3.Vista.BotonGenerico;
+import edu.fiuba.algo3.Vista.BotonesCelda.BotonMineral;
+import edu.fiuba.algo3.Vista.BotonesCelda.BotonVolcan;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
@@ -76,16 +78,15 @@ public class JuegoVista {
 
 
     private void agregarBotonRecurso(Ubicacion ubicacion, int i , int j, VBox vBoxMenu) {
+        BotonGenerico botonRecurso;
         if( ubicacion.contieneNodoMineral() ){
-            BotonGenerico botonMineral = new BotonGenerico(TAMANIO, "images/mineral.png", ubicacion);
-            botonMineral.setOnAction(new BotonMineralHandler(vBoxMenu, ubicacion.getNodoMineral() ) );
-            grPane.add(botonMineral, i, j);
+            botonRecurso = new BotonMineral(TAMANIO,ubicacion,vBoxMenu);
         }
         else{
-            BotonGenerico botonVolcan = new BotonGenerico(TAMANIO, "images/Volcan.png", ubicacion);
-            botonVolcan.setOnAction( new BotonVolcanHandler(vBoxMenu, ubicacion.getVolcan() ) );
-            grPane.add( botonVolcan, i, j);
+            botonRecurso = new BotonVolcan(TAMANIO,ubicacion,vBoxMenu);
         }
+        grPane.add(botonRecurso,i,j);
+
 
     }
 
