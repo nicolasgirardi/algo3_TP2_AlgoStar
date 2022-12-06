@@ -140,19 +140,6 @@ public class Ubicacion {
         return unidad;
     }
 
-    public Criadero getCriadero(){
-        if(edificio.getEntidad() == IDEDIFICIO.CRIADERO){
-            return (Criadero) edificio;
-        }
-        return null;
-    }
-
-    public Pilon getPilon(){
-        if(edificio.getEntidad() == IDEDIFICIO.PILON){
-            return (Pilon) edificio;
-        }
-        return null;
-    }
     public TIPOSUPERFICIE getTipoSuperficie(){
         return tipo.getTiposuperficie();
     }

@@ -27,7 +27,7 @@ public class BotonCriaderoHandler implements EventHandler<ActionEvent> {
         vbox.getChildren().clear();
         Label labelMenu = new Label("Menu del Juego");
         labelMenu.setEffect(new DropShadow(2.0, Color.BLACK));
-        labelMenu.setFont(Font.font(40));
+        labelMenu.setFont(Font.font(20));
         labelMenu.setTextFill(Color.BLACK);
 
         vbox.getChildren().addAll(labelMenu, labelLarvas, unBoton); // perfecto

@@ -2,14 +2,12 @@ package edu.fiuba.algo3.modelo.Juego;
 
 import edu.fiuba.algo3.Controlador.*;
 import edu.fiuba.algo3.Vista.BotonGenerico;
-import edu.fiuba.algo3.Vista.BotonesCelda.BotonMineral;
-import edu.fiuba.algo3.Vista.BotonesCelda.BotonVolcan;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.layout.*;
 
 import java.util.HashMap;
@@ -34,28 +32,26 @@ public class JuegoVista {
     }
 
     public void iniciar(VBox vBoxMenu){
-        // Tierra
         //grPane.setBackground( new Background(new BackgroundFill( Color.rgb(65, 40, 27, 1) , CornerRadii.EMPTY, Insets.EMPTY) ) );
         for(int i = 0; i <= MAPA_TAMANIO; i++){
             for(int j = 0; j <= MAPA_TAMANIO; j++){
                 try {
                     Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
                     if( !ubicacion.existeRecurso() && !ubicacion.existeEdificio()){
-                        BotonGenerico botonTierra = new BotonGenerico(TAMANIO,"images/tierra.png", ubicacion);
-                        botonTierra.setMinSize(TAMANIO, TAMANIO );
-                        botonTierra.setOnAction(new BotonTierraHandler(vBoxMenu));
-                        grPane.add(botonTierra, i, j);
+                        BotonGenerico botonSuperficie = new BotonGenerico(TAMANIO,"images/tierra.png", ubicacion);
+                        botonSuperficie.setMinSize(TAMANIO, TAMANIO );
+                        botonSuperficie.setOnAction(new BotonTierraHandler(vBoxMenu));
+                        grPane.add(botonSuperficie, i, j);
                     } else if (ubicacion.existeRecurso() ){
                         agregarBotonRecurso(ubicacion, i, j, vBoxMenu);
                     } else if (ubicacion.existeEdificio() ){
-                        agregarBotonEdificio(ubicacion, i, j, vBoxMenu);
+                        agregarEdificioInicial(ubicacion, i, j, vBoxMenu);
                     }
                 } catch (Exception e){
                     System.out.println(e);
                 }
             }
         }
-
         grPane.setPrefSize(1000,950);
     }
 
@@ -65,7 +61,7 @@ public class JuegoVista {
                 try {
                     Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
                     if (ubicacion.existeEdificio() ){
-                        agregarBotonEdificio(ubicacion, i, j, vBoxMenu);
+                        agregarEdificioInicial(ubicacion, i, j, vBoxMenu);
                     } else if (ubicacion.getUnidad() != null){
                         //agregarBotonUnidad();
                     }
@@ -80,41 +76,32 @@ public class JuegoVista {
     private void agregarBotonRecurso(Ubicacion ubicacion, int i , int j, VBox vBoxMenu) {
         BotonGenerico botonRecurso;
         if( ubicacion.contieneNodoMineral() ){
-            botonRecurso = new BotonMineral(TAMANIO,ubicacion,vBoxMenu);
+            botonRecurso = new BotonGenerico(TAMANIO, "images/mineral.png", ubicacion);
+            botonRecurso.setOnAction( new BotonMineralHandler(vBoxMenu, ubicacion.getNodoMineral()) );
         }
         else{
-            botonRecurso = new BotonVolcan(TAMANIO,ubicacion,vBoxMenu);
+            botonRecurso = new BotonGenerico(TAMANIO, "images/Volcan.png", ubicacion);
+            botonRecurso.setOnAction( new BotonVolcanHandler(vBoxMenu, ubicacion.getVolcan() ) );
         }
         grPane.add(botonRecurso,i,j);
-
     }
 
-    private void agregarBotonEdificio(Ubicacion ubicacion, int i , int j, VBox vBoxMenu) {
+    private void agregarEdificioInicial(Ubicacion ubicacion, int i , int j, VBox vBoxMenu) {
         Edificio edificio = ubicacion.getEdificio();
-        HashMap<IDEDIFICIO, BotonGenerico> hashMapEdificBot = new HashMap<>();
-
-        mapeoDeEdificios(hashMapEdificBot, ubicacion);
-
-        HashMap<IDEDIFICIO, EventHandler<ActionEvent> > hashMapHandlers = new HashMap<>();
-
-        hashMapHandlers.put( IDEDIFICIO.CRIADERO, new BotonCriaderoHandler( ubicacion.getCriadero(), vBoxMenu ) );
-        hashMapHandlers.put( IDEDIFICIO.PILON, new BotonPilonHandler( ubicacion.getPilon(), vBoxMenu ) );
-        /*
-        hashMapHandlers.put( IDEDIFICIO.EXTRACTOR, new BotonExtractorHandler( (Extractor) edificio, vBoxMenu ) );
-        hashMapHandlers.put( IDEDIFICIO.ESPIRAL, new BotonEspiralHandler( (Espiral) edificio, vBoxMenu ) );
-        hashMapHandlers.put( IDEDIFICIO.GUARIDA, new BotonGuaridaHandler( (Guarida) edificio, vBoxMenu ) );
-        hashMapHandlers.put( IDEDIFICIO.RESERVADEREPRODUCCION, new BotonReservaDeReproduccionHandler( (ReservaDeReproduccion) edificio, vBoxMenu ) );
-        hashMapHandlers.put( IDEDIFICIO.ACCESO, new BotonAccesoHandler( (Acceso) edificio, vBoxMenu ) );
-        hashMapHandlers.put( IDEDIFICIO.ASIMILADOR, new BotonAsimiladorHandler( (Asimilador) edificio, vBoxMenu ) );
-        hashMapHandlers.put( IDEDIFICIO.NEXOMINERAL, new BotonNexoMineralHandler( (NexoMineral) edificio, vBoxMenu ) );
-        hashMapHandlers.put( IDEDIFICIO.PUERTOESTELAR, new BotonPuertoEstelarHandler( (PuertoEstelar) edificio, vBoxMenu ) );
-        */
-        BotonGenerico botonGenerico = hashMapEdificBot.get(edificio.getEntidad());
-        botonGenerico.setOnAction( hashMapHandlers.get(edificio.getEntidad() ) );
+        BotonGenerico botonGenerico = null;
+        if( edificio.getEntidad() == IDEDIFICIO.CRIADERO ){
+            botonGenerico = new BotonGenerico(TAMANIO, "images/criadero.png", ubicacion );
+            botonGenerico.setOnAction( new BotonCriaderoHandler( (Criadero) edificio, vBoxMenu) );
+        }
+        if( edificio.getEntidad() == IDEDIFICIO.PILON ){
+            botonGenerico = new BotonGenerico(TAMANIO, "images/pilon.png", ubicacion);
+            botonGenerico.setOnAction( new BotonPilonHandler( (Pilon) edificio, vBoxMenu) );
+        }
         grPane.add(botonGenerico, i, j );
 
     }
 
+    //nova a priori no solo ciradero y pilon
     public void mapeoDeEdificios(HashMap<IDEDIFICIO, BotonGenerico> hashMapEdificBot, Ubicacion ubicacion){
         hashMapEdificBot.put(IDEDIFICIO.CRIADERO, new BotonGenerico(TAMANIO, "images/criadero.png", ubicacion) );
         hashMapEdificBot.put(IDEDIFICIO.EXTRACTOR, new BotonGenerico(TAMANIO, "images/extractor.png", ubicacion) );

@@ -38,8 +38,8 @@
          </children>
       </VBox>
       <AnchorPane fx:id="contenedorMapa" layoutX="43.0" layoutY="35.0" prefHeight="1179.0" prefWidth="1385.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="394.0" AnchorPane.topAnchor="10.0" />
-      <Button fx:id="btnTerminarTurno" layoutX="1573.0" layoutY="1021.0" mnemonicParsing="false" onAction="#btnTerminarTurno" onMouseClicked="#onClickTerminarTurno" prefHeight="79.0" prefWidth="276.0" text="Terminar Turno" />
-      <Label layoutX="1610.0" layoutY="66.0" text="Menu del juego">
+      <Button fx:id="btnTerminarTurno" layoutX="1500.0" layoutY="700.0" mnemonicParsing="false" onAction="#btnTerminarTurno" onMouseClicked="#onClickTerminarTurno" prefHeight="79.0" prefWidth="276.0" text="Terminar Turno" />
+      <Label  fx:id="labelMenu" layoutX="1300.0" layoutY="66.0" text="Menu del juego">
          <font>
             <Font size="29.0" />
          </font>

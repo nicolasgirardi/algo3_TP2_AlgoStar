@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
@@ -58,145 +59,58 @@ public class InterfazJuegoControlador{
 
     @FXML
     public Button btnTerminarTurno;
+    @FXML
+    public Label labelMenu;
 
     @FXML
     public void btnTerminarTurno(ActionEvent event) {
         juegoVista.actualizarMapa(vBoxMenu);
     }
 
-    @FXML
-    public void onClickTerminarTurno(MouseEvent event) {
-
-    }
-
     private JuegoModelo juegoModelo;
 
     private JuegoVista juegoVista;
 
+    private double contador;
+
 
     public void setJuego(JuegoModelo juegoModelo){
         this.juegoModelo = juegoModelo;
+        contador = 0;
     }
 
     public void inicializar(){
-
-        //setBackground( new Background(new BackgroundFill( Color.rgb(65, 40, 27, 1) , CornerRadii.EMPTY, Insets.EMPTY) ) );
         JuegoVista juegoVista = new JuegoVista(juegoModelo);
         juegoVista.iniciar(vBoxMenu);
         juegoVista.agregarContenedor(contenedorMapa);
         this.juegoVista = juegoVista;
-
-        /*
-
-        GridPane grPane = new GridPane();
-        final int MAPA_TAMANIO = 18;
-        final int TAMANIO = (970/MAPA_TAMANIO) +1;
-
-        // Tierra
-        File fileFondo = new File("images/tierra.png");
-        Image imagenTierra = new Image(fileFondo.toURI().toString(),TAMANIO, TAMANIO, true, true );
-        BackgroundImage fondoTierra = new BackgroundImage(
-                imagenTierra,
-                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT
-        );
-
-
-        for(int i = 0; i < MAPA_TAMANIO; i++){
-            for(int j = 0; j < MAPA_TAMANIO; j++){
-                try {
-                    Button btn = new Button();
-                    //btn.setGraphic(new ImageView(imagenRaza) );
-                    //btn.setGraphic( new ImageView(imagenRaza) );
-                    btn.setMinSize(TAMANIO,TAMANIO);
-                    btn.setPrefSize(TAMANIO,TAMANIO);
-                    btn.setBackground( new Background(fondoTierra) );
-                    //btn.setStyle("-fx-border-width: 2; -fx-border-color: white;");
-                    grPane.add(btn, i, j);
-                } catch (Exception e){
-                    System.out.println(e);
-                }
-            }
-        }
-        grPane.setPrefSize(1000,950);
-
-
-        // Criadero
-        File criaderoFile = new File("images/criadero.png");
-        Image criaderoImage = new Image(criaderoFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
-        BackgroundImage criaderoBackGro = new BackgroundImage(
-                criaderoImage,
-                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT
-        );
-        Button btnCriadero = new Button();
-        btnCriadero.setMinSize(TAMANIO,TAMANIO);
-        btnCriadero.setBackground( new Background(criaderoBackGro) );
-        grPane.add(btnCriadero, 0, 0);
-
-
-
-        // Mineral
-        File mineralFile = new File("images/mineral.png");
-        Image mineralImage = new Image(mineralFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
-        BackgroundImage mineralBackGro = new BackgroundImage(
-                mineralImage,
-                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT
-        );
-        Button btnMineral = new Button();
-        btnMineral.setMinSize(TAMANIO,TAMANIO);
-        btnMineral.setBackground( new Background(mineralBackGro) );
-        grPane.add(btnMineral, 3, 2);
-
-        Button btnMineral2 = new Button();
-        btnMineral2.setMinSize(TAMANIO,TAMANIO);
-        btnMineral2.setBackground( new Background(mineralBackGro) );
-        grPane.add(btnMineral2, 6, 9);
-
-
-        // Volcan
-        File volcanFile = new File("images/Volcan.png");
-        Image volcanImage = new Image(volcanFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
-        BackgroundImage volcanBackGro = new BackgroundImage(
-                volcanImage,
-                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT
-        );
-        Button btnVolcan = new Button();
-        btnVolcan.setMinSize(TAMANIO,TAMANIO);
-        btnVolcan.setBackground( new Background(volcanBackGro) );
-        grPane.add(btnVolcan, 4, 3);
-
-        Button btnVolcan2 = new Button();
-        btnVolcan2.setMinSize(TAMANIO,TAMANIO);
-        btnVolcan2.setBackground( new Background(volcanBackGro) );
-        grPane.add(btnVolcan2, 3, 4);
-
-        // Pilon
-        File pilonFile = new File("images/pilon.png");
-        Image pilonImage = new Image(pilonFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
-        BackgroundImage pilonBackGro = new BackgroundImage(
-                pilonImage,
-                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT
-        );
-        Button btnPilon = new Button();
-        btnPilon.setMinSize(TAMANIO,TAMANIO);
-        btnPilon.setBackground( new Background(pilonBackGro) );
-        grPane.add(btnPilon, 9, 9);
-
-        //juegoModelo.agregarContenedor(contenedorMapa);
-        contenedorMapa.getChildren().add(grPane);
-
-         */
+        empiezaTurnoJugador1();
+    }
+    public void empiezaTurnoJugador1(){
+        labelMenu.setText("Es el turno del jugador 1");
     }
 
 
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        if(juegoModelo == null){
-            System.out.println("HUBO ERROR juegoModelo == null \n");
+    @FXML
+    public void onClickTerminarTurno(MouseEvent event) {
+        if(contador % 2 == 0){
+            empiezaTurnoJugador1();
         }
+        else empiezaTurnoJugador2();
+        contador++;
     }
+
+    public void empiezaTurnoJugador2(){
+        labelMenu.setText("Es el turno del jugador 2");
+        Button nexoMineral = new Button("Construir NexoMineral");
+        Button pilon = new Button("Construir Pilon");
+        Button asimilador = new Button("Construir Asimilador");
+        Button acceso = new Button("Construir Acceso");
+        Button puertoEstelar = new Button("Construir Puerto Estelar");
+        //VBox vBox = new VBox(nexoMineral, pilon, asimilador, acceso, puertoEstelar);
+        //vBox.getChildren().addAll(vBox);
+
+    }
+
 
 }

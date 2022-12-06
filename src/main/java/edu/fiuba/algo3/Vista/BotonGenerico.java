@@ -17,11 +17,6 @@ public class BotonGenerico extends Button{
         File mineralFile = new File(rutaImagen);
 
         Image imagenGenerica = new Image(mineralFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
-        BackgroundImage mineralBackGro = new BackgroundImage(
-                imagenGenerica,
-                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT
-        );
 
         TIPOSUPERFICIE tiposuperficie = ubicacion.getTipoSuperficie();
         HashMap<TIPOSUPERFICIE,String> hashMapTipoSuperficie = new HashMap<>();
@@ -40,6 +35,7 @@ public class BotonGenerico extends Button{
         if( !rutaImagen.equals("images/tierra.png")){
             this.setGraphic(new ImageView(imagenGenerica) );
         }
+
         else{
             this.setGraphic(new ImageView(imagenFondo) );
         }
