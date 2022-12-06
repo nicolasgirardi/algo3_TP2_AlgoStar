@@ -24,6 +24,9 @@ public class Jugador {
         if(Objects.equals(jugador.color, color)) throw new JugadorMismoColorError();
         if(jugador.raza.getClass() == raza.getClass()) throw new JugadorMismaRazaError();
     }
+    public String getNombre(){
+        return nombre;
+    }
 
     public Raza getRaza(){
         return raza;

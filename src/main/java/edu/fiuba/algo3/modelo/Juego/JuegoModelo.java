@@ -19,6 +19,8 @@ public class JuegoModelo extends Observable {
     private Jugador jugador2;
     private int contadorJugadores;
 
+    private Jugador jugadorActivo;
+
     public JuegoModelo() {
         Base base = new Base();
         this.mapa = base.getMapa();
@@ -35,7 +37,8 @@ public class JuegoModelo extends Observable {
         jugador1 = null;
         jugador2 = null;
         contadorJugadores = 0;
-        mapa.inicializarMapa();
+        jugadorActivo = jugador1;
+        mapa.inicializarMapa( );
     }
 
     public JuegoModelo(Mapa Mapa, Coordenada coor1) {
@@ -49,6 +52,8 @@ public class JuegoModelo extends Observable {
         } else {
             throw new CoordenadaNoEsExtremoDelMapaError();
         }
+        jugadorActivo = jugador1;
+
     }
 
     public int distanciaEntreBases() {
@@ -63,6 +68,7 @@ public class JuegoModelo extends Observable {
     public void agregarJugador(Jugador unJugador) {
         if (jugador1 == null) {
             jugador1 = unJugador;
+            jugadorActivo = jugador1;
         } else {
             unJugador.compatibleCon(jugador1);
             jugador2 = unJugador;
@@ -95,6 +101,19 @@ public class JuegoModelo extends Observable {
 
     public Mapa getMapa(){
         return mapa;
+    }
+
+    public Jugador getJugadorActivo(){
+        return jugadorActivo;
+    }
+
+    public void terminarTurno(){
+        if(jugadorActivo.equals(jugador1)){
+            jugadorActivo = jugador2;
+        }
+        else{
+            jugadorActivo = jugador1;
+        }
     }
 }
 

@@ -5,14 +5,10 @@ import edu.fiuba.algo3.modelo.Juego.JuegoVista;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class InterfazJuegoControlador{
 
@@ -85,36 +81,30 @@ public class InterfazJuegoControlador{
         juegoVista.iniciar(vBoxMenu);
         juegoVista.agregarContenedor(contenedorMapa);
         this.juegoVista = juegoVista;
-        empiezaTurnoJugador1();
+        empezarTurno();
     }
-    public void empiezaTurnoJugador1(){
-        labelMenu.setText("Es el turno del jugador 1");
+
+    public void empezarTurno(){
+        labelMenu.setText("Es el turno del jugador " + juegoModelo.getJugadorActivo().getNombre() );
+        if(juegoModelo.getJugadorActivo().getRaza().equals(ID_RAZA.PROTOSS ) ){
+            // cambiamos todos los handleres de todos las tierra
+            // cambiamos de los edifciios
+            // cambiamos los handler de las unidades
+            // cambiamos los handler de los recursos
+        }
+        else{
+            // cambiamos todos los handleres de todos las tierra
+            // cambiamos de los edifciios
+            // cambiamos los handler de las unidades
+            // cambiamos los handler de los recursos
+        }
     }
 
 
     @FXML
     public void onClickTerminarTurno(MouseEvent event) {
-        if(contador % 2 == 0){
-            empiezaTurnoJugador1();
-        }
-        else empiezaTurnoJugador2();
-        contador++;
+        juegoModelo.terminarTurno();
+        empezarTurno();
     }
-
-    public void empiezaTurnoJugador2(){
-        labelMenu.setText("Es el turno del jugador 2");
-        if(juegoModelo.getJugador2().getRaza().equals(ID_RAZA.PROTOSS)){
-            Button nexoMineral = new Button("Construir NexoMineral");
-            Button pilon = new Button("Construir Pilon");
-            Button asimilador = new Button("Construir Asimilador");
-            Button acceso = new Button("Construir Acceso");
-            Button puertoEstelar = new Button("Construir Puerto Estelar");
-            VBox verticalJuguete = new VBox(nexoMineral, pilon, asimilador, acceso, puertoEstelar);
-            vBoxMenu.getChildren().clear();
-            vBoxMenu.getChildren().addAll(verticalJuguete);
-        }
-
-    }
-
 
 }
