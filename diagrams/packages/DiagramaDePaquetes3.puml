@@ -1,29 +1,25 @@
 @startuml
 
 package Vista{
-    package InterfazGrafica{}
+    package Contenedores{}
     }
 
 package Controlador{
     class Juego
+    package Evento{}
     }
 
 package  Modelo{
 
     package Jugador {}
-    package Ataque {}
-    package Edificio {}
-    package HitPoints {}
 
     package Raza {
         class Zerg
         class Protos
         }
-    package Recurso {}
 
     package Tablero {}
 
-    package Unidad {}
 
     package Excepciones {
         class Excepciones
