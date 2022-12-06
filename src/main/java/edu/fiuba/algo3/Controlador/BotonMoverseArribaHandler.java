@@ -17,24 +17,25 @@ import javafx.event.EventHandler;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
+import javafx.scene.media.*;
 
 public class BotonMoverseArribaHandler implements EventHandler<ActionEvent> {
 
     private Unidad unidad;
     private Button boton;
 
-    public BotonMoverseArribaHandler(Unidad unaUnidad,Button unBoton){
+    public BotonMoverseArribaHandler(Unidad unaUnidad, Button unBoton) {
         unidad = unaUnidad;
         boton = unBoton;
     }
 
-    public void handle(ActionEvent actionEvent){
+    public void handle(ActionEvent actionEvent) {
         try {
             unidad.moverseArriba();
-        }
-        catch(Throwable e){
-            //la idea seria poner un sonidito de error aca
+        } catch (Throwable e) {
+            Media buzzer = new Media(getClass().getResource("/images/sonidito.mp3").toExternalForm());
+            MediaPlayer mediaPlayer = new MediaPlayer(buzzer);
+            mediaPlayer.play();
         }
     }
 }
