@@ -17,29 +17,21 @@ import javafx.event.EventHandler;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
-public class BotonZanganoHandler implements EventHandler<ActionEvent> {
+public class BotonEvolucionarACriaderoHandler implements EventHandler<ActionEvent> {
 
     private Zangano zangano;
-    private VBox vbox;
-
     private RazaZerg raza;
+    private Button boton;
 
-    public BotonZanganoHandler(Zangano unidad, VBox cajita, RazaZerg unaRaza){
+    public BotonEvolucionarACriaderoHandler(Zangano unidad,Button boton,RazaZerg unaRaza){
         zangano = unidad;
-        vbox = cajita;
+        boton = boton;
         raza = unaRaza;
     }
 
     public void handle(ActionEvent actionEvent){
-        vbox.getChildren().clear();
-        Button boton1 = new Button("Mutar a Criadero");
-        boton1.setOnAction(new BotonEvolucionarACriaderoHandler(zangano, boton1, raza));
-        Button boton2 = new Button("Evolucionar a Reserva de Produccion");
-        Button boton3 = new Button("Evolucionar a Extractor");
-        Button boton4 = new Button("Evolucionar a Guarida");
-        Button boton5 = new Button("Evolucionar a Espiral");
-        Button boton6 = new Button("Moverse A");
-        vbox.getChildren().addAll(boton1,boton2,boton3,boton4,boton5,boton6);
+        zangano.mutarCriadero(raza);
 
     }
+
 }

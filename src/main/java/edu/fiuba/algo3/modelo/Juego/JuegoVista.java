@@ -129,7 +129,8 @@ public class JuegoVista {
         Button botonUnidad;
         if(ubicacion.getUnidad() instanceof Zangano){
             botonUnidad = new BotonGenerico(TAMANIO, "images/zangano.png", ubicacion);
-            botonUnidad.setOnAction(new BotonZanganoHandler(ubicacion.getUnidad(), vBoxMenu));
+            Zangano zanganito = (Zangano) ubicacion.getUnidad();
+            botonUnidad.setOnAction(new BotonZanganoHandler(zanganito, vBoxMenu,raza));//falta como saber que raza esta jugando
         }
         //si es mutalisco cambia el vbox para que tenga las opciones de mutalisco
         //si es amo supremo cambia el vbox para que tenga nada
