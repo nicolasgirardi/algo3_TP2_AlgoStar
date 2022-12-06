@@ -12,10 +12,11 @@ import java.io.File;
 import java.util.HashMap;
 
 public class BotonGenerico extends Button{
-
+    Ubicacion ubicacion;
+    private int TAMANIO;
     public BotonGenerico(int TAMANIO, String rutaImagen, Ubicacion ubicacion){
         File mineralFile = new File(rutaImagen);
-
+        this.TAMANIO = TAMANIO;
         Image imagenGenerica = new Image(mineralFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
 
         TIPOSUPERFICIE tiposuperficie = ubicacion.getTipoSuperficie();
@@ -43,6 +44,12 @@ public class BotonGenerico extends Button{
         this.setMinSize(TAMANIO, TAMANIO );
         this.setBackground( new Background(fondoActual) );
 
+        this.ubicacion = ubicacion;
+
+    }
+
+    public int getTAMANIO(){
+        return TAMANIO;
     }
 
 }

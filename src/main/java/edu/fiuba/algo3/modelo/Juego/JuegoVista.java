@@ -9,6 +9,7 @@ import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 
@@ -138,4 +139,45 @@ public class JuegoVista {
 
     }
 
+    public void cambiarHandlerSuperficieActualProtoss(VBox vBoxMenu) {
+        for(int i = 0; i <= MAPA_TAMANIO; i++){
+            for(int j = 0; j<= MAPA_TAMANIO; j++){
+                Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
+                if( ubicacion.existeRecurso() ){
+                    if(ubicacion.contieneNodoMineral()) {
+                        BotonGenerico botonMineral = ((BotonGenerico) findNodoDelGridPane(i,j));
+                        botonMineral.setOnAction(new NodoMineralHandlerProtoss(vBoxMenu,ubicacion, botonMineral) );
+                    }
+                    else{
+                        ((BotonGenerico) findNodoDelGridPane(i,j)).setOnAction(new VolcanHandlerProtoss(vBoxMenu,ubicacion) );
+                    }
+                }
+
+
+                if( ! ubicacion.existeEdificio() && !ubicacion.existeRecurso() ){
+                    ((BotonGenerico) findNodoDelGridPane(i,j)).setOnAction(new BotonTierraProtosHandler(vBoxMenu) );
+                }
+            }
+        }
+    }
+
+    private Node findNodoDelGridPane(int posX, int posY) {
+        for (Node node : grPane.getChildren()) {
+            if (GridPane.getColumnIndex(node) == posX && GridPane.getRowIndex(node) == posY) {
+                return node;
+            }
+        }
+        return null;
+    }
+
+    public void cambiarHandlerSuperficieActualZerg(VBox vBoxMenu) {
+        for(int i = 0; i <= MAPA_TAMANIO; i++){
+            for(int j = 0; j<= MAPA_TAMANIO; j++){
+                Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
+                if( ! ubicacion.existeEdificio() && !ubicacion.existeRecurso() ){
+                    ((BotonGenerico) findNodoDelGridPane(i,j)).setOnAction(new BotonTierraHandlerZerg(vBoxMenu) );
+                }
+            }
+        }
+    }
 }
