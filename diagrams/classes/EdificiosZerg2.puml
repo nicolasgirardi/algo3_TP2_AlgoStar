@@ -13,7 +13,7 @@ abstract class Edificio {
     +Edificio(turnosRestantesParaSerOperativo: Int,mineralNecesario: Int,gasNecesario: Int)
     +Edificio(turnosRestantesParaSerOperativo: Int,HP: HitPoints,mineralNecesario: Int,gasNecesario: Int)
     +Edificio(HP: HitPoints)
-    verififarEdificioOperativo(): void
+    +verififarEdificioOperativo(): void
     +ejecutarTurno():void
     +asignarHP(HP: HitPoints): void
     + {abstract} construirEdificioEn(recurso: Recurso): void
