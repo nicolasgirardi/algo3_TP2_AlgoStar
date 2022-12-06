@@ -85,5 +85,13 @@ public class JuegoModelo extends Observable {
     public Ubicacion buscar(Coordenada coordenada) {
         return mapa.buscar(coordenada);
     }
+
+    public Jugador getJugador1(){
+        return jugador1;
+    }
+
+    public Mapa getMapa(){
+        return mapa;
+    }
 }
 

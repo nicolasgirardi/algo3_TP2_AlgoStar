@@ -97,7 +97,7 @@ public class JuegoVista {
 
         HashMap<IDEDIFICIO, EventHandler<ActionEvent> > hashMapHandlers = new HashMap<>();
 
-        hashMapHandlers.put( IDEDIFICIO.CRIADERO, new BotonCriaderoHandler( ubicacion.getCriadero(), vBoxMenu ) );
+        hashMapHandlers.put( IDEDIFICIO.CRIADERO, new BotonCriaderoHandler( ubicacion.getCriadero(), vBoxMenu, juegoModelo.getJugador1(),  grPane, juegoModelo.getMapa() ) );
         hashMapHandlers.put( IDEDIFICIO.PILON, new BotonPilonHandler( ubicacion.getPilon(), vBoxMenu ) );
         /*
         hashMapHandlers.put( IDEDIFICIO.EXTRACTOR, new BotonExtractorHandler( (Extractor) edificio, vBoxMenu ) );

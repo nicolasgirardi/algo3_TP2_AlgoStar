@@ -115,6 +115,9 @@ public abstract class Raza {
         unaUnidad.disminuirPoblacion(this);
     }
 
-
     public abstract void existenAunEdificios();
+
+    public Unidad getUltimaUnidad(){
+        return unidades.get(unidades.size());
+    }
 }

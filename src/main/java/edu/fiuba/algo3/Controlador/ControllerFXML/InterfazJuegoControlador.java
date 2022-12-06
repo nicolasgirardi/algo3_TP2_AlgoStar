@@ -61,7 +61,7 @@ public class InterfazJuegoControlador{
 
     @FXML
     public void btnTerminarTurno(ActionEvent event) {
-        juegoVista.actualizarMapa(vBoxMenu);
+
     }
 
     @FXML

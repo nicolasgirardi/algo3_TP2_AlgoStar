@@ -157,4 +157,8 @@ public class Ubicacion {
         return tipo.getTiposuperficie();
     }
 
+    public boolean ubicacionVacia(){
+        return (edificio == null && recurso == null && unidad == null);
+    }
+
 }
