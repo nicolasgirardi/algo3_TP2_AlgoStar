@@ -21,7 +21,25 @@ public class Mapa {
             for (int j = 0; j <= Altura; j++) {
                 mapa[i][j] = new Ubicacion(new Coordenada(i, j));
             }
-        } // falta definir los nodos minerales y los volcanes lugares ala mtitad del mapa lo definimos apriori.
+        }
+        int a,b,y,z;
+        for (int i = 0; i <= Base; i++) {
+            for (int j = 0; j <= Altura; j++) {
+            a = i-1;
+            b = i+1;
+            y = j-1;
+            z = j+1;
+            if(a<0) a = b;
+            if(b> base) b = a;
+            if(y<0) y = z;
+            if (z>altura) z = y;
+            mapa[i][j].Arriba(mapa[a][j]);
+            mapa[i][j].Abajo(mapa[b][j]);
+            mapa[i][j].Izquierda(mapa[i][y]);
+            mapa[i][j].Derecha(mapa[i][z]);
+            }
+        }
+        // falta definir los nodos minerales y los volcanes lugares ala mtitad del mapa lo definimos apriori.
     } // si base es de 10, y altura 10 , mapa se puede acceder al 10,10 tambien.
 
     public Ubicacion buscar(Coordenada coordenada) {

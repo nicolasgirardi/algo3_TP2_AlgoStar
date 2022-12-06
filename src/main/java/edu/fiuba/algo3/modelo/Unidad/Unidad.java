@@ -113,4 +113,41 @@ public abstract class  Unidad implements Atacable, Atacante {
     public GestionRecurso extraer(Recurso recurso) {
         return null;
     }
+
+    public void moverseArriba(){
+        try{
+            ubicacion.getArriba().asignarUnidad(this);
+        }
+        catch (RuntimeException e){
+
+        }
+    }
+
+    public void moverseAbajo(){
+        try{
+            ubicacion.getAbajo().asignarUnidad(this);
+        }
+        catch (RuntimeException e){
+
+        }
+    }
+
+    public void moverseDerecha(){
+        try{
+            ubicacion.getDerecha().asignarUnidad(this);
+        }
+        catch (RuntimeException e){
+
+        }
+
+    }
+
+    public void moverseIzquierda(){
+        try{
+            ubicacion.getIzquierda().asignarUnidad(this);
+        }
+        catch (RuntimeException e){
+
+        }
+    }
 }
