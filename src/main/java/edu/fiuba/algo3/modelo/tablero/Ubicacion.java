@@ -17,6 +17,10 @@ public class Ubicacion {
     private Coordenada coor;
     private int enRangoAmoSupremo;
     private int energizado;
+    private Ubicacion arriba;
+    private Ubicacion abajo;
+    private Ubicacion derecha;
+    private Ubicacion izquierda;
 
     public Ubicacion(Coordenada coordenada){
         coor = coordenada;
@@ -149,5 +153,15 @@ public class Ubicacion {
     public boolean ubicacionVacia(){
         return (edificio == null && recurso == null && unidad == null);
     }
+
+    public void Arriba(Ubicacion up) {arriba = up;}
+    public void Abajo(Ubicacion down) { abajo = down;}
+    public void Derecha(Ubicacion right) {derecha = right;}
+    public void Izquierda(Ubicacion left) {izquierda = left;}
+
+    public Ubicacion getArriba() {return arriba;}
+    public Ubicacion getAbajo() { return abajo;}
+    public Ubicacion getDerecha() {return derecha;}
+    public Ubicacion getIzquierda() {return izquierda;}
 
 }
