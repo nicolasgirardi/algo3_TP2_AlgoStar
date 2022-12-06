@@ -30,6 +30,6 @@ public class BotonMoverseAbajoHandler implements EventHandler<ActionEvent> {
     }
 
     public void handle(ActionEvent actionEvent){
-
+        unidad.moverseAbajo();
     }
 }

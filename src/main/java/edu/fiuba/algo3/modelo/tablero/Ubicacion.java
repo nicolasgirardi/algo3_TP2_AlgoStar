@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo.tablero;
 import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
-import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
@@ -77,9 +75,12 @@ public class Ubicacion {
         }
     }
     public void asignarUnidad(Unidad unaUnidad){
-        tipo.ubicar(unaUnidad);
-        unidad = unaUnidad;
-        unaUnidad.asignarLugar(this);
+        if(unidad == null){
+            tipo.ubicar(unaUnidad);
+            unidad = unaUnidad;
+            unaUnidad.asignarLugar(this);
+        }
+        else {throw new UbicacionOcupadaError();}
     }
 
     public void asignarAmoSupremo(AmoSupremo unAmoSupremo, Mapa unMapa){

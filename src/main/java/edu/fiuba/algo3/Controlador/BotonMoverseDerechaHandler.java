@@ -30,6 +30,6 @@ public class BotonMoverseDerechaHandler implements EventHandler<ActionEvent> {
     }
 
     public void handle(ActionEvent actionEvent){
-
+        unidad.moverseDerecha();
     }
 }
