@@ -24,17 +24,21 @@ public class BotonMoverseIzquierdaHandler implements EventHandler<ActionEvent> {
     private Unidad unidad;
     private Button boton;
 
-    public BotonMoverseIzquierdaHandler(Unidad unaUnidad,Button unBoton){
+    private Text texto;
+
+    public BotonMoverseIzquierdaHandler(Unidad unaUnidad,Button unBoton, Text unTexto){
         unidad = unaUnidad;
         boton = unBoton;
+        texto = unTexto;
     }
 
     public void handle(ActionEvent actionEvent){
         try {
             unidad.moverseIzquierda();
+            texto.setText("Se puede mover usando las flechas del teclado");
         }
         catch(Throwable e){
-            //la idea seria poner un sonidito de error aca
+            texto.setText("La unidad no puede moverse a ese lugar");
         }
     }
 }

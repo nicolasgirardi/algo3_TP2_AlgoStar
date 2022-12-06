@@ -29,15 +29,15 @@ public class BotonMoverseHandler implements EventHandler<ActionEvent> {
     }
 
     public void handle(ActionEvent actionEvent){
-        Button boton2 = new Button("Arriba");
-        boton2.setOnAction(new BotonMoverseArribaHandler(unidad,boton2));
-        Button boton5 = new Button("Abajo");
-        boton5.setOnAction(new BotonMoverseAbajoHandler(unidad,boton2));
-        Button boton3 = new Button("Izquierda");
-        boton3.setOnAction(new BotonMoverseIzquierdaHandler(unidad,boton2));
-        Button boton4 = new Button("Derecha");
-        boton4.setOnAction(new BotonMoverseDerechaHandler(unidad,boton2));
         Text texto = new Text("Se puede mover usando las flechas del teclado");
+        Button boton2 = new Button("Arriba");
+        boton2.setOnAction(new BotonMoverseArribaHandler(unidad,boton2,texto));
+        Button boton5 = new Button("Abajo");
+        boton5.setOnAction(new BotonMoverseAbajoHandler(unidad,boton2,texto));
+        Button boton3 = new Button("Izquierda");
+        boton3.setOnAction(new BotonMoverseIzquierdaHandler(unidad,boton2,texto));
+        Button boton4 = new Button("Derecha");
+        boton4.setOnAction(new BotonMoverseDerechaHandler(unidad,boton2,texto));
         texto.setOnKeyPressed(new MoverseConFlechitasHandler(boton2,boton5,boton4,boton3));
         HBox hbox2 = new HBox(boton2);
         HBox hbox3 = new HBox(boton3,boton4);

@@ -18,22 +18,28 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.*;
+import javafx.scene.text.Text;
 
 public class BotonMoverseArribaHandler implements EventHandler<ActionEvent> {
 
     private Unidad unidad;
     private Button boton;
 
-    public BotonMoverseArribaHandler(Unidad unaUnidad, Button unBoton) {
+    private Text texto;
+
+
+    public BotonMoverseArribaHandler(Unidad unaUnidad, Button unBoton, Text unTexto) {
         unidad = unaUnidad;
         boton = unBoton;
+        texto = unTexto;
     }
 
     public void handle(ActionEvent actionEvent) {
         try {
             unidad.moverseArriba();
+            texto.setText("Se puede mover usando las flechas del teclado");
         } catch (Throwable e) {
-            //no se como tirar un sonidito
+            texto.setText("La unidad no puede moverse a ese lugar");
         }
     }
 }
