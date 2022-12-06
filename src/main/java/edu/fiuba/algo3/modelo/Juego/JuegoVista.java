@@ -41,13 +41,11 @@ public class JuegoVista {
                     if( !ubicacion.existeRecurso() && !ubicacion.existeEdificio()){
                         BotonGenerico botonTierra = new BotonGenerico(TAMANIO,"images/tierra.png", ubicacion);
                         botonTierra.setMinSize(TAMANIO, TAMANIO );
+                        botonTierra.setOnAction(new BotonTierraHandler(vBoxMenu));
                         grPane.add(botonTierra, i, j);
                     } else if (ubicacion.existeRecurso() ){
                         agregarBotonRecurso(ubicacion, i, j, vBoxMenu);
                     } else if (ubicacion.existeEdificio() ){
-                        System.out.println("Entre aca es edificio");
-                        System.out.println(i);
-                        System.out.println(j);
                         agregarBotonEdificio(ubicacion, i, j, vBoxMenu);
                     }
                 } catch (Exception e){
@@ -58,24 +56,23 @@ public class JuegoVista {
 
         grPane.setPrefSize(1000,950);
     }
-/*
+
     public void actualizarMapa(VBox vBoxMenu){
         for(int i = 0; i <= MAPA_TAMANIO; i++){
             for(int j = 0; j <= MAPA_TAMANIO; j++){
                 try {
                     Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
                     if (ubicacion.existeEdificio() ){
-                        System.out.println("Entre aca es edificio");
-                        System.out.println(i);
-                        System.out.println(j);
                         agregarBotonEdificio(ubicacion, i, j, vBoxMenu);
-                    } else if ()
+                    } else if (ubicacion.getUnidad() != null){
+                        //agregarBotonUnidad();
+                    }
                 } catch (Exception e){
                     System.out.println(e);
                 }
             }
         }
-    }*/
+    }
 
 
     private void agregarBotonRecurso(Ubicacion ubicacion, int i , int j, VBox vBoxMenu) {
@@ -96,16 +93,7 @@ public class JuegoVista {
         Edificio edificio = ubicacion.getEdificio();
         HashMap<IDEDIFICIO, BotonGenerico> hashMapEdificBot = new HashMap<>();
 
-        hashMapEdificBot.put(IDEDIFICIO.CRIADERO, new BotonGenerico(TAMANIO, "images/criadero.png", ubicacion) );
-        hashMapEdificBot.put(IDEDIFICIO.EXTRACTOR, new BotonGenerico(TAMANIO, "images/extractor.png", ubicacion) );
-        hashMapEdificBot.put(IDEDIFICIO.ESPIRAL, new BotonGenerico(TAMANIO, "images/espiral.png", ubicacion) );
-        hashMapEdificBot.put(IDEDIFICIO.GUARIDA, new BotonGenerico(TAMANIO, "images/guarida.png", ubicacion) );
-        hashMapEdificBot.put(IDEDIFICIO.RESERVADEREPRODUCCION, new BotonGenerico(TAMANIO, "images/reservaDeReproduccion.png", ubicacion) );
-        hashMapEdificBot.put(IDEDIFICIO.PILON, new BotonGenerico(TAMANIO, "images/pilon.png", ubicacion) );
-        hashMapEdificBot.put(IDEDIFICIO.ACCESO, new BotonGenerico(TAMANIO, "images/acceso.png", ubicacion) );
-        hashMapEdificBot.put(IDEDIFICIO.ASIMILADOR, new BotonGenerico(TAMANIO, "images/asimilador.png", ubicacion) );
-        hashMapEdificBot.put(IDEDIFICIO.NEXOMINERAL, new BotonGenerico(TAMANIO, "images/nexo.png", ubicacion) );
-        hashMapEdificBot.put(IDEDIFICIO.PUERTOESTELAR, new BotonGenerico(TAMANIO, "images/puertoEstelar.png", ubicacion) );
+        mapeoDeEdificios(hashMapEdificBot, ubicacion);
 
         HashMap<IDEDIFICIO, EventHandler<ActionEvent> > hashMapHandlers = new HashMap<>();
 
@@ -125,6 +113,19 @@ public class JuegoVista {
         botonGenerico.setOnAction( hashMapHandlers.get(edificio.getEntidad() ) );
         grPane.add(botonGenerico, i, j );
 
+    }
+
+    public void mapeoDeEdificios(HashMap<IDEDIFICIO, BotonGenerico> hashMapEdificBot, Ubicacion ubicacion){
+        hashMapEdificBot.put(IDEDIFICIO.CRIADERO, new BotonGenerico(TAMANIO, "images/criadero.png", ubicacion) );
+        hashMapEdificBot.put(IDEDIFICIO.EXTRACTOR, new BotonGenerico(TAMANIO, "images/extractor.png", ubicacion) );
+        hashMapEdificBot.put(IDEDIFICIO.ESPIRAL, new BotonGenerico(TAMANIO, "images/espiral.png", ubicacion) );
+        hashMapEdificBot.put(IDEDIFICIO.GUARIDA, new BotonGenerico(TAMANIO, "images/guarida.png", ubicacion) );
+        hashMapEdificBot.put(IDEDIFICIO.RESERVADEREPRODUCCION, new BotonGenerico(TAMANIO, "images/reservaDeReproduccion.png", ubicacion) );
+        hashMapEdificBot.put(IDEDIFICIO.PILON, new BotonGenerico(TAMANIO, "images/pilon.png", ubicacion) );
+        hashMapEdificBot.put(IDEDIFICIO.ACCESO, new BotonGenerico(TAMANIO, "images/acceso.png", ubicacion) );
+        hashMapEdificBot.put(IDEDIFICIO.ASIMILADOR, new BotonGenerico(TAMANIO, "images/asimilador.png", ubicacion) );
+        hashMapEdificBot.put(IDEDIFICIO.NEXOMINERAL, new BotonGenerico(TAMANIO, "images/nexo.png", ubicacion) );
+        hashMapEdificBot.put(IDEDIFICIO.PUERTOESTELAR, new BotonGenerico(TAMANIO, "images/puertoEstelar.png", ubicacion) );
     }
 
     public void agregarContenedor(AnchorPane contenedorMapa){

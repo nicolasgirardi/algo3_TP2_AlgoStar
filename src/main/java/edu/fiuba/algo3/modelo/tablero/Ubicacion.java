@@ -23,6 +23,9 @@ public class Ubicacion {
         tipo = new Tierra();
         enRangoAmoSupremo = 0;
         energizado = 0;
+        edificio = null;
+        recurso = null;
+        unidad = null;
     }
 
     public void ubicar(Edificio Edificio){
@@ -132,6 +135,9 @@ public class Ubicacion {
     }
     public Edificio getEdificio(){
         return edificio;
+    }
+    public Unidad getUnidad(){
+        return unidad;
     }
 
     public Criadero getCriadero(){
