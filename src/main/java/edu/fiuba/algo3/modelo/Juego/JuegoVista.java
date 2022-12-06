@@ -91,7 +91,7 @@ public class JuegoVista {
         BotonGenerico botonGenerico = null;
         if( edificio.getEntidad() == IDEDIFICIO.CRIADERO ){
             botonGenerico = new BotonGenerico(TAMANIO, "images/criadero.png", ubicacion );
-            botonGenerico.setOnAction( new BotonCriaderoHandler( (Criadero) edificio, vBoxMenu) );
+            botonGenerico.setOnAction( new BotonCriaderoHandler( (Criadero) edificio, vBoxMenu, juegoModelo.getJugador1(), grPane ,juegoModelo.getMapa() ) );
         }
         if( edificio.getEntidad() == IDEDIFICIO.PILON ){
             botonGenerico = new BotonGenerico(TAMANIO, "images/pilon.png", ubicacion);
