@@ -33,9 +33,7 @@ public class BotonMoverseArribaHandler implements EventHandler<ActionEvent> {
         try {
             unidad.moverseArriba();
         } catch (Throwable e) {
-            Media buzzer = new Media(getClass().getResource("/images/sonidito.mp3").toExternalForm());
-            MediaPlayer mediaPlayer = new MediaPlayer(buzzer);
-            mediaPlayer.play();
+            //no se como tirar un sonidito
         }
     }
 }
