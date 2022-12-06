@@ -87,7 +87,6 @@ public class JuegoVista {
         }
         grPane.add(botonRecurso,i,j);
 
-
     }
 
     private void agregarBotonEdificio(Ubicacion ubicacion, int i , int j, VBox vBoxMenu) {

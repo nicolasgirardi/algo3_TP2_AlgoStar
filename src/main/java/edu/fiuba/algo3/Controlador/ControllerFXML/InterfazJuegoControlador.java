@@ -61,7 +61,7 @@ public class InterfazJuegoControlador{
 
     @FXML
     public void btnTerminarTurno(ActionEvent event) {
-
+        juegoVista.actualizarMapa(vBoxMenu);
     }
 
     @FXML
@@ -70,6 +70,8 @@ public class InterfazJuegoControlador{
     }
 
     private JuegoModelo juegoModelo;
+
+    private JuegoVista juegoVista;
 
 
     public void setJuego(JuegoModelo juegoModelo){
@@ -82,6 +84,7 @@ public class InterfazJuegoControlador{
         JuegoVista juegoVista = new JuegoVista(juegoModelo);
         juegoVista.iniciar(vBoxMenu);
         juegoVista.agregarContenedor(contenedorMapa);
+        this.juegoVista = juegoVista;
 
         /*
 
