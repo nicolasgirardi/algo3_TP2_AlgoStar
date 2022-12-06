@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Raza;
 
 import edu.fiuba.algo3.modelo.Edificio.*;
+import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
@@ -15,8 +16,10 @@ public abstract class Raza {
     private Poblacion poblacion;
     protected ArrayList<Edificio> edificios;
     private ArrayList<Unidad> unidades;
-    int cantReservas;
-    int cantAccesos;
+    private int cantReservas;
+    private int cantAccesos;
+
+    protected ID_RAZA entidad;
 
     public Raza(){
         gas = new GestionRecurso(0);
@@ -119,5 +122,8 @@ public abstract class Raza {
 
     public Unidad getUltimaUnidad(){
         return unidades.get(unidades.size());
+    }
+    public ID_RAZA getEntidad(){
+        return entidad;
     }
 }

@@ -89,6 +89,9 @@ public class JuegoModelo extends Observable {
     public Jugador getJugador1(){
         return jugador1;
     }
+    public Jugador getJugador2(){
+        return jugador2;
+    }
 
     public Mapa getMapa(){
         return mapa;

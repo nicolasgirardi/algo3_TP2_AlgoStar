@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
+import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Juego.JuegoVista;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import javafx.event.ActionEvent;
@@ -102,13 +103,16 @@ public class InterfazJuegoControlador{
 
     public void empiezaTurnoJugador2(){
         labelMenu.setText("Es el turno del jugador 2");
-        Button nexoMineral = new Button("Construir NexoMineral");
-        Button pilon = new Button("Construir Pilon");
-        Button asimilador = new Button("Construir Asimilador");
-        Button acceso = new Button("Construir Acceso");
-        Button puertoEstelar = new Button("Construir Puerto Estelar");
-        //VBox vBox = new VBox(nexoMineral, pilon, asimilador, acceso, puertoEstelar);
-        //vBox.getChildren().addAll(vBox);
+        if(juegoModelo.getJugador2().getRaza().equals(ID_RAZA.PROTOSS)){
+            Button nexoMineral = new Button("Construir NexoMineral");
+            Button pilon = new Button("Construir Pilon");
+            Button asimilador = new Button("Construir Asimilador");
+            Button acceso = new Button("Construir Acceso");
+            Button puertoEstelar = new Button("Construir Puerto Estelar");
+            VBox verticalJuguete = new VBox(nexoMineral, pilon, asimilador, acceso, puertoEstelar);
+            vBoxMenu.getChildren().clear();
+            vBoxMenu.getChildren().addAll(verticalJuguete);
+        }
 
     }
 
