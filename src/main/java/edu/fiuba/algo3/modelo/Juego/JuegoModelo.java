@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Juego;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Raza.Raza;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 import edu.fiuba.algo3.modelo.tablero.Moho;
@@ -37,7 +38,6 @@ public class JuegoModelo extends Observable {
         jugador1 = null;
         jugador2 = null;
         contadorJugadores = 0;
-        jugadorActivo = jugador1;
         mapa.inicializarMapa( );
     }
 
@@ -68,10 +68,12 @@ public class JuegoModelo extends Observable {
     public void agregarJugador(Jugador unJugador) {
         if (jugador1 == null) {
             jugador1 = unJugador;
+            jugador1.getRaza().agregarEdificioInicial(baseJugador1.getEdificio());
             jugadorActivo = jugador1;
         } else {
             unJugador.compatibleCon(jugador1);
             jugador2 = unJugador;
+            jugador2.getRaza().agregarEdificioInicial(baseJugador2.getEdificio());
         }
         contadorJugadores++;
     }
