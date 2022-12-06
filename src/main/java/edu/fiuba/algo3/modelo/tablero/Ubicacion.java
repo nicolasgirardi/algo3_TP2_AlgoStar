@@ -120,6 +120,8 @@ public class Ubicacion {
         return recurso != null;
     }
 
+    public boolean existeUnidad(){ return unidad != null;}
+
 
     public boolean contieneNodoMineral() {
 

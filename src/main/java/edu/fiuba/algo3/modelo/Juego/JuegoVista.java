@@ -6,8 +6,10 @@ import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.IDEDIFICIO;
+import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
+import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 
 import java.util.HashMap;
@@ -46,7 +48,10 @@ public class JuegoVista {
                         agregarBotonRecurso(ubicacion, i, j, vBoxMenu);
                     } else if (ubicacion.existeEdificio() ){
                         agregarEdificioInicial(ubicacion, i, j, vBoxMenu);
+                    } else if(ubicacion.existeUnidad()){
+                        agregarUnidadInicial(ubicacion,i,j,vBoxMenu);
                     }
+
                 } catch (Exception e){
                     System.out.println(e);
                 }
@@ -117,6 +122,19 @@ public class JuegoVista {
 
     public void agregarContenedor(AnchorPane contenedorMapa){
         contenedorMapa.getChildren().add(grPane);
+    }
+
+    public void agregarUnidadInicial(Ubicacion ubicacion,int i,int j,VBox vBoxMenu){
+        //si es zangano cambia el vbox para que tenga las opciones de zangano
+        Button botonUnidad;
+        if(ubicacion.getUnidad() instanceof Zangano){
+            botonUnidad = new BotonGenerico(TAMANIO, "images/zangano.png", ubicacion);
+            botonUnidad.setOnAction(new BotonZanganoHandler(ubicacion.getUnidad(), vBoxMenu));
+        }
+        //si es mutalisco cambia el vbox para que tenga las opciones de mutalisco
+        //si es amo supremo cambia el vbox para que tenga nada
+        //si es otra cosa cambia a generico
+
     }
 
 }
