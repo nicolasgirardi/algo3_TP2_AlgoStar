@@ -17,21 +17,24 @@ public class BotonCriaderoHandler implements EventHandler<ActionEvent> {
     private Jugador jugador;
     private GridPane gridPane;
     private Mapa mapa;
+    private int tamanio;
 
-    public BotonCriaderoHandler(Criadero criadero, VBox cajaParaRellenar, Jugador jugador, GridPane gridPane, Mapa mapa){
+    public BotonCriaderoHandler(Criadero criadero, VBox cajaParaRellenar, Jugador jugador, GridPane gridPane, Mapa mapa, int tamanio){
         this.vbox = cajaParaRellenar;
         this.criadero = criadero;
         this.jugador = jugador;
         this.gridPane = gridPane;
         this.mapa = mapa;
+        this.tamanio = tamanio;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
         Label labelLarvas = new Label("Cantidad de larvas: " + String.valueOf( criadero.getCantidadLarvas() ) + "\n" );
         Button unBoton = new Button("Evolucionar larva a zangano");
-        unBoton.setOnAction(new BotonEvolucionarAZanganoHandler(criadero, jugador, gridPane, mapa));
+        unBoton.setOnAction(new BotonEvolucionarAZanganoHandler(criadero, jugador, gridPane, mapa, tamanio, labelLarvas));
         vbox.getChildren().clear();
         vbox.getChildren().addAll(labelLarvas, unBoton); // perfecto
     }
 }
+//labelLarvas.setText("Cantidad de larvas: " + String.valueOf( criadero.getCantidadLarvas() ) + "\n");

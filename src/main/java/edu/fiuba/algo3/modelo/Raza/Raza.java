@@ -49,6 +49,11 @@ public abstract class Raza {
 
     }
 
+    public void agregarEdificioInicial(Edificio edificio){
+        edificio.fueAgregado(this);
+        edificios.add(edificio);
+    }
+
     public void agregarUnidad(Unidad unidad){
         unidad.verificarConsumoRecurso(mineral,gas);
         unidad.consumirGas(gas);
@@ -121,7 +126,7 @@ public abstract class Raza {
     public abstract void existenAunEdificios();
 
     public Unidad getUltimaUnidad(){
-        return unidades.get(unidades.size());
+        return unidades.get(unidades.size() - 1);
     }
     public ID_RAZA getEntidad(){
         return entidad;
