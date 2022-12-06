@@ -34,7 +34,6 @@ public class BotonCriaderoHandler implements EventHandler<ActionEvent> {
         Button unBoton = new Button("Evolucionar larva a zangano");
         unBoton.setOnAction(new BotonEvolucionarAZanganoHandler(criadero, jugador, gridPane, mapa, tamanio, labelLarvas));
         vbox.getChildren().clear();
-        vbox.getChildren().addAll(labelLarvas, unBoton); // perfecto
+        vbox.getChildren().addAll(labelLarvas, unBoton);
     }
 }
-//labelLarvas.setText("Cantidad de larvas: " + String.valueOf( criadero.getCantidadLarvas() ) + "\n");
