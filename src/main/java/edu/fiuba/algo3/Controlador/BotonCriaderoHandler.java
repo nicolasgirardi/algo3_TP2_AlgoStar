@@ -1,35 +1,37 @@
 package edu.fiuba.algo3.Controlador;
 
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
+import edu.fiuba.algo3.modelo.Juego.Jugador;
+import edu.fiuba.algo3.modelo.tablero.Mapa;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 
 public class BotonCriaderoHandler implements EventHandler<ActionEvent> {
 
     private  VBox vbox;
     private  Criadero criadero;
+    private Jugador jugador;
+    private GridPane gridPane;
+    private Mapa mapa;
 
-    public BotonCriaderoHandler(Criadero criadero, VBox cajaParaRellenar){
+    public BotonCriaderoHandler(Criadero criadero, VBox cajaParaRellenar, Jugador jugador, GridPane gridPane, Mapa mapa){
         this.vbox = cajaParaRellenar;
         this.criadero = criadero;
+        this.jugador = jugador;
+        this.gridPane = gridPane;
+        this.mapa = mapa;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
         Label labelLarvas = new Label("Cantidad de larvas: " + String.valueOf( criadero.getCantidadLarvas() ) + "\n" );
         Button unBoton = new Button("Evolucionar larva a zangano");
+        unBoton.setOnAction(new BotonEvolucionarAZanganoHandler(criadero, jugador, gridPane, mapa));
         vbox.getChildren().clear();
-        Label labelMenu = new Label("Menu del Juego");
-        labelMenu.setEffect(new DropShadow(2.0, Color.BLACK));
-        labelMenu.setFont(Font.font(20));
-        labelMenu.setTextFill(Color.BLACK);
-
-        vbox.getChildren().addAll(labelMenu, labelLarvas, unBoton); // perfecto
+        vbox.getChildren().addAll(labelLarvas, unBoton); // perfecto
     }
 }

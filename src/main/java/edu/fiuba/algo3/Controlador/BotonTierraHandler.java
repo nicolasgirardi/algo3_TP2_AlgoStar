@@ -23,11 +23,6 @@ public class BotonTierraHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         Button unBoton = new Button("Construir nuevo edificio");
         vbox.getChildren().clear();
-        Label labelMenu = new Label("Menu del Juego");
-        labelMenu.setEffect(new DropShadow(2.0, Color.BLACK));
-        labelMenu.setFont(Font.font(40));
-        labelMenu.setTextFill(Color.BLACK);
-
-        vbox.getChildren().addAll(labelMenu,  unBoton);
+        vbox.getChildren().addAll(unBoton);
     }
 }

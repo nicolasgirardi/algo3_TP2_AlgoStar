@@ -25,4 +25,7 @@ public class Jugador {
         if(jugador.raza.getClass() == raza.getClass()) throw new JugadorMismaRazaError();
     }
 
+    public Raza getRaza(){
+        return raza;
+    }
 }
