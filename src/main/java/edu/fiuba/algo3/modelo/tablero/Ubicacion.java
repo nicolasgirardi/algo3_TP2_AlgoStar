@@ -75,7 +75,7 @@ public class Ubicacion {
         }
     }
     public void asignarUnidad(Unidad unaUnidad){
-        if(unidad == null){
+        if(unidad == null && edificio == null){
             tipo.ubicar(unaUnidad);
             unidad = unaUnidad;
             unaUnidad.asignarLugar(this);
@@ -164,5 +164,9 @@ public class Ubicacion {
     public Ubicacion getAbajo() { return abajo;}
     public Ubicacion getDerecha() {return derecha;}
     public Ubicacion getIzquierda() {return izquierda;}
+
+    public void quitarUnidad(){
+        unidad = null;
+    }
 
 }

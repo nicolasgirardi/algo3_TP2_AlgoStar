@@ -30,6 +30,11 @@ public class BotonMoverseIzquierdaHandler implements EventHandler<ActionEvent> {
     }
 
     public void handle(ActionEvent actionEvent){
-        unidad.moverseIzquierda();
+        try {
+            unidad.moverseIzquierda();
+        }
+        catch(Throwable e){
+            //la idea seria poner un sonidito de error aca
+        }
     }
 }

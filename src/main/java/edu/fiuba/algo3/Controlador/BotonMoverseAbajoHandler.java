@@ -30,6 +30,11 @@ public class BotonMoverseAbajoHandler implements EventHandler<ActionEvent> {
     }
 
     public void handle(ActionEvent actionEvent){
-        unidad.moverseAbajo();
+        try {
+            unidad.moverseAbajo();
+        }
+        catch(Throwable e){
+            //la idea seria poner un sonidito de error aca
+        }
     }
 }

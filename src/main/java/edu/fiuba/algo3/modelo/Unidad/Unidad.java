@@ -115,39 +115,29 @@ public abstract class  Unidad implements Atacable, Atacante {
     }
 
     public void moverseArriba(){
-        try{
-            ubicacion.getArriba().asignarUnidad(this);
-        }
-        catch (RuntimeException e){
-
-        }
+       Ubicacion actual = ubicacion;
+       ubicacion.getArriba().asignarUnidad(this);
+       actual.quitarUnidad();
     }
 
     public void moverseAbajo(){
-        try{
-            ubicacion.getAbajo().asignarUnidad(this);
-        }
-        catch (RuntimeException e){
+        Ubicacion actual = ubicacion;
+        ubicacion.getAbajo().asignarUnidad(this);
+        actual.quitarUnidad();
 
-        }
     }
 
     public void moverseDerecha(){
-        try{
-            ubicacion.getDerecha().asignarUnidad(this);
-        }
-        catch (RuntimeException e){
-
-        }
+        Ubicacion actual = ubicacion;
+        ubicacion.getDerecha().asignarUnidad(this);
+        actual.quitarUnidad();
 
     }
 
     public void moverseIzquierda(){
-        try{
-            ubicacion.getIzquierda().asignarUnidad(this);
-        }
-        catch (RuntimeException e){
+        Ubicacion actual = ubicacion;
+        ubicacion.getIzquierda().asignarUnidad(this);
+        actual.quitarUnidad();
 
-        }
     }
 }

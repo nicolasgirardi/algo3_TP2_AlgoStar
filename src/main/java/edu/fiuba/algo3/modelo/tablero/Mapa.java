@@ -33,7 +33,7 @@ public class Mapa {
             if(b> base) b = a;
             if(y<0) y = z;
             if (z>altura) z = y;
-            mapa[i][j].Arriba(mapa[a][j]);
+            mapa[i][j].Arriba(mapa[i][j]);
             mapa[i][j].Abajo(mapa[b][j]);
             mapa[i][j].Izquierda(mapa[i][y]);
             mapa[i][j].Derecha(mapa[i][z]);
