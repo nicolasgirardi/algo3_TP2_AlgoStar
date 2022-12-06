@@ -6,48 +6,69 @@ class Mapa{
     -altura:int
     +buscar(unaCoordenada):unaUbicacion
     +buscar(unaCoordenada,unaDistancia):Lista(ubicaciones)
-    +distanciaMaxima()
-    +buscarOpuesto()
+    +distanciaMaxima():int
+    +buscarOpuesto(unaCoordenada):unaUbicacion
+    +darTipoAlMapaInicio():void
+    +agregarBasesDiagonales():void
+    +getDimension():void
+
+
 }
 
 class Ubicacion{
     -unEdificio: Edificio
     -unRecurso: Recurso
+    -unaUnidad: Unidad
+    -unTipo: Tipo
+    -unaCoordenada: Coordenada
 
-    +ubicar(unEdificio)
-    +ubicar(unEdificio,unPilon)
-    +ubicar(unEdificio,Lista<pilon>)
-    +desalojar()
-    +darTipo(unTipo)
+    +Ubicacion()
+    +ubicar(unEdificio):void
+    +ubicar(unPilon,unMapa):void
+    +desalojar(unMapa):void
+    +darTipo(unTipo):void
     +distancia(unaUbicacion): unaDistancia
     +coordenada():unaCoordenada
-    +crecer(unRadio,unMapa)
-    +infectar()
-    +asignarUnidad(unaUnidad)
+    +crecer(unRadio,unMapa):void
+    +infectar():void
+    +asignarUnidad(unaUnidad):void
+    +establecerEnRangoAmoSupremo():void
+    +energizar():void
+    +desenergizar():void
+    +estaBajoElRangoDeUnAmoSupremo():void
+    +energizado():boolean
+    +ubicarRecurso(unRecurso):void
+    +existeEdificio():boolean
+    +existeRecurso():boolean
+    +contieneNodoMineral():boolean
+
 }
 
 interface Tipo {
-    +instalar(unEdificio)
-    +crecer(unaCoordenada,unMapa,unRadio)
-    +ubicar(unaUnidad)
+    #unTiposuperficie:TIPOSUPERFICIE
+    +instalar(unEdificio):void
+    +crecer(unaCoordenada,unMapa,unRadio):void
+    +ubicar(unaUnidad):void
+    +getTiposuperficie():TIPOSUPERFICIE
 }
 
 class Tierra{
-     +instalar(unEdificio)
-     +crecer(unaCoordenada,unMapa,unRadio)
-     -edificioEsZerg(unEdificio):bool
-     +ubicar(unaUnidad)
+     +Tierra()
+     +instalar(unEdificio):void
+     +crecer(unaCoordenada,unMapa,unRadio):void
+     +ubicar(unaUnidad):void
 }
 class Moho{
-     +instalar(unEdificio)
-     +crecer(unaCoordenada,unMapa,unRadio)
-     -edificioEsProtoss(unEdificio):bool
-     +ubicar(unaUnidad)
+     +Moho()
+     +instalar(unEdificio):void
+     +crecer(unaCoordenada,unMapa,unRadio):void
+     +ubicar(unaUnidad):void
 }
 class Especial{
-     +instalar(unEdificio)
-     +crecer(unaCoordenada,unMapa,unRadio)
-     +ubicar(unaUnidad)
+     +Especial()
+     +instalar(unEdificio):void
+     +crecer(unaCoordenada,unMapa,unRadio):void
+     +ubicar(unaUnidad):void
 }
 
 Mapa -> "n" Ubicacion

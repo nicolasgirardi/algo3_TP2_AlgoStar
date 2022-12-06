@@ -2,37 +2,49 @@
 'https://plantuml.com/class-diagram
 
 class NexoMineral{
-
+    -CANTIDAD_TURNOS_OPERATIVO: int
+    -CANTIDAD_EXTRACCION: int
     -nodoMineral: NodoMineral
-    +extraer():Int
-    +construirEdificioEn(recurso: Recurso)
-    +verificarSiPuedeSerConstruido(uDeMineral:Int, uDeGas:Int)
-    + consumirGas(UnidadesDeGas:Int):Int
-    + consumirMineral(UnidadesDeMineral:Int):Int
-    + fueAgregado(raza: Raza)
+
+    +NexoMineral(nodoMineral: NodoMineral )
+    +extraer():GestionRecurso
+    +construirEdificioEn(recurso: Recurso): void
+    +verificarSiPuedeSerConstruido(uDeMineral:GestionRecurso, uDeGas:GestionRecurso)
+    + fueAgregado(raza: Raza): void
+    +instalar(tierra: Tierra)
+    +instalar(moho: Moho)
 
 }
 
 class Pilon{
+    -CANTIDAD_TURNOS_OPERATIVO
 
+    +Pilon()
+    +Pilon(hp: HitPoints)
     +energizar()
     +construirEdificioEn(recurso: Recurso)
-    +verificarSiPuedeSerConstruido(uDeMineral:Int, uDeGas:Int)
-    + consumirGas(UnidadesDeGas:Int):Int
-    + consumirMineral(UnidadesDeMineral:Int):Int
+    +verificarSiPuedeSerConstruido(uDeMineral:GestionRecurso, uDeGas:GestionRecurso)
+    +instalar(tierra: Tierra)
+    +instalar(moho: Moho)
     + enRango(unaUbicacion: Ubicacion): Void
     + enRango(unaUbicacion: Ubicacion, lista: ArrayList): Void
     + fueAgregado(raza: Raza)
+    +disminuirCapacidad(unaRaza: Raza)
+    +ubicarPilon(unaUbicacion: Ubicacion, unMapa: Mapa)
+    +desalojarPilon(unMapa: Mapa)
 }
 
 class Asimilador{
+    -CANTIDAD_TURNOS_OPERATIVO: int
 
-    +extraer(volcan: Volcan)
+    +Asimilador()
+    +prepararCapsula()
+    +extraer(unVolcan: Volcan): GestionRecurso
     +construirEdificioEn(recurso: Recurso)
-    +verificarSiPuedeSerConstruido(uDeMineral:Int, uDeGas:Int)
-    + consumirGas(UnidadesDeGas:Int):Int
-    + consumirMineral(UnidadesDeMineral:Int):Int
-    + fueAgregado(raza: Raza)
+    +verificarSiPuedeSerConstruido(uDeMineral:GestionRecurso, uDeGas:GestionRecurso)
+    +fueAgregado(raza: Raza)
+    +instalar(tierra: Tierra)
+    +instalar(moho: Moho)
 }
 
 
@@ -44,21 +56,38 @@ interface Atacable {
 
 abstract class Edificio {
     -hp: HitPoints
-    #cantTurnosParaSerOperativo: Int
-    -ubicacion: Ubicacion
-    +ejecutarTurno():void
-    + {abstract} construirEdificioEn(recurso: Recurso)
-    + {abstract} verificarSiPuedeSerConstruido(unidadesDeMineral:Int, unidadesDeGas:Int)
-    + {abstract} consumirGas(UnidadesDeGas:Int):Int
-    + {abstract} consumirMineral(UnidadesDeMineral:Int):Int
-    +recibirDaño(int daño)
-    +regeneracionFinDeTurno()
-    +vidaActual():Int
-    +escudoActual():Int
-    + ubicar(unLugar:Ubicacion)
-    + distancia(unaUbicacion: Ubicacion): int
-    +recibirAtaque(unAtaque: Ataque)
-    + {abstract} fueAgregado(raza: Raza)
+        #turnosRestantesParaSerOperativo: Int
+        #ubicacion: Ubicacion
+        #entidad: IDEDIFICIO
+        #costoMineral: int
+        #costoGas: int
+        #raza: Raza
+
+        +Edificio(turnosRestantesParaSerOperativo: Int,mineralNecesario: Int,gasNecesario: Int)
+        +Edificio(turnosRestantesParaSerOperativo: Int,HP: HitPoints,mineralNecesario: Int,gasNecesario: Int)
+        +Edificio(HP: HitPoints)
+        +verififarEdificioOperativo(): void
+        +ejecutarTurno():void
+        +asignarHP(HP: HitPoints): void
+        + {abstract} construirEdificioEn(recurso: Recurso): void
+        + verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral:GestionRecurso, unidadesDeGas:GestionRecurso): void
+        + {abstract} verificarSiPuedeSerConstruido(unidadesDeMineral:GestionRecurso, unidadesDeGas:GestionRecurso): void
+        +consumirGas(UnidadesDeGas:GestionRecurso):void
+        +consumirMineral(UnidadesDeMineral:GestionRecurso):void
+        +recibirDaño(daño: Int): void
+        +regeneracionFinDeTurno(): void
+        +vidaActual():Int
+        +escudoActual():Int
+        + ubicar(unLugar:Ubicacion): void
+        + distancia(unaUbicacion: Ubicacion): int
+        +recibirAtaque(unAtaque: Ataque): void
+        + {abstract} fueAgregado(raza: Raza): void
+        +desalojar():void
+        +ubicacion(): Ubicacion
+        +{abstract} instalar(tierra: Tierra): void
+        +{abstract} instalar(moho: Moho): void
+        +disminuirCapacidad(unaRaza: Raza): void
+        +getEntidad(): IDEDIFICIO
 }
 
 Edificio <|-- NexoMineral
