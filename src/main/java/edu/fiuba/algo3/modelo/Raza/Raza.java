@@ -43,6 +43,7 @@ public abstract class Raza {
         unidades = new ArrayList<Unidad>();
         cantAccesos = 0;
         cantReservas = 0;
+        observadores = new ArrayList<>();
     }
 
     public void agregarEdificio(Edificio edificio){
