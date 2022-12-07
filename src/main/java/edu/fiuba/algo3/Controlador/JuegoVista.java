@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Juego;
+package edu.fiuba.algo3.Controlador;
 
 import edu.fiuba.algo3.Controlador.*;
 import edu.fiuba.algo3.Vista.BotonGenerico;
@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.IDEDIFICIO;
+import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
@@ -17,7 +18,7 @@ import java.util.HashMap;
 
 public class JuegoVista {
     private GridPane grPane;
-    private  JuegoModelo juegoModelo;
+    private JuegoModelo juegoModelo;
     private  final int MAPA_TAMANIO;
 
     private final int TAMANIO;

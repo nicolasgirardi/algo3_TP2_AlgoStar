@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
 import edu.fiuba.algo3.modelo.ID_RAZA;
-import edu.fiuba.algo3.modelo.Juego.JuegoVista;
+import edu.fiuba.algo3.Controlador.JuegoVista;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
