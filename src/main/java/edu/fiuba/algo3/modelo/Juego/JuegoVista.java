@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.IDEDIFICIO;
+import edu.fiuba.algo3.modelo.TIPOSUPERFICIE;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
@@ -136,7 +137,7 @@ public class JuegoVista {
                         botonVolcan.setOnAction(new VolcanHandlerProtoss(vBoxMenu, ubicacion, botonVolcan, juegoModelo) );
                     }
                 }
-                if( ! ubicacion.existeEdificio() && !ubicacion.existeRecurso() ){
+                if( ubicacion.ubicacionVacia() && (ubicacion.getTipoSuperficie() == TIPOSUPERFICIE.TIERRA) ){
                     BotonGenerico botonSuperficie = ((BotonGenerico) findNodoDelGridPane(i,j));
                     botonSuperficie.setOnAction(new BotonTierraProtosHandler(vBoxMenu,botonSuperficie, juegoModelo) );
                 }
