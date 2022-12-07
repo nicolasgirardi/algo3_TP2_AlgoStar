@@ -107,7 +107,7 @@ public class InterfazJuegoControlador implements Observador {
     }
 
     public void empezarTurno(){
-        labelMenu.setText("Es el turno del jugador " + juegoModelo.getJugadorActivo().getNombre()  );
+        labelMenu.setText("Menu del juego");
 
         if(juegoModelo.getJugadorActivo().getRaza().getEntidad() == ID_RAZA.PROTOSS  ){
             cambiarHandlerSuperficieActualProtoss();

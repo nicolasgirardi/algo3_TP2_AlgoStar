@@ -49,17 +49,17 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblCantidadPoblacion" layoutX="120.0" text="0">
+                  <Label fx:id="lblCantidadPoblacion" layoutX="125.0" text="0">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="132.0" text="/">
+                  <Label layoutX="141.0" text="/">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblMaximaCantidadPoblacion" layoutX="141.0" text="0">
+                  <Label fx:id="lblMaximaCantidadPoblacion" layoutX="152.0" text="0">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -78,7 +78,7 @@
             </Label>
          </children>
       </Pane>
-      <VBox fx:id="vBoxMenu" layoutX="1555.0" layoutY="247.0" prefHeight="487.0" prefWidth="328.0" style="-fx-border-width: 3; -fx-border-color: red;" AnchorPane.bottomAnchor="515.0" AnchorPane.leftAnchor="1555.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="247.0">
+      <VBox fx:id="vBoxMenu" layoutX="1464.0" layoutY="247.0" prefHeight="487.0" prefWidth="328.0" style="-fx-border-width: 3; -fx-border-color: red;" AnchorPane.bottomAnchor="515.0" AnchorPane.leftAnchor="1464.0" AnchorPane.rightAnchor="111.0" AnchorPane.topAnchor="247.0">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
@@ -107,8 +107,8 @@
          </children>
       </VBox>
       <AnchorPane fx:id="contenedorMapa" layoutX="37.0" layoutY="88.0" prefHeight="1130.0" prefWidth="1298.0" style="-fx-border-width: 1; -fx-border-color: black;" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="568.0" AnchorPane.topAnchor="88.0" />
-      <Button fx:id="btnTerminarTurno" layoutX="1500.0" layoutY="700.0" mnemonicParsing="false" onMouseClicked="#onClickTerminarTurno" prefHeight="79.0" prefWidth="276.0" text="Terminar Turno" />
-      <Label fx:id="labelMenu" layoutX="1399.0" layoutY="67.0" text="Menu del juego">
+      <Button fx:id="btnTerminarTurno" layoutX="1491.0" layoutY="764.0" mnemonicParsing="false" onMouseClicked="#onClickTerminarTurno" prefHeight="79.0" prefWidth="276.0" text="Terminar Turno" />
+      <Label fx:id="labelMenu" layoutX="1509.0" layoutY="67.0" text="Menu del juego">
          <font>
             <Font size="29.0" />
          </font>
