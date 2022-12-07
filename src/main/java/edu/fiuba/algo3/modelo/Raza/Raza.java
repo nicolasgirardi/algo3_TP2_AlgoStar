@@ -2,12 +2,14 @@ package edu.fiuba.algo3.modelo.Raza;
 
 import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.ID_RAZA;
+import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.Poblacion;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Raza {
 
@@ -19,6 +21,8 @@ public abstract class Raza {
     private int cantReservas;
     private int cantAccesos;
 
+    private List<Observador> observadores;
+
     protected ID_RAZA entidad;
 
     public Raza(){
@@ -29,6 +33,7 @@ public abstract class Raza {
         unidades = new ArrayList<Unidad>();
         cantAccesos = 0;
         cantReservas = 0;
+        observadores = new ArrayList<>();
     }
     public Raza(GestionRecurso mineral, GestionRecurso gas){
         this.mineral = mineral;
@@ -46,7 +51,7 @@ public abstract class Raza {
         edificio.consumirGas(gas);
         edificio.consumirMineral(mineral);
         edificios.add(edificio);
-
+        notificar();
     }
 
     public void agregarUnidad(Unidad unidad){
@@ -55,13 +60,16 @@ public abstract class Raza {
         unidad.consumirMineral(mineral);
         unidad.aumentarPoblacion(this);
         unidades.add(unidad);
+        notificar();
     }
 
     public void aumentarGas(GestionRecurso gas ){
         this.gas.aumentar(gas);
+        notificar();
     }
     public void aumentarMineral(GestionRecurso mineral ){
         this.mineral.aumentar(mineral);
+        notificar();
     }
 
     public boolean existeReserva() {
@@ -82,30 +90,32 @@ public abstract class Raza {
         return (cantAccesos>0);
     }
 
-    public void verficarConsumoSuministros(int cantSuministroConsumiro){
-        if(!this.mineral.puedeConsumir(cantSuministroConsumiro)) {
-            throw new RecursosInsuficientesError();
-        }
-    }
-
 
     public void aumentarCapacidad(int unaPoblacion) {
         poblacion.aumentarCapacidad(unaPoblacion);
+        notificar();
     }
 
     public void disminuirCapacidad(int unaPoblacion) {
         poblacion.disminuirCapacidad(unaPoblacion);
+        notificar();
     }
 
     public void aumentarPoblacion(int costoPoblacion) {
         poblacion.aumentarPoblacion(costoPoblacion);
+        notificar();
     }
 
     public void disminuirPoblacion(int costoPoblacion) {
         poblacion.disminuirPoblacion(costoPoblacion);
+        notificar();
     }
     public int capacidadReal(){
         return poblacion.capacidadReal();
+    }
+
+    public int obtenerCantidadPoblacion(){
+        return poblacion.obtenerPoblacion();
     }
 
     public void destruirEdificio(Edificio unEdificio){
@@ -125,5 +135,22 @@ public abstract class Raza {
     }
     public ID_RAZA getEntidad(){
         return entidad;
+    }
+
+    public String getCantidadGas(){
+        return gas.toString();
+    }
+    public String getCantidadMineral(){
+        return mineral.toString();
+    }
+
+    public void agregarObservador(Observador o){
+        if(!observadores.contains(o)) observadores.add(o);
+    }
+    public void eliminarObservador(Observador o){
+        observadores.remove(o);
+    }
+    public void notificar(){
+        observadores.forEach(o -> o.actualizar());
     }
 }

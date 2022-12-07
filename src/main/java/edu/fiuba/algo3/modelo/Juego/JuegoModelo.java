@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Juego;
 
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
+import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
@@ -108,12 +109,22 @@ public class JuegoModelo extends Observable {
     }
 
     public void terminarTurno(){
+
         if(jugadorActivo.equals(jugador1)){
             jugadorActivo = jugador2;
         }
         else{
             jugadorActivo = jugador1;
         }
+
     }
+
+    public void subscribirseRazaActiva(Observador o){
+        jugadorActivo.getRaza().agregarObservador(o);
+    }
+    public void desubscribirseRazaActiva(Observador o){
+        jugadorActivo.getRaza().eliminarObservador(o);
+    }
+
 }
 

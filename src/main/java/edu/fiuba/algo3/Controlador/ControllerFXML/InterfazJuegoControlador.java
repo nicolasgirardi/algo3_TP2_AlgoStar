@@ -1,8 +1,12 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Juego.JuegoVista;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
+import edu.fiuba.algo3.modelo.Juego.Jugador;
+import edu.fiuba.algo3.modelo.Observador;
+import edu.fiuba.algo3.modelo.Raza.Raza;
 import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,7 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
-public class InterfazJuegoControlador{
+public class InterfazJuegoControlador implements Observador {
 
     @FXML
     public Button btnAccion1;
@@ -60,20 +64,34 @@ public class InterfazJuegoControlador{
     public Label labelMenu;
 
     @FXML
-    public void btnTerminarTurno(ActionEvent event) {
+    public Label lblCantidadGas;
 
-    }
+    @FXML
+    public Label lblCantidadMineral;
+
+    @FXML
+    public Label lblNombreJugador;
+
+    @FXML
+    public Pane paneInfoJugador;
+
+    @FXML
+    public Label lblCantidadPoblacion;
+
+    @FXML
+    public Label lblMaximaCantidadPoblacion;
+
 
     private JuegoModelo juegoModelo;
 
     private JuegoVista juegoVista;
 
-    private double contador;
+
 
 
     public void setJuego(JuegoModelo juegoModelo){
         this.juegoModelo = juegoModelo;
-        contador = 0;
+        juegoModelo.subscribirseRazaActiva(this);
     }
 
     public void inicializar(){
@@ -81,6 +99,7 @@ public class InterfazJuegoControlador{
         juegoVista.iniciar(vBoxMenu);
         juegoVista.agregarContenedor(contenedorMapa);
         this.juegoVista = juegoVista;
+        actualizar();
         empezarTurno();
     }
 
@@ -103,8 +122,20 @@ public class InterfazJuegoControlador{
 
     @FXML
     public void onClickTerminarTurno(MouseEvent event) {
+        juegoModelo.desubscribirseRazaActiva(this);
         juegoModelo.terminarTurno();
-        empezarTurno();
+        juegoModelo.subscribirseRazaActiva(this);
+        actualizar();
     }
 
+    @Override
+    public void actualizar() {
+        Jugador jugadorActivo = juegoModelo.getJugadorActivo();
+        Raza razaActiva = jugadorActivo.getRaza();
+        lblNombreJugador.setText(jugadorActivo.getNombre());
+        lblCantidadMineral.setText(razaActiva.getCantidadMineral());
+        lblCantidadGas.setText(razaActiva.getCantidadGas());
+        lblCantidadPoblacion.setText(String.valueOf(razaActiva.obtenerCantidadPoblacion()));
+        lblMaximaCantidadPoblacion.setText(String.valueOf(razaActiva.capacidadReal()));
+    }
 }

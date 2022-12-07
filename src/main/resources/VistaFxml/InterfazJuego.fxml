@@ -4,11 +4,66 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="1249.0" prefWidth="1903.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Controlador.ControllerFXML.InterfazJuegoControlador">
    <children>
+      <Pane fx:id="paneInfoJugador" layoutX="37.0" prefHeight="73.0" prefWidth="1298.0" style="-fx-border-color: black;">
+         <children>
+            <Label layoutX="27.0" layoutY="19.0" text="Jugador: ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNombreJugador" layoutX="124.0" layoutY="19.0" text="nombreJugador">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="403.0" layoutY="19.0" text="Mineral:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCantidadMineral" layoutX="495.0" layoutY="19.0" text="0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="577.0" layoutY="19.0" text="Gas:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCantidadGas" layoutX="628.0" layoutY="19.0" text="0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="704.0" layoutY="19.0" text="Población:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCantidadPoblacion" layoutX="823.0" layoutY="19.0" text="0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="836.0" layoutY="19.0" text="/">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMaximaCantidadPoblacion" layoutX="845.0" layoutY="19.0" text="0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
       <VBox fx:id="vBoxMenu" layoutX="1555.0" layoutY="247.0" prefHeight="487.0" prefWidth="328.0" style="-fx-border-width: 3; -fx-border-color: red;" AnchorPane.bottomAnchor="515.0" AnchorPane.leftAnchor="1555.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="247.0">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
@@ -37,9 +92,9 @@
             </HBox>
          </children>
       </VBox>
-      <AnchorPane fx:id="contenedorMapa" layoutX="43.0" layoutY="35.0" prefHeight="1179.0" prefWidth="1385.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="394.0" AnchorPane.topAnchor="10.0" />
-      <Button fx:id="btnTerminarTurno" layoutX="1500.0" layoutY="700.0" mnemonicParsing="false" onAction="#btnTerminarTurno" onMouseClicked="#onClickTerminarTurno" prefHeight="79.0" prefWidth="276.0" text="Terminar Turno" />
-      <Label  fx:id="labelMenu" layoutX="1300.0" layoutY="66.0" text="Menu del juego">
+      <AnchorPane fx:id="contenedorMapa" layoutX="37.0" layoutY="88.0" prefHeight="1130.0" prefWidth="1298.0" style="-fx-border-width: 1; -fx-border-color: black;" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="568.0" AnchorPane.topAnchor="88.0" />
+      <Button fx:id="btnTerminarTurno" layoutX="1500.0" layoutY="700.0" mnemonicParsing="false" onMouseClicked="#onClickTerminarTurno" prefHeight="79.0" prefWidth="276.0" text="Terminar Turno" />
+      <Label fx:id="labelMenu" layoutX="1399.0" layoutY="67.0" text="Menu del juego">
          <font>
             <Font size="29.0" />
          </font>
