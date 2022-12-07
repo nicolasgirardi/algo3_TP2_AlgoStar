@@ -13,12 +13,20 @@ import edu.fiuba.algo3.modelo.tablero.Tierra;
 
 public class Asimilador extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 6;
+    private Volcan volcan;
 
     public Asimilador(){
         super(CANTIDAD_TURNOS_OPERATIVO,new HPProtoss(450,450),100,0);
         entidad = IDEDIFICIO.ASIMILADOR;
     }
 
+    //asimilador se instala sobre un volcan imposible instalarlo en otro lugar.
+    public Asimilador(Volcan volcan){
+        super(CANTIDAD_TURNOS_OPERATIVO,new HPProtoss(450,450),100,0);
+        entidad = IDEDIFICIO.ASIMILADOR;
+        volcan.agregarEdificio(this);
+        this.volcan = volcan;
+    }
 
     public void prepararCapsula() {
         verififarEdificioOperativo();
@@ -26,7 +34,11 @@ public class Asimilador extends Edificio {
     }
 
     public GestionRecurso extraer(Volcan volcan) {
+        if(this.volcan != null){
+            return volcan.extraer(20);
+        }
         return volcan.extraer(20);
+
     }
 
     @Override

@@ -41,10 +41,6 @@ public class ContenedorPantallaInicio extends VBox {
         botonSalir.setOnAction(new BotonSalirHandler(botonSalir));
         BotonContinuarHandler botonContinuarEH = new BotonContinuarHandler(botonContinuar, escenaRegistro, stage); //refactor boton al pedo al handler
         botonContinuar.setOnAction(botonContinuarEH);
-
-
-
-
         /*botonContinuar.setOnAction(e -> {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/VistaFxml/RegistroJugador.fxml"));

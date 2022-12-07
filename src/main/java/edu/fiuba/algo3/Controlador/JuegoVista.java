@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Juego;
+package edu.fiuba.algo3.Controlador;
 
 import edu.fiuba.algo3.Controlador.*;
 import edu.fiuba.algo3.Vista.BotonGenerico;
@@ -6,9 +6,11 @@ import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.IDEDIFICIO;
+import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 
@@ -16,7 +18,7 @@ import java.util.HashMap;
 
 public class JuegoVista {
     private GridPane grPane;
-    private  JuegoModelo juegoModelo;
+    private JuegoModelo juegoModelo;
     private  final int MAPA_TAMANIO;
 
     private final int TAMANIO;
@@ -60,23 +62,6 @@ public class JuegoVista {
         grPane.setPrefSize(1000,950);
     }
 
-    public void actualizarMapa(VBox vBoxMenu){
-        for(int i = 0; i <= MAPA_TAMANIO; i++){
-            for(int j = 0; j <= MAPA_TAMANIO; j++){
-                try {
-                    Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
-                    if (ubicacion.existeEdificio() ){
-                        agregarEdificioInicial(ubicacion, i, j, vBoxMenu);
-                    } else if (ubicacion.getUnidad() != null){
-                        //agregarBotonUnidad();
-                    }
-                } catch (Exception e){
-                    System.out.println(e);
-                }
-            }
-        }
-    }
-
 
     private void agregarBotonRecurso(Ubicacion ubicacion, int i , int j, VBox vBoxMenu) {
         BotonGenerico botonRecurso;
@@ -96,7 +81,7 @@ public class JuegoVista {
         BotonGenerico botonGenerico = null;
         if( edificio.getEntidad() == IDEDIFICIO.CRIADERO ){
             botonGenerico = new BotonGenerico(TAMANIO, "images/criadero.png", ubicacion );
-            botonGenerico.setOnAction( new BotonCriaderoHandler( (Criadero) edificio, vBoxMenu, juegoModelo.getJugador1(), grPane ,juegoModelo.getMapa() ) );
+            botonGenerico.setOnAction( new BotonCriaderoHandler( (Criadero) edificio, vBoxMenu, juegoModelo.getJugador1(), grPane ,juegoModelo.getMapa(), TAMANIO ) );
         }
         if( edificio.getEntidad() == IDEDIFICIO.PILON ){
             botonGenerico = new BotonGenerico(TAMANIO, "images/pilon.png", ubicacion);
@@ -138,4 +123,47 @@ public class JuegoVista {
 
     }
 
+    public void cambiarHandlerSuperficieActualProtoss(VBox vBoxMenu) {
+        for(int i = 0; i <= MAPA_TAMANIO; i++){
+            for(int j = 0; j<= MAPA_TAMANIO; j++){
+                Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
+                if( ubicacion.existeRecurso() ){
+                    if(ubicacion.contieneNodoMineral()) {
+                        BotonGenerico botonMineral = ((BotonGenerico) findNodoDelGridPane(i,j));
+                        botonMineral.setOnAction(new NodoMineralHandlerProtoss(vBoxMenu, ubicacion, botonMineral, juegoModelo ) );
+                    }
+                    else{
+                        BotonGenerico botonVolcan = ((BotonGenerico) findNodoDelGridPane(i,j));
+                        botonVolcan.setOnAction(new VolcanHandlerProtoss(vBoxMenu, ubicacion, botonVolcan, juegoModelo) );
+                    }
+                }
+                if( ! ubicacion.existeEdificio() && !ubicacion.existeRecurso() ){
+                    BotonGenerico botonSuperficie = ((BotonGenerico) findNodoDelGridPane(i,j));
+                    botonSuperficie.setOnAction(new BotonTierraProtosHandler(vBoxMenu,botonSuperficie, juegoModelo) );
+                }
+            }
+        }
+    }
+
+    private Node findNodoDelGridPane(int posX, int posY) {
+        for (Node node : grPane.getChildren()) {
+            if (GridPane.getColumnIndex(node) == posX && GridPane.getRowIndex(node) == posY) {
+                return node;
+            }
+        }
+        return null;
+    }
+
+    public void cambiarHandlerSuperficieActualZerg(VBox vBoxMenu) {
+        for(int i = 0; i <= MAPA_TAMANIO; i++){
+            for(int j = 0; j<= MAPA_TAMANIO; j++){
+                Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
+                if( ubicacion.existeEdificio() && ubicacion.getEdificio().getEntidad() == IDEDIFICIO.CRIADERO ){
+                    ubicacion.crecer(1, juegoModelo.getMapa());
+                }
+                BotonGenerico botonSuperficie = ((BotonGenerico) findNodoDelGridPane(i,j));
+                botonSuperficie.actualizar();
+            }
+        }
+    }
 }

@@ -2,7 +2,7 @@ package edu.fiuba.algo3.Controlador.ControllerFXML;
 
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.ID_RAZA;
-import edu.fiuba.algo3.modelo.Juego.JuegoVista;
+import edu.fiuba.algo3.Controlador.JuegoVista;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.Observador;
@@ -104,19 +104,33 @@ public class InterfazJuegoControlador implements Observador {
     }
 
     public void empezarTurno(){
-        labelMenu.setText("Es el turno del jugador " + juegoModelo.getJugadorActivo().getNombre() );
-        if(juegoModelo.getJugadorActivo().getRaza().equals(ID_RAZA.PROTOSS ) ){
+        labelMenu.setText("Es el turno del jugador " + juegoModelo.getJugadorActivo().getNombre()  );
+
+        if(juegoModelo.getJugadorActivo().getRaza().getEntidad() == ID_RAZA.PROTOSS  ){
+            cambiarHandlerSuperficieActualProtoss();
+            System.out.println("Entro el turno para el jugador de protoss");
             // cambiamos todos los handleres de todos las tierra
             // cambiamos de los edifciios
             // cambiamos los handler de las unidades
             // cambiamos los handler de los recursos
         }
         else{
+            cambiarHandlerSuperficieActualZerg();
+            System.out.println("Entro el turno para el jugador de ZERG");
+
             // cambiamos todos los handleres de todos las tierra
             // cambiamos de los edifciios
             // cambiamos los handler de las unidades
             // cambiamos los handler de los recursos
         }
+    }
+
+    private void cambiarHandlerSuperficieActualZerg() {
+        juegoVista.cambiarHandlerSuperficieActualZerg(vBoxMenu);
+    }
+
+    private void cambiarHandlerSuperficieActualProtoss() {
+        juegoVista.cambiarHandlerSuperficieActualProtoss(vBoxMenu);
     }
 
 

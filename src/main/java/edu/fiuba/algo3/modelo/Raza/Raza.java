@@ -27,7 +27,7 @@ public abstract class Raza {
 
     public Raza(){
         gas = new GestionRecurso(0);
-        mineral = new GestionRecurso(200);
+        mineral = new GestionRecurso(200); //cambiar esto test noma
         poblacion = new Poblacion(200);
         edificios = new ArrayList<Edificio>();
         unidades = new ArrayList<Unidad>();
@@ -52,6 +52,11 @@ public abstract class Raza {
         edificio.consumirMineral(mineral);
         edificios.add(edificio);
         notificar();
+    }
+
+    public void agregarEdificioInicial(Edificio edificio){
+        edificio.fueAgregado(this);
+        edificios.add(edificio);
     }
 
     public void agregarUnidad(Unidad unidad){
@@ -131,7 +136,7 @@ public abstract class Raza {
     public abstract void existenAunEdificios();
 
     public Unidad getUltimaUnidad(){
-        return unidades.get(unidades.size());
+        return unidades.get(unidades.size() - 1);
     }
     public ID_RAZA getEntidad(){
         return entidad;

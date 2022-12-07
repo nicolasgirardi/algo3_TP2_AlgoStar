@@ -1,13 +1,18 @@
 package edu.fiuba.algo3.Controlador;
 
+import edu.fiuba.algo3.Vista.BotonGenerico;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+
+import java.io.File;
 
 public class BotonPilonHandler implements EventHandler<ActionEvent> {
     private  Pilon pilon;
@@ -20,12 +25,13 @@ public class BotonPilonHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
+
         Label labelPilon = new Label("Edificio Pilon");
         labelPilon.setEffect(new DropShadow(2.0, Color.BLACK));
         labelPilon.setFont(Font.font(40));
         labelPilon.setTextFill(Color.BLACK);
         vBoxMenu.getChildren().clear();
         vBoxMenu.getChildren().addAll(labelPilon);
-
     }
+
 }

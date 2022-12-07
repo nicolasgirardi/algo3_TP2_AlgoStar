@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.Raza.Raza;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 import edu.fiuba.algo3.modelo.tablero.Moho;
@@ -31,14 +32,13 @@ public class JuegoModelo extends Observable {
             baseJugador2 = mapa.buscarOpuesto(coord1);
             baseJugador1.darTipo(new Moho()); //necesito moho para instalar un criadero
             baseJugador1.ubicar(new Criadero()); //el criadero base
-            baseJugador2.ubicar(new Pilon()); //el pilon base
+            baseJugador2.ubicar(new Pilon(), mapa); //el pilon base
         } else {
             throw new CoordenadaNoEsExtremoDelMapaError();
         }
         jugador1 = null;
         jugador2 = null;
         contadorJugadores = 0;
-        jugadorActivo = jugador1;
         mapa.inicializarMapa( );
     }
 
@@ -69,10 +69,12 @@ public class JuegoModelo extends Observable {
     public void agregarJugador(Jugador unJugador) {
         if (jugador1 == null) {
             jugador1 = unJugador;
+            jugador1.getRaza().agregarEdificioInicial(baseJugador1.getEdificio());
             jugadorActivo = jugador1;
         } else {
             unJugador.compatibleCon(jugador1);
             jugador2 = unJugador;
+            jugador2.getRaza().agregarEdificioInicial(baseJugador2.getEdificio());
         }
         contadorJugadores++;
     }
