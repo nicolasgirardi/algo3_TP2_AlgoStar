@@ -55,4 +55,23 @@ public class BotonGenerico extends Button{
     public Ubicacion getUbicacion() {
         return ubicacion;
     }
+
+    public void actualizar() {
+        TIPOSUPERFICIE tiposuperficie = ubicacion.getTipoSuperficie();
+        HashMap<TIPOSUPERFICIE,String> hashMapTipoSuperficie = new HashMap<>();
+        hashMapTipoSuperficie.put(TIPOSUPERFICIE.MOHO, "images/moho.png");
+        hashMapTipoSuperficie.put(TIPOSUPERFICIE.ESPECIAL, "images/especial.png");
+        hashMapTipoSuperficie.put(TIPOSUPERFICIE.TIERRA, "images/tierra.png");
+
+        File fileFondo = new File(hashMapTipoSuperficie.get(tiposuperficie) );
+
+        Image imagenFondo = new Image(fileFondo.toURI().toString(),TAMANIO, TAMANIO, true, true );
+        BackgroundImage fondoActual = new BackgroundImage(
+                imagenFondo,
+                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT
+        );
+        this.
+        this.setBackground( new Background(fondoActual) );
+    }
 }

@@ -174,9 +174,11 @@ public class JuegoVista {
         for(int i = 0; i <= MAPA_TAMANIO; i++){
             for(int j = 0; j<= MAPA_TAMANIO; j++){
                 Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
-                if( ! ubicacion.existeEdificio() && !ubicacion.existeRecurso() ){
-                    ((BotonGenerico) findNodoDelGridPane(i,j)).setOnAction(new BotonTierraHandlerZerg(vBoxMenu) );
+                if( ubicacion.existeEdificio() && ubicacion.getEdificio().getEntidad() == IDEDIFICIO.CRIADERO ){
+                    ubicacion.crecer(1, juegoModelo.getMapa());
                 }
+                BotonGenerico botonSuperficie = ((BotonGenerico) findNodoDelGridPane(i,j));
+                botonSuperficie.actualizar();
             }
         }
     }
