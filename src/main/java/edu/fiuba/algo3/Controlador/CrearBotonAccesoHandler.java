@@ -46,7 +46,7 @@ public class CrearBotonAccesoHandler implements EventHandler<ActionEvent> {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
-            alert.setContentText("Error RecursosInsuficientesError Acceso");
+            alert.setContentText("Error recursos insuficientes para construir Acceso");
             alert.showAndWait();
         }
 

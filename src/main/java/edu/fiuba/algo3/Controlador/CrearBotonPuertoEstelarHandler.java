@@ -44,7 +44,7 @@ public class CrearBotonPuertoEstelarHandler implements EventHandler<ActionEvent>
             alert.setContentText("Error la construccion del acceso esta fuera del rango del pilon mas cercano");
             alert.showAndWait();
         } catch ( RecursosInsuficientesError e ){
-            alert.setContentText("Error RecursosInsuficientesError Puerto estelar");
+            alert.setContentText("Error recursos insuficientes para construir Puerto estelar");
             alert.showAndWait();
         } catch (CorrelativaDeConstruccionIncumplidaError e ){
             alert.setContentText("Error en la correlativa de construccion necesitas un acceso ");
