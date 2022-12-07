@@ -71,7 +71,6 @@ public class BotonGenerico extends Button{
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT
         );
-        this.
         this.setBackground( new Background(fondoActual) );
     }
 }

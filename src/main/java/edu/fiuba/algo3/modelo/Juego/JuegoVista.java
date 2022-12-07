@@ -61,23 +61,6 @@ public class JuegoVista {
         grPane.setPrefSize(1000,950);
     }
 
-    public void actualizarMapa(VBox vBoxMenu){
-        for(int i = 0; i <= MAPA_TAMANIO; i++){
-            for(int j = 0; j <= MAPA_TAMANIO; j++){
-                try {
-                    Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
-                    if (ubicacion.existeEdificio() ){
-                        agregarEdificioInicial(ubicacion, i, j, vBoxMenu);
-                    } else if (ubicacion.getUnidad() != null){
-                        //agregarBotonUnidad();
-                    }
-                } catch (Exception e){
-                    System.out.println(e);
-                }
-            }
-        }
-    }
-
 
     private void agregarBotonRecurso(Ubicacion ubicacion, int i , int j, VBox vBoxMenu) {
         BotonGenerico botonRecurso;
