@@ -146,16 +146,16 @@ public class JuegoVista {
                 if( ubicacion.existeRecurso() ){
                     if(ubicacion.contieneNodoMineral()) {
                         BotonGenerico botonMineral = ((BotonGenerico) findNodoDelGridPane(i,j));
-                        botonMineral.setOnAction(new NodoMineralHandlerProtoss(vBoxMenu,ubicacion, botonMineral) );
+                        botonMineral.setOnAction(new NodoMineralHandlerProtoss(vBoxMenu, ubicacion, botonMineral, juegoModelo ) );
                     }
                     else{
-                        ((BotonGenerico) findNodoDelGridPane(i,j)).setOnAction(new VolcanHandlerProtoss(vBoxMenu,ubicacion) );
+                        BotonGenerico botonVolcan = ((BotonGenerico) findNodoDelGridPane(i,j));
+                        botonVolcan.setOnAction(new VolcanHandlerProtoss(vBoxMenu, ubicacion, botonVolcan, juegoModelo) );
                     }
                 }
-
-
                 if( ! ubicacion.existeEdificio() && !ubicacion.existeRecurso() ){
-                    ((BotonGenerico) findNodoDelGridPane(i,j)).setOnAction(new BotonTierraProtosHandler(vBoxMenu) );
+                    BotonGenerico botonSuperficie = ((BotonGenerico) findNodoDelGridPane(i,j));
+                    botonSuperficie.setOnAction(new BotonTierraProtosHandler(vBoxMenu,botonSuperficie, juegoModelo) );
                 }
             }
         }

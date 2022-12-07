@@ -52,4 +52,7 @@ public class BotonGenerico extends Button{
         return TAMANIO;
     }
 
+    public Ubicacion getUbicacion() {
+        return ubicacion;
+    }
 }

@@ -31,7 +31,7 @@ public class JuegoModelo extends Observable {
             baseJugador2 = mapa.buscarOpuesto(coord1);
             baseJugador1.darTipo(new Moho()); //necesito moho para instalar un criadero
             baseJugador1.ubicar(new Criadero()); //el criadero base
-            baseJugador2.ubicar(new Pilon()); //el pilon base
+            baseJugador2.ubicar(new Pilon(), mapa); //el pilon base
         } else {
             throw new CoordenadaNoEsExtremoDelMapaError();
         }
