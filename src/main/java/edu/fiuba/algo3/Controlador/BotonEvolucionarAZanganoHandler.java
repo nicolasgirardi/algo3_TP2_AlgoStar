@@ -43,7 +43,7 @@ public class BotonEvolucionarAZanganoHandler implements EventHandler<ActionEvent
                         mapa.buscar(new Coordenada(i,j)).asignarUnidad(raza.getUltimaUnidad());
                         BotonZangano botonZangano = new BotonZangano(tamanio);
                         botonZangano.setMinSize(tamanio, tamanio );
-                        //botonZangano.setOnAction(new );
+                        //botonZangano.setOnAction(new botonZanganoHandler);
                         gridPane.add(botonZangano, i, j);
                         agregado = true;
                     }
