@@ -81,6 +81,9 @@ public class InterfazJuegoControlador implements Observador {
     @FXML
     public Label lblMaximaCantidadPoblacion;
 
+    @FXML
+    public Label lblNombreRaza;
+
 
     private JuegoModelo juegoModelo;
 
@@ -151,5 +154,6 @@ public class InterfazJuegoControlador implements Observador {
         lblCantidadGas.setText(razaActiva.getCantidadGas());
         lblCantidadPoblacion.setText(String.valueOf(razaActiva.obtenerCantidadPoblacion()));
         lblMaximaCantidadPoblacion.setText(String.valueOf(razaActiva.capacidadReal()));
+        lblNombreRaza.setText(razaActiva.getEntidad().toString());
     }
 }
