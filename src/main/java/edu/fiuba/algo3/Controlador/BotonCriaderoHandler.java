@@ -1,14 +1,19 @@
 package edu.fiuba.algo3.Controlador;
 
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuCriaderoController;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+
+import java.io.IOException;
 
 public class BotonCriaderoHandler implements EventHandler<ActionEvent> {
 
@@ -30,10 +35,16 @@ public class BotonCriaderoHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        Label labelLarvas = new Label("Cantidad de larvas: " + String.valueOf( criadero.getCantidadLarvas() ) + "\n" );
-        Button unBoton = new Button("Evolucionar larva a zangano");
-        unBoton.setOnAction(new BotonEvolucionarAZanganoHandler(criadero, jugador, gridPane, mapa, tamanio, labelLarvas));
-        vbox.getChildren().clear();
-        vbox.getChildren().addAll(labelLarvas, unBoton);
+        BuscadorRutas buscador = new BuscadorRutas();
+        try {
+            FXMLLoader vistaMenu = new FXMLLoader(this.getClass().getResource(buscador.buscarRuta(RUTAS_FXML.MENU_CRIADERO)));
+            Pane layoutVista = vistaMenu.load();
+            MenuCriaderoController controller = vistaMenu.getController();
+            controller.setElements(criadero,vbox,jugador,gridPane,mapa,tamanio);
+            vbox.getChildren().clear();
+            vbox.getChildren().addAll(layoutVista);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }

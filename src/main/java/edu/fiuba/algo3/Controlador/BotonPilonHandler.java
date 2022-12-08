@@ -1,18 +1,18 @@
 package edu.fiuba.algo3.Controlador;
 
-import edu.fiuba.algo3.Vista.BotonGenerico;
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuPilonController;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-import java.io.File;
+import java.io.IOException;
 
 public class BotonPilonHandler implements EventHandler<ActionEvent> {
     private  Pilon pilon;
@@ -25,13 +25,20 @@ public class BotonPilonHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        BuscadorRutas buscador = new BuscadorRutas();
+        try {
+            FXMLLoader vistaMenu = new FXMLLoader(this.getClass().getResource(buscador.buscarRuta(RUTAS_FXML.MENU_PILON)));
+            Pane vistaLayout = vistaMenu.load();
+            MenuPilonController controller = vistaMenu.getController();
+            // controller.setElements((Criadero) edificio,vBoxMenu,juegoModelo.getJugador1(),grPane,juegoModelo.getMapa(),TAMANIO);
+            vBoxMenu.getChildren().clear();
+            vBoxMenu.getChildren().addAll(vistaLayout);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
 
-        Label labelPilon = new Label("Edificio Pilon");
-        labelPilon.setEffect(new DropShadow(2.0, Color.BLACK));
-        labelPilon.setFont(Font.font(40));
-        labelPilon.setTextFill(Color.BLACK);
-        vBoxMenu.getChildren().clear();
-        vBoxMenu.getChildren().addAll(labelPilon);
+
+
     }
 
 }

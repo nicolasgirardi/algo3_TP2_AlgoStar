@@ -1,9 +1,7 @@
 package edu.fiuba.algo3.Controlador;
 
-import edu.fiuba.algo3.Vista.BotonGenerico;
-import edu.fiuba.algo3.modelo.Edificio.Protoss.*;
+import edu.fiuba.algo3.Vista.Botones.BotonGenerico;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
-import edu.fiuba.algo3.modelo.tablero.Mapa;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;

@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.Vista;
 
-import edu.fiuba.algo3.Controlador.BotonCriaderoHandler;
-import edu.fiuba.algo3.Controlador.BotonEdificioCriadero;
+import edu.fiuba.algo3.Vista.Botones.BotonEdificioCriadero;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
@@ -127,8 +126,8 @@ public class ContenedorJuego extends BorderPane {
         gridPane.add(btnPilon, 9, 9);
         RazaZerg nuevaRaza = new RazaZerg();
         Criadero criadero =  new Criadero();
-        BotonEdificioCriadero botonEdificioCriadero =  new BotonEdificioCriadero(criadero, nuevaRaza );
-        gridPane.add( botonEdificioCriadero, 10,4 ) ;
+        //BotonEdificioCriadero botonEdificioCriadero =  new BotonEdificioCriadero(criadero, nuevaRaza );
+        //gridPane.add( botonEdificioCriadero, 10,4 ) ;
         this.setCenter(gridPane);
         //BotonCriaderoHandler botonCriaderoHandler = new BotonCriaderoHandler(menuVertical, criadero );
         //botonEdificioCriadero.setOnAction(botonCriaderoHandler);

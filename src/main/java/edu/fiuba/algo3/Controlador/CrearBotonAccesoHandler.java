@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.Controlador;
 
-import edu.fiuba.algo3.Vista.BotonGenerico;
+import edu.fiuba.algo3.Vista.Botones.BotonGenerico;
 import edu.fiuba.algo3.modelo.ConstruccionFueraDelRangoPilonError;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Raza.Raza;

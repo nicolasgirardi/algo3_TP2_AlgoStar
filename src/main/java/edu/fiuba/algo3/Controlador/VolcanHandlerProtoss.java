@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.Controlador;
 
-import edu.fiuba.algo3.Vista.BotonGenerico;
-import edu.fiuba.algo3.modelo.Edificio.Protoss.Asimilador;
+import edu.fiuba.algo3.Vista.Botones.BotonGenerico;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;

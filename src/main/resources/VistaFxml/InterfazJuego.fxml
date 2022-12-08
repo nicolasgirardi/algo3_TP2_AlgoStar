@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -82,34 +81,7 @@
             </Label>
          </children>
       </Pane>
-      <VBox fx:id="vBoxMenu" layoutX="1555.0" layoutY="247.0" prefHeight="487.0" prefWidth="328.0" style="-fx-border-width: 3; -fx-border-color: red;" AnchorPane.bottomAnchor="515.0" AnchorPane.leftAnchor="1555.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="247.0">
-         <children>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="btnAccion1" mnemonicParsing="false" text="Button" />
-                  <Button fx:id="btnAccion2" mnemonicParsing="false" text="Button" />
-                  <Button fx:id="btnAccion3" mnemonicParsing="false" text="Button" />
-                  <Button fx:id="btnAccion4" mnemonicParsing="false" text="Button" />
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="btnAccion5" mnemonicParsing="false" text="Button" />
-                  <Button fx:id="btnAccion6" mnemonicParsing="false" text="Button" />
-                  <Button fx:id="btnAccion7" mnemonicParsing="false" text="Button" />
-                  <Button fx:id="btnAccion8" mnemonicParsing="false" text="Button" />
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="btnAccion9" mnemonicParsing="false" prefWidth="52.0" text="Button" />
-                  <Button fx:id="btnAccion10" mnemonicParsing="false" text="Button" />
-                  <Button fx:id="btnAccion11" mnemonicParsing="false" text="Button" />
-                  <Button fx:id="btnAccion12" mnemonicParsing="false" text="Button" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
+      <VBox fx:id="vBoxMenu" layoutX="1555.0" layoutY="247.0" prefHeight="487.0" prefWidth="328.0" style="-fx-border-width: 3; -fx-border-color: red;" AnchorPane.bottomAnchor="515.0" AnchorPane.leftAnchor="1555.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="247.0" />
       <AnchorPane fx:id="contenedorMapa" layoutX="37.0" layoutY="88.0" prefHeight="1130.0" prefWidth="1298.0" style="-fx-border-width: 1; -fx-border-color: black;" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="568.0" AnchorPane.topAnchor="88.0" />
       <Button fx:id="btnTerminarTurno" layoutX="1500.0" layoutY="700.0" mnemonicParsing="false" onMouseClicked="#onClickTerminarTurno" prefHeight="79.0" prefWidth="276.0" text="Terminar Turno" />
       <Label fx:id="labelMenu" layoutX="1399.0" layoutY="67.0" text="Menu del juego">

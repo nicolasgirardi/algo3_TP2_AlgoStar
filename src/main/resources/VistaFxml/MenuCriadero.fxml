@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="373.0" prefWidth="272.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Controlador.ControllerFXML.MenuCriaderoController">
+   <children>
+      <Button fx:id="btnEvolucionarZangano" layoutX="33.0" layoutY="101.0" mnemonicParsing="false" onMouseClicked="#onClickEvolucionarZangano" text="EvolucionarZangano">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <HBox layoutX="43.0" layoutY="40.0">
+         <children>
+            <Label text="Cantidad larvas restantes:  ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCantidadLarvas" text="0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

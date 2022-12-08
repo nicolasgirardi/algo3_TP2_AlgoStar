@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.Controlador;
 
-import edu.fiuba.algo3.Vista.BotonGenerico;
+import edu.fiuba.algo3.Vista.Botones.BotonGenerico;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.NexoMineral;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;

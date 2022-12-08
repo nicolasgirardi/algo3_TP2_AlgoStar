@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.Controlador;
 
-import edu.fiuba.algo3.Controlador.*;
-import edu.fiuba.algo3.Vista.BotonGenerico;
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuCriaderoController;
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuPilonController;
+import edu.fiuba.algo3.Vista.Botones.BotonEdificioCriadero;
+import edu.fiuba.algo3.Vista.Botones.BotonEdificioPilon;
+import edu.fiuba.algo3.Vista.Botones.BotonGenerico;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
@@ -11,10 +14,14 @@ import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 public class JuegoVista {
@@ -80,14 +87,14 @@ public class JuegoVista {
     private void agregarEdificioInicial(Ubicacion ubicacion, int i , int j, VBox vBoxMenu) {
         Edificio edificio = ubicacion.getEdificio();
         BotonGenerico botonGenerico = null;
+
         if( edificio.getEntidad() == IDEDIFICIO.CRIADERO ){
-            botonGenerico = new BotonGenerico(TAMANIO, "images/criadero.png", ubicacion );
-            botonGenerico.setOnAction( new BotonCriaderoHandler( (Criadero) edificio, vBoxMenu, juegoModelo.getJugador1(), grPane ,juegoModelo.getMapa(), TAMANIO ) );
+            botonGenerico = new BotonEdificioCriadero(TAMANIO,ubicacion,vBoxMenu,juegoModelo.getJugador1(),grPane,juegoModelo.getMapa());
         }
         if( edificio.getEntidad() == IDEDIFICIO.PILON ){
-            botonGenerico = new BotonGenerico(TAMANIO, "images/pilon.png", ubicacion);
-            botonGenerico.setOnAction( new BotonPilonHandler( (Pilon) edificio, vBoxMenu) );
+            botonGenerico   = new BotonEdificioPilon(TAMANIO,ubicacion,vBoxMenu);
         }
+
         grPane.add(botonGenerico, i, j );
 
     }
@@ -131,7 +138,7 @@ public class JuegoVista {
                 if( ubicacion.existeRecurso() ){
                     if(ubicacion.contieneNodoMineral()) {
                         BotonGenerico botonMineral = ((BotonGenerico) findNodoDelGridPane(i,j));
-                        botonMineral.setOnAction(new NodoMineralHandlerProtoss(vBoxMenu, ubicacion, botonMineral, juegoModelo ) );
+                        botonMineral.setOnAction(new NodoMineralProtossHandler(vBoxMenu, ubicacion, botonMineral, juegoModelo ) );
                     }
                     else{
                         BotonGenerico botonVolcan = ((BotonGenerico) findNodoDelGridPane(i,j));

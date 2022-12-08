@@ -5,10 +5,10 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
-public class BotonTierraHandlerZerg implements EventHandler<ActionEvent> {
+public class BotonTierraZergHandler implements EventHandler<ActionEvent> {
     private VBox vBoxMenu;
 
-    public BotonTierraHandlerZerg(VBox vBoxMenu) {
+    public BotonTierraZergHandler(VBox vBoxMenu) {
         this.vBoxMenu = vBoxMenu;
     }
 

@@ -17,42 +17,6 @@ import javafx.scene.layout.*;
 public class InterfazJuegoControlador implements Observador {
 
     @FXML
-    public Button btnAccion1;
-
-    @FXML
-    public Button btnAccion10;
-
-    @FXML
-    public Button btnAccion11;
-
-    @FXML
-    public Button btnAccion12;
-
-    @FXML
-    public Button btnAccion2;
-
-    @FXML
-    public Button btnAccion3;
-
-    @FXML
-    public Button btnAccion4;
-
-    @FXML
-    public Button btnAccion5;
-
-    @FXML
-    public Button btnAccion6;
-
-    @FXML
-    public Button btnAccion7;
-
-    @FXML
-    public Button btnAccion8;
-
-    @FXML
-    public Button btnAccion9;
-
-    @FXML
     public AnchorPane contenedorMapa;
 
     @FXML
