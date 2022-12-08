@@ -12,6 +12,8 @@ public class BuscadorRutas {
         rutasFXML.put(RUTAS_FXML.INTERFACE_JUEGO, "/VistaFxml/interfazJuego.fxml");
         rutasFXML.put(RUTAS_FXML.MENU_CRIADERO, "/VistaFxml/MenuCriadero.fxml");
         rutasFXML.put(RUTAS_FXML.MENU_PILON, "/VistaFxml/MenuPilon.fxml");
+        rutasFXML.put(RUTAS_FXML.MENU_NODO_MINERAL_PROTOSS, "/VistaFxml/Menus/NodoMineral/MenuNodoMineralProtoss.fxml");
+        rutasFXML.put(RUTAS_FXML.MENU_NODO_MINERAL_ZERG, "/VistaFxml/Menus/NodoMineral/MenuNodoMineralZerg.fxml");
     }
 
     public String buscarRuta(RUTAS_FXML nombre) {

@@ -2,8 +2,7 @@ package edu.fiuba.algo3.modelo.Raza;
 
 import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.ID_RAZA;
-import edu.fiuba.algo3.modelo.Observador;
-import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
+import edu.fiuba.algo3.modelo.Observers.ObservadorRazaRecursos;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.Poblacion;
@@ -21,7 +20,7 @@ public abstract class Raza {
     private int cantReservas;
     private int cantAccesos;
 
-    private List<Observador> observadores;
+    private List<ObservadorRazaRecursos> observadores;
 
     protected ID_RAZA entidad;
 
@@ -150,10 +149,10 @@ public abstract class Raza {
         return mineral.toString();
     }
 
-    public void agregarObservador(Observador o){
+    public void agregarObservador(ObservadorRazaRecursos o){
         if(!observadores.contains(o)) observadores.add(o);
     }
-    public void eliminarObservador(Observador o){
+    public void eliminarObservador(ObservadorRazaRecursos o){
         observadores.remove(o);
     }
     public void notificar(){

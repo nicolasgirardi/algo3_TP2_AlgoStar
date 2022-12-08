@@ -5,6 +5,7 @@ import edu.fiuba.algo3.Controlador.ControllerFXML.MenuPilonController;
 import edu.fiuba.algo3.Vista.Botones.BotonEdificioCriadero;
 import edu.fiuba.algo3.Vista.Botones.BotonEdificioPilon;
 import edu.fiuba.algo3.Vista.Botones.BotonGenerico;
+import edu.fiuba.algo3.Vista.Botones.BotonRecursoMineral;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
@@ -74,8 +75,10 @@ public class JuegoVista {
     private void agregarBotonRecurso(Ubicacion ubicacion, int i , int j, VBox vBoxMenu) {
         BotonGenerico botonRecurso;
         if( ubicacion.contieneNodoMineral() ){
-            botonRecurso = new BotonGenerico(TAMANIO, "images/mineral.png", ubicacion);
-            botonRecurso.setOnAction( new BotonMineralHandler(vBoxMenu, ubicacion.getNodoMineral()) );
+            BotonRecursoMineral boton = new BotonRecursoMineral(TAMANIO,ubicacion,vBoxMenu);
+            botonRecurso = boton;
+            juegoModelo.agregarObservadorJugadorActivo(boton);
+            juegoModelo.notificar();
         }
         else{
             botonRecurso = new BotonGenerico(TAMANIO, "images/Volcan.png", ubicacion);
@@ -136,11 +139,11 @@ public class JuegoVista {
             for(int j = 0; j<= MAPA_TAMANIO; j++){
                 Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
                 if( ubicacion.existeRecurso() ){
-                    if(ubicacion.contieneNodoMineral()) {
+                    /*if(ubicacion.contieneNodoMineral()) {
                         BotonGenerico botonMineral = ((BotonGenerico) findNodoDelGridPane(i,j));
                         botonMineral.setOnAction(new NodoMineralProtossHandler(vBoxMenu, ubicacion, botonMineral, juegoModelo ) );
-                    }
-                    else{
+                    }*/
+                    if(!ubicacion.contieneNodoMineral()){
                         BotonGenerico botonVolcan = ((BotonGenerico) findNodoDelGridPane(i,j));
                         botonVolcan.setOnAction(new VolcanHandlerProtoss(vBoxMenu, ubicacion, botonVolcan, juegoModelo) );
                     }

@@ -2,18 +2,20 @@ package edu.fiuba.algo3.modelo.Juego;
 
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
-import edu.fiuba.algo3.modelo.Observador;
+import edu.fiuba.algo3.modelo.Observers.ObservadorJugadorActivo;
+import edu.fiuba.algo3.modelo.Observers.ObservadorRazaRecursos;
 import edu.fiuba.algo3.modelo.Raza.Raza;
-import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import edu.fiuba.algo3.modelo.tablero.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 
-public class JuegoModelo extends Observable {
+public class JuegoModelo{
     private Ubicacion baseJugador1;
     private Ubicacion baseJugador2;
     private Mapa mapa;
@@ -22,6 +24,8 @@ public class JuegoModelo extends Observable {
     private int contadorJugadores;
 
     private Jugador jugadorActivo;
+
+    private List<ObservadorJugadorActivo> observadoresJugadorActivo;
 
     public JuegoModelo() {
         Base base = new Base();
@@ -40,6 +44,7 @@ public class JuegoModelo extends Observable {
         jugador2 = null;
         contadorJugadores = 0;
         mapa.inicializarMapa( );
+        observadoresJugadorActivo = new ArrayList<>();
     }
 
     public JuegoModelo(Mapa Mapa, Coordenada coor1) {
@@ -54,6 +59,7 @@ public class JuegoModelo extends Observable {
             throw new CoordenadaNoEsExtremoDelMapaError();
         }
         jugadorActivo = jugador1;
+        observadoresJugadorActivo = new ArrayList<>();
 
     }
 
@@ -118,15 +124,25 @@ public class JuegoModelo extends Observable {
         else{
             jugadorActivo = jugador1;
         }
+        notificar();
 
     }
 
-    public void subscribirseRazaActiva(Observador o){
+    public void subscribirseRazaActiva(ObservadorRazaRecursos o){
         jugadorActivo.getRaza().agregarObservador(o);
     }
-    public void desubscribirseRazaActiva(Observador o){
+    public void desubscribirseRazaActiva(ObservadorRazaRecursos o){
         jugadorActivo.getRaza().eliminarObservador(o);
     }
 
+    public void notificar(){
+        observadoresJugadorActivo.forEach(o -> o.actualizar(jugadorActivo));
+    }
+    public void agregarObservadorJugadorActivo(ObservadorJugadorActivo o){
+        observadoresJugadorActivo.add(o);
+    }
+    public void eliminarObservadorJugadorActivo(ObservadorJugadorActivo o){
+        observadoresJugadorActivo.remove(o);
+    }
 }
 

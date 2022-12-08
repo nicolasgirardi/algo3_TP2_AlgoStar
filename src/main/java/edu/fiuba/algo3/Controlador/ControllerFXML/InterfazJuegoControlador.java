@@ -1,20 +1,18 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.Controlador.JuegoVista;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
-import edu.fiuba.algo3.modelo.Observador;
+import edu.fiuba.algo3.modelo.Observers.ObservadorRazaRecursos;
 import edu.fiuba.algo3.modelo.Raza.Raza;
-import javafx.event.ActionEvent;
-        import javafx.fxml.FXML;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
-public class InterfazJuegoControlador implements Observador {
+public class InterfazJuegoControlador implements ObservadorRazaRecursos {
 
     @FXML
     public AnchorPane contenedorMapa;
@@ -82,6 +80,7 @@ public class InterfazJuegoControlador implements Observador {
             // cambiamos los handler de los recursos
         }
         else{
+            //TODO: cambiarHandlerSuperficieActualZerg() tarda un tiempo considerable ne ejecutarse
             cambiarHandlerSuperficieActualZerg();
             System.out.println("Entro el turno para el jugador de ZERG");
 
@@ -108,6 +107,7 @@ public class InterfazJuegoControlador implements Observador {
         juegoModelo.subscribirseRazaActiva(this);
         actualizar();
         empezarTurno();
+        vBoxMenu.getChildren().clear();
     }
 
     @Override
