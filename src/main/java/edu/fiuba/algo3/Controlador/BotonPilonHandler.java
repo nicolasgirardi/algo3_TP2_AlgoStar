@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.Controlador;
 
+import edu.fiuba.algo3.Controlador.ControllerFXML.CargadorFXML;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuPilonController;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import javafx.event.ActionEvent;
@@ -25,20 +26,12 @@ public class BotonPilonHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        BuscadorRutas buscador = new BuscadorRutas();
-        try {
-            FXMLLoader vistaMenu = new FXMLLoader(this.getClass().getResource(buscador.buscarRuta(RUTAS_FXML.MENU_PILON)));
-            Pane vistaLayout = vistaMenu.load();
-            MenuPilonController controller = vistaMenu.getController();
-            // controller.setElements((Criadero) edificio,vBoxMenu,juegoModelo.getJugador1(),grPane,juegoModelo.getMapa(),TAMANIO);
-            vBoxMenu.getChildren().clear();
-            vBoxMenu.getChildren().addAll(vistaLayout);
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-
-
-
+        FXMLLoader vistaMenu = new FXMLLoader(this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_PILON)));
+        Pane vistaLayout = CargadorFXML.prepararLayout(vistaMenu);
+        MenuPilonController controller = vistaMenu.getController();
+        // controller.setElements((Criadero) edificio,vBoxMenu,juegoModelo.getJugador1(),grPane,juegoModelo.getMapa(),TAMANIO);
+        vBoxMenu.getChildren().clear();
+        vBoxMenu.getChildren().addAll(vistaLayout);
     }
 
 }

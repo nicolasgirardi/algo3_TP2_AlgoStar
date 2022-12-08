@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.Controlador;
 
+import edu.fiuba.algo3.Controlador.ControllerFXML.CargadorFXML;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuCriaderoController;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
@@ -35,16 +36,13 @@ public class BotonCriaderoHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        BuscadorRutas buscador = new BuscadorRutas();
-        try {
-            FXMLLoader vistaMenu = new FXMLLoader(this.getClass().getResource(buscador.buscarRuta(RUTAS_FXML.MENU_CRIADERO)));
-            Pane layoutVista = vistaMenu.load();
-            MenuCriaderoController controller = vistaMenu.getController();
-            controller.setElements(criadero,vbox,jugador,gridPane,mapa,tamanio);
-            vbox.getChildren().clear();
-            vbox.getChildren().addAll(layoutVista);
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+
+        FXMLLoader vistaMenu = new FXMLLoader(this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_CRIADERO)));
+        Pane layoutVista = CargadorFXML.prepararLayout(vistaMenu);
+        MenuCriaderoController controller = vistaMenu.getController();
+        controller.setElements(criadero,vbox,jugador,gridPane,mapa,tamanio);
+        vbox.getChildren().clear();
+        vbox.getChildren().addAll(layoutVista);
+
     }
 }

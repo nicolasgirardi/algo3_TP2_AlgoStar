@@ -13,7 +13,6 @@ import edu.fiuba.algo3.modelo.tablero.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
 public class JuegoModelo{
     private Ubicacion baseJugador1;
@@ -124,7 +123,7 @@ public class JuegoModelo{
         else{
             jugadorActivo = jugador1;
         }
-        notificar();
+        notificarSobreJugadorActivo();
 
     }
 
@@ -135,13 +134,13 @@ public class JuegoModelo{
         jugadorActivo.getRaza().eliminarObservador(o);
     }
 
-    public void notificar(){
+    public void notificarSobreJugadorActivo(){
         observadoresJugadorActivo.forEach(o -> o.actualizar(jugadorActivo));
     }
-    public void agregarObservadorJugadorActivo(ObservadorJugadorActivo o){
+    public void subscribirseJugadorActivo(ObservadorJugadorActivo o){
         observadoresJugadorActivo.add(o);
     }
-    public void eliminarObservadorJugadorActivo(ObservadorJugadorActivo o){
+    public void desubscribirseJugadorActivo(ObservadorJugadorActivo o){
         observadoresJugadorActivo.remove(o);
     }
 }

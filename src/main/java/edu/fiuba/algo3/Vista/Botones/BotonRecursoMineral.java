@@ -1,67 +1,80 @@
 package edu.fiuba.algo3.Vista.Botones;
 
-import edu.fiuba.algo3.Controlador.BotonMineralHandler;
-import edu.fiuba.algo3.Controlador.BuscadorRutas;
+import edu.fiuba.algo3.Controlador.ControllerFXML.CargadorFXML;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuNodoMineralProtossController;
 import edu.fiuba.algo3.Controlador.RUTAS_FXML;
 import edu.fiuba.algo3.modelo.ID_RAZA;
+import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.Observers.ObservadorJugadorActivo;
+import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class BotonRecursoMineral extends  BotonGenerico implements ObservadorJugadorActivo {
 
     private VBox vBoxMenu;
     private Ubicacion ubicacion;
 
-    public BotonRecursoMineral(int TAMANIO, Ubicacion ubicacion, VBox vBoxMenu) {
+    private GridPane tablero;
+
+    private JuegoModelo juegoModelo;
+
+    public BotonRecursoMineral(int TAMANIO, Ubicacion ubicacion, VBox vBoxMenu, GridPane tablero, JuegoModelo juegoModelo) {
         super(TAMANIO, "images/mineral.png", ubicacion);
+        this.tablero = tablero;
         this.vBoxMenu = vBoxMenu;
         this.ubicacion = ubicacion;
-        this.setOnAction(new BotonMineralHandler(vBoxMenu, ubicacion.getNodoMineral()));
+        this.juegoModelo =juegoModelo;
+        juegoModelo.subscribirseJugadorActivo(this);
+        juegoModelo.notificarSobreJugadorActivo();
+        //this.setOnAction(new BotonMineralHandler(vBoxMenu, ubicacion.getNodoMineral()));
+
+
+    }
+
+    public void borrarBotonDelTablero(){
+        juegoModelo.desubscribirseJugadorActivo(this);
+        vBoxMenu.getChildren().clear();
+        tablero.getChildren().remove(this);
     }
 
 
     @Override
     public void actualizar(Jugador jugadorActivo) {
         ID_RAZA raza = jugadorActivo.getRaza().getEntidad();
-        BuscadorRutas buscador = new BuscadorRutas();
+        FXMLLoader vistaMenu = new FXMLLoader();
+        URL url = null;
+        Pane layoutVista = null;
+
+
+
         if(raza.equals(ID_RAZA.PROTOSS)){
-            this.setOnAction(event -> {
-                try {
-                    FXMLLoader vistaMenu = new FXMLLoader(this.getClass().getResource(buscador.buscarRuta(RUTAS_FXML.MENU_NODO_MINERAL_PROTOSS)));
-                    Pane layoutVista = vistaMenu.load();
-                    //MenuNodoMineralProtossController controller = vistaMenu.getController();
-                    // controller.setElements(criadero,vbox,jugador,gridPane,mapa,tamanio);
+            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_NODO_MINERAL_PROTOSS));
+            vistaMenu.setLocation(url);
+            layoutVista = CargadorFXML.prepararLayout(vistaMenu);
+            MenuNodoMineralProtossController controller = vistaMenu.getController();
+            controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
 
-                    vBoxMenu.getChildren().clear();
-                    vBoxMenu.getChildren().addAll(layoutVista);
-                } catch (IOException e){
-                    e.printStackTrace();
-                }
-            });
-
-            //Mostrar menu
-            //this.setOnAction(new NodoMineralProtossHandler(vBoxMenu, ubicacion, botonMineral, juegoModelo ) );
         }else{
-            this.setOnAction(event -> {
-                try {
-                    FXMLLoader vistaMenu = new FXMLLoader(this.getClass().getResource(buscador.buscarRuta(RUTAS_FXML.MENU_NODO_MINERAL_ZERG)));
-                    Pane layoutVista = vistaMenu.load();
-                    //MenuNodoMineralProtossController controller = vistaMenu.getController();
-                    // controller.setElements(criadero,vbox,jugador,gridPane,mapa,tamanio);
-                    vBoxMenu.getChildren().clear();
-                    vBoxMenu.getChildren().addAll(layoutVista);
-                } catch (IOException e){
-                    e.printStackTrace();
-                }
-            });
+            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_NODO_MINERAL_ZERG));
+            vistaMenu.setLocation(url);
+            layoutVista = CargadorFXML.prepararLayout(vistaMenu);
+
         }
+
+        Pane finalLayoutVista = layoutVista;
+
+        this.setOnAction(event -> {
+            vBoxMenu.getChildren().clear();
+            vBoxMenu.getChildren().addAll(finalLayoutVista);
+        });
 
     }
 }

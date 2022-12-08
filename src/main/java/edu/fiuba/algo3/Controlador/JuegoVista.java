@@ -1,28 +1,20 @@
 package edu.fiuba.algo3.Controlador;
 
-import edu.fiuba.algo3.Controlador.ControllerFXML.MenuCriaderoController;
-import edu.fiuba.algo3.Controlador.ControllerFXML.MenuPilonController;
 import edu.fiuba.algo3.Vista.Botones.BotonEdificioCriadero;
 import edu.fiuba.algo3.Vista.Botones.BotonEdificioPilon;
 import edu.fiuba.algo3.Vista.Botones.BotonGenerico;
 import edu.fiuba.algo3.Vista.Botones.BotonRecursoMineral;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
-import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.TIPOSUPERFICIE;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 public class JuegoVista {
@@ -75,10 +67,7 @@ public class JuegoVista {
     private void agregarBotonRecurso(Ubicacion ubicacion, int i , int j, VBox vBoxMenu) {
         BotonGenerico botonRecurso;
         if( ubicacion.contieneNodoMineral() ){
-            BotonRecursoMineral boton = new BotonRecursoMineral(TAMANIO,ubicacion,vBoxMenu);
-            botonRecurso = boton;
-            juegoModelo.agregarObservadorJugadorActivo(boton);
-            juegoModelo.notificar();
+            botonRecurso = new BotonRecursoMineral(TAMANIO,ubicacion,vBoxMenu,grPane, juegoModelo);
         }
         else{
             botonRecurso = new BotonGenerico(TAMANIO, "images/Volcan.png", ubicacion);
