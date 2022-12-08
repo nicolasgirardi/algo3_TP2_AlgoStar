@@ -162,7 +162,7 @@ public class JuegoVista {
         return null;
     }
 
-    public void cambiarHandlerSuperficieActualZerg(VBox vBoxMenu) {
+    public void cambiarHandlerSuperficieActualZerg() {
         for(int i = 0; i <= MAPA_TAMANIO; i++){
             for(int j = 0; j<= MAPA_TAMANIO; j++){
                 Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));

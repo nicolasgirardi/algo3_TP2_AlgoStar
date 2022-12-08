@@ -21,8 +21,11 @@ public class BotonTierraHandler implements EventHandler<ActionEvent> {
     //si es que tiene recursos
     @Override
     public void handle(ActionEvent actionEvent) {
-        Button unBoton = new Button("Construir nuevo edificio");
+        Label mensajeEspacio = new Label("No se puede construir sobre el espacio");
         vbox.getChildren().clear();
-        vbox.getChildren().addAll(unBoton);
+        vbox.getChildren().addAll(mensajeEspacio);
+        /*Button unBoton = new Button("Construir nuevo edificio");
+        vbox.getChildren().clear();
+        vbox.getChildren().addAll(unBoton);*/
     }
 }

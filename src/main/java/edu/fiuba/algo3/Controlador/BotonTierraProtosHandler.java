@@ -22,7 +22,7 @@ public class BotonTierraProtosHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        Label labelNuevo = new Label("Edificio para protoss");
+        Label labelNuevo = new Label("Edificios de protoss:");
 
         Button crearBotonPilon = new Button("Crear Pilon");
         Button crearBotonAcceso = new Button("Crear Acceso");

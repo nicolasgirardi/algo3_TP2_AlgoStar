@@ -41,7 +41,7 @@ public class CrearBotonPilonHandler implements EventHandler<ActionEvent> {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
-            alert.setContentText("Error RecursosInsuficientesError Pilon");
+            alert.setContentText("Error recursos insuficientes para construir Pilon");
             alert.showAndWait();
         }
 
