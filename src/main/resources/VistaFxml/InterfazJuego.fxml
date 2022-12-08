@@ -82,7 +82,7 @@
          </children>
       </Pane>
 
-      <VBox fx:id="vBoxMenu" layoutX="1464.0" layoutY="247.0" prefHeight="487.0" prefWidth="328.0" style="-fx-border-width: 3; -fx-border-color: red;" AnchorPane.bottomAnchor="515.0" AnchorPane.leftAnchor="1464.0" AnchorPane.rightAnchor="111.0" AnchorPane.topAnchor="247.0" />
+      <VBox fx:id="vBoxMenu" alignment="CENTER" layoutX="1464.0" layoutY="247.0" prefHeight="487.0" prefWidth="328.0" style="-fx-border-width: 3; -fx-border-color: red;" AnchorPane.bottomAnchor="515.0" AnchorPane.leftAnchor="1464.0" AnchorPane.rightAnchor="111.0" AnchorPane.topAnchor="247.0" />
       <AnchorPane fx:id="contenedorMapa" layoutX="37.0" layoutY="88.0" prefHeight="1130.0" prefWidth="1298.0" style="-fx-border-width: 1; -fx-border-color: black;" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="568.0" AnchorPane.topAnchor="88.0" />
       <Button fx:id="btnTerminarTurno" layoutX="1491.0" layoutY="764.0" mnemonicParsing="false" onMouseClicked="#onClickTerminarTurno" prefHeight="79.0" prefWidth="276.0" text="Terminar Turno" />
       <Label fx:id="labelMenu" layoutX="1509.0" layoutY="67.0" text="Menu del juego">

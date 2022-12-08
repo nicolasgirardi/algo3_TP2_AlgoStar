@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="373.0" prefWidth="272.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Controlador.ControllerFXML.MenuCriaderoController">
+<AnchorPane maxHeight="373.0" maxWidth="272.0" prefHeight="373.0" prefWidth="272.0" style="-fx-border-color: green;" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Controlador.ControllerFXML.MenuCriaderoController">
    <children>
       <Button fx:id="btnEvolucionarZangano" layoutX="33.0" layoutY="101.0" mnemonicParsing="false" onMouseClicked="#onClickEvolucionarZangano" text="EvolucionarZangano">
          <font>
