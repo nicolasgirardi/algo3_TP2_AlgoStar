@@ -129,7 +129,7 @@ public class InterfazJuegoControlador implements Observador {
     }
 
     private void cambiarHandlerSuperficieActualZerg() {
-        juegoVista.cambiarHandlerSuperficieActualZerg(vBoxMenu);
+        juegoVista.cambiarHandlerSuperficieActualZerg();
     }
 
     private void cambiarHandlerSuperficieActualProtoss() {
@@ -143,6 +143,7 @@ public class InterfazJuegoControlador implements Observador {
         juegoModelo.terminarTurno();
         juegoModelo.subscribirseRazaActiva(this);
         actualizar();
+        empezarTurno();
     }
 
     @Override
