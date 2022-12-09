@@ -38,7 +38,6 @@ public class MenuTierraProtossController {
 
     @FXML
     public void onClickedConstruirAcceso(MouseEvent event) {
-        //TODO: Agregar ubicicacion a los edificios deel modelo
         try{
             Acceso acceso = new Acceso(ubicacion);
             razaProtoss.agregarEdificio(acceso);
