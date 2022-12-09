@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.Controlador;
 
 import edu.fiuba.algo3.Vista.Botones.BotonRecursoVolcan;
+import edu.fiuba.algo3.Vista.Botones.BotonTierra;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEdificioCriadero;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEdificioPilon;
 import edu.fiuba.algo3.Vista.Botones.BotonGenerico;
@@ -44,9 +45,9 @@ public class JuegoVista {
                 try {
                     Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
                     if( !ubicacion.existeRecurso() && !ubicacion.existeEdificio()){
-                        BotonGenerico botonSuperficie = new BotonGenerico(TAMANIO,"images/tierra.png", ubicacion);
-                        botonSuperficie.setMinSize(TAMANIO, TAMANIO );
-                        botonSuperficie.setOnAction(new BotonTierraHandler(vBoxMenu));
+                        BotonGenerico botonSuperficie = new BotonTierra(TAMANIO,ubicacion,vBoxMenu,grPane,juegoModelo);
+                        /*botonSuperficie.setMinSize(TAMANIO, TAMANIO );
+                        botonSuperficie.setOnAction(new BotonTierraHandler(vBoxMenu));*/
                         grPane.add(botonSuperficie, i, j);
                     } else if (ubicacion.existeRecurso() ){
                         agregarBotonRecurso(ubicacion, i, j, vBoxMenu);
@@ -129,10 +130,10 @@ public class JuegoVista {
             for(int j = 0; j<= MAPA_TAMANIO; j++){
                 Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
 
-                if( ubicacion.ubicacionVacia() && (ubicacion.getTipoSuperficie() == TIPOSUPERFICIE.TIERRA) ){
+                /*if( ubicacion.ubicacionVacia() && (ubicacion.getTipoSuperficie() == TIPOSUPERFICIE.TIERRA) ){
                     BotonGenerico botonSuperficie = ((BotonGenerico) findNodoDelGridPane(i,j));
                     botonSuperficie.setOnAction(new BotonTierraProtosHandler(vBoxMenu,botonSuperficie, juegoModelo) );
-                }
+                }*/
             }
         }
     }
