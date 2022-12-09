@@ -24,9 +24,10 @@ public class JuegoVista {
     private final int TAMANIO;
 
     private int cantTurnosZerg;
+    private VBox vBoxMenu;
 
 
-    public JuegoVista(JuegoModelo juegoModelo){
+    public JuegoVista(JuegoModelo juegoModelo, VBox vBoxMenu){
         if(juegoModelo == null){
             System.out.println("HUBO ERROR");
         }
@@ -35,9 +36,10 @@ public class JuegoVista {
         MAPA_TAMANIO = this.juegoModelo.dimensionTablero();
         TAMANIO = (880/MAPA_TAMANIO) +1;
         cantTurnosZerg = 0;
+        this.vBoxMenu = vBoxMenu;
     }
 
-    public void iniciar(VBox vBoxMenu){
+    public void iniciar(){
         //grPane.setBackground( new Background(new BackgroundFill( Color.rgb(65, 40, 27, 1) , CornerRadii.EMPTY, Insets.EMPTY) ) );
         for(int i = 0; i <= MAPA_TAMANIO; i++){
             for(int j = 0; j <= MAPA_TAMANIO; j++){
@@ -158,7 +160,7 @@ public class JuegoVista {
                     if(findNodoDelGridPane(i,j).getClass() == BotonTierra.class){
                         BotonTierra botonTierra = (BotonTierra) findNodoDelGridPane(i,j);
                         botonTierra.borrarBotonDelTablero();
-                        grPane.add(new BotonMoho(TAMANIO, ubicacion ), i, j);
+                        grPane.add(new BotonMoho(TAMANIO, ubicacion, vBoxMenu, juegoModelo ), i, j);
                     }
                 }
             }
