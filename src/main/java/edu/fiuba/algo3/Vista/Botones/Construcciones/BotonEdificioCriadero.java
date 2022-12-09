@@ -1,6 +1,7 @@
-package edu.fiuba.algo3.Vista.Botones;
+package edu.fiuba.algo3.Vista.Botones.Construcciones;
 
 import edu.fiuba.algo3.Controlador.BotonCriaderoHandler;
+import edu.fiuba.algo3.Vista.Botones.BotonGenerico;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.tablero.Mapa;

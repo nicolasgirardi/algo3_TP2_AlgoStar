@@ -1,7 +1,8 @@
 package edu.fiuba.algo3.Controlador;
 
-import edu.fiuba.algo3.Vista.Botones.BotonEdificioCriadero;
-import edu.fiuba.algo3.Vista.Botones.BotonEdificioPilon;
+import edu.fiuba.algo3.Vista.Botones.BotonRecursoVolcan;
+import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEdificioCriadero;
+import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEdificioPilon;
 import edu.fiuba.algo3.Vista.Botones.BotonGenerico;
 import edu.fiuba.algo3.Vista.Botones.BotonRecursoMineral;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
@@ -70,8 +71,8 @@ public class JuegoVista {
             botonRecurso = new BotonRecursoMineral(TAMANIO,ubicacion,vBoxMenu,grPane, juegoModelo);
         }
         else{
-            botonRecurso = new BotonGenerico(TAMANIO, "images/Volcan.png", ubicacion);
-            botonRecurso.setOnAction( new BotonVolcanHandler(vBoxMenu, ubicacion.getVolcan() ) );
+            botonRecurso = new BotonRecursoVolcan(TAMANIO, ubicacion, vBoxMenu, grPane, juegoModelo);
+            //botonRecurso.setOnAction( new BotonVolcanHandler(vBoxMenu, ubicacion.getVolcan() ) );
         }
         grPane.add(botonRecurso,i,j);
     }
@@ -127,16 +128,7 @@ public class JuegoVista {
         for(int i = 0; i <= MAPA_TAMANIO; i++){
             for(int j = 0; j<= MAPA_TAMANIO; j++){
                 Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
-                if( ubicacion.existeRecurso() ){
-                    /*if(ubicacion.contieneNodoMineral()) {
-                        BotonGenerico botonMineral = ((BotonGenerico) findNodoDelGridPane(i,j));
-                        botonMineral.setOnAction(new NodoMineralProtossHandler(vBoxMenu, ubicacion, botonMineral, juegoModelo ) );
-                    }*/
-                    if(!ubicacion.contieneNodoMineral()){
-                        BotonGenerico botonVolcan = ((BotonGenerico) findNodoDelGridPane(i,j));
-                        botonVolcan.setOnAction(new VolcanHandlerProtoss(vBoxMenu, ubicacion, botonVolcan, juegoModelo) );
-                    }
-                }
+
                 if( ubicacion.ubicacionVacia() && (ubicacion.getTipoSuperficie() == TIPOSUPERFICIE.TIERRA) ){
                     BotonGenerico botonSuperficie = ((BotonGenerico) findNodoDelGridPane(i,j));
                     botonSuperficie.setOnAction(new BotonTierraProtosHandler(vBoxMenu,botonSuperficie, juegoModelo) );

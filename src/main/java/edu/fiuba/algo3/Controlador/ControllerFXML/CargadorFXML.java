@@ -17,6 +17,8 @@ public class CargadorFXML {
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_PILON, "/VistaFxml/MenuPilon.fxml");
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_NODO_MINERAL_PROTOSS, "/VistaFxml/Menus/NodoMineral/MenuNodoMineralProtoss.fxml");
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_NODO_MINERAL_ZERG, "/VistaFxml/Menus/NodoMineral/MenuNodoMineralZerg.fxml");
+        MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_VOLCAN_PROTOSS, "/VistaFxml/Menus/Volcan/MenuVolcanProtoss.fxml");
+        MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_VOLCAN_ZERG, "/VistaFxml/Menus/Volcan/MenuVolcanZerg.fxml");
     }
 
 

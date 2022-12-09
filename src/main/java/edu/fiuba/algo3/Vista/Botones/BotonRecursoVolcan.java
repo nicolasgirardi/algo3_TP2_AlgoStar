@@ -2,6 +2,7 @@ package edu.fiuba.algo3.Vista.Botones;
 
 import edu.fiuba.algo3.Controlador.ControllerFXML.CargadorFXML;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuNodoMineralProtossController;
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuVolcanProtossController;
 import edu.fiuba.algo3.Controlador.RUTAS_FXML;
 import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
@@ -14,10 +15,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-import java.io.IOException;
 import java.net.URL;
 
-public class BotonRecursoMineral extends  BotonGenerico implements ObservadorJugadorActivo {
+public class BotonRecursoVolcan extends BotonGenerico implements ObservadorJugadorActivo {
 
     private VBox vBoxMenu;
     private Ubicacion ubicacion;
@@ -26,25 +26,21 @@ public class BotonRecursoMineral extends  BotonGenerico implements ObservadorJug
 
     private JuegoModelo juegoModelo;
 
-    public BotonRecursoMineral(int TAMANIO, Ubicacion ubicacion, VBox vBoxMenu, GridPane tablero, JuegoModelo juegoModelo) {
-        super(TAMANIO, "images/mineral.png", ubicacion);
+    public BotonRecursoVolcan(int TAMANIO, Ubicacion ubicacion, VBox vBoxMenu, GridPane tablero, JuegoModelo juegoModelo) {
+        super(TAMANIO, "images/Volcan.png", ubicacion);
         this.tablero = tablero;
         this.vBoxMenu = vBoxMenu;
         this.ubicacion = ubicacion;
         this.juegoModelo =juegoModelo;
         juegoModelo.subscribirseJugadorActivo(this);
         juegoModelo.notificarSobreJugadorActivo();
-        //this.setOnAction(new BotonMineralHandler(vBoxMenu, ubicacion.getNodoMineral()));
-
 
     }
-
     public void borrarBotonDelTablero(){
         juegoModelo.desubscribirseJugadorActivo(this);
         vBoxMenu.getChildren().clear();
         tablero.getChildren().remove(this);
     }
-
 
     @Override
     public void actualizar(Jugador jugadorActivo) {
@@ -54,13 +50,13 @@ public class BotonRecursoMineral extends  BotonGenerico implements ObservadorJug
         Pane layoutVista = null;
 
         if(raza.equals(ID_RAZA.PROTOSS)){
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_NODO_MINERAL_PROTOSS));
+            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_VOLCAN_PROTOSS));
             vistaMenu.setLocation(url);
             layoutVista = CargadorFXML.prepararLayout(vistaMenu);
-            MenuNodoMineralProtossController controller = vistaMenu.getController();
+            MenuVolcanProtossController controller = vistaMenu.getController();
             controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
         }else{
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_NODO_MINERAL_ZERG));
+            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_VOLCAN_ZERG));
             vistaMenu.setLocation(url);
             layoutVista = CargadorFXML.prepararLayout(vistaMenu);
         }
@@ -72,3 +68,4 @@ public class BotonRecursoMineral extends  BotonGenerico implements ObservadorJug
         });
     }
 }
+

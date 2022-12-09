@@ -1,13 +1,11 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
-import edu.fiuba.algo3.Vista.Botones.BotonNexoMineral;
+import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonNexoMineral;
 import edu.fiuba.algo3.Vista.Botones.BotonRecursoMineral;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.NexoMineral;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
