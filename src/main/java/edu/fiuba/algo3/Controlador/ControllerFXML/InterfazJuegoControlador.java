@@ -60,8 +60,8 @@ public class InterfazJuegoControlador implements ObservadorRazaRecursos {
     }
 
     public void inicializar(){
-        JuegoVista juegoVista = new JuegoVista(juegoModelo);
-        juegoVista.iniciar(vBoxMenu);
+        JuegoVista juegoVista = new JuegoVista(juegoModelo, vBoxMenu);
+        juegoVista.iniciar();
         juegoVista.agregarContenedor(contenedorMapa);
         this.juegoVista = juegoVista;
         actualizar();

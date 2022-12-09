@@ -1,8 +1,11 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
 import edu.fiuba.algo3.Vista.Botones.BotonZangano;
+import edu.fiuba.algo3.Controlador.*;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
+import edu.fiuba.algo3.modelo.Raza.RazaZerg;
+import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 import javafx.event.ActionEvent;
@@ -49,6 +52,7 @@ public class MenuCriaderoController {
     @FXML
     public void onClickEvolucionarZangano(MouseEvent event) {
         try{
+            criadero.asignarRaza(jugador.getRaza());
             criadero.evolucionarLarva();
             boolean agregado = false;
             for(int i = 0; i < mapa.getDimension() ; i++){
@@ -57,7 +61,7 @@ public class MenuCriaderoController {
                         mapa.buscar(new Coordenada(i,j)).asignarUnidad(jugador.getRaza().getUltimaUnidad());
                         BotonZangano botonZangano = new BotonZangano(tamanio);
                         botonZangano.setMinSize(tamanio, tamanio );
-                        //botonZangano.setOnAction(new botonZanganoHandler);
+                        botonZangano.setOnAction(new BotonZanganoHandler((Zangano) jugador.getRaza().getUltimaUnidad(), vBoxMenu,(RazaZerg) jugador.getRaza()));
                         tablero.add(botonZangano, i, j);
                         agregado = true;
                     }

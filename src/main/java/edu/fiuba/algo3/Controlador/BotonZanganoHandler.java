@@ -33,6 +33,7 @@ public class BotonZanganoHandler implements EventHandler<ActionEvent> {
         Button boton5 = new Button("Evolucionar a Espiral");
         boton2.setOnAction(new BotonEvolucionarAEspiralHandler(zangano,boton2,raza));
         Button boton6 = new Button("Moverse A");
+        boton6.setOnAction(new BotonMoverseHandler(zangano,vbox,raza));
         vbox.getChildren().addAll(boton1,boton2,boton3,boton4,boton5,boton6);
 
     }

@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Observers.ObservadorJugadorActivo;
 import edu.fiuba.algo3.modelo.Observers.ObservadorRazaRecursos;
 import edu.fiuba.algo3.modelo.Raza.Raza;
+import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
+import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 import edu.fiuba.algo3.modelo.tablero.Moho;
@@ -15,8 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JuegoModelo{
-    private Ubicacion baseZerg;
-    private Ubicacion baseProtoss;
+    private Ubicacion baseJugador1;
+    private Ubicacion baseJugador2;
     private Mapa mapa;
     private Jugador jugador1;
     private Jugador jugador2;
@@ -31,11 +33,11 @@ public class JuegoModelo{
         this.mapa = base.getMapa();
         Coordenada coordenadaCero = new Coordenada(0, 0);
         if (mapa.buscar(coordenadaCero).distancia(mapa.buscarOpuesto(coordenadaCero)) == mapa.distanciaMaxima()) {
-            baseZerg = mapa.buscar(coordenadaCero);
-            baseProtoss = mapa.buscarOpuesto(coordenadaCero);
-            baseZerg.darTipo(new Moho()); //necesito moho para instalar un criadero
-            baseZerg.ubicar(new Criadero()); //el criadero base
-            baseProtoss.ubicar(new Pilon(), mapa); //el pilon base
+            baseJugador1 = mapa.buscar(coordenadaCero);
+            baseJugador2 = mapa.buscarOpuesto(coordenadaCero);
+            baseJugador1.darTipo(new Moho()); //necesito moho para instalar un criadero
+            baseJugador1.ubicar(new Criadero()); //el criadero base
+            baseJugador2.ubicar(new Pilon(), mapa); //el pilon base
         } else {
             throw new CoordenadaNoEsExtremoDelMapaError();
         }
@@ -49,11 +51,11 @@ public class JuegoModelo{
     public JuegoModelo(Mapa Mapa, Coordenada coor1) {
         mapa = Mapa;
         if (mapa.buscar(coor1).distancia(mapa.buscarOpuesto(coor1)) == mapa.distanciaMaxima()) {
-            baseZerg = mapa.buscar(coor1);
-            baseProtoss = mapa.buscarOpuesto(coor1);
-            baseZerg.darTipo(new Moho()); //necesito moho para instalar un criadero
-            baseZerg.ubicar(new Criadero()); //el criadero base
-            baseProtoss.ubicar(new Pilon()); //el pilon base
+            baseJugador1 = mapa.buscar(coor1);
+            baseJugador2 = mapa.buscarOpuesto(coor1);
+            baseJugador1.darTipo(new Moho()); //necesito moho para instalar un criadero
+            baseJugador1.ubicar(new Criadero()); //el criadero base
+            baseJugador2.ubicar(new Pilon()); //el pilon base
         } else {
             throw new CoordenadaNoEsExtremoDelMapaError();
         }
@@ -63,7 +65,7 @@ public class JuegoModelo{
     }
 
     public int distanciaEntreBases() {
-        return baseZerg.distancia(baseProtoss);
+        return baseJugador1.distancia(baseJugador2);
     }
 
     public void esElfinDeJuego(Raza unaRaza, Raza otraRaza) {
@@ -74,12 +76,14 @@ public class JuegoModelo{
     public void agregarJugador(Jugador unJugador) {
         if (jugador1 == null) {
             jugador1 = unJugador;
-            jugador1.getRaza().agregarEdificioInicial(baseZerg.getEdificio());
+            jugador1.getRaza().agregarEdificioInicial(baseJugador1.getEdificio());
+            baseJugador1.getEdificio().asignarRaza(jugador1.getRaza());
             jugadorActivo = jugador1;
         } else {
             unJugador.compatibleCon(jugador1);
             jugador2 = unJugador;
-            jugador2.getRaza().agregarEdificioInicial(baseProtoss.getEdificio());
+            jugador2.getRaza().agregarEdificioInicial(baseJugador2.getEdificio());
+            baseJugador2.getEdificio().asignarRaza(jugador2.getRaza());
         }
         contadorJugadores++;
     }
@@ -142,6 +146,19 @@ public class JuegoModelo{
     }
     public void desubscribirseJugadorActivo(ObservadorJugadorActivo o){
         observadoresJugadorActivo.remove(o);
+    }
+
+    public Jugador getJugadorZerg(){
+        if(jugador1.getRaza() instanceof RazaZerg)
+            return jugador1;
+        else
+            return jugador2;
+    }
+    public Jugador getJugadorProtoss(){
+        if(jugador1.getRaza() instanceof RazaProtoss)
+            return jugador1;
+        else
+            return jugador2;
     }
 }
 
