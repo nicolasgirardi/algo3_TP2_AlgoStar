@@ -40,12 +40,14 @@ public class MenuTierraProtossController {
     public void onClickedConstruirAcceso(MouseEvent event) {
         //TODO: Agregar ubicicacion a los edificios deel modelo
         try{
-            Acceso acceso = new Acceso();
+            Acceso acceso = new Acceso(ubicacion);
             razaProtoss.agregarEdificio(acceso);
             botonTierra.borrarBotonDelTablero();
             tablero.add(new BotonAcceso(botonTierra),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         } catch ( RecursosInsuficientesError e ){
             MostradorAlertas.mostrarAlerta(e,"un Acceso");
+        } catch (Exception e){
+            MostradorAlertas.mostrarAlerta(e);
         }
     }
 
@@ -58,7 +60,9 @@ public class MenuTierraProtossController {
             tablero.add(new BotonEdificioPilon(botonTierra),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         }catch ( RecursosInsuficientesError e ) {
             MostradorAlertas.mostrarAlerta(e,"un Pilon");
-        }
+        }catch (Exception e){
+        MostradorAlertas.mostrarAlerta(e);
+    }
     }
 
 

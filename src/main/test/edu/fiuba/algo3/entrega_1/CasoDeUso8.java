@@ -6,6 +6,8 @@ import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
+import edu.fiuba.algo3.modelo.tablero.Coordenada;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -122,8 +124,10 @@ public class CasoDeUso8 {
     public void testRazaProtossQuiereConstruirseUnAccesoDeberiaPoderConstruirlo(){
 
         //Arrange
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.energizar();
         RazaProtoss razaProtoss = new RazaProtoss();
-        Acceso acceso = new Acceso();
+        Acceso acceso = new Acceso(ubicacion);
 
         //Act y assert
         assertDoesNotThrow(  ()-> {

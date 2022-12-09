@@ -9,6 +9,8 @@ import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
+import edu.fiuba.algo3.modelo.tablero.Coordenada;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -373,7 +375,9 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAccesoCon8TurnosParaSerOperativoSeLoMandaATransportarTroparDeberiaLanzarExcepcion(){
         //Arrange
-        Acceso acceso = new Acceso();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.energizar();
+        Acceso acceso = new Acceso(ubicacion);
 
 
         // Act y  Assert
@@ -385,7 +389,9 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAccesoCon8TurnosParaSerOperativoSeEjecutan4TurnosYSeLoMandaATransportarTroparDeberiaLanzarExcepcion(){
         //Arrange
-        Acceso acceso = new Acceso();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.energizar();
+        Acceso acceso = new Acceso(ubicacion);
 
 
         //Act
@@ -405,7 +411,9 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAccesoCon8TurnosParaSerOperativoSeEjecutan8TurnosYSeLoMandaATransportarTroparNoDeberiaLanzarExcepcion(){
         //Arrange
-        Acceso acceso = new Acceso();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.energizar();
+        Acceso acceso = new Acceso(ubicacion);
 
 
         //Act

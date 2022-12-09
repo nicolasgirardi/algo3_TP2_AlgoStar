@@ -3,6 +3,8 @@ import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.*;
 import edu.fiuba.algo3.modelo.HitPoints.*;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
+import edu.fiuba.algo3.modelo.tablero.Coordenada;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -69,9 +71,10 @@ public class CasoDeUso12 {
     @Test
     public void UnAccesoRecibeDemasiadoDañoySoloRegeneraEscudo(){
 
-        //HitPoints HPmock = mock(HitPoints.class);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.energizar();
         HitPoints HP = new HPProtoss(500,500);
-        Edificio edificio = new Acceso(); //podría ser cualquier edificio
+        Edificio edificio = new Acceso(ubicacion);
         edificio.asignarHP(HP);
         edificio.recibirDaño(800);
         //when(HPmock.vida()).thenReturn(200);

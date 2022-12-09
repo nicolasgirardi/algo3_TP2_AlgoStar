@@ -24,9 +24,10 @@ public class Acceso extends Edificio {
     private static final int COSTO_MINERAL = 150;
 
 
-    public Acceso(){
+    public Acceso(Ubicacion ubicacion){
         super(CANTIDAD_TURNOS_OPERATIVO,new HPProtoss(500,500),COSTO_MINERAL,COSTO_GAS);
         entidad = IDEDIFICIO.ACCESO;
+        ubicacion.ubicar(this);
     }
 
 

@@ -22,7 +22,7 @@ public class CrearBotonAccesoHandler implements EventHandler<ActionEvent> {
     private  Acceso acceso;
 
     public CrearBotonAccesoHandler(VBox vBoxMenu, BotonGenerico botonSuperficie, Raza raza) {
-        this.acceso = new Acceso();
+        //this.acceso = new Acceso();
         this.vBoxMenu = vBoxMenu;
         this.botonSuperficie = botonSuperficie;
         this.raza = (RazaProtoss) raza;
