@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JuegoModelo{
-    private Ubicacion baseJugador1;
-    private Ubicacion baseJugador2;
+    private Ubicacion baseZerg;
+    private Ubicacion baseProtoss;
     private Mapa mapa;
     private Jugador jugador1;
     private Jugador jugador2;
@@ -29,13 +29,13 @@ public class JuegoModelo{
     public JuegoModelo() {
         Base base = new Base();
         this.mapa = base.getMapa();
-        Coordenada coord1 = new Coordenada(0, 0);
-        if (mapa.buscar(coord1).distancia(mapa.buscarOpuesto(coord1)) == mapa.distanciaMaxima()) {
-            baseJugador1 = mapa.buscar(coord1);
-            baseJugador2 = mapa.buscarOpuesto(coord1);
-            baseJugador1.darTipo(new Moho()); //necesito moho para instalar un criadero
-            baseJugador1.ubicar(new Criadero()); //el criadero base
-            baseJugador2.ubicar(new Pilon(), mapa); //el pilon base
+        Coordenada coordenadaCero = new Coordenada(0, 0);
+        if (mapa.buscar(coordenadaCero).distancia(mapa.buscarOpuesto(coordenadaCero)) == mapa.distanciaMaxima()) {
+            baseZerg = mapa.buscar(coordenadaCero);
+            baseProtoss = mapa.buscarOpuesto(coordenadaCero);
+            baseZerg.darTipo(new Moho()); //necesito moho para instalar un criadero
+            baseZerg.ubicar(new Criadero()); //el criadero base
+            baseProtoss.ubicar(new Pilon(), mapa); //el pilon base
         } else {
             throw new CoordenadaNoEsExtremoDelMapaError();
         }
@@ -49,11 +49,11 @@ public class JuegoModelo{
     public JuegoModelo(Mapa Mapa, Coordenada coor1) {
         mapa = Mapa;
         if (mapa.buscar(coor1).distancia(mapa.buscarOpuesto(coor1)) == mapa.distanciaMaxima()) {
-            baseJugador1 = mapa.buscar(coor1);
-            baseJugador2 = mapa.buscarOpuesto(coor1);
-            baseJugador1.darTipo(new Moho()); //necesito moho para instalar un criadero
-            baseJugador1.ubicar(new Criadero()); //el criadero base
-            baseJugador2.ubicar(new Pilon()); //el pilon base
+            baseZerg = mapa.buscar(coor1);
+            baseProtoss = mapa.buscarOpuesto(coor1);
+            baseZerg.darTipo(new Moho()); //necesito moho para instalar un criadero
+            baseZerg.ubicar(new Criadero()); //el criadero base
+            baseProtoss.ubicar(new Pilon()); //el pilon base
         } else {
             throw new CoordenadaNoEsExtremoDelMapaError();
         }
@@ -63,7 +63,7 @@ public class JuegoModelo{
     }
 
     public int distanciaEntreBases() {
-        return baseJugador1.distancia(baseJugador2);
+        return baseZerg.distancia(baseProtoss);
     }
 
     public void esElfinDeJuego(Raza unaRaza, Raza otraRaza) {
@@ -74,12 +74,12 @@ public class JuegoModelo{
     public void agregarJugador(Jugador unJugador) {
         if (jugador1 == null) {
             jugador1 = unJugador;
-            jugador1.getRaza().agregarEdificioInicial(baseJugador1.getEdificio());
+            jugador1.getRaza().agregarEdificioInicial(baseZerg.getEdificio());
             jugadorActivo = jugador1;
         } else {
             unJugador.compatibleCon(jugador1);
             jugador2 = unJugador;
-            jugador2.getRaza().agregarEdificioInicial(baseJugador2.getEdificio());
+            jugador2.getRaza().agregarEdificioInicial(baseProtoss.getEdificio());
         }
         contadorJugadores++;
     }

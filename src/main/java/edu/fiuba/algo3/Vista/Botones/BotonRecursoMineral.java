@@ -17,23 +17,11 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.URL;
 
-public class BotonRecursoMineral extends  BotonGenerico implements ObservadorJugadorActivo {
+public class BotonRecursoMineral extends  BotonCeldaTablero {
 
-    private VBox vBoxMenu;
-    private Ubicacion ubicacion;
-
-    private GridPane tablero;
-
-    private JuegoModelo juegoModelo;
 
     public BotonRecursoMineral(int TAMANIO, Ubicacion ubicacion, VBox vBoxMenu, GridPane tablero, JuegoModelo juegoModelo) {
-        super(TAMANIO, "images/mineral.png", ubicacion);
-        this.tablero = tablero;
-        this.vBoxMenu = vBoxMenu;
-        this.ubicacion = ubicacion;
-        this.juegoModelo =juegoModelo;
-        juegoModelo.subscribirseJugadorActivo(this);
-        juegoModelo.notificarSobreJugadorActivo();
+        super(TAMANIO, "images/mineral.png", ubicacion, vBoxMenu, tablero,juegoModelo);
     }
 
     public void borrarBotonDelTablero(){

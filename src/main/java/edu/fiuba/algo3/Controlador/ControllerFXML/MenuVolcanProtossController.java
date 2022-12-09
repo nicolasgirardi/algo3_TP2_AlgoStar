@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
+import edu.fiuba.algo3.Controlador.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonAsimilador;
 import edu.fiuba.algo3.Vista.Botones.BotonRecursoVolcan;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Asimilador;
@@ -19,14 +20,20 @@ public class MenuVolcanProtossController {
     private GridPane tablero;
     private Ubicacion ubicacion;
     private RazaProtoss razaProtoss;
-    BotonRecursoVolcan botonRecursoVolcan;
+    private BotonRecursoVolcan botonRecursoVolcan;
 
     @FXML
     public void onClickedConstruirAsimilador(MouseEvent event) {
         Asimilador asimilador = new Asimilador(ubicacion.getVolcan());
-        razaProtoss.agregarEdificio(asimilador);
-        botonRecursoVolcan.borrarBotonDelTablero();
-        tablero.add(new BotonAsimilador(botonRecursoVolcan.getTAMANIO(),ubicacion),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+        try{
+            razaProtoss.agregarEdificio(asimilador);
+            botonRecursoVolcan.borrarBotonDelTablero();
+            tablero.add(new BotonAsimilador(botonRecursoVolcan),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+        }
+        catch (Exception e){
+            MostradorAlertas.mostrarAlerta(e);
+        }
+
     }
 
     public void setElements(GridPane tablero,Ubicacion ubicacion,RazaProtoss razaProtoss,BotonRecursoVolcan botonRecursoVolcan){

@@ -17,29 +17,10 @@ import javafx.scene.layout.VBox;
 
 import java.net.URL;
 
-public class BotonRecursoVolcan extends BotonGenerico implements ObservadorJugadorActivo {
-
-    private VBox vBoxMenu;
-    private Ubicacion ubicacion;
-
-    private GridPane tablero;
-
-    private JuegoModelo juegoModelo;
+public class BotonRecursoVolcan extends BotonCeldaTablero {
 
     public BotonRecursoVolcan(int TAMANIO, Ubicacion ubicacion, VBox vBoxMenu, GridPane tablero, JuegoModelo juegoModelo) {
-        super(TAMANIO, "images/Volcan.png", ubicacion);
-        this.tablero = tablero;
-        this.vBoxMenu = vBoxMenu;
-        this.ubicacion = ubicacion;
-        this.juegoModelo =juegoModelo;
-        juegoModelo.subscribirseJugadorActivo(this);
-        juegoModelo.notificarSobreJugadorActivo();
-
-    }
-    public void borrarBotonDelTablero(){
-        juegoModelo.desubscribirseJugadorActivo(this);
-        vBoxMenu.getChildren().clear();
-        tablero.getChildren().remove(this);
+        super(TAMANIO, "images/Volcan.png", ubicacion,vBoxMenu,tablero,juegoModelo);
     }
 
     @Override

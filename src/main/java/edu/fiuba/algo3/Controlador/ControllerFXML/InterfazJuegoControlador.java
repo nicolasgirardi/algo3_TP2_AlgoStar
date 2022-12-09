@@ -72,12 +72,8 @@ public class InterfazJuegoControlador implements ObservadorRazaRecursos {
         labelMenu.setText("Menu del juego");
 
         if(juegoModelo.getJugadorActivo().getRaza().getEntidad() == ID_RAZA.PROTOSS  ){
-            cambiarHandlerSuperficieActualProtoss();
             System.out.println("Entro el turno para el jugador de protoss");
-            // cambiamos todos los handleres de todos las tierra
-            // cambiamos de los edifciios
-            // cambiamos los handler de las unidades
-            // cambiamos los handler de los recursos
+
         }
         else{
             //TODO: cambiarHandlerSuperficieActualZerg() tarda un tiempo considerable ne ejecutarse
@@ -95,9 +91,6 @@ public class InterfazJuegoControlador implements ObservadorRazaRecursos {
         juegoVista.cambiarHandlerSuperficieActualZerg();
     }
 
-    private void cambiarHandlerSuperficieActualProtoss() {
-        juegoVista.cambiarHandlerSuperficieActualProtoss(vBoxMenu);
-    }
 
 
     @FXML

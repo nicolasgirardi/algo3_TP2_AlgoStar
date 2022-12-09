@@ -23,3 +23,5 @@ public class BotonVolcanHandler implements EventHandler<ActionEvent> {
         vBoxMenu.getChildren().addAll(label);
     }
 }
+
+//TODO: MIGRADO, BORRAR

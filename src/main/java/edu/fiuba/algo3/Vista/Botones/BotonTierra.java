@@ -17,21 +17,14 @@ import javafx.scene.layout.VBox;
 
 import java.net.URL;
 
-public class BotonTierra extends BotonGenerico implements ObservadorJugadorActivo {
-    private VBox vBoxMenu;
-    private Ubicacion ubicacion;
+public class BotonTierra extends BotonCeldaTablero {
 
-    private GridPane tablero;
-
-    private JuegoModelo juegoModelo;
     public BotonTierra(int TAMANIO, Ubicacion ubicacion,VBox vBoxMenu, GridPane tablero, JuegoModelo juegoModelo) {
-        super(TAMANIO, "images/tierra.png", ubicacion);
-        this.tablero = tablero;
-        this.vBoxMenu = vBoxMenu;
-        this.ubicacion = ubicacion;
-        this.juegoModelo =juegoModelo;
-        juegoModelo.subscribirseJugadorActivo(this);
-        juegoModelo.notificarSobreJugadorActivo();
+        super(TAMANIO, "images/tierra.png", ubicacion,vBoxMenu,tablero,juegoModelo);
+    }
+
+    public BotonTierra(BotonCeldaTablero botonCeldaTablero) {
+        super(botonCeldaTablero, "images/tierra.png");
     }
 
 
@@ -47,7 +40,7 @@ public class BotonTierra extends BotonGenerico implements ObservadorJugadorActiv
             vistaMenu.setLocation(url);
             layoutVista = CargadorFXML.prepararLayout(vistaMenu);
             MenuTierraProtossController controller = vistaMenu.getController();
-            //controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
+            controller.setElements(this.tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
         }else{
             url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_TIERRA_ZERG));
             vistaMenu.setLocation(url);
@@ -60,4 +53,6 @@ public class BotonTierra extends BotonGenerico implements ObservadorJugadorActiv
             vBoxMenu.getChildren().addAll(finalLayoutVista);
         });
     }
+
+
 }
