@@ -169,12 +169,5 @@ public class Ubicacion {
         unidad = null;
     }
 
-    public Coordenada getCoordenada(){
-        return coordenada();
-    }
-
-    public Tipo getTipo(){
-        return tipo;
-    }
 
 }
