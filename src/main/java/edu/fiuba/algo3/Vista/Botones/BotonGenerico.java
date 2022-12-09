@@ -57,6 +57,10 @@ public class BotonGenerico extends Button{
     }
 
     public void actualizar() {
+
+        if(ubicacion.getTipoSuperficie() == TIPOSUPERFICIE.MOHO){
+
+        }
         TIPOSUPERFICIE tiposuperficie = ubicacion.getTipoSuperficie();
         HashMap<TIPOSUPERFICIE,String> hashMapTipoSuperficie = new HashMap<>();
         hashMapTipoSuperficie.put(TIPOSUPERFICIE.MOHO, "images/moho.png");

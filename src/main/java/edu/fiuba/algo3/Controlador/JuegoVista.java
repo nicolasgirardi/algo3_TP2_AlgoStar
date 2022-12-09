@@ -1,11 +1,8 @@
 package edu.fiuba.algo3.Controlador;
 
-import edu.fiuba.algo3.Vista.Botones.BotonRecursoVolcan;
-import edu.fiuba.algo3.Vista.Botones.BotonTierra;
+import edu.fiuba.algo3.Vista.Botones.*;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEdificioCriadero;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEdificioPilon;
-import edu.fiuba.algo3.Vista.Botones.BotonGenerico;
-import edu.fiuba.algo3.Vista.Botones.BotonRecursoMineral;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.TIPOSUPERFICIE;
@@ -157,8 +154,13 @@ public class JuegoVista {
                 if( ubicacion.existeEdificio() && ubicacion.getEdificio().getEntidad() == IDEDIFICIO.CRIADERO ){
                     ubicacion.crecer(cantTurnosZerg, juegoModelo.getMapa());
                 }
-                BotonGenerico botonSuperficie = ((BotonGenerico) findNodoDelGridPane(i,j));
-                botonSuperficie.actualizar();
+                if((juegoModelo.buscar(new Coordenada(i,j)).getTipoSuperficie() == TIPOSUPERFICIE.MOHO && juegoModelo.buscar(new Coordenada(i,j)).ubicacionVacia())){
+                    if(findNodoDelGridPane(i,j).getClass() == BotonTierra.class){
+                        BotonTierra botonTierra = (BotonTierra) findNodoDelGridPane(i,j);
+                        botonTierra.borrarBotonDelTablero();
+                        grPane.add(new BotonMoho(TAMANIO, ubicacion ), i, j);
+                    }
+                }
             }
         }
     }

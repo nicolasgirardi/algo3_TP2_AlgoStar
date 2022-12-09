@@ -60,4 +60,11 @@ public class BotonTierra extends BotonGenerico implements ObservadorJugadorActiv
             vBoxMenu.getChildren().addAll(finalLayoutVista);
         });
     }
+
+    public void borrarBotonDelTablero(){
+        juegoModelo.desubscribirseJugadorActivo(this);
+        vBoxMenu.getChildren().clear();
+        tablero.getChildren().remove(this);
+    }
+
 }
