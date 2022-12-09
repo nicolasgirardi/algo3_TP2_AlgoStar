@@ -84,7 +84,7 @@ public class JuegoVista {
         BotonGenerico botonGenerico = null;
 
         if( edificio.getEntidad() == IDEDIFICIO.CRIADERO ){
-            botonGenerico = new BotonEdificioCriadero(TAMANIO,ubicacion,vBoxMenu,juegoModelo.getJugador1(),grPane,juegoModelo.getMapa());
+            botonGenerico = new BotonEdificioCriadero(TAMANIO,ubicacion,vBoxMenu,juegoModelo.getJugadorZerg(),grPane,juegoModelo.getMapa());
         }
         if( edificio.getEntidad() == IDEDIFICIO.PILON ){
             botonGenerico   = new BotonEdificioPilon(TAMANIO,ubicacion,vBoxMenu);

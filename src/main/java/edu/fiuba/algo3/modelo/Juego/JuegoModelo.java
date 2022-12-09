@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Observers.ObservadorJugadorActivo;
 import edu.fiuba.algo3.modelo.Observers.ObservadorRazaRecursos;
 import edu.fiuba.algo3.modelo.Raza.Raza;
+import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
+import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 import edu.fiuba.algo3.modelo.tablero.Moho;
@@ -142,6 +144,19 @@ public class JuegoModelo{
     }
     public void desubscribirseJugadorActivo(ObservadorJugadorActivo o){
         observadoresJugadorActivo.remove(o);
+    }
+
+    public Jugador getJugadorZerg(){
+        if(jugador1.getRaza() instanceof RazaZerg)
+            return jugador1;
+        else
+            return jugador2;
+    }
+    public Jugador getJugadorProtoss(){
+        if(jugador1.getRaza() instanceof RazaProtoss)
+            return jugador1;
+        else
+            return jugador2;
     }
 }
 
