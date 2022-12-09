@@ -52,6 +52,7 @@ public class MenuCriaderoController {
     @FXML
     public void onClickEvolucionarZangano(MouseEvent event) {
         try{
+            criadero.asignarRaza(jugador.getRaza());
             criadero.evolucionarLarva();
             boolean agregado = false;
             for(int i = 0; i < mapa.getDimension() ; i++){

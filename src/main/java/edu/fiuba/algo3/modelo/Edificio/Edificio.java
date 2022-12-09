@@ -129,4 +129,8 @@ public abstract class Edificio implements Atacable {
     public IDEDIFICIO getEntidad(){
         return entidad;
     }
+
+    public void asignarRaza(Raza unaRaza){
+        raza = unaRaza;
+    }
 }

@@ -77,11 +77,13 @@ public class JuegoModelo{
         if (jugador1 == null) {
             jugador1 = unJugador;
             jugador1.getRaza().agregarEdificioInicial(baseJugador1.getEdificio());
+            baseJugador1.getEdificio().asignarRaza(jugador1.getRaza());
             jugadorActivo = jugador1;
         } else {
             unJugador.compatibleCon(jugador1);
             jugador2 = unJugador;
             jugador2.getRaza().agregarEdificioInicial(baseJugador2.getEdificio());
+            baseJugador2.getEdificio().asignarRaza(jugador2.getRaza());
         }
         contadorJugadores++;
     }
