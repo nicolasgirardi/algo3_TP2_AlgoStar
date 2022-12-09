@@ -26,6 +26,12 @@ public class PuertoEstelar extends Edificio {
         entidad = IDEDIFICIO.PUERTOESTELAR;
 
     }
+    public PuertoEstelar(Ubicacion ubicacion){
+        super(CANTIDAD_TURNOS_OPERATIVO,new HPProtoss(600,600),150,150);
+        entidad = IDEDIFICIO.PUERTOESTELAR;
+        ubicacion.ubicar(this);
+
+    }
 
     public void transportarUnidades() {
         verififarEdificioOperativo();

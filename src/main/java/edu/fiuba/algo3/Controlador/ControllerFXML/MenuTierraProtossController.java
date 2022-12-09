@@ -38,28 +38,15 @@ public class MenuTierraProtossController {
 
     @FXML
     public void onClickedConstruirAcceso(MouseEvent event) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText(null);
-        String mensaje = null;
         //TODO: Agregar ubicicacion a los edificios deel modelo
-        Acceso acceso = new Acceso();
         try{
+            Acceso acceso = new Acceso();
             razaProtoss.agregarEdificio(acceso);
             botonTierra.borrarBotonDelTablero();
             tablero.add(new BotonAcceso(botonTierra),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
-        } catch(ConstruccionFueraDelRangoPilonError e ){
-            mensaje = "Error la construccion del acceso esta fuera del rango del pilon mas cercano";
-
-        }catch ( RecursosInsuficientesError e ){
-            mensaje = "Error recursos insuficientes para construir Acceso";
+        } catch ( RecursosInsuficientesError e ){
+            MostradorAlertas.mostrarAlerta(e,"un Acceso");
         }
-
-        if(mensaje != null){
-            alert.setContentText(mensaje);
-            alert.showAndWait();
-        }
-
     }
 
     @FXML
@@ -70,28 +57,18 @@ public class MenuTierraProtossController {
             botonTierra.borrarBotonDelTablero();
             tablero.add(new BotonEdificioPilon(botonTierra),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         }catch ( RecursosInsuficientesError e ) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            String mensaje = "Error recursos insuficientes para construir Acceso";
-            alert.setContentText(mensaje);
-            alert.showAndWait();
+            MostradorAlertas.mostrarAlerta(e,"un Pilon");
         }
     }
 
 
     @FXML
     public void onClickedConstruirPuertoEstelar(MouseEvent event) {
-        PuertoEstelar puertoEstelar = new PuertoEstelar();
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText(null);
-        String mensaje = null;
         try{
+            PuertoEstelar puertoEstelar = new PuertoEstelar(ubicacion);
             razaProtoss.agregarEdificio(puertoEstelar);
             botonTierra.borrarBotonDelTablero();
             tablero.add(new BotonAcceso(botonTierra),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
-
         }
         catch (CorrelativaDeConstruccionIncumplidaError e ){
             MostradorAlertas.mostrarAlerta(e,"Necesitas un Acceso para construir");

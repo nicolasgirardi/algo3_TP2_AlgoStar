@@ -18,7 +18,7 @@ public class MostradorAlertas {
        alerta.setHeaderText(null);
 
        mensajesErrores.put(ConstruccionFueraDelRangoPilonError.class.getName(), "Error la construcción  esta fuera del rango del pilon mas cercano");
-       mensajesErrores.put(RecursosInsuficientesError.class.getName(), "Error la construcción esta fuera del rango del pilon mas cercano");
+       mensajesErrores.put(RecursosInsuficientesError.class.getName(), "Error recursos insuficientes para construir ");
        mensajesErrores.put(CorrelativaDeConstruccionIncumplidaError.class.getName(), "Error en la correlativa de construccion ");
    }
 
