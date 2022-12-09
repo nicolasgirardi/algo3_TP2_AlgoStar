@@ -64,15 +64,7 @@ public class Mapa {
             }
         }
         return lista;
-        /*ArrayList<Ubicacion> lista = new ArrayList<Ubicacion>();
-        for (int i =0;i<=base;i++){
-            for (int j = 0;j<=altura;j++){
-                if (coordenada.distancia(mapa[i][j].coordenada())<= radio){
-                    lista.add(mapa[i][j]);
-                }
-            }
-        }
-        return lista;*/
+
     }
 
     public int distanciaMaxima(){

@@ -26,6 +26,8 @@ public class JuegoVista {
 
     private final int TAMANIO;
 
+    private int cantTurnosZerg;
+
 
     public JuegoVista(JuegoModelo juegoModelo){
         if(juegoModelo == null){
@@ -35,7 +37,7 @@ public class JuegoVista {
         this.juegoModelo = juegoModelo;
         MAPA_TAMANIO = this.juegoModelo.dimensionTablero();
         TAMANIO = (880/MAPA_TAMANIO) +1;
-
+        cantTurnosZerg = 0;
     }
 
     public void iniciar(VBox vBoxMenu){
@@ -148,11 +150,12 @@ public class JuegoVista {
     }
 
     public void cambiarHandlerSuperficieActualZerg() {
+        cantTurnosZerg++;
         for(int i = 0; i <= MAPA_TAMANIO; i++){
             for(int j = 0; j<= MAPA_TAMANIO; j++){
                 Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
                 if( ubicacion.existeEdificio() && ubicacion.getEdificio().getEntidad() == IDEDIFICIO.CRIADERO ){
-                    ubicacion.crecer(1, juegoModelo.getMapa());
+                    ubicacion.crecer(cantTurnosZerg, juegoModelo.getMapa());
                 }
                 BotonGenerico botonSuperficie = ((BotonGenerico) findNodoDelGridPane(i,j));
                 botonSuperficie.actualizar();
