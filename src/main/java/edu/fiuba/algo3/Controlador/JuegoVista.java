@@ -177,7 +177,7 @@ public class JuegoVista {
                     if(findNodoDelGridPane(i,j).getClass() == BotonTierra.class){
                         BotonTierra botonTierra = (BotonTierra) findNodoDelGridPane(i,j);
                         botonTierra.borrarBotonDelTablero();
-                        grPane.add(new BotonMoho(TAMANIO, ubicacion, vBoxMenu, juegoModelo ), i, j);
+                        grPane.add(new BotonMoho(botonTierra ), i, j);
                     }
                 }
             }

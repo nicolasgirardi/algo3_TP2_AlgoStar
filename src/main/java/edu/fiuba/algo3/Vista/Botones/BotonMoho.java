@@ -15,14 +15,11 @@ import javafx.scene.layout.VBox;
 
 import java.net.URL;
 
-public class BotonMoho extends BotonGenerico implements ObservadorJugadorActivo {
+public class BotonMoho extends BotonCeldaTablero {
 
-    private VBox vBoxMenu;
+    public BotonMoho(BotonCeldaTablero botonCeldaTablero) {
+        super(botonCeldaTablero, "images/moho.png");
 
-
-    public BotonMoho(int TAMANIO, Ubicacion ubicacion, VBox vBoxMenu, JuegoModelo juegoModelo) {
-        super(TAMANIO, "images/moho.png", ubicacion);
-        this.vBoxMenu = vBoxMenu;
         juegoModelo.subscribirseJugadorActivo(this);
         juegoModelo.notificarSobreJugadorActivo();
     }

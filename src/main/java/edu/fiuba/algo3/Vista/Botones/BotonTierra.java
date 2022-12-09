@@ -55,11 +55,4 @@ public class BotonTierra extends BotonCeldaTablero {
     }
 
 
-    public void borrarBotonDelTablero(){
-        juegoModelo.desubscribirseJugadorActivo(this);
-        vBoxMenu.getChildren().clear();
-        tablero.getChildren().remove(this);
-    }
-
-
 }
