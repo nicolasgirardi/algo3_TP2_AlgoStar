@@ -11,12 +11,12 @@ public class BotonUnidadesGenericaHandler implements EventHandler<ActionEvent> {
     private Unidad unidad;
     private VBox vbox;
 
-    private RazaZerg raza;
 
-    public BotonUnidadesGenericaHandler(Unidad unaUnidad, VBox cajita, RazaZerg unaRaza){
+
+    public BotonUnidadesGenericaHandler(Unidad unaUnidad, VBox cajita){
         unidad = unaUnidad;
         vbox = cajita;
-        raza = unaRaza;
+
     }
 
     public void handle(ActionEvent actionEvent){

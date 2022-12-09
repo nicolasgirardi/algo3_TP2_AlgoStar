@@ -7,7 +7,7 @@ import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.TIPOSUPERFICIE;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
-import edu.fiuba.algo3.modelo.Unidad.Zangano;
+import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import javafx.scene.Node;
@@ -115,10 +115,55 @@ public class JuegoVista {
     public void agregarUnidadInicial(Ubicacion ubicacion,int i,int j,VBox vBoxMenu){
         //si es zangano cambia el vbox para que tenga las opciones de zangano
         Button botonUnidad;
+        if(ubicacion.getUnidad() instanceof AmoSupremo){
+            botonUnidad = new BotonGenerico(TAMANIO, "images/amosupremo.png", ubicacion);
+            AmoSupremo unidad = (AmoSupremo) ubicacion.getUnidad();
+            botonUnidad.setOnAction(new BotonAmuSupremoHandler(unidad, vBoxMenu));//falta como saber que raza esta jugando
+        }
         if(ubicacion.getUnidad() instanceof Zangano){
             botonUnidad = new BotonGenerico(TAMANIO, "images/zangano.png", ubicacion);
-            Zangano zanganito = (Zangano) ubicacion.getUnidad();
-            //botonUnidad.setOnAction(new BotonZanganoHandler(zanganito, vBoxMenu,raza));//falta como saber que raza esta jugando
+            Zangano unidad = (Zangano) ubicacion.getUnidad();
+            //botonUnidad.setOnAction(new BotonZanganoHandler(unidad, vBoxMenu,raza));//falta como saber que raza esta jugando
+        }
+        if(ubicacion.getUnidad() instanceof Zerling){
+            botonUnidad = new BotonGenerico(TAMANIO, "images/zerling.png", ubicacion);
+            Zerling unidad = (Zerling) ubicacion.getUnidad();
+            botonUnidad.setOnAction(new BotonUnidadesGenericaHandler(unidad, vBoxMenu));//falta como saber que raza esta jugando
+        }
+        if(ubicacion.getUnidad() instanceof Hidralisco){
+            botonUnidad = new BotonGenerico(TAMANIO, "images/hidralisco.png", ubicacion);
+            Hidralisco unidad = (Hidralisco) ubicacion.getUnidad();
+            botonUnidad.setOnAction(new BotonUnidadesGenericaHandler(unidad, vBoxMenu));//falta como saber que raza esta jugando
+        }
+        if(ubicacion.getUnidad() instanceof Mutalisco){
+            botonUnidad = new BotonGenerico(TAMANIO, "images/mutalisco.png", ubicacion);
+            Mutalisco unidad = (Mutalisco) ubicacion.getUnidad();
+            //botonUnidad.setOnAction(new BotonMutaliscoHandler(unidad, vBoxMenu,raza));//falta como saber que raza esta jugando
+        }
+        if(ubicacion.getUnidad() instanceof Guardian){
+            botonUnidad = new BotonGenerico(TAMANIO, "images/guardian.png", ubicacion);
+            Guardian unidad = (Guardian) ubicacion.getUnidad();
+            botonUnidad.setOnAction(new BotonUnidadesGenericaHandler(unidad, vBoxMenu));//falta como saber que raza esta jugando
+        }
+        if(ubicacion.getUnidad() instanceof Devorador){
+            botonUnidad = new BotonGenerico(TAMANIO, "images/devorador.png", ubicacion);
+            Devorador unidad = (Devorador) ubicacion.getUnidad();
+            botonUnidad.setOnAction(new BotonUnidadesGenericaHandler(unidad, vBoxMenu));//falta como saber que raza esta jugando
+        }
+        if(ubicacion.getUnidad() instanceof Zealot){
+            botonUnidad = new BotonGenerico(TAMANIO, "images/zealot.png", ubicacion);
+            Zealot unidad = (Zealot) ubicacion.getUnidad();
+            botonUnidad.setOnAction(new BotonUnidadesGenericaHandler(unidad, vBoxMenu));//falta como saber que raza esta jugando
+        }
+        if(ubicacion.getUnidad() instanceof Dragon){
+            botonUnidad = new BotonGenerico(TAMANIO, "images/dragon.png", ubicacion);
+            Dragon unidad = (Dragon) ubicacion.getUnidad();
+            botonUnidad.setOnAction(new BotonUnidadesGenericaHandler(unidad, vBoxMenu));//falta como saber que raza esta jugando
+        }
+        if(ubicacion.getUnidad() instanceof Scout){
+            botonUnidad = new BotonGenerico(TAMANIO, "images/scout.png", ubicacion);
+            Scout unidad = (Scout) ubicacion.getUnidad();
+            botonUnidad.setOnAction(new BotonUnidadesGenericaHandler(unidad, vBoxMenu));//falta como saber que raza esta jugando
         }
         //si es mutalisco cambia el vbox para que tenga las opciones de mutalisco
         //si es amo supremo cambia el vbox para que tenga nada

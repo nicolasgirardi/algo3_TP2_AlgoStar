@@ -13,12 +13,12 @@ public class BotonAmuSupremoHandler implements EventHandler<ActionEvent> {
     private AmoSupremo amo;
     private VBox vbox;
 
-    private RazaZerg raza;
 
-    public BotonAmuSupremoHandler(AmoSupremo unidad, VBox cajita, RazaZerg unaRaza){
+
+    public BotonAmuSupremoHandler(AmoSupremo unidad, VBox cajita){
         amo = unidad;
         vbox = cajita;
-        raza = unaRaza;
+
     }
 
     public void handle(ActionEvent actionEvent){
