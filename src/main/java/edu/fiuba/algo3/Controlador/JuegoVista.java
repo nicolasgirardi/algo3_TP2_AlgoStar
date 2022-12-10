@@ -179,7 +179,6 @@ public class JuegoVista {
                         botonTierra.borrarBotonDelTablero();
                         BotonMoho botonMoho = new BotonMoho(botonTierra);
                         grPane.add(botonMoho, i, j);
-                        botonMoho.actualizar(juegoModelo.getJugadorActivo());
                     }
                 }
             }

@@ -29,11 +29,6 @@ public class BotonAcceso extends BotonCeldaTablero {
 
     }
 
-    public void borrarBotonDelTablero(){
-        juegoModelo.desubscribirseJugadorActivo(this);
-        vBoxMenu.getChildren().clear();
-        tablero.getChildren().remove(this);
-    }
     @Override
     public void actualizar(Jugador jugadorActivo) {
         ID_RAZA raza = jugadorActivo.getRaza().getEntidad();

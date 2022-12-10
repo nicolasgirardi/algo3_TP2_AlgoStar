@@ -40,7 +40,7 @@ public class BotonTierra extends BotonCeldaTablero {
             vistaMenu.setLocation(url);
             layoutVista = CargadorFXML.prepararLayout(vistaMenu);
             MenuTierraProtossController controller = vistaMenu.getController();
-            controller.setElements(this.tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
+            controller.setElements(this.tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this, juegoModelo.getMapa());
             Pane finalLayoutVista = layoutVista;
             this.setOnAction(event -> {
                 vBoxMenu.getChildren().clear();

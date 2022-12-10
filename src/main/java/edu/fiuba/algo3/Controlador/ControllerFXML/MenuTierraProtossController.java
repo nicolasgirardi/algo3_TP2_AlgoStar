@@ -13,6 +13,7 @@ import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.PuertoEstelar;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
+import edu.fiuba.algo3.modelo.tablero.Mapa;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -34,6 +35,7 @@ public class MenuTierraProtossController {
     private Ubicacion ubicacion;
     private RazaProtoss razaProtoss;
     private BotonTierra botonTierra;
+    private Mapa mapa;
 
 
     @FXML
@@ -55,6 +57,7 @@ public class MenuTierraProtossController {
         Pilon pilon = new Pilon();
         try {
             razaProtoss.agregarEdificio(pilon);
+            ubicacion.ubicar(pilon, mapa);
             botonTierra.borrarBotonDelTablero();
             tablero.add(new BotonEdificioPilon(botonTierra),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         }catch ( RecursosInsuficientesError e ) {
@@ -84,10 +87,11 @@ public class MenuTierraProtossController {
 
     }
 
-    public void setElements(GridPane tablero, Ubicacion ubicacion, RazaProtoss razaProtoss, BotonTierra botonTierra) {
+    public void setElements(GridPane tablero, Ubicacion ubicacion, RazaProtoss razaProtoss, BotonTierra botonTierra, Mapa mapa) {
         this.tablero = tablero;
         this.ubicacion =ubicacion;
         this.botonTierra = botonTierra;
         this.razaProtoss = razaProtoss;
+        this.mapa = mapa;
     }
 }
