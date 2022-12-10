@@ -2,18 +2,13 @@ package edu.fiuba.algo3.Vista.Botones.Construcciones;
 
 import edu.fiuba.algo3.Controlador.ControllerFXML.CargadorFXML;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAccesoController;
-import edu.fiuba.algo3.Controlador.ControllerFXML.MenuExtractorZergController;
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuExtractorController;
 import edu.fiuba.algo3.Controlador.RUTAS_FXML;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.modelo.ID_RAZA;
-import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
-import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
-import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 
 import java.net.URL;
 
@@ -41,7 +36,7 @@ public class BotonExtractor extends BotonCeldaTablero{
             url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_EXTRACTOR));
             vistaMenu.setLocation(url);
             layoutVista = CargadorFXML.prepararLayout(vistaMenu);
-            MenuExtractorZergController controller = vistaMenu.getController();
+            MenuExtractorController controller = vistaMenu.getController();
             controller.setElements(tablero,ubicacion, this, juegoModelo);
         }
 
@@ -49,6 +44,7 @@ public class BotonExtractor extends BotonCeldaTablero{
 
         this.setOnAction(event -> {
             vBoxMenu.getChildren().clear();
+            System.out.println("holaaa");
             vBoxMenu.getChildren().addAll(finalLayoutVista);
         });
 

@@ -19,9 +19,7 @@ public class BotonMoho extends BotonCeldaTablero {
 
     public BotonMoho(BotonCeldaTablero botonCeldaTablero) {
         super(botonCeldaTablero, "images/moho.png");
-
         juegoModelo.subscribirseJugadorActivo(this);
-        juegoModelo.notificarSobreJugadorActivo();
     }
 
     @Override

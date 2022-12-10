@@ -9,8 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
-public class MenuExtractorZergController  {
-
+public class MenuVolcanZergController {
     @FXML
     public AnchorPane contenerdorMenu;
 
@@ -29,11 +28,9 @@ public class MenuExtractorZergController  {
     }
 
     @FXML
-    public void onClickedConstruirAsimilador(MouseEvent event) {
+    public void onClickedMutarZanganoAExtractor(MouseEvent event) {
         botonCeldaTablero.borrarBotonDelTablero();
-        tablero.add(new BotonExtractor(botonCeldaTablero), ubicacion.coordenada().horizontal(), ubicacion.coordenada().vertical() );
-        juegoModelo.notificarSobreJugadorActivo();
+        BotonExtractor botonExtractor = new BotonExtractor(botonCeldaTablero);
+        tablero.add(botonExtractor, ubicacion.coordenada().horizontal(), ubicacion.coordenada().vertical() );
     }
-
-
 }

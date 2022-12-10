@@ -22,6 +22,7 @@ public abstract class BotonCeldaTablero extends BotonGenerico implements Observa
         this.tablero = tablero;
         this.juegoModelo = juegoModelo;
         juegoModelo.subscribirseJugadorActivo(this);
+        this.actualizar(juegoModelo.getJugadorActivo());
     }
 
     public BotonCeldaTablero(BotonCeldaTablero botonACopiar,  String rutaImagen) {
@@ -31,7 +32,7 @@ public abstract class BotonCeldaTablero extends BotonGenerico implements Observa
         this.tablero = botonACopiar.tablero;
         this.juegoModelo = botonACopiar.juegoModelo;
         juegoModelo.subscribirseJugadorActivo(this);
-        juegoModelo.notificarSobreJugadorActivo();
+        this.actualizar(juegoModelo.getJugadorActivo());
     }
 
     public void borrarBotonDelTablero(){

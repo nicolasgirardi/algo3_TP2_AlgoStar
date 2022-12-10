@@ -1,14 +1,12 @@
 package edu.fiuba.algo3.Vista.Botones;
 
 import edu.fiuba.algo3.Controlador.ControllerFXML.CargadorFXML;
-import edu.fiuba.algo3.Controlador.ControllerFXML.MenuExtractorZergController;
-import edu.fiuba.algo3.Controlador.ControllerFXML.MenuNodoMineralProtossController;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuVolcanProtossController;
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuVolcanZergController;
 import edu.fiuba.algo3.Controlador.RUTAS_FXML;
 import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
-import edu.fiuba.algo3.modelo.Observers.ObservadorJugadorActivo;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import javafx.fxml.FXMLLoader;
@@ -41,7 +39,7 @@ public class BotonRecursoVolcan extends BotonCeldaTablero {
             url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_VOLCAN_ZERG));
             vistaMenu.setLocation(url);
             layoutVista = CargadorFXML.prepararLayout(vistaMenu);
-            MenuExtractorZergController controller = vistaMenu.getController();
+            MenuVolcanZergController controller = vistaMenu.getController();
             controller.setElements(tablero, ubicacion, this, juegoModelo );
         }
 
