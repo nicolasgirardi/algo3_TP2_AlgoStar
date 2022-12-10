@@ -23,10 +23,11 @@ import java.net.URL;
 
 public class BotonZangano extends BotonCeldaTablero {
 
-    private Unidad unidad;
+    private BotonCeldaTablero botonSuperficie;
 
     public BotonZangano(BotonCeldaTablero botonCeldaTablero){
         super(botonCeldaTablero,"images/zangano.png" );
+        this.botonSuperficie = botonCeldaTablero;
         /*this.setOnAction(
                 new BotonZanganoHandler(
                         (Zangano) juegoModelo.getJugadorActivo().getRaza().getUltimaUnidad(),
@@ -66,5 +67,11 @@ public class BotonZangano extends BotonCeldaTablero {
             vBoxMenu.getChildren().addAll(finalLayoutVista);
         });
 
+    }
+
+    public void moverZangano(){
+        this.borrarBotonDelTablero();
+        juegoModelo.subscribirseJugadorActivo(botonSuperficie);
+        tablero.add(botonSuperficie,ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
     }
 }
