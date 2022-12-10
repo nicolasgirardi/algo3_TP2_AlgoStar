@@ -27,6 +27,7 @@ public class CargadorFXML {
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_ATACAR_ENEMIGO, "/VistaFxml/Menus/MenuAtacarEnemigo.fxml");
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_MOHO_ZERG, "/VistaFxml/Menus/Moho/MenuMohoZerg.fxml");
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_MOHO_PROTOSS, "/VistaFxml/Menus/Moho/MenuMohoProtoss.fxml");
+        MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_ZANGANO, "/VistaFxml/Menus/UnidadesZerg/MenuZangano.fxml");
     }
 
 
