@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.tablero;
 import edu.fiuba.algo3.modelo.Edificio.*;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;;
@@ -143,6 +144,10 @@ public class Ubicacion {
     public Edificio getEdificio(){
         return edificio;
     }
+    public Acceso getAcceso() {
+        return (Acceso) edificio;
+    }
+
     public Unidad getUnidad(){
         return unidad;
     }
