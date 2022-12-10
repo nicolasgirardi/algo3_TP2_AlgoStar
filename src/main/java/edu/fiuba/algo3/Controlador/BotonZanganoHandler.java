@@ -5,19 +5,22 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import edu.fiuba.algo3.modelo.Unidad.*;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 public class BotonZanganoHandler implements EventHandler<ActionEvent> {
 
+    private GridPane tablero;
     private Zangano zangano;
     private VBox vbox;
 
     private RazaZerg raza;
 
-    public BotonZanganoHandler(Zangano unidad, VBox cajita, RazaZerg unaRaza){
+    public BotonZanganoHandler(Zangano unidad, VBox cajita, RazaZerg unaRaza, GridPane tablero){
         zangano = unidad;
         vbox = cajita;
         raza = unaRaza;
+        this.tablero = tablero;
     }
 
     public void handle(ActionEvent actionEvent){
@@ -33,7 +36,7 @@ public class BotonZanganoHandler implements EventHandler<ActionEvent> {
         Button boton5 = new Button("Evolucionar a Espiral");
         boton2.setOnAction(new BotonEvolucionarAEspiralHandler(zangano,boton2,raza));
         Button boton6 = new Button("Moverse A");
-        boton6.setOnAction(new BotonMoverseHandler(zangano,vbox,raza));
+        boton6.setOnAction(new BotonMoverseHandler(zangano,vbox,raza, tablero));
         vbox.getChildren().addAll(boton1,boton2,boton3,boton4,boton5,boton6);
 
     }
