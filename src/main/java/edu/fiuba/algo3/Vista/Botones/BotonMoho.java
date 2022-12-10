@@ -34,7 +34,7 @@ public class BotonMoho extends BotonCeldaTablero {
                 vBoxMenu.getChildren().clear();
             });
         }else{
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_TIERRA_ZERG));
+            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_MOHO_ZERG));
             vistaMenu.setLocation(url);
             layoutVista = CargadorFXML.prepararLayout(vistaMenu);
             Pane finalLayoutVista = layoutVista;
