@@ -44,7 +44,7 @@ public class BotonTierra extends BotonCeldaTablero {
         }else{
             url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_TIERRA_ZERG));
             vistaMenu.setLocation(url);
-            layoutVista = CargadorFXML.prepararLayout(vistaMenu);
+            layoutVista = CargadorFXML.prepararLayout(vistaMenu); // falta controlar de zerg.
         }
 
         Pane finalLayoutVista = layoutVista;

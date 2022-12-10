@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1249.0" prefWidth="1903.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Controlador.ControllerFXML.InterfazJuegoControlador">
+<AnchorPane prefHeight="1299.0" prefWidth="1855.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Controlador.ControllerFXML.InterfazJuegoControlador">
    <children>
-      <Pane fx:id="paneInfoJugador" layoutX="37.0" prefHeight="73.0" prefWidth="1298.0" style="-fx-border-color: black;">
+      <Pane fx:id="paneInfoJugador" layoutX="1405.0" layoutY="33.0" prefHeight="250.0" prefWidth="391.0" style="-fx-border-color: black;">
          <children>
             <Label layoutX="27.0" layoutY="19.0" text="Jugador: ">
                <font>
@@ -21,60 +21,57 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <AnchorPane layoutX="792.0" layoutY="19.0">
+            <AnchorPane layoutX="-58.0" layoutY="223.0" />
+            <AnchorPane layoutX="70.0" layoutY="188.0" prefHeight="45.0" prefWidth="235.0">
                <children>
-                  <Label text="Mineral:">
+                  <Label fx:id="lblCantidadPoblacion" layoutX="137.0" layoutY="17.0" text="0">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblCantidadMineral" layoutX="98.0" text="0">
+                  <Label layoutX="160.0" layoutY="18.0" text="/">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="174.0" text="Gas:">
+                  <Label fx:id="lblMaximaCantidadPoblacion" layoutX="173.0" layoutY="17.0" text="0">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblCantidadGas" layoutX="228.0" text="0">
+                  <Label layoutX="13.0" layoutY="13.0" prefHeight="35.0" prefWidth="125.0" text="Población:">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="1105.0" layoutY="19.0">
-               <children>
-                  <Label text="Población:">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lblCantidadPoblacion" layoutX="125.0" text="0">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="141.0" text="/">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lblMaximaCantidadPoblacion" layoutX="152.0" text="0">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <Label layoutX="405.0" layoutY="19.0" text="Raza: ">
+            <Label layoutX="73.0" layoutY="71.0" text="Raza: ">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="lblNombreRaza" layoutX="471.0" layoutY="19.0" text="unaRaza">
+            <Label fx:id="lblNombreRaza" layoutX="141.0" layoutY="73.0" text="unaRaza">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="83.0" layoutY="111.0" text="Mineral:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCantidadMineral" layoutX="190.0" layoutY="109.0" text="0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="85.0" layoutY="149.0" text="Gas:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCantidadGas" layoutX="158.0" layoutY="149.0" text="0">
                <font>
                   <Font size="24.0" />
                </font>
@@ -82,10 +79,10 @@
          </children>
       </Pane>
 
-      <VBox fx:id="vBoxMenu" alignment="CENTER" layoutX="1464.0" layoutY="247.0" prefHeight="487.0" prefWidth="328.0" style="-fx-border-width: 3; -fx-border-color: red;" AnchorPane.bottomAnchor="515.0" AnchorPane.leftAnchor="1464.0" AnchorPane.rightAnchor="111.0" AnchorPane.topAnchor="247.0" />
-      <AnchorPane fx:id="contenedorMapa" layoutX="37.0" layoutY="88.0" prefHeight="1130.0" prefWidth="1298.0" style="-fx-border-width: 1; -fx-border-color: black;" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="568.0" AnchorPane.topAnchor="88.0" />
-      <Button fx:id="btnTerminarTurno" layoutX="1491.0" layoutY="764.0" mnemonicParsing="false" onMouseClicked="#onClickTerminarTurno" prefHeight="79.0" prefWidth="276.0" text="Terminar Turno" />
-      <Label fx:id="labelMenu" layoutX="1509.0" layoutY="67.0" text="Menu del juego">
+      <VBox fx:id="vBoxMenu" alignment="CENTER" layoutX="1415.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="325.0" style="-fx-border-width: 3; -fx-border-color: red; -fx-background-color: yellow;" />
+      <AnchorPane fx:id="contenedorMapa" layoutX="24.0" layoutY="23.0" prefHeight="1250.0" prefWidth="1144.0" style="-fx-border-width: 1; -fx-border-color: black;" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="687.0" AnchorPane.topAnchor="23.0" />
+      <Button fx:id="btnTerminarTurno" layoutX="1477.0" layoutY="822.0" mnemonicParsing="false" onMouseClicked="#onClickTerminarTurno" prefHeight="57.0" prefWidth="184.0" text="Terminar Turno" />
+      <Label fx:id="labelMenu" layoutX="1469.0" layoutY="305.0" text="Menu del juego">
          <font>
             <Font size="29.0" />
          </font>
