@@ -7,4 +7,5 @@ module edu.fiuba.algo3 {
     exports edu.fiuba.algo3.Controlador.ControllerFXML;
     exports edu.fiuba.algo3.Vista.Botones;
     exports edu.fiuba.algo3.Vista.Botones.Construcciones;
+    exports edu.fiuba.algo3.Vista.Botones.Unidades;
 }

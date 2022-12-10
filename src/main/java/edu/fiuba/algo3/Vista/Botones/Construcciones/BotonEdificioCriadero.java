@@ -45,7 +45,6 @@ public class BotonEdificioCriadero extends BotonCeldaTablero {
 
         this.setOnAction(event -> {
             vBoxMenu.getChildren().clear();
-            System.out.println("holaaa");
             vBoxMenu.getChildren().addAll(finalLayoutVista);
         });
 

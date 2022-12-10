@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
-import edu.fiuba.algo3.Vista.Botones.BotonZangano;
+import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
+import edu.fiuba.algo3.Vista.Botones.Unidades.BotonZangano;
 import edu.fiuba.algo3.Controlador.*;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
@@ -9,8 +10,10 @@ import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -56,13 +59,29 @@ public class MenuCriaderoController {
             criadero.asignarRaza(jugador.getRaza());
             criadero.evolucionarLarva();
             boolean agregado = false;
+
+            /*for (Node node : tablero.getChildren()) {
+                if(tablero.getRowIndex(node) == i && tablero.getColumnIndex(node) == j) {
+                    botonCeldaTablero = (BotonCeldaTablero) node;
+                    break;
+                }
+            }*/
             for(int i = 0; i < mapa.getDimension() ; i++){
                 for(int j = 0; j < mapa.getDimension(); j++){
-                    if( mapa.buscar(new Coordenada(i,j)).ubicacionVacia() && (!agregado)){
-                        mapa.buscar(new Coordenada(i,j)).asignarUnidad(jugador.getRaza().getUltimaUnidad());
-                        BotonZangano botonZangano = new BotonZangano(tamanio);
-                        botonZangano.setMinSize(tamanio, tamanio );
-                        botonZangano.setOnAction(new BotonZanganoHandler((Zangano) jugador.getRaza().getUltimaUnidad(), vBoxMenu,(RazaZerg) jugador.getRaza()));
+                    Coordenada coordenada = new Coordenada(i,j);
+                    Ubicacion ubicacion = mapa.buscar(coordenada);
+                    if( ubicacion.ubicacionVacia() && !agregado ) {
+                        ubicacion.asignarUnidad(jugador.getRaza().getUltimaUnidad());
+                        BotonCeldaTablero botonCeldaTablero = null;
+                        for (Node node : tablero.getChildren()) {
+                            BotonCeldaTablero boton = (BotonCeldaTablero) node;
+                            if(boton.getUbicacion().equals(ubicacion)) {
+                                botonCeldaTablero = (BotonCeldaTablero) node;
+                                break;
+                            }
+                        }
+                        botonCeldaTablero.borrarBotonDelTablero();
+                        BotonZangano botonZangano = new BotonZangano(botonCeldaTablero);
                         tablero.add(botonZangano, i, j);
                         agregado = true;
                     }
@@ -75,6 +94,8 @@ public class MenuCriaderoController {
             alert.setTitle("Error");
             alert.setContentText("El criadero no tiene larvas");
             alert.showAndWait();
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
 
