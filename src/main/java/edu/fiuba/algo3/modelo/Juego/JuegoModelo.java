@@ -127,8 +127,8 @@ public class JuegoModelo{
         else{
             jugadorActivo = jugador1;
         }
+        jugadorActivo.getRaza().ejecutarTurno();
         notificarSobreJugadorActivo();
-
     }
 
     public void subscribirseRazaActiva(ObservadorRazaRecursos o){
@@ -159,6 +159,9 @@ public class JuegoModelo{
             return jugador1;
         else
             return jugador2;
+    }
+    public void ejecutarTurnoJugadorActivvo(){
+
     }
 }
 

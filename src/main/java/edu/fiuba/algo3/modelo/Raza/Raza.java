@@ -159,4 +159,16 @@ public abstract class Raza {
     public void notificar(){
         observadores.forEach(o -> o.actualizar());
     }
+
+    public void ejecutarTurno(){
+        edificios.forEach(edificio -> {
+            try {
+                edificio.verififarEdificioOperativo();
+                edificio.ejecutarTurno();
+            }catch (Exception e){}
+
+        });
+    }
+
+
 }

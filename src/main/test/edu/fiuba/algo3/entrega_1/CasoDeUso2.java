@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
+import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
@@ -329,7 +330,8 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAsimiladorCon6TurnosParaSerOperativoSeLeMandaPrepararCapsulaDeberiaLanzarExcepcion(){
         //Arrange
-        Asimilador asimilador = new Asimilador( );
+        Volcan volcan = new Volcan();
+        Asimilador asimilador = new Asimilador(volcan);
 
         // Act y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
@@ -340,7 +342,8 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAsimiladorCon6TurnosParaSerOperativoSeEjecuta2TurnosYSeLeMandaPrepararCapsulaDeberiaLanzarExcepcion(){
         //Arrange
-        Asimilador asimilador = new Asimilador( ) ;
+        Volcan volcan = new Volcan();
+        Asimilador asimilador = new Asimilador(volcan) ;
 
         //Act
         asimilador.ejecutarTurno();
@@ -356,7 +359,8 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAsimiladorCon6TurnosParaSerOperativoSeEjecuta6TurnosYSeLeMandaPrepararCapsulaNoDeberiaLanzarExcepcion(){
         //Arrange
-        Asimilador asimilador = new Asimilador(  );
+        Volcan volcan = new Volcan();
+        Asimilador asimilador = new Asimilador(volcan);
 
         //Act
         asimilador.ejecutarTurno();

@@ -86,7 +86,7 @@ public class CasoDeUso15 {
     public void RazaProtoDejaDeConseguirGasDelVolcanCuandoSeQuedaSinUnidadesDeGas(){
         //Arrange
         Volcan volcan = new Volcan();
-        Asimilador asimilador = new Asimilador();
+        Asimilador asimilador = new Asimilador(volcan);
 
         // dejo el Asimilador operrable en 6 turnos
         for(int i = 0; i <6; i++ ){
@@ -100,13 +100,13 @@ public class CasoDeUso15 {
 
         //Act
         for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElRecurso; i++ ){
-            recursoExtraido.aumentar(asimilador.extraer(volcan));
+            recursoExtraido.aumentar(asimilador.extraer());
         }
 
         // Intentamos extraer 5 veces mas en el volcan
 
         for(int i = 0; i < 5 ; i++){
-            cantidadRecursoExceso.aumentar(asimilador.extraer(volcan));
+            cantidadRecursoExceso.aumentar(asimilador.extraer());
         }
 
         //Assert

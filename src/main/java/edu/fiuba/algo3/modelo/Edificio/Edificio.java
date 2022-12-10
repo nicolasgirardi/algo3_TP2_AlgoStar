@@ -44,7 +44,9 @@ public abstract class Edificio implements Atacable {
 
     public void ejecutarTurno() {
         turnosRestantesParaSerOperativo--;
+        hp.regenerar();
     }
+
 
     public abstract void construirEdificioEn(Recurso recurso);
 
