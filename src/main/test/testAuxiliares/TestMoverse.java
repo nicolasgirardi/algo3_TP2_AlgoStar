@@ -39,17 +39,29 @@ public class TestMoverse {
 
 
     }
+
     @Test
-    public void UnaUnidadSeMueveAUnaUbicacionOcupadaTiraError(){
+    public void UnaUnidadSeMueveADireccioneUbicacioneDebenSerEquivalentes(){
         Mapa mapa = new Mapa(20,20);
         Unidad zangano = new Zangano();
         mapa.buscar(new Coordenada(10,10)).asignarUnidad(zangano);
-        mapa.buscar(new Coordenada(10,11)).asignarUnidad(new Zangano());
 
-        assertThrows( UbicacionOcupadaError.class, ()-> {
-            zangano.moverseDerecha();
-        });
+        zangano.moverseAbajo();
+        assertEquals( zangano.ubicacion().coordenada().horizontal(), 10  );
+        assertEquals( zangano.ubicacion().coordenada().vertical(), 11  );
 
+        zangano.moverseDerecha();
+        assertEquals( zangano.ubicacion().coordenada().horizontal(), 11  );
+        assertEquals( zangano.ubicacion().coordenada().vertical(), 11  );
+
+        zangano.moverseArriba();
+        assertEquals( zangano.ubicacion().coordenada().horizontal(), 11  );
+        assertEquals( zangano.ubicacion().coordenada().vertical(), 10  );
+
+        zangano.moverseIzquierda();
+        assertEquals( zangano.ubicacion().coordenada().horizontal(), 10  );
+        assertEquals( zangano.ubicacion().coordenada().vertical(), 10  );
 
     }
-}
+
+    }
