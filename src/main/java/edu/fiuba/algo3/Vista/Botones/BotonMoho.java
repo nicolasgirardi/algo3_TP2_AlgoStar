@@ -30,21 +30,20 @@ public class BotonMoho extends BotonCeldaTablero {
         Pane layoutVista = null;
 
         if(raza.equals(ID_RAZA.PROTOSS)){
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_TIERRA_PROTOSS));
-            vistaMenu.setLocation(url);
-            layoutVista = CargadorFXML.prepararLayout(vistaMenu);
-            MenuTierraProtossController controller = vistaMenu.getController();
-            //controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
+            this.setOnAction(event -> {
+                vBoxMenu.getChildren().clear();
+            });
         }else{
             url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_TIERRA_ZERG));
             vistaMenu.setLocation(url);
             layoutVista = CargadorFXML.prepararLayout(vistaMenu);
+            Pane finalLayoutVista = layoutVista;
+            this.setOnAction(event -> {
+                vBoxMenu.getChildren().clear();
+                vBoxMenu.getChildren().addAll(finalLayoutVista);
+            });
         }
 
-        Pane finalLayoutVista = layoutVista;
-        this.setOnAction(event -> {
-            vBoxMenu.getChildren().clear();
-            vBoxMenu.getChildren().addAll(finalLayoutVista);
-        });
+
     }
 }
