@@ -14,5 +14,6 @@ public class BotonNexoMineral extends BotonCeldaTablero {
     @Override
     public void actualizar(Jugador jugadorActivo) {
 
+
     }
 }

@@ -1,14 +1,13 @@
-package edu.fiuba.algo3.Vista.Botones;
+package edu.fiuba.algo3.Vista.Botones.Construcciones;
 
 import edu.fiuba.algo3.Controlador.ControllerFXML.CargadorFXML;
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAccesoController;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuExtractorZergController;
-import edu.fiuba.algo3.Controlador.ControllerFXML.MenuNodoMineralProtossController;
-import edu.fiuba.algo3.Controlador.ControllerFXML.MenuVolcanProtossController;
 import edu.fiuba.algo3.Controlador.RUTAS_FXML;
+import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
-import edu.fiuba.algo3.modelo.Observers.ObservadorJugadorActivo;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import javafx.fxml.FXMLLoader;
@@ -18,10 +17,11 @@ import javafx.scene.layout.VBox;
 
 import java.net.URL;
 
-public class BotonRecursoVolcan extends BotonCeldaTablero {
+public class BotonExtractor extends BotonCeldaTablero{
 
-    public BotonRecursoVolcan(int TAMANIO, Ubicacion ubicacion, VBox vBoxMenu, GridPane tablero, JuegoModelo juegoModelo) {
-        super(TAMANIO, "images/Volcan.png", ubicacion,vBoxMenu,tablero,juegoModelo);
+
+    public BotonExtractor(BotonCeldaTablero botonACopiar ){
+        super(botonACopiar, "images/extractor.png");
     }
 
     @Override
@@ -32,24 +32,25 @@ public class BotonRecursoVolcan extends BotonCeldaTablero {
         Pane layoutVista = null;
 
         if(raza.equals(ID_RAZA.PROTOSS)){
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_VOLCAN_PROTOSS));
+            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_ACCESO));
             vistaMenu.setLocation(url);
             layoutVista = CargadorFXML.prepararLayout(vistaMenu);
-            MenuVolcanProtossController controller = vistaMenu.getController();
-            controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
+            MenuAccesoController controller = vistaMenu.getController();
+            //controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
         }else{
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_VOLCAN_ZERG));
+            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_EXTRACTOR));
             vistaMenu.setLocation(url);
             layoutVista = CargadorFXML.prepararLayout(vistaMenu);
             MenuExtractorZergController controller = vistaMenu.getController();
-            controller.setElements(tablero, ubicacion, this, juegoModelo );
+            controller.setElements(tablero,ubicacion, this, juegoModelo);
         }
 
         Pane finalLayoutVista = layoutVista;
+
         this.setOnAction(event -> {
             vBoxMenu.getChildren().clear();
             vBoxMenu.getChildren().addAll(finalLayoutVista);
         });
+
     }
 }
-

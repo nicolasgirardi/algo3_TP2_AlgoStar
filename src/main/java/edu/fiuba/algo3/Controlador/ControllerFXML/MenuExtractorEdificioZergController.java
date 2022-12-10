@@ -4,13 +4,14 @@ import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class MenuVolcanZergController {
+public class MenuExtractorEdificioZergController {
 
     @FXML
     public AnchorPane contenerdorMenu;
 
     @FXML
-    public void onClickedConstruirAsimilador(MouseEvent event) {
+    public void onClickedExtraerGas(MouseEvent event) {
+
 
     }
 
