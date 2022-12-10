@@ -2,6 +2,7 @@ package edu.fiuba.algo3.Vista.Botones.Construcciones;
 
 import edu.fiuba.algo3.Controlador.ControllerFXML.CargadorFXML;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAccesoController;
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAtacarEnemigoController;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuTierraProtossController;
 import edu.fiuba.algo3.Controlador.RUTAS_FXML;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
@@ -48,9 +49,10 @@ public class BotonAcceso extends BotonCeldaTablero {
             controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
 
         }else{
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_ACCESO));
+            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_ATACAR_ENEMIGO));
             vistaMenu.setLocation(url);
             layoutVista = CargadorFXML.prepararLayout(vistaMenu);
+            MenuAtacarEnemigoController controller = vistaMenu.getController();
 
         }
 
