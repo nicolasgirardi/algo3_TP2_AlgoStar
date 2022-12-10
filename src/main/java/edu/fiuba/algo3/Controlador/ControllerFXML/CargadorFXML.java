@@ -13,8 +13,8 @@ public class CargadorFXML {
     static{
         MAP_RUTAS_FXML = new HashMap<>();
         MAP_RUTAS_FXML.put(RUTAS_FXML.INTERFACE_JUEGO, "/VistaFxml/interfazJuego.fxml");
-        MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_CRIADERO, "/VistaFxml/MenuCriadero.fxml");
-        MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_PILON, "/VistaFxml/MenuPilon.fxml");
+        MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_CRIADERO, "/VistaFxml/Menus/EdificioZerg/MenuCriadero.fxml");
+        MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_PILON, "/VistaFxml/Menus/EdificioProtoss/MenuPilon.fxml");
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_NODO_MINERAL_PROTOSS, "/VistaFxml/Menus/NodoMineral/MenuNodoMineralProtoss.fxml");
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_NODO_MINERAL_ZERG, "/VistaFxml/Menus/NodoMineral/MenuNodoMineralZerg.fxml");
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_VOLCAN_PROTOSS, "/VistaFxml/Menus/Volcan/MenuVolcanProtoss.fxml");
@@ -23,6 +23,7 @@ public class CargadorFXML {
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_TIERRA_ZERG, "/VistaFxml/Menus/Tierra/MenuTierraZerg.fxml");
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_ACCESO, "/VistaFxml/Menus/EdificioProtoss/MenuAcceso.fxml");
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_EXTRACTOR, "/VistaFxml/Menus/EdificioZerg/MenuExtractor.fxml");
+        MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_ATACAR_ENEMIGO, "/VistaFxml/Menus/MenuAtacarEnemigo.fxml");
     }
 
 

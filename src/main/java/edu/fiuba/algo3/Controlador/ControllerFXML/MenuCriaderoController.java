@@ -3,6 +3,7 @@ package edu.fiuba.algo3.Controlador.ControllerFXML;
 import edu.fiuba.algo3.Vista.Botones.BotonZangano;
 import edu.fiuba.algo3.Controlador.*;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
+import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
@@ -27,17 +28,15 @@ public class MenuCriaderoController {
 
     private VBox vBoxMenu;
     private Criadero criadero;
-    private Jugador jugador;
     private GridPane tablero;
-    private Mapa mapa;
     private int tamanio;
+    private JuegoModelo juegoModelo;
 
-    public void setElements(Criadero criadero, VBox cajaParaRellenar, Jugador jugador, GridPane tablero, Mapa mapa, int tamanio){
-        this.vBoxMenu = cajaParaRellenar;
+    public void setElements(Criadero criadero, VBox vBoxMenu, GridPane tablero, JuegoModelo juegoModelo , int tamanio){
+        this.vBoxMenu = vBoxMenu;
         this.criadero = criadero;
-        this.jugador = jugador;
+        this.juegoModelo = juegoModelo;
         this.tablero = tablero;
-        this.mapa = mapa;
         this.tamanio = tamanio;
 
         lblCantidadLarvas.setText(String.valueOf( criadero.getCantidadLarvas()));
@@ -51,6 +50,8 @@ public class MenuCriaderoController {
 
     @FXML
     public void onClickEvolucionarZangano(MouseEvent event) {
+        Mapa mapa = juegoModelo.getMapa();
+        Jugador jugador = juegoModelo.getJugadorActivo();
         try{
             criadero.asignarRaza(jugador.getRaza());
             criadero.evolucionarLarva();
