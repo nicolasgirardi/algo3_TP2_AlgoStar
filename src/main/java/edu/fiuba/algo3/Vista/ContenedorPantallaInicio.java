@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -32,7 +33,7 @@ public class ContenedorPantallaInicio extends VBox {
         inicioJuego.setFont(Font.font(40));
         inicioJuego.setTextFill(Color.rgb(255, 255, 255, 1));
         inicioJuego.setAlignment(Pos.CENTER);
-        //inicioJuego.setStyle("-fx-stroke-width: 10;-fx-stroke: black;");
+        inicioJuego.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.5), new CornerRadii(5.0), new Insets(-5.0))));
 
         Button botonContinuar = new Button();
         botonContinuar.setText("Continuar");
