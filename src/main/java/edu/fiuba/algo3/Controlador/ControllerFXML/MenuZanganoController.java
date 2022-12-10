@@ -124,7 +124,7 @@ public class MenuZanganoController {
         BotonCeldaTablero botonNuevaCordenada = (BotonCeldaTablero) findNodoDelGridPane(nuevaCoordenada.horizontal(),nuevaCoordenada.vertical());
         botonNuevaCordenada.borrarBotonDelTablero();
         BotonZangano nuevoBotonZangano = new BotonZangano(botonNuevaCordenada);
-        tablero.add(nuevoBotonZangano,nuevaCoordenada.vertical(),nuevaCoordenada.horizontal());
+        tablero.add(nuevoBotonZangano,nuevaCoordenada.horizontal(), nuevaCoordenada.vertical());
         nuevoBotonZangano.fire();
     }
 }
