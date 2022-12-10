@@ -60,12 +60,6 @@ public class MenuCriaderoController {
             criadero.evolucionarLarva();
             boolean agregado = false;
 
-            /*for (Node node : tablero.getChildren()) {
-                if(tablero.getRowIndex(node) == i && tablero.getColumnIndex(node) == j) {
-                    botonCeldaTablero = (BotonCeldaTablero) node;
-                    break;
-                }
-            }*/
             for(int i = 0; i < mapa.getDimension() ; i++){
                 for(int j = 0; j < mapa.getDimension(); j++){
                     Coordenada coordenada = new Coordenada(i,j);
