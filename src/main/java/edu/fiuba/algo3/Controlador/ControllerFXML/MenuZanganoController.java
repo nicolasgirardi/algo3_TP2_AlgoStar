@@ -96,10 +96,11 @@ public class MenuZanganoController {
     private void moverUnidadGraficamente(Coordenada nuevaCoordenada){
 
         System.out.println("horizontal: "+ String.valueOf(nuevaCoordenada.horizontal()) + " vertical: "+ String.valueOf(nuevaCoordenada.vertical()));
-
-        BotonCeldaTablero botonDeAbajo = (BotonCeldaTablero) findNodoDelGridPane(nuevaCoordenada.horizontal(),nuevaCoordenada.vertical());
-        botonDeAbajo.borrarBotonDelTablero();
-        BotonZangano nuevoBotonZangano = new BotonZangano(botonDeAbajo);
+        botonZangano.moverZangano();
+        BotonCeldaTablero botonNuevaCordenada = (BotonCeldaTablero) findNodoDelGridPane(nuevaCoordenada.horizontal(),nuevaCoordenada.vertical());
+        botonNuevaCordenada.borrarBotonDelTablero();
+        BotonZangano nuevoBotonZangano = new BotonZangano(botonNuevaCordenada);
         tablero.add(nuevoBotonZangano,nuevaCoordenada.vertical(),nuevaCoordenada.horizontal());
+        nuevoBotonZangano.fire();
     }
 }
