@@ -29,29 +29,29 @@ public class MenuZanganoController {
 
     @FXML
     public void onClickedMoverArriba(MouseEvent event) {
-
+        Unidad unidad = ubicacion.getUnidad();
+        unidad.moverseArriba();
+        moverUnidadGraficamente(unidad.ubicacion().coordenada());
     }
     @FXML
     public void onClickedMoverAbajo(MouseEvent event) {
         Unidad unidad = ubicacion.getUnidad();
         unidad.moverseAbajo();
-        Coordenada nuevaCoordenada = unidad.ubicacion().coordenada();
-        System.out.println("horizontal: "+ String.valueOf(nuevaCoordenada.horizontal()) + "vertical: "+ String.valueOf(nuevaCoordenada.vertical()));
-
-        BotonCeldaTablero botonDeAbajo = (BotonCeldaTablero) findNodoDelGridPane(nuevaCoordenada.horizontal(),nuevaCoordenada.vertical());
-        botonDeAbajo.borrarBotonDelTablero();
-        BotonZangano nuevoBotonZangano = new BotonZangano(botonDeAbajo);
-        tablero.add(nuevoBotonZangano,nuevaCoordenada.vertical(),nuevaCoordenada.horizontal());
+        moverUnidadGraficamente(unidad.ubicacion().coordenada());
     }
 
     @FXML
     public void onClickedMoverDerecha(MouseEvent event) {
-
+        Unidad unidad = ubicacion.getUnidad();
+        unidad.moverseDerecha();
+        moverUnidadGraficamente(unidad.ubicacion().coordenada());
     }
 
     @FXML
     public void onClickedMoverIzquierda(MouseEvent event) {
-
+        Unidad unidad = ubicacion.getUnidad();
+        unidad.moverseIzquierda();
+        moverUnidadGraficamente(unidad.ubicacion().coordenada());
     }
 
     @FXML
@@ -76,7 +76,8 @@ public class MenuZanganoController {
 
     }
 
-    public void setElements(GridPane tablero, VBox vBoxMenu ,Ubicacion ubicacion, BotonZangano botonZangano) {
+    public void setElements(GridPane tablero, VBox vBoxMenu ,Ubicacion ubicacion, BotonZangano botonZangano, JuegoModelo juegoModelo) {
+        this.juegoModelo = juegoModelo;
         this.tablero = tablero;
         this.ubicacion = ubicacion;
         this.vBoxMenu = vBoxMenu;
@@ -91,5 +92,14 @@ public class MenuZanganoController {
             }
         }
         return null;
+    }
+    private void moverUnidadGraficamente(Coordenada nuevaCoordenada){
+
+        System.out.println("horizontal: "+ String.valueOf(nuevaCoordenada.horizontal()) + " vertical: "+ String.valueOf(nuevaCoordenada.vertical()));
+
+        BotonCeldaTablero botonDeAbajo = (BotonCeldaTablero) findNodoDelGridPane(nuevaCoordenada.horizontal(),nuevaCoordenada.vertical());
+        botonDeAbajo.borrarBotonDelTablero();
+        BotonZangano nuevoBotonZangano = new BotonZangano(botonDeAbajo);
+        tablero.add(nuevoBotonZangano,nuevaCoordenada.vertical(),nuevaCoordenada.horizontal());
     }
 }

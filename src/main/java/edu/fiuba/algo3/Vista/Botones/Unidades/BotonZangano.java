@@ -56,7 +56,7 @@ public class BotonZangano extends BotonCeldaTablero {
             vistaMenu.setLocation(url);
             layoutVista = CargadorFXML.prepararLayout(vistaMenu);
             MenuZanganoController controller = vistaMenu.getController();
-            controller.setElements(tablero,ubicacion,(RazaZerg) jugadorActivo.getRaza(),this);
+            controller.setElements(tablero,vBoxMenu,ubicacion,this,juegoModelo);
         }
 
         Pane finalLayoutVista = layoutVista;
