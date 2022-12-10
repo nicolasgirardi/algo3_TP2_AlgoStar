@@ -136,8 +136,8 @@ public abstract class Raza {
     public abstract void existenAunEdificios();
 
     public Unidad getUltimaUnidad(){
-        int size = unidades.size()-1;
-        return unidades.get(size);
+        int ultimo = unidades.size()-1;
+        return unidades.get(ultimo);
     }
     public ID_RAZA getEntidad(){
         return entidad;

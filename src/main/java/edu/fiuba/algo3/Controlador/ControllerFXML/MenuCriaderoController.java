@@ -58,6 +58,8 @@ public class MenuCriaderoController {
         try{
             criadero.asignarRaza(jugador.getRaza());
             criadero.evolucionarLarva();
+            Zangano zangano = (Zangano) jugador.getRaza().getUltimaUnidad();
+
             boolean agregado = false;
 
             for(int i = 0; i < mapa.getDimension() ; i++){
