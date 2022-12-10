@@ -68,6 +68,10 @@ public class MenuCriaderoController {
                     Ubicacion ubicacion = mapa.buscar(coordenada);
                     if( ubicacion.ubicacionVacia() && !agregado ) {
                         ubicacion.asignarUnidad(jugador.getRaza().getUltimaUnidad());
+                        System.out.println("Ubicacion actual Creacion Zangano");
+                        System.out.println("horizontal: "+ String.valueOf(ubicacion.coordenada().horizontal() ) +
+                                " vertical: "+ String.valueOf(ubicacion.coordenada().vertical()));
+
                         BotonCeldaTablero botonCeldaTablero = null;
                         for (Node node : tablero.getChildren()) {
                             BotonCeldaTablero boton = (BotonCeldaTablero) node;
