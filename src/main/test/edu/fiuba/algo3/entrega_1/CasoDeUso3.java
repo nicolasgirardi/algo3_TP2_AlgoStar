@@ -17,10 +17,9 @@ public class CasoDeUso3 {
     @Test
     public void testAsimiladorSoloSePuedeConstruirSobreElGas(){
         Volcan volcan = new Volcan();
-        Edificio unEdificio = new Asimilador();
 
         assertDoesNotThrow( ()-> {
-            unEdificio.construirEdificioEn(volcan);
+            Edificio unEdificio = new Asimilador(volcan);
         });
     }
 

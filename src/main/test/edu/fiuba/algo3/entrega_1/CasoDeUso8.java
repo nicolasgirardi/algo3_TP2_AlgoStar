@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
+import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import org.junit.jupiter.api.Test;
@@ -112,7 +113,8 @@ public class CasoDeUso8 {
 
         //Arrange
         RazaProtoss razaProtoss = new RazaProtoss();
-        Asimilador asimilador = new Asimilador();
+        Volcan volcan = new Volcan();
+        Asimilador asimilador = new Asimilador(volcan);
 
         //Act y assert
         assertDoesNotThrow(  ()-> {
@@ -173,7 +175,8 @@ public class CasoDeUso8 {
         //Arrange
         RazaProtoss razaProtoss = new RazaProtoss();
         Pilon pilon = new Pilon();
-        Asimilador asimilador = new Asimilador();
+        Volcan volcan = new Volcan();
+        Asimilador asimilador = new Asimilador(volcan);
         NexoMineral nexoMineral = new NexoMineral( new NodoMineral() );
 
         //Act

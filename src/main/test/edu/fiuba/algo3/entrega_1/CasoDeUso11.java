@@ -3,6 +3,7 @@ import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.*;
 import edu.fiuba.algo3.modelo.HitPoints.*;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
+import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import org.junit.jupiter.api.Test;
@@ -77,9 +78,9 @@ public class CasoDeUso11 {
     }
     @Test
     public void UnAsimiladorProtosReciBeDañoYUsaElMetodoRecibirDañoDeHitPoints(){
-        //HitPoints HPmock = mock(HitPoints.class);
+        Volcan volcan = new Volcan();
         HitPoints HP = new HPProtoss(450,450);
-        Edificio edificio = new Asimilador(); //podría ser cualquier edificio
+        Edificio edificio = new Asimilador(volcan); //podría ser cualquier edificio
         edificio.asignarHP(HP);
         edificio.recibirDaño(30);
 
@@ -91,9 +92,9 @@ public class CasoDeUso11 {
     @Test
     public void UnAsimiladorRecibeDañoySeRegeneraPorTurno(){
 
-        //HitPoints HPmock = mock(HitPoints.class);
+        Volcan volcan = new Volcan();
         HitPoints HP = new HPProtoss(450,450);
-        Edificio edificio = new Asimilador(); //podría ser cualquier edificio
+        Edificio edificio = new Asimilador(volcan); //podría ser cualquier edificio
         edificio.asignarHP(HP);
         edificio.recibirDaño(30);
         //when(HPmock.vida()).thenReturn(450);

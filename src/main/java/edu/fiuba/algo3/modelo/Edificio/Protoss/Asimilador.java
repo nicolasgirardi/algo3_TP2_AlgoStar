@@ -15,10 +15,6 @@ public class Asimilador extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 6;
     private Volcan volcan;
 
-    public Asimilador(){
-        super(CANTIDAD_TURNOS_OPERATIVO,new HPProtoss(450,450),100,0);
-        entidad = IDEDIFICIO.ASIMILADOR;
-    }
 
     //asimilador se instala sobre un volcan imposible instalarlo en otro lugar.
     public Asimilador(Volcan volcan){
@@ -33,7 +29,7 @@ public class Asimilador extends Edificio {
 
     }
 
-    public GestionRecurso extraer(Volcan volcan) {
+    public GestionRecurso extraer() {
         if(this.volcan != null){
             return volcan.extraer(20);
         }
@@ -45,6 +41,11 @@ public class Asimilador extends Edificio {
     public void construirEdificioEn(Recurso recurso) {
         recurso.agregarEdificio(this);
     }
+
+
+
+
+
 
     public void verificarSiPuedeSerConstruido(GestionRecurso unidadesDeMineral,GestionRecurso unidadesDeGas){
         verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral, unidadesDeGas);
@@ -64,6 +65,12 @@ public class Asimilador extends Edificio {
     @Override
     public void instalar(Moho moho) {
         throw new ConstruccionProtoEnMohoError();
+    }
+
+    @Override
+    public void ejecutarTurno(){
+        super.ejecutarTurno();
+        extraer();
     }
 
 }
