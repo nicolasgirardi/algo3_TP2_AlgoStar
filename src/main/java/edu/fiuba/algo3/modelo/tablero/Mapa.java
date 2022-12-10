@@ -33,10 +33,10 @@ public class Mapa {
             if(b> base) b = a;
             if(y<0) y = z;
             if (z>altura) z = y;
-            mapa[i][j].Arriba(mapa[a][j]);
-            mapa[i][j].Abajo(mapa[b][j]);
-            mapa[i][j].Izquierda(mapa[i][y]);
-            mapa[i][j].Derecha(mapa[i][z]);
+            mapa[j][i].Arriba(mapa[j][a]);
+            mapa[j][i].Abajo(mapa[j][b]);
+            mapa[j][i].Izquierda(mapa[y][i]);
+            mapa[j][i].Derecha(mapa[z][i]);
             }
         }
         // falta definir los nodos minerales y los volcanes lugares ala mtitad del mapa lo definimos apriori.
