@@ -21,6 +21,7 @@ public class CargadorFXML {
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_VOLCAN_ZERG, "/VistaFxml/Menus/Volcan/MenuVolcanZerg.fxml");
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_TIERRA_PROTOSS, "/VistaFxml/Menus/Tierra/MenuTierraProtoss.fxml");
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_TIERRA_ZERG, "/VistaFxml/Menus/Tierra/MenuTierraZerg.fxml");
+        MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_ACCESO, "/VistaFxml/Menus/EdificioProtoss/MenuAcceso.fxml");
     }
 
 
