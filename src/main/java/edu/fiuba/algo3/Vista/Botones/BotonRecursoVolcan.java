@@ -25,29 +25,24 @@ public class BotonRecursoVolcan extends BotonCeldaTablero {
     @Override
     public void actualizar(Jugador jugadorActivo) {
         ID_RAZA raza = jugadorActivo.getRaza().getEntidad();
-        FXMLLoader vistaMenu = new FXMLLoader();
-        URL url = null;
-        Pane layoutVista = null;
-
         if(raza.equals(ID_RAZA.PROTOSS)){
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_VOLCAN_PROTOSS));
-            vistaMenu.setLocation(url);
-            layoutVista = CargadorFXML.prepararLayout(vistaMenu);
+            FXMLLoader vistaMenu = new FXMLLoader(this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_VOLCAN_PROTOSS)));
+            Pane layoutVista = CargadorFXML.prepararLayout(vistaMenu);
             MenuVolcanProtossController controller = vistaMenu.getController();
             controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
+            Pane finalLayoutVista = layoutVista;
+            this.setOnAction(event -> {
+                vBoxMenu.getChildren().clear();
+                vBoxMenu.getChildren().addAll(finalLayoutVista);
+            });
         }else{
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_VOLCAN_ZERG));
-            vistaMenu.setLocation(url);
-            layoutVista = CargadorFXML.prepararLayout(vistaMenu);
-            MenuVolcanZergController controller = vistaMenu.getController();
-            controller.setElements(tablero, ubicacion, this, juegoModelo );
+            this.setOnAction(event -> {
+                vBoxMenu.getChildren().clear();
+            });
+
         }
 
-        Pane finalLayoutVista = layoutVista;
-        this.setOnAction(event -> {
-            vBoxMenu.getChildren().clear();
-            vBoxMenu.getChildren().addAll(finalLayoutVista);
-        });
+
     }
 }
 
