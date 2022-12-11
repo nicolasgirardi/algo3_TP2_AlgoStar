@@ -1,16 +1,26 @@
 package edu.fiuba.algo3.Vista.Botones.Construcciones;
 
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAsimiladorController;
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAtacarEnemigoController;
+import edu.fiuba.algo3.Controlador.RUTAS_FXML;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
+import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 
 public class BotonReservaDeReproduccion extends BotonCeldaTablero {
 
     public BotonReservaDeReproduccion(BotonCeldaTablero botonACopiar){
-        super(botonACopiar, "images/espiral.png");
+        super(botonACopiar, "images/espiral.png", RUTAS_FXML.MENU_ATACAR_ENEMIGO,RUTAS_FXML.MENU_VACIO);
     }
-
     @Override
-    public void actualizar(Jugador jugadorActivo) {
-
+    public void setElmentsController() {
+        Jugador jugadorActivo = juegoModelo.getJugadorActivo();
+        ID_RAZA razaActiva = jugadorActivo.getRaza().getEntidad();
+        if(razaActiva.equals(ID_RAZA.PROTOSS)){
+            //MenuAsimiladorController controller = vistaMenu.getController();
+            //controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
+        }else{
+            MenuAtacarEnemigoController controller = vistaMenu.getController();
+        }
     }
 }

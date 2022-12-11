@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.Vista.Botones.Unidades;
 
 import edu.fiuba.algo3.Controlador.ControllerFXML.CargadorFXML;
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAsimiladorController;
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAtacarEnemigoController;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuZealotController;
 import edu.fiuba.algo3.Controlador.RUTAS_FXML;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
@@ -16,43 +18,19 @@ public class BotonZealot extends BotonCeldaTablero {
 
 
     public BotonZealot(BotonCeldaTablero botonCeldaTablero) {
-        super(botonCeldaTablero, "images/zealot.png");
+        super(botonCeldaTablero, "images/zealot.png",RUTAS_FXML.MENU_ZEALOT,RUTAS_FXML.MENU_ATACAR_ENEMIGO);
 
     }
 
-    public void borrarBotonDelTablero(){
-        juegoModelo.desubscribirseJugadorActivo(this);
-        vBoxMenu.getChildren().clear();
-        tablero.getChildren().remove(this);
-    }
     @Override
-    public void actualizar(Jugador jugadorActivo) {
-        ID_RAZA raza = jugadorActivo.getRaza().getEntidad();
-        FXMLLoader vistaMenu = new FXMLLoader();
-        URL url = null;
-        Pane layoutVista = null;
-
-        if(raza.equals(ID_RAZA.PROTOSS)){
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_ZEALOT));
-            vistaMenu.setLocation(url);
-            layoutVista = CargadorFXML.prepararLayout(vistaMenu);
+    public void setElmentsController() {
+        Jugador jugadorActivo = juegoModelo.getJugadorActivo();
+        ID_RAZA razaActiva = jugadorActivo.getRaza().getEntidad();
+        if(razaActiva.equals(ID_RAZA.PROTOSS)){
             MenuZealotController controller = vistaMenu.getController();
             controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
-
         }else{
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_ZEALOT));
-            vistaMenu.setLocation(url);
-            layoutVista = CargadorFXML.prepararLayout(vistaMenu);
-
+            MenuAtacarEnemigoController controller = vistaMenu.getController();
         }
-
-
-        Pane finalLayoutVista = layoutVista;
-
-        this.setOnAction(event -> {
-            vBoxMenu.getChildren().clear();
-            vBoxMenu.getChildren().addAll(finalLayoutVista);
-        });
-
     }
 }

@@ -16,37 +16,19 @@ import java.net.URL;
 public class BotonEdificioCriadero extends BotonCeldaTablero {
 
     public BotonEdificioCriadero(int TAMANIO, Ubicacion ubicacion, VBox vBoxMenu, Jugador jugador, GridPane tablero , JuegoModelo juegoModelo) {
-        super(TAMANIO,"images/criadero.png",ubicacion,vBoxMenu, tablero,juegoModelo);
+        super(TAMANIO,"images/criadero.png",ubicacion,vBoxMenu, tablero,juegoModelo, RUTAS_FXML.MENU_ATACAR_ENEMIGO,RUTAS_FXML.MENU_CRIADERO);
     }
-
 
     @Override
-    public void actualizar(Jugador jugadorActivo) {
-        ID_RAZA raza = jugadorActivo.getRaza().getEntidad();
-        FXMLLoader vistaMenu = new FXMLLoader();
-        URL url = null;
-        Pane layoutVista = null;
-
-        if(raza.equals(ID_RAZA.PROTOSS)){
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_ATACAR_ENEMIGO));
-            vistaMenu.setLocation(url);
-            layoutVista = CargadorFXML.prepararLayout(vistaMenu);
-            MenuAtacarEnemigoController controller = vistaMenu.getController();
-            //controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
-        }else{
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_CRIADERO));
-            vistaMenu.setLocation(url);
-            layoutVista = CargadorFXML.prepararLayout(vistaMenu);
+    public void setElmentsController() {
+        Jugador jugadorActivo = juegoModelo.getJugadorActivo();
+        ID_RAZA razaActiva = jugadorActivo.getRaza().getEntidad();
+        if(razaActiva.equals(ID_RAZA.ZERG)){
             MenuCriaderoController controller = vistaMenu.getController();
             controller.setElements((Criadero) ubicacion.getEdificio(),vBoxMenu, tablero,juegoModelo,getTAMANIO());
+        }else{
+            MenuAtacarEnemigoController controller = vistaMenu.getController();
         }
-
-        Pane finalLayoutVista = layoutVista;
-
-        this.setOnAction(event -> {
-            vBoxMenu.getChildren().clear();
-            vBoxMenu.getChildren().addAll(finalLayoutVista);
-        });
-
     }
 }
+

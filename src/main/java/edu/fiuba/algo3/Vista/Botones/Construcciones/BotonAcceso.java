@@ -25,39 +25,19 @@ public class BotonAcceso extends BotonCeldaTablero {
 
 
     public BotonAcceso(BotonTierra botonTierra) {
-        super(botonTierra, "images/acceso.png");
+        super(botonTierra, "images/acceso.png", RUTAS_FXML.MENU_ACCESO,RUTAS_FXML.MENU_ATACAR_ENEMIGO);
 
     }
 
     @Override
-    public void actualizar(Jugador jugadorActivo) {
-        ID_RAZA raza = jugadorActivo.getRaza().getEntidad();
-        FXMLLoader vistaMenu = new FXMLLoader();
-        URL url = null;
-        Pane layoutVista = null;
-
-        if(raza.equals(ID_RAZA.PROTOSS)){
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_ACCESO));
-            vistaMenu.setLocation(url);
-            layoutVista = CargadorFXML.prepararLayout(vistaMenu);
+    public void setElmentsController() {
+        Jugador jugadorActivo = juegoModelo.getJugadorActivo();
+        ID_RAZA razaActiva = jugadorActivo.getRaza().getEntidad();
+        if(razaActiva.equals(ID_RAZA.PROTOSS)){
             MenuAccesoController controller = vistaMenu.getController();
             controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
-
         }else{
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_ATACAR_ENEMIGO));
-            vistaMenu.setLocation(url);
-            layoutVista = CargadorFXML.prepararLayout(vistaMenu);
             MenuAtacarEnemigoController controller = vistaMenu.getController();
-
         }
-
-
-        Pane finalLayoutVista = layoutVista;
-
-        this.setOnAction(event -> {
-            vBoxMenu.getChildren().clear();
-            vBoxMenu.getChildren().addAll(finalLayoutVista);
-        });
-
     }
 }

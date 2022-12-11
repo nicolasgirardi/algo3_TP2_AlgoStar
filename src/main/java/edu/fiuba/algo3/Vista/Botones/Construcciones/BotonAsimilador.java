@@ -18,38 +18,19 @@ import java.net.URL;
 
 public class BotonAsimilador extends BotonCeldaTablero {
     public BotonAsimilador(BotonCeldaTablero botonCeldaTablero) {
-        super(botonCeldaTablero, "images/asimilador.png");
+        super(botonCeldaTablero, "images/asimilador.png",RUTAS_FXML.MENU_ASIMILADOR,RUTAS_FXML.MENU_ATACAR_ENEMIGO);
     }
 
-    @Override
-    public void actualizar(Jugador jugadorActivo) {
-        ID_RAZA raza = jugadorActivo.getRaza().getEntidad();
-        FXMLLoader vistaMenu = new FXMLLoader();
-        URL url = null;
-        Pane layoutVista = null;
 
-        if(raza.equals(ID_RAZA.PROTOSS)){
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_ASIMILADOR));
-            vistaMenu.setLocation(url);
-            layoutVista = CargadorFXML.prepararLayout(vistaMenu);
+    @Override
+    public void setElmentsController() {
+        Jugador jugadorActivo = juegoModelo.getJugadorActivo();
+        ID_RAZA razaActiva = jugadorActivo.getRaza().getEntidad();
+        if(razaActiva.equals(ID_RAZA.PROTOSS)){
             MenuAsimiladorController controller = vistaMenu.getController();
             //controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
-
         }else{
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_ATACAR_ENEMIGO));
-            vistaMenu.setLocation(url);
-            layoutVista = CargadorFXML.prepararLayout(vistaMenu);
             MenuAtacarEnemigoController controller = vistaMenu.getController();
-
         }
-
-
-        Pane finalLayoutVista = layoutVista;
-
-        this.setOnAction(event -> {
-            vBoxMenu.getChildren().clear();
-            vBoxMenu.getChildren().addAll(finalLayoutVista);
-        });
-
     }
 }

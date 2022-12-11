@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.Vista.Botones.Unidades;
 
 import edu.fiuba.algo3.Controlador.ControllerFXML.CargadorFXML;
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAsimiladorController;
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAtacarEnemigoController;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuZanganoController;
 import edu.fiuba.algo3.Controlador.RUTAS_FXML;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
@@ -14,30 +16,21 @@ public class BotonZangano extends BotonUnidad {
     private BotonCeldaTablero botonSuperficie;
 
     public BotonZangano(BotonCeldaTablero botonCeldaTablero){
-        super(botonCeldaTablero,"images/zangano.png" );
+        super(botonCeldaTablero,"images/zangano.png",RUTAS_FXML.MENU_ATACAR_ENEMIGO,RUTAS_FXML.MENU_ZANGANO);
         this.botonSuperficie = botonCeldaTablero;
     }
 
-    @Override
-    public void actualizar(Jugador jugadorActivo) {
-        ID_RAZA raza = jugadorActivo.getRaza().getEntidad();
 
-        if(raza.equals(ID_RAZA.PROTOSS)){
-            this.cargarMenuEnemigo();
-        }else{
-            FXMLLoader vistaMenu = new FXMLLoader(this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_ZANGANO)));
-            Pane layoutVista = CargadorFXML.prepararLayout(vistaMenu);
+    @Override
+    public void setElmentsController() {
+        Jugador jugadorActivo = juegoModelo.getJugadorActivo();
+        ID_RAZA razaActiva = jugadorActivo.getRaza().getEntidad();
+        if(razaActiva.equals(ID_RAZA.ZERG)){
             MenuZanganoController controller = vistaMenu.getController();
             controller.setElements(tablero,vBoxMenu,ubicacion,this,juegoModelo);
-            Pane finalLayoutVista = layoutVista;
-
-            this.setOnAction(event -> {
-                vBoxMenu.getChildren().clear();
-                vBoxMenu.getChildren().addAll(finalLayoutVista);
-            });
+        }else{
+            MenuAtacarEnemigoController controller = vistaMenu.getController();
         }
-
-
     }
 
 }

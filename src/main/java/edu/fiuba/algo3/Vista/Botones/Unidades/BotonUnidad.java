@@ -11,8 +11,8 @@ import javafx.scene.layout.Pane;
 public abstract class BotonUnidad extends BotonCeldaTablero {
     private BotonCeldaTablero botonSuperficie;
 
-    public BotonUnidad(BotonCeldaTablero botonSuperficie, String rutaImagen){
-        super(botonSuperficie,rutaImagen);
+    public BotonUnidad(BotonCeldaTablero botonSuperficie, String rutaImagen, RUTAS_FXML menuParaProtoss, RUTAS_FXML menuParaZerg){
+        super(botonSuperficie,rutaImagen,menuParaProtoss,menuParaZerg);
         this.botonSuperficie = botonSuperficie;
     }
 
@@ -23,7 +23,7 @@ public abstract class BotonUnidad extends BotonCeldaTablero {
         tablero.add(botonSuperficie,ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
     }
 
-    public void cargarMenuEnemigo(){
+    /*public void cargarMenuEnemigo(){
         FXMLLoader vistaMenu = new FXMLLoader(this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_ATACAR_ENEMIGO)));
         Pane layoutVista = CargadorFXML.prepararLayout(vistaMenu);
         MenuAtacarEnemigoController controller = vistaMenu.getController();
@@ -36,6 +36,6 @@ public abstract class BotonUnidad extends BotonCeldaTablero {
         });
         //limpiamos la movilidad
         this.setOnKeyPressed(keyEvent -> {} );
-    }
+    }*/
 
 }
