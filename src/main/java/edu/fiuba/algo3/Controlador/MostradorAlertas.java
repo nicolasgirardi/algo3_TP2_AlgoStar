@@ -3,6 +3,8 @@ package edu.fiuba.algo3.Controlador;
 import edu.fiuba.algo3.modelo.ConstruccionFueraDelRangoPilonError;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
+import edu.fiuba.algo3.modelo.Unidad.UnidadNoOperativaError;
+import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
 import javafx.scene.control.Alert;
 
 import java.util.HashMap;
@@ -20,6 +22,9 @@ public class MostradorAlertas {
        mensajesErrores.put(ConstruccionFueraDelRangoPilonError.class.getName(), "Error la construcción  esta fuera del rango del pilon mas cercano");
        mensajesErrores.put(RecursosInsuficientesError.class.getName(), "Error recursos insuficientes para construir ");
        mensajesErrores.put(CorrelativaDeConstruccionIncumplidaError.class.getName(), "Error en la correlativa de construccion ");
+       mensajesErrores.put(UnidadNoOperativaError.class.getName(), "Error La unidad todaiva no esta operativa ");
+       mensajesErrores.put(UbicacionOcupadaError.class.getName(), "Error La ubicacion a la que quiere moverse esta ocupada ");
+
    }
 
 

@@ -1,13 +1,16 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
+import edu.fiuba.algo3.Controlador.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonExtractor;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonUnidad;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.TIPOSUPERFICIE;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
+import edu.fiuba.algo3.modelo.Unidad.UnidadNoOperativaError;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
+import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -41,27 +44,46 @@ public class MenuZanganoController extends UnidadMovibleController {
     @FXML
     public void onClickedMoverArriba(MouseEvent event) {
         Unidad unidad = ubicacion.getUnidad();
-        unidad.moverseArriba();
+        try {
+            unidad.moverseArriba();
+        } catch (UnidadNoOperativaError | UbicacionOcupadaError e){
+            MostradorAlertas.mostrarAlerta(e);
+        }
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
+
     }
     @FXML
     public void onClickedMoverAbajo(MouseEvent event) {
         Unidad unidad = ubicacion.getUnidad();
-        unidad.moverseAbajo();
+        try{
+            unidad.moverseAbajo();
+        } catch (UnidadNoOperativaError | UbicacionOcupadaError e){
+            MostradorAlertas.mostrarAlerta(e);
+        }
+
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
     }
 
     @FXML
     public void onClickedMoverDerecha(MouseEvent event) {
         Unidad unidad = ubicacion.getUnidad();
-        unidad.moverseDerecha();
+        try{
+            unidad.moverseDerecha();
+        } catch( UnidadNoOperativaError | UbicacionOcupadaError e ){
+            MostradorAlertas.mostrarAlerta(e);
+        }
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
     }
 
     @FXML
     public void onClickedMoverIzquierda(MouseEvent event) {
         Unidad unidad = ubicacion.getUnidad();
-        unidad.moverseIzquierda();
+        try {
+            unidad.moverseIzquierda();
+        } catch (UnidadNoOperativaError | UbicacionOcupadaError e){
+            MostradorAlertas.mostrarAlerta(e);
+        }
+
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
     }
     //TODO: revisar si se agregann correctamente los edificios al modelo

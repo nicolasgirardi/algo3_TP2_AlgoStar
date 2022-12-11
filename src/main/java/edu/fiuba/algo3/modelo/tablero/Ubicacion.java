@@ -177,5 +177,9 @@ public class Ubicacion {
         unidad = null;
     }
 
+    public boolean esIgual(Ubicacion otraUbicacion){
+        return this.coordenada().esIgual( otraUbicacion.coordenada() );
+    }
+
 
 }

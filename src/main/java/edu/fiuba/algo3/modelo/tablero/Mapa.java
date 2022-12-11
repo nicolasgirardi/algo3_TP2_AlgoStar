@@ -29,10 +29,10 @@ public class Mapa {
             b = i+1;
             y = j-1;
             z = j+1;
-            if(a<0) a = b;
-            if(b> base) b = a;
-            if(y<0) y = z;
-            if (z>altura) z = y;
+            if(a<0) a = i;
+            if(b> base) b = i;
+            if(y<0) y = j;
+            if (z>altura) z = j;
             mapa[j][i].Arriba(mapa[j][a]);
             mapa[j][i].Abajo(mapa[j][b]);
             mapa[j][i].Izquierda(mapa[y][i]);
