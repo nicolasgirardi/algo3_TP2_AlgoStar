@@ -23,8 +23,8 @@
          <children>
             <Button layoutX="49.0" layoutY="56.0" mnemonicParsing="false" onMouseClicked="#onClickedMoverAbajo" text="▼" />
             <Button layoutX="49.0" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#onClickedMoverArriba" rotate="180.0" text="▼" />
-            <Button layoutX="14.0" layoutY="29.0" mnemonicParsing="false" onMouseClicked="#onClickedMoverIzquierda" rotate="90.0" text="▼" />
-            <Button layoutX="83.0" layoutY="29.0" mnemonicParsing="false" onMouseClicked="#onClickedMoverDerecha" rotate="-90.0" text="▼" />
+            <Button layoutX="23.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#onClickedMoverIzquierda" rotate="90.0" text="▼" />
+            <Button layoutX="75.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#onClickedMoverDerecha" rotate="-90.0" text="▼" />
          </children>
       </Pane>
       <Label layoutX="108.0" layoutY="290.0" text="Moverse">

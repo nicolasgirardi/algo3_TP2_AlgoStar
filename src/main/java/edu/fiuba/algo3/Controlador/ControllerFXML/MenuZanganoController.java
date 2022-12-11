@@ -1,10 +1,19 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
 import edu.fiuba.algo3.Controlador.MostradorAlertas;
+import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEspiral;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonExtractor;
+import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonGuarida;
+import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonReservaDeReproduccion;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonUnidad;
+import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Espiral;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Guarida;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.ReservaDeReproduccion;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
+import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.TIPOSUPERFICIE;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.Unidad.UnidadNoOperativaError;
@@ -101,27 +110,74 @@ public class MenuZanganoController extends UnidadMovibleController {
     @FXML
     public void onClickedMutarACriadero(MouseEvent event) {
 
-        Zangano zangano = (Zangano) ubicacion.getUnidad();
-        zangano.mutarCriadero(razaZerg);
+        try {
+            //Zangano zangano = (Zangano) ubicacion.getUnidad();
+            //zangano.mutarCriadero(razaZerg);
+            Criadero criadero = new Criadero();
+            razaZerg.agregarEdificio(criadero);
+            ubicacion.ubicar(criadero);
+            botonUnidad.borrarBotonDelTablero();
+            tablero.add(new BotonEspiral(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+        }catch ( RecursosInsuficientesError e ) {
+            MostradorAlertas.mostrarAlerta(e,"un Criadero");
+        } catch (Exception e){
+            MostradorAlertas.mostrarAlerta(e);
+        }
+
 
     }
 
     @FXML
     public void onClickedMutarAEspiral(MouseEvent event) {
-        Zangano zangano = (Zangano) ubicacion.getUnidad();
-        zangano.mutarEspiral(razaZerg);
+        Espiral espiral = new Espiral();
+        try {
+            //Zangano zangano = (Zangano) ubicacion.getUnidad();
+            //zangano.mutarEspiral(razaZerg);
+            razaZerg.agregarEdificio(espiral);
+            ubicacion.ubicar(espiral);
+            botonUnidad.borrarBotonDelTablero();
+            tablero.add(new BotonEspiral(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+        }catch ( RecursosInsuficientesError e ) {
+            MostradorAlertas.mostrarAlerta(e,"un Espiral");
+        } catch (CorrelativaDeConstruccionIncumplidaError e){
+            MostradorAlertas.mostrarAlerta(e,"Necesitas una Guarida para construir");
+        } catch (Exception e){
+            MostradorAlertas.mostrarAlerta(e);
+        }
     }
 
     @FXML
     public void onClickedMutarAGuarida(MouseEvent event) {
-        Zangano zangano = (Zangano) ubicacion.getUnidad();
-        zangano.mutarGuarida(razaZerg);
+        try{
+            Guarida guarida = new Guarida();
+            razaZerg.agregarEdificio(guarida);
+            //Zangano zangano = (Zangano) ubicacion.getUnidad();
+            //zangano.mutarGuarida(razaZerg);
+            botonUnidad.borrarBotonDelTablero();
+            tablero.add(new BotonGuarida(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+        } catch ( RecursosInsuficientesError e ){
+            MostradorAlertas.mostrarAlerta(e,"una Guarida");
+        } catch (CorrelativaDeConstruccionIncumplidaError e){
+            MostradorAlertas.mostrarAlerta(e,"Necesitas una Reserva de Reproduccion para construir");
+        } catch (Exception e){
+            MostradorAlertas.mostrarAlerta(e);
+        }
     }
 
     @FXML
     public void onClickedMutarAReservaDeReproduccion(MouseEvent event) {
-        Zangano zangano = (Zangano) ubicacion.getUnidad();
-        zangano.mutarReservaReproduccion(razaZerg);
+        try{
+            //Zangano zangano = (Zangano) ubicacion.getUnidad();
+            //zangano.mutarReservaReproduccion(razaZerg);
+            ReservaDeReproduccion reservaDeReproduccion = new ReservaDeReproduccion();
+            razaZerg.agregarEdificio(reservaDeReproduccion);
+            botonUnidad.borrarBotonDelTablero();
+            tablero.add(new BotonReservaDeReproduccion(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+        } catch (RecursosInsuficientesError e) {
+            MostradorAlertas.mostrarAlerta(e,"una Reserva De Reproduccion");
+        } catch( Exception e){
+            MostradorAlertas.mostrarAlerta(e);
+        }
     }
 
     @Override

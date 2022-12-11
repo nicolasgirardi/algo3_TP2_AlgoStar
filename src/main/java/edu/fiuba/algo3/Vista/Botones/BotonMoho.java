@@ -26,7 +26,11 @@ public class BotonMoho extends BotonCeldaTablero {
 
     @Override
     public void actualizar(Jugador jugadorActivo) {
-        ID_RAZA raza = jugadorActivo.getRaza().getEntidad();
+        this.setOnAction(event -> {
+            vBoxMenu.getChildren().clear();
+        });
+    }
+        /*ID_RAZA raza = jugadorActivo.getRaza().getEntidad();
         FXMLLoader vistaMenu = new FXMLLoader();
         URL url = null;
         Pane layoutVista = null;
@@ -47,7 +51,5 @@ public class BotonMoho extends BotonCeldaTablero {
                 vBoxMenu.getChildren().addAll(finalLayoutVista);
             });
         }
-
-
-    }
+    }*/
 }

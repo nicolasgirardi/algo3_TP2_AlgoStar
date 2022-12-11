@@ -16,15 +16,6 @@ public class BotonZangano extends BotonUnidad {
     public BotonZangano(BotonCeldaTablero botonCeldaTablero){
         super(botonCeldaTablero,"images/zangano.png" );
         this.botonSuperficie = botonCeldaTablero;
-        /*this.setOnAction(
-                new BotonZanganoHandler(
-                        (Zangano) juegoModelo.getJugadorActivo().getRaza().getUltimaUnidad(),
-                        vBoxMenu,
-                        (RazaZerg) juegoModelo.getJugadorActivo().getRaza(),
-                        tablero
-                ));
-
-         */
     }
 
     @Override

@@ -1,12 +1,20 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
+import edu.fiuba.algo3.Controlador.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonUnidad;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonZangano;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
+import edu.fiuba.algo3.modelo.Unidad.Unidad;
+import edu.fiuba.algo3.modelo.Unidad.UnidadNoOperativaError;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
+import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.scene.Node;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -24,6 +32,28 @@ public class UnidadMovibleController {
         this.ubicacion = ubicacion;
         this.vBoxMenu = vBoxMenu;
         this.botonUnidad = botonUnidad;
+        botonUnidad.setOnKeyPressed(keyEvent -> {
+            Unidad unidad = ubicacion.getUnidad();
+            try {
+
+                if (keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.W){
+                    unidad.moverseArriba();
+                }
+                if (keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.S){
+                    unidad.moverseAbajo();
+                }
+                if (keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.D){
+                    unidad.moverseDerecha();
+                }
+                if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.A){
+                    unidad.moverseIzquierda();
+                }
+            } catch (UnidadNoOperativaError | UbicacionOcupadaError e){
+                MostradorAlertas.mostrarAlerta(e);
+            }
+            moverUnidadGraficamente(unidad.ubicacion().coordenada());
+
+        });
     }
 
 
@@ -35,6 +65,7 @@ public class UnidadMovibleController {
         BotonZangano nuevoBotonZangano = new BotonZangano(botonNuevaCordenada);
         tablero.add(nuevoBotonZangano,nuevaCoordenada.horizontal(), nuevaCoordenada.vertical());
         nuevoBotonZangano.fire();
+        nuevoBotonZangano.requestFocus();
     }
 
     private Node findNodoDelGridPane(int posHorizontal, int posVertical) {
@@ -47,6 +78,8 @@ public class UnidadMovibleController {
     }
 
 }
+
+
 /*
 * botonZangano.setOnKeyPressed(keyEvent ->{
             if(keyEvent.getCode() == KeyCode.UP ){

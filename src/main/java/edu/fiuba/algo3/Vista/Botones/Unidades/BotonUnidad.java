@@ -33,6 +33,8 @@ public abstract class BotonUnidad extends BotonCeldaTablero {
             vBoxMenu.getChildren().clear();
             vBoxMenu.getChildren().addAll(finalLayoutVista);
         });
+        //limpiamos la movilidad
+        this.setOnKeyPressed(keyEvent -> {} );
     }
 
 }
