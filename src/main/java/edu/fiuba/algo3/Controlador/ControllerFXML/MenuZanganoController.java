@@ -189,9 +189,9 @@ public class MenuZanganoController extends UnidadMovibleController {
             tablero.add(new BotonReservaDeReproduccion(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         } catch (RecursosInsuficientesError e) {
             MostradorAlertas.mostrarAlerta(e,"una Reserva De Reproduccion");
-        } catch( Exception e){
+        } /*catch( Exception e){
             MostradorAlertas.mostrarAlerta(e);
-        }
+        }*/
     }
 
     @FXML
