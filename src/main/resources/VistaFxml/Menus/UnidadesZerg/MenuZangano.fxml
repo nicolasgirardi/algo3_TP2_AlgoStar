@@ -15,10 +15,10 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button layoutX="83.0" layoutY="69.0" mnemonicParsing="false" onMouseClicked="#onClickedMutarACriadero" text="Mutar a Criadero" />
-      <Button layoutX="39.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#onClickedMutarAReservaDeReproduccion" text="Mutar a Reserva de Reproducción" />
-      <Button layoutX="90.0" layoutY="187.0" mnemonicParsing="false" onMouseClicked="#onClickedMutarAEspiral" text="Mutar a Espiral" />
-      <Button layoutX="86.0" layoutY="151.0" mnemonicParsing="false" onMouseClicked="#onClickedMutarAGuarida" text="Mutar a Guarida" />
+      <Button fx:id="btnMutarACriadero" disable="true" layoutX="83.0" layoutY="69.0" mnemonicParsing="false" onMouseClicked="#onClickedMutarACriadero" text="Mutar a Criadero" />
+      <Button fx:id="btnMutarAReserva" disable="true" layoutX="39.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#onClickedMutarAReservaDeReproduccion" text="Mutar a Reserva de Reproducción" />
+      <Button fx:id="btnMutarAEspiral" disable="true" layoutX="90.0" layoutY="187.0" mnemonicParsing="false" onMouseClicked="#onClickedMutarAEspiral" text="Mutar a Espiral" />
+      <Button fx:id="btnMutarAGuarida" disable="true" layoutX="86.0" layoutY="151.0" mnemonicParsing="false" onMouseClicked="#onClickedMutarAGuarida" text="Mutar a Guarida" />
       <Pane layoutX="74.0" layoutY="329.0" prefHeight="82.0" prefWidth="124.0">
          <children>
             <Button layoutX="49.0" layoutY="56.0" mnemonicParsing="false" onMouseClicked="#onClickedMoverAbajo" text="▼" />
@@ -32,6 +32,6 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button fx:id="btnMutarExtractor" layoutX="82.0" layoutY="234.0" mnemonicParsing="false" onMouseClicked="#onClickedMutarExtractor" text="Mutar a Extractor" />
+      <Button fx:id="btnMutarExtractor" disable="true" layoutX="82.0" layoutY="234.0" mnemonicParsing="false" onMouseClicked="#onClickedMutarExtractor" text="Mutar a Extractor" />
    </children>
 </AnchorPane>
