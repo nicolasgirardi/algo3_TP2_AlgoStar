@@ -139,7 +139,10 @@ public class Ubicacion {
     }
 
     public Volcan getVolcan() {
-        return (Volcan) recurso;
+        if(recurso instanceof Volcan){
+            return (Volcan) recurso;
+        }
+        return null;
     }
     public Edificio getEdificio(){
         return edificio;

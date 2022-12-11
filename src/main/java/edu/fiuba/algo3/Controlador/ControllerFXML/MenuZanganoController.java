@@ -1,31 +1,28 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
-import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
-import edu.fiuba.algo3.Vista.Botones.Unidades.BotonZangano;
+import edu.fiuba.algo3.Vista.Botones.Unidades.BotonUnidad;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
-import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
-public class MenuZanganoController {
+public class MenuZanganoController extends UnidadMovibleController {
 
     @FXML
     public AnchorPane contenerdorMenu;
 
-    private JuegoModelo juegoModelo;
-    private GridPane tablero;
-    private VBox vBoxMenu;
-    private Ubicacion ubicacion;
-    private BotonZangano botonZangano;
+    @FXML
+    public Button btnMutarExtractor;
+
     private RazaZerg razaZerg;
+
 
     @FXML
     public void onClickedMoverArriba(MouseEvent event) {
@@ -77,6 +74,10 @@ public class MenuZanganoController {
                 " vertical: "+ String.valueOf(unidad.ubicacion().coordenada().vertical()));
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
     }
+    @FXML
+    public void onClickedMutarExtractor(MouseEvent event) {
+
+    }
 
     @FXML
     public void onClickedMutarACriadero(MouseEvent event) {
@@ -100,31 +101,15 @@ public class MenuZanganoController {
 
     }
 
-    public void setElements(GridPane tablero, VBox vBoxMenu ,Ubicacion ubicacion, BotonZangano botonZangano, JuegoModelo juegoModelo) {
-        this.juegoModelo = juegoModelo;
-        this.tablero = tablero;
-        this.ubicacion = ubicacion;
-        this.vBoxMenu = vBoxMenu;
-        this.botonZangano = botonZangano;
+    @Override
+    public void setElements(GridPane tablero, VBox vBoxMenu , Ubicacion ubicacion, BotonUnidad botonUnidad, JuegoModelo juegoModelo) {
+        super.setElements(tablero,vBoxMenu,ubicacion,botonUnidad,juegoModelo);
         this.razaZerg =  (RazaZerg) juegoModelo.getJugadorActivo().getRaza();
-    }
-
-    private Node findNodoDelGridPane(int posHorizontal, int posVertical) {
-        for (Node node : tablero.getChildren()) {
-            if (GridPane.getColumnIndex(node) == posHorizontal && GridPane.getRowIndex(node) == posVertical) {
-                return node;
-            }
+        if(ubicacion.getVolcan() == null){
+            this.btnMutarExtractor.setVisible(false);
         }
-        return null;
-    }
-    private void moverUnidadGraficamente(Coordenada nuevaCoordenada){
 
-        System.out.println("horizontal: "+ String.valueOf(nuevaCoordenada.horizontal()) + " vertical: "+ String.valueOf(nuevaCoordenada.vertical()));
-        botonZangano.moverZangano();
-        BotonCeldaTablero botonNuevaCordenada = (BotonCeldaTablero) findNodoDelGridPane(nuevaCoordenada.horizontal(),nuevaCoordenada.vertical());
-        botonNuevaCordenada.borrarBotonDelTablero();
-        BotonZangano nuevoBotonZangano = new BotonZangano(botonNuevaCordenada);
-        tablero.add(nuevoBotonZangano,nuevaCoordenada.horizontal(), nuevaCoordenada.vertical());
-        nuevoBotonZangano.fire();
     }
+
 }
+

@@ -21,7 +21,7 @@ import javafx.scene.layout.*;
 import java.io.File;
 import java.net.URL;
 
-public class BotonZangano extends BotonCeldaTablero {
+public class BotonZangano extends BotonUnidad {
 
     private BotonCeldaTablero botonSuperficie;
 
@@ -42,36 +42,23 @@ public class BotonZangano extends BotonCeldaTablero {
     @Override
     public void actualizar(Jugador jugadorActivo) {
         ID_RAZA raza = jugadorActivo.getRaza().getEntidad();
-        FXMLLoader vistaMenu = new FXMLLoader();
-        URL url = null;
-        Pane layoutVista = null;
 
         if(raza.equals(ID_RAZA.PROTOSS)){
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_ATACAR_ENEMIGO));
-            vistaMenu.setLocation(url);
-            layoutVista = CargadorFXML.prepararLayout(vistaMenu);
-            MenuAtacarEnemigoController controller = vistaMenu.getController();
-            //controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
+            this.cargarMenuEnemigo();
         }else{
-            url = this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_ZANGANO));
-            vistaMenu.setLocation(url);
-            layoutVista = CargadorFXML.prepararLayout(vistaMenu);
+            FXMLLoader vistaMenu = new FXMLLoader(this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_ZANGANO)));
+            Pane layoutVista = CargadorFXML.prepararLayout(vistaMenu);
             MenuZanganoController controller = vistaMenu.getController();
             controller.setElements(tablero,vBoxMenu,ubicacion,this,juegoModelo);
+            Pane finalLayoutVista = layoutVista;
+
+            this.setOnAction(event -> {
+                vBoxMenu.getChildren().clear();
+                vBoxMenu.getChildren().addAll(finalLayoutVista);
+            });
         }
 
-        Pane finalLayoutVista = layoutVista;
-
-        this.setOnAction(event -> {
-            vBoxMenu.getChildren().clear();
-            vBoxMenu.getChildren().addAll(finalLayoutVista);
-        });
 
     }
 
-    public void moverZangano(){
-        this.borrarBotonDelTablero();
-        juegoModelo.subscribirseJugadorActivo(botonSuperficie);
-        tablero.add(botonSuperficie,ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
-    }
 }

@@ -5,6 +5,7 @@ import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonExtractor;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -25,6 +26,8 @@ public class MenuVolcanZergController {
         this.tablero = tablero;
         this.ubicacion = ubicacion;
         this.juegoModelo = juegoModelo;
+
+
     }
 
     @FXML
@@ -33,4 +36,6 @@ public class MenuVolcanZergController {
         BotonExtractor botonExtractor = new BotonExtractor(botonCeldaTablero);
         tablero.add(botonExtractor, ubicacion.coordenada().horizontal(), ubicacion.coordenada().vertical() );
     }
+
 }
+
