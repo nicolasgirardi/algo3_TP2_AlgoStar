@@ -27,51 +27,27 @@ public class MenuZanganoController extends UnidadMovibleController {
     @FXML
     public void onClickedMoverArriba(MouseEvent event) {
         Unidad unidad = ubicacion.getUnidad();
-        System.out.println("Ubicacion actual Antes de mover de arriba");
-        System.out.println("horizontal: "+ String.valueOf(unidad.ubicacion().coordenada().horizontal() ) +
-                " vertical: "+ String.valueOf(unidad.ubicacion().coordenada().vertical()));
         unidad.moverseArriba();
-        System.out.println("Ubicacion actual Despues de mover de arriba");
-        System.out.println("horizontal: "+ String.valueOf(unidad.ubicacion().coordenada().horizontal() ) +
-                " vertical: "+ String.valueOf(unidad.ubicacion().coordenada().vertical()));
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
     }
     @FXML
     public void onClickedMoverAbajo(MouseEvent event) {
         Unidad unidad = ubicacion.getUnidad();
-        System.out.println("Ubicacion actual Antes de mover de abajo");
-        System.out.println("horizontal: "+ String.valueOf(unidad.ubicacion().coordenada().horizontal() ) +
-                " vertical: "+ String.valueOf(unidad.ubicacion().coordenada().vertical()));
         unidad.moverseAbajo();
-        System.out.println("Ubicacion actual Despues de mover de abajo");
-        System.out.println("horizontal: "+ String.valueOf(unidad.ubicacion().coordenada().horizontal() ) +
-                " vertical: "+ String.valueOf(unidad.ubicacion().coordenada().vertical()));
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
     }
 
     @FXML
     public void onClickedMoverDerecha(MouseEvent event) {
         Unidad unidad = ubicacion.getUnidad();
-        System.out.println("Ubicacion actual Antes de mover de derecha");
-        System.out.println("horizontal: "+ String.valueOf(unidad.ubicacion().coordenada().horizontal() ) +
-                " vertical: "+ String.valueOf(unidad.ubicacion().coordenada().vertical()));
         unidad.moverseDerecha();
-        System.out.println("Ubicacion actual Despues de mover de derecha");
-        System.out.println("horizontal: "+ String.valueOf(unidad.ubicacion().coordenada().horizontal() ) +
-                " vertical: "+ String.valueOf(unidad.ubicacion().coordenada().vertical()));
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
     }
 
     @FXML
     public void onClickedMoverIzquierda(MouseEvent event) {
         Unidad unidad = ubicacion.getUnidad();
-        System.out.println("Ubicacion actual Antes de mover de izquierda ");
-        System.out.println("horizontal: "+ String.valueOf(unidad.ubicacion().coordenada().horizontal() ) +
-                " vertical: "+ String.valueOf(unidad.ubicacion().coordenada().vertical()));
         unidad.moverseIzquierda();
-        System.out.println("Ubicacion actual despues de mover de izquierda");
-        System.out.println("horizontal: "+ String.valueOf(unidad.ubicacion().coordenada().horizontal() ) +
-                " vertical: "+ String.valueOf(unidad.ubicacion().coordenada().vertical()));
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
     }
     @FXML
@@ -108,7 +84,6 @@ public class MenuZanganoController extends UnidadMovibleController {
         if(ubicacion.getVolcan() == null){
             this.btnMutarExtractor.setVisible(false);
         }
-
     }
 
 }
