@@ -12,6 +12,7 @@ public class CargadorFXML {
 
     static{
         MAP_RUTAS_FXML = new HashMap<>();
+        MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_CRIADERO, "/VistaFxml/Menus/MenuVacio.fxml");
         MAP_RUTAS_FXML.put(RUTAS_FXML.INTERFACE_JUEGO, "/VistaFxml/interfazJuego.fxml");
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_CRIADERO, "/VistaFxml/Menus/EdificioZerg/MenuCriadero.fxml");
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_PILON, "/VistaFxml/Menus/EdificioProtoss/MenuPilon.fxml");

@@ -7,21 +7,22 @@ import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonGuarida;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonReservaDeReproduccion;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonUnidad;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Espiral;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Guarida;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.ReservaDeReproduccion;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.*;
+import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
+import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.TIPOSUPERFICIE;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.Unidad.UnidadNoOperativaError;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -46,6 +47,19 @@ public class MenuZanganoController extends UnidadMovibleController {
 
     @FXML
     public Button btnMutarAReserva;
+
+
+    @FXML
+    public Button btnEntrarEnExtractor;
+
+    @FXML
+    public Button btnExtraerMineral;
+
+    @FXML
+    public Label lblCantidadMineralNodo;
+
+    @FXML
+    public Label lblTextMineralRestante;
 
     private RazaZerg razaZerg;
 
@@ -180,6 +194,29 @@ public class MenuZanganoController extends UnidadMovibleController {
         }
     }
 
+    @FXML
+    public void onClickedEntrarEnExtractor(MouseEvent event) {
+        Extractor extractor = (Extractor) ubicacion.getEdificio();
+        Zangano zangano = (Zangano) ubicacion.getUnidad();
+        extractor.agregarZangano(zangano);
+        botonUnidad.borrarBotonDelTablero();
+    }
+
+    @FXML
+    public void onClickedExtraerMineral(MouseEvent event) {
+        Zangano zangano = (Zangano) ubicacion.getUnidad();
+        NodoMineral nodoMineral = ubicacion.getNodoMineral();
+        GestionRecurso mineralExtraido = zangano.extraerMineral(nodoMineral);
+        razaZerg.aumentarMineral(mineralExtraido);
+        this.lblCantidadMineralNodo.setText(String.valueOf(nodoMineral.cantidadRecurso()));
+        botonUnidad.requestFocus();
+    }
+
+
+    private boolean ubicacionTieneMoho(){
+        return ubicacion.getTipoSuperficie().equals(TIPOSUPERFICIE.MOHO);
+    }
+
     @Override
     public void setElements(GridPane tablero, VBox vBoxMenu , Ubicacion ubicacion, BotonUnidad botonUnidad, JuegoModelo juegoModelo) {
         super.setElements(tablero,vBoxMenu,ubicacion,botonUnidad,juegoModelo);
@@ -197,16 +234,22 @@ public class MenuZanganoController extends UnidadMovibleController {
                 this.btnMutarAGuarida.setDisable(true);
                 this.btnMutarAReserva.setDisable(true);
             }
-           if(ubicacion.getVolcan() != null){
-               this.btnMutarExtractor.setDisable(false);
-           }
+            if(ubicacion.getVolcan() != null){
+                this.btnMutarExtractor.setDisable(false);
+            }
 
         }
+        NodoMineral nodoMineral = ubicacion.getNodoMineral();
+        if(nodoMineral != null){
+            this.btnExtraerMineral.setDisable(false);
+            this.lblTextMineralRestante.setVisible(true);
+            this.lblCantidadMineralNodo.setVisible(true);
+            this.lblCantidadMineralNodo.setText(String.valueOf(nodoMineral.cantidadRecurso()));
+        }
 
-    }
 
-    private boolean ubicacionTieneMoho(){
-        return ubicacion.getTipoSuperficie().equals(TIPOSUPERFICIE.MOHO);
+        // falta ver el extractor
+
     }
 
 }

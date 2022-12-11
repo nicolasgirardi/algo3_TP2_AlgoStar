@@ -2,6 +2,7 @@ package edu.fiuba.algo3.Controlador;
 
 public enum RUTAS_FXML {
     INTERFACE_JUEGO,
+    MENU_VACIO,
     MENU_CRIADERO,
     MENU_PILON,
     MENU_NODO_MINERAL_PROTOSS,

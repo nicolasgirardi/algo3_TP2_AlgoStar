@@ -19,6 +19,7 @@ public abstract class BotonUnidad extends BotonCeldaTablero {
     public void colocarSuperficie(){
         this.borrarBotonDelTablero();
         juegoModelo.subscribirseJugadorActivo(botonSuperficie);
+        botonSuperficie.actualizar(juegoModelo.getJugadorActivo());
         tablero.add(botonSuperficie,ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
     }
 

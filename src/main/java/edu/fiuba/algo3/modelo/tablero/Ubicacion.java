@@ -135,7 +135,10 @@ public class Ubicacion {
     }
 
     public NodoMineral getNodoMineral() {
-        return (NodoMineral) recurso;
+        if(recurso instanceof NodoMineral){
+            return (NodoMineral) recurso;
+        }
+        return null;
     }
 
     public Volcan getVolcan() {
