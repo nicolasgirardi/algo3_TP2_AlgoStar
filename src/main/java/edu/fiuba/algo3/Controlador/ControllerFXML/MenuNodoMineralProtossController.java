@@ -23,11 +23,13 @@ public class MenuNodoMineralProtossController {
 
     @FXML
     public void onClickedConstruirNexoMineral(MouseEvent event) {
-        NexoMineral nexoMineral = new NexoMineral(ubicacion.getNodoMineral());
+        NexoMineral nexoMineral = new NexoMineral(ubicacion.getNodoMineral(),ubicacion);
         try {
             razaProtoss.agregarEdificio(nexoMineral);
             botonRecursoMineral.borrarBotonDelTablero();
-            tablero.add(new BotonNexoMineral(botonRecursoMineral),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            BotonNexoMineral botonNexoMineral = new BotonNexoMineral(botonRecursoMineral);
+            botonNexoMineral.fire();
+            tablero.add(botonNexoMineral,ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         }catch (Exception e){
             MostradorAlertas.mostrarAlerta(e);
         }

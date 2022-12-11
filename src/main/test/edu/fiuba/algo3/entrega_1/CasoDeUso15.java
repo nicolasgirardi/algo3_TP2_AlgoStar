@@ -8,6 +8,8 @@ import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
+import edu.fiuba.algo3.modelo.tablero.Coordenada;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -117,7 +119,8 @@ public class CasoDeUso15 {
     @Test
     public void RazaProtossDejaDeConseguirMineralCuandoDelNodoMineralCuandoSeQuedaSinUnidadesDeMineral(){
         //Arrange
-        NexoMineral nexoMineral = new NexoMineral( new NodoMineral() );
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        NexoMineral nexoMineral = new NexoMineral( new NodoMineral(),ubicacion );
 
         // dejo el Asimilador operrable en 6 turnos
         for(int i = 0; i <4; i++ ){

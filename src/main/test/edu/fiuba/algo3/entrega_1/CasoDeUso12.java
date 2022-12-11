@@ -17,7 +17,8 @@ public class CasoDeUso12 {
 
         //HitPoints HPmock = mock(HitPoints.class);
         HitPoints HP = new HPProtoss(250,250);
-        Edificio edificio = new NexoMineral(new NodoMineral()); //podría ser cualquier edificio
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        Edificio edificio = new NexoMineral(new NodoMineral(),ubicacion); //podría ser cualquier edificio
         edificio.asignarHP(HP);
         edificio.recibirDaño(300);
         //when(HPmock.vida()).thenReturn(200);

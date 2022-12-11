@@ -20,11 +20,7 @@ public abstract class Edificio implements Atacable {
     protected Raza raza;
     private HitPoints hp;
 
-    public Edificio(int turnosRestantesParaSerOperativo, int mineralNecesario, int gasNecesario){
-        this.turnosRestantesParaSerOperativo = turnosRestantesParaSerOperativo;
-        this.costoMineral = mineralNecesario;
-        this.costoGas = gasNecesario;
-    }
+
     public Edificio(int turnosRestantesParaSerOperativo,HitPoints HP, int mineralNecesario, int gasNecesario){
         this.turnosRestantesParaSerOperativo = turnosRestantesParaSerOperativo;
         this.hp = HP;

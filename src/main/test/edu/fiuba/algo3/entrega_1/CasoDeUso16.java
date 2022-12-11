@@ -9,6 +9,8 @@ import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.RecursoOcupadoError;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
+import edu.fiuba.algo3.modelo.tablero.Coordenada;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -54,7 +56,8 @@ public class CasoDeUso16 {
     public void testUnNodoMineralTieneUnNexoNoDeberiaPoderRecibirUnZangano(){
 
         NodoMineral nodoMineral = new NodoMineral();
-        NexoMineral nexoMineral = new NexoMineral(nodoMineral);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        NexoMineral nexoMineral = new NexoMineral(nodoMineral,ubicacion);
         Zangano zangano = new Zangano(new HPZerg(25));
 
         assertThrows( RecursoOcupadoError.class, ()-> {
@@ -68,9 +71,10 @@ public class CasoDeUso16 {
         NodoMineral nodoMineral = new NodoMineral();
         Zangano zangano = new Zangano(new HPZerg(25));
         nodoMineral.agregarZangano(zangano);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
 
         assertThrows( RecursoOcupadoError.class, ()-> {
-            NexoMineral nexoMineral = new NexoMineral(nodoMineral);
+            NexoMineral nexoMineral = new NexoMineral(nodoMineral,ubicacion);
         });
     }
 

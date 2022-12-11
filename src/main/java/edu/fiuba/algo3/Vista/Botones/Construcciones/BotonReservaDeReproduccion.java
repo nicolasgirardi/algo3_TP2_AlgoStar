@@ -10,13 +10,13 @@ import edu.fiuba.algo3.modelo.Juego.Jugador;
 public class BotonReservaDeReproduccion extends BotonCeldaTablero {
 
     public BotonReservaDeReproduccion(BotonCeldaTablero botonACopiar){
-        super(botonACopiar, "images/espiral.png", RUTAS_FXML.MENU_ATACAR_ENEMIGO,RUTAS_FXML.MENU_VACIO);
+        super(botonACopiar, "images/reservaDeReproduccion.png", RUTAS_FXML.MENU_ATACAR_ENEMIGO,RUTAS_FXML.MENU_VACIO);
     }
     @Override
     public void setElmentsController() {
         Jugador jugadorActivo = juegoModelo.getJugadorActivo();
         ID_RAZA razaActiva = jugadorActivo.getRaza().getEntidad();
-        if(razaActiva.equals(ID_RAZA.PROTOSS)){
+        if(razaActiva.equals(ID_RAZA.ZERG)){
             //MenuAsimiladorController controller = vistaMenu.getController();
             //controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
         }else{

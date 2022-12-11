@@ -29,24 +29,29 @@ public class MostradorAlertas {
 
 
    public static void mostrarAlerta(Exception e){
-       String mensaje = null;
        if(mensajesErrores.containsKey(e.getClass().getName())){
-           mensaje = mensajesErrores.get(e.getClass().getName());
+           String mensaje = mensajesErrores.get(e.getClass().getName());
+           mostrarAlerta(mensaje);
        }else{
-           mensaje = "Error no registrado: " + e.getClass().getName();
+           System.out.println("Error no registrado: " + e.getClass().getName());
+           e.printStackTrace();
        }
-       alerta.setContentText(mensaje);
-       alerta.showAndWait();
+
    }
 
     public static void mostrarAlerta(Exception e, String mensajeAConcatenar){
-        String mensaje = null;
         if(mensajesErrores.containsKey(e.getClass().getName())){
-            mensaje = mensajesErrores.get(e.getClass().getName());
+            String mensaje = mensajesErrores.get(e.getClass().getName());
+            mostrarAlerta(mensaje.concat(mensajeAConcatenar));
         }else{
-            mensaje = "Error no registrado: " + e.getClass().getName();
+            System.out.println("Error no registrado: " + e.getClass().getName());
+            e.printStackTrace();
         }
-        alerta.setContentText(mensaje.concat(mensajeAConcatenar));
+
+    }
+
+    static private void mostrarAlerta(String mensaje){
+        alerta.setContentText(mensaje);
         alerta.showAndWait();
     }
 }

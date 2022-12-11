@@ -57,7 +57,9 @@ public class JuegoVista {
                     }
 
                 } catch (Exception e){
-                    System.out.println(e);
+                    System.out.println("Juego vista imprime error");
+                    e.printStackTrace();
+
                 }
             }
         }

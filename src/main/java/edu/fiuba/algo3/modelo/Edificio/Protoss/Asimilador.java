@@ -70,7 +70,6 @@ public class Asimilador extends Edificio {
     @Override
     public void ejecutarTurno(){
         super.ejecutarTurno();
-        extraer();
     }
 
 }

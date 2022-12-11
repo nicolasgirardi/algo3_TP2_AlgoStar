@@ -241,7 +241,8 @@ public class CasoDeUso2 {
     public void testEdificoNexoMineralCon4TurnosParaSerOperativoSeLeMandaRecolectarMineralDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
         //Arrange
         NodoMineral nodoMineral = new NodoMineral();
-        NexoMineral nexoMineral = new NexoMineral(nodoMineral);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        NexoMineral nexoMineral = new NexoMineral(nodoMineral,ubicacion);
         //Acy y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
             nexoMineral.extraer();
@@ -252,7 +253,8 @@ public class CasoDeUso2 {
     public void testEdificoNexoMineralCon4TurnosSeEjecuta2TurnosParaSerOperativoYSeLeMandaRecolectarMineralDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
         //Arrange
         NodoMineral nodoMineral = new NodoMineral();
-        NexoMineral nexoMineral = new NexoMineral(nodoMineral);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        NexoMineral nexoMineral = new NexoMineral(nodoMineral,ubicacion);
 
         //Act
         nexoMineral.ejecutarTurno();
@@ -268,7 +270,8 @@ public class CasoDeUso2 {
     public void testEdificoNexoMineralCon4TurnosParaSerOperativoSeEjecuta4TurnosYSeLeMandaRecolectarMineralNoDeberiaLanzarExcepcionPorqueYaEstaOperativo(){
         //Arrange
         NodoMineral nodoMineral = new NodoMineral();
-        NexoMineral nexoMineral = new NexoMineral(nodoMineral);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        NexoMineral nexoMineral = new NexoMineral(nodoMineral,ubicacion);
 
         //Act
         nexoMineral.ejecutarTurno();
