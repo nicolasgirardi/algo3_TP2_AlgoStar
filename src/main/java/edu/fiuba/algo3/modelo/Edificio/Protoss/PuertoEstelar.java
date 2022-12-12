@@ -64,9 +64,11 @@ public class PuertoEstelar extends Edificio {
         throw new ConstruccionProtoEnMohoError();
     }
 
-    public void crearScout() {
+    public Scout crearScout() {
+        verififarEdificioOperativo();
         Scout scout = new Scout();
         raza.agregarUnidad(scout);
+        return scout;
     }
 
     @Override

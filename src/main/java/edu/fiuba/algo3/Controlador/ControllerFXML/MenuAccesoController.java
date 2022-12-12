@@ -62,18 +62,6 @@ public class MenuAccesoController {
         }
     }
 
-    @FXML
-    public void onClickedConstruirScout(MouseEvent event) {
-        ArrayList<Ubicacion> ubicacionesManhattan =  juegoModelo.getMapa().buscar( ubicacion.coordenada(), 2);
-        Acceso acceso = (Acceso) ubicacion.getEdificio();
-        for(Ubicacion ubicacionMah : ubicacionesManhattan){
-            if(ubicacionMah.estaLibre()){
-                agregarScout(ubicacionMah, acceso);
-                break;
-            }
-        }
-
-    }
     private void agregarDragon(Ubicacion ubicacionMah, Acceso acceso){
         Coordenada coordLibre = ubicacionMah.coordenada();
         try {
@@ -105,21 +93,6 @@ public class MenuAccesoController {
         }
     }
 
-    private void agregarScout(Ubicacion ubicacionMah, Acceso acceso) {
-        Coordenada coordLibre = ubicacionMah.coordenada();
-        try {
-            ubicacionMah.asignarUnidad(acceso.crearScout());
-            BotonScout botonScout = new BotonScout( eliminarBotonAntiguo(coordLibre) );
-            tablero.add(botonScout, coordLibre.horizontal() , coordLibre.vertical() );
-        } catch ( PoblacionExedidaError e) {
-            MostradorAlertas.mostrarAlerta(e, "Construya mas pilones");
-        } catch ( InsuficientesRecursosParaCrearUnidadError e){
-            MostradorAlertas.mostrarAlerta(e, "No se puede crear el scout");
-        } catch (EdificioNoOperativoError e){
-            MostradorAlertas.mostrarAlerta(e);
-        }
-
-    }
 
 
     BotonCeldaTablero eliminarBotonAntiguo(Coordenada coordLibre){

@@ -4,6 +4,7 @@ import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.BotonTierra;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonAcceso;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEdificioPilon;
+import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonPuertoEstelar;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
@@ -65,7 +66,7 @@ public class MenuTierraProtossController {
             PuertoEstelar puertoEstelar = new PuertoEstelar(ubicacion);
             razaProtoss.agregarEdificio(puertoEstelar);
             botonTierra.borrarBotonDelTablero();
-            tablero.add(new BotonAcceso(botonTierra),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            tablero.add(new BotonPuertoEstelar(botonTierra),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         }
         catch (CorrelativaDeConstruccionIncumplidaError e ){
             MostradorAlertas.mostrarAlerta(e,"Necesitas un Acceso para construir");
@@ -73,8 +74,6 @@ public class MenuTierraProtossController {
         catch( Exception e){
             MostradorAlertas.mostrarAlerta(e);
         }
-
-
 
     }
 

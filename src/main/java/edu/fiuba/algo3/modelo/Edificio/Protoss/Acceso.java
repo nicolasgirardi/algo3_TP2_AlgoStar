@@ -78,13 +78,6 @@ public class Acceso extends Edificio {
         raza.agregarUnidad(dragon);
         return dragon;
     }
-    public Scout crearScout(){
-        verififarEdificioOperativo();
-        Scout scout = new Scout();
-        raza.agregarUnidad(scout);
-        return scout;
-    }
-
 
     @Override
     public void ubicar(Ubicacion unLugar){
