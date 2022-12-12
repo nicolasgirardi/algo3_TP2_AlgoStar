@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.*;
 
 public class BotonEdificioCriadero extends BotonCeldaTablero {
@@ -20,12 +21,14 @@ public class BotonEdificioCriadero extends BotonCeldaTablero {
     public void setElmentsController() {
         Jugador jugadorActivo = juegoModelo.getJugadorActivo();
         ID_RAZA razaActiva = jugadorActivo.getRaza().getEntidad();
+        Criadero criadero = (Criadero) ubicacion.getEdificio();
         if(razaActiva.equals(ID_RAZA.ZERG)){
             MenuCriaderoController controller = vistaMenu.getController();
-            controller.setElements((Criadero) ubicacion.getEdificio(),vBoxMenu, tablero,juegoModelo,getTAMANIO());
+            controller.setElements(criadero ,vBoxMenu, tablero,juegoModelo,getTAMANIO());
         }else{
             MenuAtacarEnemigoController controller = vistaMenu.getController();
         }
+        this.setTooltip(new Tooltip("Larvas restantes: " + criadero.getCantidadLarvas()));
     }
 }
 
