@@ -40,8 +40,7 @@ public class MenuReservaDeReproduccionController {
         try{
             reservaDeReproduccion.asignarRaza(jugador.getRaza());
             //reservaDeReproduccion.crearZerling(Larva larva);
-            //hacer que se recorra a los edificios de raza y cuando encuentra al criadero que le saque una larva.
-            RazaZerg razaZerg = new RazaZerg();
+            RazaZerg razaZerg;
             razaZerg = (RazaZerg) juegoModelo.getJugadorZerg().getRaza();
             Larva larva = razaZerg.getLarva();
 
