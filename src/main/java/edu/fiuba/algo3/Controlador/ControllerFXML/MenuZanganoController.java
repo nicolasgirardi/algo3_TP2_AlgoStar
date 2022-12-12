@@ -167,6 +167,7 @@ public class MenuZanganoController extends UnidadMovibleController {
             razaZerg.agregarEdificio(guarida);
             //Zangano zangano = (Zangano) ubicacion.getUnidad();
             //zangano.mutarGuarida(razaZerg);
+            ubicacion.ubicar(guarida);
             botonUnidad.borrarBotonDelTablero();
             tablero.add(new BotonGuarida(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         } catch ( RecursosInsuficientesError e ){
@@ -185,13 +186,14 @@ public class MenuZanganoController extends UnidadMovibleController {
             //zangano.mutarReservaReproduccion(razaZerg);
             ReservaDeReproduccion reservaDeReproduccion = new ReservaDeReproduccion();
             razaZerg.agregarEdificio(reservaDeReproduccion);
+            ubicacion.ubicar(reservaDeReproduccion);
             botonUnidad.borrarBotonDelTablero();
             tablero.add(new BotonReservaDeReproduccion(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         } catch (RecursosInsuficientesError e) {
             MostradorAlertas.mostrarAlerta(e,"una Reserva De Reproduccion");
-        } /*catch( Exception e){
+        } catch( Exception e){
             MostradorAlertas.mostrarAlerta(e);
-        }*/
+        }
     }
 
     @FXML

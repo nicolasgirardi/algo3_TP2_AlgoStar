@@ -32,6 +32,7 @@ public class MenuMohoZergController {
         try{
             Guarida guarida = new Guarida();
             razaZerg.agregarEdificio(guarida);
+            ubicacion.ubicar(guarida);
             botonMoho.borrarBotonDelTablero();
             tablero.add(new BotonGuarida(botonMoho),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         } catch ( RecursosInsuficientesError e ){
@@ -66,6 +67,7 @@ public class MenuMohoZergController {
         try{
             ReservaDeReproduccion reservaDeReproduccion = new ReservaDeReproduccion();
             razaZerg.agregarEdificio(reservaDeReproduccion);
+            ubicacion.ubicar(reservaDeReproduccion);
             botonMoho.borrarBotonDelTablero();
             tablero.add(new BotonReservaDeReproduccion(botonMoho),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         } catch (RecursosInsuficientesError e) {
