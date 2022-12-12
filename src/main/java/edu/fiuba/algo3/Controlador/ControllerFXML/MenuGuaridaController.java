@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
+import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonHidralisco;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonZerling;
+import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Guarida;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
@@ -32,10 +34,10 @@ public class MenuGuaridaController {
         Jugador jugador = juegoModelo.getJugadorActivo();
         try{
             guarida.asignarRaza(jugador.getRaza());
-            //reservaDeReproduccion.crearZerling(Larva larva);
             RazaZerg razaZerg;
             razaZerg = (RazaZerg) juegoModelo.getJugadorZerg().getRaza();
             Larva larva = razaZerg.getLarva();
+            guarida.evolucionarLarvaAHidra(larva);
 
             boolean agregado = false;
 
@@ -69,7 +71,9 @@ public class MenuGuaridaController {
             alert.setTitle("Error");
             alert.setContentText("No hay larvas en ningun criadero");
             alert.showAndWait();
-        } catch (Exception e){
+        } catch (EdificioNoOperativoError e){
+            MostradorAlertas.mostrarAlerta(e);
+        }  catch (Exception e){
             e.printStackTrace();
         }
     }
