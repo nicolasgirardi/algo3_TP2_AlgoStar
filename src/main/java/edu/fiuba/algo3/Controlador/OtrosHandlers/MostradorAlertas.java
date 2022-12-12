@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.ExtractorCantidadMaximaDeZanganosError;
 import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
+import edu.fiuba.algo3.modelo.Unidad.InsuficientesRecursosParaCrearUnidadError;
 import edu.fiuba.algo3.modelo.Unidad.UnidadNoOperativaError;
 import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
 import javafx.scene.control.Alert;
@@ -29,7 +30,8 @@ public class MostradorAlertas {
        mensajesErrores.put(EdificioNoOperativoError.class.getName(), "Error el edificio todavia no esta operativo ");
        mensajesErrores.put(ExtractorCantidadMaximaDeZanganosError.class.getName(), "Error El extractor tiene la maxima cantidad de zanganos");
        mensajesErrores.put( IndexOutOfBoundsException.class.getName(), "El criadero no tiene larvas");
-       mensajesErrores.put(PoblacionExedidaError.class.getName(), "Poblacion excedida construya mas Criaderos o Amos supremos");
+       mensajesErrores.put(PoblacionExedidaError.class.getName(), "Poblacion excedida");
+       mensajesErrores.put(InsuficientesRecursosParaCrearUnidadError.class.getName(), "Insuficientes recursos para crear la unidad ");
    }
 
    public static void mostrarAlerta(Exception e){
@@ -43,7 +45,7 @@ public class MostradorAlertas {
 
    }
 
-    public static void mostrarAlerta(Exception e, String mensajeAConcatenar){
+    public static void  mostrarAlerta(Exception e, String mensajeAConcatenar){
         if(mensajesErrores.containsKey(e.getClass().getName())){
             String mensaje = mensajesErrores.get(e.getClass().getName());
             mostrarAlerta(mensaje.concat(mensajeAConcatenar));

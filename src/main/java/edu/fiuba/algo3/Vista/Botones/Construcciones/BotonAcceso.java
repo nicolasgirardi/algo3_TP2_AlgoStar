@@ -6,6 +6,7 @@ import edu.fiuba.algo3.Controlador.OtrosHandlers.RUTAS_FXML;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.Vista.Botones.BotonTierra;
 import edu.fiuba.algo3.modelo.ID_RAZA;
+import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 
@@ -23,7 +24,7 @@ public class BotonAcceso extends BotonCeldaTablero {
         ID_RAZA razaActiva = jugadorActivo.getRaza().getEntidad();
         if(razaActiva.equals(ID_RAZA.PROTOSS)){
             MenuAccesoController controller = vistaMenu.getController();
-            controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
+            controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this, juegoModelo);
         }else{
             MenuAtacarEnemigoController controller = vistaMenu.getController();
         }
