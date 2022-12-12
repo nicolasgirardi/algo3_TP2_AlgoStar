@@ -1,15 +1,17 @@
 package edu.fiuba.algo3.Vista.Botones.Construcciones;
 
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAtacarEnemigoController;
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuGuaridaController;
 import edu.fiuba.algo3.Controlador.OtrosHandlers.RUTAS_FXML;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Guarida;
 import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 
 public class BotonGuarida extends BotonCeldaTablero {
 
     public BotonGuarida(BotonCeldaTablero botonACopiar){
-        super(botonACopiar, "images/guarida.png", RUTAS_FXML.MENU_ATACAR_ENEMIGO,RUTAS_FXML.MENU_VACIO);
+        super(botonACopiar, "images/guarida.png", RUTAS_FXML.MENU_ATACAR_ENEMIGO,RUTAS_FXML.MENU_GUARIDA);
     }
 
     @Override
@@ -17,8 +19,8 @@ public class BotonGuarida extends BotonCeldaTablero {
         Jugador jugadorActivo = juegoModelo.getJugadorActivo();
         ID_RAZA razaActiva = jugadorActivo.getRaza().getEntidad();
         if(razaActiva.equals(ID_RAZA.ZERG)){
-            //nuAsimiladorController controller = vistaMenu.getController();
-            //controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
+            MenuGuaridaController controller = vistaMenu.getController();
+            controller.setElements((Guarida) ubicacion.getEdificio(),tablero, juegoModelo);
         }else{
             MenuAtacarEnemigoController controller = vistaMenu.getController();
         }
