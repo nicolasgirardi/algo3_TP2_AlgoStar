@@ -142,8 +142,9 @@ public class MenuZanganoController extends UnidadMovibleController {
 
     @FXML
     public void onClickedMutarAEspiral(MouseEvent event) {
-        Espiral espiral = new Espiral();
+
         try {
+            Espiral espiral = new Espiral();
             //Zangano zangano = (Zangano) ubicacion.getUnidad();
             //zangano.mutarEspiral(razaZerg);
             razaZerg.agregarEdificio(espiral);
