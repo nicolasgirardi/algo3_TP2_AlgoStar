@@ -1,12 +1,15 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
+import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonZangano;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
+import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
+import edu.fiuba.algo3.modelo.UnidadesRecurso.Poblacion;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
@@ -87,12 +90,8 @@ public class MenuCriaderoController {
                 }
             }
             lblCantidadLarvas.setText(String.valueOf( criadero.getCantidadLarvas() ));
-        }catch (IndexOutOfBoundsException e){   //si en el criadero no hay mas larvas para evolucionar
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setTitle("Error");
-            alert.setContentText("El criadero no tiene larvas");
-            alert.showAndWait();
+        }catch (IndexOutOfBoundsException | PoblacionExedidaError  e){   //si en el criadero no hay mas larvas para evolucionar
+            MostradorAlertas.mostrarAlerta(e);
         } catch (Exception e){
             e.printStackTrace();
         }

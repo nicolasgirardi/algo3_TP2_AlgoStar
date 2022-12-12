@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.ConstruccionFueraDelRangoPilonError;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.ExtractorCantidadMaximaDeZanganosError;
+import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.Unidad.UnidadNoOperativaError;
 import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
@@ -27,10 +28,9 @@ public class MostradorAlertas {
        mensajesErrores.put(UbicacionOcupadaError.class.getName(), "Error La ubicacion a la que quiere moverse esta ocupada ");
        mensajesErrores.put(EdificioNoOperativoError.class.getName(), "Error el edificio todavia no esta operativo ");
        mensajesErrores.put(ExtractorCantidadMaximaDeZanganosError.class.getName(), "Error El extractor tiene la maxima cantidad de zanganos");
-
-
+       mensajesErrores.put( IndexOutOfBoundsException.class.getName(), "El criadero no tiene larvas");
+       mensajesErrores.put(PoblacionExedidaError.class.getName(), "Poblacion excedida construya mas Criaderos o Amos supremos");
    }
-
 
    public static void mostrarAlerta(Exception e){
        String mensaje = null;
