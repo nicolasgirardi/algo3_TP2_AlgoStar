@@ -30,7 +30,7 @@ public class BotonGenerico extends Button{
         Image imagenFondo = new Image(fileFondo.toURI().toString(),TAMANIO, TAMANIO, true, true );
         BackgroundImage fondoActual = new BackgroundImage(
                 imagenFondo,
-                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER,
                 BackgroundSize.DEFAULT
         );
         if( !rutaImagen.equals("images/tierra.png")){

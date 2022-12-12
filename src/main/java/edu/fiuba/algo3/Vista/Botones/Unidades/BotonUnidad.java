@@ -19,19 +19,4 @@ public abstract class BotonUnidad extends BotonCeldaTablero {
         tablero.add(botonSuperficie,ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
     }
 
-    /*public void cargarMenuEnemigo(){
-        FXMLLoader vistaMenu = new FXMLLoader(this.getClass().getResource(CargadorFXML.MAP_RUTAS_FXML.get(RUTAS_FXML.MENU_ATACAR_ENEMIGO)));
-        Pane layoutVista = CargadorFXML.prepararLayout(vistaMenu);
-        MenuAtacarEnemigoController controller = vistaMenu.getController();
-        //controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
-        Pane finalLayoutVista = layoutVista;
-
-        this.setOnAction(event -> {
-            vBoxMenu.getChildren().clear();
-            vBoxMenu.getChildren().addAll(finalLayoutVista);
-        });
-        //limpiamos la movilidad
-        this.setOnKeyPressed(keyEvent -> {} );
-    }*/
-
 }
