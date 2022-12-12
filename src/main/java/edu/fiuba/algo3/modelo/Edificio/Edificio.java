@@ -39,7 +39,8 @@ public abstract class Edificio implements Atacable {
     }
 
     public void ejecutarTurno() {
-        turnosRestantesParaSerOperativo--;
+        if(turnosRestantesParaSerOperativo > 0)
+            turnosRestantesParaSerOperativo--;
         hp.regenerar();
     }
 
@@ -130,5 +131,15 @@ public abstract class Edificio implements Atacable {
 
     public void asignarRaza(Raza unaRaza){
         raza = unaRaza;
+    }
+
+    public boolean estaOperativo() {
+        if(turnosRestantesParaSerOperativo > 0 ){
+            return false;
+        }
+        return true;
+    }
+    public int getTurnosRestantesParaSerOperativo(){
+        return turnosRestantesParaSerOperativo;
     }
 }

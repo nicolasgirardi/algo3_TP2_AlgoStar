@@ -67,9 +67,5 @@ public class Asimilador extends Edificio {
         throw new ConstruccionProtoEnMohoError();
     }
 
-    @Override
-    public void ejecutarTurno(){
-        super.ejecutarTurno();
-    }
 
 }

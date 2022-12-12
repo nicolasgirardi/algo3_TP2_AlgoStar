@@ -33,6 +33,7 @@ public class CargadorFXML {
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_DRAGON, "/VistaFxml/Menus/UnidadesProtoss/MenuDragon.fxml");
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_SCOUT, "/VistaFxml/Menus/UnidadesProtoss/MenuScout.fxml");
         MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_NEXO_MINERAL, "/VistaFxml/Menus/EdificioProtoss/MenuNexoMineral.fxml");
+        MAP_RUTAS_FXML.put(RUTAS_FXML.MENU_EN_CONSTRUCCION, "/VistaFxml/Menus/MenuEnConstruccion.fxml");
 
     }
 

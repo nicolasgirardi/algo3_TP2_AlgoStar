@@ -79,6 +79,7 @@ public abstract class BotonCeldaTablero extends BotonGenerico implements Observa
         });
     }
 
+
     public abstract void setElmentsController();
 
 }

@@ -78,21 +78,3 @@ public class UnidadMovibleController {
     }
 
 }
-
-
-/*
-* botonZangano.setOnKeyPressed(keyEvent ->{
-            if(keyEvent.getCode() == KeyCode.UP ){
-                this.onClickedMoverArriba();
-            }
-            if(keyEvent.getCode() == KeyCode.DOWN ){
-                this.onClickedMoverAbajo();
-            }
-            if(keyEvent.getCode() == KeyCode.LEFT ){
-                this.onClickedMoverIzquierda();
-            }
-            if(keyEvent.getCode() == KeyCode.UP ){
-                this.onClickedMoverArriba();
-            }
-        });
-* */

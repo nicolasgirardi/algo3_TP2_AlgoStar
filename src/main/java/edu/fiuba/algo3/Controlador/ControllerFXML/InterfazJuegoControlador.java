@@ -76,14 +76,9 @@ public class InterfazJuegoControlador implements ObservadorRazaRecursos {
 
         }
         else{
-            //TODO: cambiarHandlerSuperficieActualZerg() tarda un tiempo considerable ne ejecutarse
             cambiarHandlerSuperficieActualZerg();
             System.out.println("Entro el turno para el jugador de ZERG");
 
-            // cambiamos todos los handleres de todos las tierra
-            // cambiamos de los edifciios
-            // cambiamos los handler de las unidades
-            // cambiamos los handler de los recursos
         }
     }
 
@@ -114,4 +109,6 @@ public class InterfazJuegoControlador implements ObservadorRazaRecursos {
         lblMaximaCantidadPoblacion.setText(String.valueOf(razaActiva.capacidadReal()));
         lblNombreRaza.setText(razaActiva.getEntidad().toString());
     }
+
+
 }

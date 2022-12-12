@@ -165,7 +165,9 @@ public abstract class Raza {
             try {
                 edificio.verififarEdificioOperativo();
                 edificio.ejecutarTurno();
-            }catch (Exception e){}
+            }catch (Exception e){
+                e.printStackTrace();
+            }
 
         });
     }
