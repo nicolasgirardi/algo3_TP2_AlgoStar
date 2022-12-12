@@ -180,6 +180,4 @@ public abstract class Raza {
 
         });
     }
-
-
 }

@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="contenedorPadre" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Controlador.ControllerFXML.MenuNexoMineraController">
+<AnchorPane fx:id="contenedorPadre" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Controlador.ControllerFXML.MenuNexoMineraController">
    <children>
       <AnchorPane fx:id="contenerdorMenu" maxHeight="373.0" maxWidth="272.0" prefHeight="373.0" prefWidth="272.0" style="-fx-border-color: green;">
          <children>
@@ -26,13 +25,13 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblCantidadMineral" layoutX="203.0" text="0">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
                </children>
             </Pane>
+            <Label fx:id="lblCantidadMineral" layoutX="99.0" layoutY="112.0" prefHeight="19.0" prefWidth="94.0" text="0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
