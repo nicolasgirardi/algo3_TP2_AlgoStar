@@ -1,10 +1,8 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
 import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
-import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEspiral;
-import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonExtractor;
-import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonGuarida;
-import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonReservaDeReproduccion;
+import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
+import edu.fiuba.algo3.Vista.Botones.Construcciones.*;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonUnidad;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.*;
@@ -19,9 +17,11 @@ import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -116,6 +116,8 @@ public class MenuZanganoController extends UnidadMovibleController {
 
         Zangano zangano = (Zangano) ubicacion.getUnidad();
         zangano.mutarExtractor(razaZerg);
+        ubicacion.ubicar( (Extractor) zangano.getEstadoZangano() );
+        ubicacion.quitarUnidad();
 
         botonUnidad.borrarBotonDelTablero();
         BotonExtractor botonExtractor = new BotonExtractor(botonUnidad);
@@ -126,13 +128,20 @@ public class MenuZanganoController extends UnidadMovibleController {
     public void onClickedMutarACriadero(MouseEvent event) {
 
         try {
-            //Zangano zangano = (Zangano) ubicacion.getUnidad();
-            //zangano.mutarCriadero(razaZerg);
-            Criadero criadero = new Criadero();
-            razaZerg.agregarEdificio(criadero);
-            ubicacion.ubicar(criadero);
-            botonUnidad.borrarBotonDelTablero();
-            tablero.add(new BotonEspiral(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            Zangano zangano = (Zangano) ubicacion.getUnidad();
+            zangano.mutarCriadero(razaZerg);
+            ubicacion.ubicar( (Criadero) zangano.getEstadoZangano() );
+            ubicacion.quitarUnidad();
+            // la ubicacion dejo de ter una unidad y ahora tiene un edificio que es el zangano
+            //Criadero criadero = new Criadero();
+            //razaZerg.agregarEdificio(criadero);
+            //ubicacion.ubicar(criadero);
+            //botonUnidad.borrarBotonDelTablero();
+            tablero.add(new BotonCriadero(botonUnidad), ubicacion.coordenada().horizontal(), ubicacion.coordenada().vertical());
+
+            BotonCriadero botonCriadero = new BotonCriadero(botonUnidad);
+            botonCriadero.setTooltipLarvasRestantes();
+            tablero.add(botonCriadero, ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         }catch ( RecursosInsuficientesError e ) {
             MostradorAlertas.mostrarAlerta(e,"un Criadero");
         } catch (Exception e){
@@ -144,12 +153,12 @@ public class MenuZanganoController extends UnidadMovibleController {
 
     @FXML
     public void onClickedMutarAEspiral(MouseEvent event) {
-        Espiral espiral = new Espiral();
+
         try {
-            //Zangano zangano = (Zangano) ubicacion.getUnidad();
-            //zangano.mutarEspiral(razaZerg);
-            razaZerg.agregarEdificio(espiral);
-            ubicacion.ubicar(espiral);
+            Zangano zangano = (Zangano) ubicacion.getUnidad();
+            zangano.mutarEspiral(razaZerg);
+            ubicacion.ubicar(  (Espiral) zangano.getEstadoZangano() );
+            ubicacion.quitarUnidad();
             botonUnidad.borrarBotonDelTablero();
             tablero.add(new BotonEspiral(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         }catch ( RecursosInsuficientesError e ) {
@@ -164,11 +173,11 @@ public class MenuZanganoController extends UnidadMovibleController {
     @FXML
     public void onClickedMutarAGuarida(MouseEvent event) {
         try{
-            Guarida guarida = new Guarida();
-            razaZerg.agregarEdificio(guarida);
-            //Zangano zangano = (Zangano) ubicacion.getUnidad();
-            //zangano.mutarGuarida(razaZerg);
-            ubicacion.ubicar(guarida);
+            Zangano zangano = (Zangano) ubicacion.getUnidad();
+            zangano.mutarGuarida(razaZerg);
+            ubicacion.ubicar(  (Guarida) zangano.getEstadoZangano() );
+            ubicacion.quitarUnidad();
+
             botonUnidad.borrarBotonDelTablero();
             tablero.add(new BotonGuarida(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         } catch ( RecursosInsuficientesError e ){
@@ -183,11 +192,11 @@ public class MenuZanganoController extends UnidadMovibleController {
     @FXML
     public void onClickedMutarAReservaDeReproduccion(MouseEvent event) {
         try{
-            //Zangano zangano = (Zangano) ubicacion.getUnidad();
-            //zangano.mutarReservaReproduccion(razaZerg);
-            ReservaDeReproduccion reservaDeReproduccion = new ReservaDeReproduccion();
-            razaZerg.agregarEdificio(reservaDeReproduccion);
-            ubicacion.ubicar(reservaDeReproduccion);
+            Zangano zangano = (Zangano) ubicacion.getUnidad();
+            zangano.mutarReservaReproduccion(razaZerg);
+            ubicacion.ubicar(  (ReservaDeReproduccion) zangano.getEstadoZangano() );
+            ubicacion.quitarUnidad();
+
             botonUnidad.borrarBotonDelTablero();
             tablero.add(new BotonReservaDeReproduccion(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         } catch (RecursosInsuficientesError e) {
@@ -224,7 +233,7 @@ public class MenuZanganoController extends UnidadMovibleController {
     public void setElements(GridPane tablero, VBox vBoxMenu , Ubicacion ubicacion, BotonUnidad botonUnidad, JuegoModelo juegoModelo) {
         super.setElements(tablero,vBoxMenu,ubicacion,botonUnidad,juegoModelo);
 
-        if(ubicacion.getUnidad().esOperativo()){
+        if(!ubicacion.getUnidad().esOperativo()){
             int cantidadTurnosParaSerOperativo = ubicacion.getUnidad().getTurnosRestantesParaSerOperativo();
             contenerdorMenu.getChildren().clear();
             contenerdorMenu.getChildren().addAll(cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo));

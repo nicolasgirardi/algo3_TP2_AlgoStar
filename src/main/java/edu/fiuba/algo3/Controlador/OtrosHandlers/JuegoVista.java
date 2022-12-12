@@ -1,18 +1,21 @@
 package edu.fiuba.algo3.Controlador.OtrosHandlers;
 
 import edu.fiuba.algo3.Vista.Botones.*;
-import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEdificioCriadero;
+import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonCriadero;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEdificioPilon;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.IDEDIFICIO;
-import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.TIPOSUPERFICIE;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
 public class JuegoVista {
@@ -83,7 +86,9 @@ public class JuegoVista {
         BotonCeldaTablero botonEdificio = null;
 
         if( edificio.getEntidad() == IDEDIFICIO.CRIADERO ){
-            botonEdificio = new BotonEdificioCriadero(TAMANIO,ubicacion,vBoxMenu,juegoModelo.getJugador1(),grPane,juegoModelo);
+            botonEdificio = new BotonCriadero(TAMANIO,ubicacion,vBoxMenu,juegoModelo.getJugador1(),grPane,juegoModelo);
+            BotonCriadero botonCriadero = (BotonCriadero) botonEdificio;
+            botonCriadero.setTooltipLarvasRestantes();
         }
         if( edificio.getEntidad() == IDEDIFICIO.PILON ){
             botonEdificio   = new BotonEdificioPilon(TAMANIO,ubicacion,vBoxMenu,grPane,juegoModelo);
@@ -104,7 +109,7 @@ public class JuegoVista {
         if(ubicacion.getUnidad() instanceof AmoSupremo){
             botonUnidad = new BotonGenerico(TAMANIO, "images/amosupremo.png", ubicacion);
             AmoSupremo unidad = (AmoSupremo) ubicacion.getUnidad();
-            botonUnidad.setOnAction(new BotonAmuSupremoHandler(unidad, vBoxMenu));//falta como saber que raza esta jugando
+            botonUnidad.setOnAction(new BotonAmoSupremoHandler(unidad, vBoxMenu));//falta como saber que raza esta jugando
         }
         if(ubicacion.getUnidad() instanceof Zangano){
             botonUnidad = new BotonGenerico(TAMANIO, "images/zangano.png", ubicacion);
@@ -175,6 +180,7 @@ public class JuegoVista {
                     ubicacion.crecer(cantTurnosZerg, juegoModelo.getMapa());
                 }
                 if((juegoModelo.buscar(new Coordenada(i,j)).getTipoSuperficie() == TIPOSUPERFICIE.MOHO && juegoModelo.buscar(new Coordenada(i,j)).ubicacionVacia())){
+                    System.out.println("Coord i : " + i + "Coord j " + j );
                     if(findNodoDelGridPane(i,j).getClass() == BotonTierra.class){
                         BotonTierra botonTierra = (BotonTierra) findNodoDelGridPane(i,j);
                         botonTierra.borrarBotonDelTablero();

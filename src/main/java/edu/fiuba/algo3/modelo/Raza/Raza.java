@@ -19,6 +19,7 @@ public abstract class Raza {
     protected ArrayList<Unidad> unidades;
     private int cantReservas;
     private int cantAccesos;
+    private int cantGuaridas;
 
     private List<ObservadorRazaRecursos> observadores;
 
@@ -81,6 +82,10 @@ public abstract class Raza {
         return (cantReservas > 0) ;
     }
 
+    public boolean existeGuarida() {
+        return (cantGuaridas > 0) ;
+    }
+
     public void fueAgregadoReserva() {
         cantReservas++;
     }
@@ -88,6 +93,10 @@ public abstract class Raza {
 
     public void fueAgregadoAcceso() {
         cantAccesos++;
+    }
+
+    public void fueAgregadaGuarida() {
+        cantGuaridas++;
     }
 
 

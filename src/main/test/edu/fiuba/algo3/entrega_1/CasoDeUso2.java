@@ -226,6 +226,8 @@ public class CasoDeUso2 {
         raza.aumentarGas(new GestionRecurso(500));
         raza.aumentarMineral(new GestionRecurso(500));
         raza.agregarEdificio(new Criadero());
+        raza.agregarEdificio(new ReservaDeReproduccion());
+        raza.agregarEdificio(new Guarida());
         raza.agregarEdificio(espiral);
         //Act
         for(int i = 0 ; i < 10 ; i++){

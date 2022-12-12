@@ -2,6 +2,7 @@ package edu.fiuba.algo3.Controlador.ControllerFXML;
 
 import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
+import edu.fiuba.algo3.Vista.Botones.BotonMoho;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonExtractor;
 import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.ExtractorCantidadMaximaDeZanganosError;
@@ -44,7 +45,7 @@ public class MenuExtractorController {
 
     @FXML
     public void  onClickedExtraerGas(MouseEvent event) {
-        Extractor extractorActual = (Extractor) ((Zangano) ubicacion.getUnidad()).getEstadoZangano();
+        Extractor extractorActual = (Extractor) ubicacion.getEdificio();
         GestionRecurso gestionRecurso = extractorActual.extraer( ubicacion.getVolcan() );
         juegoModelo.getJugadorActivo().getRaza().aumentarGas(gestionRecurso);
     }
@@ -52,7 +53,7 @@ public class MenuExtractorController {
     @FXML
     public void onClickedAgregarZangano(MouseEvent event) {
 
-        Extractor extractorActual = (Extractor) ((Zangano) ubicacion.getUnidad()).getEstadoZangano();
+        Extractor extractorActual = (Extractor) ubicacion.getEdificio();
         int contador = 0;
         ArrayList<Ubicacion>  ubicacionesManhattan =  juegoModelo.getMapa().buscar( this.ubicacion.coordenada(), 1);
         for(Ubicacion ubicacionAdy : ubicacionesManhattan){
@@ -71,8 +72,9 @@ public class MenuExtractorController {
             Coordenada coordenadaAdy = ubicacionAdy.coordenada();
             BotonCeldaTablero botonCoordAntigua = (BotonCeldaTablero) findNodoDelGridPane(coordenadaAdy.horizontal(), coordenadaAdy.vertical());
             ubicacionAdy.quitarUnidad();
+            BotonMoho botonMoho = new BotonMoho(botonCoordAntigua);
             botonCoordAntigua.borrarBotonDelTablero();
-
+            tablero.add(botonMoho, coordenadaAdy.horizontal() , coordenadaAdy.vertical() );
             //ver eliminar un zangano y poner moho o tierra segun corresponda
             // se queda ne n elbnaco el boton dodne estaba el zangano falta ponerle la superficie.
         } catch (EdificioNoOperativoError | ExtractorCantidadMaximaDeZanganosError e){

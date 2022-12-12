@@ -28,7 +28,6 @@ public class MenuReservaDeReproduccionController {
 
     @FXML
     public Button btnEvolucionarLarvaAZerling;
-
     private ReservaDeReproduccion reservaDeReproduccion;
     private GridPane tablero;
     private JuegoModelo juegoModelo;
