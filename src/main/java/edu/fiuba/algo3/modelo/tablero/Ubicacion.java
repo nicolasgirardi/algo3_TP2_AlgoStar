@@ -189,4 +189,8 @@ public class Ubicacion {
         return ((unidad != null) && (unidad.getEntidad() == ID_UNIDAD.ZANGANO)  &&  (! this.esIgual(otraUbicacion)) ) ;
     }
 
+    public boolean estaLibre(){
+        return (unidad == null && edificio == null && recurso == null && tipo.getTiposuperficie() != TIPOSUPERFICIE.ESPECIAL  );
+    }
+
 }
