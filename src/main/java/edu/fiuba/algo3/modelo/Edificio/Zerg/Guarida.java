@@ -55,6 +55,7 @@ public class Guarida extends Edificio implements EstadoZangano {
         if( ! raza.existeReserva() ){
             throw new CorrelativaDeConstruccionIncumplidaError();
         }
+        raza.fueAgregadaGuarida();
         this.raza = raza;
     }
 
