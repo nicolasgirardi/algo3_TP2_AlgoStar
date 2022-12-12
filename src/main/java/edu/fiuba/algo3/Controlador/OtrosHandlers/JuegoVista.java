@@ -87,15 +87,8 @@ public class JuegoVista {
 
         if( edificio.getEntidad() == IDEDIFICIO.CRIADERO ){
             botonEdificio = new BotonCriadero(TAMANIO,ubicacion,vBoxMenu,juegoModelo.getJugador1(),grPane,juegoModelo);
-            Criadero criadero = (Criadero) ubicacion.getEdificio();
-            BotonCeldaTablero finalBotonEdificio = botonEdificio;
-            botonEdificio.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent mouseEvent) {
-                    finalBotonEdificio.setTooltip(new Tooltip("Larvas restantes: " + criadero.getCantidadLarvas()));
-                }
-            }
-            );
+            BotonCriadero botonCriadero = (BotonCriadero) botonEdificio;
+            botonCriadero.setTooltipLarvasRestantes();
         }
         if( edificio.getEntidad() == IDEDIFICIO.PILON ){
             botonEdificio   = new BotonEdificioPilon(TAMANIO,ubicacion,vBoxMenu,grPane,juegoModelo);
@@ -116,7 +109,7 @@ public class JuegoVista {
         if(ubicacion.getUnidad() instanceof AmoSupremo){
             botonUnidad = new BotonGenerico(TAMANIO, "images/amosupremo.png", ubicacion);
             AmoSupremo unidad = (AmoSupremo) ubicacion.getUnidad();
-            botonUnidad.setOnAction(new BotonAmuSupremoHandler(unidad, vBoxMenu));//falta como saber que raza esta jugando
+            botonUnidad.setOnAction(new BotonAmoSupremoHandler(unidad, vBoxMenu));//falta como saber que raza esta jugando
         }
         if(ubicacion.getUnidad() instanceof Zangano){
             botonUnidad = new BotonGenerico(TAMANIO, "images/zangano.png", ubicacion);

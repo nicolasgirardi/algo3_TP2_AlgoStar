@@ -27,10 +27,6 @@ public class MenuCriaderoController {
 
     @FXML
     public Button btnEvolucionarZangano;
-
-    @FXML
-    public Label lblCantidadLarvas;
-
     private VBox vBoxMenu;
     private Criadero criadero;
     private GridPane tablero;
@@ -43,8 +39,6 @@ public class MenuCriaderoController {
         this.juegoModelo = juegoModelo;
         this.tablero = tablero;
         this.tamanio = tamanio;
-
-        lblCantidadLarvas.setText(String.valueOf( criadero.getCantidadLarvas()));
     }
 
 
@@ -88,13 +82,12 @@ public class MenuCriaderoController {
                         agregado = true;
                     }
                 }
-            }
-            lblCantidadLarvas.setText(String.valueOf( criadero.getCantidadLarvas() ));
-        }catch (IndexOutOfBoundsException | PoblacionExedidaError  e){   //si en el criadero no hay mas larvas para evolucionar
+            }}catch (IndexOutOfBoundsException | PoblacionExedidaError  e){   //si en el criadero no hay mas larvas para evolucionar
             MostradorAlertas.mostrarAlerta(e);
         } catch (Exception e){
             e.printStackTrace();
         }
     }
+
 
 }

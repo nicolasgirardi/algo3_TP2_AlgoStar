@@ -138,15 +138,7 @@ public class MenuZanganoController extends UnidadMovibleController {
             tablero.add(new BotonCriadero(botonUnidad), ubicacion.coordenada().horizontal(), ubicacion.coordenada().vertical());
 
             BotonCriadero botonCriadero = new BotonCriadero(botonUnidad);
-            BotonCeldaTablero finalBotonEdificio = botonCriadero;
-            Criadero criadero = (Criadero) ubicacion.getEdificio();
-            botonCriadero.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent mouseEvent) {
-                    finalBotonEdificio.setTooltip(new Tooltip("Larvas restantes: " + criadero.getCantidadLarvas()));
-                }
-            }
-            );
+            botonCriadero.setTooltipLarvasRestantes();
             tablero.add(botonCriadero, ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         }catch ( RecursosInsuficientesError e ) {
             MostradorAlertas.mostrarAlerta(e,"un Criadero");

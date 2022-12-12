@@ -35,9 +35,18 @@ public class BotonCriadero extends BotonCeldaTablero {
         }else{
             MenuAtacarEnemigoController controller = vistaMenu.getController();
         }
-        //this.setTooltip(new Tooltip("Larvas restantes: " + criadero.getCantidadLarvas()));
-
     }
 
+    public void setTooltipLarvasRestantes(){
+        Criadero criadero = (Criadero) ubicacion.getEdificio();
+        BotonCriadero boton = this;
+        boton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                boton.setTooltip(new Tooltip("Larvas restantes: " + criadero.getCantidadLarvas()));
+            }
+        }
+        );
+    }
 }
 
