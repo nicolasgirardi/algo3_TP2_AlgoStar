@@ -3,6 +3,7 @@ package edu.fiuba.algo3.Controlador.ControllerFXML;
 import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonZangano;
+import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
@@ -82,7 +83,10 @@ public class MenuCriaderoController {
                         agregado = true;
                     }
                 }
-            }}catch (IndexOutOfBoundsException | PoblacionExedidaError  e){   //si en el criadero no hay mas larvas para evolucionar
+            }
+        }catch (IndexOutOfBoundsException | PoblacionExedidaError  e){   //si en el criadero no hay mas larvas para evolucionar
+            MostradorAlertas.mostrarAlerta(e);
+        } catch (EdificioNoOperativoError e){
             MostradorAlertas.mostrarAlerta(e);
         } catch (Exception e){
             e.printStackTrace();

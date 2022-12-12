@@ -49,7 +49,7 @@ public class Zangano extends Unidad implements TipoEvolucionDeLarva {
 
     public void mutarCriadero(RazaZerg raza) {
         verificarEstadoLibreZangano();
-        estadoZangano = new Criadero();  //creo un criadero con 0 turnos para ser operativos. ojo.
+        estadoZangano = new Criadero(4);  //creo un criadero con 0 turnos para ser operativos. ojo.
         raza.agregarEsteEdificio(estadoZangano);
     }
 
