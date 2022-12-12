@@ -17,6 +17,12 @@ public class BotonCriadero extends BotonCeldaTablero {
         super(TAMANIO,"images/criadero.png",ubicacion,vBoxMenu, tablero,juegoModelo, RUTAS_FXML.MENU_ATACAR_ENEMIGO,RUTAS_FXML.MENU_CRIADERO);
     }
 
+    public BotonCriadero(BotonCeldaTablero botonACopiar){
+        super(botonACopiar, "images/criadero.png", RUTAS_FXML.MENU_ATACAR_ENEMIGO, RUTAS_FXML.MENU_CRIADERO);
+    }
+
+
+
     @Override
     public void setElmentsController() {
         Jugador jugadorActivo = juegoModelo.getJugadorActivo();

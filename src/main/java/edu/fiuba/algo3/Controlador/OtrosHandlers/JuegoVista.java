@@ -174,6 +174,7 @@ public class JuegoVista {
                     ubicacion.crecer(cantTurnosZerg, juegoModelo.getMapa());
                 }
                 if((juegoModelo.buscar(new Coordenada(i,j)).getTipoSuperficie() == TIPOSUPERFICIE.MOHO && juegoModelo.buscar(new Coordenada(i,j)).ubicacionVacia())){
+                    System.out.println("Coord i : " + i + "Coord j " + j );
                     if(findNodoDelGridPane(i,j).getClass() == BotonTierra.class){
                         BotonTierra botonTierra = (BotonTierra) findNodoDelGridPane(i,j);
                         botonTierra.borrarBotonDelTablero();
