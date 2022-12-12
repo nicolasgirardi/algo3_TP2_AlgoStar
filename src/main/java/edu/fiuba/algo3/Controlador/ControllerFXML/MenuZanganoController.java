@@ -111,6 +111,8 @@ public class MenuZanganoController extends UnidadMovibleController {
 
         Zangano zangano = (Zangano) ubicacion.getUnidad();
         zangano.mutarExtractor(razaZerg);
+        ubicacion.ubicar( (Extractor) zangano.getEstadoZangano() );
+        ubicacion.quitarUnidad();
 
         botonUnidad.borrarBotonDelTablero();
         BotonExtractor botonExtractor = new BotonExtractor(botonUnidad);
@@ -121,13 +123,16 @@ public class MenuZanganoController extends UnidadMovibleController {
     public void onClickedMutarACriadero(MouseEvent event) {
 
         try {
-            //Zangano zangano = (Zangano) ubicacion.getUnidad();
-            //zangano.mutarCriadero(razaZerg);
-            Criadero criadero = new Criadero();
-            razaZerg.agregarEdificio(criadero);
-            ubicacion.ubicar(criadero);
-            botonUnidad.borrarBotonDelTablero();
-            tablero.add(new BotonCriadero(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            Zangano zangano = (Zangano) ubicacion.getUnidad();
+            zangano.mutarCriadero(razaZerg);
+            ubicacion.ubicar( (Criadero) zangano.getEstadoZangano() );
+            ubicacion.quitarUnidad();
+            // la ubicacion dejo de ter una unidad y ahora tiene un edificio que es el zangano
+            //Criadero criadero = new Criadero();
+            //razaZerg.agregarEdificio(criadero);
+            //ubicacion.ubicar(criadero);
+            //botonUnidad.borrarBotonDelTablero();
+            tablero.add(new BotonCriadero(botonUnidad), ubicacion.coordenada().horizontal(), ubicacion.coordenada().vertical());
         }catch ( RecursosInsuficientesError e ) {
             MostradorAlertas.mostrarAlerta(e,"un Criadero");
         } catch (Exception e){
@@ -141,11 +146,10 @@ public class MenuZanganoController extends UnidadMovibleController {
     public void onClickedMutarAEspiral(MouseEvent event) {
 
         try {
-            Espiral espiral = new Espiral();
-            //Zangano zangano = (Zangano) ubicacion.getUnidad();
-            //zangano.mutarEspiral(razaZerg);
-            razaZerg.agregarEdificio(espiral);
-            ubicacion.ubicar(espiral);
+            Zangano zangano = (Zangano) ubicacion.getUnidad();
+            zangano.mutarEspiral(razaZerg);
+            ubicacion.ubicar(  (Espiral) zangano.getEstadoZangano() );
+            ubicacion.quitarUnidad();
             botonUnidad.borrarBotonDelTablero();
             tablero.add(new BotonEspiral(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         }catch ( RecursosInsuficientesError e ) {
@@ -160,11 +164,11 @@ public class MenuZanganoController extends UnidadMovibleController {
     @FXML
     public void onClickedMutarAGuarida(MouseEvent event) {
         try{
-            Guarida guarida = new Guarida();
-            razaZerg.agregarEdificio(guarida);
-            //Zangano zangano = (Zangano) ubicacion.getUnidad();
-            //zangano.mutarGuarida(razaZerg);
-            ubicacion.ubicar(guarida);
+            Zangano zangano = (Zangano) ubicacion.getUnidad();
+            zangano.mutarGuarida(razaZerg);
+            ubicacion.ubicar(  (Guarida) zangano.getEstadoZangano() );
+            ubicacion.quitarUnidad();
+
             botonUnidad.borrarBotonDelTablero();
             tablero.add(new BotonGuarida(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         } catch ( RecursosInsuficientesError e ){
@@ -179,11 +183,11 @@ public class MenuZanganoController extends UnidadMovibleController {
     @FXML
     public void onClickedMutarAReservaDeReproduccion(MouseEvent event) {
         try{
-            //Zangano zangano = (Zangano) ubicacion.getUnidad();
-            //zangano.mutarReservaReproduccion(razaZerg);
-            ReservaDeReproduccion reservaDeReproduccion = new ReservaDeReproduccion();
-            razaZerg.agregarEdificio(reservaDeReproduccion);
-            ubicacion.ubicar(reservaDeReproduccion);
+            Zangano zangano = (Zangano) ubicacion.getUnidad();
+            zangano.mutarReservaReproduccion(razaZerg);
+            ubicacion.ubicar(  (ReservaDeReproduccion) zangano.getEstadoZangano() );
+            ubicacion.quitarUnidad();
+
             botonUnidad.borrarBotonDelTablero();
             tablero.add(new BotonReservaDeReproduccion(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         } catch (RecursosInsuficientesError e) {
