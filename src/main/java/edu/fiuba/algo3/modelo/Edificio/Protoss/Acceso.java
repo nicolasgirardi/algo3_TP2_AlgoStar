@@ -9,6 +9,7 @@ import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.Unidad.Dragon;
+import edu.fiuba.algo3.modelo.Unidad.Scout;
 import edu.fiuba.algo3.modelo.Unidad.Zealot;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
@@ -64,17 +65,26 @@ public class Acceso extends Edificio {
         lista.get(0).enRango(ubicacion(),lista);
     }
 
-    public void crearZealot() {
+    public Zealot crearZealot() {
         verififarEdificioOperativo();
         Zealot zealot = new Zealot();
         raza.agregarUnidad(zealot);
+        return zealot;
     }
 
-    public void crearDragon() {
+    public Dragon crearDragon() {
         verififarEdificioOperativo();
         Dragon dragon = new Dragon();
         raza.agregarUnidad(dragon);
+        return dragon;
     }
+    public Scout crearScout(){
+        verififarEdificioOperativo();
+        Scout scout = new Scout();
+        raza.agregarUnidad(scout);
+        return scout;
+    }
+
 
     @Override
     public void ubicar(Ubicacion unLugar){
