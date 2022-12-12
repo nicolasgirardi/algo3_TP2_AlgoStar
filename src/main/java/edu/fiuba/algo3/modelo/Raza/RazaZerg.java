@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.ID_UNIDAD;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
+import edu.fiuba.algo3.modelo.Unidad.Larva;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import java.util.ArrayList;
@@ -31,14 +32,16 @@ public class RazaZerg extends Raza{
         }
     }
 
-    public ArrayList<Criadero> getCriaderos(){
-        ArrayList<Criadero> criaderos = new ArrayList<Criadero>();
+    public Larva getLarva(){
+        Larva larva = null;
         for (Edificio edificio : edificios){
-            if(edificio.getEntidad() == IDEDIFICIO.CRIADERO){
-                criaderos.add((Criadero)edificio);
+            Criadero criadero = (Criadero) edificio;
+            if(edificio.getEntidad() == IDEDIFICIO.CRIADERO /*&& (criadero.getCantidadLarvas() != 0)*/){
+                larva = criadero.eliminarLarva();
+                break;
             }
         }
-        return criaderos;
+        return larva;
     }
 
     @Override

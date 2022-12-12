@@ -3,9 +3,12 @@ package edu.fiuba.algo3.Controlador.ControllerFXML;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonZangano;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonZerling;
+import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.ReservaDeReproduccion;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
+import edu.fiuba.algo3.modelo.NoQuedanLarvasError;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.Larva;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
@@ -18,6 +21,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+
+import java.util.ArrayList;
 
 public class MenuReservaDeReproduccionController {
 
@@ -36,7 +41,10 @@ public class MenuReservaDeReproduccionController {
             reservaDeReproduccion.asignarRaza(jugador.getRaza());
             //reservaDeReproduccion.crearZerling(Larva larva);
             //hacer que se recorra a los edificios de raza y cuando encuentra al criadero que le saque una larva.
-            //(RazaZerg) juegoModelo.getJugadorZerg().getRaza().getCriaderos();
+            RazaZerg razaZerg = new RazaZerg();
+            razaZerg = (RazaZerg) juegoModelo.getJugadorZerg().getRaza();
+            Larva larva = razaZerg.getLarva();
+
 
             boolean agregado = false;
 
@@ -64,7 +72,7 @@ public class MenuReservaDeReproduccionController {
                     }
                 }
             }
-        }catch (IndexOutOfBoundsException e){
+        }catch (NoQuedanLarvasError e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
