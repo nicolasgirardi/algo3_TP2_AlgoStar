@@ -11,9 +11,9 @@ import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.*;
 
-public class BotonEdificioCriadero extends BotonCeldaTablero {
+public class BotonCriadero extends BotonCeldaTablero {
 
-    public BotonEdificioCriadero(int TAMANIO, Ubicacion ubicacion, VBox vBoxMenu, Jugador jugador, GridPane tablero , JuegoModelo juegoModelo) {
+    public BotonCriadero(int TAMANIO, Ubicacion ubicacion, VBox vBoxMenu, Jugador jugador, GridPane tablero , JuegoModelo juegoModelo) {
         super(TAMANIO,"images/criadero.png",ubicacion,vBoxMenu, tablero,juegoModelo, RUTAS_FXML.MENU_ATACAR_ENEMIGO,RUTAS_FXML.MENU_CRIADERO);
     }
 

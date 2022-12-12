@@ -1,11 +1,10 @@
 package edu.fiuba.algo3.Controlador.OtrosHandlers;
 
 import edu.fiuba.algo3.Vista.Botones.*;
-import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEdificioCriadero;
+import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonCriadero;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEdificioPilon;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.IDEDIFICIO;
-import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.TIPOSUPERFICIE;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Unidad.*;
@@ -83,7 +82,7 @@ public class JuegoVista {
         BotonCeldaTablero botonEdificio = null;
 
         if( edificio.getEntidad() == IDEDIFICIO.CRIADERO ){
-            botonEdificio = new BotonEdificioCriadero(TAMANIO,ubicacion,vBoxMenu,juegoModelo.getJugador1(),grPane,juegoModelo);
+            botonEdificio = new BotonCriadero(TAMANIO,ubicacion,vBoxMenu,juegoModelo.getJugador1(),grPane,juegoModelo);
         }
         if( edificio.getEntidad() == IDEDIFICIO.PILON ){
             botonEdificio   = new BotonEdificioPilon(TAMANIO,ubicacion,vBoxMenu,grPane,juegoModelo);

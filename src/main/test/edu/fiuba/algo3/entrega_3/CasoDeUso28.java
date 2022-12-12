@@ -86,6 +86,8 @@ public class CasoDeUso28 {
 
         //Hago que el zealot se vuelva invisible
         Espiral espiral = new Espiral();
+        unaRaza.agregarEdificio(new ReservaDeReproduccion());
+        unaRaza.agregarEdificio(new Guarida());
         unaRaza.agregarEdificio(espiral);
 
         for (int i = 0 ; i < 163; i++){
