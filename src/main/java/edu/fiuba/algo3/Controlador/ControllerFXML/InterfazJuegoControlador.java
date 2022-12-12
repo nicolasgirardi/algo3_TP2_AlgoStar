@@ -1,10 +1,13 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
+import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.Controlador.OtrosHandlers.JuegoVista;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.Observers.ObservadorRazaRecursos;
+import edu.fiuba.algo3.modelo.Raza.FinDelJuegoGanaronLosProtoss;
+import edu.fiuba.algo3.modelo.Raza.FinDelJuegoGanaronLosZerg;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -90,12 +93,20 @@ public class InterfazJuegoControlador implements ObservadorRazaRecursos {
 
     @FXML
     public void onClickTerminarTurno(MouseEvent event) {
-        juegoModelo.desubscribirseRazaActiva(this);
-        juegoModelo.terminarTurno();
-        juegoModelo.subscribirseRazaActiva(this);
-        actualizar();
-        empezarTurno();
-        vBoxMenu.getChildren().clear();
+        try {
+            juegoModelo.desubscribirseRazaActiva(this);
+            juegoModelo.terminarTurno();
+            juegoModelo.esElfinDeJuego(juegoModelo.getJugadorZerg().getRaza(),juegoModelo.getJugadorProtoss().getRaza());
+            juegoModelo.subscribirseRazaActiva(this);
+            actualizar();
+            empezarTurno();
+            vBoxMenu.getChildren().clear();
+        }
+        catch(FinDelJuegoGanaronLosProtoss | FinDelJuegoGanaronLosZerg e){
+            MostradorAlertas.mostrarAlerta(e);
+            System.exit(0);
+        }
+
     }
 
     @Override

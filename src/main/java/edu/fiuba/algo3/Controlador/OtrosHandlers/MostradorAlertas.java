@@ -4,6 +4,8 @@ import edu.fiuba.algo3.modelo.ConstruccionFueraDelRangoPilonError;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.ExtractorCantidadMaximaDeZanganosError;
+import edu.fiuba.algo3.modelo.Raza.FinDelJuegoGanaronLosProtoss;
+import edu.fiuba.algo3.modelo.Raza.FinDelJuegoGanaronLosZerg;
 import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.Unidad.UnidadNoOperativaError;
@@ -30,6 +32,8 @@ public class MostradorAlertas {
        mensajesErrores.put(ExtractorCantidadMaximaDeZanganosError.class.getName(), "Error El extractor tiene la maxima cantidad de zanganos");
        mensajesErrores.put( IndexOutOfBoundsException.class.getName(), "El criadero no tiene larvas");
        mensajesErrores.put(PoblacionExedidaError.class.getName(), "Poblacion excedida construya mas Criaderos o Amos supremos");
+       mensajesErrores.put(FinDelJuegoGanaronLosProtoss.class.getName(),"Ganaron los Protoss.\n\n Haga click en aceptar para terminar el juego");
+       mensajesErrores.put(FinDelJuegoGanaronLosZerg.class.getName(),"Ganaron los Zergs.\n\n Haga click en aceptar para terminar el juego");
    }
 
    public static void mostrarAlerta(Exception e){
