@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Juego;
 
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
+import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Observers.ObservadorJugadorActivo;
 import edu.fiuba.algo3.modelo.Observers.ObservadorRazaRecursos;
 import edu.fiuba.algo3.modelo.Raza.Raza;
@@ -76,13 +77,19 @@ public class JuegoModelo{
     public void agregarJugador(Jugador unJugador) {
         if (jugador1 == null) {
             jugador1 = unJugador;
-            jugador1.getRaza().agregarEdificioInicial(baseJugador1.getEdificio());
+            if( jugador1.getRaza().getEntidad() == ID_RAZA.ZERG ){
+                jugador1.getRaza().agregarEdificioInicial(baseJugador1.getEdificio());
+            } else jugador1.getRaza().agregarEdificioInicial(baseJugador2.getEdificio());
+
             baseJugador1.getEdificio().asignarRaza(jugador1.getRaza());
             jugadorActivo = jugador1;
         } else {
             unJugador.compatibleCon(jugador1);
             jugador2 = unJugador;
-            jugador2.getRaza().agregarEdificioInicial(baseJugador2.getEdificio());
+            if( jugador2.getRaza().getEntidad() == ID_RAZA.ZERG ){
+                jugador2.getRaza().agregarEdificioInicial(baseJugador1.getEdificio());
+            } else jugador2.getRaza().agregarEdificioInicial(baseJugador2.getEdificio());
+
             baseJugador2.getEdificio().asignarRaza(jugador2.getRaza());
         }
         contadorJugadores++;

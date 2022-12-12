@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Ataque.AtaqueSoloTierra;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.NoDeberiaEjecutarEsteMetodoError;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.ID_UNIDAD;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
@@ -18,6 +19,8 @@ public class Zerling extends Unidad implements TipoEvolucionDeLarva {
                 new AtaqueSoloTierra(4),
                 2,1,25,0
         );
+        entidad = ID_UNIDAD.ZERLING;
+
     }
 
     public Zerling(HitPoints vida){
@@ -26,8 +29,9 @@ public class Zerling extends Unidad implements TipoEvolucionDeLarva {
                 new TipoTierra(),
                 new AtaqueSoloTierra(4),
                 2,1,25,0
-        )
-        ;
+        );
+        entidad = ID_UNIDAD.ZERLING;
+
     }
 
     @Override

@@ -16,7 +16,7 @@ public abstract class Raza {
     private GestionRecurso gas;
     private Poblacion poblacion;
     protected ArrayList<Edificio> edificios;
-    private ArrayList<Unidad> unidades;
+    protected ArrayList<Unidad> unidades;
     private int cantReservas;
     private int cantAccesos;
 
@@ -25,8 +25,8 @@ public abstract class Raza {
     protected ID_RAZA entidad;
 
     public Raza(){
-        gas = new GestionRecurso(0);
-        mineral = new GestionRecurso(200); //cambiar esto test noma
+        gas = new GestionRecurso(1000);
+        mineral = new GestionRecurso(1000); //cambiar esto test noma
         poblacion = new Poblacion(200);
         edificios = new ArrayList<Edificio>();
         unidades = new ArrayList<Unidad>();

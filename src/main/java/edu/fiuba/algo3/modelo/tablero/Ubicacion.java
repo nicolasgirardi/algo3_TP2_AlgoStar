@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.tablero;
 import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
+import edu.fiuba.algo3.modelo.ID_UNIDAD;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
@@ -184,5 +185,8 @@ public class Ubicacion {
         return this.coordenada().esIgual( otraUbicacion.coordenada() );
     }
 
+    public boolean existeZangano(Ubicacion otraUbicacion){
+        return ((unidad != null) && (unidad.getEntidad() == ID_UNIDAD.ZANGANO)  &&  (! this.esIgual(otraUbicacion)) ) ;
+    }
 
 }

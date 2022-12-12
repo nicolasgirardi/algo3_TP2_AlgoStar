@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
-import edu.fiuba.algo3.Controlador.MostradorAlertas;
+import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEspiral;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonExtractor;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonGuarida;
@@ -8,7 +8,6 @@ import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonReservaDeReproduccion;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonUnidad;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.*;
-import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;

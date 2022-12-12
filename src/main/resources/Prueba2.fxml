@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Controlador.Prueba2Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Controlador.OtrosHandlers.Prueba2Controller">
    <children>
       <Pane layoutX="218.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
          <children>
