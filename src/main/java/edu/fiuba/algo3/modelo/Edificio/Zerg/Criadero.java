@@ -36,7 +36,8 @@ public class Criadero extends Edificio implements EstadoZangano {
     @Override
     public void ejecutarTurno() {
         super.ejecutarTurno();
-        if (turnosRestantesParaSerOperativo == 0 ) cargarTodaslasLarvas();
+        //if (turnosRestantesParaSerOperativo == 0 ) cargarTodaslasLarvas();
+        ejecutarTurnoRegenerar();
     }
 
     @Override

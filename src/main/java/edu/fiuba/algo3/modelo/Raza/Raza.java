@@ -16,7 +16,7 @@ public abstract class Raza {
     private GestionRecurso gas;
     private Poblacion poblacion;
     protected ArrayList<Edificio> edificios;
-    private ArrayList<Unidad> unidades;
+    protected ArrayList<Unidad> unidades;
     private int cantReservas;
     private int cantAccesos;
 

@@ -15,5 +15,7 @@
             </font>
         </Label>
         <Button layoutX="79.0" layoutY="155.0" mnemonicParsing="false" onMouseClicked="#onClickedExtraerGas" prefHeight="19.0" prefWidth="117.0" text="Extraer Gas" />
+        <Button layoutX="81.0" layoutY="73.0" mnemonicParsing="false" onMouseClicked="#onClickedExtraerGas" prefHeight="19.0" prefWidth="117.0" text="Extraer Gas" />
+      <Button fx:id="btnAgregarZangano" layoutX="74.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#onClickedAgregarZangano" text="Agregar Zangano" />
     </children>
 </AnchorPane>

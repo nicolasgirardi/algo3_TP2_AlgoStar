@@ -1,21 +1,14 @@
 package edu.fiuba.algo3.Vista.Botones;
 
 import edu.fiuba.algo3.Controlador.ControllerFXML.*;
-import edu.fiuba.algo3.Controlador.RUTAS_FXML;
+import edu.fiuba.algo3.Controlador.OtrosHandlers.RUTAS_FXML;
 import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
-import edu.fiuba.algo3.modelo.Observers.ObservadorJugadorActivo;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
-import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-
-import java.io.IOException;
-import java.net.URL;
 
 public class BotonRecursoMineral extends  BotonCeldaTablero {
 

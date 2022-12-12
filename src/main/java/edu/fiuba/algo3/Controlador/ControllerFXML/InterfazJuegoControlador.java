@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
 import edu.fiuba.algo3.modelo.ID_RAZA;
-import edu.fiuba.algo3.Controlador.JuegoVista;
+import edu.fiuba.algo3.Controlador.OtrosHandlers.JuegoVista;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.Observers.ObservadorRazaRecursos;

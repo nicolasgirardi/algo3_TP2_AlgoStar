@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.Vista;
 
-import edu.fiuba.algo3.Controlador.BotonContinuarHandler;
-import edu.fiuba.algo3.Controlador.BotonSalirHandler;
+import edu.fiuba.algo3.Controlador.OtrosHandlers.BotonContinuarHandler;
+import edu.fiuba.algo3.Controlador.OtrosHandlers.BotonSalirHandler;
 import edu.fiuba.algo3.Controlador.ControllerFXML.InterfazJuegoControlador;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;

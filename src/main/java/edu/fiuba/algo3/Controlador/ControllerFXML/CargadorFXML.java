@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
-import edu.fiuba.algo3.Controlador.RUTAS_FXML;
+import edu.fiuba.algo3.Controlador.OtrosHandlers.RUTAS_FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 

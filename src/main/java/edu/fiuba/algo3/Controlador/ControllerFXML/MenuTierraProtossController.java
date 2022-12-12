@@ -1,14 +1,11 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
-import edu.fiuba.algo3.Controlador.MostradorAlertas;
+import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.BotonTierra;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonAcceso;
-import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonAsimilador;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEdificioPilon;
-import edu.fiuba.algo3.modelo.ConstruccionFueraDelRangoPilonError;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
-import edu.fiuba.algo3.modelo.Edificio.Protoss.Asimilador;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.PuertoEstelar;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
@@ -16,15 +13,9 @@ import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
-
-import java.io.File;
 
 public class MenuTierraProtossController {
 

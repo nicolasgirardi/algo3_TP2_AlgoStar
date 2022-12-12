@@ -34,6 +34,7 @@ public class MenuVolcanZergController {
     public void onClickedMutarZanganoAExtractor(MouseEvent event) {
         botonCeldaTablero.borrarBotonDelTablero();
         BotonExtractor botonExtractor = new BotonExtractor(botonCeldaTablero);
+        //Ex
         tablero.add(botonExtractor, ubicacion.coordenada().horizontal(), ubicacion.coordenada().vertical() );
     }
 

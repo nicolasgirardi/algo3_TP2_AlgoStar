@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.Vista.Botones.Construcciones;
 
-import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAsimiladorController;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAtacarEnemigoController;
-import edu.fiuba.algo3.Controlador.RUTAS_FXML;
+import edu.fiuba.algo3.Controlador.OtrosHandlers.RUTAS_FXML;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Juego.Jugador;

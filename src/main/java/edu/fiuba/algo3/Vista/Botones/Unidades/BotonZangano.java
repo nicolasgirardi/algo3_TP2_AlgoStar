@@ -1,15 +1,11 @@
 package edu.fiuba.algo3.Vista.Botones.Unidades;
 
-import edu.fiuba.algo3.Controlador.ControllerFXML.CargadorFXML;
-import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAsimiladorController;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAtacarEnemigoController;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuZanganoController;
-import edu.fiuba.algo3.Controlador.RUTAS_FXML;
+import edu.fiuba.algo3.Controlador.OtrosHandlers.RUTAS_FXML;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.*;
 
 public class BotonZangano extends BotonUnidad {
 

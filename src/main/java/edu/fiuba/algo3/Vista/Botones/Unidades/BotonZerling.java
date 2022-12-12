@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.Vista.Botones.Unidades;
 
-import edu.fiuba.algo3.Controlador.RUTAS_FXML;
+import edu.fiuba.algo3.Controlador.OtrosHandlers.RUTAS_FXML;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 
 public class BotonZerling extends BotonUnidad{

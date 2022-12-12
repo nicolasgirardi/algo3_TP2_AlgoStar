@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
-import edu.fiuba.algo3.Controlador.MostradorAlertas;
+import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 //import edu.fiuba.algo3.Vista.Botones.BotonZealot;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonAcceso;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
