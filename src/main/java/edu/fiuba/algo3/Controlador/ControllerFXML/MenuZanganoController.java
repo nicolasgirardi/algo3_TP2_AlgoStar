@@ -1,10 +1,7 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
 import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
-import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEspiral;
-import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonExtractor;
-import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonGuarida;
-import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonReservaDeReproduccion;
+import edu.fiuba.algo3.Vista.Botones.Construcciones.*;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonUnidad;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.*;
@@ -130,7 +127,7 @@ public class MenuZanganoController extends UnidadMovibleController {
             razaZerg.agregarEdificio(criadero);
             ubicacion.ubicar(criadero);
             botonUnidad.borrarBotonDelTablero();
-            tablero.add(new BotonEspiral(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            tablero.add(new BotonCriadero(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         }catch ( RecursosInsuficientesError e ) {
             MostradorAlertas.mostrarAlerta(e,"un Criadero");
         } catch (Exception e){
