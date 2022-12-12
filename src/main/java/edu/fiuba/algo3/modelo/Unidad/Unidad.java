@@ -57,7 +57,8 @@ public abstract class  Unidad implements Atacable, Atacante {
     }
 
     public void ejecutarTurno() {
-        turnosRestantesParaSerOperativo--;
+        if(turnosRestantesParaSerOperativo > 0)
+            turnosRestantesParaSerOperativo--;
     }
 
     public void recibirAtaque(Ataque ataque){
@@ -151,5 +152,12 @@ public abstract class  Unidad implements Atacable, Atacante {
 
     public ID_UNIDAD getEntidad(){
         return entidad;
+    }
+
+    public int getTurnosRestantesParaSerOperativo(){
+        return turnosRestantesParaSerOperativo;
+    }
+    public boolean esOperativo(){
+        return turnosRestantesParaSerOperativo == 0;
     }
 }

@@ -3,7 +3,6 @@ package edu.fiuba.algo3.Controlador.ControllerFXML;
 import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonUnidad;
-import edu.fiuba.algo3.Vista.Botones.Unidades.BotonZangano;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.Unidad.UnidadNoOperativaError;
@@ -13,26 +12,32 @@ import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
 import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class UnidadMovibleController {
+public abstract class UnidadMovibleController <TBotonUnidad extends BotonUnidad> extends EnContruccion{
     protected JuegoModelo juegoModelo;
     protected GridPane tablero;
     protected VBox vBoxMenu;
     protected Ubicacion ubicacion;
-    protected BotonUnidad botonUnidad;
+    protected TBotonUnidad botonUnidad;
 
 
-    public void setElements(GridPane tablero, VBox vBoxMenu ,Ubicacion ubicacion, BotonUnidad botonUnidad, JuegoModelo juegoModelo) {
+    public void setElements(GridPane tablero, VBox vBoxMenu ,Ubicacion ubicacion, TBotonUnidad botonUnidad, JuegoModelo juegoModelo) {
         this.juegoModelo = juegoModelo;
         this.tablero = tablero;
         this.ubicacion = ubicacion;
         this.vBoxMenu = vBoxMenu;
         this.botonUnidad = botonUnidad;
+    }
+
+    public void aplicarMovimientoPorTeclado(){
         botonUnidad.setOnKeyPressed(keyEvent -> {
             Unidad unidad = ubicacion.getUnidad();
             try {
-
                 if (keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.W){
                     unidad.moverseArriba();
                 }
@@ -45,24 +50,44 @@ public class UnidadMovibleController {
                 if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.A){
                     unidad.moverseIzquierda();
                 }
-            } catch (UnidadNoOperativaError | UbicacionOcupadaError e){
+                Coordenada nuevaCoordenada = unidad.ubicacion().coordenada();
+                moverUnidadGraficamente(nuevaCoordenada);
+            } catch (UnidadNoOperativaError | UbicacionOcupadaError e ){
                 MostradorAlertas.mostrarAlerta(e);
+                botonUnidad.requestFocus();
+            } catch (Exception e){
+                e.printStackTrace();
             }
-            moverUnidadGraficamente(unidad.ubicacion().coordenada());
-
         });
+    }
+    public  TBotonUnidad obtenerNuevaInstanciaBotonUnidad(BotonCeldaTablero botonAReemplazar ) throws IllegalAccessException, InstantiationException, InvocationTargetException {
+        int i = 0;
+        List<Object> args = new ArrayList<>();
+        args.add(0,botonAReemplazar);
+        TBotonUnidad nuevoBotonUnidad = (TBotonUnidad)botonUnidad.getClass().getConstructors()[i].newInstance(args.toArray());
+        return nuevoBotonUnidad;
     }
 
 
     protected void moverUnidadGraficamente(Coordenada nuevaCoordenada){
 
-        botonUnidad.colocarSuperficie();
-        BotonCeldaTablero botonNuevaCordenada = (BotonCeldaTablero) findNodoDelGridPane(nuevaCoordenada.horizontal(),nuevaCoordenada.vertical());
-        botonNuevaCordenada.borrarBotonDelTablero();
-        BotonZangano nuevoBotonZangano = new BotonZangano(botonNuevaCordenada);
-        tablero.add(nuevoBotonZangano,nuevaCoordenada.horizontal(), nuevaCoordenada.vertical());
-        nuevoBotonZangano.fire();
-        nuevoBotonZangano.requestFocus();
+        try {
+            BotonCeldaTablero botonNuevaCordenada = (BotonCeldaTablero) findNodoDelGridPane(nuevaCoordenada.horizontal(),nuevaCoordenada.vertical());
+            TBotonUnidad nuevoBotonUnidad = obtenerNuevaInstanciaBotonUnidad(botonNuevaCordenada);
+            botonUnidad.colocarSuperficie();
+            botonNuevaCordenada.borrarBotonDelTablero();
+            tablero.add(nuevoBotonUnidad,nuevaCoordenada.horizontal(), nuevaCoordenada.vertical());
+            nuevoBotonUnidad.fire();
+            nuevoBotonUnidad.requestFocus();
+        }catch (IllegalArgumentException e){
+            e.getCause();
+            e.printStackTrace();
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+
     }
 
     private Node findNodoDelGridPane(int posHorizontal, int posVertical) {
@@ -73,5 +98,6 @@ public class UnidadMovibleController {
         }
         return null;
     }
+
 
 }

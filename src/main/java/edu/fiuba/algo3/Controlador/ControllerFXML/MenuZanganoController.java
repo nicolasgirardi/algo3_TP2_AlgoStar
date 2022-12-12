@@ -25,9 +25,11 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class MenuZanganoController extends UnidadMovibleController {
+
 
     @FXML
     public AnchorPane contenerdorMenu;
@@ -230,8 +232,15 @@ public class MenuZanganoController extends UnidadMovibleController {
     @Override
     public void setElements(GridPane tablero, VBox vBoxMenu , Ubicacion ubicacion, BotonUnidad botonUnidad, JuegoModelo juegoModelo) {
         super.setElements(tablero,vBoxMenu,ubicacion,botonUnidad,juegoModelo);
-        this.razaZerg =  (RazaZerg) juegoModelo.getJugadorActivo().getRaza();
 
+        if(!ubicacion.getUnidad().esOperativo()){
+            int cantidadTurnosParaSerOperativo = ubicacion.getUnidad().getTurnosRestantesParaSerOperativo();
+            contenerdorMenu.getChildren().clear();
+            contenerdorMenu.getChildren().addAll(cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo));
+            return;
+        }
+        aplicarMovimientoPorTeclado();
+        this.razaZerg =  (RazaZerg) juegoModelo.getJugadorActivo().getRaza();
         if(ubicacionTieneMoho()){
             this.btnMutarACriadero.setDisable(false);
             this.btnMutarAEspiral.setDisable(false);

@@ -4,6 +4,8 @@ import edu.fiuba.algo3.modelo.ConstruccionFueraDelRangoPilonError;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.ExtractorCantidadMaximaDeZanganosError;
+import edu.fiuba.algo3.modelo.Raza.FinDelJuegoGanaronLosProtoss;
+import edu.fiuba.algo3.modelo.Raza.FinDelJuegoGanaronLosZerg;
 import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.Unidad.InsuficientesRecursosParaCrearUnidadError;
@@ -32,6 +34,8 @@ public class MostradorAlertas {
        mensajesErrores.put( IndexOutOfBoundsException.class.getName(), "El criadero no tiene larvas");
        mensajesErrores.put(PoblacionExedidaError.class.getName(), "Poblacion excedida");
        mensajesErrores.put(InsuficientesRecursosParaCrearUnidadError.class.getName(), "Insuficientes recursos para crear la unidad ");
+       mensajesErrores.put(FinDelJuegoGanaronLosProtoss.class.getName(),"Ganaron los Protoss.\n\n Haga click en aceptar para terminar el juego");
+       mensajesErrores.put(FinDelJuegoGanaronLosZerg.class.getName(),"Ganaron los Zergs.\n\n Haga click en aceptar para terminar el juego");
    }
 
    public static void mostrarAlerta(Exception e){
