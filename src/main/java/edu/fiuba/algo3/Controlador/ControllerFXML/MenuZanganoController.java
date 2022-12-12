@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
 import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
+import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.*;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonUnidad;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
@@ -16,9 +17,11 @@ import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -133,6 +136,18 @@ public class MenuZanganoController extends UnidadMovibleController {
             //ubicacion.ubicar(criadero);
             //botonUnidad.borrarBotonDelTablero();
             tablero.add(new BotonCriadero(botonUnidad), ubicacion.coordenada().horizontal(), ubicacion.coordenada().vertical());
+
+            BotonCriadero botonCriadero = new BotonCriadero(botonUnidad);
+            BotonCeldaTablero finalBotonEdificio = botonCriadero;
+            Criadero criadero = (Criadero) ubicacion.getEdificio();
+            botonCriadero.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    finalBotonEdificio.setTooltip(new Tooltip("Larvas restantes: " + criadero.getCantidadLarvas()));
+                }
+            }
+            );
+            tablero.add(botonCriadero, ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         }catch ( RecursosInsuficientesError e ) {
             MostradorAlertas.mostrarAlerta(e,"un Criadero");
         } catch (Exception e){

@@ -4,14 +4,18 @@ import edu.fiuba.algo3.Vista.Botones.*;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonCriadero;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEdificioPilon;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.TIPOSUPERFICIE;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
 public class JuegoVista {
@@ -83,6 +87,15 @@ public class JuegoVista {
 
         if( edificio.getEntidad() == IDEDIFICIO.CRIADERO ){
             botonEdificio = new BotonCriadero(TAMANIO,ubicacion,vBoxMenu,juegoModelo.getJugador1(),grPane,juegoModelo);
+            Criadero criadero = (Criadero) ubicacion.getEdificio();
+            BotonCeldaTablero finalBotonEdificio = botonEdificio;
+            botonEdificio.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    finalBotonEdificio.setTooltip(new Tooltip("Larvas restantes: " + criadero.getCantidadLarvas()));
+                }
+            }
+            );
         }
         if( edificio.getEntidad() == IDEDIFICIO.PILON ){
             botonEdificio   = new BotonEdificioPilon(TAMANIO,ubicacion,vBoxMenu,grPane,juegoModelo);
