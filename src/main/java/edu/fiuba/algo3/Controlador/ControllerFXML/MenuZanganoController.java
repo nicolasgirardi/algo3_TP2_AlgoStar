@@ -194,7 +194,6 @@ public class MenuZanganoController extends UnidadMovibleController {
             zangano.mutarReservaReproduccion(razaZerg);
             ubicacion.ubicar(  (ReservaDeReproduccion) zangano.getEstadoZangano() );
             ubicacion.quitarUnidad();
-
             botonUnidad.borrarBotonDelTablero();
             tablero.add(new BotonReservaDeReproduccion(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         } catch (RecursosInsuficientesError e) {

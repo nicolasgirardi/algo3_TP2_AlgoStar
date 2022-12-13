@@ -11,6 +11,7 @@ import edu.fiuba.algo3.modelo.Edificio.Zerg.ReservaDeReproduccion;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.NoQuedanLarvasError;
+import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.Larva;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
@@ -43,8 +44,7 @@ public class MenuReservaDeReproduccionController {
             RazaZerg razaZerg;
             razaZerg = (RazaZerg) juegoModelo.getJugadorZerg().getRaza();
             Larva larva = razaZerg.getLarva();
-            //reservaDeReproduccion.crearZerling(larva);
-
+            reservaDeReproduccion.crearZerling(larva);
 
             boolean agregado = false;
 
@@ -78,7 +78,7 @@ public class MenuReservaDeReproduccionController {
             alert.setTitle("Error");
             alert.setContentText("No hay larvas en ningun criadero");
             alert.showAndWait();
-        } catch (EdificioNoOperativoError e){
+        } catch (EdificioNoOperativoError | PoblacionExedidaError e){
             MostradorAlertas.mostrarAlerta(e);
         } catch (Exception e){
             e.printStackTrace();

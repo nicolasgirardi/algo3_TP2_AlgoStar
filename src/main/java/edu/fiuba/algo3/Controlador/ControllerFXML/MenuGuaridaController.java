@@ -9,6 +9,7 @@ import edu.fiuba.algo3.modelo.Edificio.Zerg.Guarida;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.NoQuedanLarvasError;
+import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.Larva;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
@@ -71,7 +72,7 @@ public class MenuGuaridaController {
             alert.setTitle("Error");
             alert.setContentText("No hay larvas en ningun criadero");
             alert.showAndWait();
-        } catch (EdificioNoOperativoError e){
+        } catch (EdificioNoOperativoError | PoblacionExedidaError e){
             MostradorAlertas.mostrarAlerta(e);
         }  catch (Exception e){
             e.printStackTrace();

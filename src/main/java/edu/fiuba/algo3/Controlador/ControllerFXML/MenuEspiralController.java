@@ -1,10 +1,13 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
+import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonMutalisco;
+import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Espiral;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
+import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
@@ -26,7 +29,7 @@ public class MenuEspiralController {
         Jugador jugador = juegoModelo.getJugadorActivo();
         try{
             espiral.asignarRaza(jugador.getRaza());
-            //reservaDeReproduccion.crearZerling(Larva larva);
+            espiral.crearMutalisco();
             boolean agregado = false;
 
             for(int i = 0; i < mapa.getDimension() ; i++){
@@ -53,6 +56,8 @@ public class MenuEspiralController {
                     }
                 }
             }
+        } catch (EdificioNoOperativoError | PoblacionExedidaError  e){
+            MostradorAlertas.mostrarAlerta(e);
         } catch (Exception e){
             e.printStackTrace();
         }
