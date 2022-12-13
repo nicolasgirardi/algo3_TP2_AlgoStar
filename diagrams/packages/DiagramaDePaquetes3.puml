@@ -1,17 +1,23 @@
 @startuml
 
 package Vista{
-    package Contenedores{}
+    package Contenedor{}
+    package Botones{}
+       package resources{}
+
+
     }
 
 package Controlador{
     class Juego
-    package Evento{}
+    package EventHandler{}
+    package FXMLController{}
+
     }
 
 package  Modelo{
 
-    package Jugador {}
+    package Ataque {}
 
     package Raza {
         class Zerg
@@ -24,11 +30,12 @@ package  Modelo{
     package Excepciones {
         class Excepciones
         }
+    package Unidad {}
+    package Edificio {}
+
     }
 
-package Excepciones {
-    class Excepciones
-    }
+
 
 Controlador -> Modelo
 Vista --> Modelo
