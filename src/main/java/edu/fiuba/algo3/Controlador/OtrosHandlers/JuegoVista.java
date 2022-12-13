@@ -177,10 +177,9 @@ public class JuegoVista {
             for(int j = 0; j<= MAPA_TAMANIO; j++){
                 Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
                 if( ubicacion.existeEdificio() && ubicacion.getEdificio().getEntidad() == IDEDIFICIO.CRIADERO ){
-                    ubicacion.crecer(cantTurnosZerg, juegoModelo.getMapa());
+                    ubicacion.crecer(cantTurnosZerg + 5, juegoModelo.getMapa());
                 }
                 if((juegoModelo.buscar(new Coordenada(i,j)).getTipoSuperficie() == TIPOSUPERFICIE.MOHO && juegoModelo.buscar(new Coordenada(i,j)).ubicacionVacia())){
-                    System.out.println("Coord i : " + i + "Coord j " + j );
                     if(findNodoDelGridPane(i,j).getClass() == BotonTierra.class){
                         BotonTierra botonTierra = (BotonTierra) findNodoDelGridPane(i,j);
                         botonTierra.borrarBotonDelTablero();

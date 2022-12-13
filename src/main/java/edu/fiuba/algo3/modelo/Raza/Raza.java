@@ -172,12 +172,15 @@ public abstract class Raza {
     public void ejecutarTurno(){
         edificios.forEach(edificio -> {
             try {
-                //edificio.verififarEdificioOperativo();
                 edificio.ejecutarTurno();
             }catch (Exception e){
                 e.printStackTrace();
             }
 
         });
+        unidades.forEach( unidad -> {
+            unidad.ejecutarTurno();
+        });
+
     }
 }

@@ -14,9 +14,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-import java.util.ArrayList;
+public class MenuMutaliscoController extends UnidadMovibleController{
 
-public class MenuUnidadController extends UnidadMovibleController{
 
     @FXML
     public Pane contenedorPadre;
@@ -71,7 +70,7 @@ public class MenuUnidadController extends UnidadMovibleController{
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
     }
 
-    public  void setElements(GridPane tablero, VBox vBoxMenu , Ubicacion ubicacion,BotonUnidad botonUnidad, JuegoModelo juegoModelo) {
+    public  void setElements(GridPane tablero, VBox vBoxMenu , Ubicacion ubicacion, BotonUnidad botonUnidad, JuegoModelo juegoModelo) {
         super.setElements(tablero,vBoxMenu,ubicacion,botonUnidad,juegoModelo);
         if(!ubicacion.getUnidad().esOperativo()){
             int cantidadTurnosParaSerOperativo = ubicacion.getUnidad().getTurnosRestantesParaSerOperativo();
@@ -79,29 +78,15 @@ public class MenuUnidadController extends UnidadMovibleController{
             return;
         }
         activarMovimientoPorTeclado();
-        completarEnemigosParaAtacar();
+
+
     }
 
-    private void completarEnemigosParaAtacar(){
-        int rangoAtaque = ubicacion.getUnidad().getRango();
-        int i = 0;
-        int j = 0;
-        ArrayList<Ubicacion> ubicaciones = juegoModelo.getMapa().buscar(ubicacion.coordenada(), rangoAtaque );
-        for(Ubicacion ubicacionAdy : ubicaciones){
-            if( ubicacionAdy.existeUnidad() &&  ! ubicacionAdy.esIgual(ubicacion) ){
-                System.out.println("Coord x " + ubicacionAdy.coordenada().horizontal() + "Coord y: " + ubicacionAdy.coordenada().vertical() );
-                System.out.println("Existe unidad para atacar y esa es ");
-                Unidad unidad = ubicacionAdy.getUnidad();
-                System.out.println(unidad.getEntidad() );
-                System.out.println(contenerdorMenu.getChildren().get(0).getClass());
-                System.out.println(contenerdorMenu.getChildren().get(1).getClass());
-                System.out.println(contenerdorMenu.getChildren().get(2).getClass());
-                System.out.println(contenerdorMenu.getChildren().get(3).getClass());
-                System.out.println(contenerdorMenu.getChildren().get(4).getClass());
-                System.out.println(contenerdorMenu.getChildren().get(5).getClass());
-            }
-        }
+    @FXML
+    public void onClickedGuardian(MouseEvent mouseEvent) {
     }
 
-
+    @FXML
+    public void onClickedDevorador(MouseEvent mouseEvent) {
+    }
 }

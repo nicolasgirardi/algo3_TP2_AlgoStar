@@ -18,6 +18,7 @@ public class Devorador extends Unidad implements TipoEvolucionDeMutalisco{
                 new AtaqueTierraYViento(0,25),
                 4,0,150,50);
         entidad = ID_UNIDAD.DEVORADOR;
+        rango = 5;
     }
 
 }

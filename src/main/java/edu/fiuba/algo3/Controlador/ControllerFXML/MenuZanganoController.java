@@ -135,8 +135,6 @@ public class MenuZanganoController extends UnidadMovibleController {
             //razaZerg.agregarEdificio(criadero);
             //ubicacion.ubicar(criadero);
             //botonUnidad.borrarBotonDelTablero();
-            tablero.add(new BotonCriadero(botonUnidad), ubicacion.coordenada().horizontal(), ubicacion.coordenada().vertical());
-
             BotonCriadero botonCriadero = new BotonCriadero(botonUnidad);
             botonCriadero.setTooltipLarvasRestantes();
             tablero.add(botonCriadero, ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
@@ -194,7 +192,6 @@ public class MenuZanganoController extends UnidadMovibleController {
             zangano.mutarReservaReproduccion(razaZerg);
             ubicacion.ubicar(  (ReservaDeReproduccion) zangano.getEstadoZangano() );
             ubicacion.quitarUnidad();
-
             botonUnidad.borrarBotonDelTablero();
             tablero.add(new BotonReservaDeReproduccion(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         } catch (RecursosInsuficientesError e) {
@@ -233,7 +230,7 @@ public class MenuZanganoController extends UnidadMovibleController {
     public void setElements(GridPane tablero, VBox vBoxMenu , Ubicacion ubicacion, BotonUnidad botonUnidad, JuegoModelo juegoModelo) {
         super.setElements(tablero,vBoxMenu,ubicacion,botonUnidad,juegoModelo);
 
-        if(ubicacion.getUnidad().esOperativo()){
+        if( (ubicacion.getUnidad() != null) && !ubicacion.getUnidad().esOperativo() ){
             int cantidadTurnosParaSerOperativo = ubicacion.getUnidad().getTurnosRestantesParaSerOperativo();
             cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo,contenerdorMenu);
             return;

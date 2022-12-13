@@ -11,7 +11,7 @@ import edu.fiuba.algo3.modelo.Juego.Jugador;
 public class BotonMutalisco extends BotonUnidad{
 
     public BotonMutalisco(BotonCeldaTablero botonCeldaTablero){
-        super(botonCeldaTablero,"images/mutalisco.png", RUTAS_FXML.MENU_ATACAR_ENEMIGO,RUTAS_FXML.MENU_UNIDAD);
+        super(botonCeldaTablero,"images/mutalisco.png", RUTAS_FXML.MENU_ATACAR_ENEMIGO,RUTAS_FXML.MENU_MUTALISCO);
     }
 
     @Override

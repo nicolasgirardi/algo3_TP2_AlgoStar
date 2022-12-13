@@ -1,14 +1,17 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
+import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonZangano;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonZerling;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.ReservaDeReproduccion;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.NoQuedanLarvasError;
+import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.Larva;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
@@ -38,11 +41,10 @@ public class MenuReservaDeReproduccionController {
         Jugador jugador = juegoModelo.getJugadorActivo();
         try{
             reservaDeReproduccion.asignarRaza(jugador.getRaza());
-            //reservaDeReproduccion.crearZerling(Larva larva);
             RazaZerg razaZerg;
             razaZerg = (RazaZerg) juegoModelo.getJugadorZerg().getRaza();
             Larva larva = razaZerg.getLarva();
-
+            reservaDeReproduccion.crearZerling(larva);
 
             boolean agregado = false;
 
@@ -76,6 +78,8 @@ public class MenuReservaDeReproduccionController {
             alert.setTitle("Error");
             alert.setContentText("No hay larvas en ningun criadero");
             alert.showAndWait();
+        } catch (EdificioNoOperativoError | PoblacionExedidaError e){
+            MostradorAlertas.mostrarAlerta(e);
         } catch (Exception e){
             e.printStackTrace();
         }

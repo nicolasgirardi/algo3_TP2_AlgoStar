@@ -19,6 +19,7 @@ public class Hidralisco extends Unidad implements TipoEvolucionDeLarva {
                 new AtaqueTierraYViento(10,10),
                 4,2,75,25);
         entidad = ID_UNIDAD.HIDRALISCO;
+        rango = 4;
     }
 
     public Hidralisco(HitPoints vida) {
