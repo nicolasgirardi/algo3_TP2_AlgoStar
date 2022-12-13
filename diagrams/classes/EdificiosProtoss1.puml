@@ -45,7 +45,6 @@ interface Atacable {
 abstract class Edificio {
         #turnosRestantesParaSerOperativo: Int
         #ubicacion: Ubicacion
-        #entidad: IDEDIFICIO
         #costoMineral: int
         #costoGas: int
         #raza: Raza
