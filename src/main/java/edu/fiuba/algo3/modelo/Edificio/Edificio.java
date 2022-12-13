@@ -142,4 +142,14 @@ public abstract class Edificio implements Atacable {
     public int getTurnosRestantesParaSerOperativo(){
         return turnosRestantesParaSerOperativo;
     }
+
+    public int getVida() {
+        return hp.vida();
+    }
+
+    public int getEscudo() {
+        return hp.escudo();
+    }
+
+
 }

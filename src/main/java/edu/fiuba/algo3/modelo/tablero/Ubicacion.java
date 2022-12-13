@@ -193,4 +193,7 @@ public class Ubicacion {
         return (unidad == null && edificio == null && recurso == null && tipo.getTiposuperficie() != TIPOSUPERFICIE.ESPECIAL  );
     }
 
+    public void quitarEdificio() {
+        edificio = null;
+    }
 }

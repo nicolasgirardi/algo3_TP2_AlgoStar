@@ -10,21 +10,16 @@ import edu.fiuba.algo3.modelo.ID_UNIDAD;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.Unidad.UnidadNoOperativaError;
-import edu.fiuba.algo3.modelo.tablero.Coordenada;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -139,7 +134,7 @@ public class MenuUnidadController extends UnidadMovibleController{
                 System.out.println(unidadAdy.getEntidad() );
                 GridPane panelDeEnemigos =  (GridPane) contenerdorMenu.getChildren().get(5);
                 BotonAtacable botonAtacable = new BotonAtacable(imagenesUnidades.get(unidadAdy.getEntidad() ) );
-                botonAtacable.setOnAction(new BotonAtacableHandler(ubicacionAdy.getUnidad(), ubicacion.getUnidad() , ubicacionAdy, tablero ) );
+                botonAtacable.setOnAction(new BotonAtacableHandler(ubicacionAdy.getUnidad(), ubicacion.getUnidad() , ubicacionAdy, tablero, vBoxMenu, juegoModelo ) );
                 panelDeEnemigos.add(  botonAtacable , i, j );
                 i++;
                 if ( i == 3 ){
@@ -155,7 +150,7 @@ public class MenuUnidadController extends UnidadMovibleController{
                 System.out.println(edificio.getEntidad() );
                 GridPane panelDeEnemigos =  (GridPane) contenerdorMenu.getChildren().get(5);
                 BotonAtacable botonAtacable = new BotonAtacable(imagenEdificio.get(edificio.getEntidad() ) );
-                botonAtacable.setOnAction(new BotonAtacableHandler(ubicacionAdy.getEdificio(), ubicacion.getUnidad(), ubicacionAdy, tablero ) );
+                botonAtacable.setOnAction(new BotonAtacableHandler(ubicacionAdy.getEdificio(), ubicacion.getUnidad(), ubicacionAdy, tablero, vBoxMenu, juegoModelo) );
                 panelDeEnemigos.add(  botonAtacable , i, j );
                 i++;
                 if ( i == 3 ){
