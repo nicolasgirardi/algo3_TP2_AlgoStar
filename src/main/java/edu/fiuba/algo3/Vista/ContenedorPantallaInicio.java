@@ -64,25 +64,8 @@ public class ContenedorPantallaInicio extends VBox {
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
 
-        Button buttonTest = new Button("TEST");
-        buttonTest.setOnAction(e -> {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/VistaFxml/InterfazJuego.fxml"));
-                Parent variableCargando = fxmlLoader.load();
-                InterfazJuegoControlador interfazJuegoControlador = fxmlLoader.getController();
-                JuegoModelo juegoModelo = new JuegoModelo();
-                juegoModelo.agregarJugador(new Jugador("Jet_4466","verde",new RazaProtoss()));
-                juegoModelo.agregarJugador(new Jugador("Abranhan ","ROJO",new RazaZerg()));
-                interfazJuegoControlador.setJuego(juegoModelo);
-                interfazJuegoControlador.inicializar();
-                Scene scene = new Scene(variableCargando);
-                stage.setScene(scene);
-            }catch (IOException err){
-                System.out.println("Hola un error -ContenedorPantallaInicio");
-                err.printStackTrace();
-            }
-        });
-        this.getChildren().addAll( inicioJuego, botonContinuar,botonSalir,buttonTest);
+
+        this.getChildren().addAll( inicioJuego, botonContinuar,botonSalir);
         this.setBackground( new Background(primerBackGro) );
         this.setSpacing(100);
         this.setAlignment(Pos.CENTER);
