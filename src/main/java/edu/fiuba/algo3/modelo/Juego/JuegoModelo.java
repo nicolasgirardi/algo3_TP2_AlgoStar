@@ -37,6 +37,7 @@ public class JuegoModelo{
             baseJugador1 = mapa.buscar(coordenadaCero);
             baseJugador2 = mapa.buscarOpuesto(coordenadaCero);
             baseJugador1.darTipo(new Moho()); //necesito moho para instalar un criadero
+            //baseJugador2.crecer(5, mapa);
             baseJugador1.ubicar(new Criadero()); //el criadero base
             baseJugador2.ubicar(new Pilon(), mapa); //el pilon base
         } else {
