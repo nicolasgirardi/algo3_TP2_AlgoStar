@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
 import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
-import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.*;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonUnidad;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
@@ -17,11 +16,9 @@ import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -29,7 +26,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class MenuZanganoController extends UnidadMovibleController {
-
+    @FXML
+    public Pane paneMovimiento;
 
     @FXML
     public AnchorPane contenerdorMenu;
@@ -221,7 +219,9 @@ public class MenuZanganoController extends UnidadMovibleController {
         GestionRecurso mineralExtraido = zangano.extraerMineral(nodoMineral);
         razaZerg.aumentarMineral(mineralExtraido);
         this.lblCantidadMineralNodo.setText(String.valueOf(nodoMineral.cantidadRecurso()));
-        botonUnidad.requestFocus();
+        this.btnExtraerMineral.setDisable(true);
+        this.paneMovimiento.setDisable(true);
+        desactivarMovimientoPorTeclado();
     }
 
 
@@ -233,13 +233,13 @@ public class MenuZanganoController extends UnidadMovibleController {
     public void setElements(GridPane tablero, VBox vBoxMenu , Ubicacion ubicacion, BotonUnidad botonUnidad, JuegoModelo juegoModelo) {
         super.setElements(tablero,vBoxMenu,ubicacion,botonUnidad,juegoModelo);
 
-        if(!ubicacion.getUnidad().esOperativo()){
+        if(ubicacion.getUnidad().esOperativo()){
             int cantidadTurnosParaSerOperativo = ubicacion.getUnidad().getTurnosRestantesParaSerOperativo();
             contenerdorMenu.getChildren().clear();
             contenerdorMenu.getChildren().addAll(cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo));
             return;
         }
-        aplicarMovimientoPorTeclado();
+        activarMovimientoPorTeclado();
         this.razaZerg =  (RazaZerg) juegoModelo.getJugadorActivo().getRaza();
         if(ubicacionTieneMoho()){
             this.btnMutarACriadero.setDisable(false);
@@ -265,9 +265,6 @@ public class MenuZanganoController extends UnidadMovibleController {
             this.lblCantidadMineralNodo.setVisible(true);
             this.lblCantidadMineralNodo.setText(String.valueOf(nodoMineral.cantidadRecurso()));
         }
-
-
-        // falta ver el extractor
 
     }
 

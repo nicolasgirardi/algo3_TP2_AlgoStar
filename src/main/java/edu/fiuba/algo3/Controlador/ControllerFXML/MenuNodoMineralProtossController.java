@@ -3,6 +3,7 @@ package edu.fiuba.algo3.Controlador.ControllerFXML;
 import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonNexoMineral;
 import edu.fiuba.algo3.Vista.Botones.BotonRecursoMineral;
+import edu.fiuba.algo3.modelo.ConstruccionProtoEnMohoError;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.NexoMineral;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
@@ -23,14 +24,17 @@ public class MenuNodoMineralProtossController {
 
     @FXML
     public void onClickedConstruirNexoMineral(MouseEvent event) {
-        NexoMineral nexoMineral = new NexoMineral(ubicacion.getNodoMineral(),ubicacion);
         try {
+            NexoMineral nexoMineral = new NexoMineral(ubicacion.getNodoMineral(),ubicacion);
             razaProtoss.agregarEdificio(nexoMineral);
             botonRecursoMineral.borrarBotonDelTablero();
             BotonNexoMineral botonNexoMineral = new BotonNexoMineral(botonRecursoMineral);
             botonNexoMineral.fire();
             tablero.add(botonNexoMineral,ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
-        }catch (Exception e){
+        }catch (ConstruccionProtoEnMohoError e){
+            MostradorAlertas.mostrarAlerta(e);
+        }
+        catch (Exception e){
             MostradorAlertas.mostrarAlerta(e);
         }
 

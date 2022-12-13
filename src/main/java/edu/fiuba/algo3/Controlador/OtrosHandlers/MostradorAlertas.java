@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.Controlador.OtrosHandlers;
 
 import edu.fiuba.algo3.modelo.ConstruccionFueraDelRangoPilonError;
+import edu.fiuba.algo3.modelo.ConstruccionProtoEnMohoError;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.ExtractorCantidadMaximaDeZanganosError;
@@ -36,6 +37,7 @@ public class MostradorAlertas {
        mensajesErrores.put(InsuficientesRecursosParaCrearUnidadError.class.getName(), "Insuficientes recursos para crear la unidad ");
        mensajesErrores.put(FinDelJuegoGanaronLosProtoss.class.getName(),"Ganaron los Protoss.\n\n Haga click en aceptar para terminar el juego");
        mensajesErrores.put(FinDelJuegoGanaronLosZerg.class.getName(),"Ganaron los Zergs.\n\n Haga click en aceptar para terminar el juego");
+       mensajesErrores.put(ConstruccionProtoEnMohoError.class.getName(),"No se puede construir por el Moho");
    }
 
    public static void mostrarAlerta(Exception e){

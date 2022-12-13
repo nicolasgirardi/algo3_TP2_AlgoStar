@@ -77,7 +77,7 @@ public class MenuUnidadController extends UnidadMovibleController{
             contenerdorMenu.getChildren().addAll(cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo));
             return;
         }
-        aplicarMovimientoPorTeclado();
+        activarMovimientoPorTeclado();
 
 
     }
