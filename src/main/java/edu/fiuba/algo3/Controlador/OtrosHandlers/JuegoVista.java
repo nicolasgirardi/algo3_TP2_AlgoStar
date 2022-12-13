@@ -47,7 +47,7 @@ public class JuegoVista {
             for(int j = 0; j <= MAPA_TAMANIO; j++){
                 try {
                     Ubicacion ubicacion = juegoModelo.buscar(new Coordenada(i,j));
-                    if( !ubicacion.existeRecurso() && !ubicacion.existeEdificio()){
+                    if( !ubicacion.existeRecurso() && !ubicacion.existeEdificio() && (ubicacion.getTipoSuperficie() != TIPOSUPERFICIE.MOHO)){
                         BotonCeldaTablero botonSuperficie = new BotonTierra(TAMANIO,ubicacion,vBoxMenu,grPane,juegoModelo);
                         grPane.add(botonSuperficie, i, j);
                     } else if (ubicacion.existeRecurso() ){
@@ -56,6 +56,9 @@ public class JuegoVista {
                         agregarEdificioInicial(ubicacion, i, j, vBoxMenu);
                     } else if(ubicacion.existeUnidad()){
                         agregarUnidadInicial(ubicacion,i,j,vBoxMenu);
+                    } else if ((ubicacion.getTipoSuperficie() == TIPOSUPERFICIE.MOHO)){
+                        BotonCeldaTablero botonMoho = new BotonMoho(TAMANIO,ubicacion,vBoxMenu,grPane,juegoModelo);
+                        grPane.add(botonMoho, i, j);
                     }
 
                 } catch (Exception e){
