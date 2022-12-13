@@ -46,8 +46,6 @@ public class BotonContinuarRegistroHandler implements EventHandler<ActionEvent> 
             capturadorDeErroresJugador(jugadorNuevo);
         }
         if(juegoModelo.jugadoresCompletos() ){
-            //ContenedorJuego contenedorJuego = new ContenedorJuego(stage, juego);
-            //Scene scenaJuegoPrincipal = new Scene(contenedorJuego, 1400, 900); // poner siempre dimensiones (eje x, eje y )
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/VistaFxml/InterfazJuego.fxml"));
                 Parent variableCargando = fxmlLoader.load();
@@ -60,7 +58,6 @@ public class BotonContinuarRegistroHandler implements EventHandler<ActionEvent> 
                 err.printStackTrace();
             }
 
-            //stage.setScene(scenaJuegoPrincipal);
         }
         else{
             ContenedorRegistro nuevoContenedorRegistro = new ContenedorRegistro(stage, juegoModelo);
