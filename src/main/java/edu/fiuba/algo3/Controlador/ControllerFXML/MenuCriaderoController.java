@@ -2,6 +2,7 @@ package edu.fiuba.algo3.Controlador.ControllerFXML;
 
 import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
+import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonCriadero;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonZangano;
 import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
@@ -21,30 +22,36 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
-public class MenuCriaderoController {
+public class MenuCriaderoController extends  EnContruccion{
 
     @FXML
     public Button btnEvolucionarZangano;
+
+    @FXML
+    public AnchorPane contenerdorMenu;
+
     private VBox vBoxMenu;
     private Criadero criadero;
     private GridPane tablero;
-    private int tamanio;
     private JuegoModelo juegoModelo;
 
-    public void setElements(Criadero criadero, VBox vBoxMenu, GridPane tablero, JuegoModelo juegoModelo , int tamanio){
-        this.vBoxMenu = vBoxMenu;
+    private BotonCriadero botonCriadero;
+
+    public void setElements(Criadero criadero, VBox vBoxMenu, GridPane tablero, JuegoModelo juegoModelo, BotonCriadero botonCriadero){
         this.criadero = criadero;
+        this.vBoxMenu = vBoxMenu;
         this.juegoModelo = juegoModelo;
         this.tablero = tablero;
-        this.tamanio = tamanio;
-    }
+        this.botonCriadero = botonCriadero;
 
-
-    public void handle(ActionEvent actionEvent) {
-
+        if(!criadero.estaOperativo()){
+            int cantidadTurnosParaSerOperativo = criadero.getTurnosRestantesParaSerOperativo();
+            cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo,contenerdorMenu);
+        }
 
     }
 
@@ -91,6 +98,7 @@ public class MenuCriaderoController {
         } catch (Exception e){
             e.printStackTrace();
         }
+        botonCriadero.fire();
     }
 
 

@@ -57,7 +57,9 @@ public class CasoDeUso12 {
         //HitPoints HPmock = mock(HitPoints.class);
         HitPoints HP = new HPProtoss(450,450);
         Volcan volcan = new Volcan();
-        Edificio edificio = new Asimilador(volcan); //podría ser cualquier edificio
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
+        Edificio edificio = new Asimilador(ubicacion); //podría ser cualquier edificio
         edificio.asignarHP(HP);
         edificio.recibirDaño(650);
         //when(HPmock.vida()).thenReturn(250);

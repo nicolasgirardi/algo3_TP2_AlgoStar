@@ -26,9 +26,10 @@ public class NexoMineral extends Edificio {
     public NexoMineral(NodoMineral nodoMineral, Ubicacion ubicacion){
         super(CANTIDAD_TURNOS_OPERATIVO,new HPProtoss(250,250),50,0);
         this.nodoMineral = nodoMineral;
+        ubicacion.ubicar(this);
         nodoMineral.ocuparConEdificio(this);
         entidad = IDEDIFICIO.NEXOMINERAL;
-        ubicacion.ubicar(this);
+
     }
 
 

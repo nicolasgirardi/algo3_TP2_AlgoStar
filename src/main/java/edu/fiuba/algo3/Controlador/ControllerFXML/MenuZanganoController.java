@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
 import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
-import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.Vista.Botones.Construcciones.*;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonUnidad;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
@@ -17,11 +16,9 @@ import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -29,7 +26,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class MenuZanganoController extends UnidadMovibleController {
-
+    @FXML
+    public Pane paneMovimiento;
 
     @FXML
     public AnchorPane contenerdorMenu;
@@ -110,7 +108,7 @@ public class MenuZanganoController extends UnidadMovibleController {
 
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
     }
-    //TODO: revisar si se agregann correctamente los edificios al modelo
+    //TODO: Con una zangano hay error al intentar construir un edificio que requieree una correlativva y luego se intenta construir esa correlativa sin cambiar de ubicacion
     @FXML
     public void onClickedMutarExtractor(MouseEvent event) {
 
@@ -122,13 +120,13 @@ public class MenuZanganoController extends UnidadMovibleController {
         botonUnidad.borrarBotonDelTablero();
         BotonExtractor botonExtractor = new BotonExtractor(botonUnidad);
         tablero.add(botonExtractor, ubicacion.coordenada().horizontal(), ubicacion.coordenada().vertical() );
+        botonExtractor.fire();
     }
 
     @FXML
     public void onClickedMutarACriadero(MouseEvent event) {
-
+        Zangano zangano = (Zangano) ubicacion.getUnidad();
         try {
-            Zangano zangano = (Zangano) ubicacion.getUnidad();
             zangano.mutarCriadero(razaZerg);
             ubicacion.ubicar( (Criadero) zangano.getEstadoZangano() );
             ubicacion.quitarUnidad();
@@ -140,8 +138,10 @@ public class MenuZanganoController extends UnidadMovibleController {
             BotonCriadero botonCriadero = new BotonCriadero(botonUnidad);
             botonCriadero.setTooltipLarvasRestantes();
             tablero.add(botonCriadero, ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            botonCriadero.fire();
         }catch ( RecursosInsuficientesError e ) {
             MostradorAlertas.mostrarAlerta(e,"un Criadero");
+            zangano.estadoZangano();
         } catch (Exception e){
             MostradorAlertas.mostrarAlerta(e);
         }
@@ -151,18 +151,21 @@ public class MenuZanganoController extends UnidadMovibleController {
 
     @FXML
     public void onClickedMutarAEspiral(MouseEvent event) {
-
+        Zangano zangano = (Zangano) ubicacion.getUnidad();
         try {
-            Zangano zangano = (Zangano) ubicacion.getUnidad();
             zangano.mutarEspiral(razaZerg);
             ubicacion.ubicar(  (Espiral) zangano.getEstadoZangano() );
             ubicacion.quitarUnidad();
             botonUnidad.borrarBotonDelTablero();
-            tablero.add(new BotonEspiral(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            BotonEspiral botonEspiral = new BotonEspiral(botonUnidad);
+            tablero.add(botonEspiral,ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            botonEspiral.fire();
         }catch ( RecursosInsuficientesError e ) {
             MostradorAlertas.mostrarAlerta(e,"un Espiral");
+            zangano.estadoZangano();
         } catch (CorrelativaDeConstruccionIncumplidaError e){
             MostradorAlertas.mostrarAlerta(e,"Necesitas una Guarida para construir");
+            zangano.estadoZangano();
         } catch (Exception e){
             MostradorAlertas.mostrarAlerta(e);
         }
@@ -170,18 +173,22 @@ public class MenuZanganoController extends UnidadMovibleController {
 
     @FXML
     public void onClickedMutarAGuarida(MouseEvent event) {
+        Zangano zangano = (Zangano) ubicacion.getUnidad();
         try{
-            Zangano zangano = (Zangano) ubicacion.getUnidad();
             zangano.mutarGuarida(razaZerg);
             ubicacion.ubicar(  (Guarida) zangano.getEstadoZangano() );
             ubicacion.quitarUnidad();
-
             botonUnidad.borrarBotonDelTablero();
-            tablero.add(new BotonGuarida(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            BotonGuarida botonGuarida = new BotonGuarida(botonUnidad);
+            tablero.add(botonGuarida,ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            botonGuarida.fire();
+
         } catch ( RecursosInsuficientesError e ){
             MostradorAlertas.mostrarAlerta(e,"una Guarida");
+            zangano.estadoZangano();
         } catch (CorrelativaDeConstruccionIncumplidaError e){
             MostradorAlertas.mostrarAlerta(e,"Necesitas una Reserva de Reproduccion para construir");
+            zangano.estadoZangano();
         } catch (Exception e){
             MostradorAlertas.mostrarAlerta(e);
         }
@@ -189,8 +196,8 @@ public class MenuZanganoController extends UnidadMovibleController {
 
     @FXML
     public void onClickedMutarAReservaDeReproduccion(MouseEvent event) {
+        Zangano zangano = (Zangano) ubicacion.getUnidad();
         try{
-            Zangano zangano = (Zangano) ubicacion.getUnidad();
             zangano.mutarReservaReproduccion(razaZerg);
             ubicacion.ubicar(  (ReservaDeReproduccion) zangano.getEstadoZangano() );
             ubicacion.quitarUnidad();
@@ -198,6 +205,7 @@ public class MenuZanganoController extends UnidadMovibleController {
             tablero.add(new BotonReservaDeReproduccion(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         } catch (RecursosInsuficientesError e) {
             MostradorAlertas.mostrarAlerta(e,"una Reserva De Reproduccion");
+            zangano.estadoZangano();
         } catch( Exception e){
             MostradorAlertas.mostrarAlerta(e);
         }
@@ -218,7 +226,9 @@ public class MenuZanganoController extends UnidadMovibleController {
         GestionRecurso mineralExtraido = zangano.extraerMineral(nodoMineral);
         razaZerg.aumentarMineral(mineralExtraido);
         this.lblCantidadMineralNodo.setText(String.valueOf(nodoMineral.cantidadRecurso()));
-        botonUnidad.requestFocus();
+        this.btnExtraerMineral.setDisable(true);
+        this.paneMovimiento.setDisable(true);
+        desactivarMovimientoPorTeclado();
     }
 
 
@@ -232,12 +242,10 @@ public class MenuZanganoController extends UnidadMovibleController {
 
         if( (ubicacion.getUnidad() != null) && !ubicacion.getUnidad().esOperativo() ){
             int cantidadTurnosParaSerOperativo = ubicacion.getUnidad().getTurnosRestantesParaSerOperativo();
-            contenerdorMenu.getChildren().clear();
-            contenerdorMenu.getChildren().addAll(cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo));
+            cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo,contenerdorMenu);
             return;
         }
-
-        aplicarMovimientoPorTeclado();
+        activarMovimientoPorTeclado();
         this.razaZerg =  (RazaZerg) juegoModelo.getJugadorActivo().getRaza();
         if(ubicacionTieneMoho()){
             this.btnMutarACriadero.setDisable(false);
@@ -263,9 +271,6 @@ public class MenuZanganoController extends UnidadMovibleController {
             this.lblCantidadMineralNodo.setVisible(true);
             this.lblCantidadMineralNodo.setText(String.valueOf(nodoMineral.cantidadRecurso()));
         }
-
-
-        // falta ver el extractor
 
     }
 

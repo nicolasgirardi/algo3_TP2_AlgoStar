@@ -2,6 +2,7 @@ package edu.fiuba.algo3.Controlador.ControllerFXML;
 
 import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
+import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonReservaDeReproduccion;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonZangano;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonZerling;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
@@ -23,14 +24,18 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
 
-public class MenuReservaDeReproduccionController {
+public class MenuReservaDeReproduccionController extends EnContruccion{
 
     @FXML
     public Button btnEvolucionarLarvaAZerling;
+
+    @FXML
+    public AnchorPane contenerdorMenu;
     private ReservaDeReproduccion reservaDeReproduccion;
     private GridPane tablero;
     private JuegoModelo juegoModelo;
@@ -85,9 +90,14 @@ public class MenuReservaDeReproduccionController {
         }
     }
 
-    public void setElements(ReservaDeReproduccion reservaDeReproduccion, GridPane tablero, JuegoModelo juegoModelo){
+    public void setElements(ReservaDeReproduccion reservaDeReproduccion, GridPane tablero, JuegoModelo juegoModelo, BotonReservaDeReproduccion botonReservaDeReproduccion){
         this.reservaDeReproduccion = reservaDeReproduccion;
         this.juegoModelo = juegoModelo;
         this.tablero = tablero;
+
+        if(!reservaDeReproduccion.estaOperativo()){
+            int cantidadTurnosParaSerOperativo = reservaDeReproduccion.getTurnosRestantesParaSerOperativo();
+            cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo,contenerdorMenu);
+        }
     }
 }

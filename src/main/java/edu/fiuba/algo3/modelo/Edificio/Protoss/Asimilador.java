@@ -10,18 +10,21 @@ import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 
 public class Asimilador extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 6;
     private Volcan volcan;
 
 
-    //asimilador se instala sobre un volcan imposible instalarlo en otro lugar.
-    public Asimilador(Volcan volcan){
+    public Asimilador(Ubicacion ubicacion){
         super(CANTIDAD_TURNOS_OPERATIVO,new HPProtoss(450,450),100,0);
         entidad = IDEDIFICIO.ASIMILADOR;
+        ubicacion.ubicar(this);
+        this.volcan = ubicacion.getVolcan();
         volcan.agregarEdificio(this);
-        this.volcan = volcan;
+
+
     }
 
     public void prepararCapsula() {

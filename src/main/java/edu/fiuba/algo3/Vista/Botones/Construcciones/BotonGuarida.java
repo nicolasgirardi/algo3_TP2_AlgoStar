@@ -20,7 +20,7 @@ public class BotonGuarida extends BotonCeldaTablero {
         ID_RAZA razaActiva = jugadorActivo.getRaza().getEntidad();
         if(razaActiva.equals(ID_RAZA.ZERG)){
             MenuGuaridaController controller = vistaMenu.getController();
-            controller.setElements((Guarida) ubicacion.getEdificio(),tablero, juegoModelo);
+            controller.setElements((Guarida) ubicacion.getEdificio(),tablero, juegoModelo, this);
         }else{
             MenuAtacarEnemigoController controller = vistaMenu.getController();
         }

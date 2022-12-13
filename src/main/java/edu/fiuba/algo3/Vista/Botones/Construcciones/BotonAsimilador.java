@@ -4,6 +4,7 @@ import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAsimiladorController;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAtacarEnemigoController;
 import edu.fiuba.algo3.Controlador.OtrosHandlers.RUTAS_FXML;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.Asimilador;
 import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
@@ -20,7 +21,7 @@ public class BotonAsimilador extends BotonCeldaTablero {
         ID_RAZA razaActiva = jugadorActivo.getRaza().getEntidad();
         if(razaActiva.equals(ID_RAZA.PROTOSS)){
             MenuAsimiladorController controller = vistaMenu.getController();
-            controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
+            controller.setElements(tablero,(Asimilador) ubicacion.getEdificio() ,(RazaProtoss) jugadorActivo.getRaza(),this);
         }else{
             MenuAtacarEnemigoController controller = vistaMenu.getController();
         }

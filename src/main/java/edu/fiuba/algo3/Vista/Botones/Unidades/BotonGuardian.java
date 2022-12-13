@@ -1,17 +1,17 @@
-package edu.fiuba.algo3.Vista.Botones.Construcciones;
+package edu.fiuba.algo3.Vista.Botones.Unidades;
 
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAtacarEnemigoController;
-import edu.fiuba.algo3.Controlador.ControllerFXML.MenuEspiralController;
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuUnidadController;
 import edu.fiuba.algo3.Controlador.OtrosHandlers.RUTAS_FXML;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Espiral;
 import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 
-public class BotonEspiral extends BotonCeldaTablero {
+public class BotonGuardian extends BotonUnidad{
 
-    public BotonEspiral(BotonCeldaTablero botonACopiar){
-        super(botonACopiar, "images/espiral.png", RUTAS_FXML.MENU_ATACAR_ENEMIGO, RUTAS_FXML.MENU_ESPIRAL);
+    public BotonGuardian(BotonCeldaTablero botonCeldaTablero) {
+        super(botonCeldaTablero, "images/guardian.png", RUTAS_FXML.MENU_ATACAR_ENEMIGO,RUTAS_FXML.MENU_UNIDAD);
+
     }
 
     @Override
@@ -19,8 +19,8 @@ public class BotonEspiral extends BotonCeldaTablero {
         Jugador jugadorActivo = juegoModelo.getJugadorActivo();
         ID_RAZA razaActiva = jugadorActivo.getRaza().getEntidad();
         if(razaActiva.equals(ID_RAZA.ZERG)){
-            MenuEspiralController controller = vistaMenu.getController();
-            controller.setElements((Espiral) ubicacion.getEdificio(),tablero, juegoModelo, this);
+            MenuUnidadController controller = vistaMenu.getController();
+            controller.setElements(tablero,vBoxMenu,ubicacion,this,juegoModelo);
         }else{
             MenuAtacarEnemigoController controller = vistaMenu.getController();
         }

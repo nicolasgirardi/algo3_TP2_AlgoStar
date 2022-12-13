@@ -37,8 +37,9 @@ public class JuegoModelo{
             baseJugador1 = mapa.buscar(coordenadaCero);
             baseJugador2 = mapa.buscarOpuesto(coordenadaCero);
             baseJugador1.darTipo(new Moho()); //necesito moho para instalar un criadero
+            //baseJugador2.crecer(5, mapa);
             baseJugador1.ubicar(new Criadero()); //el criadero base
-            baseJugador2.ubicar(new Pilon(), mapa); //el pilon base
+            baseJugador2.ubicar(new Pilon(0), mapa); //el pilon base
         } else {
             throw new CoordenadaNoEsExtremoDelMapaError();
         }
@@ -56,7 +57,7 @@ public class JuegoModelo{
             baseJugador2 = mapa.buscarOpuesto(coor1);
             baseJugador1.darTipo(new Moho()); //necesito moho para instalar un criadero
             baseJugador1.ubicar(new Criadero()); //el criadero base
-            baseJugador2.ubicar(new Pilon(), mapa); //el pilon base
+            baseJugador2.ubicar(new Pilon(0), mapa); //el pilon base
         } else {
             throw new CoordenadaNoEsExtremoDelMapaError();
         }
@@ -134,7 +135,10 @@ public class JuegoModelo{
         else{
             jugadorActivo = jugador1;
         }
-        jugadorActivo.getRaza().ejecutarTurno();
+        jugador1.getRaza().ejecutarTurno();
+        jugador2.getRaza().ejecutarTurno();
+        RazaProtoss razaProtoss = (RazaProtoss) getJugadorProtoss().getRaza();
+        razaProtoss.activarPilonesActivos(mapa);
         notificarSobreJugadorActivo();
     }
 
@@ -166,9 +170,6 @@ public class JuegoModelo{
             return jugador1;
         else
             return jugador2;
-    }
-    public void ejecutarTurnoJugadorActivvo(){
-
     }
 }
 

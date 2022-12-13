@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Unidad;
 import edu.fiuba.algo3.modelo.Atacable;
 import edu.fiuba.algo3.modelo.Ataque.Ataque;
 import edu.fiuba.algo3.modelo.Ataque.AtaqueTierraYViento;
+import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
 import edu.fiuba.algo3.modelo.ID_UNIDAD;
@@ -165,5 +166,13 @@ public class Mutalisco extends Unidad implements TipoEvolucionDeMutalisco{
             Unidad unidadActual = (Unidad) tipoEvolucionDeMutalisco;
             unidadActual.ejecutarTurno();
         }
+    }
+
+    public Unidad getTipoMutalisco(){
+        Unidad unidad = null;
+        if(tipoEvolucionDeMutalisco != null){
+            unidad = (Unidad) tipoEvolucionDeMutalisco;
+        }
+        return unidad;
     }
 }

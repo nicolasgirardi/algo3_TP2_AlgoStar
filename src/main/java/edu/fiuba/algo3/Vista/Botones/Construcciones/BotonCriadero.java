@@ -31,7 +31,7 @@ public class BotonCriadero extends BotonCeldaTablero {
         Criadero criadero = (Criadero) ubicacion.getEdificio();
         if(razaActiva.equals(ID_RAZA.ZERG)){
             MenuCriaderoController controller = vistaMenu.getController();
-            controller.setElements(criadero ,vBoxMenu, tablero,juegoModelo,getTAMANIO());
+            controller.setElements(criadero ,vBoxMenu, tablero,juegoModelo,this);
         }else{
             MenuAtacarEnemigoController controller = vistaMenu.getController();
         }

@@ -32,11 +32,13 @@ public class CasoDeUso16 {
     @Test
     public void testSeConstruyeUnExtractorSobreUnVolcanNoSeDeberiaConstruirUnAsimiladorSobreElVolcan(){
         Volcan volcan = new Volcan();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
         Edificio extractor = new Extractor();
         volcan.agregarEdificio(extractor);
 
         assertThrows( RecursoOcupadoError.class, ()-> {
-            Asimilador asimilador = new Asimilador(volcan);
+            Asimilador asimilador = new Asimilador(ubicacion);
             volcan.agregarEdificio(asimilador);
         });
     }
@@ -44,7 +46,9 @@ public class CasoDeUso16 {
     @Test
     public void testSeConstruyeUnAsimiladorSobreUnVolcanNoSeDeberiaConstruirUnExtractorSobreElVolcan(){
         Volcan volcan = new Volcan();
-        Asimilador asimilador = new Asimilador(volcan);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
+        Asimilador asimilador = new Asimilador(ubicacion);
 
         assertThrows( RecursoOcupadoError.class, ()-> {
             Extractor extractor = new Extractor();

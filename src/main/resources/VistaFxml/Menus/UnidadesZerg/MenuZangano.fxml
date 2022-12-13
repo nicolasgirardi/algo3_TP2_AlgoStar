@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="contenerdorMenu" maxHeight="444.0" maxWidth="272.0" prefHeight="444.0" prefWidth="272.0" style="-fx-border-color: green;" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Controlador.ControllerFXML.MenuZanganoController">
    <children>
       <HBox layoutX="43.0" layoutY="40.0" />
@@ -25,7 +24,7 @@
             <Button fx:id="btnMutarExtractor" disable="true" layoutX="42.0" layoutY="98.0" mnemonicParsing="false" onMouseClicked="#onClickedMutarExtractor" text="Extractor" />
          </children>
       </Pane>
-      <Pane layoutX="74.0" layoutY="329.0" prefHeight="82.0" prefWidth="124.0">
+      <Pane fx:id="paneMovimiento" layoutX="74.0" layoutY="329.0" prefHeight="82.0" prefWidth="124.0">
          <children>
             <Button layoutX="49.0" layoutY="56.0" mnemonicParsing="false" onMouseClicked="#onClickedMoverAbajo" text="▼" />
             <Button layoutX="49.0" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#onClickedMoverArriba" rotate="180.0" text="▼" />

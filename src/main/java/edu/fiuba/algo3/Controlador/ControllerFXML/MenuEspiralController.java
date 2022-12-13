@@ -2,6 +2,7 @@ package edu.fiuba.algo3.Controlador.ControllerFXML;
 
 import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
+import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonEspiral;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonMutalisco;
 import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.Espiral;
@@ -15,14 +16,20 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
-public class MenuEspiralController {
+public class MenuEspiralController extends EnContruccion{
+    @FXML
+    public AnchorPane contenedorMenu;
     @FXML
     public Button btnCrearMutalisco;
     private Espiral espiral;
     private JuegoModelo juegoModelo;
     private GridPane tablero;
+
+    private BotonEspiral botonEspiral;
+
     @FXML
     public void onClickCrearMutalisco(MouseEvent mouseEvent) {
         Mapa mapa = juegoModelo.getMapa();
@@ -63,9 +70,16 @@ public class MenuEspiralController {
         }
     }
 
-    public void setElements(Espiral espiral, GridPane tablero, JuegoModelo juegoModelo) {
+    public void setElements(Espiral espiral, GridPane tablero, JuegoModelo juegoModelo, BotonEspiral botonEspiral) {
         this.espiral = espiral;
         this.juegoModelo = juegoModelo;
         this.tablero = tablero;
+        this.botonEspiral = botonEspiral;
+
+        if( !espiral.estaOperativo() ){
+            int cantidadTurnosParaSerOperativo = espiral.getTurnosRestantesParaSerOperativo();
+            cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo,contenedorMenu);
+            return ;
+        }
     }
 }

@@ -4,6 +4,7 @@ import edu.fiuba.algo3.Controlador.ControllerFXML.*;
 import edu.fiuba.algo3.Controlador.OtrosHandlers.RUTAS_FXML;
 import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.Vista.Botones.BotonTierra;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
@@ -30,7 +31,7 @@ public class BotonEdificioPilon extends BotonCeldaTablero {
         ID_RAZA razaActiva = jugadorActivo.getRaza().getEntidad();
         if(razaActiva.equals(ID_RAZA.PROTOSS)){
             MenuPilonController controller = vistaMenu.getController();
-            //controller.setElements(tablero,ubicacion,(RazaProtoss) jugadorActivo.getRaza(),this);
+            controller.setElements((Pilon) ubicacion.getEdificio());
         }else{
             MenuAtacarEnemigoController controller = vistaMenu.getController();
         }

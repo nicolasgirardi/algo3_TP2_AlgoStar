@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.Controlador.OtrosHandlers;
 
 import edu.fiuba.algo3.modelo.ConstruccionFueraDelRangoPilonError;
+import edu.fiuba.algo3.modelo.ConstruccionProtoEnMohoError;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.ExtractorCantidadMaximaDeZanganosError;
+import edu.fiuba.algo3.modelo.NoSePuedeConstruirSobreElEspacioError;
 import edu.fiuba.algo3.modelo.Raza.FinDelJuegoGanaronLosProtoss;
 import edu.fiuba.algo3.modelo.Raza.FinDelJuegoGanaronLosZerg;
 import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
@@ -32,10 +34,12 @@ public class MostradorAlertas {
        mensajesErrores.put(EdificioNoOperativoError.class.getName(), "Error el edificio todavia no esta operativo ");
        mensajesErrores.put(ExtractorCantidadMaximaDeZanganosError.class.getName(), "Error El extractor tiene la maxima cantidad de zanganos");
        mensajesErrores.put( IndexOutOfBoundsException.class.getName(), "El criadero no tiene larvas");
-       mensajesErrores.put(PoblacionExedidaError.class.getName(), "Poblacion excedida");
+       mensajesErrores.put(PoblacionExedidaError.class.getName(), "No ees posible, exceede la maxima población");
        mensajesErrores.put(InsuficientesRecursosParaCrearUnidadError.class.getName(), "Insuficientes recursos para crear la unidad ");
        mensajesErrores.put(FinDelJuegoGanaronLosProtoss.class.getName(),"Ganaron los Protoss.\n\n Haga click en aceptar para terminar el juego");
        mensajesErrores.put(FinDelJuegoGanaronLosZerg.class.getName(),"Ganaron los Zergs.\n\n Haga click en aceptar para terminar el juego");
+       mensajesErrores.put(ConstruccionProtoEnMohoError.class.getName(),"No se puede construir por el Moho");
+       mensajesErrores.put(NoSePuedeConstruirSobreElEspacioError.class.getName(),"No se puede construir en el espacio");
    }
 
    public static void mostrarAlerta(Exception e){

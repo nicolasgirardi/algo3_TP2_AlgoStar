@@ -88,7 +88,9 @@ public class CasoDeUso15 {
     public void RazaProtoDejaDeConseguirGasDelVolcanCuandoSeQuedaSinUnidadesDeGas(){
         //Arrange
         Volcan volcan = new Volcan();
-        Asimilador asimilador = new Asimilador(volcan);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
+        Asimilador asimilador = new Asimilador(ubicacion);
 
         // dejo el Asimilador operrable en 6 turnos
         for(int i = 0; i <6; i++ ){

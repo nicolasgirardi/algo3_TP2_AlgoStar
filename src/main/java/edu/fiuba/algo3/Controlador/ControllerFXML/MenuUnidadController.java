@@ -85,11 +85,10 @@ public class MenuUnidadController extends UnidadMovibleController{
         super.setElements(tablero,vBoxMenu,ubicacion,botonUnidad,juegoModelo);
         if(!ubicacion.getUnidad().esOperativo()){
             int cantidadTurnosParaSerOperativo = ubicacion.getUnidad().getTurnosRestantesParaSerOperativo();
-            contenerdorMenu.getChildren().clear();
-            contenerdorMenu.getChildren().addAll(cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo));
+            cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo,contenerdorMenu);
             return;
         }
-        aplicarMovimientoPorTeclado();
+        activarMovimientoPorTeclado();
         completarEnemigosParaAtacar();
     }
 

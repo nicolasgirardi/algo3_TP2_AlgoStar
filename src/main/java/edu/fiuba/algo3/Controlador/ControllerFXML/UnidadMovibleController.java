@@ -12,7 +12,6 @@ import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
 import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -34,7 +33,7 @@ public abstract class UnidadMovibleController <TBotonUnidad extends BotonUnidad>
         this.botonUnidad = botonUnidad;
     }
 
-    public void aplicarMovimientoPorTeclado(){
+    public void activarMovimientoPorTeclado(){
         botonUnidad.setOnKeyPressed(keyEvent -> {
             Unidad unidad = ubicacion.getUnidad();
             try {
@@ -60,6 +59,11 @@ public abstract class UnidadMovibleController <TBotonUnidad extends BotonUnidad>
             }
         });
     }
+
+    public void desactivarMovimientoPorTeclado(){
+        botonUnidad.setOnKeyPressed(keyEvent -> {});
+    }
+
     public  TBotonUnidad obtenerNuevaInstanciaBotonUnidad(BotonCeldaTablero botonAReemplazar ) throws IllegalAccessException, InstantiationException, InvocationTargetException {
         int i = 0;
         List<Object> args = new ArrayList<>();

@@ -15,13 +15,23 @@ import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
 
-public class MenuExtractorController {
+public class MenuExtractorController extends  EnContruccion{
+    @FXML
+    public Button btnExtraerGas;
+
+
+    @FXML
+    public Label lblCantidadZanganos;
+
+    @FXML
+    public Label lblGasRestante;
 
     @FXML
     public AnchorPane contenerdorMenu;
@@ -41,6 +51,18 @@ public class MenuExtractorController {
         this.tablero = tablero;
         this.ubicacion = ubicacion;
         this.juegoModelo = juegoModelo;
+        Extractor extractor = (Extractor) ubicacion.getEdificio();
+
+        if(!extractor.estaOperativo()){
+            int cantidadTurnosParaSerOperativo = extractor.getTurnosRestantesParaSerOperativo();
+            cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo,contenerdorMenu);
+        }
+        int catidadZanganos = extractor.cantidadZanganosTrabajando();
+        lblCantidadZanganos.setText(String.valueOf(catidadZanganos));
+        btnExtraerGas.setDisable(catidadZanganos == 0);
+
+        lblGasRestante.setText(String.valueOf(ubicacion.getVolcan().cantidadRecurso()));
+        btnAgregarZangano.setDisable(!extractor.puedeAgregarZangano());
     }
 
     @FXML
@@ -48,6 +70,9 @@ public class MenuExtractorController {
         Extractor extractorActual = (Extractor) ubicacion.getEdificio();
         GestionRecurso gestionRecurso = extractorActual.extraer( ubicacion.getVolcan() );
         juegoModelo.getJugadorActivo().getRaza().aumentarGas(gestionRecurso);
+        lblGasRestante.setText(String.valueOf(ubicacion.getVolcan().cantidadRecurso()));
+        btnExtraerGas.setDisable(true);
+        btnAgregarZangano.setDisable(true);
     }
 
     @FXML
@@ -59,10 +84,12 @@ public class MenuExtractorController {
         for(Ubicacion ubicacionAdy : ubicacionesManhattan){
             if( ubicacionAdy.existeZangano(this.ubicacion) ){
                 agregarZangano(  (Zangano) ubicacionAdy.getUnidad(), extractorActual, ubicacionAdy );
+                btnAgregarZangano.setDisable(!extractorActual.puedeAgregarZangano());
                 contador++;
             }
         }
         if(contador == 0) System.out.println("No hay zanganos ");
+        botonCeldaTablero.fire();
 
     }
 
@@ -75,12 +102,13 @@ public class MenuExtractorController {
             BotonMoho botonMoho = new BotonMoho(botonCoordAntigua);
             botonCoordAntigua.borrarBotonDelTablero();
             tablero.add(botonMoho, coordenadaAdy.horizontal() , coordenadaAdy.vertical() );
+            lblCantidadZanganos.setText(String.valueOf(extractor.cantidadZanganosTrabajando()));
+            btnAgregarZangano.setDisable(!extractor.puedeAgregarZangano());
             //ver eliminar un zangano y poner moho o tierra segun corresponda
             // se queda ne n elbnaco el boton dodne estaba el zangano falta ponerle la superficie.
         } catch (EdificioNoOperativoError | ExtractorCantidadMaximaDeZanganosError e){
             MostradorAlertas.mostrarAlerta(e);
         }
-
 
     }
 
