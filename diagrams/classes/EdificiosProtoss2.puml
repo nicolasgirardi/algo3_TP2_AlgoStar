@@ -3,75 +3,57 @@
 
 abstract class Edificio {
 
-    -hp: HitPoints
-    #turnosRestantesParaSerOperativo: Int
-    #ubicacion: Ubicacion
-    #entidad: IDEDIFICIO
-    #costoMineral: int
-    #costoGas: int
-    #raza: Raza
+        #turnosRestantesParaSerOperativo: Int
+        #ubicacion: Ubicacion
+        #entidad: IDEDIFICIO
+        #costoMineral: int
+        #costoGas: int
+        #raza: Raza
+        -hp: HitPoints
 
-    +Edificio(turnosRestantesParaSerOperativo: Int,mineralNecesario: Int,gasNecesario: Int)
-    +Edificio(turnosRestantesParaSerOperativo: Int,HP: HitPoints,mineralNecesario: Int,gasNecesario: Int)
-    +Edificio(HP: HitPoints)
-    +verififarEdificioOperativo(): void
-    +ejecutarTurno():void
-    +asignarHP(HP: HitPoints): void
-    + {abstract} construirEdificioEn(recurso: Recurso): void
-    + verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral:GestionRecurso, unidadesDeGas:GestionRecurso): void
-    + {abstract} verificarSiPuedeSerConstruido(unidadesDeMineral:GestionRecurso, unidadesDeGas:GestionRecurso): void
-    +consumirGas(UnidadesDeGas:GestionRecurso):void
-    +consumirMineral(UnidadesDeMineral:GestionRecurso):void
-    +recibirDaño(daño: Int): void
-    +regeneracionFinDeTurno(): void
-    +vidaActual():Int
-    +escudoActual():Int
-    + ubicar(unLugar:Ubicacion): void
-    + distancia(unaUbicacion: Ubicacion): int
-    +recibirAtaque(unAtaque: Ataque): void
-    + {abstract} fueAgregado(raza: Raza): void
-    +desalojar():void
-    +ubicacion(): Ubicacion
-    +{abstract} instalar(tierra: Tierra): void
-    +{abstract} instalar(moho: Moho): void
-    +disminuirCapacidad(unaRaza: Raza): void
-    +getEntidad(): IDEDIFICIO
+        +Edificio(turnosRestantesParaSerOperativo: Int,HP: HitPoints,mineralNecesario: Int,gasNecesario: Int)
+        +verififarEdificioOperativo()
+        +ejecutarTurno():void
+        +{abstract} construirEdificioEn(recurso: Recurso)
+        +{abstract} verificarSiPuedeSerConstruido(unidadesDeMineral:GestionRecurso, unidadesDeGas:GestionRecurso)
+        + ubicar(unLugar:Ubicacion)
+        +recibirDaño(dano: Int)
+        +vidaActual():Int
+        + distancia(unaUbicacion: Ubicacion): int
+        + {abstract} fueAgregado(raza: Raza)
+        +ubicacion(): Ubicacion
+        +recibirAtaque(unAtaque: Ataque)
+        +{abstract} instalar(moho: Moho)
+        +disminuirCapacidad(unaRaza: Raza)
 
 
 }
 
 class Acceso{
-    -CANTIDAD_TURNOS_OPERATIVO: int
     -COSTO_GAS: int
     -COSTO_MINERAL:int
 
-    +Acceso()
-    +transportarTropas(): void
-    +construirEdificioEn(recurso: Recurso): void
-    +verificarSiPuedeSerConstruido(unidadesDeMineral:GestionRecurso, unidadesDeGas:GestionRecurso): void
+    +Acceso(ubicacion: Ubicacion)
+    +construirEdificioEn(recurso: Recurso)
+    +verificarSiPuedeSerConstruido(unidadesDeMineral, unidadesDeGas)
     +instalar(tierra: Tierra): void
     +instalar(moho: Moho): void
-    +energizado(lista ArrayList<Pion>)
     +crearZealot(): void
     +crearDragon(): void
     +ubicar(unLugar: Ubicacion): void
-    +verificarEnergia(): void
-    + fueAgregado(raza: Raza): void
+    +fueAgregado(raza: Raza): void
 }
 
 class PuertoEstelar{
-    -CANTIDAD_TURNOS_OPERATIVO
 
     +PuertoEstelar()
-    +transportarUnidades(): void
-    +construirEdificioEn(recurso: Recurso): void
-    +verificarSiPuedeSerConstruido(unidadesDeMineral:GestionRecurso, unidadesDeGas:GestionRecurso): void
+    +construirEdificioEn(recurso: Recurso)
+    +verificarSiPuedeSerConstruido(unidadesDeMineral, unidadesDeGas)
     +instalar(tierra: Tierra): void
     +instalar(moho: Moho): void
     +crearScout(): void
     +ubicar(unLugar: Ubicacion): void
-    verificarEnergia(): void
-    + fueAgregado(raza: Raza): void
+    +fueAgregado(raza: Raza): void
 }
 
 interface Atacable {

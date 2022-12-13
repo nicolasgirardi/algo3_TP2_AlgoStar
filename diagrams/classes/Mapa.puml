@@ -4,13 +4,14 @@
 class Mapa{
     -base:int
     -altura:int
-    +buscar(unaCoordenada):unaUbicacion
-    +buscar(unaCoordenada,unaDistancia):Lista(ubicaciones)
-    +distanciaMaxima():int
+    -mapa: Ubicacion
+
+    +Mapa(base: int, altura: int)
+    +buscar(unaCoordenada: Coordenada):Ubicacion
+    +buscar(unaCoordenada: Coordenada,radio: int):ArrayList
     +buscarOpuesto(unaCoordenada):unaUbicacion
-    +darTipoAlMapaInicio():void
+    +inicializarMapa():void
     +agregarBasesDiagonales():void
-    +getDimension():void
 
 
 }
@@ -21,26 +22,28 @@ class Ubicacion{
     -unaUnidad: Unidad
     -unTipo: Tipo
     -unaCoordenada: Coordenada
+    -arriba: Ubicacion
+    -abajo: Ubicacion
+    -derecha: Ubicacion
+    -izquierda: Ubicacion
 
-    +Ubicacion()
-    +ubicar(unEdificio):void
-    +ubicar(unPilon,unMapa):void
+
+    +Ubicacion(coordenada: Coordenada)
+    +ubicar(unEdificio: Edificio):void
     +desalojar(unMapa):void
     +darTipo(unTipo):void
     +distancia(unaUbicacion): unaDistancia
     +coordenada():unaCoordenada
     +crecer(unRadio,unMapa):void
-    +infectar():void
     +asignarUnidad(unaUnidad):void
     +establecerEnRangoAmoSupremo():void
     +energizar():void
     +desenergizar():void
-    +estaBajoElRangoDeUnAmoSupremo():void
     +energizado():boolean
-    +ubicarRecurso(unRecurso):void
     +existeEdificio():boolean
     +existeRecurso():boolean
-    +contieneNodoMineral():boolean
+    +existeUnidad(): boolean
+    +esIgual(otraUbicacion Ubicacion): boolean
 
 }
 
