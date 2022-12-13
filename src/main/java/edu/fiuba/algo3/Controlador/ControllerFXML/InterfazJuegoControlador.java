@@ -93,19 +93,19 @@ public class InterfazJuegoControlador implements ObservadorRazaRecursos {
 
     @FXML
     public void onClickTerminarTurno(MouseEvent event) {
-        try {
+        if(juegoModelo.protossNoPuedenJugarMas())
+            juegoVista.ganaronLosZerg(btnTerminarTurno);
+        else if (juegoModelo.zergsNoPuedenJugarMas())
+            juegoVista.ganaronLosProtoss(btnTerminarTurno);
+        else {
             juegoModelo.desubscribirseRazaActiva(this);
             juegoModelo.terminarTurno();
-            juegoModelo.esElfinDeJuego(juegoModelo.getJugadorZerg().getRaza(),juegoModelo.getJugadorProtoss().getRaza());
             juegoModelo.subscribirseRazaActiva(this);
             actualizar();
             empezarTurno();
             vBoxMenu.getChildren().clear();
         }
-        catch(FinDelJuegoGanaronLosProtoss | FinDelJuegoGanaronLosZerg e){
-            MostradorAlertas.mostrarAlerta(e);
-            System.exit(0);
-        }
+
 
     }
 
