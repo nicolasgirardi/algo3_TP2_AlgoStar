@@ -13,8 +13,11 @@ import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public abstract class UnidadMovibleController <TBotonUnidad extends BotonUnidad> extends EnContruccion{
@@ -68,6 +71,9 @@ public abstract class UnidadMovibleController <TBotonUnidad extends BotonUnidad>
         int i = 0;
         List<Object> args = new ArrayList<>();
         args.add(0,botonAReemplazar);
+        Constructor<?>[] c = botonUnidad.getClass().getConstructors();
+        //Arrays.stream(c).forEach(constructor -> System.out.println(constructor) );
+        //if(botonAReemplazar instanceof  BotonUnidad) i = 1;
         TBotonUnidad nuevoBotonUnidad = (TBotonUnidad)botonUnidad.getClass().getConstructors()[i].newInstance(args.toArray());
         return nuevoBotonUnidad;
     }
@@ -88,7 +94,6 @@ public abstract class UnidadMovibleController <TBotonUnidad extends BotonUnidad>
             nuevoBotonUnidad.fire();
             nuevoBotonUnidad.requestFocus();
         }catch (IllegalArgumentException e){
-            e.getCause();
             e.printStackTrace();
 
         } catch (Exception e){

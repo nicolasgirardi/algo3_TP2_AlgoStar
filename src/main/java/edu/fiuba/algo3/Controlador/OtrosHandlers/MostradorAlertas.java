@@ -12,6 +12,7 @@ import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.Unidad.InsuficientesRecursosParaCrearUnidadError;
 import edu.fiuba.algo3.modelo.Unidad.UnidadNoOperativaError;
+import edu.fiuba.algo3.modelo.Unidad.UnidadNoVuelaError;
 import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
 import javafx.scene.control.Alert;
 
@@ -40,6 +41,7 @@ public class MostradorAlertas {
        mensajesErrores.put(FinDelJuegoGanaronLosZerg.class.getName(),"Ganaron los Zergs.\n\n Haga click en aceptar para terminar el juego");
        mensajesErrores.put(ConstruccionProtoEnMohoError.class.getName(),"No se puede construir por el Moho");
        mensajesErrores.put(NoSePuedeConstruirSobreElEspacioError.class.getName(),"No se puede construir en el espacio");
+           mensajesErrores.put(UnidadNoVuelaError.class.getName(),"Unidades de tierra no pueden caminar sobre el espacio");
    }
 
    public static void mostrarAlerta(Exception e){

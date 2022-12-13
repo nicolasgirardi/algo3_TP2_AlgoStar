@@ -10,6 +10,15 @@ public abstract class BotonUnidad extends BotonCeldaTablero {
     public BotonUnidad(BotonCeldaTablero botonSuperficie, String rutaImagen, RUTAS_FXML menuParaProtoss, RUTAS_FXML menuParaZerg){
         super(botonSuperficie,rutaImagen,menuParaProtoss,menuParaZerg);
         this.botonSuperficie = botonSuperficie;
+        if(botonSuperficie instanceof BotonUnidad){
+            this.botonSuperficie = ((BotonUnidad) botonSuperficie).botonSuperficie;
+        }
+    }
+
+    //Para evooluciones
+    public BotonUnidad(BotonUnidad botonUnidad, String rutaImagen, RUTAS_FXML menuParaProtoss, RUTAS_FXML menuParaZerg){
+        super(botonUnidad,rutaImagen,menuParaProtoss,menuParaZerg);
+        this.botonSuperficie = botonUnidad.botonSuperficie;
     }
 
     public void colocarSuperficie(){

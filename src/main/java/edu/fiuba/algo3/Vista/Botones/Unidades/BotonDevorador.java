@@ -8,11 +8,14 @@ import edu.fiuba.algo3.modelo.ID_RAZA;
 import edu.fiuba.algo3.modelo.Juego.Jugador;
 
 public class BotonDevorador extends BotonUnidad{
-
     public BotonDevorador(BotonCeldaTablero botonCeldaTablero) {
         super(botonCeldaTablero, "images/devorador.png", RUTAS_FXML.MENU_ATACAR_ENEMIGO,RUTAS_FXML.MENU_UNIDAD);
-
     }
+
+    public BotonDevorador(BotonUnidad botonUnidad) {
+        super(botonUnidad, "images/devorador.png", RUTAS_FXML.MENU_ATACAR_ENEMIGO,RUTAS_FXML.MENU_UNIDAD);
+    }
+
 
     @Override
     public void setElmentsController() {
