@@ -41,6 +41,8 @@ public class MenuExtractorController {
         this.tablero = tablero;
         this.ubicacion = ubicacion;
         this.juegoModelo = juegoModelo;
+
+
     }
 
     @FXML
