@@ -101,7 +101,7 @@ public class Mapa {
         this.buscar(new Coordenada(2,0)).ubicarRecurso(new NodoMineral());
         this.buscar(new Coordenada(2,2)).ubicarRecurso(new Volcan());
 
-        this.buscar(new Coordenada(base,altura)).ubicar(new Pilon());
+        this.buscar(new Coordenada(base,altura)).ubicar(new Pilon(0));
         this.buscar(new Coordenada(base - 2, altura)).ubicarRecurso(new NodoMineral());
         this.buscar(new Coordenada(base, altura - 2 )).ubicarRecurso(new NodoMineral());
         this.buscar(new Coordenada(base - 2, altura - 2)).ubicarRecurso(new Volcan());

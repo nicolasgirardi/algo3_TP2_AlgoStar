@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
 import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonAsimilador;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.Asimilador;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.NexoMineral;
+import edu.fiuba.algo3.modelo.Edificio.Zerg.Extractor;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import javafx.fxml.FXML;
@@ -9,7 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
-public class MenuAsimiladorController {
+public class MenuAsimiladorController extends EnContruccion{
 
     @FXML
     public AnchorPane contenerdorMenu;
@@ -29,6 +32,11 @@ public class MenuAsimiladorController {
         this.ubicacion = ubicacion;
         this.raza = raza;
         this.botonAsimilador = botonAsimilador;
+        Asimilador asimilador = (Asimilador) ubicacion.getEdificio();
+        if(!asimilador.estaOperativo()){
+            int cantidadTurnosParaSerOperativo = asimilador.getTurnosRestantesParaSerOperativo();
+            cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo,contenerdorMenu);
+        }
     }
 
 

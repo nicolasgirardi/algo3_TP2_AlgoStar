@@ -17,8 +17,6 @@ public class MenuPilonController extends  EnContruccion {
     public void setElements(Pilon pilon) {
         if(pilon == null) throw new IllegalArgumentException("The argument cannot be null");
         this.pilon = pilon;
-        ///this.razaProtoss = razaProtoss;
-        //lblCantidadMineral.setText(String.valueOf(nexoMineral.mineralRestante()));
 
         if(!pilon.estaOperativo()){
             int cantidadTurnosParaSerOperativo = pilon.getTurnosRestantesParaSerOperativo();

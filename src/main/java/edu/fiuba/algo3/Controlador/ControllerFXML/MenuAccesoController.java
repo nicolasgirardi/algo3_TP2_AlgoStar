@@ -26,9 +26,9 @@ import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
 
-public class MenuAccesoController {
+public class MenuAccesoController extends EnContruccion{
     @FXML
-    public AnchorPane contenerdorMenuAcceso;
+    public AnchorPane contenerdorMenu;
 
     private GridPane tablero;
     private Ubicacion ubicacion;
@@ -108,6 +108,11 @@ public class MenuAccesoController {
         this.razaProtoss = razaProtoss;
         this.botonAcceso = botonAcceso;
         this.juegoModelo = juegoModelo;
+        Acceso acceso = (Acceso) ubicacion.getEdificio();
+        if(!acceso.estaOperativo()){
+            int cantidadTurnosParaSerOperativo = acceso.getTurnosRestantesParaSerOperativo();
+            cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo,contenerdorMenu);
+        }
     }
 
 

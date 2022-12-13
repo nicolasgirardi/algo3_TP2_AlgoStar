@@ -3,8 +3,7 @@ package edu.fiuba.algo3.Controlador.ControllerFXML;
 import edu.fiuba.algo3.Controlador.OtrosHandlers.RUTAS_FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
+
 
 public class EnContruccion {
 

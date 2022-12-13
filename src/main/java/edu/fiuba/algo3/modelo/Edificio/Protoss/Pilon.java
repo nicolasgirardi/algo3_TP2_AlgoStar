@@ -25,7 +25,10 @@ public class Pilon extends Edificio {
     public Pilon(){
         super(CANTIDAD_TURNOS_OPERATIVO,new HPProtoss(300,300),100,0);
         entidad = IDEDIFICIO.PILON;
-
+    }
+    public Pilon(int cantidadTurnosOperativos){
+        super(cantidadTurnosOperativos,new HPProtoss(300,300),100,0);
+        entidad = IDEDIFICIO.PILON;
     }
 
     public Pilon(HitPoints hp ){

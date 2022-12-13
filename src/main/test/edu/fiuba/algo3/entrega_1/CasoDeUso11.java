@@ -81,8 +81,10 @@ public class CasoDeUso11 {
     @Test
     public void UnAsimiladorProtosReciBeDañoYUsaElMetodoRecibirDañoDeHitPoints(){
         Volcan volcan = new Volcan();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
         HitPoints HP = new HPProtoss(450,450);
-        Edificio edificio = new Asimilador(volcan); //podría ser cualquier edificio
+        Edificio edificio = new Asimilador(ubicacion); //podría ser cualquier edificio
         edificio.asignarHP(HP);
         edificio.recibirDaño(30);
 
@@ -95,8 +97,10 @@ public class CasoDeUso11 {
     public void UnAsimiladorRecibeDañoySeRegeneraPorTurno(){
 
         Volcan volcan = new Volcan();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
         HitPoints HP = new HPProtoss(450,450);
-        Edificio edificio = new Asimilador(volcan); //podría ser cualquier edificio
+        Edificio edificio = new Asimilador(ubicacion); //podría ser cualquier edificio
         edificio.asignarHP(HP);
         edificio.recibirDaño(30);
         //when(HPmock.vida()).thenReturn(450);

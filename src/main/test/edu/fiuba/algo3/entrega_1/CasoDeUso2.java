@@ -336,7 +336,9 @@ public class CasoDeUso2 {
     public void testEdificioAsimiladorCon6TurnosParaSerOperativoSeLeMandaPrepararCapsulaDeberiaLanzarExcepcion(){
         //Arrange
         Volcan volcan = new Volcan();
-        Asimilador asimilador = new Asimilador(volcan);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
+        Asimilador asimilador = new Asimilador(ubicacion);
 
         // Act y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
@@ -348,7 +350,9 @@ public class CasoDeUso2 {
     public void testEdificioAsimiladorCon6TurnosParaSerOperativoSeEjecuta2TurnosYSeLeMandaPrepararCapsulaDeberiaLanzarExcepcion(){
         //Arrange
         Volcan volcan = new Volcan();
-        Asimilador asimilador = new Asimilador(volcan) ;
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
+        Asimilador asimilador = new Asimilador(ubicacion) ;
 
         //Act
         asimilador.ejecutarTurno();
@@ -365,7 +369,9 @@ public class CasoDeUso2 {
     public void testEdificioAsimiladorCon6TurnosParaSerOperativoSeEjecuta6TurnosYSeLeMandaPrepararCapsulaNoDeberiaLanzarExcepcion(){
         //Arrange
         Volcan volcan = new Volcan();
-        Asimilador asimilador = new Asimilador(volcan);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
+        Asimilador asimilador = new Asimilador(ubicacion);
 
         //Act
         asimilador.ejecutarTurno();

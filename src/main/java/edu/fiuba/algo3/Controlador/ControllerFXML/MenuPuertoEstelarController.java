@@ -22,7 +22,7 @@ import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
 
-public class MenuPuertoEstelarController {
+public class MenuPuertoEstelarController extends EnContruccion{
     
     @FXML
     public AnchorPane contenerdorMenu;
@@ -75,6 +75,11 @@ public class MenuPuertoEstelarController {
         this.ubicacion = ubicacion;
         this.botonPuertoEstelar = botonPuertoEstelar;
         this.juegoModelo = juegoModelo;
+        PuertoEstelar puertoEstelar = (PuertoEstelar) ubicacion.getEdificio();
+        if(!puertoEstelar.estaOperativo()){
+            int cantidadTurnosParaSerOperativo = puertoEstelar.getTurnosRestantesParaSerOperativo();
+            cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo,contenerdorMenu);
+        }
     }
 
 

@@ -23,7 +23,7 @@ public class MenuVolcanProtossController {
 
     @FXML
     public void onClickedConstruirAsimilador(MouseEvent event) {
-        Asimilador asimilador = new Asimilador(ubicacion.getVolcan());
+        Asimilador asimilador = new Asimilador(ubicacion);
         try{
             razaProtoss.agregarEdificio(asimilador);
             botonRecursoVolcan.borrarBotonDelTablero();

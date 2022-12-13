@@ -39,7 +39,7 @@ public class JuegoModelo{
             baseJugador1.darTipo(new Moho()); //necesito moho para instalar un criadero
             //baseJugador2.crecer(5, mapa);
             baseJugador1.ubicar(new Criadero()); //el criadero base
-            baseJugador2.ubicar(new Pilon(), mapa); //el pilon base
+            baseJugador2.ubicar(new Pilon(0), mapa); //el pilon base
         } else {
             throw new CoordenadaNoEsExtremoDelMapaError();
         }
@@ -57,7 +57,7 @@ public class JuegoModelo{
             baseJugador2 = mapa.buscarOpuesto(coor1);
             baseJugador1.darTipo(new Moho()); //necesito moho para instalar un criadero
             baseJugador1.ubicar(new Criadero()); //el criadero base
-            baseJugador2.ubicar(new Pilon(), mapa); //el pilon base
+            baseJugador2.ubicar(new Pilon(0), mapa); //el pilon base
         } else {
             throw new CoordenadaNoEsExtremoDelMapaError();
         }
