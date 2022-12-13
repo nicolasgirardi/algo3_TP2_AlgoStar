@@ -136,6 +136,8 @@ public class JuegoModelo{
             jugadorActivo = jugador1;
         }
         jugadorActivo.getRaza().ejecutarTurno();
+        RazaProtoss razaProtoss = (RazaProtoss) getJugadorProtoss().getRaza();
+        razaProtoss.activarPilonesActivos(mapa);
         notificarSobreJugadorActivo();
     }
 

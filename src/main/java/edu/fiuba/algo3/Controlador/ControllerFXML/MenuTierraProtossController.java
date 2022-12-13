@@ -49,7 +49,7 @@ public class MenuTierraProtossController {
         Pilon pilon = new Pilon();
         try {
             razaProtoss.agregarEdificio(pilon);
-            ubicacion.ubicar(pilon, mapa);
+            ubicacion.ubicar(pilon);
             botonTierra.borrarBotonDelTablero();
             tablero.add(new BotonEdificioPilon(botonTierra),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         }catch ( RecursosInsuficientesError e ) {
@@ -70,8 +70,9 @@ public class MenuTierraProtossController {
         }
         catch (CorrelativaDeConstruccionIncumplidaError e ){
             MostradorAlertas.mostrarAlerta(e,"Necesitas un Acceso para construir");
-        }
-        catch( Exception e){
+        }catch ( RecursosInsuficientesError e ) {
+            MostradorAlertas.mostrarAlerta(e,"un Puerto Estelar");
+        } catch( Exception e){
             MostradorAlertas.mostrarAlerta(e);
         }
 
