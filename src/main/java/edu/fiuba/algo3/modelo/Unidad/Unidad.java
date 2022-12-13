@@ -10,6 +10,7 @@ import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
+import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
 
 public abstract class  Unidad implements Atacable, Atacante {
     protected HitPoints hp;
@@ -121,32 +122,48 @@ public abstract class  Unidad implements Atacable, Atacante {
     public void moverseArriba(){
         Ubicacion ubicacionNueva =   ubicacion.getArriba();
         if(  ! this.ubicacion.esIgual(ubicacionNueva) ){
-            ubicacionNueva.asignarUnidad(this);
-            ubicacion.getAbajo().quitarUnidad();
+            try {
+                ubicacionNueva.asignarUnidad(this);
+                ubicacion.getAbajo().quitarUnidad();
+            }catch (UbicacionOcupadaError e){
+                System.out.println("la nueva ubicacion esta ocupada");
+            }
         }
     }
 
     public void moverseAbajo(){
         Ubicacion ubicacionNueva =   ubicacion.getAbajo();
         if(  ! this.ubicacion.esIgual(ubicacionNueva) ){
-            ubicacionNueva.asignarUnidad(this);
-            ubicacion.getArriba().quitarUnidad();
+            try {
+                ubicacionNueva.asignarUnidad(this);
+                ubicacion.getArriba().quitarUnidad();
+            }catch (UbicacionOcupadaError e){
+                System.out.println("la nueva ubicacion esta ocupada");
+            }
         }
     }
 
     public void moverseDerecha(){
         Ubicacion ubicacionNueva =   ubicacion.getDerecha();
         if(  ! this.ubicacion.esIgual(ubicacionNueva) ){
-            ubicacion.getDerecha().asignarUnidad(this);
-            ubicacion.getIzquierda().quitarUnidad();
+            try {
+                ubicacion.getDerecha().asignarUnidad(this);
+                ubicacion.getIzquierda().quitarUnidad();
+            }catch (UbicacionOcupadaError e){
+                System.out.println("la nueva ubicacion esta ocupada");
+            }
         }
     }
 
     public void moverseIzquierda(){
         Ubicacion ubicacionNueva =   ubicacion.getIzquierda();
         if(  ! this.ubicacion.esIgual(ubicacionNueva) ){
-            ubicacionNueva.asignarUnidad(this);
-            ubicacion.getDerecha().quitarUnidad();
+            try {
+                ubicacionNueva.asignarUnidad(this);
+                ubicacion.getDerecha().quitarUnidad();
+            }catch (UbicacionOcupadaError e){
+                System.out.println("la nueva ubicacion esta ocupada");
+            }
         }
     }
 

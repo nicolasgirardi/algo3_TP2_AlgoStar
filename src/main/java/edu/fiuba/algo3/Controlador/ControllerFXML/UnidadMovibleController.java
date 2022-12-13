@@ -73,6 +73,10 @@ public abstract class UnidadMovibleController <TBotonUnidad extends BotonUnidad>
 
         try {
             BotonCeldaTablero botonNuevaCordenada = (BotonCeldaTablero) findNodoDelGridPane(nuevaCoordenada.horizontal(),nuevaCoordenada.vertical());
+            if(botonUnidad.equals(botonNuevaCordenada)){
+                botonUnidad.requestFocus();
+                return;
+            }
             TBotonUnidad nuevoBotonUnidad = obtenerNuevaInstanciaBotonUnidad(botonNuevaCordenada);
             botonUnidad.colocarSuperficie();
             botonNuevaCordenada.borrarBotonDelTablero();

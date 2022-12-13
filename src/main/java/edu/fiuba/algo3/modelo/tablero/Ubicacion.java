@@ -82,7 +82,7 @@ public class Ubicacion {
             unidad = unaUnidad;
             unaUnidad.asignarLugar(this);
         }
-        // else {throw new UbicacionOcupadaError();}
+         else {throw new UbicacionOcupadaError();}
     }
 
     public void asignarAmoSupremo(AmoSupremo unAmoSupremo, Mapa unMapa){
