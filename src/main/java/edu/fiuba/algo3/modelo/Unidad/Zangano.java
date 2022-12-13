@@ -23,6 +23,7 @@ public class Zangano extends Unidad implements TipoEvolucionDeLarva {
         );
         estadoZangano = null;
         entidad = ID_UNIDAD.ZANGANO;
+        rango = 0;
     }
 
     public Zangano(HitPoints vida){
@@ -87,10 +88,8 @@ public class Zangano extends Unidad implements TipoEvolucionDeLarva {
     @Override
     public void ejecutarTurno(){
         if(estadoZangano == null){
-            turnosRestantesParaSerOperativo--;
-            return;
+            if(turnosRestantesParaSerOperativo > 0 ) turnosRestantesParaSerOperativo--;
         }
-        estadoZangano.ejecutarTurno();
     }
 
     // wrapper del extractor.

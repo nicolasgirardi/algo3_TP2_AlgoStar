@@ -21,6 +21,7 @@ public class Mutalisco extends Unidad implements TipoEvolucionDeMutalisco{
                 7,4,100,100);
         tipoEvolucionDeMutalisco = null;
         entidad = ID_UNIDAD.MUTALISCO;
+        rango = 3;
     }
 
     public Mutalisco(HitPoints vida) {

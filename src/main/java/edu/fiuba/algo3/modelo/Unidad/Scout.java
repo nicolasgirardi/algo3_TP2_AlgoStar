@@ -18,7 +18,7 @@ public class Scout extends Unidad {
                 new AtaqueTierraYViento(8,14),
                 9,4,300,150);
         entidad = ID_UNIDAD.SCOUT;
-
+        rango = 4;
     }
 
     public Scout(HitPoints hp){

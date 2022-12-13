@@ -15,6 +15,7 @@ public class Dragon extends Unidad {
                 new AtaqueTierraYViento(20,20),
                 6,3,125,50);
         entidad = ID_UNIDAD.DRAGON;
+        rango = 4;
     }
 
 }

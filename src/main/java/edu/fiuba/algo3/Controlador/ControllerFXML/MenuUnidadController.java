@@ -14,6 +14,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
+import java.util.ArrayList;
+
 public class MenuUnidadController extends UnidadMovibleController{
 
     @FXML
@@ -78,8 +80,22 @@ public class MenuUnidadController extends UnidadMovibleController{
             return;
         }
         aplicarMovimientoPorTeclado();
-
-
+        completarEnemigosParaAtacar();
     }
+
+    private void completarEnemigosParaAtacar(){
+        int rangoAtaque = ubicacion.getUnidad().getRango();
+        ArrayList<Ubicacion> ubicaciones = juegoModelo.getMapa().buscar(ubicacion.coordenada(), rangoAtaque );
+        for(Ubicacion ubicacionAdy : ubicaciones){
+            if( ubicacionAdy.existeUnidad() &&  ! ubicacionAdy.esIgual(ubicacion) ){
+                System.out.println("Coord x " + ubicacionAdy.coordenada().horizontal() + "Coord y: " + ubicacionAdy.coordenada().vertical() );
+                System.out.println("Existe unidad para atacar y esa es ");
+                Unidad unidad = ubicacionAdy.getUnidad();
+
+                System.out.println(unidad.getEntidad() );
+            }
+        }
+    }
+
 
 }
