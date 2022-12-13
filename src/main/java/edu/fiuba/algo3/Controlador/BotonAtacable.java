@@ -38,11 +38,11 @@ public class BotonAtacable extends Button  {
             public void handle(MouseEvent mouseEvent) {
                 if(atacable.ubicacion().existeUnidad() ){
                     Unidad unidad = atacable.ubicacion().getUnidad();
-                    boton.setTooltip(new Tooltip("Vida : " + unidad.getVida()  + "Escudo: " + unidad.getEscudo() ) );
+                    boton.setTooltip(new Tooltip("Vida : " + unidad.getVida()  + "\n" + "Escudo: " + unidad.getEscudo() ) );
                 }
                 if(atacable.ubicacion().existeEdificio()){
                     Edificio edificio = atacable.ubicacion().getEdificio();
-                    boton.setTooltip(new Tooltip("Vida : " + edificio.getVida()  + "Escudo: " + edificio.getEscudo() ) );
+                    boton.setTooltip(new Tooltip("Vida : " + edificio.getVida() + "\n"  + "Escudo: " + edificio.getEscudo() ) );
                 }
             }
         }

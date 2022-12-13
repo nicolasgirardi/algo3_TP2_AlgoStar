@@ -37,6 +37,8 @@ public class MenuUnidadController extends UnidadMovibleController{
     private HashMap<ID_UNIDAD,String> imagenesUnidades;
 
 
+
+
     @FXML
     public void onClickedMoverArriba(MouseEvent event) {
         Unidad unidad = ubicacion.getUnidad();
