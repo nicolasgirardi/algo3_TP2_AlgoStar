@@ -10,6 +10,7 @@ import edu.fiuba.algo3.modelo.ID_UNIDAD;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.Unidad.UnidadNoOperativaError;
+import edu.fiuba.algo3.modelo.Unidad.UnidadNoVuelaError;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
 import javafx.fxml.FXML;
@@ -41,7 +42,7 @@ public class MenuUnidadController extends UnidadMovibleController{
         Unidad unidad = ubicacion.getUnidad();
         try {
             unidad.moverseArriba();
-        } catch (UnidadNoOperativaError | UbicacionOcupadaError e){
+        } catch (UnidadNoOperativaError | UbicacionOcupadaError | UnidadNoVuelaError  e){
             MostradorAlertas.mostrarAlerta(e);
         }
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
@@ -52,7 +53,7 @@ public class MenuUnidadController extends UnidadMovibleController{
         Unidad unidad = ubicacion.getUnidad();
         try{
             unidad.moverseAbajo();
-        } catch (UnidadNoOperativaError | UbicacionOcupadaError e){
+        } catch (UnidadNoOperativaError | UbicacionOcupadaError | UnidadNoVuelaError  e){
             MostradorAlertas.mostrarAlerta(e);
         }
 
@@ -64,7 +65,7 @@ public class MenuUnidadController extends UnidadMovibleController{
         Unidad unidad = ubicacion.getUnidad();
         try{
             unidad.moverseDerecha();
-        } catch( UnidadNoOperativaError | UbicacionOcupadaError e ){
+        } catch( UnidadNoOperativaError | UbicacionOcupadaError | UnidadNoVuelaError  e ){
             MostradorAlertas.mostrarAlerta(e);
         }
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
@@ -75,7 +76,7 @@ public class MenuUnidadController extends UnidadMovibleController{
         Unidad unidad = ubicacion.getUnidad();
         try {
             unidad.moverseIzquierda();
-        } catch (UnidadNoOperativaError | UbicacionOcupadaError e){
+        } catch (UnidadNoOperativaError | UbicacionOcupadaError | UnidadNoVuelaError   e){
             MostradorAlertas.mostrarAlerta(e);
         }
 
