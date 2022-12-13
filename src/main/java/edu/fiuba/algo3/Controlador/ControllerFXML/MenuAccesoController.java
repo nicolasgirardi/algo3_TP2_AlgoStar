@@ -7,6 +7,7 @@ import edu.fiuba.algo3.Vista.Botones.Construcciones.BotonAcceso;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonDragon;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonScout;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonZealot;
+import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
@@ -40,9 +41,10 @@ public class MenuAccesoController {
     @FXML
     public void onClickedConstruirDragon(MouseEvent event) {
         ArrayList<Ubicacion> ubicacionesManhattan =  juegoModelo.getMapa().buscar( ubicacion.coordenada(), 2);
+        Acceso acceso = (Acceso) ubicacion.getEdificio();
         for(Ubicacion ubicacionMah : ubicacionesManhattan){
             if(ubicacionMah.estaLibre()){
-                agregarDragon(ubicacionMah);
+                agregarDragon(ubicacionMah,acceso);
                 break;
             }
         }
@@ -51,47 +53,34 @@ public class MenuAccesoController {
     @FXML
     public void onClickedConstruirZealot(MouseEvent event) {
         ArrayList<Ubicacion> ubicacionesManhattan =  juegoModelo.getMapa().buscar( ubicacion.coordenada(), 2);
+        Acceso acceso = (Acceso) ubicacion.getEdificio();
         for(Ubicacion ubicacionMah : ubicacionesManhattan){
             if(ubicacionMah.estaLibre()){
-                agregarZealot(ubicacionMah);
+                agregarZealot(ubicacionMah, acceso);
                 break;
             }
         }
     }
 
-    @FXML
-    public void onClickedConstruirScout(MouseEvent event) {
-        ArrayList<Ubicacion> ubicacionesManhattan =  juegoModelo.getMapa().buscar( ubicacion.coordenada(), 2);
-        for(Ubicacion ubicacionMah : ubicacionesManhattan){
-            if(ubicacionMah.estaLibre()){
-                agregarScout(ubicacionMah);
-                break;
-            }
-        }
-
-    }
-    private void agregarDragon(Ubicacion ubicacionMah){
+    private void agregarDragon(Ubicacion ubicacionMah, Acceso acceso){
         Coordenada coordLibre = ubicacionMah.coordenada();
         try {
-            Dragon dragon = new Dragon();
-            razaProtoss.agregarUnidad(dragon);
-            ubicacionMah.asignarUnidad(dragon);
-
+            ubicacionMah.asignarUnidad(acceso.crearDragon());
             BotonDragon botonDragon = new BotonDragon( eliminarBotonAntiguo(coordLibre) );
             tablero.add(botonDragon, coordLibre.horizontal() , coordLibre.vertical() );
         } catch ( PoblacionExedidaError e) {
             MostradorAlertas.mostrarAlerta(e, "Construya mas pilones");
         } catch ( InsuficientesRecursosParaCrearUnidadError e){
             MostradorAlertas.mostrarAlerta(e, "No se puede crear el Dragon");
+        }catch (EdificioNoOperativoError e){
+            MostradorAlertas.mostrarAlerta(e);
         }
 
     }
-    private void agregarZealot(Ubicacion ubicacionMah) {
+    private void agregarZealot(Ubicacion ubicacionMah, Acceso acceso) {
         Coordenada coordLibre = ubicacionMah.coordenada();
         try {
-            Zealot zealot = new Zealot();
-            razaProtoss.agregarUnidad(zealot);
-            ubicacionMah.asignarUnidad(zealot);
+            ubicacionMah.asignarUnidad(acceso.crearZealot());
 
             BotonZealot botonZealot = new BotonZealot( eliminarBotonAntiguo(coordLibre) );
             tablero.add(botonZealot, coordLibre.horizontal() , coordLibre.vertical() );
@@ -99,25 +88,11 @@ public class MenuAccesoController {
             MostradorAlertas.mostrarAlerta(e, "Construya mas pilones");
         } catch ( InsuficientesRecursosParaCrearUnidadError e){
             MostradorAlertas.mostrarAlerta(e, "No se puede crear el Zealot");
+        }catch (EdificioNoOperativoError e){
+            MostradorAlertas.mostrarAlerta(e);
         }
     }
 
-    private void agregarScout(Ubicacion ubicacionMah) {
-        Coordenada coordLibre = ubicacionMah.coordenada();
-        try {
-            Scout scout = new Scout();
-            razaProtoss.agregarUnidad( scout);
-            ubicacionMah.asignarUnidad(scout);
-
-            BotonScout botonScout = new BotonScout( eliminarBotonAntiguo(coordLibre) );
-            tablero.add(botonScout, coordLibre.horizontal() , coordLibre.vertical() );
-        } catch ( PoblacionExedidaError e) {
-            MostradorAlertas.mostrarAlerta(e, "Construya mas pilones");
-        } catch ( InsuficientesRecursosParaCrearUnidadError e){
-            MostradorAlertas.mostrarAlerta(e, "No se puede crear el scout");
-        }
-
-    }
 
 
     BotonCeldaTablero eliminarBotonAntiguo(Coordenada coordLibre){
