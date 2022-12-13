@@ -2,85 +2,67 @@
 'https://plantuml.com/class-diagram
 
 abstract class Edificio {
-    -hp: HitPoints
     #turnosRestantesParaSerOperativo: Int
     #ubicacion: Ubicacion
     #entidad: IDEDIFICIO
     #costoMineral: int
     #costoGas: int
     #raza: Raza
+    -hp: HitPoints
 
-    +Edificio(turnosRestantesParaSerOperativo: Int,mineralNecesario: Int,gasNecesario: Int)
     +Edificio(turnosRestantesParaSerOperativo: Int,HP: HitPoints,mineralNecesario: Int,gasNecesario: Int)
-    +Edificio(HP: HitPoints)
-    +verififarEdificioOperativo(): void
+    +verififarEdificioOperativo()
     +ejecutarTurno():void
-    +asignarHP(HP: HitPoints): void
-    + {abstract} construirEdificioEn(recurso: Recurso): void
-    + verificarSiPuedeSerConstruidoSegunRecursos(unidadesDeMineral:GestionRecurso, unidadesDeGas:GestionRecurso): void
-    + {abstract} verificarSiPuedeSerConstruido(unidadesDeMineral:GestionRecurso, unidadesDeGas:GestionRecurso): void
-    +consumirGas(UnidadesDeGas:GestionRecurso):void
-    +consumirMineral(UnidadesDeMineral:GestionRecurso):void
-    +recibirDaño(daño: Int): void
-    +regeneracionFinDeTurno(): void
+    +{abstract} construirEdificioEn(recurso: Recurso)
+    +{abstract} verificarSiPuedeSerConstruido(unidadesDeMineral:GestionRecurso, unidadesDeGas:GestionRecurso)
+    +ubicar(unLugar:Ubicacion)
+    +recibirDaño(dano: Int)
     +vidaActual():Int
-    +escudoActual():Int
-    + ubicar(unLugar:Ubicacion): void
-    + distancia(unaUbicacion: Ubicacion): int
-    +recibirAtaque(unAtaque: Ataque): void
-    + {abstract} fueAgregado(raza: Raza): void
-    +desalojar():void
+    +distancia(unaUbicacion: Ubicacion): int
+    +{abstract} fueAgregado(raza: Raza)
     +ubicacion(): Ubicacion
-    +{abstract} instalar(tierra: Tierra): void
-    +{abstract} instalar(moho: Moho): void
-    +disminuirCapacidad(unaRaza: Raza): void
-    +getEntidad(): IDEDIFICIO
+    +recibirAtaque(unAtaque: Ataque)
+    +{abstract} instalar(moho: Moho)
+    +disminuirCapacidad(unaRaza: Raza)
 }
 
 class Criadero{
-    -CANTIDAD_TURNOS_OPERATIVO
     -larvas: ArrayList
 
-    +Criadero()
     +Criadero(cantidadTurnosParaSerOperativo: Int)
-    +ejecutarTurno(): void
-    +agregarZangano(zangano: Unidad): void
+    +ejecutarTurno()
+    +agregarZangano(zangano: Unidad)
     +extraer(recurso: Recurso): GestionRecurso
-    +evolucionarLarvaAHidra(larva: Larva): void
-    +evolucionarLarvaAZerli(larva: Larva): void
-    +evolucionarLarva(): void
-    +agregarseAEstaRaza(razaZerg: RazaZerg): void
+    +evolucionarLarvaAHidra(larva: Larva)
+    +evolucionarLarvaAZerli(larva: Larva)
+    +evolucionarLarva()
     +equals(object: Object): boolean
     +tieneMismaCantidad(size: Int): boolean
-    +ejecutarTurnoRegenerar(): void
-    -cargarTodaslasLarvas(): void
-    +construirEdificioEn(recurso: Recurso): void
-    +verificarSiPuedeSerConstruido(unidadesDeMineral:GestionRecurso, unidadesDeGas:GestionRecurso): void
-    +instalar(tierra: Tierra): void
-    +instalar(moho: Moho): void
-    +crearMutalisco(): void
-    +disminuirCapacidad(unaRaza: Raza): void
-    +getCantidadLarvas(): Int
-    + fueAgregado(raza: Raza): void
+    +ejecutarTurnoRegenerar()
+    -cargarTodaslasLarvas()
+    +construirEdificioEn(recurso: Recurso)
+    +verificarSiPuedeSerConstruido(unidadesDeMineral, unidadesDeGas)
+    +instalar(tierra: Tierra)
+    +instalar(moho: Moho)
+    +crearMutalisco()
+    +disminuirCapacidad(unaRaza: Raza)
+    +fueAgregado(raza: Raza)
 }
 
 class ReservaDeReproduccion{
-    -CANTIDAD_TURNOS_OPERATIVO
 
     +ReservaDeReproduccion()
-    +evolucionarLarvaAZerli(larva: Larva):void
-    +evolucionarLarva(): void
-    +construirEdificioEn(recurso: Recurso): void
-    +verificarSiPuedeSerConstruido(unidadesDeMineral:GestionRecurso, unidadesDeGas:GestionRecurso): void
-    + fueAgregado(raza: Raza): void
-    +instalar(tierra: Tierra): void
-    +instalar(moho: Moho): void
-    +crearZerling(larva: Larva): void
-    +agregarseAEstaRaza(razaZerg: RazaZerg)
-    +crearMutalisco(): void
-    +agregarZangano(zangano: Unidad): void
+    +evolucionarLarvaAZerli(larva: Larva)
+    +evolucionarLarva()
+    +construirEdificioEn(recurso: Recurso)
+    +verificarSiPuedeSerConstruido(unidadesDeMineral, unidadesDeGas)
+    +fueAgregado(raza: Raza)
+    +instalar(tierra: Tierra)
+    +instalar(moho: Moho)
+    +crearMutalisco()
+    +agregarZangano(zangano: Unidad)
     +extraer(recurso: Recurso): GestionRecurso
-    + evolucionarLarvaAHidra(larva: Larva): void
+    + evolucionarLarvaAHidra(larva: Larva)
 
 }
 

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.Vista;
 
-import edu.fiuba.algo3.Controlador.*;
+import edu.fiuba.algo3.Controlador.OtrosHandlers.*;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

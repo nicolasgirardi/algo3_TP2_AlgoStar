@@ -1,10 +1,12 @@
 package edu.fiuba.algo3.modelo.Unidad;
 
 import edu.fiuba.algo3.modelo.Ataque.AtaqueSoloTierra;
+import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.*;
 import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.ID_UNIDAD;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
@@ -20,10 +22,13 @@ public class Zangano extends Unidad implements TipoEvolucionDeLarva {
                 1,1,25,0
         );
         estadoZangano = null;
+        entidad = ID_UNIDAD.ZANGANO;
+        rango = 0;
     }
 
     public Zangano(HitPoints vida){
         super(vida,1);
+        entidad = ID_UNIDAD.ZANGANO;
     }
 
     public GestionRecurso extraer(Recurso recurso){
@@ -45,7 +50,7 @@ public class Zangano extends Unidad implements TipoEvolucionDeLarva {
 
     public void mutarCriadero(RazaZerg raza) {
         verificarEstadoLibreZangano();
-        estadoZangano = new Criadero();  //creo un criadero con 0 turnos para ser operativos. ojo.
+        estadoZangano = new Criadero(4);  //creo un criadero con 0 turnos para ser operativos. ojo.
         raza.agregarEsteEdificio(estadoZangano);
     }
 
@@ -59,6 +64,11 @@ public class Zangano extends Unidad implements TipoEvolucionDeLarva {
         verificarEstadoLibreZangano();
         estadoZangano = new Extractor();
         raza.agregarEsteEdificio(estadoZangano);
+    }
+
+    public void estadoZangano() {
+        estadoZangano = null;
+        //ver si tengo que sacar al ultimo edificio de la raza
     }
 
     //--------Wrappers de criadero.
@@ -83,10 +93,8 @@ public class Zangano extends Unidad implements TipoEvolucionDeLarva {
     @Override
     public void ejecutarTurno(){
         if(estadoZangano == null){
-            turnosRestantesParaSerOperativo--;
-            return;
+            if(turnosRestantesParaSerOperativo > 0 ) turnosRestantesParaSerOperativo--;
         }
-        estadoZangano.ejecutarTurno();
     }
 
     // wrapper del extractor.
@@ -115,5 +123,12 @@ public class Zangano extends Unidad implements TipoEvolucionDeLarva {
         raza.agregarEsteEdificio(estadoZangano);
     }
 
+    public Edificio getEstadoZangano(){
+        Edificio edificio = null;
+        if(estadoZangano != null){
+            edificio = (Edificio) estadoZangano;
+        }
+        return edificio;
+    }
 
 }

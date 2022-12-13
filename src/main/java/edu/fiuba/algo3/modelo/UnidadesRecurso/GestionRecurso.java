@@ -27,4 +27,10 @@ public class GestionRecurso {
         GestionRecurso gestionRecurso = (GestionRecurso) o;
         return unidadesRecurso.equals(gestionRecurso.unidadesRecurso);
     }
+
+
+    @Override
+    public String toString(){
+        return unidadesRecurso.toString();
+    }
 }

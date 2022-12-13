@@ -12,15 +12,21 @@ import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Moho;
 import edu.fiuba.algo3.modelo.tablero.Tierra;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NexoMineral extends Edificio {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 4;
     private static final int CANTIDAD_EXTRACCION = 20;
+
     private NodoMineral nodoMineral;
 
-    public NexoMineral(NodoMineral nodoMineral){
+    public NexoMineral(NodoMineral nodoMineral, Ubicacion ubicacion){
         super(CANTIDAD_TURNOS_OPERATIVO,new HPProtoss(250,250),50,0);
         this.nodoMineral = nodoMineral;
+        ubicacion.ubicar(this);
         nodoMineral.ocuparConEdificio(this);
         entidad = IDEDIFICIO.NEXOMINERAL;
 
@@ -44,7 +50,6 @@ public class NexoMineral extends Edificio {
     @Override
     public void fueAgregado(Raza raza) {
         this.raza = raza;
-        return;
     }
 
     @Override
@@ -56,5 +61,11 @@ public class NexoMineral extends Edificio {
     public void instalar(Moho moho) {
         throw new ConstruccionProtoEnMohoError();
     }
+
+    public int mineralRestante(){
+        return nodoMineral.cantidadRecurso();
+    }
+
+
 
 }

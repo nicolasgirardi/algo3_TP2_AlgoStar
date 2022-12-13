@@ -1,54 +1,21 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
-import edu.fiuba.algo3.modelo.Juego.JuegoVista;
+import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
+import edu.fiuba.algo3.modelo.ID_RAZA;
+import edu.fiuba.algo3.Controlador.OtrosHandlers.JuegoVista;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
-import javafx.event.ActionEvent;
-        import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import edu.fiuba.algo3.modelo.Juego.Jugador;
+import edu.fiuba.algo3.modelo.Observers.ObservadorRazaRecursos;
+import edu.fiuba.algo3.modelo.Raza.FinDelJuegoGanaronLosProtoss;
+import edu.fiuba.algo3.modelo.Raza.FinDelJuegoGanaronLosZerg;
+import edu.fiuba.algo3.modelo.Raza.Raza;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class InterfazJuegoControlador{
-
-    @FXML
-    public Button btnAccion1;
-
-    @FXML
-    public Button btnAccion10;
-
-    @FXML
-    public Button btnAccion11;
-
-    @FXML
-    public Button btnAccion12;
-
-    @FXML
-    public Button btnAccion2;
-
-    @FXML
-    public Button btnAccion3;
-
-    @FXML
-    public Button btnAccion4;
-
-    @FXML
-    public Button btnAccion5;
-
-    @FXML
-    public Button btnAccion6;
-
-    @FXML
-    public Button btnAccion7;
-
-    @FXML
-    public Button btnAccion8;
-
-    @FXML
-    public Button btnAccion9;
+public class InterfazJuegoControlador implements ObservadorRazaRecursos {
 
     @FXML
     public AnchorPane contenedorMapa;
@@ -58,145 +25,101 @@ public class InterfazJuegoControlador{
 
     @FXML
     public Button btnTerminarTurno;
+    @FXML
+    public Label labelMenu;
 
     @FXML
-    public void btnTerminarTurno(ActionEvent event) {
-        juegoVista.actualizarMapa(vBoxMenu);
-    }
+    public Label lblCantidadGas;
 
     @FXML
-    public void onClickTerminarTurno(MouseEvent event) {
+    public Label lblCantidadMineral;
 
-    }
+    @FXML
+    public Label lblNombreJugador;
+
+    @FXML
+    public Pane paneInfoJugador;
+
+    @FXML
+    public Label lblCantidadPoblacion;
+
+    @FXML
+    public Label lblMaximaCantidadPoblacion;
+
+    @FXML
+    public Label lblNombreRaza;
+
 
     private JuegoModelo juegoModelo;
 
     private JuegoVista juegoVista;
 
 
+
+
     public void setJuego(JuegoModelo juegoModelo){
         this.juegoModelo = juegoModelo;
+        juegoModelo.subscribirseRazaActiva(this);
     }
 
     public void inicializar(){
-
-        //setBackground( new Background(new BackgroundFill( Color.rgb(65, 40, 27, 1) , CornerRadii.EMPTY, Insets.EMPTY) ) );
-        JuegoVista juegoVista = new JuegoVista(juegoModelo);
-        juegoVista.iniciar(vBoxMenu);
+        JuegoVista juegoVista = new JuegoVista(juegoModelo, vBoxMenu);
+        juegoVista.iniciar();
         juegoVista.agregarContenedor(contenedorMapa);
         this.juegoVista = juegoVista;
+        actualizar();
+        empezarTurno();
+    }
 
-        /*
+    public void empezarTurno(){
+        labelMenu.setText("Menu del juego");
 
-        GridPane grPane = new GridPane();
-        final int MAPA_TAMANIO = 18;
-        final int TAMANIO = (970/MAPA_TAMANIO) +1;
+        if(juegoModelo.getJugadorActivo().getRaza().getEntidad() == ID_RAZA.PROTOSS  ){
+            System.out.println("Entro el turno para el jugador de protoss");
 
-        // Tierra
-        File fileFondo = new File("images/tierra.png");
-        Image imagenTierra = new Image(fileFondo.toURI().toString(),TAMANIO, TAMANIO, true, true );
-        BackgroundImage fondoTierra = new BackgroundImage(
-                imagenTierra,
-                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT
-        );
-
-
-        for(int i = 0; i < MAPA_TAMANIO; i++){
-            for(int j = 0; j < MAPA_TAMANIO; j++){
-                try {
-                    Button btn = new Button();
-                    //btn.setGraphic(new ImageView(imagenRaza) );
-                    //btn.setGraphic( new ImageView(imagenRaza) );
-                    btn.setMinSize(TAMANIO,TAMANIO);
-                    btn.setPrefSize(TAMANIO,TAMANIO);
-                    btn.setBackground( new Background(fondoTierra) );
-                    //btn.setStyle("-fx-border-width: 2; -fx-border-color: white;");
-                    grPane.add(btn, i, j);
-                } catch (Exception e){
-                    System.out.println(e);
-                }
-            }
         }
-        grPane.setPrefSize(1000,950);
+        else{
+            cambiarHandlerSuperficieActualZerg();
+            System.out.println("Entro el turno para el jugador de ZERG");
 
+        }
+    }
 
-        // Criadero
-        File criaderoFile = new File("images/criadero.png");
-        Image criaderoImage = new Image(criaderoFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
-        BackgroundImage criaderoBackGro = new BackgroundImage(
-                criaderoImage,
-                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT
-        );
-        Button btnCriadero = new Button();
-        btnCriadero.setMinSize(TAMANIO,TAMANIO);
-        btnCriadero.setBackground( new Background(criaderoBackGro) );
-        grPane.add(btnCriadero, 0, 0);
-
-
-
-        // Mineral
-        File mineralFile = new File("images/mineral.png");
-        Image mineralImage = new Image(mineralFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
-        BackgroundImage mineralBackGro = new BackgroundImage(
-                mineralImage,
-                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT
-        );
-        Button btnMineral = new Button();
-        btnMineral.setMinSize(TAMANIO,TAMANIO);
-        btnMineral.setBackground( new Background(mineralBackGro) );
-        grPane.add(btnMineral, 3, 2);
-
-        Button btnMineral2 = new Button();
-        btnMineral2.setMinSize(TAMANIO,TAMANIO);
-        btnMineral2.setBackground( new Background(mineralBackGro) );
-        grPane.add(btnMineral2, 6, 9);
-
-
-        // Volcan
-        File volcanFile = new File("images/Volcan.png");
-        Image volcanImage = new Image(volcanFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
-        BackgroundImage volcanBackGro = new BackgroundImage(
-                volcanImage,
-                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT
-        );
-        Button btnVolcan = new Button();
-        btnVolcan.setMinSize(TAMANIO,TAMANIO);
-        btnVolcan.setBackground( new Background(volcanBackGro) );
-        grPane.add(btnVolcan, 4, 3);
-
-        Button btnVolcan2 = new Button();
-        btnVolcan2.setMinSize(TAMANIO,TAMANIO);
-        btnVolcan2.setBackground( new Background(volcanBackGro) );
-        grPane.add(btnVolcan2, 3, 4);
-
-        // Pilon
-        File pilonFile = new File("images/pilon.png");
-        Image pilonImage = new Image(pilonFile.toURI().toString(),TAMANIO, TAMANIO, true, true );
-        BackgroundImage pilonBackGro = new BackgroundImage(
-                pilonImage,
-                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT
-        );
-        Button btnPilon = new Button();
-        btnPilon.setMinSize(TAMANIO,TAMANIO);
-        btnPilon.setBackground( new Background(pilonBackGro) );
-        grPane.add(btnPilon, 9, 9);
-
-        //juegoModelo.agregarContenedor(contenedorMapa);
-        contenedorMapa.getChildren().add(grPane);
-
-         */
+    private void cambiarHandlerSuperficieActualZerg() {
+        juegoVista.cambiarHandlerSuperficieActualZerg();
     }
 
 
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        if(juegoModelo == null){
-            System.out.println("HUBO ERROR juegoModelo == null \n");
+
+    @FXML
+    public void onClickTerminarTurno(MouseEvent event) {
+        if(juegoModelo.protossNoPuedenJugarMas())
+            juegoVista.ganaronLosZerg(btnTerminarTurno);
+        else if (juegoModelo.zergsNoPuedenJugarMas())
+            juegoVista.ganaronLosProtoss(btnTerminarTurno);
+        else {
+            juegoModelo.desubscribirseRazaActiva(this);
+            juegoModelo.terminarTurno();
+            juegoModelo.subscribirseRazaActiva(this);
+            actualizar();
+            empezarTurno();
+            vBoxMenu.getChildren().clear();
         }
+
+
     }
+
+    @Override
+    public void actualizar() {
+        Jugador jugadorActivo = juegoModelo.getJugadorActivo();
+        Raza razaActiva = jugadorActivo.getRaza();
+        lblNombreJugador.setText(jugadorActivo.getNombre());
+        lblCantidadMineral.setText(razaActiva.getCantidadMineral());
+        lblCantidadGas.setText(razaActiva.getCantidadGas());
+        lblCantidadPoblacion.setText(String.valueOf(razaActiva.obtenerCantidadPoblacion()));
+        lblMaximaCantidadPoblacion.setText(String.valueOf(razaActiva.capacidadReal()));
+        lblNombreRaza.setText(razaActiva.getEntidad().toString());
+    }
+
 
 }

@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.IDEDIFICIO;
+import edu.fiuba.algo3.modelo.NoQuedanLarvasError;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Unidad.*;
@@ -28,15 +29,17 @@ public class Criadero extends Edificio implements EstadoZangano {
         entidad = IDEDIFICIO.CRIADERO;
     }
     public Criadero(int cantidadTurnosParaSerOperativo){
-        super(cantidadTurnosParaSerOperativo, 200, 0);
+        super(cantidadTurnosParaSerOperativo, new HPZerg(500),200, 0);
         larvas = new ArrayList<Larva>();
         if (cantidadTurnosParaSerOperativo == 0 ) cargarTodaslasLarvas();
+        entidad = IDEDIFICIO.CRIADERO;
     }
 
     @Override
     public void ejecutarTurno() {
         super.ejecutarTurno();
-        if (turnosRestantesParaSerOperativo == 0 ) cargarTodaslasLarvas();
+        //if (turnosRestantesParaSerOperativo == 0 ) cargarTodaslasLarvas();
+        ejecutarTurnoRegenerar();
     }
 
     @Override
@@ -136,5 +139,16 @@ public class Criadero extends Edificio implements EstadoZangano {
 
     public int getCantidadLarvas() {
         return larvas.size();
+    }
+
+    public Larva eliminarLarva(){
+        verificarLarvasNoNulas();
+        return larvas.remove(0);
+    }
+
+    public void verificarLarvasNoNulas(){
+        if(larvas.size() == 0){
+            throw new NoQuedanLarvasError();
+        }
     }
 }

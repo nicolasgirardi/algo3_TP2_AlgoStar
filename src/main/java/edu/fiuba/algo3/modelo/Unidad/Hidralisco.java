@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Ataque.AtaqueTierraYViento;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.NoDeberiaEjecutarEsteMetodoError;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.ID_UNIDAD;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
@@ -17,11 +18,15 @@ public class Hidralisco extends Unidad implements TipoEvolucionDeLarva {
                 new TipoTierra(),
                 new AtaqueTierraYViento(10,10),
                 4,2,75,25);
-
+        entidad = ID_UNIDAD.HIDRALISCO;
+        rango = 4;
     }
 
     public Hidralisco(HitPoints vida) {
         super(vida, new TipoTierra(), new AtaqueTierraYViento(10,10), 4,2,75,25);
+        entidad = ID_UNIDAD.HIDRALISCO;
+        rango = 4;
+
     }
 
     @Override

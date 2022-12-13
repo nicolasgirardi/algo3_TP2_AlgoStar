@@ -47,7 +47,7 @@ public class CasoDeUso5 {
 
         //assert
         assertThrows( ConstruccionFueraDelRangoPilonError.class, ()-> {
-            ubicacionPuerto.ubicar(new Acceso());
+            Acceso acceso = new Acceso(ubicacionPuerto);
         });
 
     }
@@ -66,7 +66,7 @@ public class CasoDeUso5 {
 
         //assert
         assertDoesNotThrow( ()-> {
-            ubicacionPuerto.ubicar(new Acceso());
+            Acceso acceso = new Acceso(ubicacionPuerto);
         });
 
     }
@@ -87,7 +87,7 @@ public class CasoDeUso5 {
 
         //assert
         assertThrows( ConstruccionFueraDelRangoPilonError.class, ()-> {
-            ubicacionPuerto.ubicar(new Acceso());
+            Acceso acceso = new Acceso(ubicacionPuerto);
         });
     }
 
@@ -107,7 +107,7 @@ public class CasoDeUso5 {
 
             //assert
             assertDoesNotThrow( ()-> {
-                ubicacionPuerto.ubicar(new Acceso());
+                Acceso acceso = new Acceso(ubicacionPuerto);
             });
     }
 }

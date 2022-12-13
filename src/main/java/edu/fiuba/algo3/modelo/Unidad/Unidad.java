@@ -4,17 +4,19 @@ import edu.fiuba.algo3.modelo.Atacable;
 import edu.fiuba.algo3.modelo.Atacante;
 import edu.fiuba.algo3.modelo.Ataque.Ataque;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.ID_UNIDAD;
 import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
+import edu.fiuba.algo3.modelo.tablero.UbicacionOcupadaError;
 
 public abstract class  Unidad implements Atacable, Atacante {
     protected HitPoints hp;
     private TipoSuperficie tipoSuperficie;
     private Ubicacion ubicacion;
-    private int rango;
+    protected int rango;
     private Ataque ataque;
     protected  int costoGas;
     protected  int costoMineral;
@@ -22,6 +24,8 @@ public abstract class  Unidad implements Atacable, Atacante {
     protected int costoPoblacion;
     protected int turnosRestantesParaSerOperativo;
     protected int unidadesAsesinadas;
+
+    protected ID_UNIDAD entidad;
 
     public Unidad(HitPoints vida, int suministroNecesario){
         hp = vida;
@@ -54,7 +58,9 @@ public abstract class  Unidad implements Atacable, Atacante {
     }
 
     public void ejecutarTurno() {
-        turnosRestantesParaSerOperativo--;
+        if(turnosRestantesParaSerOperativo > 0){
+            turnosRestantesParaSerOperativo--;
+        }
     }
 
     public void recibirAtaque(Ataque ataque){
@@ -113,4 +119,76 @@ public abstract class  Unidad implements Atacable, Atacante {
     public GestionRecurso extraer(Recurso recurso) {
         return null;
     }
+
+    public void moverseArriba(){
+        Ubicacion ubicacionNueva =   ubicacion.getArriba();
+        if(  ! this.ubicacion.esIgual(ubicacionNueva) ){
+            try {
+                ubicacionNueva.asignarUnidad(this);
+                ubicacion.getAbajo().quitarUnidad();
+            }catch (UbicacionOcupadaError e){
+                System.out.println("la nueva ubicacion esta ocupada");
+            }
+        }
+    }
+
+    public void moverseAbajo(){
+        Ubicacion ubicacionNueva =   ubicacion.getAbajo();
+        if(  ! this.ubicacion.esIgual(ubicacionNueva) ){
+            try {
+                ubicacionNueva.asignarUnidad(this);
+                ubicacion.getArriba().quitarUnidad();
+            }catch (UbicacionOcupadaError e){
+                System.out.println("la nueva ubicacion esta ocupada");
+            }
+        }
+    }
+
+    public void moverseDerecha(){
+        Ubicacion ubicacionNueva =   ubicacion.getDerecha();
+        if(  ! this.ubicacion.esIgual(ubicacionNueva) ){
+            try {
+                ubicacion.getDerecha().asignarUnidad(this);
+                ubicacion.getIzquierda().quitarUnidad();
+            }catch (UbicacionOcupadaError e){
+                System.out.println("la nueva ubicacion esta ocupada");
+            }
+        }
+    }
+
+    public void moverseIzquierda(){
+        Ubicacion ubicacionNueva =   ubicacion.getIzquierda();
+        if(  ! this.ubicacion.esIgual(ubicacionNueva) ){
+            try {
+                ubicacionNueva.asignarUnidad(this);
+                ubicacion.getDerecha().quitarUnidad();
+            }catch (UbicacionOcupadaError e){
+                System.out.println("la nueva ubicacion esta ocupada");
+            }
+        }
+    }
+
+    public ID_UNIDAD getEntidad(){
+        return entidad;
+    }
+
+    public int getTurnosRestantesParaSerOperativo(){
+        return turnosRestantesParaSerOperativo;
+    }
+    public boolean esOperativo(){
+        return turnosRestantesParaSerOperativo <= 0;
+    }
+
+    public int getRango() {
+        return rango;
+    }
+
+    public int getVida(){
+        return hp.vida();
+    }
+
+    public int getEscudo(){
+        return hp.escudo();
+    }
+
 }

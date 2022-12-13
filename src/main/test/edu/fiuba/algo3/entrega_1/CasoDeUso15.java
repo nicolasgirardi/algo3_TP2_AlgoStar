@@ -8,6 +8,8 @@ import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
+import edu.fiuba.algo3.modelo.tablero.Coordenada;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -86,7 +88,9 @@ public class CasoDeUso15 {
     public void RazaProtoDejaDeConseguirGasDelVolcanCuandoSeQuedaSinUnidadesDeGas(){
         //Arrange
         Volcan volcan = new Volcan();
-        Asimilador asimilador = new Asimilador();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
+        Asimilador asimilador = new Asimilador(ubicacion);
 
         // dejo el Asimilador operrable en 6 turnos
         for(int i = 0; i <6; i++ ){
@@ -100,13 +104,13 @@ public class CasoDeUso15 {
 
         //Act
         for(int i = 0; i <=cantidadDeTurnosParaSacarTodoElRecurso; i++ ){
-            recursoExtraido.aumentar(asimilador.extraer(volcan));
+            recursoExtraido.aumentar(asimilador.extraer());
         }
 
         // Intentamos extraer 5 veces mas en el volcan
 
         for(int i = 0; i < 5 ; i++){
-            cantidadRecursoExceso.aumentar(asimilador.extraer(volcan));
+            cantidadRecursoExceso.aumentar(asimilador.extraer());
         }
 
         //Assert
@@ -117,7 +121,8 @@ public class CasoDeUso15 {
     @Test
     public void RazaProtossDejaDeConseguirMineralCuandoDelNodoMineralCuandoSeQuedaSinUnidadesDeMineral(){
         //Arrange
-        NexoMineral nexoMineral = new NexoMineral( new NodoMineral() );
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        NexoMineral nexoMineral = new NexoMineral( new NodoMineral(),ubicacion );
 
         // dejo el Asimilador operrable en 6 turnos
         for(int i = 0; i <4; i++ ){

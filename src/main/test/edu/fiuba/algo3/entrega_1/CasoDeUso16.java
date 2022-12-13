@@ -9,6 +9,8 @@ import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.RecursoOcupadoError;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
+import edu.fiuba.algo3.modelo.tablero.Coordenada;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -30,11 +32,13 @@ public class CasoDeUso16 {
     @Test
     public void testSeConstruyeUnExtractorSobreUnVolcanNoSeDeberiaConstruirUnAsimiladorSobreElVolcan(){
         Volcan volcan = new Volcan();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
         Edificio extractor = new Extractor();
         volcan.agregarEdificio(extractor);
 
         assertThrows( RecursoOcupadoError.class, ()-> {
-            Asimilador asimilador = new Asimilador();
+            Asimilador asimilador = new Asimilador(ubicacion);
             volcan.agregarEdificio(asimilador);
         });
     }
@@ -42,8 +46,9 @@ public class CasoDeUso16 {
     @Test
     public void testSeConstruyeUnAsimiladorSobreUnVolcanNoSeDeberiaConstruirUnExtractorSobreElVolcan(){
         Volcan volcan = new Volcan();
-        Asimilador asimilador = new Asimilador();
-        volcan.agregarEdificio(asimilador);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
+        Asimilador asimilador = new Asimilador(ubicacion);
 
         assertThrows( RecursoOcupadoError.class, ()-> {
             Extractor extractor = new Extractor();
@@ -55,7 +60,8 @@ public class CasoDeUso16 {
     public void testUnNodoMineralTieneUnNexoNoDeberiaPoderRecibirUnZangano(){
 
         NodoMineral nodoMineral = new NodoMineral();
-        NexoMineral nexoMineral = new NexoMineral(nodoMineral);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        NexoMineral nexoMineral = new NexoMineral(nodoMineral,ubicacion);
         Zangano zangano = new Zangano(new HPZerg(25));
 
         assertThrows( RecursoOcupadoError.class, ()-> {
@@ -69,9 +75,10 @@ public class CasoDeUso16 {
         NodoMineral nodoMineral = new NodoMineral();
         Zangano zangano = new Zangano(new HPZerg(25));
         nodoMineral.agregarZangano(zangano);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
 
         assertThrows( RecursoOcupadoError.class, ()-> {
-            NexoMineral nexoMineral = new NexoMineral(nodoMineral);
+            NexoMineral nexoMineral = new NexoMineral(nodoMineral,ubicacion);
         });
     }
 

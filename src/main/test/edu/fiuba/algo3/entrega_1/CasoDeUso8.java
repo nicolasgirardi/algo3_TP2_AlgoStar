@@ -6,6 +6,9 @@ import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
+import edu.fiuba.algo3.modelo.Recurso.Volcan;
+import edu.fiuba.algo3.modelo.tablero.Coordenada;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -60,6 +63,7 @@ public class CasoDeUso8 {
         //Arrange
         RazaZerg razaZerg = new RazaZerg();
         Guarida guarida = new Guarida();
+        razaZerg.agregarEdificio(new ReservaDeReproduccion());
 
         //Act y assert
         assertThrows( RecursosInsuficientesError.class, ()-> {
@@ -72,6 +76,8 @@ public class CasoDeUso8 {
         //Arrange
         RazaZerg razaZerg = new RazaZerg();
         Espiral espiral = new Espiral();
+        razaZerg.agregarEdificio(new Extractor());
+        razaZerg.agregarEdificio(new Extractor());
 
         //Act y assert
         assertThrows( RecursosInsuficientesError.class, ()-> {
@@ -84,7 +90,8 @@ public class CasoDeUso8 {
 
         //Arrange
         RazaProtoss razaProtoss = new RazaProtoss();
-        NexoMineral nexoMineral = new NexoMineral( new NodoMineral() );
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        NexoMineral nexoMineral = new NexoMineral( new NodoMineral(),ubicacion );
 
         //Act y assert
         assertDoesNotThrow(  ()-> {
@@ -110,7 +117,10 @@ public class CasoDeUso8 {
 
         //Arrange
         RazaProtoss razaProtoss = new RazaProtoss();
-        Asimilador asimilador = new Asimilador();
+        Volcan volcan = new Volcan();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
+        Asimilador asimilador = new Asimilador(ubicacion);
 
         //Act y assert
         assertDoesNotThrow(  ()-> {
@@ -122,8 +132,10 @@ public class CasoDeUso8 {
     public void testRazaProtossQuiereConstruirseUnAccesoDeberiaPoderConstruirlo(){
 
         //Arrange
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.energizar();
         RazaProtoss razaProtoss = new RazaProtoss();
-        Acceso acceso = new Acceso();
+        Acceso acceso = new Acceso(ubicacion);
 
         //Act y assert
         assertDoesNotThrow(  ()-> {
@@ -137,6 +149,10 @@ public class CasoDeUso8 {
         //Arrange
         RazaProtoss razaProtoss = new RazaProtoss();
         PuertoEstelar puertoEstelar = new PuertoEstelar();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.energizar();
+        razaProtoss.agregarEdificio(new Pilon());
+        razaProtoss.agregarEdificio(new Pilon());
 
         //Act y assert
         assertThrows( RecursosInsuficientesError.class, ()-> {
@@ -149,7 +165,6 @@ public class CasoDeUso8 {
         //Arrange
         RazaZerg razaZerg = new RazaZerg();
         Criadero criadero = new Criadero();
-        ReservaDeReproduccion reservaDeReproduccion = new ReservaDeReproduccion();
         Criadero criaderoExtra = new Criadero();
 
         //Act
@@ -169,8 +184,12 @@ public class CasoDeUso8 {
         //Arrange
         RazaProtoss razaProtoss = new RazaProtoss();
         Pilon pilon = new Pilon();
-        Asimilador asimilador = new Asimilador();
-        NexoMineral nexoMineral = new NexoMineral( new NodoMineral() );
+        Volcan volcan = new Volcan();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        Ubicacion ubicacionVolcan = new Ubicacion(new Coordenada(0,1));
+        ubicacionVolcan.ubicarRecurso(volcan);
+        Asimilador asimilador = new Asimilador(ubicacionVolcan);
+        NexoMineral nexoMineral = new NexoMineral( new NodoMineral(),ubicacion);
 
         //Act
         razaProtoss.agregarEdificio(pilon); // gasto 100 de mineral

@@ -3,6 +3,9 @@ import edu.fiuba.algo3.modelo.Edificio.*;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.*;
 import edu.fiuba.algo3.modelo.HitPoints.*;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
+import edu.fiuba.algo3.modelo.Recurso.Volcan;
+import edu.fiuba.algo3.modelo.tablero.Coordenada;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,7 +15,8 @@ public class CasoDeUso11 {
     public void UnNexoMineralProtosReciBeDañoYUsaElMetodoRecibirDañoDeHitPoints(){
         //HitPoints HPmock = mock(HitPoints.class);
         HitPoints HP = new HPProtoss(250,250);
-        Edificio edificio = new NexoMineral(new NodoMineral()); //podría ser cualquier edificio
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        Edificio edificio = new NexoMineral(new NodoMineral(),ubicacion); //podría ser cualquier edificio
         edificio.asignarHP(HP);
         edificio.recibirDaño(30);
 
@@ -26,7 +30,8 @@ public class CasoDeUso11 {
 
         //HitPoints HPmock = mock(HitPoints.class);
         HitPoints HP = new HPProtoss(250,250);
-        Edificio edificio = new NexoMineral(new NodoMineral()); //podría ser cualquier edificio
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        Edificio edificio = new NexoMineral(new NodoMineral(),ubicacion); //podría ser cualquier edificio
         edificio.asignarHP(HP);
         edificio.recibirDaño(30);
         //when(HPmock.vida()).thenReturn(250);
@@ -75,9 +80,11 @@ public class CasoDeUso11 {
     }
     @Test
     public void UnAsimiladorProtosReciBeDañoYUsaElMetodoRecibirDañoDeHitPoints(){
-        //HitPoints HPmock = mock(HitPoints.class);
+        Volcan volcan = new Volcan();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
         HitPoints HP = new HPProtoss(450,450);
-        Edificio edificio = new Asimilador(); //podría ser cualquier edificio
+        Edificio edificio = new Asimilador(ubicacion); //podría ser cualquier edificio
         edificio.asignarHP(HP);
         edificio.recibirDaño(30);
 
@@ -89,9 +96,11 @@ public class CasoDeUso11 {
     @Test
     public void UnAsimiladorRecibeDañoySeRegeneraPorTurno(){
 
-        //HitPoints HPmock = mock(HitPoints.class);
+        Volcan volcan = new Volcan();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
         HitPoints HP = new HPProtoss(450,450);
-        Edificio edificio = new Asimilador(); //podría ser cualquier edificio
+        Edificio edificio = new Asimilador(ubicacion); //podría ser cualquier edificio
         edificio.asignarHP(HP);
         edificio.recibirDaño(30);
         //when(HPmock.vida()).thenReturn(450);
@@ -108,8 +117,10 @@ public class CasoDeUso11 {
     @Test
     public void UnAccesoProtosReciBeDañoYUsaElMetodoRecibirDañoDeHitPoints(){
         //HitPoints HPmock = mock(HitPoints.class);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.energizar();
         HitPoints HP = new HPProtoss(500,500);
-        Edificio edificio = new Acceso(); //podría ser cualquier edificio
+        Edificio edificio = new Acceso(ubicacion); //podría ser cualquier edificio
         edificio.asignarHP(HP);
         edificio.recibirDaño(30);
 
@@ -121,9 +132,10 @@ public class CasoDeUso11 {
     @Test
     public void UnAccesoRecibeDañoySeRegeneraPorTurno(){
 
-        //HitPoints HPmock = mock(HitPoints.class);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.energizar();
         HitPoints HP = new HPProtoss(500,500);
-        Edificio edificio = new Acceso(); //podría ser cualquier edificio
+        Edificio edificio = new Acceso(ubicacion); //podría ser cualquier edificio
         edificio.asignarHP(HP);
         edificio.recibirDaño(30);
         //when(HPmock.vida()).thenReturn(500);

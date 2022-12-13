@@ -38,4 +38,9 @@ public class UnidadesRecurso {
     public int getCantidad() {
         return cantidad;
     }
+
+    @Override
+    public String toString(){
+        return String.valueOf(cantidad);
+    }
 }

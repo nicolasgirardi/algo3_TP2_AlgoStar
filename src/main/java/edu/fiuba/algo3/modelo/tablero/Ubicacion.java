@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.tablero;
 import edu.fiuba.algo3.modelo.Edificio.*;
+import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
-import edu.fiuba.algo3.modelo.Edificio.Zerg.Criadero;
-import edu.fiuba.algo3.modelo.IDEDIFICIO;
+import edu.fiuba.algo3.modelo.ID_UNIDAD;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Recurso;;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
@@ -17,6 +17,10 @@ public class Ubicacion {
     private Coordenada coor;
     private int enRangoAmoSupremo;
     private int energizado;
+    private Ubicacion arriba;
+    private Ubicacion abajo;
+    private Ubicacion derecha;
+    private Ubicacion izquierda;
 
     public Ubicacion(Coordenada coordenada){
         coor = coordenada;
@@ -73,9 +77,12 @@ public class Ubicacion {
         }
     }
     public void asignarUnidad(Unidad unaUnidad){
-        tipo.ubicar(unaUnidad);
-        unidad = unaUnidad;
-        unaUnidad.asignarLugar(this);
+        if(unidad == null && edificio == null){
+            tipo.ubicar(unaUnidad);
+            unidad = unaUnidad;
+            unaUnidad.asignarLugar(this);
+        }
+         else {throw new UbicacionOcupadaError();}
     }
 
     public void asignarAmoSupremo(AmoSupremo unAmoSupremo, Mapa unMapa){
@@ -120,6 +127,8 @@ public class Ubicacion {
         return recurso != null;
     }
 
+    public boolean existeUnidad(){ return unidad != null;}
+
 
     public boolean contieneNodoMineral() {
 
@@ -127,34 +136,64 @@ public class Ubicacion {
     }
 
     public NodoMineral getNodoMineral() {
-        return (NodoMineral) recurso;
+        if(recurso instanceof NodoMineral){
+            return (NodoMineral) recurso;
+        }
+        return null;
     }
 
     public Volcan getVolcan() {
-        return (Volcan) recurso;
+        if(recurso instanceof Volcan){
+            return (Volcan) recurso;
+        }
+        return null;
     }
     public Edificio getEdificio(){
         return edificio;
     }
+    public Acceso getAcceso() {
+        return (Acceso) edificio;
+    }
+
     public Unidad getUnidad(){
         return unidad;
     }
 
-    public Criadero getCriadero(){
-        if(edificio.getEntidad() == IDEDIFICIO.CRIADERO){
-            return (Criadero) edificio;
-        }
-        return null;
-    }
-
-    public Pilon getPilon(){
-        if(edificio.getEntidad() == IDEDIFICIO.PILON){
-            return (Pilon) edificio;
-        }
-        return null;
-    }
     public TIPOSUPERFICIE getTipoSuperficie(){
         return tipo.getTiposuperficie();
     }
 
+    public boolean ubicacionVacia(){
+        return (edificio == null && recurso == null && unidad == null);
+    }
+
+    public void Arriba(Ubicacion up) {arriba = up;}
+    public void Abajo(Ubicacion down) { abajo = down;}
+    public void Derecha(Ubicacion right) {derecha = right;}
+    public void Izquierda(Ubicacion left) {izquierda = left;}
+
+    public Ubicacion getArriba() {return arriba;}
+    public Ubicacion getAbajo() { return abajo;}
+    public Ubicacion getDerecha() {return derecha;}
+    public Ubicacion getIzquierda() {return izquierda;}
+
+    public void quitarUnidad(){
+        unidad = null;
+    }
+
+    public boolean esIgual(Ubicacion otraUbicacion){
+        return this.coordenada().esIgual( otraUbicacion.coordenada() );
+    }
+
+    public boolean existeZangano(Ubicacion otraUbicacion){
+        return ((unidad != null) && (unidad.getEntidad() == ID_UNIDAD.ZANGANO)  &&  (! this.esIgual(otraUbicacion)) ) ;
+    }
+
+    public boolean estaLibre(){
+        return (unidad == null && edificio == null && recurso == null && tipo.getTiposuperficie() != TIPOSUPERFICIE.ESPECIAL  );
+    }
+
+    public void quitarEdificio() {
+        edificio = null;
+    }
 }

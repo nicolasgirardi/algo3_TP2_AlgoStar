@@ -39,4 +39,8 @@ public class Poblacion {
     public int capacidadReal(){
         return Math.min(capcaidadMaxima, capacidadInstalada);
     }
+
+    public int obtenerPoblacion(){
+        return poblacion;
+    }
 }

@@ -19,8 +19,9 @@ public class Moho extends Tipo{
     }
 
     public void crecer(Coordenada coor,Mapa mapa,int radio){
+
         ArrayList<Ubicacion> ubicaciones = mapa.buscar(coor,radio);
-        for(int i=0;i<ubicaciones.size();i++){
+        for(int i = 0 ; i < ubicaciones.size() ; i++){
             ubicaciones.get(i).infectar();
         }
     }

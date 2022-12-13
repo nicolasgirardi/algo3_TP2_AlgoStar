@@ -20,11 +20,7 @@ public abstract class Edificio implements Atacable {
     protected Raza raza;
     private HitPoints hp;
 
-    public Edificio(int turnosRestantesParaSerOperativo, int mineralNecesario, int gasNecesario){
-        this.turnosRestantesParaSerOperativo = turnosRestantesParaSerOperativo;
-        this.costoMineral = mineralNecesario;
-        this.costoGas = gasNecesario;
-    }
+
     public Edificio(int turnosRestantesParaSerOperativo,HitPoints HP, int mineralNecesario, int gasNecesario){
         this.turnosRestantesParaSerOperativo = turnosRestantesParaSerOperativo;
         this.hp = HP;
@@ -43,8 +39,11 @@ public abstract class Edificio implements Atacable {
     }
 
     public void ejecutarTurno() {
-        turnosRestantesParaSerOperativo--;
+        if(turnosRestantesParaSerOperativo > 0)
+            turnosRestantesParaSerOperativo--;
+        hp.regenerar();
     }
+
 
     public abstract void construirEdificioEn(Recurso recurso);
 
@@ -129,4 +128,28 @@ public abstract class Edificio implements Atacable {
     public IDEDIFICIO getEntidad(){
         return entidad;
     }
+
+    public void asignarRaza(Raza unaRaza){
+        raza = unaRaza;
+    }
+
+    public boolean estaOperativo() {
+        if(turnosRestantesParaSerOperativo > 0 ){
+            return false;
+        }
+        return true;
+    }
+    public int getTurnosRestantesParaSerOperativo(){
+        return turnosRestantesParaSerOperativo;
+    }
+
+    public int getVida() {
+        return hp.vida();
+    }
+
+    public int getEscudo() {
+        return hp.escudo();
+    }
+
+
 }

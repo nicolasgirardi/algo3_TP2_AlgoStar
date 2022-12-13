@@ -3,8 +3,10 @@ package edu.fiuba.algo3.modelo.Unidad;
 import edu.fiuba.algo3.modelo.Atacable;
 import edu.fiuba.algo3.modelo.Ataque.Ataque;
 import edu.fiuba.algo3.modelo.Ataque.AtaqueTierraYViento;
+import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.ID_UNIDAD;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
@@ -13,18 +15,21 @@ public class Mutalisco extends Unidad implements TipoEvolucionDeMutalisco{
 
     private TipoEvolucionDeMutalisco tipoEvolucionDeMutalisco;
     public Mutalisco() {
-
         super(
                 new HPZerg(120),
                 new TipoAire(),
                 new AtaqueTierraYViento(9,9),
                 7,4,100,100);
         tipoEvolucionDeMutalisco = null;
+        entidad = ID_UNIDAD.MUTALISCO;
+        rango = 3;
     }
 
     public Mutalisco(HitPoints vida) {
             super(vida, 4);
             tipoEvolucionDeMutalisco = null;
+            entidad = ID_UNIDAD.MUTALISCO;
+            rango = 3;
     }
 
     public void evolucionarAGuardian(RazaZerg raza) {
@@ -162,5 +167,13 @@ public class Mutalisco extends Unidad implements TipoEvolucionDeMutalisco{
             Unidad unidadActual = (Unidad) tipoEvolucionDeMutalisco;
             unidadActual.ejecutarTurno();
         }
+    }
+
+    public Unidad getTipoMutalisco(){
+        Unidad unidad = null;
+        if(tipoEvolucionDeMutalisco != null){
+            unidad = (Unidad) tipoEvolucionDeMutalisco;
+        }
+        return unidad;
     }
 }

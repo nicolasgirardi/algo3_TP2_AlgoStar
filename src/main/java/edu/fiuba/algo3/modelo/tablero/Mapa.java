@@ -21,7 +21,25 @@ public class Mapa {
             for (int j = 0; j <= Altura; j++) {
                 mapa[i][j] = new Ubicacion(new Coordenada(i, j));
             }
-        } // falta definir los nodos minerales y los volcanes lugares ala mtitad del mapa lo definimos apriori.
+        }
+        int a,b,y,z;
+        for (int i = 0; i <= Base; i++) {
+            for (int j = 0; j <= Altura; j++) {
+            a = i-1;
+            b = i+1;
+            y = j-1;
+            z = j+1;
+            if(a<0) a = i;
+            if(b> base) b = i;
+            if(y<0) y = j;
+            if (z>altura) z = j;
+            mapa[j][i].Arriba(mapa[j][a]);
+            mapa[j][i].Abajo(mapa[j][b]);
+            mapa[j][i].Izquierda(mapa[y][i]);
+            mapa[j][i].Derecha(mapa[z][i]);
+            }
+        }
+        // falta definir los nodos minerales y los volcanes lugares ala mtitad del mapa lo definimos apriori.
     } // si base es de 10, y altura 10 , mapa se puede acceder al 10,10 tambien.
 
     public Ubicacion buscar(Coordenada coordenada) {
@@ -36,6 +54,7 @@ public class Mapa {
         throw new UbicacionFueraDelMapaError();
     }
     public ArrayList<Ubicacion> buscar(Coordenada coordenada,int radio){
+
         ArrayList<Ubicacion> lista = new ArrayList<Ubicacion>();
         for (int i =0;i<=base;i++){
             for (int j = 0;j<=altura;j++){
@@ -45,6 +64,7 @@ public class Mapa {
             }
         }
         return lista;
+
     }
 
     public int distanciaMaxima(){
@@ -81,7 +101,7 @@ public class Mapa {
         this.buscar(new Coordenada(2,0)).ubicarRecurso(new NodoMineral());
         this.buscar(new Coordenada(2,2)).ubicarRecurso(new Volcan());
 
-        this.buscar(new Coordenada(base,altura)).ubicar(new Pilon());
+        this.buscar(new Coordenada(base,altura)).ubicar(new Pilon(0));
         this.buscar(new Coordenada(base - 2, altura)).ubicarRecurso(new NodoMineral());
         this.buscar(new Coordenada(base, altura - 2 )).ubicarRecurso(new NodoMineral());
         this.buscar(new Coordenada(base - 2, altura - 2)).ubicarRecurso(new Volcan());

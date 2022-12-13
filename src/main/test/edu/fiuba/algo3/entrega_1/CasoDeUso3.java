@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Edificio.Protoss.*;
 import edu.fiuba.algo3.modelo.Edificio.Zerg.*;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
 import edu.fiuba.algo3.modelo.Recurso.Volcan;
+import edu.fiuba.algo3.modelo.tablero.Coordenada;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -15,10 +17,11 @@ public class CasoDeUso3 {
     @Test
     public void testAsimiladorSoloSePuedeConstruirSobreElGas(){
         Volcan volcan = new Volcan();
-        Edificio unEdificio = new Asimilador();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
 
         assertDoesNotThrow( ()-> {
-            unEdificio.construirEdificioEn(volcan);
+            Edificio unEdificio = new Asimilador(ubicacion);
         });
     }
 
@@ -78,7 +81,8 @@ public class CasoDeUso3 {
     @Test //ACA
     public void testNexoMineralNoSePuedeConstruirSobreElGas(){
         Volcan volcan = new Volcan();
-        Edificio unEdificio = new NexoMineral( new NodoMineral() );
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        Edificio unEdificio = new NexoMineral( new NodoMineral(), ubicacion);
 
         assertThrows( ConstruccionIncorrectaError.class, ()-> {
             unEdificio.construirEdificioEn(volcan);
@@ -96,7 +100,9 @@ public class CasoDeUso3 {
     @Test
     public void testAccesoNoSePuedeConstruirSobreElGas(){
         Volcan volcan = new Volcan();
-        Edificio unEdificio = new Acceso();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.energizar();
+        Edificio unEdificio = new Acceso(ubicacion);
 
         assertThrows( ConstruccionIncorrectaError.class, ()-> {
             unEdificio.construirEdificioEn(volcan);

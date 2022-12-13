@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Ataque.AtaqueSoloTierra;
 import edu.fiuba.algo3.modelo.Ataque.ZealotNoPuedeSerAtacadaError;
 import edu.fiuba.algo3.modelo.HitPoints.HPProtoss;
 import edu.fiuba.algo3.modelo.HitPoints.HitPoints;
+import edu.fiuba.algo3.modelo.ID_UNIDAD;
 
 public class Zealot extends Unidad {
 
@@ -18,6 +19,8 @@ public class Zealot extends Unidad {
                 4,2,100,0
         );
         visibilidad = true;
+        entidad = ID_UNIDAD.ZEALOT;
+        rango = 1;
     }
 
     public Zealot() {
@@ -28,6 +31,9 @@ public class Zealot extends Unidad {
                 4,2,100,0
         );
         visibilidad = true;
+        entidad = ID_UNIDAD.ZEALOT;
+        rango = 1;
+
     }
 
     @Override

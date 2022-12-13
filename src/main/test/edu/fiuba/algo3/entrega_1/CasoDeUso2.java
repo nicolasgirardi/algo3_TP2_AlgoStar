@@ -7,8 +7,12 @@ import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import edu.fiuba.algo3.modelo.Recurso.NodoMineral;
+import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
+import edu.fiuba.algo3.modelo.tablero.Coordenada;
+import edu.fiuba.algo3.modelo.tablero.Mapa;
+import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -220,9 +224,11 @@ public class CasoDeUso2 {
         //Arrange
         Espiral espiral = new Espiral();
         RazaZerg raza = new RazaZerg();
-        raza.aumentarGas(new GestionRecurso(500));
-        raza.aumentarMineral(new GestionRecurso(500));
+        raza.aumentarGas(new GestionRecurso(1000));
+        raza.aumentarMineral(new GestionRecurso(1000));
         raza.agregarEdificio(new Criadero());
+        raza.agregarEdificio(new ReservaDeReproduccion());
+        raza.agregarEdificio(new Guarida());
         raza.agregarEdificio(espiral);
         //Act
         for(int i = 0 ; i < 10 ; i++){
@@ -238,7 +244,8 @@ public class CasoDeUso2 {
     public void testEdificoNexoMineralCon4TurnosParaSerOperativoSeLeMandaRecolectarMineralDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
         //Arrange
         NodoMineral nodoMineral = new NodoMineral();
-        NexoMineral nexoMineral = new NexoMineral(nodoMineral);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        NexoMineral nexoMineral = new NexoMineral(nodoMineral,ubicacion);
         //Acy y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
             nexoMineral.extraer();
@@ -249,7 +256,8 @@ public class CasoDeUso2 {
     public void testEdificoNexoMineralCon4TurnosSeEjecuta2TurnosParaSerOperativoYSeLeMandaRecolectarMineralDeberiaLanzarExcepcionPorqueAunNoEstaOperativo(){
         //Arrange
         NodoMineral nodoMineral = new NodoMineral();
-        NexoMineral nexoMineral = new NexoMineral(nodoMineral);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        NexoMineral nexoMineral = new NexoMineral(nodoMineral,ubicacion);
 
         //Act
         nexoMineral.ejecutarTurno();
@@ -265,7 +273,8 @@ public class CasoDeUso2 {
     public void testEdificoNexoMineralCon4TurnosParaSerOperativoSeEjecuta4TurnosYSeLeMandaRecolectarMineralNoDeberiaLanzarExcepcionPorqueYaEstaOperativo(){
         //Arrange
         NodoMineral nodoMineral = new NodoMineral();
-        NexoMineral nexoMineral = new NexoMineral(nodoMineral);
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        NexoMineral nexoMineral = new NexoMineral(nodoMineral,ubicacion);
 
         //Act
         nexoMineral.ejecutarTurno();
@@ -289,7 +298,7 @@ public class CasoDeUso2 {
         pilon.ejecutarTurno();
         // Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            pilon.energizar();
+            pilon.energizar(new Ubicacion(new Coordenada(0,0)),new Mapa(10,10));
         });
     }
 
@@ -303,7 +312,7 @@ public class CasoDeUso2 {
         pilon.ejecutarTurno();
         // Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            pilon.energizar();
+            pilon.energizar(new Ubicacion(new Coordenada(0,0)),new Mapa(10,10));
         });
     }
     @Test
@@ -320,14 +329,17 @@ public class CasoDeUso2 {
 
         // Assert
         assertDoesNotThrow( ()-> {
-            pilon.energizar();
+            pilon.energizar(new Ubicacion(new Coordenada(0,0)),new Mapa(10,10));
         });
     }
 
     @Test
     public void testEdificioAsimiladorCon6TurnosParaSerOperativoSeLeMandaPrepararCapsulaDeberiaLanzarExcepcion(){
         //Arrange
-        Asimilador asimilador = new Asimilador( );
+        Volcan volcan = new Volcan();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
+        Asimilador asimilador = new Asimilador(ubicacion);
 
         // Act y Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
@@ -338,7 +350,10 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAsimiladorCon6TurnosParaSerOperativoSeEjecuta2TurnosYSeLeMandaPrepararCapsulaDeberiaLanzarExcepcion(){
         //Arrange
-        Asimilador asimilador = new Asimilador( ) ;
+        Volcan volcan = new Volcan();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
+        Asimilador asimilador = new Asimilador(ubicacion) ;
 
         //Act
         asimilador.ejecutarTurno();
@@ -354,7 +369,10 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAsimiladorCon6TurnosParaSerOperativoSeEjecuta6TurnosYSeLeMandaPrepararCapsulaNoDeberiaLanzarExcepcion(){
         //Arrange
-        Asimilador asimilador = new Asimilador(  );
+        Volcan volcan = new Volcan();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.ubicarRecurso(volcan);
+        Asimilador asimilador = new Asimilador(ubicacion);
 
         //Act
         asimilador.ejecutarTurno();
@@ -373,7 +391,9 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAccesoCon8TurnosParaSerOperativoSeLoMandaATransportarTroparDeberiaLanzarExcepcion(){
         //Arrange
-        Acceso acceso = new Acceso();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.energizar();
+        Acceso acceso = new Acceso(ubicacion);
 
 
         // Act y  Assert
@@ -385,7 +405,9 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAccesoCon8TurnosParaSerOperativoSeEjecutan4TurnosYSeLoMandaATransportarTroparDeberiaLanzarExcepcion(){
         //Arrange
-        Acceso acceso = new Acceso();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.energizar();
+        Acceso acceso = new Acceso(ubicacion);
 
 
         //Act
@@ -405,7 +427,9 @@ public class CasoDeUso2 {
     @Test
     public void testEdificioAccesoCon8TurnosParaSerOperativoSeEjecutan8TurnosYSeLoMandaATransportarTroparNoDeberiaLanzarExcepcion(){
         //Arrange
-        Acceso acceso = new Acceso();
+        Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
+        ubicacion.energizar();
+        Acceso acceso = new Acceso(ubicacion);
 
 
         //Act

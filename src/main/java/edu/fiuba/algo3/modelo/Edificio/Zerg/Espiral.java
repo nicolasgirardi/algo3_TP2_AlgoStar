@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Edificio.Zerg;
 
 import edu.fiuba.algo3.modelo.ConstruccionFueraDelMohoError;
 import edu.fiuba.algo3.modelo.Edificio.ConstruccionIncorrectaError;
+import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.EstadoZangano.EstadoZangano;
 import edu.fiuba.algo3.modelo.HitPoints.HPZerg;
@@ -55,8 +56,10 @@ public class Espiral extends Edificio implements EstadoZangano {
 
     @Override
     public void fueAgregado(Raza raza) {
+        if( ! raza.existeGuarida() ){
+            throw new CorrelativaDeConstruccionIncumplidaError();
+        }
         this.raza = raza;
-        return;
     }
 
     @Override
