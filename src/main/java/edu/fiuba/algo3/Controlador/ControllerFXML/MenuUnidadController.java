@@ -1,8 +1,9 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
 import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
-import edu.fiuba.algo3.Vista.Botones.BotonCeldaTablero;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonUnidad;
+import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.IDEDIFICIO;
 import edu.fiuba.algo3.modelo.ID_UNIDAD;
 import edu.fiuba.algo3.modelo.Juego.JuegoModelo;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
@@ -103,25 +104,59 @@ public class MenuUnidadController extends UnidadMovibleController{
                 System.out.println("Existe unidad para atacar y esa es ");
                 Unidad unidadAdy = ubicacionAdy.getUnidad();
                 System.out.println(unidadAdy.getEntidad() );
-                System.out.println(contenerdorMenu.getChildren().get(0).getClass());
-                System.out.println(contenerdorMenu.getChildren().get(1).getClass());
-                System.out.println(contenerdorMenu.getChildren().get(2).getClass());
-                System.out.println(contenerdorMenu.getChildren().get(3).getClass());
-                System.out.println(contenerdorMenu.getChildren().get(4).getClass());
-                System.out.println(contenerdorMenu.getChildren().get(5).getClass());
-                Coordenada coordenadaEnemigo = ubicacionAdy.coordenada();
                 GridPane panelDeEnemigos =  (GridPane) contenerdorMenu.getChildren().get(5);
-                panelDeEnemigos.add(  obtenerImagen(unidadAdy.getEntidad() ) , i, j );
+                panelDeEnemigos.add(  obtenerImagenUnidad(unidadAdy.getEntidad() ) , i, j );
                 i++;
                 if ( i == 3 ){
                     i = 0;
                     j++;
                 }
+                if ( j == 3 ) break;
             }
+            if( ubicacionAdy.existeEdificio() &&  ! ubicacionAdy.esIgual(ubicacion) ){
+                System.out.println("Coord x " + ubicacionAdy.coordenada().horizontal() + "Coord y: " + ubicacionAdy.coordenada().vertical() );
+                System.out.println("Existe Edificio para atacar y esa es ");
+                Edificio edificio = ubicacionAdy.getEdificio();
+                System.out.println(edificio.getEntidad() );
+                GridPane panelDeEnemigos =  (GridPane) contenerdorMenu.getChildren().get(5);
+                panelDeEnemigos.add(  obtenerImagenEdificio(edificio.getEntidad() ) , i, j );
+                i++;
+                if ( i == 3 ){
+                    i = 0;
+                    j++;
+                }
+                if ( j == 3 ) break;
+            }
+
+
+
         }
     }
 
-    private Button obtenerImagen(ID_UNIDAD entidad){
+    private Button obtenerImagenEdificio(IDEDIFICIO entidad) {
+        HashMap<IDEDIFICIO,String> imagenEdificio = new HashMap<>();
+        imagenEdificio.put(IDEDIFICIO.CRIADERO, "images/criadero.png");
+        imagenEdificio.put(IDEDIFICIO.RESERVADEREPRODUCCION, "images/reservaDeReproduccion.png");
+        imagenEdificio.put(IDEDIFICIO.GUARIDA, "images/guarida.png");
+        imagenEdificio.put(IDEDIFICIO.ESPIRAL, "images/espiral.png");
+        imagenEdificio.put(IDEDIFICIO.PUERTOESTELAR, "images/puertoEstelar.png");
+        imagenEdificio.put(IDEDIFICIO.ACCESO, "images/acceso.png");
+        imagenEdificio.put(IDEDIFICIO.NEXOMINERAL, "images/nexo.png");
+        imagenEdificio.put(IDEDIFICIO.EXTRACTOR, "images/extractor.png");
+        imagenEdificio.put(IDEDIFICIO.PILON, "images/pilon.png");
+        imagenEdificio.put(IDEDIFICIO.ASIMILADOR, "images/asimilador.png");
+
+
+        File fileImagen = new File(imagenEdificio.get(entidad) );
+        Image imagenGenerica = new Image(fileImagen.toURI().toString(), 50, 50, true, true );
+        Button botonGenerico = new Button();
+        botonGenerico.setMinSize(30,30);
+        botonGenerico.setGraphic( new ImageView(imagenGenerica) );
+        return botonGenerico;
+
+    }
+
+    private Button obtenerImagenUnidad(ID_UNIDAD entidad){
         HashMap<ID_UNIDAD,String> imagenesUnidades = new HashMap<>();
         imagenesUnidades.put(ID_UNIDAD.AMOSUPREMO, "images/amoSupremo.png");
         imagenesUnidades.put(ID_UNIDAD.HIDRALISCO, "images/hidralisco.png");
