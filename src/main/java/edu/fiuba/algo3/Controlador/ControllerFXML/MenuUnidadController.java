@@ -85,14 +85,21 @@ public class MenuUnidadController extends UnidadMovibleController{
 
     private void completarEnemigosParaAtacar(){
         int rangoAtaque = ubicacion.getUnidad().getRango();
+        int i = 0;
+        int j = 0;
         ArrayList<Ubicacion> ubicaciones = juegoModelo.getMapa().buscar(ubicacion.coordenada(), rangoAtaque );
         for(Ubicacion ubicacionAdy : ubicaciones){
             if( ubicacionAdy.existeUnidad() &&  ! ubicacionAdy.esIgual(ubicacion) ){
                 System.out.println("Coord x " + ubicacionAdy.coordenada().horizontal() + "Coord y: " + ubicacionAdy.coordenada().vertical() );
                 System.out.println("Existe unidad para atacar y esa es ");
                 Unidad unidad = ubicacionAdy.getUnidad();
-
                 System.out.println(unidad.getEntidad() );
+                System.out.println(contenerdorMenu.getChildren().get(0).getClass());
+                System.out.println(contenerdorMenu.getChildren().get(1).getClass());
+                System.out.println(contenerdorMenu.getChildren().get(2).getClass());
+                System.out.println(contenerdorMenu.getChildren().get(3).getClass());
+                System.out.println(contenerdorMenu.getChildren().get(4).getClass());
+                System.out.println(contenerdorMenu.getChildren().get(5).getClass());
             }
         }
     }
