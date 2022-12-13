@@ -32,6 +32,7 @@ public class Criadero extends Edificio implements EstadoZangano {
         super(cantidadTurnosParaSerOperativo, new HPZerg(500),200, 0);
         larvas = new ArrayList<Larva>();
         if (cantidadTurnosParaSerOperativo == 0 ) cargarTodaslasLarvas();
+        entidad = IDEDIFICIO.CRIADERO;
     }
 
     @Override

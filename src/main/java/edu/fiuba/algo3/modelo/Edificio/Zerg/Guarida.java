@@ -23,10 +23,11 @@ public class Guarida extends Edificio implements EstadoZangano {
     public Guarida(){
         super(CANTIDAD_TURNOS_OPERATIVO,new HPZerg(1250),200,100);
         entidad = IDEDIFICIO.GUARIDA;
-
     }
     public Guarida(HitPoints hp){
         super(hp);
+        entidad = IDEDIFICIO.GUARIDA;
+
     }
 
     @Override

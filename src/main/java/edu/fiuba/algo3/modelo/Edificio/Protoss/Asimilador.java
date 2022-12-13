@@ -24,7 +24,6 @@ public class Asimilador extends Edificio {
         this.volcan = ubicacion.getVolcan();
         volcan.agregarEdificio(this);
 
-
     }
 
     public void prepararCapsula() {

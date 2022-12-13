@@ -37,6 +37,8 @@ public class MenuUnidadController extends UnidadMovibleController{
     private HashMap<ID_UNIDAD,String> imagenesUnidades;
 
 
+
+
     @FXML
     public void onClickedMoverArriba(MouseEvent event) {
         Unidad unidad = ubicacion.getUnidad();
@@ -90,13 +92,13 @@ public class MenuUnidadController extends UnidadMovibleController{
             cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo,contenerdorMenu);
             return;
         }
-        inicializarHash();
+        inicializarHashImagenes();
         activarMovimientoPorTeclado();
         completarEnemigosParaAtacar();
 
     }
 
-    private void inicializarHash(){
+    private void inicializarHashImagenes(){
         this.imagenEdificio = new HashMap<>();
         imagenEdificio.put(IDEDIFICIO.CRIADERO, "images/criadero.png");
         imagenEdificio.put(IDEDIFICIO.RESERVADEREPRODUCCION, "images/reservaDeReproduccion.png");
@@ -134,7 +136,8 @@ public class MenuUnidadController extends UnidadMovibleController{
                 Unidad unidadAdy = ubicacionAdy.getUnidad();
                 System.out.println(unidadAdy.getEntidad() );
                 GridPane panelDeEnemigos =  (GridPane) contenerdorMenu.getChildren().get(5);
-                BotonAtacable botonAtacable = new BotonAtacable(imagenesUnidades.get(unidadAdy.getEntidad() ) );
+                BotonAtacable botonAtacable = new BotonAtacable(imagenesUnidades.get(unidadAdy.getEntidad() ), ubicacionAdy.getUnidad(), ubicacion.getUnidad() );
+                botonAtacable.setTooltipVidaYEscudoRestante();
                 botonAtacable.setOnAction(new BotonAtacableHandler(ubicacionAdy.getUnidad(), ubicacion.getUnidad() , ubicacionAdy, tablero, vBoxMenu, juegoModelo ) );
                 panelDeEnemigos.add(  botonAtacable , i, j );
                 i++;
@@ -150,7 +153,8 @@ public class MenuUnidadController extends UnidadMovibleController{
                 Edificio edificio = ubicacionAdy.getEdificio();
                 System.out.println(edificio.getEntidad() );
                 GridPane panelDeEnemigos =  (GridPane) contenerdorMenu.getChildren().get(5);
-                BotonAtacable botonAtacable = new BotonAtacable(imagenEdificio.get(edificio.getEntidad() ) );
+                BotonAtacable botonAtacable = new BotonAtacable(imagenEdificio.get(edificio.getEntidad() ), ubicacionAdy.getEdificio(), ubicacion.getUnidad() );
+                botonAtacable.setTooltipVidaYEscudoRestante();
                 botonAtacable.setOnAction(new BotonAtacableHandler(ubicacionAdy.getEdificio(), ubicacion.getUnidad(), ubicacionAdy, tablero, vBoxMenu, juegoModelo) );
                 panelDeEnemigos.add(  botonAtacable , i, j );
                 i++;
@@ -162,15 +166,6 @@ public class MenuUnidadController extends UnidadMovibleController{
             }
         }
 
-    }
-
-    private Node findNodoDelGridPane(int posX, int posY) {
-        for (Node node : tablero.getChildren()) {
-            if (GridPane.getColumnIndex(node) == posX && GridPane.getRowIndex(node) == posY) {
-                return node;
-            }
-        }
-        return null;
     }
 
 }
