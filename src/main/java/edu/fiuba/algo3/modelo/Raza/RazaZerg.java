@@ -35,8 +35,8 @@ public class RazaZerg extends Raza{
     public Larva getLarva(){
         Larva larva = null;
         for (Edificio edificio : edificios){
-            Criadero criadero = (Criadero) edificio;
             if(edificio.getEntidad() == IDEDIFICIO.CRIADERO /*&& (criadero.getCantidadLarvas() != 0)*/){
+                Criadero criadero = (Criadero) edificio;
                 larva = criadero.eliminarLarva();
                 break;
             }
