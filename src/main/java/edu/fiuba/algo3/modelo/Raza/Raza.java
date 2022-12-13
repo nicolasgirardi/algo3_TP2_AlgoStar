@@ -183,4 +183,7 @@ public abstract class Raza {
         });
 
     }
+    public boolean puedoSeguirJugando(){
+        return edificios.size()>0;
+    }
 }

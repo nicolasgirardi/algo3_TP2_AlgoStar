@@ -171,5 +171,13 @@ public class JuegoModelo{
         else
             return jugador2;
     }
+
+    public boolean protossNoPuedenJugarMas(){
+        return !getJugadorProtoss().getRaza().puedoSeguirJugando();
+    }
+
+    public boolean zergsNoPuedenJugarMas(){
+        return !getJugadorZerg().getRaza().puedoSeguirJugando();
+    }
 }
 
