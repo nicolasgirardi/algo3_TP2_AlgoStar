@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.Raza.RazaZerg;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -49,13 +50,11 @@ public class BotonContinuarRegistroHandler implements EventHandler<ActionEvent> 
             //Scene scenaJuegoPrincipal = new Scene(contenedorJuego, 1400, 900); // poner siempre dimensiones (eje x, eje y )
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/VistaFxml/InterfazJuego.fxml"));
-                Scene scene = new Scene(fxmlLoader.load());
+                Parent variableCargando = fxmlLoader.load();
                 InterfazJuegoControlador interfazJuegoControlador = fxmlLoader.getController();
                 interfazJuegoControlador.setJuego(juegoModelo);
-
-                //RegistroJugadorControlador controlador = fxmlLoader.getController();
-                //controlador.setearJuego(new Juego());
-
+                interfazJuegoControlador.inicializar();
+                Scene scene = new Scene(variableCargando);
                 stage.setScene(scene);
             }catch (IOException err){
                 err.printStackTrace();
