@@ -20,6 +20,7 @@ public class Extractor extends Edificio implements EstadoZangano {
     private static final int CANTIDAD_TURNOS_OPERATIVO = 6;
     private ArrayList<Unidad> zanganos;
 
+
     public Extractor(){
         super(CANTIDAD_TURNOS_OPERATIVO,new HPZerg(750),100,0);
         zanganos = new ArrayList<Unidad>();
@@ -28,11 +29,16 @@ public class Extractor extends Edificio implements EstadoZangano {
     }
 
     public void agregarZangano(Unidad zangano){
-
-        verificarExtractorCantidadMaximaDeZanganos();
+        if(!puedeAgregarZangano() ){
+            throw new ExtractorCantidadMaximaDeZanganosError();
+        }
         verififarEdificioOperativo();
         zanganos.add(zangano);
     }
+    public boolean puedeAgregarZangano(){
+        return cantidadZanganosTrabajando() < 3;
+    }
+
 
     public GestionRecurso extraer(Recurso recurso){
         verififarEdificioOperativo();
@@ -53,11 +59,6 @@ public class Extractor extends Edificio implements EstadoZangano {
         throw new NoDeberiaEjecutarEsteMetodoError();
     }
 
-    private void verificarExtractorCantidadMaximaDeZanganos(){
-        if(zanganos.size() == 3 ){
-            throw new ExtractorCantidadMaximaDeZanganosError();
-        }
-    }
 
 
     @Override
@@ -101,6 +102,10 @@ public class Extractor extends Edificio implements EstadoZangano {
     @Override
     public void crearMutalisco() {
         throw new NoDeberiaEjecutarEsteMetodoError();
+    }
+
+    public int cantidadZanganosTrabajando(){
+        return  zanganos.size();
     }
 
 

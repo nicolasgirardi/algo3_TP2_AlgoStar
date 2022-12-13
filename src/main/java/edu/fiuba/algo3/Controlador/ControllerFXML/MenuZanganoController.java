@@ -233,7 +233,7 @@ public class MenuZanganoController extends UnidadMovibleController {
     public void setElements(GridPane tablero, VBox vBoxMenu , Ubicacion ubicacion, BotonUnidad botonUnidad, JuegoModelo juegoModelo) {
         super.setElements(tablero,vBoxMenu,ubicacion,botonUnidad,juegoModelo);
 
-        if(!ubicacion.getUnidad().esOperativo()){
+        if(ubicacion.getUnidad().esOperativo()){
             int cantidadTurnosParaSerOperativo = ubicacion.getUnidad().getTurnosRestantesParaSerOperativo();
             cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo,contenerdorMenu);
             return;
