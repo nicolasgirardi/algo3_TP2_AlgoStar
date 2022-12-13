@@ -173,7 +173,6 @@ public class MenuZanganoController extends UnidadMovibleController {
             zangano.mutarGuarida(razaZerg);
             ubicacion.ubicar(  (Guarida) zangano.getEstadoZangano() );
             ubicacion.quitarUnidad();
-
             botonUnidad.borrarBotonDelTablero();
             tablero.add(new BotonGuarida(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         } catch ( RecursosInsuficientesError e ){

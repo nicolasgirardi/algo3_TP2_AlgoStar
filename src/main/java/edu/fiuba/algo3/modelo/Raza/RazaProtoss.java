@@ -26,7 +26,7 @@ public class RazaProtoss extends Raza{
 
     public void activarPilonesActivos(Mapa mapa){
         for(Edificio edificio : edificios ){
-            if(edificio.getEntidad() == IDEDIFICIO.PILON && edificio.estaOperativo()){
+            if((edificio.getEntidad() == IDEDIFICIO.PILON && edificio.estaOperativo()) && (edificio.ubicacion() != null)){
                 Pilon pilon = (Pilon) edificio;
                 pilon.energizar(pilon.ubicacion(), mapa);
             }

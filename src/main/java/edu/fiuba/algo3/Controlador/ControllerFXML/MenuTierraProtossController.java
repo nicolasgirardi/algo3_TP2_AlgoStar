@@ -9,6 +9,7 @@ import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.Pilon;
 import edu.fiuba.algo3.modelo.Edificio.Protoss.PuertoEstelar;
+import edu.fiuba.algo3.modelo.NoSePuedeConstruirSobreElEspacioError;
 import edu.fiuba.algo3.modelo.Raza.RazaProtoss;
 import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.tablero.Mapa;
@@ -54,9 +55,11 @@ public class MenuTierraProtossController {
             tablero.add(new BotonEdificioPilon(botonTierra),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         }catch ( RecursosInsuficientesError e ) {
             MostradorAlertas.mostrarAlerta(e,"un Pilon");
-        }catch (Exception e){
+        } catch ( NoSePuedeConstruirSobreElEspacioError e){
+            MostradorAlertas.mostrarAlerta(e);
+        } catch (Exception e){
         MostradorAlertas.mostrarAlerta(e);
-    }
+        }
     }
 
 
