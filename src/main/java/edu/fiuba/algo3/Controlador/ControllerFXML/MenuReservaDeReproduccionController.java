@@ -43,7 +43,7 @@ public class MenuReservaDeReproduccionController {
             RazaZerg razaZerg;
             razaZerg = (RazaZerg) juegoModelo.getJugadorZerg().getRaza();
             Larva larva = razaZerg.getLarva();
-            reservaDeReproduccion.crearZerling(larva);
+            //reservaDeReproduccion.crearZerling(larva);
 
 
             boolean agregado = false;

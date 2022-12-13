@@ -48,9 +48,10 @@ public class RazaZerg extends Raza{
     public void ejecutarTurno() {
         System.out.println("Pise el metodo ejecutar Turno");
         for(Unidad unidad : unidades){
-            if( unidad.getEntidad() == ID_UNIDAD.ZANGANO &&  ( ( (Zangano) unidad).getEstadoZangano() != null) ){
+            /*if( unidad.getEntidad() == ID_UNIDAD.ZANGANO &&  ( ( (Zangano) unidad).getEstadoZangano() != null) ){
                 ((Zangano) unidad).getEstadoZangano().ejecutarTurno();
-            }
+            }**/
+            unidad.ejecutarTurno();
         }
 
         // para el criadero inicial asi el criadero inicial aumenta larvas.
