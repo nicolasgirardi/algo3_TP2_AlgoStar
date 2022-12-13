@@ -36,7 +36,6 @@ public class BotonCriadero extends BotonCeldaTablero {
             MenuAtacarEnemigoController controller = vistaMenu.getController();
         }
     }
-
     public void setTooltipLarvasRestantes(){
         Criadero criadero = (Criadero) ubicacion.getEdificio();
         BotonCriadero boton = this;
