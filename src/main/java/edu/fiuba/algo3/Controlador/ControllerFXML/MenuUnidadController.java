@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.Controlador.ControllerFXML;
 
+import edu.fiuba.algo3.Controlador.BotonAtacable;
+import edu.fiuba.algo3.Controlador.BotonAtacableHandler;
 import edu.fiuba.algo3.Controlador.OtrosHandlers.MostradorAlertas;
 import edu.fiuba.algo3.Vista.Botones.Unidades.BotonUnidad;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
@@ -33,6 +35,10 @@ public class MenuUnidadController extends UnidadMovibleController{
 
     @FXML
     public AnchorPane contenerdorMenu;
+
+    private  HashMap<IDEDIFICIO,String> imagenEdificio;
+
+    private HashMap<ID_UNIDAD,String> imagenesUnidades;
 
 
     @FXML
@@ -88,8 +94,36 @@ public class MenuUnidadController extends UnidadMovibleController{
             cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo,contenerdorMenu);
             return;
         }
+        inicializarHash();
         activarMovimientoPorTeclado();
         completarEnemigosParaAtacar();
+
+    }
+
+    private void inicializarHash(){
+        this.imagenEdificio = new HashMap<>();
+        imagenEdificio.put(IDEDIFICIO.CRIADERO, "images/criadero.png");
+        imagenEdificio.put(IDEDIFICIO.RESERVADEREPRODUCCION, "images/reservaDeReproduccion.png");
+        imagenEdificio.put(IDEDIFICIO.GUARIDA, "images/guarida.png");
+        imagenEdificio.put(IDEDIFICIO.ESPIRAL, "images/espiral.png");
+        imagenEdificio.put(IDEDIFICIO.PUERTOESTELAR, "images/puertoEstelar.png");
+        imagenEdificio.put(IDEDIFICIO.ACCESO, "images/acceso.png");
+        imagenEdificio.put(IDEDIFICIO.NEXOMINERAL, "images/nexo.png");
+        imagenEdificio.put(IDEDIFICIO.EXTRACTOR, "images/extractor.png");
+        imagenEdificio.put(IDEDIFICIO.PILON, "images/pilon.png");
+        imagenEdificio.put(IDEDIFICIO.ASIMILADOR, "images/asimilador.png");
+
+        this.imagenesUnidades = new HashMap<>();
+        imagenesUnidades.put(ID_UNIDAD.AMOSUPREMO, "images/amoSupremo.png");
+        imagenesUnidades.put(ID_UNIDAD.HIDRALISCO, "images/hidralisco.png");
+        imagenesUnidades.put(ID_UNIDAD.MUTALISCO, "images/mutalisco.png");
+        imagenesUnidades.put(ID_UNIDAD.ZANGANO, "images/zangano.png");
+        imagenesUnidades.put(ID_UNIDAD.ZERLING, "images/zerling.png");
+        imagenesUnidades.put(ID_UNIDAD.GUARDIAN, "images/guardian.png");
+        imagenesUnidades.put(ID_UNIDAD.SCOUT, "images/scout.png");
+        imagenesUnidades.put(ID_UNIDAD.DEVORADOR, "images/devorador.png");
+        imagenesUnidades.put(ID_UNIDAD.DRAGON, "images/dragon.png");
+        imagenesUnidades.put(ID_UNIDAD.ZEALOT, "images/zealot.png");
     }
 
     private void completarEnemigosParaAtacar(){
@@ -104,7 +138,9 @@ public class MenuUnidadController extends UnidadMovibleController{
                 Unidad unidadAdy = ubicacionAdy.getUnidad();
                 System.out.println(unidadAdy.getEntidad() );
                 GridPane panelDeEnemigos =  (GridPane) contenerdorMenu.getChildren().get(5);
-                panelDeEnemigos.add(  obtenerImagenUnidad(unidadAdy.getEntidad() ) , i, j );
+                BotonAtacable botonAtacable = new BotonAtacable(imagenesUnidades.get(unidadAdy.getEntidad() ) );
+                botonAtacable.setOnAction(new BotonAtacableHandler(ubicacionAdy.getUnidad(), ubicacion.getUnidad() , ubicacionAdy, tablero ) );
+                panelDeEnemigos.add(  botonAtacable , i, j );
                 i++;
                 if ( i == 3 ){
                     i = 0;
@@ -118,7 +154,9 @@ public class MenuUnidadController extends UnidadMovibleController{
                 Edificio edificio = ubicacionAdy.getEdificio();
                 System.out.println(edificio.getEntidad() );
                 GridPane panelDeEnemigos =  (GridPane) contenerdorMenu.getChildren().get(5);
-                panelDeEnemigos.add(  obtenerImagenEdificio(edificio.getEntidad() ) , i, j );
+                BotonAtacable botonAtacable = new BotonAtacable(imagenEdificio.get(edificio.getEntidad() ) );
+                botonAtacable.setOnAction(new BotonAtacableHandler(ubicacionAdy.getEdificio(), ubicacion.getUnidad(), ubicacionAdy, tablero ) );
+                panelDeEnemigos.add(  botonAtacable , i, j );
                 i++;
                 if ( i == 3 ){
                     i = 0;
@@ -126,56 +164,9 @@ public class MenuUnidadController extends UnidadMovibleController{
                 }
                 if ( j == 3 ) break;
             }
-
-
-
         }
-    }
-
-    private Button obtenerImagenEdificio(IDEDIFICIO entidad) {
-        HashMap<IDEDIFICIO,String> imagenEdificio = new HashMap<>();
-        imagenEdificio.put(IDEDIFICIO.CRIADERO, "images/criadero.png");
-        imagenEdificio.put(IDEDIFICIO.RESERVADEREPRODUCCION, "images/reservaDeReproduccion.png");
-        imagenEdificio.put(IDEDIFICIO.GUARIDA, "images/guarida.png");
-        imagenEdificio.put(IDEDIFICIO.ESPIRAL, "images/espiral.png");
-        imagenEdificio.put(IDEDIFICIO.PUERTOESTELAR, "images/puertoEstelar.png");
-        imagenEdificio.put(IDEDIFICIO.ACCESO, "images/acceso.png");
-        imagenEdificio.put(IDEDIFICIO.NEXOMINERAL, "images/nexo.png");
-        imagenEdificio.put(IDEDIFICIO.EXTRACTOR, "images/extractor.png");
-        imagenEdificio.put(IDEDIFICIO.PILON, "images/pilon.png");
-        imagenEdificio.put(IDEDIFICIO.ASIMILADOR, "images/asimilador.png");
-
-
-        File fileImagen = new File(imagenEdificio.get(entidad) );
-        Image imagenGenerica = new Image(fileImagen.toURI().toString(), 50, 50, true, true );
-        Button botonGenerico = new Button();
-        botonGenerico.setMinSize(30,30);
-        botonGenerico.setGraphic( new ImageView(imagenGenerica) );
-        return botonGenerico;
 
     }
-
-    private Button obtenerImagenUnidad(ID_UNIDAD entidad){
-        HashMap<ID_UNIDAD,String> imagenesUnidades = new HashMap<>();
-        imagenesUnidades.put(ID_UNIDAD.AMOSUPREMO, "images/amoSupremo.png");
-        imagenesUnidades.put(ID_UNIDAD.HIDRALISCO, "images/hidralisco.png");
-        imagenesUnidades.put(ID_UNIDAD.MUTALISCO, "images/mutalisco.png");
-        imagenesUnidades.put(ID_UNIDAD.ZANGANO, "images/zangano.png");
-        imagenesUnidades.put(ID_UNIDAD.ZERLING, "images/zerling.png");
-        imagenesUnidades.put(ID_UNIDAD.GUARDIAN, "images/guardian.png");
-        imagenesUnidades.put(ID_UNIDAD.SCOUT, "images/scout.png");
-        imagenesUnidades.put(ID_UNIDAD.DEVORADOR, "images/devorador.png");
-        imagenesUnidades.put(ID_UNIDAD.DRAGON, "images/dragon.png");
-        imagenesUnidades.put(ID_UNIDAD.ZEALOT, "images/zealot.png");
-
-        File fileImagen = new File(imagenesUnidades.get(entidad) );
-        Image imagenGenerica = new Image(fileImagen.toURI().toString(), 50, 50, true, true );
-        Button botonGenerico = new Button();
-        botonGenerico.setMinSize(30,30);
-        botonGenerico.setGraphic( new ImageView(imagenGenerica) );
-        return botonGenerico;
-    }
-
 
     private Node findNodoDelGridPane(int posX, int posY) {
         for (Node node : tablero.getChildren()) {

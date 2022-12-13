@@ -31,7 +31,7 @@ public class Zerling extends Unidad implements TipoEvolucionDeLarva {
                 2,1,25,0
         );
         entidad = ID_UNIDAD.ZERLING;
-
+        rango = 1;
     }
 
     @Override

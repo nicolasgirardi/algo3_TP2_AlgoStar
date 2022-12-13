@@ -29,6 +29,7 @@ public class Mutalisco extends Unidad implements TipoEvolucionDeMutalisco{
             super(vida, 4);
             tipoEvolucionDeMutalisco = null;
             entidad = ID_UNIDAD.MUTALISCO;
+            rango = 3;
     }
 
     public void evolucionarAGuardian(RazaZerg raza) {

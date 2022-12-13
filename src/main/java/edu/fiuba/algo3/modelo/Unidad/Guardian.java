@@ -25,6 +25,8 @@ public class Guardian extends Unidad implements TipoEvolucionDeMutalisco{
     public Guardian(HitPoints hp){
         super(hp, new TipoAire(), new AtaqueSoloTierra(25), 4,0,500,100);
         entidad = ID_UNIDAD.GUARDIAN;
+        rango = 10;
+
     }
 
 

@@ -182,4 +182,13 @@ public abstract class  Unidad implements Atacable, Atacante {
     public int getRango() {
         return rango;
     }
+
+    public int getVida(){
+        return hp.vida();
+    }
+
+    public int getEscudo(){
+        return hp.escudo();
+    }
+
 }
