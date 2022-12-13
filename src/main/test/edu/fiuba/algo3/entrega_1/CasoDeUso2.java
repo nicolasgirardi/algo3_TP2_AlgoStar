@@ -224,8 +224,8 @@ public class CasoDeUso2 {
         //Arrange
         Espiral espiral = new Espiral();
         RazaZerg raza = new RazaZerg();
-        raza.aumentarGas(new GestionRecurso(500));
-        raza.aumentarMineral(new GestionRecurso(500));
+        raza.aumentarGas(new GestionRecurso(1000));
+        raza.aumentarMineral(new GestionRecurso(1000));
         raza.agregarEdificio(new Criadero());
         raza.agregarEdificio(new ReservaDeReproduccion());
         raza.agregarEdificio(new Guarida());
