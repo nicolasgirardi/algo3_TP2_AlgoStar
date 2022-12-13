@@ -12,6 +12,7 @@ import edu.fiuba.algo3.modelo.Recurso.RecursosInsuficientesError;
 import edu.fiuba.algo3.modelo.TIPOSUPERFICIE;
 import edu.fiuba.algo3.modelo.Unidad.Unidad;
 import edu.fiuba.algo3.modelo.Unidad.UnidadNoOperativaError;
+import edu.fiuba.algo3.modelo.Unidad.UnidadNoVuelaError;
 import edu.fiuba.algo3.modelo.Unidad.Zangano;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
@@ -68,7 +69,7 @@ public class MenuZanganoController extends UnidadMovibleController {
         Unidad unidad = ubicacion.getUnidad();
         try {
             unidad.moverseArriba();
-        } catch (UnidadNoOperativaError | UbicacionOcupadaError e){
+        } catch (UnidadNoOperativaError | UbicacionOcupadaError | UnidadNoVuelaError e){
             MostradorAlertas.mostrarAlerta(e);
         }
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
@@ -79,7 +80,7 @@ public class MenuZanganoController extends UnidadMovibleController {
         Unidad unidad = ubicacion.getUnidad();
         try{
             unidad.moverseAbajo();
-        } catch (UnidadNoOperativaError | UbicacionOcupadaError e){
+        } catch (UnidadNoOperativaError | UbicacionOcupadaError | UnidadNoVuelaError e){
             MostradorAlertas.mostrarAlerta(e);
         }
 
@@ -91,7 +92,7 @@ public class MenuZanganoController extends UnidadMovibleController {
         Unidad unidad = ubicacion.getUnidad();
         try{
             unidad.moverseDerecha();
-        } catch( UnidadNoOperativaError | UbicacionOcupadaError e ){
+        } catch( UnidadNoOperativaError | UbicacionOcupadaError | UnidadNoVuelaError e ){
             MostradorAlertas.mostrarAlerta(e);
         }
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
@@ -102,7 +103,7 @@ public class MenuZanganoController extends UnidadMovibleController {
         Unidad unidad = ubicacion.getUnidad();
         try {
             unidad.moverseIzquierda();
-        } catch (UnidadNoOperativaError | UbicacionOcupadaError e){
+        } catch (UnidadNoOperativaError | UbicacionOcupadaError | UnidadNoVuelaError e){
             MostradorAlertas.mostrarAlerta(e);
         }
 
