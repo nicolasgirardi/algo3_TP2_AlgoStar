@@ -32,7 +32,7 @@ public class MenuMutaliscoController extends UnidadMovibleController{
         Unidad unidad = ubicacion.getUnidad();
         try {
             unidad.moverseArriba();
-        } catch (UnidadNoOperativaError | UbicacionOcupadaError e){
+        } catch (UnidadNoOperativaError | UbicacionOcupadaError | UnidadNoVuelaError e){
             MostradorAlertas.mostrarAlerta(e);
         }
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
@@ -43,7 +43,7 @@ public class MenuMutaliscoController extends UnidadMovibleController{
         Unidad unidad = ubicacion.getUnidad();
         try{
             unidad.moverseAbajo();
-        } catch (UnidadNoOperativaError | UbicacionOcupadaError e){
+        } catch (UnidadNoOperativaError | UbicacionOcupadaError | UnidadNoVuelaError e){
             MostradorAlertas.mostrarAlerta(e);
         }
 
@@ -55,7 +55,7 @@ public class MenuMutaliscoController extends UnidadMovibleController{
         Unidad unidad = ubicacion.getUnidad();
         try{
             unidad.moverseDerecha();
-        } catch( UnidadNoOperativaError | UbicacionOcupadaError e ){
+        } catch( UnidadNoOperativaError | UbicacionOcupadaError | UnidadNoVuelaError  e ){
             MostradorAlertas.mostrarAlerta(e);
         }
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
@@ -66,7 +66,7 @@ public class MenuMutaliscoController extends UnidadMovibleController{
         Unidad unidad = ubicacion.getUnidad();
         try {
             unidad.moverseIzquierda();
-        } catch (UnidadNoOperativaError | UbicacionOcupadaError e){
+        } catch (UnidadNoOperativaError | UbicacionOcupadaError | UnidadNoVuelaError  e){
             MostradorAlertas.mostrarAlerta(e);
         }
 
