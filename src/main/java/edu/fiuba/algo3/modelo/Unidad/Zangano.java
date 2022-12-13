@@ -66,6 +66,11 @@ public class Zangano extends Unidad implements TipoEvolucionDeLarva {
         raza.agregarEsteEdificio(estadoZangano);
     }
 
+    public void estadoZangano() {
+        estadoZangano = null;
+        //ver si tengo que sacar al ultimo edificio de la raza
+    }
+
     //--------Wrappers de criadero.
     @Override
     public boolean equals(Object object){

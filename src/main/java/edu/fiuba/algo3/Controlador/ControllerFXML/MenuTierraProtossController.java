@@ -40,8 +40,10 @@ public class MenuTierraProtossController {
             tablero.add(new BotonAcceso(botonTierra),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         } catch ( RecursosInsuficientesError e ){
             MostradorAlertas.mostrarAlerta(e,"un Acceso");
+            ubicacion.desalojar();
         } catch (Exception e){
             MostradorAlertas.mostrarAlerta(e);
+            ubicacion.desalojar();
         }
     }
 
@@ -55,10 +57,10 @@ public class MenuTierraProtossController {
             tablero.add(new BotonEdificioPilon(botonTierra),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
         }catch ( RecursosInsuficientesError e ) {
             MostradorAlertas.mostrarAlerta(e,"un Pilon");
-        } catch ( NoSePuedeConstruirSobreElEspacioError e){
-            MostradorAlertas.mostrarAlerta(e);
+            ubicacion.desalojar();
         } catch (Exception e){
-        MostradorAlertas.mostrarAlerta(e);
+            MostradorAlertas.mostrarAlerta(e);
+            ubicacion.desalojar();
         }
     }
 
@@ -73,10 +75,13 @@ public class MenuTierraProtossController {
         }
         catch (CorrelativaDeConstruccionIncumplidaError e ){
             MostradorAlertas.mostrarAlerta(e,"Necesitas un Acceso para construir");
+            ubicacion.desalojar();
         }catch ( RecursosInsuficientesError e ) {
             MostradorAlertas.mostrarAlerta(e,"un Puerto Estelar");
+            ubicacion.desalojar();
         } catch( Exception e){
             MostradorAlertas.mostrarAlerta(e);
+            ubicacion.desalojar();
         }
 
     }
