@@ -11,6 +11,7 @@ import edu.fiuba.algo3.modelo.Recurso.Volcan;
 import edu.fiuba.algo3.modelo.Unidad.*;
 import edu.fiuba.algo3.modelo.UnidadesRecurso.GestionRecurso;
 import edu.fiuba.algo3.modelo.tablero.Coordenada;
+import edu.fiuba.algo3.modelo.tablero.Mapa;
 import edu.fiuba.algo3.modelo.tablero.Ubicacion;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -297,7 +298,7 @@ public class CasoDeUso2 {
         pilon.ejecutarTurno();
         // Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            pilon.energizar();
+            pilon.energizar(new Ubicacion(new Coordenada(0,0)),new Mapa(10,10));
         });
     }
 
@@ -311,7 +312,7 @@ public class CasoDeUso2 {
         pilon.ejecutarTurno();
         // Assert
         assertThrows( EdificioNoOperativoError.class, ()-> {
-            pilon.energizar();
+            pilon.energizar(new Ubicacion(new Coordenada(0,0)),new Mapa(10,10));
         });
     }
     @Test
@@ -328,7 +329,7 @@ public class CasoDeUso2 {
 
         // Assert
         assertDoesNotThrow( ()-> {
-            pilon.energizar();
+            pilon.energizar(new Ubicacion(new Coordenada(0,0)),new Mapa(10,10));
         });
     }
 

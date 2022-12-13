@@ -35,8 +35,12 @@ public class Pilon extends Edificio {
         super(hp);
     }
 
-    public void energizar() {
+    public void energizar(Ubicacion unaUbicacion, Mapa unMapa) {
         verififarEdificioOperativo();
+        ArrayList<Ubicacion> ubicaciones = unMapa.buscar(unaUbicacion.coordenada(),3);
+        for(int i=0;i<ubicaciones.size();i++){
+            ubicaciones.get(i).energizar();
+        }
     }
 
     @Override

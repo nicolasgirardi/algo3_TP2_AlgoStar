@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.ConstruccionProtoEnMohoError;
 import edu.fiuba.algo3.modelo.Edificio.CorrelativaDeConstruccionIncumplidaError;
 import edu.fiuba.algo3.modelo.Edificio.EdificioNoOperativoError;
 import edu.fiuba.algo3.modelo.Edificio.ExtractorCantidadMaximaDeZanganosError;
+import edu.fiuba.algo3.modelo.NoSePuedeConstruirSobreElEspacioError;
 import edu.fiuba.algo3.modelo.Raza.FinDelJuegoGanaronLosProtoss;
 import edu.fiuba.algo3.modelo.Raza.FinDelJuegoGanaronLosZerg;
 import edu.fiuba.algo3.modelo.Raza.PoblacionExedidaError;
@@ -38,6 +39,7 @@ public class MostradorAlertas {
        mensajesErrores.put(FinDelJuegoGanaronLosProtoss.class.getName(),"Ganaron los Protoss.\n\n Haga click en aceptar para terminar el juego");
        mensajesErrores.put(FinDelJuegoGanaronLosZerg.class.getName(),"Ganaron los Zergs.\n\n Haga click en aceptar para terminar el juego");
        mensajesErrores.put(ConstruccionProtoEnMohoError.class.getName(),"No se puede construir por el Moho");
+       mensajesErrores.put(NoSePuedeConstruirSobreElEspacioError.class.getName(),"No se puede construir en el espacio");
    }
 
    public static void mostrarAlerta(Exception e){
