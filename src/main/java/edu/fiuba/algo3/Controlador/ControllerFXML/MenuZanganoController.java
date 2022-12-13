@@ -239,6 +239,7 @@ public class MenuZanganoController extends UnidadMovibleController {
             contenerdorMenu.getChildren().addAll(cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo));
             return;
         }
+
         aplicarMovimientoPorTeclado();
         this.razaZerg =  (RazaZerg) juegoModelo.getJugadorActivo().getRaza();
         if(ubicacionTieneMoho()){

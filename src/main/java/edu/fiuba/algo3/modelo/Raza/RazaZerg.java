@@ -51,6 +51,7 @@ public class RazaZerg extends Raza{
             if( unidad.getEntidad() == ID_UNIDAD.ZANGANO &&  ( ( (Zangano) unidad).getEstadoZangano() != null) ){
                 ((Zangano) unidad).getEstadoZangano().ejecutarTurno();
             }
+            unidad.ejecutarTurno();
         }
 
         // para el criadero inicial asi el criadero inicial aumenta larvas.

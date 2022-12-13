@@ -179,5 +179,9 @@ public abstract class Raza {
             }
 
         });
+        for(Unidad unidad: unidades){
+            unidad.ejecutarTurno();
+        }
+
     }
 }
