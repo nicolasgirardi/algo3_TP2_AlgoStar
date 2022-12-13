@@ -15,8 +15,11 @@ import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+
+import java.io.File;
 
 public class JuegoVista {
     private GridPane grPane;
@@ -192,5 +195,41 @@ public class JuegoVista {
                 }
             }
         }
+    }
+
+    public void ganaronLosProtoss(Button btnTerminarTurno){
+        btnTerminarTurno.setText("Salir");
+        btnTerminarTurno.setOnAction(new BotonSalirHandler(btnTerminarTurno));
+        vBoxMenu.getChildren().clear();
+        grPane.getChildren().clear();
+        File fileFondo = new File("images/ganoprotoss.png");
+
+        BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo.toURI().toString(),
+                1200, 675,true,true),
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                BackgroundSize.DEFAULT);
+        grPane.setBackground(new Background(primerBackGro));
+        Button salir = new Button("Salir");
+        salir.setOnAction(new BotonSalirHandler(salir));
+        vBoxMenu.getChildren().add(salir);
+
+    }
+
+    public void ganaronLosZerg(Button btnTerminarTurno){
+        btnTerminarTurno.setText("Salir");
+        btnTerminarTurno.setOnAction(new BotonSalirHandler(btnTerminarTurno));
+        vBoxMenu.getChildren().clear();
+        grPane.getChildren().clear();
+        File fileFondo = new File("images/ganozergs.png");
+
+        BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo.toURI().toString(),
+                1200, 675,true,true),
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                BackgroundSize.DEFAULT);
+        grPane.setBackground(new Background(primerBackGro));
+        Button salir = new Button("Salir");
+        salir.setOnAction(new BotonSalirHandler(salir));
+        vBoxMenu.getChildren().add(salir);
+
     }
 }
