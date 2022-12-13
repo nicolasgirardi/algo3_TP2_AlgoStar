@@ -91,10 +91,11 @@ public class MenuMutaliscoController extends UnidadMovibleController{
             Mutalisco mutalisco = (Mutalisco) ubicacion.getUnidad();
             mutalisco.evolucionarAGuardian( (RazaZerg) juegoModelo.getJugadorZerg().getRaza());
             ubicacion.quitarUnidad();
-            ubicacion.asignarUnidad( (Guardian) mutalisco.getTipoMutalisco() );
-
+            ubicacion.asignarUnidad( mutalisco.getTipoMutalisco() );
+            botonUnidad.borrarBotonDelTablero();
             BotonGuardian botonGuardian = new BotonGuardian(botonUnidad);
             tablero.add(botonGuardian, ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            botonGuardian.fire();
         }catch ( RecursosInsuficientesError e ) {
             MostradorAlertas.mostrarAlerta(e,"un Guardian");
         } catch ( PoblacionExedidaError e){
@@ -110,9 +111,11 @@ public class MenuMutaliscoController extends UnidadMovibleController{
             Mutalisco mutalisco = (Mutalisco) ubicacion.getUnidad();
             mutalisco.evolucionarDevorador( (RazaZerg) juegoModelo.getJugadorZerg().getRaza());
             ubicacion.quitarUnidad();
-            ubicacion.asignarUnidad( (Devorador) mutalisco.getTipoMutalisco() );
+            ubicacion.asignarUnidad( mutalisco.getTipoMutalisco() );
+            botonUnidad.borrarBotonDelTablero();
             BotonDevorador botonDevorador = new BotonDevorador(botonUnidad);
             tablero.add(botonDevorador, ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            botonDevorador.fire();
         }catch ( RecursosInsuficientesError e ) {
             MostradorAlertas.mostrarAlerta(e,"un Guardian");
         } catch ( PoblacionExedidaError e){

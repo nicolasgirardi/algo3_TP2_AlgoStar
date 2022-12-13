@@ -94,7 +94,6 @@ public class RegistroJugadorControlador  implements Initializable {
         cmbColor.setItems(list);
         //cmbColor.getItems().addAll(Color.values());
         cmbColor.setOnAction(event -> {
-            System.out.println("mmm");
             //System.out.println(cmbColor.getSelectionModel().getSelectedItem().toString());
         });
     }

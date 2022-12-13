@@ -53,7 +53,7 @@ public class ContenedorJuego extends BorderPane {
 
                     gridPane.add(btn, i, j);
                 } catch (Exception e){
-                    System.out.println(e);
+                    e.printStackTrace();
                 }
             }
         }
