@@ -20,6 +20,7 @@ public class Zealot extends Unidad {
         );
         visibilidad = true;
         entidad = ID_UNIDAD.ZEALOT;
+        rango = 1;
     }
 
     public Zealot() {

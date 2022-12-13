@@ -16,7 +16,7 @@ public abstract class  Unidad implements Atacable, Atacante {
     protected HitPoints hp;
     private TipoSuperficie tipoSuperficie;
     private Ubicacion ubicacion;
-    private int rango;
+    protected int rango;
     private Ataque ataque;
     protected  int costoGas;
     protected  int costoMineral;
@@ -176,5 +176,9 @@ public abstract class  Unidad implements Atacable, Atacante {
     }
     public boolean esOperativo(){
         return turnosRestantesParaSerOperativo == 0;
+    }
+
+    public int getRango() {
+        return rango;
     }
 }

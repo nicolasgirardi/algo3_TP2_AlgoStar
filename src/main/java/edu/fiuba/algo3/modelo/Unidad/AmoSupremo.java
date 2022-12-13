@@ -20,6 +20,7 @@ public class AmoSupremo extends Unidad {
                 new AtaqueTierraYViento(0,0)
                 , 5,0,50,0 );
         entidad = ID_UNIDAD.AMOSUPREMO;
+        rango = 0;
     }
 
     public void aumentarPoblacion(Raza raza){
