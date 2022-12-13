@@ -23,7 +23,7 @@ public class BotonReservaDeReproduccion extends BotonCeldaTablero {
 
         if(razaActiva.equals(ID_RAZA.ZERG)){
             MenuReservaDeReproduccionController controller = vistaMenu.getController();
-            controller.setElements((ReservaDeReproduccion) ubicacion.getEdificio(),tablero, juegoModelo);
+            controller.setElements((ReservaDeReproduccion) ubicacion.getEdificio(),tablero, juegoModelo,this);
         }else{
             MenuAtacarEnemigoController controller = vistaMenu.getController();
         }

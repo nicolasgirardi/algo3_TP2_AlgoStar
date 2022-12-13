@@ -135,7 +135,8 @@ public class JuegoModelo{
         else{
             jugadorActivo = jugador1;
         }
-        jugadorActivo.getRaza().ejecutarTurno();
+        jugador1.getRaza().ejecutarTurno();
+        jugador2.getRaza().ejecutarTurno();
         notificarSobreJugadorActivo();
     }
 

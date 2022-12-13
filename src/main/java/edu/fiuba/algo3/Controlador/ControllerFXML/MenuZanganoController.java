@@ -108,7 +108,7 @@ public class MenuZanganoController extends UnidadMovibleController {
 
         moverUnidadGraficamente(unidad.ubicacion().coordenada());
     }
-    //TODO: revisar si se agregann correctamente los edificios al modelo
+    //TODO: Con una zangano hay error al intentar construir un edificio que requieree una correlativva y luego se intenta construir esa correlativa sin cambiar de ubicacion
     @FXML
     public void onClickedMutarExtractor(MouseEvent event) {
 
@@ -120,6 +120,7 @@ public class MenuZanganoController extends UnidadMovibleController {
         botonUnidad.borrarBotonDelTablero();
         BotonExtractor botonExtractor = new BotonExtractor(botonUnidad);
         tablero.add(botonExtractor, ubicacion.coordenada().horizontal(), ubicacion.coordenada().vertical() );
+        botonExtractor.fire();
     }
 
     @FXML
@@ -138,6 +139,7 @@ public class MenuZanganoController extends UnidadMovibleController {
             BotonCriadero botonCriadero = new BotonCriadero(botonUnidad);
             botonCriadero.setTooltipLarvasRestantes();
             tablero.add(botonCriadero, ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            botonCriadero.fire();
         }catch ( RecursosInsuficientesError e ) {
             MostradorAlertas.mostrarAlerta(e,"un Criadero");
         } catch (Exception e){
@@ -156,7 +158,9 @@ public class MenuZanganoController extends UnidadMovibleController {
             ubicacion.ubicar(  (Espiral) zangano.getEstadoZangano() );
             ubicacion.quitarUnidad();
             botonUnidad.borrarBotonDelTablero();
-            tablero.add(new BotonEspiral(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            BotonEspiral botonEspiral = new BotonEspiral(botonUnidad);
+            tablero.add(botonEspiral,ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            botonEspiral.fire();
         }catch ( RecursosInsuficientesError e ) {
             MostradorAlertas.mostrarAlerta(e,"un Espiral");
         } catch (CorrelativaDeConstruccionIncumplidaError e){
@@ -170,12 +174,16 @@ public class MenuZanganoController extends UnidadMovibleController {
     public void onClickedMutarAGuarida(MouseEvent event) {
         try{
             Zangano zangano = (Zangano) ubicacion.getUnidad();
+
             zangano.mutarGuarida(razaZerg);
             ubicacion.ubicar(  (Guarida) zangano.getEstadoZangano() );
             ubicacion.quitarUnidad();
 
             botonUnidad.borrarBotonDelTablero();
-            tablero.add(new BotonGuarida(botonUnidad),ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            BotonGuarida botonGuarida = new BotonGuarida(botonUnidad);
+            tablero.add(botonGuarida,ubicacion.coordenada().horizontal(),ubicacion.coordenada().vertical());
+            botonGuarida.fire();
+
         } catch ( RecursosInsuficientesError e ){
             MostradorAlertas.mostrarAlerta(e,"una Guarida");
         } catch (CorrelativaDeConstruccionIncumplidaError e){

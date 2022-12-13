@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.Vista.Botones.Unidades;
 
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuAtacarEnemigoController;
+import edu.fiuba.algo3.Controlador.ControllerFXML.MenuMutaliscoController;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuUnidadController;
 import edu.fiuba.algo3.Controlador.ControllerFXML.MenuZanganoController;
 import edu.fiuba.algo3.Controlador.OtrosHandlers.RUTAS_FXML;
@@ -19,7 +20,7 @@ public class BotonMutalisco extends BotonUnidad{
         Jugador jugadorActivo = juegoModelo.getJugadorActivo();
         ID_RAZA razaActiva = jugadorActivo.getRaza().getEntidad();
         if(razaActiva.equals(ID_RAZA.ZERG)){
-            MenuUnidadController controller = vistaMenu.getController();
+            MenuMutaliscoController controller = vistaMenu.getController();
             controller.setElements(tablero,vBoxMenu,ubicacion,this,juegoModelo);
         }else{
             MenuAtacarEnemigoController controller = vistaMenu.getController();

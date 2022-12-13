@@ -57,7 +57,10 @@ public class MenuExtractorController extends  EnContruccion{
             int cantidadTurnosParaSerOperativo = extractor.getTurnosRestantesParaSerOperativo();
             cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo,contenerdorMenu);
         }
-        lblCantidadZanganos.setText(String.valueOf(extractor.cantidadZanganosTrabajando()));
+        int catidadZanganos = extractor.cantidadZanganosTrabajando();
+        lblCantidadZanganos.setText(String.valueOf(catidadZanganos));
+        btnExtraerGas.setDisable(catidadZanganos == 0);
+
         lblGasRestante.setText(String.valueOf(ubicacion.getVolcan().cantidadRecurso()));
         btnAgregarZangano.setDisable(!extractor.puedeAgregarZangano());
     }
@@ -68,6 +71,8 @@ public class MenuExtractorController extends  EnContruccion{
         GestionRecurso gestionRecurso = extractorActual.extraer( ubicacion.getVolcan() );
         juegoModelo.getJugadorActivo().getRaza().aumentarGas(gestionRecurso);
         lblGasRestante.setText(String.valueOf(ubicacion.getVolcan().cantidadRecurso()));
+        btnExtraerGas.setDisable(true);
+        btnAgregarZangano.setDisable(true);
     }
 
     @FXML
@@ -79,6 +84,7 @@ public class MenuExtractorController extends  EnContruccion{
         for(Ubicacion ubicacionAdy : ubicacionesManhattan){
             if( ubicacionAdy.existeZangano(this.ubicacion) ){
                 agregarZangano(  (Zangano) ubicacionAdy.getUnidad(), extractorActual, ubicacionAdy );
+                btnAgregarZangano.setDisable(!extractorActual.puedeAgregarZangano());
                 contador++;
             }
         }

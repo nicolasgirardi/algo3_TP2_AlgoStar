@@ -18,9 +18,6 @@ public class MenuMutaliscoController extends UnidadMovibleController{
 
 
     @FXML
-    public Pane contenedorPadre;
-
-    @FXML
     public AnchorPane contenerdorMenu;
 
 

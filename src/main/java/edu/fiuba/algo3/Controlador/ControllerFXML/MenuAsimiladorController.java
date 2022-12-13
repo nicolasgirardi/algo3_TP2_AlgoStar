@@ -17,22 +17,24 @@ public class MenuAsimiladorController extends EnContruccion{
     @FXML
     public AnchorPane contenerdorMenu;
     private GridPane tablero;
-    private Ubicacion ubicacion;
+    private Asimilador asimilador;
     private RazaProtoss raza;
     private BotonAsimilador botonAsimilador;
 
 
     @FXML
     public void onClickedExtraerGas(MouseEvent event) {
-        raza.aumentarGas( ubicacion.getVolcan().extraer() );
+
+        raza.aumentarGas( asimilador.extraer() );
+        botonAsimilador.fire();
     }
 
-    public void setElements(GridPane tablero, Ubicacion ubicacion, RazaProtoss raza, BotonAsimilador botonAsimilador) {
-        this.tablero = tablero;
-        this.ubicacion = ubicacion;
-        this.raza = raza;
+    public void setElements(GridPane tablero, Asimilador asimilador, RazaProtoss raza, BotonAsimilador botonAsimilador) {
+        this.asimilador = asimilador;
         this.botonAsimilador = botonAsimilador;
-        Asimilador asimilador = (Asimilador) ubicacion.getEdificio();
+        this.tablero = tablero;
+
+        this.raza = raza;
         if(!asimilador.estaOperativo()){
             int cantidadTurnosParaSerOperativo = asimilador.getTurnosRestantesParaSerOperativo();
             cargarMenuEnConstruccion(cantidadTurnosParaSerOperativo,contenerdorMenu);

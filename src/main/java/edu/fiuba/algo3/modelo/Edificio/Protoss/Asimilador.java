@@ -17,7 +17,6 @@ public class Asimilador extends Edificio {
     private Volcan volcan;
 
 
-    //asimilador se instala sobre un volcan imposible instalarlo en otro lugar.
     public Asimilador(Ubicacion ubicacion){
         super(CANTIDAD_TURNOS_OPERATIVO,new HPProtoss(450,450),100,0);
         entidad = IDEDIFICIO.ASIMILADOR;

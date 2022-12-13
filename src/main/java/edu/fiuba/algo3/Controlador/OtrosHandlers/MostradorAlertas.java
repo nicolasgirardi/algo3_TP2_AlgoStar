@@ -33,7 +33,7 @@ public class MostradorAlertas {
        mensajesErrores.put(EdificioNoOperativoError.class.getName(), "Error el edificio todavia no esta operativo ");
        mensajesErrores.put(ExtractorCantidadMaximaDeZanganosError.class.getName(), "Error El extractor tiene la maxima cantidad de zanganos");
        mensajesErrores.put( IndexOutOfBoundsException.class.getName(), "El criadero no tiene larvas");
-       mensajesErrores.put(PoblacionExedidaError.class.getName(), "Poblacion excedida");
+       mensajesErrores.put(PoblacionExedidaError.class.getName(), "No ees posible, exceede la maxima población");
        mensajesErrores.put(InsuficientesRecursosParaCrearUnidadError.class.getName(), "Insuficientes recursos para crear la unidad ");
        mensajesErrores.put(FinDelJuegoGanaronLosProtoss.class.getName(),"Ganaron los Protoss.\n\n Haga click en aceptar para terminar el juego");
        mensajesErrores.put(FinDelJuegoGanaronLosZerg.class.getName(),"Ganaron los Zergs.\n\n Haga click en aceptar para terminar el juego");

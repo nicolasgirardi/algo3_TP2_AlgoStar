@@ -20,7 +20,7 @@ public class BotonEspiral extends BotonCeldaTablero {
         ID_RAZA razaActiva = jugadorActivo.getRaza().getEntidad();
         if(razaActiva.equals(ID_RAZA.ZERG)){
             MenuEspiralController controller = vistaMenu.getController();
-            controller.setElements((Espiral) ubicacion.getEdificio(),tablero, juegoModelo);
+            controller.setElements((Espiral) ubicacion.getEdificio(),tablero, juegoModelo, this);
         }else{
             MenuAtacarEnemigoController controller = vistaMenu.getController();
         }
