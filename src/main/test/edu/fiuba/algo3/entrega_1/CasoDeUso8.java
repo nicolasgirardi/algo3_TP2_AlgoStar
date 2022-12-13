@@ -76,8 +76,8 @@ public class CasoDeUso8 {
         //Arrange
         RazaZerg razaZerg = new RazaZerg();
         Espiral espiral = new Espiral();
-        razaZerg.agregarEdificio(new ReservaDeReproduccion());
-        razaZerg.agregarEdificio(new Guarida());
+        razaZerg.agregarEdificio(new Extractor());
+        razaZerg.agregarEdificio(new Extractor());
 
         //Act y assert
         assertThrows( RecursosInsuficientesError.class, ()-> {
@@ -151,7 +151,7 @@ public class CasoDeUso8 {
         PuertoEstelar puertoEstelar = new PuertoEstelar();
         Ubicacion ubicacion = new Ubicacion(new Coordenada(0,0));
         ubicacion.energizar();
-        razaProtoss.agregarEdificio(new Acceso(ubicacion));
+        razaProtoss.agregarEdificio(new Pilon());
         razaProtoss.agregarEdificio(new Pilon());
 
         //Act y assert
