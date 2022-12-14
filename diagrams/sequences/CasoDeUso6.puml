@@ -2,6 +2,7 @@
 'https://plantuml.com/sequence-diagram
 title construccion Criadero con crecimiento de Moho al inicio de la partida
 autonumber
+create ":TestCase"
 create ":Mapa"
 ":TestCase" -> ":Mapa": Mapa(base, altura)
 create ":Moho"
